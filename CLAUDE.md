@@ -23,9 +23,9 @@ This section exists to prevent AI assistants from fabricating personal or projec
 
 ### Rules for AI assistants
 - **Never** generate a placeholder email such as `author@example.com` or any invented address.
-- **Never** invent a domain name for `canonical`, `og:url`, or any link. Always use `https://tb1982.github.io/pm/` as the base.
+- **Never** invent a domain name for `canonical`, `og:url`, or any link. Always use `https://tb1982.github.io/vas/` as the base.
 - **Never** attribute content to a name other than **Nova** without explicit instruction.
-- Per-page canonical URLs follow the pattern `https://tb1982.github.io/pm/<filename>.html`.
+- Per-page canonical URLs follow the pattern `https://tb1982.github.io/vas/<filename>.html`.
 
 ### Footer — canonical format
 Every page footer must use this exact wording (both language variants):
@@ -144,9 +144,12 @@ https://www.instagram.com/liuyingtzu
 ├── privacy.html            # Privacy Policy — 隱私權政策
 │
 ├── i18n-shared.js          # 共用 nav / footer 翻譯 + dropdown 初始化
+├── i18n-index.js           # index.html 專用翻譯
+├── i18n-guide.js           # guide.html 專用翻譯
 ├── i18n-collab.js          # collab.html 專用翻譯
 ├── i18n-insight.js         # insight.html 專用翻譯
 ├── i18n-milestone.js       # milestone.html 專用翻譯
+├── i18n-privacy.js         # privacy.html 專用翻譯
 │
 └── img/                    # 產品截圖與圖示資產
     ├── vas-guide-*.png     # guide.html 使用的操作截圖
@@ -271,6 +274,12 @@ Traditional Chinese, action-oriented.
 | `milestone.html` | 里程碑 — Electron + Tauri 完整開發歷程與路線圖 |
 | `privacy.html` | 隱私權政策 |
 | `i18n-shared.js` | 共用 nav / footer 翻譯，`initDropdown()` / `updateDropdown()` |
+| `i18n-index.js` | `index.html` 翻譯，`window.VASIndexT` |
+| `i18n-guide.js` | `guide.html` 翻譯，`window.VASGuideT` |
+| `i18n-collab.js` | `collab.html` 翻譯，`window.VASCollabT` |
+| `i18n-insight.js` | `insight.html` 翻譯，`window.VASInsightT` |
+| `i18n-milestone.js` | `milestone.html` 翻譯，`window.VASMilestoneT` |
+| `i18n-privacy.js` | `privacy.html` 翻譯，`window.VASPrivacyT` |
 
 ---
 

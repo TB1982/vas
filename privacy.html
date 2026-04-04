@@ -269,17 +269,10 @@
     </footer>
 
     <script src="i18n-shared.js"></script>
+    <script src="i18n-privacy.js"></script>
     <script>
       (function () {
-        var pageT = {
-          zh: { pageLabel: 'Legal', appName: 'VAS 隱私權政策', updatedDate: '最後更新：2026-04-03' },
-          en: { pageLabel: 'Legal', appName: 'VAS Privacy Policy', updatedDate: 'Last updated: 2026-04-03' },
-          ja: { pageLabel: 'Legal', appName: 'VAS プライバシーポリシー', updatedDate: '最終更新：2026-04-03' }
-        };
-        // 合併 sharedT（footer）
-        ['zh', 'en', 'ja'].forEach(function (l) {
-          Object.assign(pageT[l], window.VASShared.sharedT[l]);
-        });
+        var pageT = window.VASPrivacyT;
 
         function applyLang(lang) {
           // 顯示對應 lang-block，隱藏其他
