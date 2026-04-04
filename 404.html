@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="5; url=https://tb1982.github.io/vas/">
+  <link rel="canonical" href="https://tb1982.github.io/vas/">
+  <link rel="icon" href="img/vas.ico" type="image/x-icon">
+  <link rel="stylesheet" href="base.css">
+  <title>404 — 找不到頁面 · VAS</title>
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+      background: linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      min-height: 100vh;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .code {
+      font-size: clamp(5rem, 20vw, 10rem);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, #c471f5 0%, #fa71cd 50%, #4facfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 0.75rem;
+    }
+    .desc {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      max-width: 36ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+    }
+    .countdown {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="code">404</div>
+    <p class="title">找不到這個頁面</p>
+    <p class="desc">這個網址可能已經搬移或不存在。5 秒後自動返回首頁。</p>
+    <a href="https://tb1982.github.io/vas/" class="btn">← 回 VAS 首頁</a>
+    <p class="countdown" id="countdown">5 秒後自動跳轉…</p>
+  </div>
+  <script>
+    var sec = 5;
+    var el = document.getElementById('countdown');
+    var timer = setInterval(function () {
+      sec--;
+      if (sec <= 0) {
+        clearInterval(timer);
+        window.location.replace('https://tb1982.github.io/vas/');
+      } else {
+        el.textContent = sec + ' 秒後自動跳轉…';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
