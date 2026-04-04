@@ -1,0 +1,23 @@
+/* base.css — VAS 全域基礎樣式
+ * 所有頁面必須引入此檔案。
+ * 新增全域規則請加在這裡，不要分散在各頁 <style> 區塊。
+ */
+
+/* ── 段落孤兒防護 ─────────────────────────────────────────
+ * text-wrap: pretty 讓瀏覽器在斷行時避免最後一行只剩單一
+ * 字詞或字符（孤兒），對日文尤為重要。
+ * 若某段落在特定語言仍出現孤兒，對該元素補上 max-width: 54ch。
+ */
+p {
+  text-wrap: pretty;
+}
+
+/* ── 無障礙：減少動態效果 ────────────────────────────────
+ * 尊重使用者的「減少動態效果」系統偏好設定。
+ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

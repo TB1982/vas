@@ -13,6 +13,7 @@
     <meta property="og:url" content="https://tb1982.github.io/vas/collab.html">
     <meta property="og:locale" content="zh_TW">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="base.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -111,16 +112,7 @@
             border-left: 3px solid rgba(196,113,245,0.5);
             padding-left: 1.25rem;
             margin: 1.5rem 0;
-        }
-        .insight-card p {
-            text-wrap: pretty;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+        }        @media
     </style>
 </head>
 <body>
@@ -177,10 +169,10 @@
             他沒有長期記憶。<br>
             但他們<span class="gradient-text">做出來了</span>。
         </h1>
-        <p class="text-white/70 text-xl leading-relaxed" style="margin-bottom: 1rem; text-wrap: pretty;" data-lang-key="heroTagline">
+        <p class="text-white/70 text-xl leading-relaxed" style="margin-bottom: 1rem;" data-lang-key="heroTagline">
             這不是 Prompt 工程的故事。
         </p>
-        <p class="text-white/35 text-base leading-relaxed mx-auto" style="text-wrap: pretty; max-width: 54ch;" data-lang-key="heroDesc">
+        <p class="text-white/35 text-base leading-relaxed mx-auto" style="max-width: 54ch;" data-lang-key="heroDesc">
             這頁記錄的是 VAS 開發途中，Nova 與 Claude 之間協作規則如何從零開始演化。市場上流行著各種 Prompt 技巧與 AI 方法論，但我們全程都不用這些——我們最想說清楚的，是技術與方法論之外，人機協作還需要什麼，才能走到現在這裡。
         </p>
     </section>
