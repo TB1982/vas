@@ -91,7 +91,7 @@ Badges must use `data-lang-key` for trilingual support. Standard keys:
 **Rules:**
 - Never use inline `style` for badge colours — always use the CSS class.
 - `badge-tauri` (amber) = Tauri only. `badge-all` (green) = both versions.
-- Each page that uses badges must define both `.badge-tauri` and `.badge-all` in its `<style>` block (copy the exact values above).
+- Both `.badge-tauri` and `.badge-all` are defined in `base.css`. **Do NOT redefine them in per-page `<style>` blocks.**
 - Badge text keys (`tauriOnly`, `allVersions`) must be registered in that page's translation object for all three languages (zh / en / ja).
 
 ---
@@ -163,11 +163,9 @@ https://www.instagram.com/liuyingtzu
 | Layer      | Technology                                       |
 |------------|--------------------------------------------------|
 | Markup     | HTML5                                            |
-| Styling    | Tailwind CSS (CDN), inline CSS3                  |
+| Styling    | Tailwind CSS (CDN) + `base.css` (shared rules)   |
 | Scripting  | Vanilla JavaScript                               |
-| Charts     | Chart.js (CDN via cdn.jsdelivr.net)              |
 | Fonts      | Google Fonts — Noto Sans TC, Inter               |
-| Canvas     | HTML5 Canvas API (deepholding.html)              |
 
 **No build tools. No package manager. No TypeScript. No testing framework.**
 
@@ -298,13 +296,9 @@ en: { cb_rect_desc: 'Drag to select any rectangular region to capture.' }
 
 ### Styling
 - **Tailwind CSS utility classes** are the primary styling mechanism.
-- Custom styles are placed in a `<style>` block inside `<head>`.
-- Gradient patterns used consistently:
-  - `gradient-bg`: `#f5f7fa → #c3cfe2`
-  - Card gradients: purple-blue, pink-red, green-blue
-- Glassmorphism pattern: `background: rgba(255,255,255,0.2)` + `backdrop-filter: blur(10px)`
-- Hover effects: `transform: translateY(-10px)` with box-shadow transition
-- Font stack: `'Inter', 'Noto Sans TC', sans-serif`
+- Page-specific styles go in a `<style>` block inside `<head>`. **Do not redefine any class that already exists in `base.css`.**
+- All shared design patterns (glass cards, badges, dividers, nav pills) live in `base.css` — see the **Design System** section above.
+- Font stack: `'Inter', 'Noto Sans TC', sans-serif` (defined in `base.css`)
 
 ### Responsive Design (RWD)
 - All pages target mobile-first layouts using Tailwind responsive prefixes (`md:`, `lg:`).
@@ -351,10 +345,7 @@ Traditional Chinese, action-oriented.
 
 - **No `package.json` for the static site** — do not run `npm install` for the HTML pages.
 - **CDN dependencies** — if CDN URLs change or go offline, pages will break. Do not move these to local files without updating all references.
-- **Subdirectory resource bundles** (`pmchatgptpro_files/`, etc.) are generated from older export tools; edit the parent `.html` files directly rather than the bundled resources.
-- **Image assets** in `修正方式/` and `預覽圖/` are reference screenshots only; do not delete them.
 - **No minification or asset hashing** — filenames are stable, caching is not a concern.
-- **Canvas page** (`deepholding.html`) contains complex standalone JavaScript; test carefully after any edits.
 
 ---
 
@@ -367,12 +358,12 @@ Every `.html` file must include the following inside `<head>`:
 ```html
 <!-- Basic SEO -->
 <meta name="description" content="頁面摘要，100–160字元">
-<link rel="canonical" href="https://tb1982.github.io/pm/page.html">
+<link rel="canonical" href="https://tb1982.github.io/vas/page.html">
 <!-- Open Graph (social / AI preview) -->
 <meta property="og:title" content="頁面標題">
 <meta property="og:description" content="頁面摘要">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tb1982.github.io/pm/page.html">
+<meta property="og:url" content="https://tb1982.github.io/vas/page.html">
 <meta property="og:locale" content="zh_TW">
 ```
 
@@ -394,9 +385,8 @@ Add a `<script type="application/ld+json">` block before `</body>` on key pages:
 }
 </script>
 ```
-- Use `@type: "Article"` for research/documentation pages.
-- Use `@type: "FAQPage"` with `mainEntity` array for `faq.html`.
-- Use `@type: "WebApplication"` for interactive tools (`lottery.html`, `mandal_chart.html`).
+- Use `@type: "Article"` for research/documentation pages (e.g. `insight.html`, `collab.html`).
+- Use `@type: "SoftwareApplication"` for app product pages (e.g. `index.html`).
 - Do not fabricate URLs — only add canonical/og:url when the real production URL is known.
 
 ---
@@ -429,17 +419,9 @@ p {
   text-wrap: pretty;
 }
 ```
-- Apply to the most specific container selector available (e.g. `.card p`, `.insight-card p`) to avoid unintended side effects on UI elements.
+- Apply to the most specific container selector available (e.g. `.glass-card p`, `.glass-section p`) to avoid unintended side effects on UI elements.
 - If a paragraph still produces orphans in one language (typically Japanese, which has longer text), add `max-width: 54ch` to that specific element.
 - This rule must be added whenever a new page or new card component is created.
-
-### Canvas Pages
-`deepholding.html` uses `<canvas>` which is opaque to screen readers. Minimum required:
-```html
-<canvas aria-label="互動式內在宇宙循環動畫，以視覺方式呈現靜心概念" role="img">
-  您的瀏覽器不支援 Canvas，請升級瀏覽器。
-</canvas>
-```
 
 ### Language Toggle
 When the language toggle switches to English (`EN`), update the `<html lang>` attribute:
