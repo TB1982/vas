@@ -142,7 +142,7 @@
                 </svg>
                 <span data-lang-key="backLabel" class="hidden sm:inline">深握計畫</span>
             </a>
-            <div class="text-lg font-bold tracking-widest gradient-text">VAS</div>
+            <div id="headerVAS" class="text-lg font-bold tracking-widest gradient-text" style="transition:opacity 0.3s ease;">VAS</div>
             <div class="flex-1 flex justify-end">
                 <div class="relative" id="langDropdownWrap">
                     <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
@@ -504,7 +504,7 @@
     <!-- Footer -->
     <footer class="border-t border-white/10 mt-16 py-10 text-center text-white/25 text-xs space-y-2">
         <p data-lang-key="footer">由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最後更新於 2026</p>
-        <p><a href="privacy.html" class="hover:text-white/50 transition-colors" data-lang-key="privacyLink">隱私權政策</a></p>
+        <p><a href="privacy.html" class="hover:text-white/50 transition-colors" data-lang-key="privacyLink">隱私權政策</a>　｜　<a href="https://tb1982.github.io/pm/" class="hover:text-white/50 transition-colors" data-lang-key="pmLink">深握計畫</a></p>
     </footer>
 
     <script src="version.js"></script>
@@ -547,10 +547,12 @@
             const hero = document.querySelector('section');
 
             // Show/hide on scroll
+            const headerVAS = document.getElementById('headerVAS');
             window.addEventListener('scroll', () => {
                 const past = hero.getBoundingClientRect().bottom < 0;
                 floatingNav.style.opacity = past ? '1' : '0';
                 floatingNav.style.pointerEvents = past ? 'auto' : 'none';
+                if (headerVAS) headerVAS.style.opacity = past ? '0' : '1';
             }, { passive: true });
 
             // Custom anchor scroll — bypass scroll-margin-top mid-scroll glitch on iOS
