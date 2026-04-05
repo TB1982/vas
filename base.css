@@ -3,6 +3,17 @@
  * 新增全域規則請加在這裡，不要分散在各頁 <style> 區塊。
  */
 
+/* ── 全站基礎 ────────────────────────────────────────────
+ * body 預設字型、深色背景、文字色、最小高度。
+ * 各頁如需不同背景，以 class（.hero-bg、.gradient-bg）覆蓋。
+ */
+body {
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  background: linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  min-height: 100vh;
+  color: rgba(255,255,255,0.85);
+}
+
 /* ── 段落孤兒防護 ─────────────────────────────────────────
  * text-wrap: pretty 讓瀏覽器在斷行時避免最後一行只剩單一
  * 字詞或字符（孤兒），對日文尤為重要。
@@ -106,6 +117,68 @@ p {
 }
 .lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .lang-opt.active { color: #fff; font-weight: 700; }
+
+/* ── 標籤 / 小標 ────────────────────────────────────────
+ * .tag：區塊上方紫色小字 label（用於子頁 hero 與卡片標頭）。
+ */
+.tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(196,113,245,0.8);
+}
+
+/* ── 子頁 Nav 連結 ───────────────────────────────────────
+ * .nav-sub-link：子頁 pill nav 內各頁連結（非 .nav-pill 版本）。
+ */
+.nav-sub-link { color: rgba(255,255,255,0.35); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; white-space: nowrap; }
+.nav-sub-link:hover  { color: rgba(255,255,255,0.65); }
+.nav-sub-link.active { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+/* ── 版本徽章 ────────────────────────────────────────────
+ * .badge-tauri（琥珀）：Tauri 專屬功能。
+ * .badge-all（綠）：Electron + Tauri 全版本皆有。
+ * 請勿修改顏色——CLAUDE.md 有 canonical 規範。
+ */
+.badge-tauri {
+  display: inline-flex; align-items: center;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+  padding: 2px 8px; border-radius: 999px;
+  background: rgba(251,191,36,0.12);
+  border: 1px solid rgba(251,191,36,0.25);
+  color: rgba(251,191,36,0.85);
+  text-transform: uppercase; vertical-align: middle;
+}
+.badge-all {
+  display: inline-flex; align-items: center;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+  padding: 2px 8px; border-radius: 999px;
+  background: rgba(74,222,128,0.12);
+  border: 1px solid rgba(74,222,128,0.3);
+  color: rgba(134,239,172,0.9);
+  text-transform: uppercase; vertical-align: middle;
+}
+
+/* ── 玻璃質感元件 ────────────────────────────────────────
+ * .glass-section：靜態內容區塊（更透明，無 hover）。
+ * .glass-card：互動式卡片（稍厚實，含 hover 浮起效果）。
+ */
+.glass-section {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+}
+.glass-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.09);
+}
 
 /* ── 螢光分隔棒 ──────────────────────────────────────────
  * .divider：粉紫漸層短橫棒，用於區塊標題前的視覺分隔。

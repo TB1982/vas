@@ -16,35 +16,6 @@
     <link rel="stylesheet" href="base.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background: linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            min-height: 100vh;
-            color: rgba(255,255,255,0.85);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #c471f5 0%, #fa71cd 50%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .insight-card {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.12);
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-        .insight-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,0.09);
-        }
-        .tag {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(196,113,245,0.8);
-        }
         .compare-box {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
@@ -55,20 +26,11 @@
             background: rgba(196,113,245,0.08);
             border-color: rgba(196,113,245,0.25);
         }
-        .nav-sub-link {
-            color: rgba(255,255,255,0.35);
-            text-decoration: none;
-            font-size: 0.75rem;
-            transition: color 0.2s;
-            white-space: nowrap;
-        }
-        .nav-sub-link:hover { color: rgba(255,255,255,0.65); }
-        .nav-sub-link.active { color: rgba(255,255,255,0.9); font-weight: 600; }
         .quote-block {
             border-left: 3px solid rgba(196,113,245,0.5);
             padding-left: 1.25rem;
             margin: 1.5rem 0;
-        }        @media
+        }
     </style>
 </head>
 <body>
@@ -126,7 +88,7 @@
     <main class="px-6 pb-32 max-w-3xl mx-auto space-y-8">
 
         <!-- Story 01：KM 的起源 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-2" data-lang-key="c1Tag">知識管理 · Knowledge Management</p>
             <h2 class="text-xl font-bold text-white mt-1 mb-4" data-lang-key="c1Title">那個按鈕說好只要五分鐘</h2>
             <p class="text-white/55 leading-relaxed mb-4" data-lang-key="c1p1">
@@ -145,7 +107,7 @@
         </article>
 
         <!-- Story 02：仿生語言 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-2" data-lang-key="c2Tag">仿生語言 · Biomimetic Language</p>
             <h2 class="text-xl font-bold text-white mt-1 mb-4" data-lang-key="c2Title">三個字說完一份規格</h2>
             <p class="text-white/55 leading-relaxed mb-4" data-lang-key="c2p1">
@@ -167,7 +129,7 @@
         </article>
 
         <!-- Story 03：Concurrent Session -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-2" data-lang-key="c3Tag">並行協作 · Concurrent Session Rule</p>
             <h2 class="text-xl font-bold text-white mt-1 mb-4" data-lang-key="c3Title">那天 merge 一直衝突</h2>
             <p class="text-white/55 leading-relaxed mb-4" data-lang-key="c3p1">
@@ -189,7 +151,7 @@
         </article>
 
         <!-- Story 04：文件拆分 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-2" data-lang-key="c4Tag">文件架構 · Document Architecture</p>
             <h2 class="text-xl font-bold text-white mt-1 mb-4" data-lang-key="c4Title">SDD 四千行之後</h2>
             <p class="text-white/55 leading-relaxed mb-4" data-lang-key="c4p1">
@@ -211,7 +173,7 @@
         </article>
 
         <!-- CLAUDE.md 演化時間軸 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-2" data-lang-key="c5Tag">協作治理 · Collaboration Governance</p>
             <h2 class="text-xl font-bold text-white mt-1 mb-6" data-lang-key="c5Title">CLAUDE.md 從防錯清單變成協作憲法</h2>
 
@@ -243,7 +205,7 @@
         </article>
 
         <!-- 結語 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-6" data-lang-key="c6Tag">核心洞察 · Core Insight</p>
 
             <div class="quote-block mb-6">
