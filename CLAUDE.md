@@ -1,13 +1,12 @@
 # CLAUDE.md — VAS 產品網站
 This file provides guidance for AI assistants working in this repository.
 
-> **這是 VAS 產品網站的獨立 repo**，從 `tb1982/pm` 遷移而來。
-> 母專案（深握計畫）請見 `https://github.com/TB1982/pm`。
+> **這是 VAS 產品網站的獨立 repo**，從 `tb1982/pm` 遷移而來。母專案請見 `https://github.com/TB1982/pm`。
 
 ---
 
 ## Project & Author Identity
-This section exists to prevent AI assistants from fabricating personal or project details. **Always use these exact values. Never invent alternatives.**
+**Always use these exact values. Never invent alternatives.**
 
 | Field | Value |
 |-------|-------|
@@ -17,227 +16,91 @@ This section exists to prevent AI assistants from fabricating personal or projec
 | Project name (EN) | Deep Holding Project |
 | Site canonical URL | `https://tb1982.github.io/vas/` |
 | Copyright year | 2025–present |
-| GitHub account | `tb1982` — `https://github.com/tb1982` |
+| GitHub | `https://github.com/tb1982` |
 | LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
 | Instagram | `https://www.instagram.com/liuyingtzu` |
 
-### Rules for AI assistants
-- **Never** generate a placeholder email such as `author@example.com` or any invented address.
-- **Never** invent a domain name for `canonical`, `og:url`, or any link. Always use `https://tb1982.github.io/vas/` as the base.
-- **Never** attribute content to a name other than **Nova** without explicit instruction.
-- Per-page canonical URLs follow the pattern `https://tb1982.github.io/vas/<filename>.html`.
+**Rules:** Never use placeholder emails. Never invent domain names — always use `https://tb1982.github.io/vas/` as base. Per-page canonical: `https://tb1982.github.io/vas/<filename>.html`. Never attribute to anyone other than **Nova**.
 
 ### Footer — canonical format
-Every page footer must use this exact wording (both language variants):
 ```
-<!-- 中文 -->
 由 GitHub 部署　｜　Claude Code 傾力打造　｜　Nova（babelon1882@gmail.com）最後更新於 2026
-<!-- English -->
 Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by Nova (babelon1882@gmail.com)
 ```
-Do **not** alter the wording, substitute a different email, or remove any segment without explicit instruction.
 
-### Version Badges — canonical design
-
-VAS pages use two badge types to indicate feature availability. Always use these exact CSS values; never invent new colours or styles.
-
-#### `.badge-tauri` — Tauri Exclusive (amber)
-```css
-display: inline-flex; align-items: center;
-font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
-padding: 2px 8px; border-radius: 999px;
-background: rgba(251,191,36,0.12);
-border: 1px solid rgba(251,191,36,0.25);
-color: rgba(251,191,36,0.85);
-text-transform: uppercase; vertical-align: middle;
-```
-Used for features available in **Tauri version only**.
-
-#### `.badge-all` — All Versions (green)
-```css
-display: inline-flex; align-items: center;
-font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
-padding: 2px 8px; border-radius: 999px;
-background: rgba(74,222,128,0.12);
-border: 1px solid rgba(74,222,128,0.3);
-color: rgba(134,239,172,0.9);
-text-transform: uppercase; vertical-align: middle;
-```
-Used for features available in **both Electron and Tauri versions**.
-
-#### Badge i18n keys
-Badges must use `data-lang-key` for trilingual support. Standard keys:
-
-| Key | zh | en | ja |
-|-----|-----|-----|-----|
-| `tauriOnly` / `tauriOnlyBadge` | Tauri 專屬 | Tauri Exclusive | Tauri 専用 |
-| `allVersions` | 全版本 | All Versions | 全バージョン |
-
-#### Usage pattern
-```html
-<!-- Card header with badge -->
-<div class="flex items-center gap-2 mb-2">
-  <p class="tag" data-lang-key="sectionTag">標籤文字</p>
-  <span class="badge-tauri" data-lang-key="tauriOnly">Tauri 專屬</span>
-</div>
-
-<!-- Inline next to a heading -->
-<div class="flex items-center gap-3 flex-wrap mb-1">
-  <h2 class="text-xl font-semibold" data-lang-key="sTitle">標題</h2>
-  <span class="badge-tauri" data-lang-key="tauriOnlyBadge">Tauri 專屬</span>
-</div>
-```
-
-**Rules:**
-- Never use inline `style` for badge colours — always use the CSS class.
-- `badge-tauri` (amber) = Tauri only. `badge-all` (green) = both versions.
-- Each page that uses badges must define both `.badge-tauri` and `.badge-all` in its `<style>` block (copy the exact values above).
-- Badge text keys (`tauriOnly`, `allVersions`) must be registered in that page's translation object for all three languages (zh / en / ja).
-
----
-
-### Social links — canonical URLs
-When generating contact sections, about pages, or JSON-LD `sameAs`, always use these exact URLs:
-```
-https://github.com/tb1982
-https://www.linkedin.com/in/yingtzuliu
-https://www.instagram.com/liuyingtzu
-```
-
-### Usage in JSON-LD
+### Social / JSON-LD author block
 ```json
 "author": {
   "@type": "Person",
   "name": "Nova",
   "email": "babelon1882@gmail.com",
-  "sameAs": [
-    "https://github.com/tb1982",
-    "https://www.linkedin.com/in/yingtzuliu",
-    "https://www.instagram.com/liuyingtzu"
-  ]
+  "sameAs": ["https://github.com/tb1982","https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu"]
 }
 ```
 
 ---
 
 ## Project Overview
+**VAS（Visual Annotation Studio）** — Mac screenshot and annotation tool. This repo is the public product website only — trilingual (zh-Hant / EN / JA) static HTML.
 
-**VAS（Visual Annotation Studio）** is a Mac screenshot and annotation tool. This repo contains the public-facing product website only — trilingual (zh-Hant / EN / JA) static HTML pages.
-
-- **App development repo:** `https://github.com/TB1982/vas-desktop` (private)
-- **Mother project:** 深握計畫 (Deep Holding Project) — `https://github.com/TB1982/pm`
+- **App repo:** `https://github.com/TB1982/vas-desktop` (private)
 - **Site type:** Static HTML — no backend, no build system, no package manager
-- **Primary language:** Traditional Chinese (zh-Hant), with EN / JA toggle
 - **Hosting:** GitHub Pages — `https://tb1982.github.io/vas/`
 
 ---
 
 ## Repository Structure
-
 ```
 /
-├── index.html              # VAS product page (原 vas.html)
-├── guide.html              # VAS user guide (原 vas-guide.html)
-├── insight.html            # Design Insight — 設計洞察
-├── collab.html             # Collab Notes — 協作筆記
-├── milestone.html          # Milestone — 里程碑
-├── privacy.html            # Privacy Policy — 隱私權政策
-│
-├── i18n-shared.js          # 共用 nav / footer 翻譯 + dropdown 初始化
-├── i18n-index.js           # index.html 專用翻譯
-├── i18n-guide.js           # guide.html 專用翻譯
-├── i18n-collab.js          # collab.html 專用翻譯
-├── i18n-insight.js         # insight.html 專用翻譯
-├── i18n-milestone.js       # milestone.html 專用翻譯
-├── i18n-privacy.js         # privacy.html 專用翻譯
-│
-└── img/                    # 產品截圖與圖示資產
-    ├── vas-guide-*.png     # guide.html 使用的操作截圖
-    └── ...
+├── index.html        # VAS product page
+├── guide.html        # User guide
+├── insight.html      # Design Insight — 設計洞察
+├── collab.html       # Collab Notes — 協作筆記
+├── milestone.html    # Milestone — 里程碑
+├── privacy.html      # Privacy Policy
+├── base.css          # Shared styles — single source of truth
+├── designrule.md     # Visual design rules — read before any HTML/CSS change
+├── i18n-shared.js    # Shared nav/footer translations + dropdown init
+├── i18n-index.js     # index.html (window.VASIndexT)
+├── i18n-guide.js     # guide.html (window.VASGuideT)
+├── i18n-collab.js    # collab.html (window.VASCollabT)
+├── i18n-insight.js   # insight.html (window.VASInsightT)
+├── i18n-milestone.js # milestone.html (window.VASMilestoneT)
+├── i18n-privacy.js   # privacy.html (window.VASPrivacyT)
+└── img/              # Screenshots — vas-guide-*.png used in guide.html
 ```
 
 ---
 
 ## Tech Stack
 
-| Layer      | Technology                                       |
-|------------|--------------------------------------------------|
-| Markup     | HTML5                                            |
-| Styling    | Tailwind CSS (CDN), inline CSS3                  |
-| Scripting  | Vanilla JavaScript                               |
-| Charts     | Chart.js (CDN via cdn.jsdelivr.net)              |
-| Fonts      | Google Fonts — Noto Sans TC, Inter               |
-| Canvas     | HTML5 Canvas API (deepholding.html)              |
+| Layer | Technology |
+|-------|-----------|
+| Markup | HTML5 |
+| Styling | Tailwind CSS (CDN) + `base.css` (shared rules) |
+| Scripting | Vanilla JavaScript |
+| Fonts | Google Fonts — Noto Sans TC, Inter |
 
 **No build tools. No package manager. No TypeScript. No testing framework.**
 
 ---
 
-## Design System — base.css
-
-**Rule: Before creating any new HTML page, read `base.css` first. Confirm which classes already exist before writing any CSS.**
-
-`base.css` is the single source of truth for all shared styles. Do not redefine any class listed below in a per-page `<style>` block.
-
-### Available classes (defined in base.css)
-
-| Class | Purpose |
-|-------|---------|
-| `.gradient-text` | Purple→pink→blue gradient text (brand & emphasis) |
-| `.tag` | Small uppercase label above card headings (purple) |
-| `.nav-sub-link` | Sub-page nav links — includes `:hover` and `.active` states |
-| `.badge-tauri` | Amber badge — Tauri Exclusive features |
-| `.badge-all` | Green badge — All Versions (Electron + Tauri) |
-| `.glass-section` | Static glass content block (`bg 0.04`, no hover) |
-| `.glass-card` | Interactive glass card (`bg 0.06`, hover lift effect) |
-| `.nav-pill-group` | Pill nav container (dark frosted glass capsule) |
-| `.nav-pill` | Individual pill nav link — includes `:hover` and `.active` |
-| `.lang-dropdown-btn/menu/opt` | Language switcher dropdown |
-| `.divider` | Pink gradient divider bar (includes `scroll-margin-top: 90px`) |
-| `.page-section` | Vertical padding for homepage content sections |
-
-### Design tokens
-
-| Token | Value |
-|-------|-------|
-| Page background | `linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%)` |
-| Brand gradient | `linear-gradient(135deg, #c471f5 0%, #fa71cd 50%, #4facfe 100%)` |
-| Body text | `rgba(255,255,255,0.85)` |
-| Glass (subtle) | `background: rgba(255,255,255,0.04)` — use `.glass-section` |
-| Glass (card) | `background: rgba(255,255,255,0.06)` — use `.glass-card` |
-| Border subtle | `1px solid rgba(255,255,255,0.08–0.12)` |
-| Font stack | `'Inter', 'Noto Sans TC', sans-serif` |
-
-### Per-page background overrides
-
-`body` in `base.css` sets the standard dark gradient. Pages that need a different background add a class to `<body>`:
-- `index.html` → `class="hero-bg"` (same gradient, defined locally for specificity)
-- `guide.html` → `class="gradient-bg"` (darker indigo variant, defined locally)
-
-Do not remove these override classes.
-
----
-
 ## Development Workflow
 
-1. **Edit** the relevant `.html` file directly.
-2. **Preview** by opening the file in a browser (`file://` or local HTTP server).
-3. **Commit** changes with a descriptive message (in Traditional Chinese).
-4. **Push** to the appropriate branch.
+> **Before any HTML or CSS change: read `designrule.md` AND `base.css` first. This is mandatory.**
+> **Never push directly to `main`.** Always use a dev branch (`claude/<description>-<id>`).
+
+1. Edit the relevant `.html` file directly.
+2. Commit with a Traditional Chinese action message.
+3. Push to dev branch; merge to `main` when ready.
 
 ```bash
-# Python 3 local preview — always use port 8081
+# Local preview — always use port 8081
 python3 -m http.server 8081
 ```
 
-開啟：`http://localhost:8081`
-
-### Static Page QC Checklist
-
-**Trigger:** After any change to user-visible content on a static HTML page (text, layout, links, interactive behaviour). Pure metadata or comment-only edits are exempt.
-
-After pushing, Claude provides the following ready-to-run command and asks Nova to verify.
-The server command and the URL to open **must always be presented as two separate blocks** — never embed the URL as a comment inside the bash block, so Nova can copy each part directly.
+### QC Checklist
+After any user-visible change, provide this command and ask Nova to verify:
 
 ```bash
 git pull origin <branch-name> && python3 -m http.server 8081
@@ -245,244 +108,57 @@ git pull origin <branch-name> && python3 -m http.server 8081
 
 開啟：`http://localhost:8081/<filename>.html`
 
-**Nova checks (in order):**
-1. Content is correct and matches intent
-2. Language toggle (中 → EN → 中) — all strings switch, no missing keys
-3. All external links open the correct destination
-4. RWD — narrow browser to ~375 px, confirm no horizontal overflow
-5. EN version — text renders correctly, layout holds
-6. **Design consistency** — nav style, pill shape, spacing, and interactive behaviour match across homepage and all sub-pages
+**Present the bash block and the URL as two separate copyable blocks — never embed the URL inside the bash block.**
 
-Claude reminds Nova to check **both RWD and EN version** every time, even when the change appears zh-only.
-
-### Environment Health Check — Design Consistency
-
-When performing an initial codebase review, Claude must check **both functional correctness AND visual/design consistency**:
-
-- **Nav structure** — homepage and sub-pages use the same pill style, spacing, and back-navigation pattern
-- **Component reuse** — shared UI (dropdowns, badges, dividers) should come from `base.css`, not be redefined per page
-- **Active state** — current-page indicators are present and correct on every sub-page
-- **Link destinations** — back links (`‹`) point to the correct parent page at every level of the hierarchy
-
-> **Lesson (2026-04-05):** A nav style inconsistency between index.html and sub-pages was missed during initial review because all links were functional. Broken functionality ≠ acceptable design. Always review design consistency as a separate axis from technical correctness.
+Nova checks:
+1. Content correct
+2. Language toggle (中 → EN → 中) — no missing keys
+3. External links correct
+4. RWD at ~375px — no horizontal overflow
+5. Design consistency — nav style, spacing match across all pages
 
 ---
 
 ## Conventions
 
-### Language & Internationalisation
-- Pages default to Traditional Chinese (`lang="zh-Hant"`).
-- Most pages implement a **bilingual toggle** (`中` / `EN`) via JavaScript.
-- Translation strings are stored inline using `data-lang-key` attributes and a JS translation map.
-- When editing content, maintain both language variants unless instructed otherwise.
-- **Use `臺` not `台`** — always write `臺灣`, `臺北`, `臺中`, etc. This is the author's explicit preference and the orthographically correct Traditional Chinese form. Never silently substitute `台`.
+### Language & i18n
+- Default language: Traditional Chinese (`lang="zh-Hant"`).
+- **Use `臺` not `台`** — `臺灣`, `臺北`, `臺中`, etc. Never substitute silently.
 
 ### data-lang-key — Two Places to Update
-
-Every element with a `data-lang-key` attribute has **two independent sources of text**:
-
-1. **The hardcoded text node inside the HTML element** — what the browser renders before JavaScript runs (and what the user sees if JS is slow or the page is viewed as a static file).
-2. **The matching key in the JS translation map** (`zh` and `en` objects) — what the bilingual toggle swaps in at runtime.
-
-**Both must be updated together.** Updating only the JS map leaves the default (Chinese) display unchanged. Updating only the HTML leaves the English toggle broken.
+Every `data-lang-key` element has two sources — update **both**:
+1. The HTML text node (renders before/without JS)
+2. The `zh`/`en`/`ja` keys in the page's translation map
 
 ```html
-<!-- Example: both the HTML text node AND the zh/en map entries must match -->
 <p data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。</p>
-
-zh: { cb_rect_desc: '拖曳選取任意矩形區域後截圖。' }
-en: { cb_rect_desc: 'Drag to select any rectangular region to capture.' }
+<!-- HTML text node AND zh/en/ja map entries must always match -->
 ```
 
-> **Root cause of the bug (2026-03-29):** Edited only the `zh`/`en` map entries for `cb_rect_desc` but forgot the HTML text node — the card on screen showed the old text until the fix.
-
-### Styling
-- **Tailwind CSS utility classes** are the primary styling mechanism.
-- Custom styles are placed in a `<style>` block inside `<head>`.
-- Gradient patterns used consistently:
-  - `gradient-bg`: `#f5f7fa → #c3cfe2`
-  - Card gradients: purple-blue, pink-red, green-blue
-- Glassmorphism pattern: `background: rgba(255,255,255,0.2)` + `backdrop-filter: blur(10px)`
-- Hover effects: `transform: translateY(-10px)` with box-shadow transition
-- Font stack: `'Inter', 'Noto Sans TC', sans-serif`
-
-### Responsive Design (RWD)
-- All pages target mobile-first layouts using Tailwind responsive prefixes (`md:`, `lg:`).
-- Recent commits show active work on mobile display sizes; preserve RWD behaviour when editing.
+> Bug (2026-03-29): Updated only the JS map, forgot HTML — old text showed until fix.
 
 ### Commit Messages
-
-Traditional Chinese, action-oriented.
-```
-更新手機版顯示數字大小
-新增 vas-guide.html OCR 段落說明
-```
+Traditional Chinese, action-oriented: `更新手機版顯示數字大小` / `新增 OCR 段落說明`
 
 ---
 
 ## Key Files
-
-| File | Purpose |
-|------|---------|
-| `index.html` | VAS 產品首頁 — version string: search `迭代至 v` / `iterated together to v` |
-| `guide.html` | VAS 操作手冊 — screenshots in `img/vas-guide-*.png` |
-| `insight.html` | 設計洞察 — 設計決策背後的思考記錄 |
-| `collab.html` | 協作筆記 — Nova 與 Claude 的協作故事 |
-| `milestone.html` | 里程碑 — Electron + Tauri 完整開發歷程與路線圖 |
-| `privacy.html` | 隱私權政策 |
-| `i18n-shared.js` | 共用 nav / footer 翻譯，`initDropdown()` / `updateDropdown()` |
-| `i18n-index.js` | `index.html` 翻譯，`window.VASIndexT` |
-| `i18n-guide.js` | `guide.html` 翻譯，`window.VASGuideT` |
-| `i18n-collab.js` | `collab.html` 翻譯，`window.VASCollabT` |
-| `i18n-insight.js` | `insight.html` 翻譯，`window.VASInsightT` |
-| `i18n-milestone.js` | `milestone.html` 翻譯，`window.VASMilestoneT` |
-| `i18n-privacy.js` | `privacy.html` 翻譯，`window.VASPrivacyT` |
+| File | Note |
+|------|------|
+| `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
+| `guide.html` | Screenshots: `img/vas-guide-*.png` |
+| `i18n-shared.js` | `initDropdown()` / `updateDropdown()` — shared by all pages |
 
 ---
 
-## Git Information
+## Git
 - **Remote:** `https://github.com/TB1982/vas.git`
-- **Main branch:** `main`
-- **Active dev branch convention:** `claude/<description>-<id>`
-
----
-
-## Things to Watch Out For
-
-- **No `package.json` for the static site** — do not run `npm install` for the HTML pages.
-- **CDN dependencies** — if CDN URLs change or go offline, pages will break. Do not move these to local files without updating all references.
-- **Subdirectory resource bundles** (`pmchatgptpro_files/`, etc.) are generated from older export tools; edit the parent `.html` files directly rather than the bundled resources.
-- **Image assets** in `修正方式/` and `預覽圖/` are reference screenshots only; do not delete them.
-- **No minification or asset hashing** — filenames are stable, caching is not a concern.
-- **Canvas page** (`deepholding.html`) contains complex standalone JavaScript; test carefully after any edits.
-
----
-
-## AEO — Answer Engine Optimisation
-
-These rules ensure pages are discoverable by AI search engines (ChatGPT, Perplexity, Gemini) and traditional search.
-
-### Metadata (every page)
-Every `.html` file must include the following inside `<head>`:
-```html
-<!-- Basic SEO -->
-<meta name="description" content="頁面摘要，100–160字元">
-<link rel="canonical" href="https://tb1982.github.io/pm/page.html">
-<!-- Open Graph (social / AI preview) -->
-<meta property="og:title" content="頁面標題">
-<meta property="og:description" content="頁面摘要">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tb1982.github.io/pm/page.html">
-<meta property="og:locale" content="zh_TW">
-```
-
-### JSON-LD Structured Data
-Add a `<script type="application/ld+json">` block before `</body>` on key pages:
-```html
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "頁面名稱",
-  "description": "頁面描述",
-  "inLanguage": "zh-Hant",
-  "author": {
-    "@type": "Person",
-    "name": "Nova",
-    "email": "babelon1882@gmail.com"
-  }
-}
-</script>
-```
-- Use `@type: "Article"` for research/documentation pages.
-- Use `@type: "FAQPage"` with `mainEntity` array for `faq.html`.
-- Use `@type: "WebApplication"` for interactive tools (`lottery.html`, `mandal_chart.html`).
-- Do not fabricate URLs — only add canonical/og:url when the real production URL is known.
-
----
-
-## Accessibility (A11y)
-
-Target: **WCAG 2.1 Level AA** — applied pragmatically without sacrificing visual design.
-
-### Always Required
-- Every `<img>` must have `alt=""` (empty string for decorative) or a descriptive alt text.
-- Heading hierarchy must be logical: one `<h1>` per page, then `<h2>` → `<h3>` in order. Do not skip levels.
-- Interactive elements (`<button>`, `<a>`) must have visible focus styles and descriptive labels.
-- Colour contrast: body text must meet **4.5:1** ratio against its background (AA normal text).
-
-### Animation & Motion
-Add this block to the `<style>` section of any page with CSS transitions or `transform` animations:
-```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-```
-
-### Orphan Prevention — `text-wrap: pretty`
-**Every page must include this rule** in its `<style>` block to prevent single-word/character orphans at paragraph endings (especially problematic in Japanese):
-```css
-p {
-  text-wrap: pretty;
-}
-```
-- Apply to the most specific container selector available (e.g. `.card p`, `.insight-card p`) to avoid unintended side effects on UI elements.
-- If a paragraph still produces orphans in one language (typically Japanese, which has longer text), add `max-width: 54ch` to that specific element.
-- This rule must be added whenever a new page or new card component is created.
-
-### Canvas Pages
-`deepholding.html` uses `<canvas>` which is opaque to screen readers. Minimum required:
-```html
-<canvas aria-label="互動式內在宇宙循環動畫，以視覺方式呈現靜心概念" role="img">
-  您的瀏覽器不支援 Canvas，請升級瀏覽器。
-</canvas>
-```
-
-### Language Toggle
-When the language toggle switches to English (`EN`), update the `<html lang>` attribute:
-```js
-document.documentElement.lang = isEnglish ? 'en' : 'zh-Hant';
-```
-
----
-
-## RWD — Responsive Web Design
-
-- Use **Tailwind responsive prefixes** (`sm:`, `md:`, `lg:`) for all layout changes. Avoid fixed `px` widths on containers.
-- Test at three breakpoints minimum: **375px** (mobile), **768px** (tablet), **1280px** (desktop).
-- Font sizes for body text: minimum `1rem` (16px) on mobile; never below `0.875rem` (14px) for any readable content.
-- Touch targets (buttons, links): minimum **44×44px** — use `min-h-[44px] min-w-[44px]` in Tailwind.
-- Images must use `max-w-full` to prevent horizontal overflow on small screens.
-- When adjusting mobile layout, always verify the desktop layout is not broken.
-
----
-
-## Low-Carbon Web
-
-- **No autoplay** — do not add video, audio, or GIF animations that play automatically.
-- **Lazy-load images** — add `loading="lazy"` to all `<img>` tags below the fold.
-- **Avoid redundant CDN calls** — if Tailwind CSS is already loaded, do not load a second CSS framework.
-- **Minimise inline duplication** — repeated large `<style>` blocks across pages should be refactored into a shared pattern (or noted as technical debt).
-- **No tracking scripts** — do not add analytics, ad pixels, or third-party tracking without explicit user instruction.
-- **Prefer SVG over raster** for icons and simple illustrations.
-
----
-
-## Safety Rules — Destructive Actions
-
-**STOP and explicitly ask the user before executing any of the following:**
-
-- Deleting files or directories (`rm`, `git clean`, recursive deletes)
-- Overwriting uncommitted changes (`git checkout --`, `git restore`, `git reset --hard`)
-- Force-pushing to any branch (`git push --force`)
-- Dropping or truncating data of any kind
-- Running any command that cannot be undone in a single step
+- **Main branch:** `main` (GitHub Pages source)
+- **Dev branches:** `claude/<description>-<id>`
+- Do not push directly to `main`. CDN dependencies: do not move to local files.
 
 ---
 
 ## Interaction Language
-- Communicate with the user in **Traditional Chinese**.
+- Communicate with Nova in **Traditional Chinese**.
 - CLAUDE.md itself is written and maintained in **English**.
