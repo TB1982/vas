@@ -15,7 +15,7 @@ This file provides guidance for AI assistants working in this repository.
 | Project name (ZH) | 深握計畫 |
 | Project name (EN) | Deep Holding Project |
 | Site canonical URL | `https://tb1982.github.io/vas/` |
-| Copyright year | 2025–present |
+| Copyright year | 2026– |
 | GitHub | `https://github.com/tb1982` |
 | LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
 | Instagram | `https://www.instagram.com/liuyingtzu` |
