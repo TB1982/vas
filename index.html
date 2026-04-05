@@ -106,18 +106,10 @@
 <body class="hero-bg text-white min-h-screen">
 
     <!-- Floating Pill Nav -->
-    <nav id="floatingNav" class="fixed top-4 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-3 sm:gap-3 opacity-0 pointer-events-none" aria-label="頁面導航">
-        <a href="index.html" aria-label="VAS 首頁" class="gradient-text font-bold hidden sm:inline" style="font-size:0.75rem; letter-spacing:0.1em; text-decoration:none;">VAS</a>
-        <!-- Desktop: pill group (sm+) -->
-        <div class="nav-pill-group hidden sm:flex">
-            <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
-            <a href="#moments-anchor" class="nav-pill" data-lang-key="navMoments">細節</a>
-            <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
-            <a href="#roadmap-anchor" class="nav-pill" data-lang-key="navRoadmap">版本</a>
-        </div>
-        <!-- Mobile: dropdown (below sm) -->
-        <div class="relative sm:hidden" id="navMobileWrap">
-            <button id="navMobileBtn" class="nav-pill-group flex items-center gap-1.5" aria-haspopup="true" aria-expanded="false" aria-label="導覽選單">
+    <nav id="floatingNav" class="fixed top-4 z-[60] flex items-center opacity-0 pointer-events-none left-4 right-[80px] sm:left-1/2 sm:-translate-x-1/2 sm:right-auto sm:gap-3" aria-label="頁面導航">
+        <!-- Mobile: hamburger (左) -->
+        <div class="relative sm:hidden flex-none" id="navMobileWrap">
+            <button id="navMobileBtn" class="nav-pill-group flex items-center gap-1.5" style="appearance:none;cursor:pointer;" aria-haspopup="true" aria-expanded="false" aria-label="導覽選單">
                 <svg width="14" height="11" viewBox="0 0 14 11" fill="none" aria-hidden="true"><path d="M1 1.5h12M1 5.5h12M1 9.5h12" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/></svg>
                 <svg id="navMobileChevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style="transition:transform 0.2s"><path d="M1 1l4 4 4-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -127,6 +119,17 @@
                 <a href="#story-anchor" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navOrigin">起源</a>
                 <a href="#roadmap-anchor" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navRoadmap">版本</a>
             </div>
+        </div>
+        <!-- VAS: 手機置中螢幕 / 桌機正常 flex item -->
+        <a href="index.html" aria-label="VAS 首頁"
+           class="gradient-text font-bold absolute left-[50vw] -translate-x-1/2 sm:static sm:translate-x-0"
+           style="font-size:0.75rem; letter-spacing:0.1em; text-decoration:none;">VAS</a>
+        <!-- Desktop: pill group (sm+) -->
+        <div class="nav-pill-group hidden sm:flex">
+            <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
+            <a href="#moments-anchor" class="nav-pill" data-lang-key="navMoments">細節</a>
+            <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
+            <a href="#roadmap-anchor" class="nav-pill" data-lang-key="navRoadmap">版本</a>
         </div>
     </nav>
 
