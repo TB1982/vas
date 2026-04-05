@@ -566,7 +566,7 @@
                     requestAnimationFrame(() => {
                         // Compute position HERE (after close() layout settles, not at click time)
                         const destY = target.getBoundingClientRect().top + window.pageYOffset;
-                        const offset = (header ? header.offsetHeight : 64) + 8;
+                        const offset = (header ? header.offsetHeight : 64) + 40;
                         window.scrollTo({ top: Math.max(0, destY - offset), behavior: 'smooth' });
                     });
                 });
