@@ -159,14 +159,12 @@
     <!-- Floating Pill Nav -->
     <nav id="floatingNav" class="fixed top-4 left-1/2 -translate-x-1/2 z-[60] opacity-0 pointer-events-none" aria-label="頁面導航">
         <div class="flex items-center gap-2">
-            <a href="https://tb1982.github.io/pm/" aria-label="返回深握計畫" style="color:rgba(255,255,255,0.4); font-size:1.1rem; line-height:1; text-decoration:none; transition:color 0.2s; padding:4px 2px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">‹</a>
-            <a href="index.html" aria-label="VAS 首頁">
-                <img src="img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-md opacity-55 hover:opacity-90 transition-opacity">
-            </a>
+            <a href="https://tb1982.github.io/pm/" aria-label="返回深握計畫" class="nav-pill" style="padding:4px 8px; font-size:0.9rem; line-height:1;">‹</a>
+            <a href="index.html" aria-label="VAS 首頁" class="gradient-text font-bold" style="font-size:0.75rem; letter-spacing:0.1em; text-decoration:none;">VAS</a>
             <!-- 頁內錨點 -->
             <div class="nav-pill-group">
                 <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
-                <a href="#moments-heading" class="nav-pill" data-lang-key="navMoments">細節</a>
+                <a href="#moments-anchor" class="nav-pill" data-lang-key="navMoments">細節</a>
                 <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
                 <a href="#roadmap-anchor" class="nav-pill" data-lang-key="navRoadmap">版本</a>
             </div>
@@ -376,7 +374,7 @@
 
         <!-- Flagship Moments -->
         <section class="container mx-auto px-6 py-16 max-w-4xl" aria-labelledby="moments-heading">
-            <div class="divider mx-auto mb-8"></div>
+            <div class="divider mx-auto mb-8" id="moments-anchor" style="scroll-margin-top:72px"></div>
             <p class="text-center text-xs font-bold tracking-widest text-white/30 uppercase mb-2" data-lang-key="momentsLabel">Thoughtful by Design</p>
             <h2 id="moments-heading" class="text-2xl md:text-3xl font-bold text-center mb-16 text-white/90" style="scroll-margin-top: 72px;" data-lang-key="momentsTitle">細節裡的貼心</h2>
 
