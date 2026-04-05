@@ -12,6 +12,57 @@ p {
   text-wrap: pretty;
 }
 
+/* ── 語言下拉選單 ────────────────────────────────────────
+ * 所有頁面共用的三語切換下拉元件樣式。
+ * HTML 結構：#langDropdownBtn > #langDropdownLabel
+ *             #langDropdownMenu > .lang-opt × 3
+ */
+.lang-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.lang-dropdown-btn:hover { background: rgba(255,255,255,0.13); }
+.lang-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 110px;
+  background: rgba(18,14,48,0.97);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 4px;
+  display: none;
+  z-index: 100;
+}
+.lang-dropdown-menu.open { display: block; }
+.lang-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.875rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.lang-opt.active { color: #fff; font-weight: 700; }
+
 /* ── 無障礙：減少動態效果 ────────────────────────────────
  * 尊重使用者的「減少動態效果」系統偏好設定。
  */

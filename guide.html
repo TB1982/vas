@@ -58,51 +58,6 @@
       color: rgba(255,255,255,0.5);
     }
 
-    /* ── Language dropdown ── */
-    .lang-dropdown-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.08);
-      border: none;
-      color: rgba(255,255,255,0.65);
-      padding: 6px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.875rem;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-    .lang-dropdown-btn:hover { background: rgba(255,255,255,0.13); }
-    .lang-dropdown-menu {
-      position: absolute;
-      right: 0;
-      top: calc(100% + 6px);
-      background: rgba(30,25,60,0.96);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 4px;
-      min-width: 100px;
-      display: none;
-      z-index: 100;
-    }
-    .lang-dropdown-menu.open { display: block; }
-    .lang-opt {
-      display: block;
-      width: 100%;
-      text-align: left;
-      background: transparent;
-      border: none;
-      color: rgba(255,255,255,0.5);
-      padding: 8px 14px;
-      font-size: 0.875rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-    }
-    .lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
-    .lang-opt.active { color: #fff; font-weight: 700; }
     .nav-sub-link {
       color: rgba(255,255,255,0.35);
       text-decoration: none;
@@ -323,7 +278,7 @@
       </div>
 
       <div class="flex justify-center mb-6">
-        <img id="toolbarImg" src="img/vastoolbar.png" alt="VAS 浮動工作列" class="capturebar-img" loading="lazy">
+        <img id="toolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="capturebar-img" loading="lazy">
       </div>
 
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -368,7 +323,7 @@
           <span class="badge-all" data-lang-key="allVersions">全版本</span>
         </div>
         <div class="flex gap-4 items-start">
-          <img src="img/brethlightsmall.png" alt="VAS 呼吸燈" class="rounded-lg shrink-0" style="width:72px;height:72px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);" loading="lazy">
+          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" class="rounded-lg shrink-0" style="width:72px;height:72px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);" loading="lazy">
           <p class="text-white/45 text-xs leading-relaxed"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.2em;height:1.2em;border:1px solid rgba(255,255,255,0.35);border-radius:50%;font-size:0.7em;color:rgba(255,255,255,0.5);vertical-align:middle;margin-right:4px;line-height:1;">?</span><span data-lang-key="bl_desc">可設定將工具列縮小成為呼吸燈，在桌面角落靜默待機，不佔空間。</span></p>
         </div>
         <ul class="space-y-2 text-white/45 text-xs leading-relaxed mt-3">
@@ -387,7 +342,7 @@
         <h2 class="text-xl font-semibold" data-lang-key="s1Title">編輯器介面</h2>
         <p class="text-white/45 text-sm mt-1" data-lang-key="s1Sub">三個主要操作區域</p>
       </div>
-      <img id="editorImg" src="img/vas-guide-editor-zh.png" alt="VAS 編輯器介面說明圖" class="guide-img" loading="lazy">
+      <img id="editorImg" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="guide-img" loading="lazy">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
         <div class="glass-card rounded-xl p-4">
           <div class="text-sm font-semibold text-purple-300 mb-1" data-lang-key="zone1Name">主要功能選單</div>
@@ -420,7 +375,7 @@
 
       <div class="flex gap-4 items-start" style="display:flex;flex-direction:row;gap:1rem;align-items:flex-start;">
         <div class="flex-shrink-0">
-          <img src="img/vas-guide-sidebar.png" alt="VAS 左側工具列圖示" class="sidebar-img" loading="lazy">
+          <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示" class="sidebar-img" loading="lazy">
         </div>
         <div class="flex-1 space-y-6">
 
@@ -597,15 +552,15 @@
         if (trans[key] !== undefined) el.innerHTML = trans[key];
       });
       document.getElementById('editorImg').src = lang === 'zh'
-        ? 'img/vas-guide-editor-zh.png'
-        : lang === 'ja' ? 'img/vas-guide-editor-jp.png'
-        : 'img/vas-guide-editor-en.png';
+        ? 'img/vas-guide-editor-zh.webp'
+        : lang === 'ja' ? 'img/vas-guide-editor-jp.webp'
+        : 'img/vas-guide-editor-en.webp';
       document.getElementById('editorImg').alt = lang === 'zh'
         ? 'VAS 編輯器介面說明圖'
         : lang === 'ja' ? 'VAS エディタ画面の説明図'
         : 'VAS editor interface diagram';
       const toolbarImg = document.getElementById('toolbarImg');
-      toolbarImg.src = lang === 'zh' ? 'img/vastoolbar.png' : lang === 'ja' ? 'img/vastoolbar-jp.png' : 'img/vastoolbar-en.png';
+      toolbarImg.src = lang === 'zh' ? 'img/vastoolbar.webp' : lang === 'ja' ? 'img/vastoolbar-jp.webp' : 'img/vastoolbar-en.webp';
       toolbarImg.alt = lang === 'zh' ? 'VAS 浮動工作列' : lang === 'ja' ? 'VAS キャプチャツールバー' : 'VAS capture toolbar';
       currentLang = lang;
       window.VASShared.updateDropdown(lang);
@@ -1743,6 +1698,38 @@
 
     // currentLang is kept in sync inside switchLanguage()
   </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "VAS 操作手冊",
+  "headline": "VAS 操作手冊 — Visual Annotation Studio",
+  "description": "VAS 編輯器介面、左側工具列與浮動工作列完整功能說明。",
+  "inLanguage": "zh-Hant",
+  "url": "https://tb1982.github.io/vas/guide.html",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "babelon1882@gmail.com",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Nova"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "VAS — Visual Annotation Studio",
+    "operatingSystem": "macOS",
+    "applicationCategory": "MultimediaApplication"
+  }
+}
+</script>
 
 </body>
 </html>

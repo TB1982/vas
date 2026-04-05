@@ -92,51 +92,7 @@
         }
         .nav-sub-link:hover { color: rgba(255,255,255,0.65); }
         .nav-sub-link.active { color: rgba(255,255,255,0.9); font-weight: 600; }
-        /* ── Language dropdown ── */
-        .lang-dropdown-btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255,255,255,0.08);
-            border: none;
-            color: rgba(255,255,255,0.65);
-            padding: 6px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
-        .lang-dropdown-btn:hover { background: rgba(255,255,255,0.13); }
-        .lang-dropdown-menu {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 6px);
-            background: rgba(30,25,60,0.96);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 12px;
-            padding: 4px;
-            min-width: 100px;
-            display: none;
-            z-index: 100;
-        }
-        .lang-dropdown-menu.open { display: block; }
-        .lang-opt {
-            display: block;
-            width: 100%;
-            text-align: left;
-            background: transparent;
-            border: none;
-            color: rgba(255,255,255,0.5);
-            padding: 8px 14px;
-            font-size: 0.875rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-        }
-        .lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
-        .lang-opt.active { color: #fff; font-weight: 700; }        @media
+        @media
     </style>
 </head>
 <body>
@@ -283,7 +239,7 @@
             </div>
             <div class="mt-6">
                 <p class="text-xs text-white/30 mb-3" data-lang-key="i2imgCaption">實際操作示意</p>
-                <img src="img/qrcode.jpg" alt="QR Code 截圖示意：框選越完整，辨識信心度越高" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                <img src="img/qrcode.webp" alt="QR Code 截圖示意：框選越完整，辨識信心度越高" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
             </div>
         </article>
 
@@ -319,11 +275,11 @@
             <div class="mt-6 space-y-4">
                 <div>
                     <p class="text-xs text-white/30 mb-3" data-lang-key="i3imgCaption1">設計手稿</p>
-                    <img src="img/breathlightdesign.png" alt="呼吸燈設計手稿，以 VAS 標注完成" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                    <img src="img/breathlightdesign.webp" alt="呼吸燈設計手稿，以 VAS 標注完成" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
                 </div>
                 <div>
                     <p class="text-xs text-white/30 mb-3" data-lang-key="i3imgCaption2">最終實作</p>
-                    <img src="img/breathlightfinal.jpg" alt="呼吸燈最終實作效果" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                    <img src="img/breathlightfinal.webp" alt="呼吸燈最終實作效果" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
                 </div>
             </div>
         </article>
@@ -349,11 +305,11 @@
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <figure>
-                    <img src="img/fullscreenmodal.png" alt="原生雙螢幕選單：延遲截圖倒數期間跳出「請選擇要截哪個螢幕」——使用者不得不放棄姿勢，回去工具列點選後才能繼續" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.1);" loading="lazy">
+                    <img src="img/fullscreenmodal.webp" alt="原生雙螢幕選單：延遲截圖倒數期間跳出「請選擇要截哪個螢幕」——使用者不得不放棄姿勢，回去工具列點選後才能繼續" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.1);" loading="lazy">
                     <figcaption class="text-xs text-white/30 text-center mt-2" data-lang-key="i4imgCaption">這個選單就像計時自拍時——<br>相機等你擺好pose，倒數完才問你要拍哪邊。</figcaption>
                 </figure>
                 <figure>
-                    <img src="img/screenshot.png" alt="VAS 自製全螢幕遮罩：延遲截圖開始前即選定螢幕，倒數期間滑鼠不需移動" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.1);" loading="lazy">
+                    <img src="img/screenshot.webp" alt="VAS 自製全螢幕遮罩：延遲截圖開始前即選定螢幕，倒數期間滑鼠不需移動" class="w-full rounded-xl" style="border: 1px solid rgba(255,255,255,0.1);" loading="lazy">
                     <figcaption class="text-xs text-white/30 text-center mt-2" data-lang-key="i4imgCaption2">VAS 解法：無延遲狀態你點哪個螢幕我截哪個螢幕；<br>延遲模式不用選，你在哪我就截哪。</figcaption>
                 </figure>
             </div>

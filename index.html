@@ -51,51 +51,6 @@
             border: 1px solid rgba(255,255,255,0.10);
             backdrop-filter: blur(8px);
         }
-        /* ── Language dropdown ── */
-        .lang-dropdown-btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.08);
-            border: none;
-            color: #fff;
-            font-size: 0.875rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
-        .lang-dropdown-btn:hover { background: rgba(255,255,255,0.13); }
-        .lang-dropdown-menu {
-            position: absolute;
-            right: 0;
-            top: calc(100% + 6px);
-            min-width: 110px;
-            background: rgba(18,14,48,0.97);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 14px;
-            overflow: hidden;
-            display: none;
-            z-index: 100;
-        }
-        .lang-dropdown-menu.open { display: block; }
-        .lang-opt {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 10px 18px;
-            background: transparent;
-            border: none;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-        }
-        .lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
-        .lang-opt.active { color: #fff; font-weight: 700; }
         .divider {
             width: 48px;
             height: 3px;
@@ -273,7 +228,7 @@
             </div>
 
             <div class="flex justify-center mb-6">
-                <img src="img/vasweb.png" alt="VAS app icon" width="120" height="120" class="drop-shadow-2xl" style="filter: drop-shadow(0 0 32px rgba(196,113,245,0.5));">
+                <img src="img/vasweb.webp" alt="VAS app icon" width="120" height="120" class="drop-shadow-2xl" style="filter: drop-shadow(0 0 32px rgba(196,113,245,0.5));">
             </div>
 
             <h1 id="hero-heading" class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
@@ -326,7 +281,7 @@
 
             <div class="mt-8">
                 <h2 class="text-sm font-semibold tracking-widest text-white/30 uppercase mb-4" data-lang-key="toolbarLabel">Capture Toolbar</h2>
-                <img id="toolbarImg" src="img/vastoolbar.png" alt="VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕" class="mx-auto rounded-2xl shadow-xl max-w-[85%] md:max-w-[50%]" loading="lazy" style="box-shadow: 0 8px 40px rgba(0,0,0,0.4); margin-bottom: -24px;">
+                <img id="toolbarImg" src="img/vastoolbar.webp" alt="VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕" class="mx-auto rounded-2xl shadow-xl max-w-[85%] md:max-w-[50%]" loading="lazy" style="box-shadow: 0 8px 40px rgba(0,0,0,0.4); margin-bottom: -24px;">
             </div>
 
         </section>
@@ -359,7 +314,7 @@
                 transition: transform .4s ease, filter .4s ease;
             " onmouseenter="this.style.transform='perspective(1400px) rotateX(1deg)'; this.style.filter='drop-shadow(0 0 64px rgba(196,113,245,0.35)) drop-shadow(0 0 120px rgba(79,172,254,0.18)) drop-shadow(0 56px 90px rgba(0,0,0,0.8))';"
                onmouseleave="this.style.transform='perspective(1400px) rotateX(4deg)'; this.style.filter='drop-shadow(0 0 48px rgba(196,113,245,0.22)) drop-shadow(0 0 96px rgba(79,172,254,0.12)) drop-shadow(0 48px 80px rgba(0,0,0,0.75))';">
-                <img id="vasframeImg" src="img/vasframe-zh.png" alt="VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布" class="w-full block" loading="lazy">
+                <img id="vasframeImg" src="img/vasframe-zh.webp" alt="VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布" class="w-full block" loading="lazy">
             </div>
         </section>
 
@@ -463,8 +418,8 @@
             <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
                 <div class="flex-1">
                     <div class="relative" style="min-height: 320px;">
-                        <img id="workflowImg0" src="img/in.png" alt="VAS 延遲截圖：抓住 dropdown 展開的瞬間" class="w-full rounded-2xl shadow-2xl workflow-img" style="border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.5s ease;" loading="lazy">
-                        <img id="workflowImg1" src="img/out.png" alt="VAS 編輯器：截圖後直接進入標注與匯出流程" class="w-full rounded-2xl shadow-2xl workflow-img absolute inset-0" style="border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.5s ease; opacity: 0;" loading="lazy">
+                        <img id="workflowImg0" src="img/in.webp" alt="VAS 延遲截圖：抓住 dropdown 展開的瞬間" class="w-full rounded-2xl shadow-2xl workflow-img" style="border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.5s ease;" loading="lazy">
+                        <img id="workflowImg1" src="img/out.webp" alt="VAS 編輯器：截圖後直接進入標注與匯出流程" class="w-full rounded-2xl shadow-2xl workflow-img absolute inset-0" style="border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.5s ease; opacity: 0;" loading="lazy">
                     </div>
                     <div class="flex justify-center gap-2 mt-4" aria-hidden="true">
                         <span id="wfDot0" class="w-1.5 h-1.5 rounded-full bg-white/60"></span>
@@ -486,14 +441,14 @@
                     <p class="text-white/55 leading-relaxed" data-lang-key="m5Desc">截完，不用存檔。不用找資料夾。不用切 App。叫出 ShareSheet，選一個去處，圖就到了。資訊流進 VAS，也流出 VAS——從來不是你的終點站，是你工作流的一條河。</p>
                 </div>
                 <div class="flex-1 order-1 lg:order-2">
-                    <img id="sharesheetImg" src="img/sharesheet.png" alt="VAS ShareSheet：截圖後一鍵叫出系統分享選單，直接傳送至社群或雲端" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                    <img id="sharesheetImg" src="img/sharesheet.webp" alt="VAS ShareSheet：截圖後一鍵叫出系統分享選單，直接傳送至社群或雲端" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
                 </div>
             </div>
 
             <!-- Moment 4: 自定義快捷鍵 -->
             <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
                 <div class="flex-1">
-                    <img id="fastImg" src="img/fast.png" alt="VAS 自定義全域快捷鍵：在偏好設定中為工具錄製專屬快捷鍵組合" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08); max-height: 380px; object-fit: contain;" loading="lazy">
+                    <img id="fastImg" src="img/fast.webp" alt="VAS 自定義全域快捷鍵：在偏好設定中為工具錄製專屬快捷鍵組合" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08); max-height: 380px; object-fit: contain;" loading="lazy">
                 </div>
                 <div class="flex-1">
                     <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m4Label">Global Shortcuts</span> <span class="badge-tauri" data-lang-key="tauriOnly">Tauri 專屬</span></p>
@@ -510,7 +465,7 @@
                     <p class="text-white/55 leading-relaxed" data-lang-key="m3Desc">漸層色塊、透明疊加、符號印章、貝茲曲線、疊圖、圖層上下移動、複製物件、複數字型選擇——不只是標注工具，也是一個輕量設計環境。你能想到的表達方式，它都有。</p>
                 </div>
                 <div class="flex-1 order-1 lg:order-2">
-                    <img src="img/paint.png" alt="VAS 設計工具展示：漸層色塊、透明文字、符號印章、貝茲曲線等標注工具成果" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                    <img src="img/paint.webp" alt="VAS 設計工具展示：漸層色塊、透明文字、符號印章、貝茲曲線等標注工具成果" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
                 </div>
             </div>
 
@@ -629,15 +584,15 @@
             });
             document.getElementById('surveyFormLink').href = surveyLinks[lang];
             const toolbarImg = document.getElementById('toolbarImg');
-            toolbarImg.src = lang === 'zh' ? 'img/vastoolbar.png' : lang === 'ja' ? 'img/vastoolbar-jp.png' : 'img/vastoolbar-en.png';
+            toolbarImg.src = lang === 'zh' ? 'img/vastoolbar.webp' : lang === 'ja' ? 'img/vastoolbar-jp.webp' : 'img/vastoolbar-en.webp';
             toolbarImg.alt = lang === 'zh' ? 'VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕' : lang === 'ja' ? 'VAS キャプチャツールバー：全画面・ウィンドウ・矩形・遅延・開く・バッチ変換ボタン' : 'VAS capture toolbar: fullscreen, window, rectangle, delay, open, batch convert buttons';
             const vasframeImg = document.getElementById('vasframeImg');
-            vasframeImg.src = lang === 'zh' ? 'img/vasframe-zh.png' : lang === 'ja' ? 'img/vasframe-jp.png' : 'img/vasframe-en.png';
+            vasframeImg.src = lang === 'zh' ? 'img/vasframe-zh.webp' : lang === 'ja' ? 'img/vasframe-jp.webp' : 'img/vasframe-en.webp';
             vasframeImg.alt = lang === 'zh' ? 'VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布' : lang === 'ja' ? 'VAS エディタ画面：ダーク作業エリア、左側ツールバー、上部オプションバー、中央に注釈キャンバス' : 'VAS editor interface: dark workspace with left toolbar, top options bar, and annotation canvas';
             const sharesheetImg = document.getElementById('sharesheetImg');
-            if (sharesheetImg) sharesheetImg.src = lang === 'zh' ? 'img/sharesheet.png' : lang === 'ja' ? 'img/sharesheet-jp.png' : 'img/sharesheet-en.png';
+            if (sharesheetImg) sharesheetImg.src = lang === 'zh' ? 'img/sharesheet.webp' : lang === 'ja' ? 'img/sharesheet-jp.webp' : 'img/sharesheet-en.webp';
             const fastImg = document.getElementById('fastImg');
-            if (fastImg) fastImg.src = lang === 'zh' ? 'img/fast.png' : lang === 'ja' ? 'img/fast-jp.jpg' : 'img/fast-en.png';
+            if (fastImg) fastImg.src = lang === 'zh' ? 'img/fast.webp' : lang === 'ja' ? 'img/fast-jp.webp' : 'img/fast-en.webp';
             document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'ja' ? 'ja' : 'en';
             window.VASShared.updateDropdown(lang);
             try { localStorage.setItem('vasLang', lang); } catch (e) {}
