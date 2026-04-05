@@ -237,6 +237,7 @@
 
   function init() {
     window.VASShared.initDropdown(applyLang);
+    window.VASShared.initNavDropdown();
   }
 
   if (document.readyState === 'loading') {

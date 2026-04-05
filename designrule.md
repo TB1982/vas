@@ -121,6 +121,40 @@ Orphan prevention — add to every new page's `<style>`:
 
 ---
 
+## Nav System — Mobile Dropdown Pattern
+
+**Rule: Any nav change must be applied to both homepage AND all sub-pages simultaneously.**
+
+VAS has two nav contexts that share the same mobile dropdown pattern:
+
+| Context | Location | Links | JS init |
+|---------|----------|-------|---------|
+| Homepage floating nav | `index.html` fixed overlay | In-page anchors (功能/細節/起源/版本) | Inline IIFE in `index.html` |
+| Sub-page sticky header nav | `guide/insight/collab/milestone.html` | Cross-page links (操作/設計/協作/里程碑) | `VASShared.initNavDropdown()` via each `i18n-*.js` |
+
+**Breakpoint:** `sm` (640px) — below this, show `☰▾` dropdown; above, show pill group.
+
+**HTML pattern (both contexts):**
+```html
+<!-- Desktop pills (sm+) -->
+<div class="nav-pill-group hidden sm:flex">
+  <a href="..." class="nav-pill [active]" data-lang-key="...">...</a>
+</div>
+<!-- Mobile dropdown (below sm) -->
+<div class="relative sm:hidden" id="navMobileWrap">
+  <button id="navMobileBtn" class="nav-pill-group flex items-center gap-1.5" style="appearance:none;cursor:pointer;" aria-haspopup="true" aria-expanded="false" aria-label="導覽選單">
+    <!-- hamburger icon + chevron svg -->
+  </button>
+  <div id="navMobileMenu" style="display:none; ...">
+    <a href="..." class="nav-pill [active]" style="display:block;text-align:center;" data-lang-key="...">...</a>
+  </div>
+</div>
+```
+
+**`initNavDropdown()` is defined in `i18n-shared.js`** — do not duplicate the toggle logic per page.
+
+---
+
 ## Design Consistency Check
 When reviewing the codebase, check visual consistency as a separate axis from correctness:
 - Nav structure (pill style, spacing) matches across homepage and all sub-pages

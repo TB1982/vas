@@ -78,6 +78,34 @@ window.VASShared = (function () {
     } catch (e) {}
   }
 
-  return { sharedT: sharedT, initDropdown: initDropdown, updateDropdown: updateDropdown };
+  // ── 手機版頁內/頁間 nav 下拉選單 ────────────────────────────
+  function initNavDropdown() {
+    var btn     = document.getElementById('navMobileBtn');
+    var menu    = document.getElementById('navMobileMenu');
+    var chevron = document.getElementById('navMobileChevron');
+    if (!btn || !menu) return;
+    var open = false;
+
+    function close() {
+      open = false;
+      menu.style.display = 'none';
+      if (chevron) chevron.style.transform = '';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function toggle(e) {
+      e.stopPropagation();
+      if (open) { close(); return; }
+      open = true;
+      menu.style.display = 'flex';
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    btn.addEventListener('click', toggle);
+    menu.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+    document.addEventListener('click', close);
+  }
+
+  return { sharedT: sharedT, initDropdown: initDropdown, updateDropdown: updateDropdown, initNavDropdown: initNavDropdown };
 
 })();
