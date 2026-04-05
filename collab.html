@@ -74,31 +74,18 @@
 <body>
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 px-6 py-4 flex items-center justify-between gap-4" style="background: rgba(15,12,41,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <nav class="flex items-center gap-1.5 flex-1 min-w-0" aria-label="VAS 子頁面">
-            <a href="index.html" class="shrink-0" aria-label="回 VAS 首頁">
-              <img src="img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-lg opacity-50 hover:opacity-85 transition-opacity">
-            </a>
-            <span class="text-white/20 text-xs shrink-0">›</span>
-            <a href="guide.html" class="nav-sub-link shrink-0">
-                <span class="sm:hidden" data-lang-key="navGuideShort">操作</span>
-                <span class="hidden sm:inline" data-lang-key="navGuide">操作手冊</span>
-            </a>
-            <span class="text-white/20 text-xs shrink-0">·</span>
-            <a href="insight.html" class="nav-sub-link shrink-0">
-                <span class="sm:hidden" data-lang-key="navInsightShort">設計</span>
-                <span class="hidden sm:inline" data-lang-key="navInsight">設計洞察</span>
-            </a>
-            <span class="text-white/20 text-xs shrink-0">·</span>
-            <a href="collab.html" class="nav-sub-link active shrink-0" aria-current="page">
-                <span class="sm:hidden" data-lang-key="navCollabShort">協作</span>
-                <span class="hidden sm:inline" data-lang-key="navCollab">協作筆記</span>
-            </a>
-            <span class="text-white/20 text-xs shrink-0">·</span>
-            <a href="milestone.html" class="nav-sub-link shrink-0">
-                <span class="sm:hidden" data-lang-key="navMilestoneShort">里程碑</span>
-                <span class="hidden sm:inline" data-lang-key="navMilestone">里程碑</span>
-            </a>
+    <header class="sticky top-0 z-50 px-4 py-3 flex items-center gap-2" style="background: rgba(15,12,41,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <nav class="flex items-center gap-2 flex-1 min-w-0" aria-label="VAS 子頁面">
+            <div class="nav-pill-group shrink-0" style="gap:4px; padding:6px 12px;">
+                <a href="index.html" class="nav-pill" aria-label="回 VAS 首頁" style="padding:4px 6px;">‹</a>
+                <span class="gradient-text font-bold" style="font-size:0.7rem; letter-spacing:0.1em;">VAS</span>
+            </div>
+            <div class="nav-pill-group min-w-0 overflow-x-auto" style="scrollbar-width:none;">
+                <a href="guide.html" class="nav-pill" data-lang-key="navGuideShort">操作</a>
+                <a href="insight.html" class="nav-pill" data-lang-key="navInsightShort">設計</a>
+                <a href="collab.html" class="nav-pill active" data-lang-key="navCollabShort" aria-current="page">協作</a>
+                <a href="milestone.html" class="nav-pill" data-lang-key="navMilestoneShort">里程碑</a>
+            </div>
         </nav>
         <div class="relative shrink-0" id="langDropdownWrap">
             <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">

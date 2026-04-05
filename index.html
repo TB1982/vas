@@ -21,12 +21,6 @@
         .hero-bg {
             background: linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #c471f5 0%, #fa71cd 50%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
         .download-btn {
             background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%);
             transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
@@ -158,27 +152,6 @@
         @media
         /* Floating pill nav */
         #floatingNav { transition: opacity 0.3s ease, transform 0.3s ease; }
-        .nav-pill {
-            display: inline-block;
-            padding: 4px 11px;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: rgba(255,255,255,0.45);
-            background: transparent;
-            border: none;
-            text-decoration: none;
-            cursor: pointer;
-            transition: color 0.2s, background 0.2s;
-            white-space: nowrap;
-        }
-        .nav-pill:hover, .nav-pill:focus-visible {
-            color: white;
-            background: rgba(255,255,255,0.1);
-            outline: none;
-        }
-        .nav-pill.active { color: white; background: rgba(255,255,255,0.12); }
     </style>
 </head>
 <body class="hero-bg text-white min-h-screen">
@@ -187,12 +160,12 @@
     <nav id="floatingNav" class="fixed top-4 left-1/2 -translate-x-1/2 z-[60] opacity-0 pointer-events-none" aria-label="頁面導航">
         <div class="flex items-center gap-2">
             <!-- 返回深握計畫 + 品牌識別 -->
-            <div class="flex items-center gap-1 px-3 py-1.5 rounded-full" style="background: rgba(15,12,41,0.82); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 4px 24px rgba(0,0,0,0.5);">
-                <a href="https://tb1982.github.io/pm/" aria-label="返回深握計畫" style="color:rgba(255,255,255,0.45); font-size:0.9rem; line-height:1; text-decoration:none; padding: 2px 4px 2px 2px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">‹</a>
+            <div class="nav-pill-group" style="gap:4px; padding: 6px 12px;">
+                <a href="https://tb1982.github.io/pm/" class="nav-pill" aria-label="返回深握計畫" style="padding:4px 6px;">‹</a>
                 <span class="gradient-text font-bold" style="font-size:0.7rem; letter-spacing:0.1em;">VAS</span>
             </div>
             <!-- 頁內錨點 -->
-            <div class="flex items-center gap-0.5 px-2 py-1.5 rounded-full" style="background: rgba(15,12,41,0.82); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 4px 24px rgba(0,0,0,0.5);">
+            <div class="nav-pill-group">
                 <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
                 <a href="#moments-heading" class="nav-pill" data-lang-key="navMoments">細節</a>
                 <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
