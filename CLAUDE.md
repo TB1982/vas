@@ -88,10 +88,11 @@ Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by 
 ## Development Workflow
 
 > **Before any HTML or CSS change: read `designrule.md` AND `base.css` first. This is mandatory.**
+> **Never push directly to `main`.** Always use a dev branch (`claude/<description>-<id>`).
 
 1. Edit the relevant `.html` file directly.
 2. Commit with a Traditional Chinese action message.
-3. Push to dev branch (`claude/<description>-<id>`); merge to `main` when ready.
+3. Push to dev branch; merge to `main` when ready.
 
 ```bash
 # Local preview — always use port 8081
@@ -155,15 +156,6 @@ Traditional Chinese, action-oriented: `更新手機版顯示數字大小` / `新
 - **Main branch:** `main` (GitHub Pages source)
 - **Dev branches:** `claude/<description>-<id>`
 - Do not push directly to `main`. CDN dependencies: do not move to local files.
-
----
-
-## Safety Rules — Destructive Actions
-**STOP and ask before:**
-- Deleting files / directories
-- `git reset --hard`, `git restore`, `git checkout --`
-- `git push --force`
-- Any action that cannot be undone in one step
 
 ---
 
