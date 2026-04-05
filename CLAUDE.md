@@ -15,7 +15,7 @@ This file provides guidance for AI assistants working in this repository.
 | Project name (ZH) | 深握計畫 |
 | Project name (EN) | Deep Holding Project |
 | Site canonical URL | `https://tb1982.github.io/vas/` |
-| Copyright year | 2025–present |
+| Copyright year | 2026– |
 | GitHub | `https://github.com/tb1982` |
 | LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
 | Instagram | `https://www.instagram.com/liuyingtzu` |
@@ -112,7 +112,7 @@ git pull origin <branch-name> && python3 -m http.server 8081
 
 Nova checks:
 1. Content correct
-2. Language toggle (中 → EN → 中) — no missing keys
+2. Language toggle (中 → EN → 日) — no missing keys
 3. External links correct
 4. RWD at ~375px — no horizontal overflow
 5. Design consistency — nav style, spacing match across all pages
