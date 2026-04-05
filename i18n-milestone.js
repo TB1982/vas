@@ -373,7 +373,7 @@
     try { localStorage.setItem('vasLang', lang); } catch (e) {}
   }
 
-  function init() { window.VASShared.initDropdown(applyLang); }
+  function init() { window.VASShared.initDropdown(applyLang); window.VASShared.initNavDropdown(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

@@ -181,6 +181,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     shared.initDropdown(applyLang);
+    shared.initNavDropdown();
   });
 
 })();
