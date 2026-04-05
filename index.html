@@ -185,14 +185,19 @@
 
     <!-- Floating Pill Nav -->
     <nav id="floatingNav" class="fixed top-4 left-1/2 -translate-x-1/2 z-[60] opacity-0 pointer-events-none" aria-label="頁面導航">
-        <div class="flex items-center gap-0.5 px-2 py-1.5 rounded-full" style="background: rgba(15,12,41,0.82); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 4px 24px rgba(0,0,0,0.5);">
-            <a href="https://tb1982.github.io/pm/" class="nav-pill" aria-label="返回深握計畫" style="padding: 4px 8px; font-size: 0.85rem; line-height: 1;">‹</a>
-            <img src="img/vasweb.webp" alt="VAS" width="20" height="20" class="rounded-md" style="opacity:0.55; margin: 0 4px 0 2px; flex-shrink:0;">
-            <span style="width:1px; height:14px; background:rgba(255,255,255,0.15); flex-shrink:0; margin-right:2px;"></span>
-            <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
-            <a href="#moments-heading" class="nav-pill" data-lang-key="navMoments">細節</a>
-            <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
-            <a href="#roadmap-anchor" class="nav-pill" data-lang-key="navRoadmap">版本</a>
+        <div class="flex items-center gap-2">
+            <!-- 返回深握計畫 + 品牌識別 -->
+            <div class="flex items-center gap-1 px-3 py-1.5 rounded-full" style="background: rgba(15,12,41,0.82); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 4px 24px rgba(0,0,0,0.5);">
+                <a href="https://tb1982.github.io/pm/" aria-label="返回深握計畫" style="color:rgba(255,255,255,0.45); font-size:0.9rem; line-height:1; text-decoration:none; padding: 2px 4px 2px 2px; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">‹</a>
+                <span class="gradient-text font-bold" style="font-size:0.7rem; letter-spacing:0.1em;">VAS</span>
+            </div>
+            <!-- 頁內錨點 -->
+            <div class="flex items-center gap-0.5 px-2 py-1.5 rounded-full" style="background: rgba(15,12,41,0.82); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 4px 24px rgba(0,0,0,0.5);">
+                <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
+                <a href="#moments-heading" class="nav-pill" data-lang-key="navMoments">細節</a>
+                <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
+                <a href="#roadmap-anchor" class="nav-pill" data-lang-key="navRoadmap">版本</a>
+            </div>
         </div>
     </nav>
 
