@@ -557,7 +557,9 @@
             // scroll-margin-top: 108px on .divider handles header offset
             document.querySelectorAll('a[href^="#"]').forEach(a => {
                 a.addEventListener('click', function(e) {
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const href = this.getAttribute('href');
+                    if (href === '#') return; // 回頁首：讓瀏覽器原生處理
+                    const target = document.querySelector(href);
                     if (!target) return;
                     e.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
