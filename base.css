@@ -107,6 +107,15 @@ p {
 .lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .lang-opt.active { color: #fff; font-weight: 700; }
 
+/* ── 頁面區塊間距 ─────────────────────────────────────────
+ * .page-section：首頁各功能區塊的統一垂直留白。
+ * 改用此 class 取代各處的 py-16，日後只需在這裡調整一次。
+ */
+.page-section {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 /* ── 無障礙：減少動態效果 ────────────────────────────────
  * 尊重使用者的「減少動態效果」系統偏好設定。
  */
