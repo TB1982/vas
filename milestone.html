@@ -64,10 +64,10 @@
     <!-- Header -->
     <header class="sticky top-0 z-50 px-4 py-3 flex items-center gap-2" style="background: rgba(15,12,41,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
         <nav class="flex items-center gap-2 flex-1 min-w-0" aria-label="VAS 子頁面">
-            <div class="nav-pill-group shrink-0" style="gap:4px; padding:6px 12px;">
-                <a href="index.html" class="nav-pill" aria-label="回 VAS 首頁" style="padding:4px 6px;">‹</a>
-                <span class="gradient-text font-bold" style="font-size:0.7rem; letter-spacing:0.1em;">VAS</span>
-            </div>
+            <a href="index.html" aria-label="返回 VAS 首頁" class="shrink-0" style="color:rgba(255,255,255,0.4); font-size:1.1rem; line-height:1; text-decoration:none; transition:color 0.2s; padding:4px 2px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">‹</a>
+            <a href="index.html" aria-label="VAS 首頁" class="shrink-0">
+                <img src="img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-md opacity-55 hover:opacity-90 transition-opacity">
+            </a>
             <div class="nav-pill-group min-w-0 overflow-x-auto" style="scrollbar-width:none;">
                 <a href="guide.html" class="nav-pill" data-lang-key="navGuideShort">操作</a>
                 <a href="insight.html" class="nav-pill" data-lang-key="navInsightShort">設計</a>

@@ -206,8 +206,20 @@ git pull origin <branch-name> && python3 -m http.server 8081
 3. All external links open the correct destination
 4. RWD — narrow browser to ~375 px, confirm no horizontal overflow
 5. EN version — text renders correctly, layout holds
+6. **Design consistency** — nav style, pill shape, spacing, and interactive behaviour match across homepage and all sub-pages
 
 Claude reminds Nova to check **both RWD and EN version** every time, even when the change appears zh-only.
+
+### Environment Health Check — Design Consistency
+
+When performing an initial codebase review, Claude must check **both functional correctness AND visual/design consistency**:
+
+- **Nav structure** — homepage and sub-pages use the same pill style, spacing, and back-navigation pattern
+- **Component reuse** — shared UI (dropdowns, badges, dividers) should come from `base.css`, not be redefined per page
+- **Active state** — current-page indicators are present and correct on every sub-page
+- **Link destinations** — back links (`‹`) point to the correct parent page at every level of the hierarchy
+
+> **Lesson (2026-04-05):** A nav style inconsistency between index.html and sub-pages was missed during initial review because all links were functional. Broken functionality ≠ acceptable design. Always review design consistency as a separate axis from technical correctness.
 
 ---
 
