@@ -173,6 +173,51 @@ https://www.instagram.com/liuyingtzu
 
 ---
 
+## Design System — base.css
+
+**Rule: Before creating any new HTML page, read `base.css` first. Confirm which classes already exist before writing any CSS.**
+
+`base.css` is the single source of truth for all shared styles. Do not redefine any class listed below in a per-page `<style>` block.
+
+### Available classes (defined in base.css)
+
+| Class | Purpose |
+|-------|---------|
+| `.gradient-text` | Purple→pink→blue gradient text (brand & emphasis) |
+| `.tag` | Small uppercase label above card headings (purple) |
+| `.nav-sub-link` | Sub-page nav links — includes `:hover` and `.active` states |
+| `.badge-tauri` | Amber badge — Tauri Exclusive features |
+| `.badge-all` | Green badge — All Versions (Electron + Tauri) |
+| `.glass-section` | Static glass content block (`bg 0.04`, no hover) |
+| `.glass-card` | Interactive glass card (`bg 0.06`, hover lift effect) |
+| `.nav-pill-group` | Pill nav container (dark frosted glass capsule) |
+| `.nav-pill` | Individual pill nav link — includes `:hover` and `.active` |
+| `.lang-dropdown-btn/menu/opt` | Language switcher dropdown |
+| `.divider` | Pink gradient divider bar (includes `scroll-margin-top: 90px`) |
+| `.page-section` | Vertical padding for homepage content sections |
+
+### Design tokens
+
+| Token | Value |
+|-------|-------|
+| Page background | `linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%)` |
+| Brand gradient | `linear-gradient(135deg, #c471f5 0%, #fa71cd 50%, #4facfe 100%)` |
+| Body text | `rgba(255,255,255,0.85)` |
+| Glass (subtle) | `background: rgba(255,255,255,0.04)` — use `.glass-section` |
+| Glass (card) | `background: rgba(255,255,255,0.06)` — use `.glass-card` |
+| Border subtle | `1px solid rgba(255,255,255,0.08–0.12)` |
+| Font stack | `'Inter', 'Noto Sans TC', sans-serif` |
+
+### Per-page background overrides
+
+`body` in `base.css` sets the standard dark gradient. Pages that need a different background add a class to `<body>`:
+- `index.html` → `class="hero-bg"` (same gradient, defined locally for specificity)
+- `guide.html` → `class="gradient-bg"` (darker indigo variant, defined locally)
+
+Do not remove these override classes.
+
+---
+
 ## Development Workflow
 
 1. **Edit** the relevant `.html` file directly.

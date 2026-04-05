@@ -16,35 +16,6 @@
     <link rel="stylesheet" href="base.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background: linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            min-height: 100vh;
-            color: rgba(255,255,255,0.85);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #c471f5 0%, #fa71cd 50%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .insight-card {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.12);
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-        .insight-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,0.09);
-        }
-        .tag {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(196,113,245,0.8);
-        }
         .compare-box {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
@@ -55,44 +26,6 @@
             background: rgba(196,113,245,0.08);
             border-color: rgba(196,113,245,0.25);
         }
-        .badge-tauri {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: rgba(251,191,36,0.12);
-            border: 1px solid rgba(251,191,36,0.25);
-            color: rgba(251,191,36,0.85);
-            text-transform: uppercase;
-            vertical-align: middle;
-        }
-        .badge-all {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: rgba(74,222,128,0.12);
-            border: 1px solid rgba(74,222,128,0.3);
-            color: rgba(134,239,172,0.9);
-            text-transform: uppercase;
-            vertical-align: middle;
-        }
-        .nav-sub-link {
-            color: rgba(255,255,255,0.35);
-            text-decoration: none;
-            font-size: 0.75rem;
-            transition: color 0.2s;
-            white-space: nowrap;
-        }
-        .nav-sub-link:hover { color: rgba(255,255,255,0.65); }
-        .nav-sub-link.active { color: rgba(255,255,255,0.9); font-weight: 600; }
-        @media
     </style>
 </head>
 <body>
@@ -143,7 +76,7 @@
     <main class="px-6 pb-32 max-w-3xl mx-auto space-y-8">
 
         <!-- Insight 01：承認不完美 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <div class="flex items-center gap-2 mb-2" style="display:flex;align-items:center;gap:8px;flex-wrap:nowrap;margin-bottom:0.5rem;">
                 <p class="tag" data-lang-key="i1Tag">人機協作 · Human-AI Collaboration</p>
                 <span class="badge-all" data-lang-key="allVersions" style="flex-shrink:0;white-space:nowrap;">全版本</span>
@@ -181,7 +114,7 @@
         </article>
 
         <!-- Insight 02：學會讀人 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <div class="flex items-center gap-2 mb-2" style="display:flex;align-items:center;gap:8px;flex-wrap:nowrap;margin-bottom:0.5rem;">
                 <p class="tag" data-lang-key="i2Tag">信心度感知 · Confidence-Aware Interaction</p>
                 <span class="badge-all" data-lang-key="allVersions" style="flex-shrink:0;white-space:nowrap;">全版本</span>
@@ -233,7 +166,7 @@
         </article>
 
         <!-- Insight 03：主動陪伴 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <div class="flex items-center gap-2 mb-2" style="display:flex;align-items:center;gap:8px;flex-wrap:nowrap;margin-bottom:0.5rem;">
                 <p class="tag" data-lang-key="i3Tag">零摩擦觸發 · Proactive Ambient Computing</p>
                 <span class="badge-tauri" data-lang-key="tauriOnly" style="flex-shrink:0;white-space:nowrap;">Tauri 專屬</span>
@@ -274,7 +207,7 @@
         </article>
 
         <!-- Insight 04：不打擾 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <div class="flex items-center gap-2 mb-2" style="display:flex;align-items:center;gap:8px;flex-wrap:nowrap;margin-bottom:0.5rem;">
                 <p class="tag" data-lang-key="i4Tag">消除中斷 · Eliminating Interruption</p>
                 <span class="badge-all" data-lang-key="allVersions" style="flex-shrink:0;white-space:nowrap;">全版本</span>
@@ -328,7 +261,7 @@
         </article>
 
         <!-- Insight 05：走得遠 -->
-        <article class="insight-card rounded-2xl p-8">
+        <article class="glass-card rounded-2xl p-8">
             <div class="flex items-center gap-2 mb-2" style="display:flex;align-items:center;gap:8px;flex-wrap:nowrap;margin-bottom:0.5rem;">
                 <p class="tag" data-lang-key="i5Tag">系統架構 · Design Token Architecture</p>
                 <span class="badge-all" data-lang-key="allVersions" style="flex-shrink:0;white-space:nowrap;">全版本</span>
