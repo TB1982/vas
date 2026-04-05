@@ -107,6 +107,18 @@ p {
 .lang-opt:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .lang-opt.active { color: #fff; font-weight: 700; }
 
+/* ── 螢光分隔棒 ──────────────────────────────────────────
+ * .divider：粉紫漸層短橫棒，用於區塊標題前的視覺分隔。
+ * scroll-margin-top 確保錨點捲動時棒棒不被固定 nav 遮住。
+ */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #c471f5, #fa71cd);
+  border-radius: 2px;
+  scroll-margin-top: 90px;
+}
+
 /* ── 頁面區塊間距 ─────────────────────────────────────────
  * .page-section：首頁各功能區塊的統一垂直留白。
  * 改用此 class 取代各處的 py-16，日後只需在這裡調整一次。
