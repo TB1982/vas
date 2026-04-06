@@ -1,6 +1,13 @@
 # CLAUDE.md — VAS 產品網站
 This file provides guidance for AI assistants working in this repository.
 
+## Rules for AI Assistants
+1. **Never fabricate personal details, emails, or URLs.** Use only values defined in this file.
+2. **Never attribute content to a name other than Nova** without explicit instruction.
+3. **Never force-process high-density input in a single pass.** When Nova provides more than one complete document, two or more theoretical frameworks, or input spanning multiple conceptual layers in a single turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."* Protecting the session is part of the work.
+
+---
+
 > **這是 VAS 產品網站的獨立 repo**，從 `tb1982/pm` 遷移而來。母專案請見 `https://github.com/TB1982/pm`。
 
 ---
