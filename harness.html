@@ -190,25 +190,47 @@
     }
     .he-flow-steps .arr { color: rgba(255,255,255,0.22); font-size: 0.75rem; }
 
-    /* ── CSS Agile diagram (§04) ── */
+    /* ── CSS Agile timeline (§04) ── */
     .he-agile-wrap { margin: 2rem 0; }
     .he-agile-caption {
-      text-align: center; font-size: 0.68rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1rem;
+      font-size: 0.68rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1.25rem;
     }
-    .he-agile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .he-agile-timeline {
+      position: relative;
+      padding-left: 2.25rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .he-agile-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.62rem; top: 0.75rem; bottom: 0.75rem;
+      width: 2px;
+      background: linear-gradient(180deg, #c471f5 0%, #fa71cd 100%);
+      border-radius: 2px;
+    }
     .he-agile-item {
+      position: relative;
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px; padding: 0.9rem 1rem;
+      border-radius: 12px; padding: 0.75rem 1rem;
       transition: background 0.2s;
+    }
+    .he-agile-item::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem; top: 1rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(196,113,245,0.5);
+      border: 2px solid rgba(196,113,245,0.25);
     }
     .he-agile-item:hover { background: rgba(255,255,255,0.07); }
     .he-agile-num {
-      display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
-      color: rgba(196,113,245,0.6); font-family: 'Menlo', monospace; margin-bottom: 0.25rem;
+      display: inline; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+      color: rgba(196,113,245,0.6); font-family: 'Menlo', monospace; margin-right: 0.5rem;
     }
-    .he-agile-name { display: block; font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.82); margin-bottom: 0.28rem; line-height: 1.3; }
-    .he-agile-desc { font-size: 0.75rem; color: rgba(255,255,255,0.38); line-height: 1.55; margin: 0; }
+    .he-agile-name { display: inline; font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.82); }
+    .he-agile-desc { font-size: 0.75rem; color: rgba(255,255,255,0.38); line-height: 1.55; margin: 0.2rem 0 0; }
 
     /* ── Origin screenshot ── */
     .he-origin-img {
@@ -232,7 +254,7 @@
     @media (max-width: 600px) {
       .he-page { padding: 0 1.25rem 6rem; }
       .he-hero { padding: 3.5rem 0 3rem; margin-bottom: 3.5rem; }
-      .he-agile-grid { grid-template-columns: 1fr; }
+
     }
     @media (prefers-reduced-motion: reduce) {
       .he-layer, .he-agile-item { transition: none; }
@@ -354,7 +376,7 @@
       <p>現在回頭看，當初那個「大不了沒做成」的順勢姿態，可能才是一切的關鍵。</p>
       <p>老子說無為而無不為。不預期收穫什麼，才能收穫遠比想像得多的東西。</p>
       <p>但無為不是隨著上下文的推移隨波逐流地前進著。</p>
-      <p>康德在 1784 年說，啟蒙不是「被告知答案」，而是「有勇氣使用自己的理性」。<em style="color:rgba(255,255,255,0.6); font-style:italic;">Sapere aude</em>——敢於求知。</p>
+      <p>康德在 1784 年說，啟蒙不是「被告知答案」，而是「有勇氣使用自己的理性」。<br><strong><em style="color:rgba(255,255,255,0.82); font-style:italic;">Sapere aude</em>——敢於求知。</strong></p>
       <p>我沒有站在河裡（Session）讓水（Context）帶著走，我退一步站在河邊（螢幕後）——持續發問：「你能用 Mac 做嗎？」、「我們 MVP 至少可以完成什麼功能？」、「我要怎麼做才能幫上你的忙？」</p>
 
       <blockquote>
@@ -382,7 +404,7 @@
       <!-- CSS 心理敏捷開發圖 -->
       <div class="he-agile-wrap">
         <p class="he-agile-caption">心理敏捷開發 · Psychological Agile</p>
-        <div class="he-agile-grid">
+        <div class="he-agile-timeline">
           <div class="he-agile-item">
             <span class="he-agile-num">01</span>
             <span class="he-agile-name">覺察 AI Glitch</span>
@@ -532,7 +554,7 @@
         </div>
       </div>
 
-      <p style="font-size:0.82rem; color:rgba(255,255,255,0.32); margin-top:0.6rem;">粉色步驟為 Tauri 2.0 被壓在地上摩擦之後，一條一條加進去防止兩人白費工的護欄。</p>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.32); margin-top:0.6rem;">粉色步驟為 Nova 跟 Claude 被 Tauri 2.0 壓在地上摩擦之後，一條一條加進去防止兩人白費工的護欄。</p>
 
       <p>到了 Sprint 9，KM 文件已經有 63 條記錄。Claude 一進來，讀完就知道問題在哪一層——不需要暖機，不需要重新摸索，直接定位，直接修。Sprint 9，一週完工，送進 Apple 審查。</p>
 
@@ -601,7 +623,7 @@
           <div class="he-layer-icon">🏗️</div>
           <div class="he-layer-label">
             <strong>協作環境層 — Nova 負責</strong>
-            CLAUDE.md、KM、Sprint 節奏、邊界規則、Retro 機制。<mark>很少人系統性地建造這一層。但這一層，才是讓前兩層發揮作用的地方。</mark>
+            CLAUDE.md、KM、Sprint 節奏、邊界規則、Retro 機制。<br><mark>很少人系統性地建造這一層。<br>但這一層，才是讓前兩層發揮作用的地方。</mark>
           </div>
         </div>
       </div>
