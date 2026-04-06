@@ -11,7 +11,8 @@ window.VASShared = (function () {
       navGuide: '操作手冊', navGuideShort: '操作',
       navInsight: '設計洞察', navInsightShort: '設計',
       navMilestone: '里程碑',  navMilestoneShort: '里程碑',
-      navCollab: '協作筆記',   navCollabShort: '協作'
+      navCollab: '協作筆記',   navCollabShort: '協作',
+      navHarness: '系統建構裏話', navHarnessShort: '系統'
     },
     en: {
       footer: 'Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by <a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a>',
@@ -19,7 +20,8 @@ window.VASShared = (function () {
       navGuide: 'User Guide',      navGuideShort: 'Guide',
       navInsight: 'Design Insights', navInsightShort: 'Insights',
       navMilestone: 'Milestones',  navMilestoneShort: 'Milestone',
-      navCollab: 'Collab Notes',   navCollabShort: 'Collab'
+      navCollab: 'Collab Notes',   navCollabShort: 'Collab',
+      navHarness: 'System Thinking', navHarnessShort: 'System'
     },
     ja: {
       footer: 'GitHub でデプロイ　｜　Claude Code で構築　｜　2026年 <a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最終更新',
@@ -27,7 +29,8 @@ window.VASShared = (function () {
       navGuide: '操作マニュアル', navGuideShort: '操作',
       navInsight: 'デザインの洞察', navInsightShort: '洞察',
       navMilestone: 'マイルストーン', navMilestoneShort: 'マイル',
-      navCollab: '協作ノート',     navCollabShort: '協作'
+      navCollab: '協作ノート',     navCollabShort: '協作',
+      navHarness: 'システム構築の裏話', navHarnessShort: 'システム'
     }
   };
 

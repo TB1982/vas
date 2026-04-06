@@ -54,7 +54,9 @@
       c6bridge: '你投入湖裡的石子，決定了它怎麼回來的漣漪。',
       c6quote2: '你怎麼思考，決定了 AI 怎麼回應你。',
       milestoneTeaser: '完整開發歷程 · Electron + Tauri · 路線圖',
-      milestoneBtn: '查看產品里程碑 →'
+      milestoneBtn: '查看產品里程碑 →',
+      harnessTeaser: '想知道這套協作方式背後的方法論？',
+      harnessBtn: '閱讀系統思維 →'
     },
     en: {
       heroTag: 'VAS · Collab Notes',
@@ -108,7 +110,9 @@
       c6bridge: 'The stone you throw into the lake determines the ripples that come back.',
       c6quote2: 'How you think determines how AI responds to you.',
       milestoneTeaser: 'Full development history · Electron + Tauri · Roadmap',
-      milestoneBtn: 'View product milestones →'
+      milestoneBtn: 'View product milestones →',
+      harnessTeaser: 'Curious about the methodology behind this collaboration?',
+      harnessBtn: 'Read Harness Engineering →'
     },
     ja: {
       heroTag: 'VAS · 協作ノート',
@@ -162,7 +166,9 @@
       c6bridge: '湖に投げた石が、どのように波紋が戻ってくるかを決めます。',
       c6quote2: 'あなたがどう考えるかが、AI があなたにどう応答するかを決めます。',
       milestoneTeaser: '完全な開発履歴 · Electron + Tauri · ロードマップ',
-      milestoneBtn: '製品マイルストーンを見る →'
+      milestoneBtn: '製品マイルストーンを見る →',
+      harnessTeaser: 'この協作方式の背後にある方法論を知りたいですか？',
+      harnessBtn: 'ハーネスエンジニアリングを読む →'
     }
   };
 
