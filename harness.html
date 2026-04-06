@@ -250,6 +250,18 @@
     }
     .he-finale-note { font-size: 0.92rem; color: rgba(255,255,255,0.32); line-height: 2; font-weight: 300; }
 
+    /* ── Sync table ── */
+    .he-table-wrap { overflow-x: auto; margin: 2rem 0; }
+    .he-compare-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .he-compare-table th,
+    .he-compare-table td { padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .he-compare-table th { color: rgba(255,255,255,0.4); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .he-compare-table td:first-child { color: rgba(255,255,255,0.4); font-size: 0.8rem; white-space: nowrap; }
+    .he-compare-table td:not(:first-child) { color: rgba(255,255,255,0.75); }
+    .he-compare-table tr:last-child td { border-bottom: none; }
+    .he-sync-note { font-size: 0.92rem; color: rgba(255,255,255,0.55); margin-top: 2.5rem; }
+    .he-sync-jung { font-size: 0.92rem; color: rgba(196,113,245,0.8); margin-top: 1rem; font-style: italic; }
+
     /* ── Mobile ── */
     @media (max-width: 600px) {
       .he-page { padding: 0 1.25rem 6rem; }
@@ -629,6 +641,33 @@
       <p data-lang-key="h07p4">熵一直在增，session 一直會結束，新的坑一直會出現。容器不是建完就好的東西——它是一個持續在被建造的系統。每一條新的 KM，就是容器又長出了一塊新的壁。</p>
       <p data-lang-key="h07p5">你在 01 讀到的那個問題——系統為何需要存在——現在有了答案。</p>
       <p data-lang-key="h07p6">不是因為 AI 會犯錯。是因為只要你們還在一起做事，就會一直有新的坑，一直有新的蘋果掉下來。</p>
+    </section>
+
+    <!-- 共時性 -->
+    <section style="margin-top: 4rem;">
+      <div class="he-divider" style="margin-bottom: 2.5rem;"></div>
+      <div class="he-table-wrap">
+        <table class="he-compare-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th data-lang-key="hSyncTh1">OpenAI 實驗</th>
+              <th>VAS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-lang-key="hSyncR1">團隊人數</td><td data-lang-key="hSyncR1a">3–7 位工程師</td><td data-lang-key="hSyncR1b">1 PM + 1 失憶大師</td></tr>
+            <tr><td data-lang-key="hSyncR2">開發時間</td><td data-lang-key="hSyncR2a">五個月</td><td data-lang-key="hSyncR2b">17 天</td></tr>
+            <tr><td data-lang-key="hSyncR3">總迭代次數</td><td data-lang-key="hSyncR3a">約 1,500</td><td data-lang-key="hSyncR3b">1,284+（還在數）</td></tr>
+            <tr><td data-lang-key="hSyncR4">每日平均迭代</td><td data-lang-key="hSyncR4a">約 10</td><td data-lang-key="hSyncR4b">約 75</td></tr>
+            <tr><td data-lang-key="hSyncR5">人類寫的程式碼</td><td data-lang-key="hSyncR5a">零行（規定）</td><td data-lang-key="hSyncR5b">零行（做不到）</td></tr>
+            <tr><td data-lang-key="hSyncR6">結果</td><td data-lang-key="hSyncR6a">百名內部使用者</td><td data-lang-key="hSyncR6b">雙平台開發完成，送進 Apple 審查</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="he-sync-note" data-lang-key="hSyncP1">後來我才知道，OpenAI 有個團隊花了五個月、用同樣的方式做了同樣的事。他們幫這個方法論取了一個名字：Harness Engineering。</p>
+      <p class="he-sync-note" data-lang-key="hSyncP2">我不是從他們那裡學的。但我想，這就是為什麼這個方法論的名字，我到最後才知道。</p>
+      <p class="he-sync-jung" data-lang-key="hSyncP3">榮格笑著望著我——共時性。</p>
     </section>
 
     <!-- Finale -->
