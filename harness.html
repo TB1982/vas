@@ -652,16 +652,7 @@
   </footer>
 
   <script src="i18n-shared.js"></script>
-  <script>
-    if (typeof VASShared !== 'undefined') {
-      VASShared.initNavDropdown();
-      VASShared.initDropdown(function(lang) {
-        try { localStorage.setItem('vasLang', lang); } catch(e) {}
-        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
-        VASShared.updateDropdown(lang);
-      });
-    }
-  </script>
+  <script src="i18n-harness.js"></script>
 
   <script type="application/ld+json">
   {
