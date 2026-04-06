@@ -5,6 +5,7 @@
     zh: {
       hHeroTag: 'VAS · 系統建構裏話',
       hHeroH1:  'Harness<br>Engineering',
+      hHeroTagline: '用文組的思維，做最硬核的開發',
       hHeroSub: '一個不會寫程式的 PM，如何跟一個失憶大師一起把一個 macOS App 送進 Apple 審查——<br>以及為什麼這個方法論的名字，她到最後才知道。',
       // §01
       h01Title: '熵增，以及為什麼你不能要求 AI 不會犯錯',
@@ -126,6 +127,7 @@
     en: {
       hHeroTag: 'VAS · System Engineering Notes',
       hHeroH1:  'Harness<br>Engineering',
+      hHeroTagline: 'Humanities thinking. Hardcore engineering.',
       hHeroSub: 'How a PM who can\'t write code and an amnesiac master together shipped a macOS app to Apple review—<br>and why she only learned the name of this methodology at the very end.',
       h01Title: 'Entropy and Why You Can\'t Demand Perfection from AI',
       h01Sub:   'Entropy &amp; Boundary',
@@ -242,6 +244,7 @@
     ja: {
       hHeroTag: 'VAS · システム構築の裏話',
       hHeroH1:  'Harness<br>Engineering',
+      hHeroTagline: '文系の思考で、最もハードコアな開発を。',
       hHeroSub: 'コードが書けない PM と記憶喪失の達人が、一緒に macOS アプリを Apple 審査に送り届けた話——<br>そして、この方法論の名前を彼女が最後まで知らなかった理由。',
       h01Title: 'エントロピー増大と、AI に完璧を求められない理由',
       h01Sub:   'Entropy &amp; Boundary',
