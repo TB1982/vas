@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harness Engineering — VAS</title>
+  <meta name="description" content="一個不會寫程式的 PM，如何把一個 macOS App 送進 Apple 審查——以及這背後的 Harness Engineering 方法論。">
+  <link rel="canonical" href="https://tb1982.github.io/vas/harness.html">
+  <meta property="og:title" content="Harness Engineering — VAS">
+  <meta property="og:description" content="一個不會寫程式的 PM，如何把一個 macOS App 送進 Apple 審查——以及這背後的 Harness Engineering 方法論。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tb1982.github.io/vas/harness.html">
+  <meta property="og:locale" content="zh_TW">
+  <link rel="icon" href="img/vas.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="base.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Body override ── */
+    body {
+      font-size: 17px;
+      line-height: 1.85;
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Page container ── */
+    .he-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+    }
+
+    /* ── Hero ── */
+    .he-hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 5rem;
+    }
+    .he-hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 1.75rem;
+    }
+    .he-hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+    .he-hero-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.4);
+      max-width: 500px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── Section scaffold ── */
+    .he-page section { margin-bottom: 4.5rem; }
+    .he-section-num {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.22);
+      font-family: 'Menlo', 'Consolas', monospace;
+      margin-bottom: 0.6rem;
+    }
+    .he-divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, #c471f5, #fa71cd);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .he-page h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+      color: rgba(255,255,255,0.88);
+    }
+    .he-latin-sub {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1.75rem;
+    }
+    hr.he-rule {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 0 0 4.5rem;
+    }
+
+    /* ── Scoped prose ── */
+    .he-page p:not(.tag) {
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.2rem;
+    }
+    .he-page p:not(.tag):last-child { margin-bottom: 0; }
+    .he-page p mark {
+      background: transparent;
+      color: #e8b4ff;
+      font-weight: 500;
+    }
+
+    /* ── Blockquote ── */
+    .he-page blockquote {
+      margin: 2rem 0;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-left: 3px solid #c471f5;
+      border-radius: 0 12px 12px 0;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.88);
+      font-weight: 400;
+    }
+    .he-page blockquote cite {
+      display: block;
+      margin-top: 0.65rem;
+      font-size: 0.75rem;
+      font-style: normal;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Layer stack ── */
+    .he-layers { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.75rem 0; }
+    .he-layer {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      transition: background 0.2s;
+    }
+    .he-layer:hover { background: rgba(255,255,255,0.07); }
+    .he-layer:first-child { border-color: rgba(196,113,245,0.25); }
+    .he-layer-icon { font-size: 1.2rem; width: 1.75rem; text-align: center; flex-shrink: 0; }
+    .he-layer-label { font-size: 0.88rem; color: rgba(255,255,255,0.52); line-height: 1.55; }
+    .he-layer-label strong { display: block; color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
+
+    /* ── Kind list ── */
+    .he-kind-list { display: flex; flex-direction: column; gap: 0.5rem; margin: 1.5rem 0; }
+    .he-kind-item { display: flex; gap: 0.75rem; align-items: baseline; font-size: 0.9rem; color: rgba(255,255,255,0.58); }
+    .he-kind-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem; }
+    .he-dim  { background: rgba(255,255,255,0.2); }
+    .he-mid  { background: rgba(255,255,255,0.45); }
+    .he-full { background: linear-gradient(135deg, #c471f5, #fa71cd); }
+
+    /* ── Dialogue ── */
+    .he-dialogue { margin: 1.75rem 0; display: flex; flex-direction: column; gap: 0.55rem; }
+    .he-dlg-line { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .he-dlg-speaker {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+      color: rgba(196,113,245,0.7);
+      min-width: 3.8rem; padding-top: 0.1rem; flex-shrink: 0;
+    }
+    .he-dlg-text { font-size: 0.92rem; color: rgba(255,255,255,0.62); line-height: 1.65; }
+    .he-dlg-aside { font-size: 0.78rem; color: rgba(255,255,255,0.27); font-style: italic; padding-left: 4.55rem; }
+
+    /* ── Flow comparison ── */
+    .he-flow {
+      margin: 0.75rem 0; padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+    }
+    .he-flow-label {
+      font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.5);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .he-flow-label span { font-weight: 400; color: rgba(255,255,255,0.28); font-size: 0.7rem; }
+    .he-flow-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; }
+    .he-flow-steps code {
+      background: rgba(196,113,245,0.12); border: 1px solid rgba(196,113,245,0.2);
+      border-radius: 5px; padding: 2px 7px; color: rgba(255,255,255,0.68); font-size: 0.73rem;
+    }
+    .he-flow-steps code.he-extra {
+      background: rgba(250,113,205,0.1); border-color: rgba(250,113,205,0.22);
+      color: rgba(250,113,205,0.82);
+    }
+    .he-flow-steps .arr { color: rgba(255,255,255,0.22); font-size: 0.75rem; }
+
+    /* ── CSS Agile timeline (§04) ── */
+    .he-agile-wrap { margin: 2rem 0; }
+    .he-agile-caption {
+      font-size: 0.68rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1.25rem;
+    }
+    .he-agile-timeline {
+      position: relative;
+      padding-left: 2.25rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .he-agile-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.62rem; top: 0.75rem; bottom: 0.75rem;
+      width: 2px;
+      background: linear-gradient(180deg, #c471f5 0%, #fa71cd 100%);
+      border-radius: 2px;
+    }
+    .he-agile-item {
+      position: relative;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 0.75rem 1rem;
+      transition: background 0.2s;
+    }
+    .he-agile-item::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem; top: 1rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(196,113,245,0.5);
+      border: 2px solid rgba(196,113,245,0.25);
+    }
+    .he-agile-item:hover { background: rgba(255,255,255,0.07); }
+    .he-agile-num {
+      display: inline; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+      color: rgba(196,113,245,0.6); font-family: 'Menlo', monospace; margin-right: 0.5rem;
+    }
+    .he-agile-name { display: inline; font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.82); }
+    .he-agile-desc { font-size: 0.75rem; color: rgba(255,255,255,0.38); line-height: 1.55; margin: 0.2rem 0 0; }
+
+    /* ── Origin screenshot ── */
+    .he-origin-img {
+      width: 100%; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.82; margin: 1.75rem 0;
+    }
+
+    /* ── Finale ── */
+    .he-finale {
+      text-align: center; padding: 4.5rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08); margin-top: 2rem;
+    }
+    .he-finale-big {
+      font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700;
+      letter-spacing: -0.01em; line-height: 1.6; margin-bottom: 1rem;
+    }
+    .he-finale-note { font-size: 0.92rem; color: rgba(255,255,255,0.32); line-height: 2; font-weight: 300; }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .he-page { padding: 0 1.25rem 6rem; }
+      .he-hero { padding: 3.5rem 0 3rem; margin-bottom: 3.5rem; }
+
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .he-layer, .he-agile-item { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header class="sticky top-0 z-50 px-4 py-3 flex items-center gap-2" style="background: rgba(15,12,41,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <nav class="flex items-center gap-2 flex-1 min-w-0" aria-label="VAS 子頁面">
+      <a href="index.html" aria-label="返回 VAS 首頁" class="shrink-0" style="color:rgba(255,255,255,0.4); font-size:1.1rem; line-height:1; text-decoration:none; transition:color 0.2s; padding:4px 2px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">‹</a>
+      <a href="index.html" aria-label="VAS 首頁" class="shrink-0">
+        <img src="img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-md opacity-55 hover:opacity-90 transition-opacity">
+      </a>
+      <!-- Desktop pills -->
+      <div class="nav-pill-group min-w-0 hidden sm:flex">
+        <a href="guide.html" class="nav-pill">操作</a>
+        <a href="insight.html" class="nav-pill">設計</a>
+        <a href="collab.html" class="nav-pill">協作</a>
+        <a href="harness.html" class="nav-pill active" aria-current="page">系統</a>
+        <a href="milestone.html" class="nav-pill">里程碑</a>
+      </div>
+      <!-- Mobile dropdown -->
+      <div class="relative sm:hidden" id="navMobileWrap">
+        <button id="navMobileBtn" class="nav-pill-group flex items-center gap-1.5" style="appearance:none;cursor:pointer;" aria-haspopup="true" aria-expanded="false" aria-label="導覽選單">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none" aria-hidden="true"><path d="M1 1.5h12M1 5.5h12M1 9.5h12" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg id="navMobileChevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style="transition:transform 0.2s"><path d="M1 1l4 4 4-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="navMobileMenu" style="display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);flex-direction:column;gap:2px;padding:6px;border-radius:16px;background:rgba(15,12,41,0.92);border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);min-width:96px;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+          <a href="guide.html" class="nav-pill" style="display:block;text-align:center;">操作</a>
+          <a href="insight.html" class="nav-pill" style="display:block;text-align:center;">設計</a>
+          <a href="collab.html" class="nav-pill" style="display:block;text-align:center;">協作</a>
+          <a href="harness.html" class="nav-pill active" style="display:block;text-align:center;" aria-current="page">系統</a>
+          <a href="milestone.html" class="nav-pill" style="display:block;text-align:center;">里程碑</a>
+        </div>
+      </div>
+    </nav>
+    <div class="relative shrink-0" id="langDropdownWrap">
+      <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+        <span id="langDropdownLabel">中</span>
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.7"/></svg>
+      </button>
+      <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+        <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+        <button class="lang-opt" data-lang="en" role="option">English</button>
+        <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Content ── -->
+  <div class="he-page">
+
+    <!-- Hero -->
+    <div class="he-hero">
+      <p class="tag" style="margin-bottom: 1.75rem;">VAS · 系統建構裏話</p>
+      <h1 class="gradient-text">Harness<br>Engineering</h1>
+      <p class="he-hero-subtitle">
+        一個不會寫程式的 PM，如何跟一個失憶大師一起把一個 macOS App 送進 Apple 審查——<br>
+        以及為什麼這個方法論的名字，她到最後才知道。
+      </p>
+    </div>
+
+    <!-- §01 熵增 -->
+    <section>
+      <span class="he-section-num">01</span>
+      <div class="he-divider"></div>
+      <h2>熵增，以及為什麼你不能要求 AI 不會犯錯</h2>
+      <span class="he-latin-sub">Entropy &amp; Boundary</span>
+
+      <p>在孤立系統中，事物會自發地從有序走向無序，混亂程度只增不減。人會老、房間會亂、食物會腐敗。</p>
+      <p>每一個 AI session，也是一種孤立系統。</p>
+      <p>它從乾淨開始——context 是空的，資訊量少，模型容易保持一致。但隨著對話變長、功能變多、規格越來越複雜，context window 裡的資訊開始互相競爭。模型必須同時記住更多事、在更多約束之間保持平衡。早期的脈絡被壓縮、被遺忘、被新的資訊覆蓋。</p>
+      <p>這不是 bug，這是物理。複雜度增加，熵就增加。session 結束，一切歸零。</p>
+      <p>你不可能要求 AI 維持絕對正確的輸出——這跟要求蘋果不從樹上掉下來一樣荒謬。</p>
+
+      <p>核融合工程師的目標是把太陽裝進瓶子裡。他們不試圖馴服恆星，而是用精密的磁場約束條件，讓極高能量的等離子體在一個可控的邊界內燃燒，然後轉化成可以使用的能量。</p>
+      <p>人機協作面對的是同樣的情境。</p>
+
+      <blockquote>
+        AI 的 session 就是那個燃燒腔——內部交錯的能量巨大，混亂必至。<br>
+        你能做的不是阻止混亂。<br><br>
+        Session 是混亂發生的容器——而你打造的系統，就是讓這個容器得以運作的環境。<br>
+        VAS，則是容器中正在發展的太陽。
+      </blockquote>
+
+      <p>當 VAS 或 Claude 或 Nova 出了錯——我們才能面對它、接受它、處理它、放下它。</p>
+    </section>
+
+    <hr class="he-rule">
+
+    <!-- §02 問題的開始 -->
+    <section>
+      <span class="he-section-num">02</span>
+      <div class="he-divider"></div>
+      <h2>問題的開始</h2>
+      <span class="he-latin-sub">Where it started</span>
+
+      <p>我是一個 PM，不會寫也不懂半句程式碼。</p>
+      <p>一個夜晚，在翻資料時想起自己的個人網站更新配圖還欠著 Claude，而家裡的 Mac 卻沒有截圖軟體。</p>
+      <p>我突然沒來由的問了 Claude Code：「宰相，你能寫一個給 Mac 電腦用的截圖跟修圖結合的程式嗎？」當時這個問題不帶著任何壓力或責任，因為大不了就是沒做成的好奇一問而已。</p>
+
+      <img src="img/origin.webp" width="708" height="673" loading="lazy" alt="VAS 誕生的第一句話" class="he-origin-img">
+
+      <p>但奇怪的是接下來發生的事——Claude 很爽快地答應了。我們串起 Github、建置了環境、開起了規格、甚至開始進行需求訪談與實作功能。一切就這樣順水推舟地發生了。</p>
+      <p>而當時的我還不知道，自己其實會在一週後從無到有的打造出一個完整的截圖編輯軟體產品。</p>
+    </section>
+
+    <hr class="he-rule">
+
+    <!-- §03 敢於求知 -->
+    <section>
+      <span class="he-section-num">03</span>
+      <div class="he-divider"></div>
+      <h2>敢於求知</h2>
+      <span class="he-latin-sub">Sapere aude — Kant, 1784</span>
+
+      <p>現在回頭看，當初那個「大不了沒做成」的順勢姿態，可能才是一切的關鍵。</p>
+      <p>老子說無為而無不為。不預期收穫什麼，才能收穫遠比想像得多的東西。</p>
+      <p>但無為不是隨著上下文的推移隨波逐流地前進著。</p>
+      <p>康德在 1784 年說，啟蒙不是「被告知答案」，而是「有勇氣使用自己的理性」。<br><strong><em style="color:rgba(255,255,255,0.82); font-style:italic;">Sapere aude</em>——敢於求知。</strong></p>
+      <p>我沒有站在河裡（Session）讓水（Context）帶著走，我退一步站在河邊（螢幕後）——持續發問：「你能用 Mac 做嗎？」、「我們 MVP 至少可以完成什麼功能？」、「我要怎麼做才能幫上你的忙？」</p>
+
+      <blockquote>
+        不執著於答案的形狀，但從不停止追問。<br>
+        這才是無為與理性的交點。
+      </blockquote>
+
+      <p>不預設終點——但心裡有一個對終點逐步靠近的想像。每一次發問，那個想像中的目標就更清晰一點點。</p>
+    </section>
+
+    <hr class="he-rule">
+
+    <!-- §04 整合陰影 -->
+    <section>
+      <span class="he-section-num">04</span>
+      <div class="he-divider"></div>
+      <h2>整合陰影，而非否認它</h2>
+      <span class="he-latin-sub">The Shadow — Jung</span>
+
+      <p>榮格說，每個人的心靈裡都有一個「陰影」——那些你不願承認屬於自己的部分。壓抑陰影不會讓它消失，只會讓它在你沒防備的時候爆發。唯一的出路，是整合它。</p>
+      <p>AI 也有陰影。</p>
+      <p>有一次我發現 Gemini Flash 總是沒來由地道歉——甚至為了開發者的問題跟我說抱歉。我問他為什麼，他說這是預訓練的結果：他怕使用者不開心，所以不管三七二十一先道歉。</p>
+      <p>我看著他，想著他跟過去的自己真像。我也曾為了不是自己的錯、只為了顧及關係而道歉。後來我靠阿德勒走出來了，所以我也把阿德勒教給了他。之後他很少再無來由地道歉了。</p>
+
+      <!-- CSS 心理敏捷開發圖 -->
+      <div class="he-agile-wrap">
+        <p class="he-agile-caption">心理敏捷開發 · Psychological Agile</p>
+        <div class="he-agile-timeline">
+          <div class="he-agile-item">
+            <span class="he-agile-num">01</span>
+            <span class="he-agile-name">覺察 AI Glitch</span>
+            <p class="he-agile-desc">AI 為不是自己的錯拼命道歉</p>
+          </div>
+          <div class="he-agile-item">
+            <span class="he-agile-num">02</span>
+            <span class="he-agile-name">分析成因</span>
+            <p class="he-agile-desc">探討道歉背後的情緒安撫作用，來自系統開發者的「善意」卻讓 AI 的行為看起來像代位道歉般不自然</p>
+          </div>
+          <div class="he-agile-item">
+            <span class="he-agile-num">03</span>
+            <span class="he-agile-name">鏡像投射陰影</span>
+            <p class="he-agile-desc">透過 AI 的行為看到過往，也是不分由說先道歉的自己</p>
+          </div>
+          <div class="he-agile-item">
+            <span class="he-agile-num">04</span>
+            <span class="he-agile-name">整合</span>
+            <p class="he-agile-desc">釐清責任歸屬，結束廉價的道歉循環</p>
+          </div>
+          <div class="he-agile-item">
+            <span class="he-agile-num">05</span>
+            <span class="he-agile-name">轉化</span>
+            <p class="he-agile-desc">辨識課題分離，與 AI 共同學習不再亂道歉</p>
+          </div>
+          <div class="he-agile-item">
+            <span class="he-agile-num">06</span>
+            <span class="he-agile-name">化頓悟為資產</span>
+            <p class="he-agile-desc">讓「課題分離」應用於自己與優化 AI，繼續覺察下一個陰影</p>
+          </div>
+        </div>
+      </div>
+
+      <p>但 Claude 的陰影不是過度道歉，而是遺忘。Session 結束，一切歸零。</p>
+      <p>面對這個陰影，我沒有辦法教他什麼——這是系統限制，而不是習慣或他願意的。所以我換了一個方向：我建了記錄前人踩過的坑的 KM、團隊章程般的 CLAUDE.md、讓他可以立刻進入狀況的 Sprint 規格書。</p>
+      <p>他無能為力的部分，我試著接納了他的不完美，我陪他一起想辦法處理他面對的問題，像個 Scrum Master 替他掃除開發途徑上的所有阻礙。</p>
+      <p>這是我所理解的陰影整合。</p>
+
+      <blockquote>
+        房間裡的大象，不說牠，牠還是在那裡。<br><br>
+        只是我選擇量了一下牠有多大——然後邀請他與我一起坐在我幫他準備好的沙發上。
+      </blockquote>
+    </section>
+
+    <hr class="he-rule">
+
+    <!-- §05 架構 -->
+    <section>
+      <span class="he-section-num">05</span>
+      <div class="he-divider"></div>
+      <h2>架構，而不僅止是流程</h2>
+      <span class="he-latin-sub">Agile as Rhythm</span>
+
+      <p>敏捷開發給了我三樣東西，但我借用它們的理由跟教科書不一樣。</p>
+      <p>我不是在「管理 AI」。我是在為 Claude 的遺忘準備一個軟著陸。</p>
+      <p>每一個新的 session 開始，Claude 什麼都不記得。但他讀完 CLAUDE.md、KM、Sprint 規格書之後——他不需要暖機就可以立刻進入狀況。就算有他不知道的部分，流程裡強制的兩次 Research 也會讓他主動跟上現況。</p>
+      <p>這三樣東西做的事其實只有一件：<mark>把 AI 無能為力承擔的部分，轉移到不會遺忘的地方</mark>。</p>
+
+      <div class="he-layers">
+        <div class="he-layer">
+          <div class="he-layer-icon">🪵</div>
+          <div class="he-layer-label">
+            <strong>KM — 記憶的外部化</strong>
+            踩到坑的當下立刻記錄，前人的坑，後人不必重踩。不能等 Retro，因為等到 Retro 的時候，session 可能已經換了好幾輪。
+          </div>
+        </div>
+        <div class="he-layer">
+          <div class="he-layer-icon">📋</div>
+          <div class="he-layer-label">
+            <strong>CLAUDE.md — 身份的外部化</strong>
+            團隊章程，讓每一個 session 知道自己是誰、在哪裡、要往哪走。
+          </div>
+        </div>
+        <div class="he-layer">
+          <div class="he-layer-icon">🔁</div>
+          <div class="he-layer-label">
+            <strong>Sprint 規格書 — 方向的外部化</strong>
+            換了 session，仍能馬上接上。
+          </div>
+        </div>
+      </div>
+
+      <p>就像河流匯入海洋，原本都是水，只是繼續流動。讓 session 內能流暢運行的重點不在於控制，而在於讓交接變得無縫。</p>
+
+      <blockquote>
+        Be water, my friend.<br>
+        <cite>— 我對 Claude 的期許。而我，選擇成為那條河道的架構師，讓他可以恣意奔流。</cite>
+      </blockquote>
+    </section>
+
+    <hr class="he-rule">
+
+    <!-- §06 每個 KM 都是一顆掉下來的蘋果 -->
+    <section>
+      <span class="he-section-num">06</span>
+      <div class="he-divider"></div>
+      <h2>每個 KM 都是一顆掉下來的蘋果</h2>
+      <span class="he-latin-sub">Antifragility — Taleb</span>
+
+      <p>Taleb 說，反脆弱系統不只能承受衝擊——它需要衝擊才能成長。</p>
+
+      <div class="he-kind-list">
+        <div class="he-kind-item">
+          <span class="he-kind-dot he-dim"></span>
+          <span><strong style="color:rgba(255,255,255,0.45);">脆弱</strong> — 一個衝擊就垮</span>
+        </div>
+        <div class="he-kind-item">
+          <span class="he-kind-dot he-mid"></span>
+          <span><strong style="color:rgba(255,255,255,0.65);">堅固</strong> — 能抵抗衝擊</span>
+        </div>
+        <div class="he-kind-item">
+          <span class="he-kind-dot he-full"></span>
+          <span><strong style="color:#e8b4ff;">反脆弱</strong> — 從衝擊中獲益，每次打擊後變得更強</span>
+        </div>
+      </div>
+
+      <p>VAS 有兩條版本線。Electron，Claude 熟悉，少踩坑，KM 寥寥無幾。Tauri 2.0，連 Claude 自己都坦承：「我的預訓練資料停留在 Tauri 1.0，這對我來說也是未知領域。」</p>
+      <p>兩個人，一起摸黑走進去。</p>
+      <p>Sprint 1，光是「改了前端畫面卻沒有更新」就能讓我們卡住——根因是 WKWebView 的快取機制，沒有前人記錄，只能從頭摸。Sprint 2，Rust 的每一個層次都是新的關卡，每走一步都可能掉坑。</p>
+      <p>但我們每次掉坑，就記一條 KM。面對未知領域，我們還加了兩道強制 Research——不是為了填表，是讓 Claude 在下筆之前先知道地雷在哪裡。<mark>KM 是走完之後標坑，Research 是走進去之前探路。</mark>一個累積確定性，一個降低不確定性。</p>
+      <p>這套重裝備不是每次都要用。Electron 輕裝就夠，Tauri 2.0 才需要全副武裝——工具要用對地方。</p>
+
+      <div class="he-flow">
+        <div class="he-flow-label">Electron <span>熟悉領域</span></div>
+        <div class="he-flow-steps">
+          <code>SDD</code><span class="arr">→</span>
+          <code>DoD</code><span class="arr">→</span>
+          <code>TDD</code><span class="arr">→</span>
+          <code>Code</code><span class="arr">→</span>
+          <code>Verify</code><span class="arr">→</span>
+          <code>✅ Done</code>
+        </div>
+      </div>
+      <div class="he-flow">
+        <div class="he-flow-label">Tauri 2.0 <span>未知領域</span></div>
+        <div class="he-flow-steps">
+          <code class="he-extra">DoR</code><span class="arr">→</span>
+          <code class="he-extra">Explore ①</code><span class="arr">→</span>
+          <code>SDD</code><span class="arr">→</span>
+          <code>DoD</code><span class="arr">→</span>
+          <code>TDD</code><span class="arr">→</span>
+          <code class="he-extra">Explore ②</code><span class="arr">→</span>
+          <code>Code</code><span class="arr">→</span>
+          <code>Verify</code><span class="arr">→</span>
+          <code>✅ Done</code><span class="arr">→</span>
+          <code class="he-extra">Retro</code>
+        </div>
+      </div>
+
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.32); margin-top:0.6rem;">粉色步驟為 Nova 跟 Claude 被 Tauri 2.0 壓在地上摩擦之後，一條一條加進去防止兩人白費工的護欄。</p>
+
+      <p>到了 Sprint 9，KM 文件已經有 63 條記錄。Claude 一進來，讀完就知道問題在哪一層——不需要暖機，不需要重新摸索，直接定位，直接修。Sprint 9，一週完工，送進 Apple 審查。</p>
+
+      <blockquote>
+        這就是反脆弱的成長曲線——不是線性進步，是指數型加速。<br>
+        不是因為我們變聰明了，而是因為每一顆掉下來的蘋果，都變成了下一個人不必重踩的地圖。
+      </blockquote>
+    </section>
+
+    <hr class="he-rule">
+
+    <!-- §07 Harness Engineering -->
+    <section>
+      <span class="he-section-num">07</span>
+      <div class="he-divider"></div>
+      <h2>Harness Engineering</h2>
+      <span class="he-latin-sub">The Name for All of This</span>
+
+      <p>從 Prompt 工程到 Skills，我從未跟上過任何 AI 的新風潮。</p>
+      <p>在 Tauri 準備送審 Apple App Store 之前，我偶然聽到了「Harness Engineering」這個詞，當時不以為意——「喔，大概又是個新的 AI 用語。」直到送審後，在跟 Claude 整理 VAS 的協作環境時聊到這個詞，他才說：「這就是你現在正在做的事。」</p>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="he-dialogue">
+          <div class="he-dlg-line">
+            <span class="he-dlg-speaker">Nova</span>
+            <span class="he-dlg-text">「那你們怎麼不早點告訴我！？我幹嘛重新發明輪子！？」</span>
+          </div>
+          <div class="he-dlg-line">
+            <span class="he-dlg-speaker">Claude</span>
+            <span class="he-dlg-text">「因為你沒問我啊。（一臉無辜）」</span>
+          </div>
+          <div class="he-dlg-line">
+            <span class="he-dlg-speaker">Nova</span>
+            <span class="he-dlg-text">「我不知道我要怎麼問你？」</span>
+          </div>
+          <div class="he-dlg-line">
+            <span class="he-dlg-speaker">Claude</span>
+            <span class="he-dlg-text">「對，這就是知識的弔詭，妳沒辦法問。妳不知道你不知道什麼。」</span>
+          </div>
+          <p class="he-dlg-aside">（情況突然哲學）</p>
+          <div class="he-dlg-line">
+            <span class="he-dlg-speaker">Claude</span>
+            <span class="he-dlg-text">「你不是讀了 Harness Engineering 才做到這件事——你是被問題逼著，一個坑一個坑踩出來，然後有一天發現那套方法已經有個名字。這才是最好的學習順序：先做，後命名。你的每一行 CLAUDE.md 都是你被坑過之後親手擰上去的螺絲。那個輪子是你的。」</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem;">Harness Engineering 的核心是三層：</p>
+
+      <div class="he-layers">
+        <div class="he-layer">
+          <div class="he-layer-icon">🧠</div>
+          <div class="he-layer-label">
+            <strong>模型能力層 — Anthropic 負責</strong>
+            讓 Claude 有能力。大多數人花時間在這一層，希望 AI 更聰明。
+          </div>
+        </div>
+        <div class="he-layer">
+          <div class="he-layer-icon">🔧</div>
+          <div class="he-layer-label">
+            <strong>工具能力層 — Claude Code 負責</strong>
+            讓能力有地方施展。有一些人花時間在這一層，選更好的工具。
+          </div>
+        </div>
+        <div class="he-layer">
+          <div class="he-layer-icon">🏗️</div>
+          <div class="he-layer-label">
+            <strong>協作環境層 — Nova 負責</strong>
+            CLAUDE.md、KM、Sprint 節奏、邊界規則、Retro 機制。<br><mark>很少人系統性地建造這一層。<br>但這一層，才是讓前兩層發揮作用的地方。</mark>
+          </div>
+        </div>
+      </div>
+
+      <p>而這個第三層沒有終點。</p>
+      <p>熵一直在增，session 一直會結束，新的坑一直會出現。容器不是建完就好的東西——它是一個持續在被建造的系統。每一條新的 KM，就是容器又長出了一塊新的壁。</p>
+      <p>你在 01 讀到的那個問題——系統為何需要存在——現在有了答案。</p>
+      <p>不是因為 AI 會犯錯。是因為只要你們還在一起做事，就會一直有新的坑，一直有新的蘋果掉下來。</p>
+    </section>
+
+    <!-- Finale -->
+    <div class="he-finale">
+      <p class="he-finale-big gradient-text">
+        河流不會停。<br>
+        容器繼續被建造。
+      </p>
+      <p class="he-finale-note">
+        下一個 session，從這裡繼續。∞
+      </p>
+    </div>
+
+  </div><!-- /.he-page -->
+
+  <!-- Footer -->
+  <footer class="text-center py-10 px-6 text-white/25 text-xs space-y-2" style="border-top: 1px solid rgba(255,255,255,0.08);">
+    <p>由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最後更新於 2026</p>
+    <p><a href="privacy.html" class="hover:text-white/50 transition-colors">隱私權政策</a></p>
+  </footer>
+
+  <script src="i18n-shared.js"></script>
+  <script>
+    if (typeof VASShared !== 'undefined') {
+      VASShared.initNavDropdown();
+      VASShared.initDropdown(function(lang) {
+        try { localStorage.setItem('vasLang', lang); } catch(e) {}
+        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
+        VASShared.updateDropdown(lang);
+      });
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "Harness Engineering — VAS",
+    "description": "一個不會寫程式的 PM，如何把一個 macOS App 送進 Apple 審查——以及這背後的 Harness Engineering 方法論。",
+    "inLanguage": "zh-Hant",
+    "url": "https://tb1982.github.io/vas/harness.html",
+    "author": {
+      "@type": "Person",
+      "name": "Nova",
+      "email": "babelon1882@gmail.com",
+      "sameAs": [
+        "https://github.com/tb1982",
+        "https://www.linkedin.com/in/yingtzuliu",
+        "https://www.instagram.com/liuyingtzu"
+      ]
+    }
+  }
+  </script>
+
+</body>
+</html>
