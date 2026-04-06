@@ -99,11 +99,11 @@
     }
 
     /* ── Scoped prose ── */
-    .he-page p {
+    .he-page p:not(.tag) {
       color: rgba(255,255,255,0.65);
       margin-bottom: 1.2rem;
     }
-    .he-page p:last-child { margin-bottom: 0; }
+    .he-page p:not(.tag):last-child { margin-bottom: 0; }
     .he-page p mark {
       background: transparent;
       color: #e8b4ff;
