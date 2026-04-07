@@ -15,6 +15,7 @@ Born from a collaboration between a PM who can't write a single line of code, an
 | `guide.html` | `/guide.html` | User guide — screenshots and walkthrough |
 | `insight.html` | `/insight.html` | Design insights — the thinking behind VAS |
 | `collab.html` | `/collab.html` | Collab notes — how Nova & Claude built it |
+| `harness.html` | `/harness.html` | Harness Engineering — methodology essay, 8 chapters |
 | `milestone.html` | `/milestone.html` | Version history & roadmap |
 | `privacy.html` | `/privacy.html` | Privacy policy |
 
@@ -37,6 +38,7 @@ Trilingual (zh-Hant / EN / 日本語) via `data-lang-key` + per-page i18n JS fil
 | `i18n-guide.js` | `window.VASGuideT` | `guide.html` |
 | `i18n-collab.js` | `window.VASCollabT` | `collab.html` |
 | `i18n-insight.js` | `window.VASInsightT` | `insight.html` |
+| `i18n-harness.js` | `window.VASHarnessT` | `harness.html` |
 | `i18n-milestone.js` | `window.VASMilestoneT` | `milestone.html` |
 | `i18n-privacy.js` | `window.VASPrivacyT` | `privacy.html` |
 

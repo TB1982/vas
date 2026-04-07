@@ -4,7 +4,8 @@ This file provides guidance for AI assistants working in this repository.
 ## Rules for AI Assistants
 1. **Never fabricate personal details, emails, or URLs.** Use only values defined in this file.
 2. **Never attribute content to a name other than Nova** without explicit instruction.
-3. **Never force-process high-density input in a single pass.** When Nova provides more than one complete document, two or more theoretical frameworks, or input spanning multiple conceptual layers in a single turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."* Protecting the session is part of the work.
+3. **When adding a new page, always update `README.md` and the Repository Structure in this file** — both the file tree and the i18n table.
+4. **Never force-process high-density input in a single pass.** When Nova provides more than one complete document, two or more theoretical frameworks, or input spanning multiple conceptual layers in a single turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."* Protecting the session is part of the work.
 
 ---
 
@@ -63,6 +64,7 @@ Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by 
 ├── guide.html        # User guide
 ├── insight.html      # Design Insight — 設計洞察
 ├── collab.html       # Collab Notes — 協作筆記
+├── harness.html      # Harness Engineering — 系統建構裏話
 ├── milestone.html    # Milestone — 里程碑
 ├── privacy.html      # Privacy Policy
 ├── base.css          # Shared styles — single source of truth
@@ -71,6 +73,7 @@ Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by 
 ├── i18n-index.js     # index.html (window.VASIndexT)
 ├── i18n-guide.js     # guide.html (window.VASGuideT)
 ├── i18n-collab.js    # collab.html (window.VASCollabT)
+├── i18n-harness.js   # harness.html (window.VASHarnessT)
 ├── i18n-insight.js   # insight.html (window.VASInsightT)
 ├── i18n-milestone.js # milestone.html (window.VASMilestoneT)
 ├── i18n-privacy.js   # privacy.html (window.VASPrivacyT)
