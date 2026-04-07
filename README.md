@@ -46,16 +46,6 @@ Version number single source of truth: `version.js` → `window.VAS_VERSION`.
 
 ---
 
-## Local Preview
-
-```bash
-python3 -m http.server 8081
-```
-
-Open: `http://localhost:8081`
-
----
-
 ## Author
 
 Nova — [babelon1882@gmail.com](mailto:babelon1882@gmail.com)
