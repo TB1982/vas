@@ -37,6 +37,7 @@
       h03p5: '我沒有站在河裡（Session）讓水（Context）帶著走，我退一步站在河邊（螢幕後）——持續發問：「你能用 Mac 做嗎？」、「我們 MVP 至少可以完成什麼功能？」、「我要怎麼做才能幫上你的忙？」',
       h03bq:  '不執著於答案的形狀，但從不停止追問下一步怎麼做。<br>這才是無為與理性的交點。',
       h03p6: '不預設終點——但心裡有一個對終點逐步靠近的想像。每一次發問，那個想像中的目標就更清晰一點點。',
+      h03p7: '那個勇敢承認不知道的另一面，是不畏懼失敗。1,284+ 次的 commit，就是它的形狀。',
       // §04
       h04Title: '整合陰影，而非否認它',
       h04Sub:   'The Shadow — Jung',
@@ -156,6 +157,7 @@
       h03p5: 'I didn\'t stand in the river (the session) and let the water (context) carry me. I stepped back to the riverbank (behind the screen)—and kept asking: "Can this be done on Mac?" "What\'s the minimum we can ship for MVP?" "What can I do to help you?"',
       h03bq:  'Not attached to the shape of the answer, but never stop asking what to do next.<br>This is the intersection of wu wei and reason.',
       h03p6: 'No fixed destination—but a vision of gradually closing the distance. With every question, that imagined target became a little clearer.',
+      h03p7: 'The other side of daring to admit you don\'t know is not fearing failure. 1,284+ commits — that\'s what it looks like.',
       h04Title: 'Integrate the Shadow, Don\'t Deny It',
       h04Sub:   'The Shadow — Jung',
       h04p1: 'Jung said every psyche contains a "shadow"—the parts you refuse to acknowledge as your own. Suppressing the shadow doesn\'t make it disappear; it only waits for an unguarded moment to erupt. The only way out is integration.',
@@ -273,6 +275,7 @@
       h03p5: '私は川の中（セッション）に立って流れ（コンテキスト）に運ばれるのではなく、一歩引いて川岸（画面の前）に立ち続けた——問い続けながら：「Mac でできる？」「MVP で最低限何が実現できる？」「あなたを助けるために私は何をすればいい？」',
       h03bq:  '答えの形にこだわらず、でも次に何をすべきかを問い続けることをやめない。<br>これが無為と理性の交わる点だ。',
       h03p6: 'ゴールは決めない——でも、心の中にはゴールへ少しずつ近づいていくイメージがある。問いを重ねるたびに、その輪郭が少しずつ鮮明になっていく。',
+      h03p7: '知らないと認める勇気の裏側は、失敗を恐れないことだ。1,284+ 回のコミット——それがその形だ。',
       h04Title: '影を否定せず、統合する',
       h04Sub:   'The Shadow — Jung',
       h04p1: 'ユングは言う、誰もの心の中には「影（シャドウ）」がある——自分のものだと認めたくない部分だ。影を抑圧しても消えることはなく、無防備なときに爆発するだけだ。唯一の出口は、統合することだ。',
