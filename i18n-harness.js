@@ -125,6 +125,7 @@
       hSyncP3: '榮格笑著望著我——共時性。',
       hFinBig:  '河流不會停。<br>容器繼續被建造。',
       hFinNote: '下一個 session，從這裡繼續。∞',
+      hFrameworkLink: '完整框架文件 →',
       hCTATeaser: '完整開發歷程 · Electron + Tauri · 路線圖',
       hCTABtn: '查看產品里程碑 →'
     },
@@ -246,6 +247,7 @@
       hSyncP3: 'Jung smiled at me — synchronicity.',
       hFinBig:  'The river doesn\'t stop.<br>The container keeps being built.',
       hFinNote: 'Next session, continue from here. ∞',
+      hFrameworkLink: 'Full framework document →',
       hCTATeaser: 'Full development history · Electron + Tauri · Roadmap',
       hCTABtn: 'View product milestones →'
     },
@@ -367,6 +369,7 @@
       hSyncP3: 'ユングは微笑みながら私を見た——共時性。',
       hFinBig:  '川は止まらない。<br>容器は作られ続ける。',
       hFinNote: '次のセッションも、ここから続く。∞',
+      hFrameworkLink: '完全なフレームワーク文書 →',
       hCTATeaser: '完全な開発履歴 · Electron + Tauri · ロードマップ',
       hCTABtn: '製品マイルストーンを見る →'
     }
