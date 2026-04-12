@@ -74,10 +74,18 @@ window.VASShared = (function () {
       }
     });
 
-    // 恢復上次語言選擇
+    // 恢復上次語言選擇，或依瀏覽器語言自動偵測
     try {
       var saved = localStorage.getItem('vasLang');
-      if (saved && labelMap[saved]) applyFn(saved);
+      if (saved && labelMap[saved]) {
+        applyFn(saved);
+      } else {
+        var browserLang = (navigator.language || '').toLowerCase();
+        var auto = browserLang.startsWith('zh') ? 'zh'
+                 : browserLang.startsWith('ja') ? 'ja'
+                 : 'en';
+        applyFn(auto);
+      }
     } catch (e) {}
   }
 
