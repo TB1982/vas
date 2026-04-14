@@ -166,42 +166,57 @@
                 為跨領域溝通而生的截圖與圖像敘述工具
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <div class="relative inline-block">
-                  <span class="absolute -top-2 -right-2 bg-green-400 text-black text-xs font-bold px-2 py-0.5 rounded-full z-10">NEW</span>
-                <a id="downloadLink"
-                   href="https://github.com/TB1982/pm/releases/download/v3.44.0/VAS-3.44.0-arm64.dmg"
-                   class="download-btn inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg min-h-[52px]"
-                   download>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true">
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                    </svg>
-                    <span data-lang-key="downloadBtn">免費下載</span>
-                </a>
+            <div class="flex flex-col items-center justify-center gap-4">
+                <!-- Row 1：Electron 免費版 ｜ App Store 付費版 -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a id="electronDownload"
+                       href="https://github.com/TB1982/pm/releases/download/v3.44.0/VAS-3.44.0-arm64.dmg"
+                       class="download-btn inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg min-h-[52px]"
+                       download>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span data-lang-key="electronBtn">Electron 版 · 免費下載</span>
+                    </a>
+                    <div class="relative inline-block">
+                        <span class="absolute -top-2 -right-2 bg-purple-400 text-white text-xs font-bold px-2 py-0.5 rounded-full z-10">Pro</span>
+                        <a id="downloadLink"
+                           href="https://apps.apple.com/app/vas/id6761584119"
+                           class="download-btn inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg min-h-[52px]"
+                           target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            <span data-lang-key="downloadBtn">在 App Store 下載</span>
+                        </a>
+                    </div>
                 </div>
-                <a href="guide.html"
-                   class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white min-h-[52px] min-w-[44px] transition-all"
-                   style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 1rem;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-                    </svg>
-                    <span data-lang-key="guideBtn">操作手冊</span>
-                </a>
-                <a id="releaseLink"
-                   href="https://github.com/TB1982/pm/releases/tag/v3.44.0"
-                   target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white/70 hover:text-white transition-colors min-h-[52px]"
-                   style="border: 1px solid rgba(255,255,255,0.15);">
-                    <span data-lang-key="releaseNotesBtn">Release Notes</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-                    </svg>
-                </a>
+                <!-- Row 2：操作手冊 ｜ Release Notes -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="guide.html"
+                       class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white min-h-[52px] min-w-[44px] transition-all"
+                       style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                        </svg>
+                        <span data-lang-key="guideBtn">操作手冊</span>
+                    </a>
+                    <a id="releaseLink"
+                       href="https://github.com/TB1982/pm/releases/tag/v3.44.0"
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white/70 hover:text-white transition-colors min-h-[52px]"
+                       style="border: 1px solid rgba(255,255,255,0.15);">
+                        <span data-lang-key="releaseNotesBtn">Release Notes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
 
             <p class="mt-5 text-xs font-medium" style="color: #c084fc;" data-lang-key="sysReq">
-                Electron 先行首發版 · 需要 macOS · Apple Silicon (arm64) · 已通過 Apple notarize 驗證
+                需要 macOS · Electron 版免費 · Tauri 版付費
             </p>
 
             <div class="mt-8">
@@ -329,7 +344,7 @@
             <!-- Moment 1: 捕蠅草 -->
             <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
                 <div class="flex-1 order-2 lg:order-1">
-                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m1Label">Capture Toolbar</span> <span class="badge-tauri" data-lang-key="tauriOnly">Tauri 專屬</span></p>
+                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m1Label">Capture Toolbar</span> <span class="badge-all" data-lang-key="badgeAllVersions">全版本</span></p>
                     <h3 class="text-xl md:text-2xl font-bold text-white mb-4" data-lang-key="m1Title">一盞呼吸燈，需要時它都在</h3>
                     <p class="text-white/55 leading-relaxed" data-lang-key="m1Desc">工具列縮成一條呼吸燈，待在桌面角落。拖著檔案靠近，它自己張開。放開，直接進編輯器。走了，它縮回去，繼續等。</p>
                 </div>
@@ -454,17 +469,15 @@
                     <div class="flex items-center gap-3">
                         <span class="text-2xl" aria-hidden="true">🚀</span>
                         <div>
-                            <div class="text-white font-bold text-base" data-lang-key="planTauriName">Tauri 版（審核中）</div>
+                            <div class="text-white font-bold text-base" data-lang-key="planTauriName">Tauri 版（App Store 已上架）</div>
                             <div class="text-purple-300/70 text-xs mt-0.5" data-lang-key="planTauriPriceBadge">付費 · 持續更新</div>
                         </div>
                     </div>
                     <ul class="space-y-2 text-white/65 text-sm flex-1" data-lang-key="planTauriFeatures">
-                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>全新輕量架構，體積大幅縮小</span></li>
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>全新輕量架構，體積大幅縮小（5.5MB）</span></li>
                         <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>所有後續新功能優先上線</span></li>
                         <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>ShareSheet 分享、自定義快捷鍵等進階工具</span></li>
-                        <li class="flex gap-2"><span class="text-purple-300/80 mt-0.5" aria-hidden="true">★</span><span>Electron 早鳥用戶享升級優惠</span></li>
                     </ul>
-                    <div class="text-purple-300/40 text-xs border-t border-purple-400/15 pt-4" data-lang-key="planTauriNote">現在使用 Electron 版，等 Tauri 版推出時享有早鳥優惠。</div>
                 </div>
             </div>
         </section>
@@ -479,11 +492,11 @@
             <div class="rounded-2xl border border-purple-400/20 bg-white/5 backdrop-blur-sm p-8 text-center">
                 <div class="inline-block text-xs font-semibold tracking-widest text-purple-300/70 uppercase mb-4 px-3 py-1 rounded-full border border-purple-400/20 bg-purple-400/10" data-lang-key="surveyBadge">早鳥專區</div>
                 <h2 class="text-2xl font-bold text-white mb-3" data-lang-key="surveyTitle">填問卷，換早鳥優惠碼</h2>
-                <p class="text-white/55 text-sm leading-relaxed mb-6 max-w-md mx-auto" data-lang-key="surveyDesc">6 道題，每一道都值得好好想想。你的答案直接影響 Tauri 版的功能優先順序——Tauri 版推出時，我們會同步以 E-mail 寄送早鳥優惠碼。</p>
+                <p class="text-white/55 text-sm leading-relaxed mb-6 max-w-md mx-auto" data-lang-key="surveyDesc">6 道題，每一道都值得好好想想。你的答案直接影響 Tauri 版的功能優先順序——填寫後，我們會以 E-mail 寄送早鳥優惠碼。</p>
                 <a id="surveyFormLink" href="https://forms.gle/5xWyyvehF1HSAyDu7" target="_blank" rel="noopener noreferrer"
                    class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold text-sm hover:from-purple-400 hover:to-indigo-400 transition-all duration-200 shadow-lg shadow-purple-900/30"
                    data-lang-key="surveyBtn">前往填寫問卷</a>
-                <p class="text-white/25 text-xs mt-4" data-lang-key="surveyNote">E-mail 僅用於 Tauri 版推出時寄送優惠碼，不作其他用途。</p>
+                <p class="text-white/25 text-xs mt-4" data-lang-key="surveyNote">E-mail 僅用於寄送早鳥優惠碼，不作其他用途。</p>
             </div>
         </section>
 
@@ -592,7 +605,7 @@
         (function () {
           var v = window.VAS_VERSION || '3.44.0';
           // 下載連結 & Release Notes 連結
-          var dl = document.getElementById('downloadLink');
+          var dl = document.getElementById('electronDownload');
           var rl = document.getElementById('releaseLink');
           if (dl) dl.href = 'https://github.com/TB1982/pm/releases/download/v' + v + '/VAS-' + v + '-arm64.dmg';
           if (rl) rl.href = 'https://github.com/TB1982/pm/releases/tag/v' + v;
