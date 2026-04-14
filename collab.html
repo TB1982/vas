@@ -228,40 +228,42 @@
             <h2 class="text-xl font-bold text-white mt-1 mb-4" data-lang-key="cSTitle">四成的差距說的不是效率</h2>
             <p class="text-white/55 leading-relaxed mb-6" data-lang-key="cSp1">Claude Code 的訓練資料停在 Tauri 1.0，但整個 Tauri 開發期用的是 2.0。Nova 不寫程式。前進的依據只有三樣：KM 記錄的踩坑紀錄、Nova 的直覺、跟一個同樣在摸索的 AI 互相支撐。這組數字是那段摸索留下的痕跡。</p>
 
-            <div class="rounded-xl overflow-hidden mb-6" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06);">
-                <div class="grid grid-cols-3 px-5 pt-4 pb-3 border-b border-white/6">
+            <div class="mb-6" style="overflow-x: auto; border-radius: 12px;">
+              <div style="min-width: 320px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden;">
+                <div class="grid grid-cols-3 px-4 pt-4 pb-3 border-b border-white/6">
                     <div></div>
                     <p class="text-center text-xs font-bold text-white/40 uppercase tracking-widest" data-lang-key="statsElectronLabel">Electron</p>
-                    <p class="text-center text-xs font-bold text-purple-300/60 uppercase tracking-widest" data-lang-key="statsTauriLabel">Tauri+Electron（實際工作日）</p>
+                    <p class="text-center text-xs font-bold text-purple-300/60 uppercase tracking-widest" data-lang-key="statsTauriLabel">Tauri+Electron</p>
                 </div>
-                <div class="grid grid-cols-3 px-5 py-2.5 border-b border-white/5 items-center">
+                <div class="grid grid-cols-3 px-4 py-2.5 border-b border-white/5 items-center">
                     <p class="text-xs text-white/35" data-lang-key="statsPeriodLabel">工作期間</p>
                     <p class="text-center text-xs text-white/55" data-lang-key="statsElectronPeriod">3/22–3/29　<span class="text-white/30">8 天</span></p>
                     <p class="text-center text-xs text-white/55 leading-relaxed" data-lang-key="statsTauriPeriod">3/28–4/3（1.0 開發）　<span class="text-white/30">7 天</span><br>4/11–4/14（2.0 重構）　<span class="text-white/30">4 天</span></p>
                 </div>
-                <div class="grid grid-cols-3 px-5 py-2.5 border-b border-white/5 items-center">
+                <div class="grid grid-cols-3 px-4 py-2.5 border-b border-white/5 items-center">
                     <p class="text-xs text-white/35" data-lang-key="statsCommitsLabel">Commits</p>
                     <p class="text-center text-sm text-white/55">484</p>
                     <p class="text-center text-sm text-white/55">952</p>
                 </div>
-                <div class="grid grid-cols-3 px-5 py-3.5 border-b border-white/5 items-center" style="background: rgba(168,85,247,0.05);">
+                <div class="grid grid-cols-3 px-4 py-3.5 border-b border-white/5 items-center" style="background: rgba(168,85,247,0.05);">
                     <p class="text-xs text-white/35" data-lang-key="statsDailyCommitsLabel">每日 commits</p>
                     <p class="text-center text-xl font-bold text-white/55">~60.5</p>
                     <p class="text-center text-xl font-bold text-purple-300">~86.5</p>
                 </div>
-                <div class="grid grid-cols-3 px-5 py-2.5 border-b border-white/5 items-center">
+                <div class="grid grid-cols-3 px-4 py-2.5 border-b border-white/5 items-center">
                     <p class="text-xs text-white/35" data-lang-key="statsPRLabel">PR 數</p>
                     <p class="text-center text-sm text-white/55">84</p>
                     <p class="text-center text-sm text-white/55">137</p>
                 </div>
-                <div class="grid grid-cols-3 px-5 py-3.5 items-center" style="background: rgba(168,85,247,0.05);">
+                <div class="grid grid-cols-3 px-4 py-3.5 items-center" style="background: rgba(168,85,247,0.05);">
                     <p class="text-xs text-white/35" data-lang-key="statsDailyPRLabel">每日 PR 數</p>
                     <p class="text-center text-xl font-bold text-white/55">~10.5</p>
                     <p class="text-center text-xl font-bold text-purple-300">~12.5</p>
                 </div>
+              </div>
             </div>
 
-            <p class="text-white/55 leading-relaxed mb-6" data-lang-key="cSp2">四成的密度差距，不是效率的提升——是試錯的密度。每多一個 commit，背後可能是「這樣不對→再試→換方向」。在沒有地圖的地方，試錯本身就是前進的方式。</p>
+            <p class="text-white/55 leading-relaxed mb-6" data-lang-key="cSp2">四成的密度差距，不是效率的提升——是試錯＋迭代優化＋雙平台開發的密度。每多一個 commit，背後可能是「這樣不對→再試→換方向」、「怎麼做我們能協作的更順暢？→增減規則→拆文件」、「Electron，我們來 Sync 剛剛 Tauri 的 Sprint 吧！」。在沒有地圖的地方，試錯本身就是前進的方式，三個人一起走。</p>
 
             <div class="compare-box highlight">
                 <p class="text-xs text-purple-300/60 mb-2" data-lang-key="cSboxTitle">在沒有地圖的地方，密度就是地圖本身</p>
