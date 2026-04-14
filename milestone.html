@@ -271,6 +271,10 @@
                 <p data-lang-key="t5"><span class="text-white/30">04/01</span>  <span class="text-purple-300/80">✨</span>  呼吸燈旗艦改版 — VAS 獨家 UX 誕生</p>
                 <p data-lang-key="t6"><span class="text-white/30">04/02</span>  <span class="text-white/50">🌐</span>  網頁長截圖 + Release build 首次成功</p>
                 <p data-lang-key="t7"><span class="text-white/30">04/03</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Mac App Store 送審</span></p>
+                <p class="border-t border-white/8 pt-2 mt-1" data-lang-key="t8"><span class="text-white/30">04/11</span>  <span class="text-yellow-300/70">🏗️</span>  v2.0 重構啟動 — 三 Sprint 同日完工（座標 / 漸層 / 資料模型）</p>
+                <p data-lang-key="t9"><span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  屬性面板 Pilot + TOOL_SCHEMA 10/10 全覆蓋（三 Sprint）</p>
+                <p data-lang-key="t10"><span class="text-white/30">04/13</span>  <span class="text-yellow-300/70">🏗️</span>  幾何 + 渲染管線模組化 + Undo/Redo 架構升級（三 Sprint）</p>
+                <p data-lang-key="t11"><span class="text-white/30">04/14</span>  <span class="text-green-300/80">✅</span>  Bug Sweep 一次通過 · Help Modal 優化 · v2.0 重構完工</p>
             </div>
 
             <!-- Sprint 表格 -->
@@ -352,6 +356,113 @@
                     </div>
                 </div>
 
+                <!-- v2.0 架構重構 分隔 -->
+                <div class="flex gap-4 pt-2">
+                    <div class="w-10 shrink-0"></div>
+                    <div class="flex-1 border-l border-yellow-400/20 pl-4 pt-2 pb-1">
+                        <p class="text-xs font-bold text-yellow-300/50 uppercase tracking-widest">v2.0 Architecture Refactor</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s10num">S10</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s10meta">04/11　3 Phase　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s10title">🏗️ v2.0 Architecture ① 座標系統重構</p>
+                        <p class="text-xs text-white/40" data-lang-key="s10desc">Rust ToolbarGeometry 純函數（14 cargo tests）· JS editor-utils.js 5 純函數（15 Vitest tests）· EditorInitPayload DPR 修復（Retina / 延伸螢幕截圖座標統一）</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s11num">S11</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s11meta">04/11　6+ 項　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s11title">🏗️ v2.0 Architecture ② 漸層系統統一</p>
+                        <p class="text-xs text-white/40" data-lang-key="s11desc">gradientFromAngle 統一六工具漸層引擎 · 角度轉盤 UI（0–360° 連續控制）· i18n 三語同步 · 陰影 DPR 修正 · 折線箭頭端點內縮 · 文字裝飾線漸層</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s12num">S12</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s12meta">04/11　3 項　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s12title">🏗️ v2.0 Architecture ③ 資料模型正規化</p>
+                        <p class="text-xs text-white/40" data-lang-key="s12desc">color / opacity / borderColor 三組屬性統一 · TOOL_ORDER 九工具全審（grpFlip / grpStrokeOpacity 補入）· 外框位移擴充至 fillrect / fillellipse + Y 軸方向修正</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s13num">S13</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s13meta">04/12　3 項　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s13title">🏗️ v2.0 Architecture ④ 屬性面板框架化 — Pilot</p>
+                        <p class="text-xs text-white/40" data-lang-key="s13desc">TOOL_SCHEMA const 設計定案（rect + number）· 3 engine fns · showOptionsForTool / showOptionsForAnnot 遷移</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s14num">S14</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s14meta">04/12　4 工具　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s14title">🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 1</p>
+                        <p class="text-xs text-white/40" data-lang-key="s14desc">ellipse / fillrect / fillellipse / pen 遷入 schema · shadow pre-pass 根治端點交界縫隙 · polyline 雙擊終點退一格修復</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s15num">S15</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s15meta">04/12　4 工具　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s15title">🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋</p>
+                        <p class="text-xs text-white/40" data-lang-key="s15desc">line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s16num">S16</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s16meta">04/13　3+ 項　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s16title">🏗️ v2.0 Architecture ⑤ 幾何邏輯集中化</p>
+                        <p class="text-xs text-white/40" data-lang-key="s16desc">TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取（任何工具下點擊物件自動切換）· Vitest 47 pass</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s17num">S17</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s17meta">04/13　4 項　QC 100%</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s17title">🏗️ v2.0 Architecture ⑤ 渲染管線模組化</p>
+                        <p class="text-xs text-white/40" data-lang-key="s17desc">TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper（~10 處漸層重複消除）· rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s18num">S18</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s18meta">04/13　5 項　QC 100%（3 輪修復）</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s18title">🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生</p>
+                        <p class="text-xs text-white/40" data-lang-key="s18desc">MAX_HISTORY=50 FIFO · imgSnap PNG 快照 + _imgCache 孤兒清理 · _symMeasureCache 上限 · selId 跨 undo 保留 · crop sizeSx 補償</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-yellow-300/70 font-bold mt-0.5" data-lang-key="s19num">S19</p></div>
+                    <div class="flex-1 border-l border-yellow-400/15 pl-4 pb-2">
+                        <p class="text-xs text-yellow-300/50 mb-1" data-lang-key="s19meta">04/14　2 bugs　QC 100%（一次通過）</p>
+                        <p class="text-sm text-white/70 font-medium mb-1" data-lang-key="s19title">🐛 Bug Sweep</p>
+                        <p class="text-xs text-white/40" data-lang-key="s19desc">畫布閃動根治（選項列固定 88px · 動畫系統完整移除 -85 行）· 折線漸層端點色修復（終點 dotN 獨立投影）</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="w-10 shrink-0 text-right"><p class="text-xs text-green-300/80 font-bold mt-0.5" data-lang-key="s20num">S20</p></div>
+                    <div class="flex-1 border-l border-green-400/25 pl-4 pb-2">
+                        <p class="text-xs text-green-300/60 mb-1" data-lang-key="s20meta">04/14　4 項　QC 100%</p>
+                        <p class="text-sm text-white font-medium mb-1" data-lang-key="s20title">✨ Help Modal 優化 + Modal 邊界修復</p>
+                        <p class="text-xs text-white/40" data-lang-key="s20desc">快捷鍵手風琴面板（4 分類 · 35 鍵 · i18n 20 新 key）· Modal 螢幕邊界 clamp（四角 x/y · menu bar + Dock margin）· Esc 統一關閉所有 modal（歷史 ReferenceError 根治）· 選項列垂直置中</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -372,18 +483,20 @@
                     </div>
                 </div>
 
-                <div class="glass-card rounded-2xl p-6">
+                <div class="glass-card rounded-2xl p-6 opacity-50">
                     <div class="flex items-start gap-4">
-                        <span class="text-yellow-400 font-bold text-sm mt-0.5 shrink-0">🔧</span>
+                        <span class="text-green-400 font-bold text-sm mt-0.5 shrink-0">✅</span>
                         <div>
-                            <p class="text-sm font-bold text-white mb-2" data-lang-key="r2h">v2.0　架構重構（Sprint 10–13）</p>
+                            <p class="text-sm font-bold text-white mb-1" data-lang-key="r2h">v2.0　架構重構（Sprint 10–20）</p>
+                            <p class="text-sm text-white/50 mb-2" data-lang-key="r2p">已完成（04/11–04/14）</p>
                             <ul class="text-sm text-white/50 space-y-1" data-lang-key="r2items">
-                                <li>· 日文字型 + 惡意連結防護</li>
-                                <li>· 座標系統統一</li>
-                                <li>· 資料模型正規化</li>
-                                <li>· 屬性面板框架化</li>
-                                <li>· 渲染管線模組化</li>
-                                <li>· 自動化測試基建</li>
+                                <li>✓ 座標系統統一（DPR 全修）</li>
+                                <li>✓ 漸層引擎統一（六工具）</li>
+                                <li>✓ 資料模型正規化</li>
+                                <li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li>
+                                <li>✓ 幾何 + 渲染管線模組化</li>
+                                <li>✓ Undo/Redo 架構升級 + 記憶體衛生</li>
+                                <li>✓ 自動化測試基建（Vitest 47 pass）</li>
                             </ul>
                         </div>
                     </div>
