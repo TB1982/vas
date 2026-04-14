@@ -291,7 +291,7 @@
         </div>
         <ul class="space-y-2 text-white/45 text-xs leading-relaxed mt-3">
           <li class="flex items-start gap-2"><span class="badge-tauri shrink-0" data-lang-key="tauriOnlyBadge">Tauri 專屬</span><span data-lang-key="bl_url">複製連結後靠近呼吸燈，會詢問是否進行網址截圖</span></li>
-          <li class="flex items-start gap-2"><span class="badge-tauri shrink-0" data-lang-key="tauriOnlyBadge">Tauri 專屬</span><span data-lang-key="bl_file">拖曳檔案靠近呼吸燈，會自動展開編輯器並載入檔案</span></li>
+          <li class="flex items-start gap-2"><span class="badge-all shrink-0" data-lang-key="allVersions">全版本</span><span data-lang-key="bl_file">拖曳檔案靠近呼吸燈，會自動展開編輯器並載入檔案</span></li>
         </ul>
       </div>
     </section>
@@ -419,15 +419,97 @@
 
     <hr class="section-divider">
 
-    <!-- Section 4: Custom Global Shortcuts -->
+    <!-- Section 4: Keyboard Shortcuts -->
     <section aria-labelledby="s4-heading">
       <div class="mb-6">
         <p class="section-label mb-2" data-lang-key="s4Label">Section 04</p>
+        <h2 id="s4-heading" class="text-xl font-semibold" data-lang-key="s4Title">鍵盤快捷鍵</h2>
+        <p class="text-white/45 text-sm mt-1" data-lang-key="s4Sub">編輯器內建快捷鍵一覽</p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="overflow-x-auto">
+          <!-- Tool Switching -->
+          <p class="text-xs text-white/30 font-semibold mb-3 uppercase tracking-widest" data-lang-key="sk_grpTool">工具切換</p>
+          <table class="w-full text-xs mb-6">
+            <thead>
+              <tr class="border-b border-white/10">
+                <th class="text-left py-2 pr-6 font-semibold text-white/35 w-1/3" data-lang-key="sk_col_shortcut">快捷鍵</th>
+                <th class="text-left py-2 font-semibold text-white/35" data-lang-key="sk_col_action">功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">V</td><td class="py-2 text-white/55" data-lang-key="sk_act_select">選取工具</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">M</td><td class="py-2 text-white/55" data-lang-key="sk_act_boxselect">框型選取</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">P</td><td class="py-2 text-white/55" data-lang-key="sk_act_pen">筆型工具</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">L</td><td class="py-2 text-white/55" data-lang-key="sk_act_line">線條工具</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">R</td><td class="py-2 text-white/55" data-lang-key="sk_act_rect">矩形框</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">B</td><td class="py-2 text-white/55" data-lang-key="sk_act_fillrect">色塊</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">T</td><td class="py-2 text-white/55" data-lang-key="sk_act_text">文字工具</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">N</td><td class="py-2 text-white/55" data-lang-key="sk_act_number">編號標記</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">U</td><td class="py-2 text-white/55" data-lang-key="sk_act_stamp">符號印章</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">X</td><td class="py-2 text-white/55" data-lang-key="sk_act_mosaic">馬賽克／模糊</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">G</td><td class="py-2 text-white/55" data-lang-key="sk_act_ocr">OCR 文字辨識</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">K</td><td class="py-2 text-white/55" data-lang-key="sk_act_privacy">隱私遮蔽</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">C</td><td class="py-2 text-white/55" data-lang-key="sk_act_crop">裁切</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">S</td><td class="py-2 text-white/55" data-lang-key="sk_act_resize">調整大小</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">E</td><td class="py-2 text-white/55" data-lang-key="sk_act_extend">延伸畫布</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">O</td><td class="py-2 text-white/55" data-lang-key="sk_act_overlay">疊入圖片</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Canvas -->
+          <p class="text-xs text-white/30 font-semibold mb-3 uppercase tracking-widest" data-lang-key="sk_grpCanvas">畫布操作</p>
+          <table class="w-full text-xs mb-6">
+            <tbody>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">⌘ =</td><td class="py-2 text-white/55" data-lang-key="sk_act_zoomin">放大</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ -</td><td class="py-2 text-white/55" data-lang-key="sk_act_zoomout">縮小</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ 0</td><td class="py-2 text-white/55" data-lang-key="sk_act_fit">適合視窗</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">\</td><td class="py-2 text-white/55" data-lang-key="sk_act_snaptoggle">切換磁吸對齊</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Edit -->
+          <p class="text-xs text-white/30 font-semibold mb-3 uppercase tracking-widest" data-lang-key="sk_grpEdit">編輯</p>
+          <table class="w-full text-xs mb-6">
+            <tbody>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">⌘ Z</td><td class="py-2 text-white/55" data-lang-key="sk_act_undo">撤銷</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ ⇧ Z</td><td class="py-2 text-white/55" data-lang-key="sk_act_redo">重做</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ C</td><td class="py-2 text-white/55" data-lang-key="sk_act_copy">複製</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ V</td><td class="py-2 text-white/55" data-lang-key="sk_act_paste">貼上</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ ⇧ C</td><td class="py-2 text-white/55" data-lang-key="sk_act_copyimage">複製最終影像</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ A</td><td class="py-2 text-white/55" data-lang-key="sk_act_selectall">全選</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Delete / ⌫</td><td class="py-2 text-white/55" data-lang-key="sk_act_delete">刪除選取物件</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Object Actions -->
+          <p class="text-xs text-white/30 font-semibold mb-3 uppercase tracking-widest" data-lang-key="sk_grpObject">物件操作</p>
+          <table class="w-full text-xs">
+            <tbody>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">Shift ＋ 旋轉</td><td class="py-2 text-white/55" data-lang-key="sk_act_shiftrotate">Shift＋旋轉：15° 鎖定</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Shift ＋ 拖曳角落</td><td class="py-2 text-white/55" data-lang-key="sk_act_shiftcorner">Shift＋拖曳角落：等比縮放</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Alt ＋ 拖曳</td><td class="py-2 text-white/55" data-lang-key="sk_act_altdrag">Alt＋拖曳：跳過磁吸</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">← → ↑ ↓</td><td class="py-2 text-white/55" data-lang-key="sk_act_nudge1">微調 1 px</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Shift ＋ ← → ↑ ↓</td><td class="py-2 text-white/55" data-lang-key="sk_act_nudge10">微調 10 px</td></tr>
+              <tr><td class="py-2 pr-6 font-mono text-white/65">Double-click</td><td class="py-2 text-white/55" data-lang-key="sk_act_dblpolyline">雙擊結束折線繪製</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Section 5: Custom Global Shortcuts -->
+    <section aria-labelledby="s5-heading">
+      <div class="mb-6">
+        <p class="section-label mb-2" data-lang-key="s5Label">Section 05</p>
         <div class="flex items-center gap-3 flex-wrap mb-1">
-          <h2 id="s4-heading" class="text-xl font-semibold" data-lang-key="s4Title">自定義全域快捷鍵</h2>
+          <h2 id="s5-heading" class="text-xl font-semibold" data-lang-key="s5Title">自定義全域快捷鍵</h2>
           <span class="badge-tauri" data-lang-key="tauriOnlyBadge">Tauri 專屬</span>
         </div>
-        <p class="text-white/45 text-sm" data-lang-key="s4Sub">在偏好設定中為每個工具指定專屬的全域快捷鍵</p>
+        <p class="text-white/45 text-sm" data-lang-key="s5Sub">在偏好設定中為每個工具指定專屬的全域快捷鍵</p>
       </div>
 
       <div class="glass-card rounded-2xl p-6">
@@ -755,12 +837,12 @@
           body: `
             <div>
               <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">以游標為中心放大畫面，範圍 25%–400%。</p>
+              <p class="text-white/55 text-xs leading-relaxed">以游標為中心放大畫面，範圍 10%–400%。</p>
             </div>
             <div>
               <p class="modal-section-label">縮放比例快捷選單</p>
               <div class="flex flex-wrap">
-                ${['25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -769,12 +851,12 @@
           body: `
             <div>
               <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">以游標為中心縮小畫面，範圍 25%–400%。</p>
+              <p class="text-white/55 text-xs leading-relaxed">以游標為中心縮小畫面，範圍 10%–400%。</p>
             </div>
             <div>
               <p class="modal-section-label">縮放比例快捷選單</p>
               <div class="flex flex-wrap">
-                ${['25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -1118,12 +1200,12 @@
           body: `
             <div>
               <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Zoom in centred on the cursor. Range: 25%–400%.</p>
+              <p class="text-white/55 text-xs leading-relaxed">Zoom in centred on the cursor. Range: 10%–400%.</p>
             </div>
             <div>
               <p class="modal-section-label">Quick zoom presets</p>
               <div class="flex flex-wrap">
-                ${['25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -1132,12 +1214,12 @@
           body: `
             <div>
               <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Zoom out centred on the cursor. Range: 25%–400%.</p>
+              <p class="text-white/55 text-xs leading-relaxed">Zoom out centred on the cursor. Range: 10%–400%.</p>
             </div>
             <div>
               <p class="modal-section-label">Quick zoom presets</p>
               <div class="flex flex-wrap">
-                ${['25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -1480,12 +1562,12 @@
           body: `
             <div>
               <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">カーソルを中心に拡大します。範囲：25%〜400%。</p>
+              <p class="text-white/55 text-xs leading-relaxed">カーソルを中心に拡大します。範囲：10%〜400%。</p>
             </div>
             <div>
               <p class="modal-section-label">クイックズームプリセット</p>
               <div class="flex flex-wrap">
-                ${['25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -1494,12 +1576,12 @@
           body: `
             <div>
               <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">カーソルを中心に縮小します。範囲：25%〜400%。</p>
+              <p class="text-white/55 text-xs leading-relaxed">カーソルを中心に縮小します。範囲：10%〜400%。</p>
             </div>
             <div>
               <p class="modal-section-label">クイックズームプリセット</p>
               <div class="flex flex-wrap">
-                ${['25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
