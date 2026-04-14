@@ -30,8 +30,8 @@
       m5meta: '2026 / 3 / 31　加速',
       m5h3: 'Tauri 新功能開發',
       m5p: '底層穩了，開始疊加 Tauri 專屬功能——ShareSheet、自定義快捷鍵、呼吸燈彩蛋。前端共用，Electron 靜靜受惠。',
-      m6meta: '2026 / 4 月近期　終章・慶功',
-      m6h3: 'Electron v3.45 慶功版 &amp; Tauri 1.0 同步首發',
+      m6meta: '2026 / 4 / 14　終章・慶功',
+      m6h3: 'Electron v3.60 慶功版 &amp; Tauri 1.2.1 同步首發',
       m6p: '兩條線在這裡交匯。不是誰取代誰，是兩個版本各自走到最好的狀態，一起亮相。',
 
       electronTag: 'Electron 版',
@@ -56,7 +56,7 @@
       e7blabel: 'v3.44 — 整修版',
       e7bdesc: '完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。',
       e7bitems: '<li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>工具列 Modal 位置跳動與累積偏移根治</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>修復三種截圖模式（全螢幕 / 視窗 / 矩形）全部失效</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>OCR 與隱私掃描功能修復</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>標號與文字工具尺寸縮放一致性修正</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">⌨️</span><span>方向鍵微調物件位置（Arrow nudge）</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🧹</span><span>拖曳匯出暫存檔 60 秒後自動清除</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🔒</span><span>安全性修補（brace-expansion 漏洞）</span></li>',
-      e8label: 'v3.45.0　陪著 Tauri 一起 Renew 再上線 🎉',
+      e8label: 'v3.60　陪著 Tauri 一起 Renew 再上線 🎉',
       e8desc: '呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。',
 
       tauriTag: 'Tauri 版',
@@ -115,6 +115,7 @@
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  屬性面板 Pilot + TOOL_SCHEMA 10/10 全覆蓋（三 Sprint）',
       t10: '<span class="text-white/30">04/13</span>  <span class="text-yellow-300/70">🏗️</span>  幾何 + 渲染管線模組化 + Undo/Redo 架構升級（三 Sprint）',
       t11: '<span class="text-white/30">04/14</span>  <span class="text-green-300/80">✅</span>  Bug Sweep 一次通過 · Help Modal 優化 · v2.0 重構完工',
+      t12: '<span class="text-white/30">04/14</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Tauri v1.2.1 正式上架 Mac App Store 🎉</span>',
 
       s10num: 'S10',
       s10meta: '04/11　3 Phase　QC 100%',
@@ -203,8 +204,8 @@
       m5meta: '2026 / 3 / 31　Accelerating',
       m5h3: 'Tauri new feature development',
       m5p: 'With a stable foundation, began stacking Tauri-exclusive features — ShareSheet, custom shortcuts, breathing light easter egg. Shared frontend means Electron benefits quietly.',
-      m6meta: '2026 / early April　Final chapter · Celebration',
-      m6h3: 'Electron v3.45 Celebration Edition &amp; Tauri 1.0 simultaneous launch',
+      m6meta: '2026 / 4 / 14　Final chapter · Celebration',
+      m6h3: 'Electron v3.60 Celebration Edition &amp; Tauri 1.2.1 simultaneous launch',
       m6p: 'Two tracks converge here. Not one replacing the other — both versions reaching their best state, debuting together.',
 
       electronTag: 'Electron',
@@ -229,7 +230,7 @@
       e7blabel: 'v3.44 — Refinement update',
       e7bdesc: 'After completing the Tauri migration, returned to Electron with accumulated experience — new features came as a bonus from the shared frontend. Tauri\'s experience fed back into the starting point.',
       e7bitems: '<li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>Toolbar modal position drift & accumulation — fixed</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>All three capture modes (fullscreen / window / rectangle) restored</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>OCR and privacy scan fixed</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>Number stamp & text tool scale consistency fixed</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">⌨️</span><span>Arrow key nudge for selected objects</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🧹</span><span>Drag export temp files auto-deleted after 60 seconds</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🔒</span><span>Security patch (brace-expansion vulnerability)</span></li>',
-      e8label: 'v3.45.0　Renewed alongside Tauri\'s launch 🎉',
+      e8label: 'v3.60　Renewed alongside Tauri\'s launch 🎉',
       e8desc: 'Breathing light auto-hide · Full-screen screen-select overlay · Electron more stable with complete editor features, permanently free.',
 
       tauriTag: 'Tauri',
@@ -288,6 +289,7 @@
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  Properties panel Pilot + TOOL_SCHEMA 10/10 full coverage (three Sprints)',
       t10: '<span class="text-white/30">04/13</span>  <span class="text-yellow-300/70">🏗️</span>  Geometry + rendering pipeline modularisation + Undo/Redo architecture upgrade (three Sprints)',
       t11: '<span class="text-white/30">04/14</span>  <span class="text-green-300/80">✅</span>  Bug Sweep passed first try · Help Modal overhaul · v2.0 refactor complete',
+      t12: '<span class="text-white/30">04/14</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Tauri v1.2.1 officially launched on the Mac App Store 🎉</span>',
 
       s10num: 'S10',
       s10meta: '04/11　3 Phases　QC 100%',
@@ -376,8 +378,8 @@
       m5meta: '2026 / 3 / 31　加速',
       m5h3: 'Tauri 新機能開発',
       m5p: '土台が安定したので、Tauri 専用機能の積み上げを開始——ShareSheet、カスタムショートカット、呼吸ライトのイースターエッグ。フロントエンドを共有することで、Electron も静かに恩恵を受ける。',
-      m6meta: '2026 / 4 月近く　最終章・お祝い',
-      m6h3: 'Electron v3.45 セレブレーション版 &amp; Tauri 1.0 同時リリース',
+      m6meta: '2026 / 4 / 14　最終章・お祝い',
+      m6h3: 'Electron v3.60 セレブレーション版 &amp; Tauri 1.2.1 同時リリース',
       m6p: '二本の線がここで交わる。どちらかがどちらかに取って代わるのではなく、両方のバージョンが最高の状態に達し、一緒に登場する。',
 
       electronTag: 'Electron 版',
@@ -402,7 +404,7 @@
       e7blabel: 'v3.44 — 整備アップデート',
       e7bdesc: 'Tauri 移植完了後、蓄積した経験を携えて Electron に戻り整備。フロントエンド共有のおかげで新機能もおまけ付き。Tauri の経験が出発点にフィードバックされた。',
       e7bitems: '<li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>ツールバー Modal の位置ずれ・累積オフセットを根本修正</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>3種のキャプチャモード（全画面/ウィンドウ/矩形）の一斉不具合を修正</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>OCR・プライバシースキャン機能を修正</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>スタンプとテキストツールのサイズスケール一貫性を修正</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">⌨️</span><span>矢印キーでオブジェクトの微調整（Arrow nudge）</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🧹</span><span>ドラッグ書き出しの一時ファイルを60秒後に自動削除</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🔒</span><span>セキュリティパッチ（brace-expansion 脆弱性）</span></li>',
-      e8label: 'v3.45.0　Tauri と共に刷新して再リリース 🎉',
+      e8label: 'v3.60　Tauri と共に刷新して再リリース 🎉',
       e8desc: '呼吸ライト自動非表示 · 全画面 screen-select overlay · Electron がより安定し、エディタ機能完全。永久無料。',
 
       tauriTag: 'Tauri 版',
@@ -461,6 +463,7 @@
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  プロパティパネル Pilot + TOOL_SCHEMA 10/10 全カバー（3 スプリント）',
       t10: '<span class="text-white/30">04/13</span>  <span class="text-yellow-300/70">🏗️</span>  ジオメトリ + レンダリングパイプライン + Undo/Redo 強化（3 スプリント）',
       t11: '<span class="text-white/30">04/14</span>  <span class="text-green-300/80">✅</span>  Bug Sweep 一発通過 · Help Modal 最適化 · v2.0 リファクタリング完了',
+      t12: '<span class="text-white/30">04/14</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Tauri v1.2.1 Mac App Store にて正式リリース 🎉</span>',
 
       s10num: 'S10',
       s10meta: '04/11　3 フェーズ　QC 100%',
