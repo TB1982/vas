@@ -106,6 +106,10 @@
       s9meta: '04/02 – 04/03　15 項　QC 100%',
       s9title: '🍎 Mac App Store 送審',
       s9desc: '黑底極光花瓶 App icon（與 Electron 版形成視覺區隔）· 呼吸燈引導文字（三語）· 截圖權限引導（失敗時 toast → 開系統設定）· Release build + 沙箱 + 提交 Mac App Store',
+      bridge_tag: '📌 過渡期 04/04 – 04/10',
+      bridge_subtitle: '基礎建設 & Apple 審核',
+      bridge_bullets: '<li>· 文件架構拆分（SDD / TDD / KM / Archive 獨立化），Electron 對齊 Tauri 結構</li><li>· Repo 整理與雙版本同步機制建立（SYNC-QUEUE）</li><li>· Apple 審核回應：4/3 提交 → 4/7 被拒 → 4/8 重新提交 → 4/11 再次被拒</li><li>· v1.2.0 / v1.2.1 hotfix 發布（對應審核修正）</li><li>· 決定啟動 v2.0（Tauri）重構，不再等待審核結果</li>',
+      bridge_v2label: '↳ v2.0 Architecture Refactor',
 
       t8: '<span class="text-white/30">04/11</span>  <span class="text-yellow-300/70">🏗️</span>  v2.0 重構啟動 — 三 Sprint 同日完工（座標 / 漸層 / 資料模型）',
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  屬性面板 Pilot + TOOL_SCHEMA 10/10 全覆蓋（三 Sprint）',
@@ -275,6 +279,10 @@
       s9meta: '04/02 – 04/03　15 items　QC 100%',
       s9title: '🍎 Mac App Store submission',
       s9desc: 'Black-background aurora vase App icon (visual distinction from Electron) · Breathing light guide text (trilingual) · Permission guidance (capture failure → toast → open System Settings) · Release build + sandbox + submitted to Mac App Store',
+      bridge_tag: '📌 Transition 04/04 – 04/10',
+      bridge_subtitle: 'Infrastructure & Apple Review',
+      bridge_bullets: '<li>· Doc architecture split (SDD / TDD / KM / Archive), Electron aligned to Tauri structure</li><li>· Repo cleanup and dual-version sync mechanism (SYNC-QUEUE)</li><li>· Apple review: 4/3 submitted → 4/7 rejected → 4/8 resubmitted → 4/11 rejected again</li><li>· v1.2.0 / v1.2.1 hotfixes released (review-compliance fixes)</li><li>· Decided to start v2.0 (Tauri) refactor — stopped waiting for review result</li>',
+      bridge_v2label: '↳ v2.0 Architecture Refactor',
 
       t8: '<span class="text-white/30">04/11</span>  <span class="text-yellow-300/70">🏗️</span>  v2.0 refactor kicked off — three Sprints completed in one day (coordinates / gradients / data model)',
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  Properties panel Pilot + TOOL_SCHEMA 10/10 full coverage (three Sprints)',
@@ -444,6 +452,10 @@
       s9meta: '04/02 – 04/03　15 項目　QC 100%',
       s9title: '🍎 Mac App Store 申請',
       s9desc: '黒背景オーロラ花瓶 App icon（Electron 版との視覚的差別化）· 呼吸ライト案内文（三語）· スクリーンキャプチャ権限ガイダンス（失敗時 toast → システム設定へ）· Release build + サンドボックス + Mac App Store 申請',
+      bridge_tag: '📌 移行期 04/04 – 04/10',
+      bridge_subtitle: 'インフラ整備 & Apple 審査',
+      bridge_bullets: '<li>· ドキュメントアーキテクチャ分割（SDD / TDD / KM / Archive）、Electron を Tauri 構造に整合</li><li>· Repo 整理とデュアルバージョン同期機構（SYNC-QUEUE）の構築</li><li>· Apple 審査対応：4/3 提出 → 4/7 却下 → 4/8 再提出 → 4/11 再却下</li><li>· v1.2.0 / v1.2.1 ホットフィックス発布（審査対応修正）</li><li>· v2.0（Tauri）リファクタリングを開始、審査結果を待つことをやめた</li>',
+      bridge_v2label: '↳ v2.0 Architecture Refactor',
 
       t8: '<span class="text-white/30">04/11</span>  <span class="text-yellow-300/70">🏗️</span>  v2.0 リファクタリング開始 — 同日 3 スプリント完了（座標 / グラデーション / データモデル）',
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  プロパティパネル Pilot + TOOL_SCHEMA 10/10 全カバー（3 スプリント）',
