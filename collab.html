@@ -222,6 +222,53 @@
             <p class="text-white/55 leading-relaxed mt-6" data-lang-key="c5echo">「組合拳」是這份憲法裡最好的例子。Nova 老是要提醒 Claude 要先給她拉下來的語法才能給啟動模擬器的語法，後來她說：你們要用組合拳給我啦！然後 Claude 就把這個詞刻進了 CLAUDE.md。三個字，帶著「兩個動作是一體的，分開打就破功」的完整概念。下一個 session 進來讀到這裡，不需要解釋，直覺就知道不能拆。這是 Story 02 的鏡像：那裡是 Nova 用「捕蠅草」把設計傳給 Claude，這裡是 Claude 用「組合拳」把流程規則傳給 Nova，然後讓它跨 session 永久存活。方向相反，機制一樣。仿生語言不只是 Nova 對 Claude 說話的方式——是這段關係裡的共同語言。</p>
         </article>
 
+        <!-- Story 06：在沒有地圖的地方 -->
+        <article class="glass-card rounded-2xl p-8">
+            <p class="tag mb-2" data-lang-key="cSTag">數字背後 · Behind the Numbers</p>
+            <h2 class="text-xl font-bold text-white mt-1 mb-4" data-lang-key="cSTitle">四成的差距說的不是效率</h2>
+            <p class="text-white/55 leading-relaxed mb-6" data-lang-key="cSp1">Claude Code 的訓練資料停在 Tauri 1.0，但整個 Tauri 開發期用的是 2.0。Nova 不寫程式。前進的依據只有三樣：KM 記錄的踩坑紀錄、Nova 的直覺、跟一個同樣在摸索的 AI 互相支撐。這組數字是那段摸索留下的痕跡。</p>
+
+            <div class="rounded-xl overflow-hidden mb-6" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06);">
+                <div class="grid grid-cols-3 px-5 pt-4 pb-3 border-b border-white/6">
+                    <div></div>
+                    <p class="text-center text-xs font-bold text-white/40 uppercase tracking-widest" data-lang-key="statsElectronLabel">Electron</p>
+                    <p class="text-center text-xs font-bold text-purple-300/60 uppercase tracking-widest" data-lang-key="statsTauriLabel">Tauri+Electron（實際工作日）</p>
+                </div>
+                <div class="grid grid-cols-3 px-5 py-2.5 border-b border-white/5 items-center">
+                    <p class="text-xs text-white/35" data-lang-key="statsPeriodLabel">工作期間</p>
+                    <p class="text-center text-xs text-white/55" data-lang-key="statsElectronPeriod">3/22–3/29　<span class="text-white/30">8 天</span></p>
+                    <p class="text-center text-xs text-white/55 leading-relaxed" data-lang-key="statsTauriPeriod">3/28–4/3（1.0 開發）　<span class="text-white/30">7 天</span><br>4/11–4/14（2.0 重構）　<span class="text-white/30">4 天</span></p>
+                </div>
+                <div class="grid grid-cols-3 px-5 py-2.5 border-b border-white/5 items-center">
+                    <p class="text-xs text-white/35" data-lang-key="statsCommitsLabel">Commits</p>
+                    <p class="text-center text-sm text-white/55">484</p>
+                    <p class="text-center text-sm text-white/55">952</p>
+                </div>
+                <div class="grid grid-cols-3 px-5 py-3.5 border-b border-white/5 items-center" style="background: rgba(168,85,247,0.05);">
+                    <p class="text-xs text-white/35" data-lang-key="statsDailyCommitsLabel">每日 commits</p>
+                    <p class="text-center text-xl font-bold text-white/55">~60.5</p>
+                    <p class="text-center text-xl font-bold text-purple-300">~86.5</p>
+                </div>
+                <div class="grid grid-cols-3 px-5 py-2.5 border-b border-white/5 items-center">
+                    <p class="text-xs text-white/35" data-lang-key="statsPRLabel">PR 數</p>
+                    <p class="text-center text-sm text-white/55">84</p>
+                    <p class="text-center text-sm text-white/55">137</p>
+                </div>
+                <div class="grid grid-cols-3 px-5 py-3.5 items-center" style="background: rgba(168,85,247,0.05);">
+                    <p class="text-xs text-white/35" data-lang-key="statsDailyPRLabel">每日 PR 數</p>
+                    <p class="text-center text-xl font-bold text-white/55">~10.5</p>
+                    <p class="text-center text-xl font-bold text-purple-300">~12.5</p>
+                </div>
+            </div>
+
+            <p class="text-white/55 leading-relaxed mb-6" data-lang-key="cSp2">四成的密度差距，不是效率的提升——是試錯的密度。每多一個 commit，背後可能是「這樣不對→再試→換方向」。在沒有地圖的地方，試錯本身就是前進的方式。</p>
+
+            <div class="compare-box highlight">
+                <p class="text-xs text-purple-300/60 mb-2" data-lang-key="cSboxTitle">在沒有地圖的地方，密度就是地圖本身</p>
+                <p class="text-sm text-white/70" data-lang-key="cSboxDesc">Tauri+Electron 每天 ~86.5 commits，Electron 每天 ~60.5 commits。四成的差距，忠實記錄了在未知地形上摸索的代價——也記錄了沒有放棄的事實。</p>
+            </div>
+        </article>
+
         <!-- 結語 -->
         <article class="glass-card rounded-2xl p-8">
             <p class="tag mb-6" data-lang-key="c6Tag">核心洞察 · Core Insight</p>
