@@ -465,6 +465,7 @@
               <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">⌘ =</td><td class="py-2 text-white/55" data-lang-key="sk_act_zoomin">放大</td></tr>
               <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ -</td><td class="py-2 text-white/55" data-lang-key="sk_act_zoomout">縮小</td></tr>
               <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ 0</td><td class="py-2 text-white/55" data-lang-key="sk_act_fit">適合視窗</td></tr>
+              <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Space ＋ 拖曳</td><td class="py-2 text-white/55" data-lang-key="sk_act_spacepan">平移畫布</td></tr>
               <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">\</td><td class="py-2 text-white/55" data-lang-key="sk_act_snaptoggle">切換磁吸對齊</td></tr>
             </tbody>
           </table>
@@ -627,11 +628,31 @@
                 <li>點選標注物件以選取；點選空白處取消選取</li>
                 <li>空白處拖曳可框選多個物件</li>
                 <li>Shift＋點選可逐一加選／取消物件</li>
+                <li>右鍵選單可調整圖層順序（移到最前／最後／上移／下移）</li>
+                <li>繪製完成後自動切回選取工具</li>
               </ul>
             </div>
             <div>
               <p class="modal-section-label">選取單一物件時</p>
               <p class="text-white/55 text-xs leading-relaxed">顯示該物件的所有子屬性（依物件類型而定），包含顏色、線寬、透明度、大小、陰影等屬性。</p>
+            </div>
+            <div>
+              <p class="modal-section-label">色彩選取器</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>品牌色盤：預設主題色一鍵套用</li>
+                <li>近期使用色：自動記錄最近選取的顏色</li>
+                <li>Hex 輸入：直接輸入色碼精準指定</li>
+                <li>滴管工具：放大鏡即時預覽取色</li>
+              </ul>
+            </div>
+            <div>
+              <p class="modal-section-label">智慧對齊（磁吸）</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li><span class="font-mono text-purple-300">\\</span> 快速切換磁吸開關</li>
+                <li>藍色線：物件邊緣／中心對齊提示線</li>
+                <li>紅色線：等距參考線，顯示物件間距是否相等</li>
+                <li>Alt＋拖曳：暫時跳過磁吸，自由放置物件</li>
+              </ul>
             </div>
             <div>
               <p class="modal-section-label">選取複數物件時（多選模式）</p>
@@ -674,6 +695,7 @@
               <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
                 <li>拖曳繪製直線；Shift＋拖曳鎖定 90° 直角</li>
                 <li>選取後拖曳中間控制點可轉為貝茲曲線</li>
+                <li>折線模式下，雙擊結束繪製</li>
               </ul>
             </div>
             <div>
@@ -725,7 +747,7 @@
             <div>
               <p class="modal-section-label">屬性</p>
               <div class="flex flex-wrap">
-                ${['填色（純色／漸層）','漸層兩端顏色','圓角半徑（矩形適用，0–100%）','邊框寬度','邊框顏色','線條樣式（實線／虛線）','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['填色（純色／漸層）','漸層兩端顏色','漸層角度轉盤（0–360°）','支援透明色','圓角半徑（矩形適用，0–100%）','邊框寬度','邊框顏色','線條樣式（實線／虛線）','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -844,6 +866,14 @@
               <div class="flex flex-wrap">
                 ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
+            </div>
+            <div>
+              <p class="modal-section-label">畫布導航</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space＋拖曳：平移畫布</li>
+                <li>觸控板雙指縮放：以游標為中心縮放</li>
+                <li>⌘0：重置至適合視窗大小</li>
+              </ul>
             </div>`
         },
         zoomout: {
@@ -858,6 +888,14 @@
               <div class="flex flex-wrap">
                 ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
+            </div>
+            <div>
+              <p class="modal-section-label">畫布導航</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space＋拖曳：平移畫布</li>
+                <li>觸控板雙指縮放：以游標為中心縮放</li>
+                <li>⌘0：重置至適合視窗大小</li>
+              </ul>
             </div>`
         },
         fit: {
@@ -866,6 +904,13 @@
             <div>
               <p class="modal-section-label">操作方式</p>
               <p class="text-white/55 text-xs leading-relaxed">按下後立即將畫面縮放至 100% 並 fit 視窗。</p>
+            </div>
+            <div>
+              <p class="modal-section-label">畫布導航</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space＋拖曳：平移畫布</li>
+                <li>觸控板雙指縮放：以游標為中心縮放</li>
+              </ul>
             </div>`
         },
         crop: {
@@ -990,11 +1035,31 @@
                 <li>Click an annotation to select it; click empty area to deselect</li>
                 <li>Drag on empty canvas to lasso-select multiple objects</li>
                 <li>Shift-click to add or remove objects from selection</li>
+                <li>Right-click to reorder layers (bring to front / send to back / move up / down)</li>
+                <li>After drawing, the tool auto-switches back to Select</li>
               </ul>
             </div>
             <div>
               <p class="modal-section-label">Single selection</p>
               <p class="text-white/55 text-xs leading-relaxed">Shows all sub-properties of the selected object (varies by type): colour, stroke width, opacity, size, shadow, and more.</p>
+            </div>
+            <div>
+              <p class="modal-section-label">Colour Picker</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Brand palette: apply theme colours in one click</li>
+                <li>Recent colours: automatically saved from recent picks</li>
+                <li>Hex input: enter a colour code for precise control</li>
+                <li>Eyedropper: magnifier loupe for pixel-accurate sampling</li>
+              </ul>
+            </div>
+            <div>
+              <p class="modal-section-label">Smart Alignment (Snapping)</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li><span class="font-mono text-purple-300">\\</span> toggles snapping on / off</li>
+                <li>Blue lines: edge / centre alignment guides</li>
+                <li>Red lines: equal-distance guides showing uniform spacing</li>
+                <li>Alt + drag: temporarily bypass snapping for free placement</li>
+              </ul>
             </div>
             <div>
               <p class="modal-section-label">Multi-selection</p>
@@ -1037,6 +1102,7 @@
               <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
                 <li>Drag to draw a straight line; Shift-drag to snap to 90°</li>
                 <li>Drag the midpoint handle on a selected line to create a Bézier curve</li>
+                <li>In polyline mode, double-click to finish drawing</li>
               </ul>
             </div>
             <div>
@@ -1088,7 +1154,7 @@
             <div>
               <p class="modal-section-label">Properties</p>
               <div class="flex flex-wrap">
-                ${['Fill (solid / gradient)','Gradient colours (A & B)','Corner radius (rectangle only, 0–100%)','Border width','Border colour','Line style (solid / dashed)','Opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['Fill (solid / gradient)','Gradient colours (A & B)','Gradient angle dial (0–360°)','Transparent colour support','Corner radius (rectangle only, 0–100%)','Border width','Border colour','Line style (solid / dashed)','Opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -1207,6 +1273,14 @@
               <div class="flex flex-wrap">
                 ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
+            </div>
+            <div>
+              <p class="modal-section-label">Canvas Navigation</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space + drag: pan the canvas</li>
+                <li>Trackpad pinch: zoom centred on cursor</li>
+                <li>⌘0: reset to fit window</li>
+              </ul>
             </div>`
         },
         zoomout: {
@@ -1221,6 +1295,14 @@
               <div class="flex flex-wrap">
                 ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
+            </div>
+            <div>
+              <p class="modal-section-label">Canvas Navigation</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space + drag: pan the canvas</li>
+                <li>Trackpad pinch: zoom centred on cursor</li>
+                <li>⌘0: reset to fit window</li>
+              </ul>
             </div>`
         },
         fit: {
@@ -1229,6 +1311,13 @@
             <div>
               <p class="modal-section-label">How to use</p>
               <p class="text-white/55 text-xs leading-relaxed">Instantly resets the canvas to 100% and fits it to the window.</p>
+            </div>
+            <div>
+              <p class="modal-section-label">Canvas Navigation</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space + drag: pan the canvas</li>
+                <li>Trackpad pinch: zoom centred on cursor</li>
+              </ul>
             </div>`
         },
         crop: {
@@ -1352,11 +1441,31 @@
                 <li>注釈をクリックして選択；空白エリアをクリックで選択解除</li>
                 <li>空白キャンバスをドラッグして複数オブジェクトをまとめて選択</li>
                 <li>Shift クリックで選択に追加／解除</li>
+                <li>右クリックメニューでレイヤー順序を変更（最前面 / 最背面 / 上へ / 下へ）</li>
+                <li>描画完了後、選択ツールに自動切替</li>
               </ul>
             </div>
             <div>
               <p class="modal-section-label">単一選択</p>
               <p class="text-white/55 text-xs leading-relaxed">選択したオブジェクトのサブプロパティをすべて表示（種類によって異なります）：色・線幅・不透明度・サイズ・シャドウなど。</p>
+            </div>
+            <div>
+              <p class="modal-section-label">カラーピッカー</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>ブランドパレット：テーマカラーをワンクリックで適用</li>
+                <li>最近使用した色：最近選択した色を自動保存</li>
+                <li>Hex 入力：カラーコードを直接入力して正確に指定</li>
+                <li>スポイト：ルーペ付きでピクセル単位の精密なカラーサンプリング</li>
+              </ul>
+            </div>
+            <div>
+              <p class="modal-section-label">スマート整列（スナップ）</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li><span class="font-mono text-purple-300">\\</span> スナップのオン/オフを切替</li>
+                <li>青い線：エッジ / 中心の整列ガイド</li>
+                <li>赤い線：等間隔ガイド（均等な間隔を表示）</li>
+                <li>Alt＋ドラッグ：一時的にスナップを無効にして自由配置</li>
+              </ul>
             </div>
             <div>
               <p class="modal-section-label">複数選択</p>
@@ -1399,6 +1508,7 @@
               <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
                 <li>ドラッグで直線を描画；Shift ドラッグで90°スナップ</li>
                 <li>選択した線の中点ハンドルをドラッグしてベジェ曲線に変換</li>
+                <li>折れ線モードではダブルクリックで描画を完了</li>
               </ul>
             </div>
             <div>
@@ -1450,7 +1560,7 @@
             <div>
               <p class="modal-section-label">プロパティ</p>
               <div class="flex flex-wrap">
-                ${['塗り（単色 / グラデーション）','グラデーション色（A・B）','角丸（矩形のみ、0–100%）','枠線幅','枠線色','線スタイル（実線 / 破線）','不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
+                ${['塗り（単色 / グラデーション）','グラデーション色（A・B）','グラデーション角度ダイヤル（0–360°）','透明色サポート','角丸（矩形のみ、0–100%）','枠線幅','枠線色','線スタイル（実線 / 破線）','不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
             </div>`
         },
@@ -1569,6 +1679,14 @@
               <div class="flex flex-wrap">
                 ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
+            </div>
+            <div>
+              <p class="modal-section-label">キャンバスナビゲーション</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space＋ドラッグ：キャンバスをパン</li>
+                <li>トラックパッドピンチ：カーソル中心にズーム</li>
+                <li>⌘0：ウィンドウに合わせてリセット</li>
+              </ul>
             </div>`
         },
         zoomout: {
@@ -1583,6 +1701,14 @@
               <div class="flex flex-wrap">
                 ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
               </div>
+            </div>
+            <div>
+              <p class="modal-section-label">キャンバスナビゲーション</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space＋ドラッグ：キャンバスをパン</li>
+                <li>トラックパッドピンチ：カーソル中心にズーム</li>
+                <li>⌘0：ウィンドウに合わせてリセット</li>
+              </ul>
             </div>`
         },
         fit: {
@@ -1591,6 +1717,13 @@
             <div>
               <p class="modal-section-label">操作方法</p>
               <p class="text-white/55 text-xs leading-relaxed">キャンバスを100%にリセットし、ウィンドウサイズにフィットさせます。</p>
+            </div>
+            <div>
+              <p class="modal-section-label">キャンバスナビゲーション</p>
+              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
+                <li>Space＋ドラッグ：キャンバスをパン</li>
+                <li>トラックパッドピンチ：カーソル中心にズーム</li>
+              </ul>
             </div>`
         },
         crop: {
