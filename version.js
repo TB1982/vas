@@ -4,13 +4,13 @@
 // 使用方式：
 //   <script src="version.js"></script>
 //   然後在 JS 裡用 window.VAS_VERSION（完整版本號）
-//   或 window.VAS_VERSION_SHORT（不含 patch，如 "3.44"）
+//   或 window.VAS_VERSION_SHORT（不含 patch，如 "3.60"）
 //
 // 下載連結範例：
-//   'https://github.com/TB1982/pm/releases/download/v' + VAS_VERSION + '/VAS-' + VAS_VERSION + '-arm64.dmg'
+//   'https://github.com/TB1982/vas/releases/download/v' + VAS_VERSION + '/VAS-' + VAS_VERSION + '-arm64.dmg'
 
 (function () {
-  var VERSION = '3.44.0';
+  var VERSION = '3.60.0';
   window.VAS_VERSION = VERSION;
   window.VAS_VERSION_SHORT = VERSION.split('.').slice(0, 2).join('.');
 }());
