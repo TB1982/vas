@@ -191,7 +191,7 @@
                         </a>
                     </div>
                     <a id="electronDownload"
-                       href="https://github.com/TB1982/pm/releases/download/v3.44.0/VAS-3.44.0-arm64.dmg"
+                       href="https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg"
                        class="download-btn-free inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg min-h-[52px]"
                        download>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true">
@@ -211,7 +211,7 @@
                         <span data-lang-key="guideBtn">操作手冊</span>
                     </a>
                     <a id="releaseLink"
-                       href="https://github.com/TB1982/pm/releases/tag/v3.44.0"
+                       href="https://github.com/TB1982/vas/releases/tag/v3.60.0"
                        target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white/70 hover:text-white transition-colors min-h-[52px]"
                        style="border: 1px solid rgba(255,255,255,0.15);">
@@ -614,12 +614,12 @@
 
         // ── 版本號動態填入（來源：version.js）────────────────────────────────
         (function () {
-          var v = window.VAS_VERSION || '3.44.0';
+          var v = window.VAS_VERSION || '3.60.0';
           // 下載連結 & Release Notes 連結
           var dl = document.getElementById('electronDownload');
           var rl = document.getElementById('releaseLink');
-          if (dl) dl.href = 'https://github.com/TB1982/pm/releases/download/v' + v + '/VAS-' + v + '-arm64.dmg';
-          if (rl) rl.href = 'https://github.com/TB1982/pm/releases/tag/v' + v;
+          if (dl) dl.href = 'https://github.com/TB1982/vas/releases/download/v' + v + '/VAS-' + v + '-arm64.dmg';
+          if (rl) rl.href = 'https://github.com/TB1982/vas/releases/tag/v' + v;
           // badge 字串裡的版本號（翻譯已套用後再替換）
           document.querySelectorAll('[data-lang-key="badge"]').forEach(function (el) {
             el.innerHTML = el.innerHTML.replace(/v[\d.]+/, 'v' + v);
