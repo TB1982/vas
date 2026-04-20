@@ -111,7 +111,7 @@
       sysReq: 'Requires macOS · Electron: Free · Tauri: Paid',
       aboutLabel: 'ABOUT',
       aboutTitle: 'About VAS',
-      about1: 'Alchemy Vessel for Information',
+      about1: 'A vessel for ideas.',
       about2: 'Let information flow in naturally — carrying everything you want to say — and arrive, without friction, wherever it belongs.',
       featuresLabel: 'SAME WORKFLOW',
       featuresTitle: 'Find your workflow',
