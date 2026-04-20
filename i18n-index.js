@@ -112,7 +112,7 @@
       aboutLabel: 'ABOUT',
       aboutTitle: 'About VAS',
       about1: 'A vessel for ideas.',
-      about2: 'Let information flow in naturally — carrying everything you want to say — and arrive, without friction, wherever it belongs.',
+      about2: 'Information flows in, carries what you mean, arrives where it should.',
       featuresLabel: 'SAME WORKFLOW',
       featuresTitle: 'Find your workflow',
       tabQA: '🔬 QA / Testers',
