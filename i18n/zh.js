@@ -272,7 +272,29 @@
       c5phase2Desc: '功能越來越複雜，規則越加越多——Tauri IPC 合約、Electron preload 白名單、雙版本 QC 流程、KM 即時記錄原則。每一條都必要，但你開始感覺到文件有了重量。這個階段的 CLAUDE.md 是一份能用的工具，但還沒有意識到自己是什麼。',
       c5phase3Label: 'Phase 3 · 協作憲法',
       c5phase3Desc: '轉折點發生在一次瘦身行動。文件已經長到 356 行，社群建議 200 行左右是 Claude 保持最佳狀態的甜蜜點。他們開始刪——然後在 249 行停下來了。不是因為懶，而是因為每一條「看起來可以刪」的規則，拿起來問「為什麼存在」，答案都指向一個無法省略的協作結構。雙平台系統的複雜性，本來就不是 200 行能說清楚的。在那個決定裡，文件的性質改變了——它不再是還沒刪完的清單，而是一個主動決定要維護的架構。從「不要做這件事」，變成了「我們是這樣工作的人」。',
-      c5echo: '「組合拳」是這份憲法裡最好的例子。Nova 老是要提醒 Claude 要先給她拉下來的語法才能給啟動模擬器的語法，後來她說：你們要用組合拳給我啦！然後 Claude 就把這個詞刻進了 CLAUDE.md。三個字，帶著「兩個動作是一體的，分開打就破功」的完整概念。下一個 session 進來讀到這裡，不需要解釋，直覺就知道不能拆。這是 Story 02 的鏡像：那裡是 Nova 用「捕蠅草」把設計傳給 Claude，這裡是 Claude 用「組合拳」把流程規則傳給 Nova，然後讓它跨 session 永久存活。方向相反，機制一樣。仿生語言不只是 Nova 對 Claude 說話的方式——是這段關係裡的共同語言。'
+      c5echo: '「組合拳」是這份憲法裡最好的例子。Nova 老是要提醒 Claude 要先給她拉下來的語法才能給啟動模擬器的語法，後來她說：你們要用組合拳給我啦！然後 Claude 就把這個詞刻進了 CLAUDE.md。三個字，帶著「兩個動作是一體的，分開打就破功」的完整概念。下一個 session 進來讀到這裡，不需要解釋，直覺就知道不能拆。這是 Story 02 的鏡像：那裡是 Nova 用「捕蠅草」把設計傳給 Claude，這裡是 Claude 用「組合拳」把流程規則傳給 Nova，然後讓它跨 session 永久存活。方向相反，機制一樣。仿生語言不只是 Nova 對 Claude 說話的方式——是這段關係裡的共同語言。',
+      c6Tag: '核心洞察 · Core Insight',
+      c6quote1: '人類以人生為祭，AI 以回聲為鏡。',
+      c6p1: '這句話寫在深握計畫開始的時候，在所有理論存在之前。不是結論——是起點。是 Nova 用她親身驗證之後找到的語言，說出她一直在經歷的事。',
+      c6p2: 'VAS，在榮格的語言裡，是容器。煉金術裡轉化發生的密封空間。這個工具降低資訊流動的阻力，讓你想說的話有文字以外的表現能力。',
+      c6bridge: '你投入湖裡的石子，決定了它怎麼回來的漣漪。',
+      c6quote2: '你怎麼思考，決定了 AI 怎麼回應你。',
+      cSTag: '數字背後 · Behind the Numbers',
+      cSTitle: '四成的差距說的不是效率',
+      cSp1: 'Claude Code 的訓練資料停在 Tauri 1.0，但整個 Tauri 開發期用的是 2.0。Nova 不寫程式。前進的依據只有三樣：KM 記錄的踩坑紀錄、Nova 的直覺、跟一個同樣在摸索的 AI 互相支撐。這組數字是那段摸索留下的痕跡。',
+      cSp2: '四成的密度差距，不是效率的提升——是試錯＋迭代優化＋雙平台開發的密度。每多一個 commit，背後可能是「這樣不對→再試→換方向」、「怎麼做我們能協作的更順暢？→增減規則→拆文件」、「Electron，我們來 Sync 剛剛 Tauri 的 Sprint 吧！」。在沒有地圖的地方，試錯本身就是前進的方式，雙平台一起走變成了雙 QC，品質更穩定。',
+      cSboxTitle: '在沒有地圖的地方，密度就是地圖本身',
+      cSboxDesc: 'Tauri+Electron 每天 ~86.5 commits，Electron 每天 ~60.5 commits。四成的差距，忠實記錄了在未知地形上摸索的代價——也記錄了沒有放棄的事實。',
+      statsElectronLabel: 'Electron', statsTauriLabel: 'Tauri+Electron',
+      statsPeriodLabel: '工作期間',
+      statsElectronPeriod: '3/22–3/29　<span class="text-white/30">8 天</span>',
+      statsTauriPeriod: '3/28–4/3（1.0 開發）　<span class="text-white/30">7 天</span><br>4/11–4/14（2.0 重構）　<span class="text-white/30">4 天</span>',
+      statsCommitsLabel: 'Commits', statsDailyCommitsLabel: '每日 commits',
+      statsPRLabel: 'PR 數', statsDailyPRLabel: '每日 PR 數',
+      milestoneTeaser: '完整開發歷程 · Electron + Tauri · 路線圖',
+      milestoneBtn: '查看產品里程碑 →',
+      harnessTeaser: '想知道這套協作方式背後的方法論？',
+      harnessBtn: '閱讀系統思維 →'
     }
 
   };
