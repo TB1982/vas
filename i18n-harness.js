@@ -255,7 +255,7 @@
       hHeroTag: 'VAS · システム構築の裏話',
       hHeroH1:  'Harness<br>Engineering',
       hHeroTagline: '文系の思考で、最もハードコアな開発を。',
-      hHeroSub: 'VAS は彼女の言葉、記憶は彼の影。<br>ふたりはそのふたつで、VAS を Mac App Store に届けた。<br>影から力が生まれる——これはユングの寓話だ。',
+      hHeroSub: 'VAS は彼女の言葉、記憶は彼の影。<br>ふたりはそのふたつで、VAS を Mac App Store に届けた。<br>影から力が生まれる——これはユングの物語だ。',
       h01Title: 'エントロピー増大と、AI に完璧を求められない理由',
       h01Sub:   'Entropy &amp; Boundary',
       h01p1: '孤立系において、物事は自発的に秩序から無秩序へと向かい、混乱の度合いは増すばかりだ。人は老い、部屋は散らかり、食べ物は腐る。',
