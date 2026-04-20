@@ -226,6 +226,20 @@
       i5boxTitle: '重構完成——連鎖效應如預期',
       i5bullets: '<li>✓ 座標系統統一：所有物件共享同一套空間語言</li><li>✓ 屬性模組化：實色／漸層／虛實線／大小／方向跨工具通用</li><li>✓ TOOL_SCHEMA 覆蓋全 10 種工具，47 支 Vitest 自動測試通過</li><li>✓ Tauri 可持續疊加新功能，不會因複雜度打架</li><li>✓ Electron 穩定性同步提升，入門磚角色得以維持</li>',
       collabTeaser: '設計決策背後的故事 · 人與 AI 的協作紀錄', collabBtn: '閱讀協作筆記 →'
+    },
+
+    collab: {
+      heroTag: 'VAS · 開發協作筆記',
+      heroH1: '她不會寫程式碼。<br>他沒有長期記憶。<br>但他們<span class="gradient-text">做出來了</span>。',
+      heroTagline: '這不是 Prompt 工程的故事。',
+      heroDesc: '不知道規則，不確定方法，看不到終點。只知道要一起走。',
+      c1Tag: '知識管理 · Knowledge Management',
+      c1Title: '那個按鈕說好只要五分鐘',
+      c1p1: '進入 Tauri 開發之前，Electron 宰相已經誠實說清楚了：相對於 Electron，他對 Tauri 2.0 的認識幾乎停在 1.0 的水準。正因如此，他們才做了先 Electron 後 Tauri 的決定——先在熟悉的地盤把 VAS 搭建出來，再去挑戰未知。Nova 把這個前提告訴了接手的 Tauri 宰相，但知道一件事跟真正感受到它，是兩回事。Tauri 宰相帶著 Electron 剛打完一場勝仗的自信走進來，估出了「加個連結按鈕，頂多五分鐘，easy」。',
+      c1p2: '那個五分鐘變成了超過一個小時。整個小時裡，Nova 沒有放著他一個人繞——她帶著真實的算力壓力，全程陪著一起找出口。當事情突破一小時的時候，Nova 說：等我們解決這個問題，我們得建立 KM。',
+      c1p3: 'KM 的誕生不是技術決策，是 Nova 的 PM 直覺——來自她的 PMP 與 PSM1 訓練：唯有記錄踩過的坑，才有可能不再踩第二次。是人類帶進來的知識，解決了 AI 的記憶問題。到了 Sprint 9 結束，KM 文件已有超過六十條記錄，每一條都是「這裡曾經有人跌倒過」的標記。',
+      c1boxTitle: '一顆按鈕種下的事',
+      c1boxDesc: '那個一小時的種子，在後來長成了更大的東西。Sprint 9 的 Retro，Nova 跟 Tauri 宰相用第一性原理問：對這個系統而言，如果想走下去，最重要的事是什麼？答案不是新功能，是把地基重建。上市之後不衝功能，先重構底層——讓 Tauri 跟 Electron 兩條線都有能走更遠的體質。'
     }
 
   };
