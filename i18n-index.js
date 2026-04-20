@@ -60,7 +60,7 @@
       dev8n: '一鍵複製 + 拖曳匯出', dev8d: '截完直接貼進 GitHub issue、PR comment、Slack 頻道，不需存檔再附加；截圖變附件，動作少一半',
       toolbarLabel: '截圖工具列',
       momentsLabel: 'Thoughtful by Design',
-      momentsTitle: '細節裡的貼心',
+      momentsTitle: '設計，就是更貼心。',
       m1Label: 'Capture Toolbar', m1Title: '一盞呼吸燈，需要時它都在',
       m1Desc: '工具列縮成一條呼吸燈，待在桌面角落。拖著檔案靠近，它自己張開。放開，直接進編輯器。走了，它縮回去，繼續等。',
       m2Label: 'Delay Capture', m2Title: '那個截不到的瞬間，截到了',
