@@ -228,6 +228,7 @@
             <p class="mt-5 text-xs font-medium" style="color: #c084fc;" data-lang-key="sysReq">
                 需要 macOS · Electron 版免費 · Tauri 版付費
             </p>
+            <p id="cnLangNote" class="mt-2 text-xs font-medium text-center" style="color: #a78bfa; display: none;">支持简体中文，陆续扩充更多语言</p>
 
             <div class="mt-8">
                 <h2 class="text-sm font-semibold tracking-widest text-white/30 uppercase mb-4" data-lang-key="toolbarLabel">Capture Toolbar</h2>
@@ -453,7 +454,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Electron — current free -->
-                <div class="glass-section rounded-3xl p-7 flex flex-col gap-4 border border-white/10">
+                <div id="electronPricingCard" class="glass-section rounded-3xl p-7 flex flex-col gap-4 border border-white/10">
                     <div class="flex items-center gap-3">
                         <span class="text-2xl" aria-hidden="true">📦</span>
                         <div>
@@ -551,6 +552,10 @@
                 if (fastImg) fastImg.src = lang === 'ja' ? 'img/fast-jp.webp' : lang === 'en' ? 'img/fast-en.webp' : 'img/fast.webp';
                 var electronBtn = document.getElementById('electronDownload');
                 if (electronBtn) electronBtn.style.display = lang === 'cn' ? 'none' : '';
+                var electronCard = document.getElementById('electronPricingCard');
+                if (electronCard) electronCard.style.display = lang === 'cn' ? 'none' : '';
+                var cnNote = document.getElementById('cnLangNote');
+                if (cnNote) cnNote.style.display = lang === 'cn' ? '' : 'none';
                 document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
                 VASCore.updateDropdown(lang);
                 try { localStorage.setItem('vasLang', lang); } catch (e) {}
