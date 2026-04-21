@@ -220,9 +220,9 @@
     min-height: auto;
     padding: 48px 24px 40px;
   }
-  .shrine-prose  { grid-column: 1; grid-row: 1; }
+  .shrine-prose  { grid-column: 1; grid-row: 1; max-width: none; min-height: auto; }
   .shrine-vessel { grid-column: 1; grid-row: 2; min-height: 360px; }
-  .shrine-gates  { grid-template-columns: 1fr 1fr; }
+  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 3; }
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
   .shrine-vessel .shrine-colophon { left: 0; right: auto; bottom: 8px; }
