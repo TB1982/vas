@@ -147,6 +147,7 @@
                         <button class="lang-opt active" data-lang="zh" role="option">中文</button>
                         <button class="lang-opt" data-lang="en" role="option">English</button>
                         <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+                        <button class="lang-opt" data-lang="cn" role="option">简</button>
                     </div>
                 </div>
             </div>
@@ -516,37 +517,44 @@
     </footer>
 
     <script src="version.js"></script>
-    <script src="i18n-shared.js"></script>
-    <script src="i18n-index.js"></script>
+    <script src="i18n/core.js"></script>
     <script>
-        const translations = window.VASIndexT;
-
         const surveyLinks = {
             zh: 'https://forms.gle/5xWyyvehF1HSAyDu7',
             en: 'https://forms.gle/qgzfrBA9MbHK1fb4A',
-            ja: 'https://forms.gle/9D3fFbfadzbijcvh6'
+            ja: 'https://forms.gle/9D3fFbfadzbijcvh6',
+            cn: 'https://forms.gle/5xWyyvehF1HSAyDu7'
         };
 
-        function switchLanguage(lang) {
-            const trans = translations[lang];
-            document.querySelectorAll('[data-lang-key]').forEach(el => {
-                const key = el.dataset.langKey;
-                if (trans[key] !== undefined) el.innerHTML = trans[key];
+        function applyLang(lang) {
+            VASCore.loadLang(lang, function (t) {
+                var merged = Object.assign({}, t.shared || {}, t.index || {});
+                document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+                    var key = el.getAttribute('data-lang-key');
+                    if (merged[key] !== undefined) el.innerHTML = merged[key];
+                });
+                var surveyLink = document.getElementById('surveyFormLink');
+                if (surveyLink) surveyLink.href = surveyLinks[lang] || surveyLinks['zh'];
+                var toolbarImg = document.getElementById('toolbarImg');
+                if (toolbarImg) {
+                    toolbarImg.src = lang === 'ja' ? 'img/vastoolbar-jp.webp' : lang === 'en' ? 'img/vastoolbar-en.webp' : 'img/vastoolbar.webp';
+                    toolbarImg.alt = lang === 'ja' ? 'VAS キャプチャツールバー：全画面・ウィンドウ・矩形・遅延・開く・バッチ変換ボタン' : lang === 'en' ? 'VAS capture toolbar: fullscreen, window, rectangle, delay, open, batch convert buttons' : 'VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕';
+                }
+                var vasframeImg = document.getElementById('vasframeImg');
+                if (vasframeImg) {
+                    vasframeImg.src = lang === 'ja' ? 'img/vasframe-jp.webp' : lang === 'en' ? 'img/vasframe-en.webp' : 'img/vasframe-zh.webp';
+                    vasframeImg.alt = lang === 'ja' ? 'VAS エディタ画面：ダーク作業エリア、左側ツールバー、上部オプションバー、中央に注釈キャンバス' : lang === 'en' ? 'VAS editor interface: dark workspace with left toolbar, top options bar, and annotation canvas' : 'VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布';
+                }
+                var sharesheetImg = document.getElementById('sharesheetImg');
+                if (sharesheetImg) sharesheetImg.src = lang === 'ja' ? 'img/sharesheet-jp.webp' : lang === 'en' ? 'img/sharesheet-en.webp' : 'img/sharesheet.webp';
+                var fastImg = document.getElementById('fastImg');
+                if (fastImg) fastImg.src = lang === 'ja' ? 'img/fast-jp.webp' : lang === 'en' ? 'img/fast-en.webp' : 'img/fast.webp';
+                var electronBtn = document.getElementById('electronDownload');
+                if (electronBtn) electronBtn.style.display = lang === 'cn' ? 'none' : '';
+                document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+                VASCore.updateDropdown(lang);
+                try { localStorage.setItem('vasLang', lang); } catch (e) {}
             });
-            document.getElementById('surveyFormLink').href = surveyLinks[lang];
-            const toolbarImg = document.getElementById('toolbarImg');
-            toolbarImg.src = lang === 'zh' ? 'img/vastoolbar.webp' : lang === 'ja' ? 'img/vastoolbar-jp.webp' : 'img/vastoolbar-en.webp';
-            toolbarImg.alt = lang === 'zh' ? 'VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕' : lang === 'ja' ? 'VAS キャプチャツールバー：全画面・ウィンドウ・矩形・遅延・開く・バッチ変換ボタン' : 'VAS capture toolbar: fullscreen, window, rectangle, delay, open, batch convert buttons';
-            const vasframeImg = document.getElementById('vasframeImg');
-            vasframeImg.src = lang === 'zh' ? 'img/vasframe-zh.webp' : lang === 'ja' ? 'img/vasframe-jp.webp' : 'img/vasframe-en.webp';
-            vasframeImg.alt = lang === 'zh' ? 'VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布' : lang === 'ja' ? 'VAS エディタ画面：ダーク作業エリア、左側ツールバー、上部オプションバー、中央に注釈キャンバス' : 'VAS editor interface: dark workspace with left toolbar, top options bar, and annotation canvas';
-            const sharesheetImg = document.getElementById('sharesheetImg');
-            if (sharesheetImg) sharesheetImg.src = lang === 'zh' ? 'img/sharesheet.webp' : lang === 'ja' ? 'img/sharesheet-jp.webp' : 'img/sharesheet-en.webp';
-            const fastImg = document.getElementById('fastImg');
-            if (fastImg) fastImg.src = lang === 'zh' ? 'img/fast.webp' : lang === 'ja' ? 'img/fast-jp.webp' : 'img/fast-en.webp';
-            document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'ja' ? 'ja' : 'en';
-            window.VASShared.updateDropdown(lang);
-            try { localStorage.setItem('vasLang', lang); } catch (e) {}
         }
 
         // ── Header nav: mobile dropdown + custom anchor scroll ───────────────
@@ -605,8 +613,8 @@
             }, 2800);
         })();
 
-        switchLanguage('zh'); // 初始化：套用 zh i18n key，確保硬寫內容與翻譯一致
-        window.VASShared.initDropdown(switchLanguage); // 綁定 dropdown 事件 + 恢復 localStorage 語言
+        applyLang('zh'); // 初始化：套用 zh i18n key，確保硬寫內容與翻譯一致
+        VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); // 綁定 dropdown 事件 + 恢復 localStorage 語言
 
         // ── 版本號動態填入（來源：version.js）────────────────────────────────
         (function () {
