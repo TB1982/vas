@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow">
+<title data-lang-key="heroTitle">VAS 操作手冊</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/guide-B.html">
+<meta name="description" data-lang-key="heroSub"
+      content="浮動工作列、編輯器介面與左側工具列功能說明">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/docs.css">
+
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240,232,220,0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240,232,220,0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px; background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong); border-radius: 12px;
+    padding: 4px; display: none; z-index: 100; backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px; background: transparent; border: none;
+    color: var(--vas-ash-2); font-family: var(--vas-serif); font-size: 14px;
+    border-radius: 8px; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240,232,220,0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+
+  /* ─── Guide 專用元件 ──────────────────────── */
+  .g-section-sub {
+    font-family: var(--vas-serif); font-size: 15px;
+    color: var(--vas-ash-2); margin: -8px 0 28px;
+  }
+  .g-img {
+    width: 100%; border-radius: 4px;
+    border: 1px solid var(--vas-rule); margin-bottom: 28px;
+  }
+  .g-toolbar-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin-bottom: 16px;
+  }
+  .g-card {
+    padding: 16px; border: 1px solid var(--vas-rule); border-radius: 2px;
+    transition: border-color .2s;
+  }
+  .g-card:hover { border-color: var(--vas-rule-strong); }
+  .g-card-name {
+    font-family: var(--vas-mono); font-size: 12px; letter-spacing: 0.08em;
+    color: var(--vas-ash-0); margin-bottom: 6px;
+  }
+  .g-card-desc {
+    font-family: var(--vas-serif); font-size: 13px; line-height: 1.75;
+    color: var(--vas-ash-2);
+  }
+  .g-bl-card {
+    padding: 20px 24px; border: 1px solid var(--vas-rule); border-radius: 2px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .g-bl-img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+  .g-bl-body { flex: 1; }
+  .g-bl-title { font-family: var(--vas-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--vas-ash-0); margin-bottom: 8px; }
+  .g-bl-desc { font-family: var(--vas-serif); font-size: 13px; line-height: 1.75; color: var(--vas-ash-2); }
+  .g-bl-list { list-style: none; padding: 0; margin: 8px 0 0; }
+  .g-bl-list li { display: flex; gap: 8px; align-items: baseline; margin-bottom: 4px; }
+  .g-badge-t, .g-badge-a {
+    font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.1em;
+    padding: 2px 7px; border-radius: 999px; flex-shrink: 0;
+  }
+  .g-badge-t { background: rgba(196,113,245,0.12); color: var(--vas-aurora-violet); border: 1px solid rgba(196,113,245,0.25); }
+  .g-badge-a { background: rgba(240,232,220,0.06); color: var(--vas-ash-2); border: 1px solid var(--vas-rule); }
+  .g-zones-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 12px; margin-top: 0;
+  }
+  .g-zone-name {
+    font-family: var(--vas-serif); font-weight: 500; font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .g-tools-wrap { display: flex; gap: 32px; align-items: flex-start; }
+  .g-sidebar-img { width: 68px; flex-shrink: 0; border-radius: 4px; border: 1px solid var(--vas-rule); }
+  .g-tools-body { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+  .g-grp-label {
+    font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--vas-ash-3); margin-bottom: 10px;
+  }
+  .g-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .g-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; border: 1px solid var(--vas-rule); border-radius: 2px;
+    font-family: var(--vas-serif); font-size: 14px; color: var(--vas-ash-1);
+    transition: border-color .2s;
+  }
+  .g-chip:hover { border-color: var(--vas-rule-strong); }
+  .g-chip-icon { font-size: 13px; color: var(--vas-ash-3); }
+  .g-chip-key {
+    font-family: var(--vas-mono); font-size: 11px;
+    color: var(--vas-aurora-violet); letter-spacing: 0.04em;
+  }
+  .g-acc-table { width: 100%; border-collapse: collapse; }
+  .g-acc-table td {
+    padding: 9px 0; border-bottom: 1px solid var(--vas-rule);
+    font-family: var(--vas-serif); font-size: 14px; color: var(--vas-ash-1);
+    vertical-align: top;
+  }
+  .g-acc-table td:first-child {
+    font-family: var(--vas-mono); font-size: 13px; color: var(--vas-ash-0);
+    width: 40%; padding-right: 16px;
+  }
+  .g-acc-table tr:last-child td { border-bottom: none; }
+  .g-check { color: #6ee7b7; margin-right: 6px; }
+  .g-cross { color: #fca5a5; margin-right: 6px; }
+
+  @media (max-width: 768px) {
+    .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
+    .g-zones-grid { grid-template-columns: 1fr; }
+    .g-tools-wrap { flex-direction: column; }
+    .g-sidebar-img { width: 100%; max-width: 280px; }
+  }
+  @media (max-width: 480px) {
+    .g-toolbar-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index-B.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="insight-B.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab-B.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness-B.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone-B.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
+  </div>
+</nav>
+
+<div class="docs-layout">
+
+  <!-- ═══ Sticky TOC (desktop) ═══ -->
+  <aside class="docs-toc-sticky" aria-label="頁面目錄">
+    <p class="docs-toc-sticky-label" data-lang-key="heroLabel">操作手冊</p>
+    <ol>
+      <li><a href="#s01" data-lang-key="s3Title">浮動工作列</a></li>
+      <li><a href="#s02" data-lang-key="s1Title">編輯器介面</a></li>
+      <li><a href="#s03" data-lang-key="s2Title">左側工具列</a></li>
+      <li><a href="#s04" data-lang-key="s4Title">鍵盤快捷鍵</a></li>
+      <li><a href="#s05" data-lang-key="s5Title">自定義全域快捷鍵</a></li>
+    </ol>
+  </aside>
+
+  <!-- ═══ Main content ═══ -->
+  <main class="docs-main" id="docs-main">
+
+    <!-- Mobile TOC -->
+    <details class="docs-toc-mobile">
+      <summary data-lang-key="heroLabel">操作手冊</summary>
+      <ol>
+        <li><a href="#s01" data-lang-key="s3Title">浮動工作列</a></li>
+        <li><a href="#s02" data-lang-key="s1Title">編輯器介面</a></li>
+        <li><a href="#s03" data-lang-key="s2Title">左側工具列</a></li>
+        <li><a href="#s04" data-lang-key="s4Title">鍵盤快捷鍵</a></li>
+        <li><a href="#s05" data-lang-key="s5Title">自定義全域快捷鍵</a></li>
+      </ol>
+    </details>
+
+    <!-- Hero -->
+    <h1 data-lang-key="heroTitle">VAS 操作手冊</h1>
+    <p class="docs-dek" data-lang-key="heroSub">浮動工作列、編輯器介面與左側工具列功能說明</p>
+
+    <!-- ══ S01 ══ -->
+    <section id="s01">
+      <h2 data-lang-key="s3Title">浮動工作列</h2>
+      <!-- content: Step B -->
+    </section>
+
+    <!-- ══ S02 ══ -->
+    <section id="s02">
+      <h2 data-lang-key="s1Title">編輯器介面</h2>
+      <!-- content: Step C -->
+    </section>
+
+    <!-- ══ S03 ══ -->
+    <section id="s03">
+      <h2 data-lang-key="s2Title">左側工具列</h2>
+      <!-- content: Step D -->
+    </section>
+
+    <!-- ══ S04 ══ -->
+    <section id="s04">
+      <h2 data-lang-key="s4Title">鍵盤快捷鍵</h2>
+      <!-- content: Step E -->
+    </section>
+
+    <!-- ══ S05 ══ -->
+    <section id="s05">
+      <h2 data-lang-key="s5Title">自定義全域快捷鍵</h2>
+      <!-- content: Step F -->
+    </section>
+
+  </main>
+</div><!-- /.docs-layout -->
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。<br>
+    <a href="privacy-B.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.guide || {});
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  /* Sticky TOC highlight */
+  function initTocHighlight() {
+    var links = document.querySelectorAll('.docs-toc-sticky a');
+    if (!links.length) return;
+    var sections = Array.from(links).map(function (a) {
+      return document.querySelector(a.getAttribute('href'));
+    }).filter(Boolean);
+    function onScroll() {
+      var scroll = window.scrollY + 120;
+      var current = sections[0];
+      sections.forEach(function (s) { if (s.offsetTop <= scroll) current = s; });
+      links.forEach(function (a) {
+        a.classList.toggle('is-current', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  function init() {
+    VASCore.initDropdown(applyLang);
+    initTocHighlight();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+</body>
+</html>
