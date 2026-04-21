@@ -148,6 +148,7 @@
                 <button class="lang-opt active" data-lang="zh" role="option">中文</button>
                 <button class="lang-opt" data-lang="en" role="option">English</button>
                 <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+                <button class="lang-opt" data-lang="cn" role="option">简</button>
             </div>
         </div>
     </nav>
@@ -224,31 +225,32 @@
         <p data-lang-key="footer">由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" style="color:rgba(196,113,245,0.6)">Nova</a> 最後更新於 2026</p>
     </footer>
 
-    <script src="i18n-shared.js"></script>
-    <script src="i18n-privacy.js"></script>
+    <script src="i18n/core.js"></script>
     <script>
-      (function () {
-        var pageT = window.VASPrivacyT;
-
-        function applyLang(lang) {
-          // 顯示對應 lang-block，隱藏其他
+    (function () {
+      function applyLang(lang) {
+        VASCore.loadLang(lang, function (t) {
+          // lang-block show/hide (cn falls back to zh-Hant block)
+          var blockLang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hant' : lang;
           document.querySelectorAll('.lang-block').forEach(function (sec) {
-            sec.style.display = (sec.getAttribute('lang') === (lang === 'zh' ? 'zh-Hant' : lang)) ? '' : 'none';
+            sec.style.display = (sec.getAttribute('lang') === blockLang) ? '' : 'none';
           });
-          // 套用翻譯
-          var t = pageT[lang];
-          if (t) {
-            document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-              var key = el.getAttribute('data-lang-key');
-              if (t[key] !== undefined) el.innerHTML = t[key];
-            });
-          }
-          document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
-          window.VASShared.updateDropdown(lang);
+          // apply translations
+          var merged = Object.assign({}, t.shared || {}, t.privacy || {});
+          document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+            var key = el.getAttribute('data-lang-key');
+            if (merged[key] !== undefined) el.innerHTML = merged[key];
+          });
+          document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+          VASCore.updateDropdown(lang);
           try { localStorage.setItem('vasLang', lang); } catch (e) {}
-        }
-        window.VASShared.initDropdown(applyLang);
-      })();
+        });
+      }
+      function init() { VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else { init(); }
+    }());
     </script>
 
     <script type="application/ld+json">
