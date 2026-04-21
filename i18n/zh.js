@@ -489,7 +489,13 @@
       s11num: 'S11', s11meta: '04/11　6+ 項　QC 100%', s11title: '🏗️ v2.0 Architecture ② 漸層系統統一',
       s11desc: 'gradientFromAngle 統一六工具漸層引擎 · 角度轉盤 UI（0–360° 連續控制）· i18n 三語同步 · 陰影 DPR 修正 · 折線箭頭端點內縮 · 文字裝飾線漸層',
       s12num: 'S12', s12meta: '04/11　3 項　QC 100%', s12title: '🏗️ v2.0 Architecture ③ 資料模型正規化',
-      s12desc: 'color / opacity / borderColor 三組屬性統一 · TOOL_ORDER 九工具全審（grpFlip / grpStrokeOpacity 補入）· 外框位移擴充至 fillrect / fillellipse + Y 軸方向修正'
+      s12desc: 'color / opacity / borderColor 三組屬性統一 · TOOL_ORDER 九工具全審（grpFlip / grpStrokeOpacity 補入）· 外框位移擴充至 fillrect / fillellipse + Y 軸方向修正',
+      s13num: 'S13', s13meta: '04/12　3 項　QC 100%', s13title: '🏗️ v2.0 Architecture ④ 屬性面板框架化 — Pilot',
+      s13desc: 'TOOL_SCHEMA const 設計定案（rect + number）· 3 engine fns · showOptionsForTool / showOptionsForAnnot 遷移',
+      s14num: 'S14', s14meta: '04/12　4 工具　QC 100%', s14title: '🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 1',
+      s14desc: 'ellipse / fillrect / fillellipse / pen 遷入 schema · shadow pre-pass 根治端點交界縫隙 · polyline 雙擊終點退一格修復',
+      s15num: 'S15', s15meta: '04/12　4 工具　QC 100%', s15title: '🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋',
+      s15desc: 'line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正'
     },
 
     privacy: {
