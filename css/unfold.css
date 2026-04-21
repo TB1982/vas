@@ -48,4 +48,5 @@
     gap: 24px;
     padding: 80px 24px 56px;
   }
+  .unfold-body { max-width: none; }
 }
