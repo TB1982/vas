@@ -551,7 +551,7 @@
       'acquire.guide.name':       '操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>',
       'acquire.guide.go':         '→ 閱讀',
       'unfold.label':             '為何存在',
-      'unfold.p1':                'VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越文字的力量。',
+      'unfold.p1':                'VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越<wbr>文字的力量。',
       'unfold.p2':                '作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。',
       'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          '版次記號',
