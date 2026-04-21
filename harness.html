@@ -315,6 +315,7 @@
         <button class="lang-opt active" data-lang="zh" role="option">中文</button>
         <button class="lang-opt" data-lang="en" role="option">English</button>
         <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+        <button class="lang-opt" data-lang="cn" role="option">简</button>
       </div>
     </div>
   </header>
@@ -705,8 +706,27 @@
     <p><a href="privacy.html" class="hover:text-white/50 transition-colors">隱私權政策</a></p>
   </footer>
 
-  <script src="i18n-shared.js"></script>
-  <script src="i18n-harness.js"></script>
+  <script src="i18n/core.js"></script>
+  <script>
+  (function () {
+    function applyLang(lang) {
+      VASCore.loadLang(lang, function (t) {
+        var merged = Object.assign({}, t.shared || {}, t.harness || {});
+        document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+          var key = el.getAttribute('data-lang-key');
+          if (merged[key] !== undefined) el.innerHTML = merged[key];
+        });
+        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+        VASCore.updateDropdown(lang);
+        try { localStorage.setItem('vasLang', lang); } catch (e) {}
+      });
+    }
+    function init() { VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else { init(); }
+  }());
+  </script>
 
   <script type="application/ld+json">
   {
