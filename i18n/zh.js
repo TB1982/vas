@@ -483,7 +483,13 @@
       t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  屬性面板 Pilot + TOOL_SCHEMA 10/10 全覆蓋（三 Sprint）',
       t10: '<span class="text-white/30">04/13</span>  <span class="text-yellow-300/70">🏗️</span>  幾何 + 渲染管線模組化 + Undo/Redo 架構升級（三 Sprint）',
       t11: '<span class="text-white/30">04/14</span>  <span class="text-green-300/80">✅</span>  Bug Sweep 一次通過 · Help Modal 優化 · v2.0 重構完工',
-      t12: '<span class="text-white/30">04/14</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Tauri v1.2.1 正式上架 Mac App Store 🎉</span>'
+      t12: '<span class="text-white/30">04/14</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Tauri v1.2.1 正式上架 Mac App Store 🎉</span>',
+      s10num: 'S10', s10meta: '04/11　3 Phase　QC 100%', s10title: '🏗️ v2.0 Architecture ① 座標系統重構',
+      s10desc: 'Rust ToolbarGeometry 純函數（14 cargo tests）· JS editor-utils.js 5 純函數（15 Vitest tests）· EditorInitPayload DPR 修復（Retina / 延伸螢幕截圖座標統一）',
+      s11num: 'S11', s11meta: '04/11　6+ 項　QC 100%', s11title: '🏗️ v2.0 Architecture ② 漸層系統統一',
+      s11desc: 'gradientFromAngle 統一六工具漸層引擎 · 角度轉盤 UI（0–360° 連續控制）· i18n 三語同步 · 陰影 DPR 修正 · 折線箭頭端點內縮 · 文字裝飾線漸層',
+      s12num: 'S12', s12meta: '04/11　3 項　QC 100%', s12title: '🏗️ v2.0 Architecture ③ 資料模型正規化',
+      s12desc: 'color / opacity / borderColor 三組屬性統一 · TOOL_ORDER 九工具全審（grpFlip / grpStrokeOpacity 補入）· 外框位移擴充至 fillrect / fillellipse + Y 軸方向修正'
     },
 
     privacy: {
