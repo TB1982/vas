@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow">
+<title data-lang-key="ch2PageTitle">II · 協作 · VAS</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/collab-B.html">
+<meta name="description" data-lang-key="ch2MetaDesc"
+      content="六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。">
+<meta property="og:title" content="VAS · 六個故事 · 協作筆記（改版預覽）">
+<meta property="og:description" content="六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tb1982.github.io/vas/collab-B.html">
+<meta property="og:locale" content="zh_TW">
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+
+  /* ─── 協作故事 · 呼出框 ─────────────────── */
+  .c2-callout {
+    margin-top: 32px;
+    padding: 22px 26px;
+    border: 1px solid rgba(196, 113, 245, 0.22);
+    background: rgba(196, 113, 245, 0.05);
+  }
+  .c2-callout-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 10px;
+  }
+  .c2-callout p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+
+  /* ─── 引言 block ────────────────────────── */
+  .c2-quote {
+    border-left: 2px solid rgba(196, 113, 245, 0.4);
+    padding: 0 0 0 20px;
+    margin: 24px 0;
+  }
+  .c2-quote p {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+
+  /* ─── 大引言（結尾用）──────────────────── */
+  .c2-big-quote {
+    font-family: var(--vas-serif);
+    font-size: clamp(18px, 2.4vw, 24px);
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--vas-ash-0);
+    max-width: none;
+    margin-bottom: 8px;
+  }
+
+  /* ─── Phase box（CLAUDE.md 三階段）────── */
+  .c2-phase {
+    padding: 18px 22px;
+    border: 1px solid var(--vas-rule);
+    margin-bottom: 10px;
+  }
+  .c2-phase.active {
+    border-color: rgba(196, 113, 245, 0.22);
+    background: rgba(196, 113, 245, 0.04);
+  }
+  .c2-phase-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 8px;
+  }
+  .c2-phase.active .c2-phase-label { color: var(--vas-aurora-violet); opacity: 0.8; }
+  .c2-phase p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+  .c2-phase.active p { color: var(--vas-ash-0); }
+
+  /* ─── 統計表格 ──────────────────────────── */
+  .c2-stats-wrap {
+    margin-left: 128px;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    overflow-x: auto;
+  }
+  .c2-stats-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-family: var(--vas-serif);
+    font-size: 14px;
+  }
+  .c2-stats-table th {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .c2-stats-table th:first-child { text-align: left; }
+  .c2-stats-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--vas-rule);
+    color: var(--vas-ash-1);
+    text-align: center;
+  }
+  .c2-stats-table td:first-child { text-align: left; color: var(--vas-ash-2); font-size: 13px; }
+  .c2-stats-table tr.highlight td { color: var(--vas-ash-0); font-size: 17px; font-weight: 500; }
+  .c2-stats-table tr.highlight td.purple { color: var(--vas-aurora-violet); }
+
+  /* ─── code 元素 ─────────────────────────── */
+  .section-body code, .c2-callout code, .c2-phase code {
+    font-family: var(--vas-mono);
+    font-size: 13px;
+    color: var(--vas-ash-2);
+    background: rgba(240, 232, 220, 0.06);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  /* ─── 頁尾次要連結 ──────────────────────── */
+  .site-sub-link {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-decoration: none;
+    border-bottom: 1px solid var(--vas-rule);
+    transition: color .3s;
+  }
+  .site-sub-link:hover { color: var(--vas-ash-1); }
+
+  /* ─── RWD ───────────────────────────────── */
+  @media (max-width: 768px) {
+    .c2-stats-wrap { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index-B.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="insight-B.html"  data-lang-key="home2.nav.design">設計</a>
+    <a href="collab-B.html"   data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"    data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html"  data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch2No">Chapter II</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch2Name">六<em>個故事</em>。</h1>
+    <div class="chapter-dek" data-lang-key="ch2Dek">
+      她不會寫程式碼。他沒有長期記憶。但他們做出來了。——這不是 Prompt 工程的故事，是兩個不完整的存在，在一起走過的六個片刻。
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch2TocLabel">章目錄</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name" data-lang-key="ch2s1Name">那個按鈕說好只要五分鐘</span>
+        <span class="preview" data-lang-key="ch2s1Preview">一顆按鈕，種下了 KM</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name" data-lang-key="ch2s2Name">三個字說完一份規格</span>
+        <span class="preview" data-lang-key="ch2s2Preview">捕蠅草，兩個回合，功能上線</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name" data-lang-key="ch2s3Name">那天 merge 一直衝突</span>
+        <span class="preview" data-lang-key="ch2s3Preview">慌之後，一條護欄誕生了</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name" data-lang-key="ch2s4Name">SDD 四千行之後</span>
+        <span class="preview" data-lang-key="ch2s4Preview">讓文件不死的方式</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name" data-lang-key="ch2s5Name">CLAUDE.md 從防錯清單變成協作憲法</span>
+        <span class="preview" data-lang-key="ch2s5Preview">從傷疤集合到主動維護的架構</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name" data-lang-key="ch2s6Name">四成的差距說的不是效率</span>
+        <span class="preview" data-lang-key="ch2s6Preview">在沒有地圖的地方，密度就是地圖</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-07">
+        <span class="no">07</span>
+        <span class="name" data-lang-key="ch2s7Name">核心洞察</span>
+        <span class="preview" data-lang-key="ch2s7Preview">人類以人生為祭，AI 以回聲為鏡</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 小節 01 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s1Name">那個按鈕說好只要五分鐘</h2>
+      <div class="section-kicker" data-lang-key="ch2s1Kicker">一顆按鈕，種下了 KM。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step B -->
+  </div>
+</section>
+
+<!-- ═══════ 小節 02 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s2Name">三個字說完一份規格</h2>
+      <div class="section-kicker" data-lang-key="ch2s2Kicker">捕蠅草，兩個回合，功能上線。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step B -->
+  </div>
+</section>
+
+<!-- ═══════ 小節 03 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s3Name">那天 merge 一直衝突</h2>
+      <div class="section-kicker" data-lang-key="ch2s3Kicker">慌之後，一條護欄誕生了。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step C -->
+  </div>
+</section>
+
+<!-- ═══════ 小節 04 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s4Name">SDD 四千行之後</h2>
+      <div class="section-kicker" data-lang-key="ch2s4Kicker">讓文件不死的方式。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step C -->
+  </div>
+</section>
+
+<!-- ═══════ 小節 05 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s5Name">CLAUDE.md 從防錯清單變成協作憲法</h2>
+      <div class="section-kicker" data-lang-key="ch2s5Kicker">從傷疤集合到主動維護的架構。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step D -->
+  </div>
+</section>
+
+<!-- ═══════ 小節 06 ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s6Name">四成的差距說的不是效率</h2>
+      <div class="section-kicker" data-lang-key="ch2s6Kicker">在沒有地圖的地方，密度就是地圖。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step D -->
+  </div>
+</section>
+
+<!-- ═══════ 小節 07 ═══════ -->
+<section class="section" id="sec-07">
+  <header class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s7Name">核心洞察</h2>
+      <div class="section-kicker" data-lang-key="ch2s7Kicker">人類以人生為祭，AI 以回聲為鏡。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <!-- content: Step E -->
+  </div>
+</section>
+
+<!-- ═══════ 章末過場 · Passage ═══════ -->
+<section class="passage">
+  <div class="passage-colophon">
+    <span data-lang-key="ch2PassageEnd">章 II · 協作 · 終</span><br>
+    <span class="faint" data-lang-key="ch2PassageEndEn">Chapter II · Collaboration · End</span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="harness.html">
+      <div class="num" data-lang-key="ch2PassageNextNum">III · 系統</div>
+      <div class="name" data-lang-key="ch2PassageNextName">Harness</div>
+      <div class="arrow">↓</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。<br>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.collab || {}, t.collab2 || {});
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  function init() { VASCore.initDropdown(applyLang); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+</body>
+</html>
