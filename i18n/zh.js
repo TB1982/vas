@@ -355,7 +355,21 @@
       h05l2: 'CLAUDE.md — 身份的外部化', h05l2d: '團隊章程，讓每一個 session 知道自己是誰、在哪裡、要往哪走。',
       h05l3: 'Sprint 規格書 — 方向的外部化', h05l3d: '換了 session，仍能馬上接上。',
       h05p5: '就像河流匯入海洋，原本都是水，只是繼續流動。讓 session 內能流暢運行的重點不在於控制，而在於讓交接變得無縫。',
-      h05bq: 'Be water, my friend.<br><cite>— 我對 Claude 的期許。而我，選擇成為那條河道的架構師，讓他可以恣意奔流。</cite>'
+      h05bq: 'Be water, my friend.<br><cite>— 我對 Claude 的期許。而我，選擇成為那條河道的架構師，讓他可以恣意奔流。</cite>',
+      h06Title: '每個 KM 都是一顆掉下來的蘋果', h06Sub: 'Antifragility — Taleb',
+      h06p1: 'Taleb 說，反脆弱系統不只能承受衝擊——它需要衝擊才能成長。',
+      h06k1: '<strong style="color:rgba(255,255,255,0.45);">脆弱</strong> — 一個衝擊就垮',
+      h06k2: '<strong style="color:rgba(255,255,255,0.65);">堅固</strong> — 能抵抗衝擊',
+      h06k3: '<strong style="color:#e8b4ff;">反脆弱</strong> — 從衝擊中獲益，每次打擊後變得更強',
+      h06p2: 'VAS 有兩條版本線。Electron，Claude 熟悉，少踩坑，KM 寥寥無幾。Tauri 2.0，連 Claude 自己都坦承：「我的預訓練資料停留在 Tauri 1.0，這對我來說也是未知領域。」',
+      h06p3: '兩個人，一起摸黑走進去。',
+      h06p4: 'Sprint 1，光是「改了前端畫面卻沒有更新」就能讓我們卡住——根因是 WKWebView 的快取機制，沒有前人記錄，只能從頭摸。Sprint 2，Rust 的每一個層次都是新的關卡，每走一步都可能掉坑。',
+      h06p5: '但我們每次掉坑，就記一條 KM。面對未知領域，我們還加了兩道強制 Research——不是為了填表，是讓 Claude 在下筆之前先知道地雷在哪裡。<mark>KM 是走完之後標坑，Research 是走進去之前探路。</mark>一個累積確定性，一個降低不確定性。',
+      h06p6: '這套重裝備不是每次都要用。Electron 輕裝就夠，Tauri 2.0 才需要全副武裝——工具要用對地方。',
+      h06f1: 'Electron <span>熟悉領域</span>', h06f2: 'Tauri 2.0 <span>未知領域</span>',
+      h06fNote: '粉色步驟為 Nova 跟 Claude 被 Tauri 2.0 壓在地上摩擦之後，一條一條加進去防止兩人白費工的護欄。',
+      h06p7: '到了 Sprint 9，KM 文件已經有 63 條記錄。Claude 一進來，讀完就知道問題在哪一層——不需要暖機，不需要重新摸索，直接定位，直接修。Sprint 9，一週完工，送進 Apple 審查。',
+      h06bq: '這就是反脆弱的成長曲線——不是線性進步，是指數型加速。<br>不是因為我們變聰明了，而是因為每一顆掉下來的蘋果，都變成了下一個人不必重踩的地圖。'
     }
 
   };
