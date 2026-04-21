@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow">
+<title data-lang-key="ch3PageTitle">III · 系統 · VAS</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/harness-B.html">
+<meta name="description" data-lang-key="ch3MetaDesc"
+      content="Harness Engineering——如何把 AI 的限制變成協作的結構，從熵增到反脆弱的完整方法論。">
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+
+  /* ─── Trail · 光點彩蛋 ─────────────────────── */
+  .trail-dot {
+    display: inline-block;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--vas-aurora-violet);
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.4;
+    transition: opacity .4s;
+    text-decoration: none;
+  }
+  .trail-dot:hover { opacity: 1; }
+  .trail-dot.door {
+    opacity: 0.5;
+    cursor: pointer;
+    margin-left: 6px;
+  }
+  .trail-dot.door:hover {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--vas-aurora-violet);
+  }
+
+  /* ─── blockquote ────────────────────────────── */
+  .h3-bq {
+    border-left: 2px solid rgba(196, 113, 245, 0.35);
+    margin: 32px 0;
+    padding: 4px 0 4px 20px;
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    font-style: italic;
+    line-height: 2;
+    color: var(--vas-ash-1);
+  }
+  .h3-bq cite {
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--vas-ash-2);
+    margin-top: 8px;
+  }
+
+  /* ─── 心理敏捷開發 6 步（sec-04）───────────── */
+  .h3-agile {
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--vas-rule);
+  }
+  .h3-agile-caption {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid var(--vas-rule);
+  }
+  .h3-agile-item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--vas-rule);
+    align-items: baseline;
+  }
+  .h3-agile-item:last-child { border-bottom: none; }
+  .h3-agile-num {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    color: var(--vas-ash-3);
+    letter-spacing: 0.1em;
+    padding-top: 2px;
+  }
+  .h3-agile-name {
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--vas-ash-0);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .h3-agile-desc {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-2);
+    line-height: 1.7;
+  }
+
+  /* ─── 三層架構堆疊（sec-05, sec-07）──────────── */
+  .h3-layers {
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--vas-rule);
+  }
+  .h3-layer {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--vas-rule);
+    align-items: baseline;
+  }
+  .h3-layer:last-child { border-bottom: none; }
+  .h3-layer-icon {
+    font-size: 16px;
+    padding-top: 2px;
+  }
+  .h3-layer strong {
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--vas-ash-0);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .h3-layer span {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-2);
+    line-height: 1.75;
+    display: block;
+  }
+
+  /* ─── 反脆弱三點（sec-06）──────────────────── */
+  .h3-kind-list {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .h3-kind-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+  }
+  .h3-kind-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .h3-kind-dot.dim  { background: rgba(240, 232, 220, 0.2); }
+  .h3-kind-dot.mid  { background: rgba(240, 232, 220, 0.5); }
+  .h3-kind-dot.full { background: var(--vas-aurora-violet); }
+
+  /* ─── Sprint flow arrows（sec-06）──────────── */
+  .h3-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  .h3-flow-label {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-3);
+    letter-spacing: 0.1em;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+  .h3-flow-label span { color: var(--vas-ash-3); opacity: 0.6; }
+  .h3-flow code {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-1);
+    background: rgba(240, 232, 220, 0.05);
+    border: 1px solid var(--vas-rule);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .h3-flow code.extra {
+    color: rgba(196, 113, 245, 0.8);
+    border-color: rgba(196, 113, 245, 0.25);
+    background: rgba(196, 113, 245, 0.05);
+  }
+  .h3-flow .arr {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-3);
+  }
+  .h3-flow-note {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    margin-top: 4px;
+    line-height: 1.7;
+  }
+
+  /* ─── 對話框（sec-07）───────────────────────── */
+  .h3-dialogue {
+    border: 1px solid var(--vas-rule);
+    padding: 24px 24px 16px;
+    margin: 28px 0;
+  }
+  .h3-dlg-line {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: baseline;
+  }
+  .h3-dlg-speaker {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    padding-top: 3px;
+    text-align: right;
+  }
+  .h3-dlg-text {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+    line-height: 1.85;
+  }
+  .h3-dlg-aside {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    text-align: center;
+    margin: 4px 0 14px;
+    font-style: italic;
+  }
+
+  /* ─── 比較表格（sec-08）─────────────────────── */
+  .h3-table-wrap {
+    margin: 28px 0;
+    overflow-x: auto;
+  }
+  .h3-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--vas-serif);
+    font-size: 14px;
+  }
+  .h3-table th {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    border-bottom: 1px solid var(--vas-rule-strong);
+    padding: 10px 16px 10px 0;
+    text-align: left;
+    font-weight: 400;
+  }
+  .h3-table td {
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid var(--vas-rule);
+    color: var(--vas-ash-1);
+    line-height: 1.7;
+    vertical-align: top;
+  }
+  .h3-table tr:last-child td { border-bottom: none; }
+  .h3-table td:first-child {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-3);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  /* ─── Finale ─────────────────────────────────── */
+  .h3-finale {
+    padding: 80px 48px;
+    border-top: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .h3-finale-big {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.5;
+    color: var(--vas-ash-0);
+    margin-bottom: 20px;
+  }
+  .h3-finale-big em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--vas-aurora-violet), #fa71cd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .h3-finale-note {
+    font-family: var(--vas-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-3);
+  }
+
+  /* ─── mark 高亮 ──────────────────────────────── */
+  .h3-mark {
+    background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.2) 62%);
+    padding: 0 0.1em;
+  }
+
+  /* ─── 頁尾小連結 ─────────────────────────────── */
+  .site-sub-link {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .site-sub-link:hover { color: var(--vas-ash-1); }
+
+  @media (max-width: 768px) {
+    .h3-dlg-line { grid-template-columns: 40px 1fr; }
+    .h3-finale { padding: 56px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index-B.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="insight-B.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab-B.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness-B.html"   data-lang-key="home2.nav.system" aria-current="page">系統</a>
+    <a href="milestone-B.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch3No">Chapter III<span class="trail-dot" aria-hidden="true"></span></div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch3Name">Harness<em>.</em></h1>
+    <div class="chapter-dek" data-lang-key="ch3Dek">
+      把 AI 的限制變成協作的結構。從熵增、陰影整合到反脆弱——這是一份關於如何建造容器的方法論。
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch3TocLabel">章目錄</div>
+  <ol class="toc-list">
+    <li><a href="#sec-01"><span class="no">01</span><span class="name" data-lang-key="ch3s1Name">熵增</span><span class="preview" data-lang-key="ch3s1Preview">你不能要求蘋果不從樹上掉下來</span></a></li>
+    <li><a href="#sec-02"><span class="no">02</span><span class="name" data-lang-key="ch3s2Name">問題的開始</span><span class="preview" data-lang-key="ch3s2Preview">一個沒來由的問題</span></a></li>
+    <li><a href="#sec-03"><span class="no">03</span><span class="name" data-lang-key="ch3s3Name">勇於無知</span><span class="preview" data-lang-key="ch3s3Preview">Sapere aude</span></a></li>
+    <li><a href="#sec-04"><span class="no">04</span><span class="name" data-lang-key="ch3s4Name">整合陰影</span><span class="preview" data-lang-key="ch3s4Preview">The Shadow — Jung</span></a></li>
+    <li><a href="#sec-05"><span class="no">05</span><span class="name" data-lang-key="ch3s5Name">架構的節奏</span><span class="preview" data-lang-key="ch3s5Preview">Agile as Rhythm</span></a></li>
+    <li><a href="#sec-06"><span class="no">06</span><span class="name" data-lang-key="ch3s6Name">反脆弱</span><span class="preview" data-lang-key="ch3s6Preview">每個 KM 都是一顆掉下來的蘋果</span></a></li>
+    <li><a href="#sec-07"><span class="no">07</span><span class="name" data-lang-key="ch3s7Name">Harness Engineering</span><span class="preview" data-lang-key="ch3s7Preview">這件事有個名字</span></a></li>
+    <li><a href="#sec-08"><span class="no">08</span><span class="name" data-lang-key="ch3s8Name">共時性</span><span class="preview" data-lang-key="ch3s8Preview">Synchronicity</span></a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ sec-01 ═══════ -->
+<section id="sec-01" class="section">
+  <div class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h01Title">熵增，以及為什麼你不能要求 AI 不會犯錯</h2>
+      <div class="section-kicker" data-lang-key="h01Sub">Entropy &amp; Boundary</div>
+    </div>
+  </div>
+  <!-- Step B -->
+</section>
+
+<!-- ═══════ sec-02 ═══════ -->
+<section id="sec-02" class="section">
+  <div class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h02Title">問題的開始</h2>
+      <div class="section-kicker" data-lang-key="h02Sub">Where it started</div>
+    </div>
+  </div>
+  <!-- Step B -->
+</section>
+
+<!-- ═══════ sec-03 ═══════ -->
+<section id="sec-03" class="section">
+  <div class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h03Title">敢於求知，勇於無知</h2>
+      <div class="section-kicker" data-lang-key="h03Sub">Sapere aude — Kant, 1784</div>
+    </div>
+  </div>
+  <!-- Step B -->
+</section>
+
+<!-- ═══════ sec-04 ═══════ -->
+<section id="sec-04" class="section">
+  <div class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h04Title">整合陰影，而非否認它</h2>
+      <div class="section-kicker" data-lang-key="h04Sub">The Shadow — Jung</div>
+    </div>
+  </div>
+  <!-- Step C -->
+</section>
+
+<!-- ═══════ sec-05 ═══════ -->
+<section id="sec-05" class="section">
+  <div class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h05Title">架構，而不僅止是流程</h2>
+      <div class="section-kicker" data-lang-key="h05Sub">Agile as Rhythm</div>
+    </div>
+  </div>
+  <!-- Step D -->
+</section>
+
+<!-- ═══════ sec-06 ═══════ -->
+<section id="sec-06" class="section">
+  <div class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h06Title">每個 KM 都是一顆掉下來的蘋果</h2>
+      <div class="section-kicker" data-lang-key="h06Sub">Antifragility — Taleb</div>
+    </div>
+  </div>
+  <!-- Step D -->
+</section>
+
+<!-- ═══════ sec-07 ═══════ -->
+<section id="sec-07" class="section">
+  <div class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h07Title">Harness Engineering</h2>
+      <div class="section-kicker" data-lang-key="h07Sub">The Name for All of This</div>
+    </div>
+  </div>
+  <!-- Step E -->
+</section>
+
+<!-- ═══════ sec-08 ═══════ -->
+<section id="sec-08" class="section" style="border-bottom:none;">
+  <div class="section-head">
+    <div class="section-no">08</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h08Title">共時性</h2>
+      <div class="section-kicker" data-lang-key="h08Sub">Synchronicity</div>
+    </div>
+  </div>
+  <!-- Step E -->
+</section>
+
+<!-- ═══════ Finale ═══════ -->
+<div class="h3-finale">
+  <p class="h3-finale-big" data-lang-key="hFinBig">河流不會停。<br><em>容器繼續被建造。</em></p>
+  <p class="h3-finale-note" data-lang-key="hFinNote">下一個 session，從這裡繼續。∞</p>
+</div>
+
+<!-- ═══════ 章末過場 ═══════ -->
+<div class="passage">
+  <div>
+    <div class="passage-colophon">
+      <span data-lang-key="ch3PassageEnd">章 III · 系統 · 終</span>
+      <span class="faint" data-lang-key="ch3PassageEndEn">Chapter III · System · End</span>
+    </div>
+    <div class="chronicle-line">
+      <span data-lang-key="home2.chronicle.edition">第二十五日 · 器成</span>
+      <span class="faint" data-lang-key="home2.chronicle.edition.en">Twenty-Fifth Day · The Vessel, Formed</span>
+    </div>
+  </div>
+  <div class="passage-body">
+    <a class="passage-next" href="milestone-B.html">
+      <span class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</span>
+      <span class="name" data-lang-key="home2.gates.4.name">二十五日</span>
+      <span class="arrow">↓</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════ 頁尾 ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。<br>
+    <a href="privacy-B.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.harness || {}, t.harness2 || {});
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  function init() { VASCore.initDropdown(applyLang); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+</body>
+</html>
