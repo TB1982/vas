@@ -295,6 +295,19 @@
       milestoneBtn: '查看產品里程碑 →',
       harnessTeaser: '想知道這套協作方式背後的方法論？',
       harnessBtn: '閱讀系統思維 →'
+    },
+
+    harness: {
+      hHeroTag: 'VAS · 系統建構裏話',
+      hHeroH1: 'Harness<br>Engineering',
+      hHeroTagline: '用文組的思維，做最硬核的開發',
+      hHeroSub: 'VAS 是她的語言，記憶是他的陰影。<br>兩人用這兩樣東西，把 VAS 送上了 Mac App Store。<br>從陰影中誕生力量，這是榮格的寓言。',
+      h01Title: '熵增，以及為什麼你不能要求 AI 不會犯錯',
+      h01Sub: 'Entropy &amp; Boundary',
+      h01p1: '在孤立系統中，事物會自發地從有序走向無序，混亂程度只增不減。人會老、房間會亂、食物會腐敗。',
+      h01p2: '每一個 AI session，也是一種孤立系統。',
+      h01p3: '它從乾淨開始——context 是空的，資訊量少，模型容易保持一致。但隨著對話變長、功能變多、規格越來越複雜，context window 裡的資訊開始互相競爭。模型必須同時記住更多事、在更多約束之間保持平衡。早期的脈絡被壓縮、被遺忘、被新的資訊覆蓋。',
+      h01p4: '這不是 bug，這是物理。複雜度增加，熵就增加。session 結束，一切歸零。'
     }
 
   };
