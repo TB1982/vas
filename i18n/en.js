@@ -666,7 +666,7 @@
       'gates.3.num':              'III · System',
       'gates.3.name':             'Harness',
       'gates.4.num':              'IV · Milestones',
-      'gates.4.name':             'Eighteen Days',
+      'gates.4.name':             'Twenty-Five Days',
       'acquire.label':            'Bring VAS into your workflow',
       'acquire.tauri.what':       'Tauri',
       'acquire.tauri.name':       'VAS Pro <em>macOS 12+ · App Store</em>',
@@ -682,8 +682,8 @@
       'unfold.p2':                'It doesn\'t replace any tool. It is the <em>in-between</em> — the space between pressing the screenshot key and sending the file out, where you have a moment to think.',
       'unfold.drop':              'This is VAS\'s first sentence, and its last. The four chapters below — Design, Collaboration, System, Milestones — are all footnotes to this one.',
       'chronicle.label':          'Edition',
-      'chronicle.edition':        'Eighteenth Day · The Vessel, Formed',
-      'chronicle.edition.en':     'Eighteenth Day · The Vessel, Formed'
+      'chronicle.edition':        'Twenty-Fifth Day · The Vessel, Formed',
+      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed'
     }
 
   };

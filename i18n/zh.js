@@ -539,7 +539,7 @@
       'gates.3.num':              'III · 系統',
       'gates.3.name':             'Harness',
       'gates.4.num':              'IV · 里程碑',
-      'gates.4.name':             '十八日',
+      'gates.4.name':             '二十五日',
       'acquire.label':            '讓 VAS 走進你的工作流',
       'acquire.tauri.what':       'Tauri',
       'acquire.tauri.name':       'VAS 正式版 <em>macOS 12+ · App Store</em>',
@@ -555,8 +555,8 @@
       'unfold.p2':                '作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。',
       'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          '版次記號',
-      'chronicle.edition':        '第十八日 · 器成',
-      'chronicle.edition.en':     'Eighteenth Day · The Vessel, Formed'
+      'chronicle.edition':        '第二十五日 · 器成',
+      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed'
     }
 
   };
