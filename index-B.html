@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title data-lang-key="home2.title">VAS · 給那些未能用文字明說的當下</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
 <meta name="description" data-lang-key="home2.meta.desc"
       content="VAS 是一只傳遞資訊的煉金容器——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。" />
 
@@ -16,25 +17,62 @@
 <link rel="stylesheet" href="css/unfold.css">
 <link rel="stylesheet" href="css/acquire.css">
 <link rel="stylesheet" href="css/chronicle.css">
+
+<style>
+/* 語言切換下拉（沿用 base.css 變數；index-B 獨立預覽時的最小覆蓋） */
+.lang-dropdown-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  font-family: var(--vas-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+}
+.lang-dropdown-btn:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
+.lang-dropdown-menu {
+  display: none; position: absolute; right: 0; top: calc(100% + 6px);
+  background: #1a1a2e; border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px; padding: 4px; min-width: 100px; z-index: 100;
+}
+.lang-dropdown-menu.open { display: block; }
+.lang-opt {
+  display: block; width: 100%; text-align: left;
+  background: transparent; border: none;
+  color: rgba(255,255,255,0.5); font-size: 12px;
+  padding: 6px 10px; border-radius: 4px; cursor: pointer;
+}
+.lang-opt:hover, .lang-opt.active { color: #fff; background: rgba(255,255,255,0.07); }
+</style>
 </head>
 <body>
 
-<!-- ═══════ 頂部 nav ═══════
-     進 repo 後建議改用 repo 既有的 <header> partial。
-     此處為獨立預覽版。
--->
+<!-- ═══════ 頂部 nav ═══════ -->
 <nav class="site-nav">
   <div class="site-nav-brand">
     <span class="mark"></span>
-    <span>VAS</span>
+    <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
   </div>
   <div class="site-nav-links">
-    <a href="#" data-lang-key="home2.nav.design">設計</a>
-    <a href="#" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="#" data-lang-key="home2.nav.system">系統</a>
-    <a href="#" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang">繁 · 简 · EN · 日</div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
+  </div>
 </nav>
 
 <!-- ═══════ 首屏：器物 · 題辭 · 四道門 ═══════ -->
@@ -59,21 +97,33 @@
 
   <!-- 四道門 · 首屏唯一入口 -->
   <div class="shrine-gates">
-    <a class="shrine-gate" href="#">
+    <a class="shrine-gate" href="insight.html">
       <div class="num" data-lang-key="home2.gates.1.num">I · 設計</div>
-      <div class="name" data-lang-key="home2.gates.1.name">不完美的工具</div>
+      <div class="shrine-gate-body">
+        <div class="name" data-lang-key="home2.gates.1.name">不完美的工具</div>
+        <div class="echo">在協作中完整彼此</div>
+      </div>
     </a>
-    <a class="shrine-gate" href="#">
+    <a class="shrine-gate" href="collab.html">
       <div class="num" data-lang-key="home2.gates.2.num">II · 協作</div>
-      <div class="name" data-lang-key="home2.gates.2.name">六個故事</div>
+      <div class="shrine-gate-body">
+        <div class="name" data-lang-key="home2.gates.2.name">六個故事</div>
+        <div class="echo">不確定中的我願意</div>
+      </div>
     </a>
-    <a class="shrine-gate hidden-door" href="#">
+    <a class="shrine-gate hidden-door" href="harness.html">
       <div class="num" data-lang-key="home2.gates.3.num">III · 系統</div>
-      <div class="name" data-lang-key="home2.gates.3.name">Harness</div>
+      <div class="shrine-gate-body">
+        <div class="name" data-lang-key="home2.gates.3.name">Harness</div>
+        <div class="echo">管理熵增的心理學</div>
+      </div>
     </a>
-    <a class="shrine-gate" href="#">
+    <a class="shrine-gate" href="milestone.html">
       <div class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</div>
-      <div class="name" data-lang-key="home2.gates.4.name">十八日</div>
+      <div class="shrine-gate-body">
+        <div class="name" data-lang-key="home2.gates.4.name">十八日</div>
+        <div class="echo">恍若隔世的回眸</div>
+      </div>
     </a>
   </div>
 </section>
@@ -82,21 +132,21 @@
 <section class="acquire" id="acquire">
   <div class="acquire-label" data-lang-key="home2.acquire.label">讓 VAS 走進你的工作流</div>
   <div class="acquire-body">
-    <a class="line" href="#">
+    <a class="line" href="https://apps.apple.com/app/vas/id6761584119" target="_blank" rel="noopener noreferrer">
       <div class="what" data-lang-key="home2.acquire.tauri.what">Tauri</div>
       <div class="name" data-lang-key="home2.acquire.tauri.name">
         VAS 正式版 <em>macOS 12+ · App Store</em>
       </div>
       <div class="go" data-lang-key="home2.acquire.tauri.go">→ 前往</div>
     </a>
-    <a class="line" href="#">
+    <a class="line" href="https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg" download>
       <div class="what" data-lang-key="home2.acquire.electron.what">Electron</div>
       <div class="name" data-lang-key="home2.acquire.electron.name">
         經典版 <em>免費下載 · 持續維護</em>
       </div>
       <div class="go" data-lang-key="home2.acquire.electron.go">→ 下載</div>
     </a>
-    <a class="line" href="#">
+    <a class="line" href="guide.html">
       <div class="what" data-lang-key="home2.acquire.guide.what">Guide</div>
       <div class="name" data-lang-key="home2.acquire.guide.name">
         操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>
@@ -111,13 +161,13 @@
   <div class="unfold-label" data-lang-key="home2.unfold.label">為何存在</div>
   <div class="unfold-body">
     <p data-lang-key="home2.unfold.p1">
-      VAS 是一只<em>傳遞資訊的煉金容器</em>——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。
+      VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越文字的力量。
     </p>
     <p data-lang-key="home2.unfold.p2">
-      它不取代任何工具。它是那個<em>中間</em>的位置——在按下截圖鍵、和把檔案丟出去之間，留給你一段可以思考的緩衝。
+      作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。
     </p>
     <div class="drop" data-lang-key="home2.unfold.drop">
-      這是 VAS 的第一句話，也是最後一句。往下走的四個章節——設計、協作、系統、里程碑——都是這句話的註腳。
+      Yours, VAS.
     </div>
   </div>
 </section>
@@ -132,14 +182,13 @@
   </div>
 </section>
 
-<!-- ═══════ 頁尾 ═══════
-     進 repo 後：刪除此 <footer>，改用 shared.footer partial。
-     此處為獨立預覽版。
--->
+<!-- ═══════ 頁尾 ═══════ -->
 <footer style="padding: 56px 48px 40px; border-top: 1px solid var(--vas-rule); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end;">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。
-    一個不會寫程式的 PM，和一個沒有長期記憶的 AI，在十八天裡做出的器物。
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在十八天裡做出的器物。
   </div>
   <div style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
@@ -147,5 +196,28 @@
   </div>
 </footer>
 
+<script src="i18n/core.js"></script>
+<script>
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      // 合併 shared + home2（home2 key 加前綴 "home2."）
+      var merged = Object.assign({}, t.shared || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function (k) {
+        merged['home2.' + k] = h2[k];
+      });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      // html lang 屬性
+      document.documentElement.lang =
+        lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+    });
+  }
+
+  applyLang('zh');
+  VASCore.initDropdown(applyLang);
+</script>
 </body>
 </html>

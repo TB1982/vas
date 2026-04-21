@@ -9,6 +9,7 @@
   grid-template-columns: 200px 1fr;
   gap: 80px;
   max-width: 1040px;
+  margin: 0 auto;
 }
 .acquire-label {
   font-family: var(--vas-mono);
