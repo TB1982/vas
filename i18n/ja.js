@@ -84,7 +84,7 @@
       insightTeaser: 'これらの設計の背景にある考え方', insightBtn: 'デザインの洞察を読む →',
       storyTitle: 'ORIGIN',
       storyH2: '知らなかったから、できた。',
-      storyBody: '<strong class="text-white">コードを一行も書けない PM</strong> と、<br>Claude Code の Claude が組んで、<br>人と AI の協働で <strong class="gradient-text text-2xl font-bold">1週間</strong> で v3.60 まで育てた作品。',
+      storyBody: '<strong class="text-white">コードを一行も書けない PM</strong> と、<br>Claude Code の Claude が組んで、<br>人と AI の協働で <strong class="gradient-text text-2xl font-bold">1週間</strong> で v3.43 まで育てた作品。',
       storyByline: '— Nova & Claude, 2026',
       collabTeaser: 'どうやって実現したのか、気になりますか？',
       collabBtn: '協作ノートを読む →',

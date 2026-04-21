@@ -82,7 +82,7 @@
       navFeatures: '功能', navMoments: '細節', navOrigin: '起源', navRoadmap: '版本',
       insightTeaser: '這些設計背後的思路', insightBtn: '閱讀設計洞察 →',
       storyTitle: 'ORIGIN', storyH2: '因為不知道，所以做得到。',
-      storyBody: '來自一位<strong class="text-white">一行程式碼都不會寫的 PM</strong>，<br>以及 Claude Code 的 Claude，<br>人機協作 <strong class="gradient-text text-2xl font-bold">一週</strong> 內迭代至 v3.60 而誕生的作品。',
+      storyBody: '來自一位<strong class="text-white">一行程式碼都不會寫的 PM</strong>，<br>以及 Claude Code 的 Claude，<br>人機協作 <strong class="gradient-text text-2xl font-bold">一週</strong> 內迭代至 v3.43 而誕生的作品。',
       storyByline: '— Nova & Claude，2026',
       collabTeaser: '想知道是怎麼做到的？', collabBtn: '閱讀協作筆記 →',
       harnessBtn: '閱讀系統思維 →',
