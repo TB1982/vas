@@ -55,7 +55,7 @@ Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by 
 
 - **Commit messages:** Traditional Chinese, action-oriented — `更新手機版顯示數字大小` / `新增 OCR 段落說明`
 - **New page:** Always update `README.md` and the Repository Structure in CLAUDE-process.md.
-- **Version number:** Edit `version.js` only — all pages read `window.VAS_VERSION`.
+- **Version update:** Nova states the new version number directly. Update all hardcoded occurrences in HTML and i18n files. Historical narrative versions (e.g. "一週推出 v3.43") carry `<!--歷史版本，不可更動-->` in HTML or `// 歷史版本，不可更動` in JS — never touch these.
 - **KM log:** Append to `km.md` immediately when a bug is resolved. Never wait until retro.
 
 ---

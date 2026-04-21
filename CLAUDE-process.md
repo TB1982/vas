@@ -16,7 +16,6 @@ _Companion to CLAUDE.md — read that file first. Core rules live there._
 ├── privacy.html        # Privacy Policy
 ├── base.css            # Shared styles — owned by Claude Design; Nova relays changes
 ├── designrule.md       # Visual design rules — read before any HTML/CSS change
-├── version.js          # App version single source (window.VAS_VERSION / VAS_VERSION_SHORT)
 ├── km.md               # Known issues & solutions — append only
 ├── CLAUDE.md           # Core rules (always loaded)
 ├── CLAUDE-process.md   # This file — workflows and protocols
@@ -156,5 +155,4 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n-shared.js` | `initDropdown()` / `updateDropdown()` — shared by all pages |
-| `version.js` | App version — update here only |
 | `km.md` | KM log — append immediately when a bug is resolved |
