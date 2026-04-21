@@ -1,0 +1,287 @@
+/* ═══════════════════════════════════════════════
+   VAS · Chapter Shell · 章節頁共用骨架
+   - chapter-header · 章節標頭
+   - toc · 章目錄
+   - section · 小節
+   - passage · 章末過場
+   ═══════════════════════════════════════════════ */
+
+/* ─── Chapter Header · 章節標頭 ──────────────
+   和 site-nav 不重疊——nav 在最頂，此頭在 nav 之下
+   ─────────────────────────────────────── */
+.chapter-header {
+  padding: 120px 48px 80px;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+  border-bottom: 1px solid var(--vas-rule);
+}
+.chapter-no {
+  font-family: var(--vas-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  padding-top: 12px;
+  position: relative;
+}
+.chapter-name {
+  font-family: var(--vas-serif);
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--vas-ash-0);
+  margin-bottom: 24px;
+}
+.chapter-name em {
+  font-style: normal;
+  font-weight: 500;
+}
+.chapter-dek {
+  font-family: var(--vas-serif);
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--vas-ash-1);
+  max-width: 44ch;
+}
+.chapter-dek em {
+  font-style: normal;
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.22) 62%);
+  padding: 0 0.1em;
+}
+
+/* 彩蛋 · 第二顆光點（只出現在 Chapter III）
+   由宰相在 ch3 頁面加 class="chapter-no has-trail" 啟用 */
+.chapter-no.has-trail::after {
+  content: '';
+  position: absolute;
+  top: 4px; right: -12px;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--vas-aurora-violet);
+  opacity: 0.4;
+  transition: opacity .4s;
+}
+.chapter-no.has-trail:hover::after { opacity: 0.8; }
+
+/* ─── TOC · 章目錄 ─────────────────────── */
+.toc {
+  padding: 64px 48px 40px;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+  border-bottom: 1px solid var(--vas-rule);
+}
+.toc-label {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  padding-top: 8px;
+}
+.toc-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.toc-list li {
+  border-bottom: 1px solid var(--vas-rule);
+}
+.toc-list li:last-child { border-bottom: none; }
+.toc-list a {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 24px;
+  padding: 14px 0;
+  align-items: baseline;
+  transition: background .3s;
+}
+.toc-list a:hover {
+  background: rgba(240, 232, 220, 0.015);
+}
+.toc-list .no {
+  font-family: var(--vas-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--vas-ash-2);
+  transition: color .3s;
+}
+.toc-list a:hover .no { color: var(--vas-aurora-violet); }
+.toc-list .name {
+  font-family: var(--vas-serif);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--vas-ash-0);
+  letter-spacing: 0.01em;
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+.toc-list a:hover .name { transform: translateX(4px); }
+.toc-list .preview {
+  font-family: var(--vas-serif);
+  font-size: 14px;
+  color: var(--vas-ash-2);
+  max-width: 40ch;
+  text-align: right;
+}
+
+/* ─── Section · 小節 ──────────────────── */
+.section {
+  padding: 80px 48px;
+  max-width: 960px;
+  border-bottom: 1px solid var(--vas-rule);
+  scroll-margin-top: 40px;
+}
+.section-head {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 48px;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+.section-no {
+  font-family: var(--vas-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--vas-ash-3);
+  padding-top: 12px;
+}
+.section-name {
+  font-family: var(--vas-serif);
+  font-weight: 500;
+  font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--vas-ash-0);
+  margin-bottom: 8px;
+}
+.section-kicker {
+  font-family: var(--vas-serif);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--vas-ash-1);
+  max-width: 44ch;
+}
+.section-body {
+  margin-left: 128px; /* 80px no + 48px gap，讓正文和 name 對齊 */
+  max-width: 44ch;
+  font-family: var(--vas-serif);
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--vas-ash-0);
+}
+.section-body p + p { margin-top: 1.4em; }
+.section-body em {
+  font-style: normal;
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.22) 62%);
+  padding: 0 0.1em;
+}
+
+/* ─── Passage · 章末過場（翻頁感，不是按鈕）── */
+.passage {
+  padding: 120px 48px 100px;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+  border-top: 1px solid var(--vas-rule);
+}
+.passage-colophon {
+  font-family: var(--vas-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-2);
+  line-height: 2;
+  padding-top: 8px;
+}
+.passage-colophon .faint {
+  color: var(--vas-ash-3);
+  font-size: 10px;
+}
+.passage-body {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.passage .chronicle-line {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--vas-ash-2) 30%,
+    var(--vas-aurora-violet) 50%,
+    var(--vas-ash-2) 70%,
+    transparent 100%);
+}
+.passage-next {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: 32px;
+  padding: 24px 0;
+  align-items: baseline;
+  transition: background .3s;
+}
+.passage-next:hover {
+  background: rgba(240, 232, 220, 0.015);
+}
+.passage-next .num {
+  font-family: var(--vas-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--vas-ash-3);
+  transition: color .3s;
+}
+.passage-next:hover .num { color: var(--vas-aurora-violet); }
+.passage-next .name {
+  font-family: var(--vas-serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--vas-ash-0);
+  letter-spacing: 0.01em;
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+.passage-next:hover .name { transform: translateX(4px); }
+.passage-next .arrow {
+  font-family: var(--vas-serif);
+  font-size: 24px;
+  color: var(--vas-ash-2);
+  line-height: 1;
+  transition: color .3s, transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+.passage-next:hover .arrow {
+  color: var(--vas-aurora-violet);
+  transform: translateY(4px);
+}
+
+/* ─── 行動斷點 ────────────────────────── */
+@media (max-width: 768px) {
+  .chapter-header,
+  .toc,
+  .passage {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .chapter-header { padding-top: 72px; padding-bottom: 48px; }
+  .toc            { padding: 40px 24px; }
+  .passage        { padding-top: 72px; padding-bottom: 64px; }
+
+  .section {
+    padding: 56px 24px;
+  }
+  .section-head { grid-template-columns: 1fr; gap: 8px; }
+  .section-body { margin-left: 0; }
+
+  .toc-list a { grid-template-columns: 40px 1fr; }
+  .toc-list .preview { display: none; }  /* mobile 隱藏章節預覽 */
+
+  .passage-next {
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+  }
+  .passage-next .num { grid-column: 1 / -1; margin-bottom: -8px; }
+}
