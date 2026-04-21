@@ -243,4 +243,5 @@
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
   .shrine-vessel .shrine-colophon { left: 0; right: auto; bottom: 8px; }
+  .shrine-gate .echo { display: none; }
 }
