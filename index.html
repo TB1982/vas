@@ -159,7 +159,7 @@
         <!-- Hero -->
         <section class="container mx-auto px-6 pt-16 pb-20 text-center" aria-labelledby="hero-heading">
             <div class="inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest" style="background: rgba(196,113,245,0.18); color: #e2aaff; border: 1px solid rgba(196,113,245,0.3);">
-                <span data-lang-key="badge">Mac 專屬 · v0.1.0 正式發布</span>
+                <span data-lang-key="badge">Mac 專屬 · 現已上架 App Store</span>
             </div>
 
             <div class="flex justify-center mb-6">
@@ -517,7 +517,6 @@
         <p><a href="privacy.html" class="hover:text-white/50 transition-colors" data-lang-key="privacyLink">隱私權政策</a>　｜　<a href="https://tb1982.github.io/pm/" class="hover:text-white/50 transition-colors" data-lang-key="pmLink">深握計畫</a></p>
     </footer>
 
-    <script src="version.js"></script>
     <script src="i18n/core.js"></script>
     <script>
         const surveyLinks = {
@@ -631,20 +630,6 @@
 
         applyLang('zh'); // 初始化：套用 zh i18n key，確保硬寫內容與翻譯一致
         VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); // 綁定 dropdown 事件 + 恢復 localStorage 語言
-
-        // ── 版本號動態填入（來源：version.js）────────────────────────────────
-        (function () {
-          var v = window.VAS_VERSION || '3.60.0';
-          // 下載連結 & Release Notes 連結
-          var dl = document.getElementById('electronDownload');
-          var rl = document.getElementById('releaseLink');
-          if (dl) dl.href = 'https://github.com/TB1982/vas/releases/download/v' + v + '/VAS-' + v + '-arm64.dmg';
-          if (rl) rl.href = 'https://github.com/TB1982/vas/releases/tag/v' + v;
-          // badge 字串裡的版本號（翻譯已套用後再替換）
-          document.querySelectorAll('[data-lang-key="badge"]').forEach(function (el) {
-            el.innerHTML = el.innerHTML.replace(/v[\d.]+/, 'v' + v);
-          });
-        })();
 
         // ── Persona Tab switching ──────────────────────────────────────────────
         document.querySelectorAll('.tab-btn').forEach(btn => {

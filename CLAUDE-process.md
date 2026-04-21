@@ -14,12 +14,9 @@ _Companion to CLAUDE.md — read that file first. Core rules live there._
 ├── harness.html        # Harness Engineering — 系統建構裏話
 ├── milestone.html      # Milestone — 里程碑
 ├── privacy.html        # Privacy Policy
-├── design-system.html  # Claude Design visual system reference (read-only; do not edit)
 ├── base.css            # Shared styles — owned by Claude Design; Nova relays changes
 ├── designrule.md       # Visual design rules — read before any HTML/CSS change
-├── version.js          # App version single source (window.VAS_VERSION / VAS_VERSION_SHORT)
 ├── km.md               # Known issues & solutions — append only
-├── website-context.md  # Bridge doc for vas-desktop repo sync
 ├── CLAUDE.md           # Core rules (always loaded)
 ├── CLAUDE-process.md   # This file — workflows and protocols
 ├── i18n-shared.js      # Shared nav/footer translations + dropdown init
@@ -158,6 +155,4 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n-shared.js` | `initDropdown()` / `updateDropdown()` — shared by all pages |
-| `version.js` | App version — update here only |
 | `km.md` | KM log — append immediately when a bug is resolved |
-| `website-context.md` | Update whenever site content or structure changes materially |
