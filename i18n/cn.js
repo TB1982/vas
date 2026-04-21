@@ -72,7 +72,7 @@
       m1Desc: '工具列缩成一条呼吸灯，待在桌面角落。拖着文件靠近，它自己张开。放开，直接进编辑器。走了，它缩回去，继续等。',
       m2Label: 'Delay Capture', m2Title: '那个截不到的瞬间，截到了',
       m2Desc: '设好延迟，dropdown、tooltip、hover 状态——点下去才出现的画面，终于不再溜走。截完直接进编辑器，标注、汇出，Workflow 不再有任何「选择开启资料夹」或「确定键」卡住你。',
-      m3Label: 'Annotation Tools', m3Title: '比你以为的更多可能',
+      m3Label: 'Annotation Tools', m3Title: '从形状到符号，给你超越文字的力量',
       badgeAllVersions: '全版本', tauriOnly: 'Tauri 专属',
       m3Desc: '渐层色块、透明叠加、符号印章、贝兹曲线、叠图、图层上下移动、复制物件、复数字型选择——不只是标注工具，也是一个轻量设计环境。你能想到的表达方式，它都有。',
       m4Label: 'Global Shortcuts', m4Title: '你的习惯，不用重学',
