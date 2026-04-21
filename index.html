@@ -452,7 +452,7 @@
             <p class="text-center text-xs font-bold tracking-widest text-white/30 uppercase mb-2" data-lang-key="roadmapTitle">ROADMAP &amp; PRICING</p>
             <h2 id="roadmap-heading" class="text-2xl md:text-3xl font-bold text-center mb-10 text-white/90" data-lang-key="roadmapSub">一萬次迭代而非一萬個小時</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div id="pricingGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Electron — current free -->
                 <div id="electronPricingCard" class="glass-section rounded-3xl p-7 flex flex-col gap-4 border border-white/10">
                     <div class="flex items-center gap-3">
@@ -547,13 +547,22 @@
                     vasframeImg.alt = lang === 'ja' ? 'VAS エディタ画面：ダーク作業エリア、左側ツールバー、上部オプションバー、中央に注釈キャンバス' : lang === 'en' ? 'VAS editor interface: dark workspace with left toolbar, top options bar, and annotation canvas' : 'VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布';
                 }
                 var sharesheetImg = document.getElementById('sharesheetImg');
-                if (sharesheetImg) sharesheetImg.src = lang === 'ja' ? 'img/sharesheet-jp.webp' : lang === 'en' ? 'img/sharesheet-en.webp' : 'img/sharesheet.webp';
+                if (sharesheetImg) sharesheetImg.src = lang === 'ja' ? 'img/sharesheet-jp.webp' : lang === 'cn' ? 'img/sharesheet-zh-CN.png' : lang === 'en' ? 'img/sharesheet-en.webp' : 'img/sharesheet.webp';
                 var fastImg = document.getElementById('fastImg');
-                if (fastImg) fastImg.src = lang === 'ja' ? 'img/fast-jp.webp' : lang === 'en' ? 'img/fast-en.webp' : 'img/fast.webp';
+                if (fastImg) fastImg.src = lang === 'ja' ? 'img/fast-jp.webp' : lang === 'cn' ? 'img/fast-zh-CN.png' : lang === 'en' ? 'img/fast-en.webp' : 'img/fast.webp';
+                var toolbarImg = document.getElementById('toolbarImg');
+                if (toolbarImg && lang === 'cn') toolbarImg.src = 'img/vastoolbar-zh-CN.png';
+                var vasframeImg = document.getElementById('vasframeImg');
+                if (vasframeImg && lang === 'cn') vasframeImg.src = 'img/vasframe-zh-CN.png';
                 var electronBtn = document.getElementById('electronDownload');
                 if (electronBtn) electronBtn.style.display = lang === 'cn' ? 'none' : '';
                 var electronCard = document.getElementById('electronPricingCard');
                 if (electronCard) electronCard.style.display = lang === 'cn' ? 'none' : '';
+                var pricingGrid = document.getElementById('pricingGrid');
+                if (pricingGrid) {
+                    pricingGrid.style.gridTemplateColumns = lang === 'cn' ? 'minmax(0,26rem)' : '';
+                    pricingGrid.style.justifyContent = lang === 'cn' ? 'center' : '';
+                }
                 var cnNote = document.getElementById('cnLangNote');
                 if (cnNote) cnNote.style.display = lang === 'cn' ? '' : 'none';
                 document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
