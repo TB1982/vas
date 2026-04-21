@@ -7,7 +7,6 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 80px;
-  max-width: 1040px;
   border-top: 1px solid var(--vas-rule);
 }
 .unfold-label {

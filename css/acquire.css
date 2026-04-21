@@ -8,7 +8,6 @@
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 80px;
-  max-width: 1040px;
 }
 .acquire-label {
   font-family: var(--vas-mono);
