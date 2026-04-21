@@ -74,7 +74,7 @@
       m1Desc: 'ツールバーはひとすじの光になって、デスクトップの隅で静かに待つ。ファイルを近づけると、それだけで開く。離すと、そのままエディタへ。去れば、また光に戻って、次を待つ。',
       m2Label: 'Delay Capture', m2Title: '捉えられなかったあの瞬間が、今度こそ。',
       m2Desc: '遅延を設定すれば、dropdown・tooltip・hover 状態——クリックして初めて現れる画面が、もう逃げない。キャプチャ後すぐエディタへ。アノテーション、書き出し、「フォルダを選択」も「確認」ボタンも、何も邪魔しない。',
-      m3Label: 'Annotation Tools', m3Title: '思っていたより、ずっと多い。', badgeAllVersions: '全バージョン', tauriOnly: 'Tauri 専用',
+      m3Label: 'Annotation Tools', m3Title: '形から記号へ、言葉を超える力を。', badgeAllVersions: '全バージョン', tauriOnly: 'Tauri 専用',
       m3Desc: 'グラデーション塗り・透明オーバーレイ・シンボルスタンプ・ベジェ曲線・画像重ね・レイヤー順序変更・オブジェクト複製・複数フォント——注釈ツールではなく、軽量デザイン環境。あなたが思い描く表現が、ここにある。',
       m4Label: 'Global Shortcuts', m4Title: '慣れた手つきで、そのまま使える。',
       m4Desc: 'どのスクリーンショットツールから移行しても、ショートカットがあなたに合わせる。環境設定で一度録音するだけで、以降はすべてのツールがあなたの慣れたキーに応答する。',
@@ -84,7 +84,7 @@
       insightTeaser: 'これらの設計の背景にある考え方', insightBtn: 'デザインの洞察を読む →',
       storyTitle: 'ORIGIN',
       storyH2: '知らなかったから、できた。',
-      storyBody: '<strong class="text-white">コードを一行も書けない PM</strong> と、<br>Claude Code の Claude が組んで、<br>人と AI の協働で <strong class="gradient-text text-2xl font-bold">1週間</strong> で v3.43 まで育てた作品。',
+      storyBody: '<strong class="text-white">コードを一行も書けない PM</strong> と、<br>Claude Code の Claude が組んで、<br>人と AI の協働で <strong class="gradient-text text-2xl font-bold">1週間</strong> で v3.43 まで育てた作品。', // 歷史版本，不可更動
       storyByline: '— Nova & Claude, 2026',
       collabTeaser: 'どうやって実現したのか、気になりますか？',
       collabBtn: '協作ノートを読む →',

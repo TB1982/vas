@@ -25,22 +25,21 @@ Born from a collaboration between a PM who can't write a single line of code, an
 
 Static HTML / Tailwind CSS (CDN) / Vanilla JS — no build tools, no package manager.
 
-Quadrilingual (zh-Hant / EN / 日本語 / 简中) via `data-lang-key` + per-page i18n JS files.
+Quadrilingual (zh-Hant / EN / 日本語 / 简中) via `data-lang-key` + `i18n/core.js` dynamic loader.
 
 ---
 
 ## i18n Architecture
 
-| File | Exports | Used by |
-|------|---------|---------|
-| `i18n-shared.js` | `window.VASShared` | All pages — nav, footer, dropdown |
-| `i18n-index.js` | `window.VASIndexT` | `index.html` |
-| `i18n-guide.js` | `window.VASGuideT` | `guide.html` |
-| `i18n-collab.js` | `window.VASCollabT` | `collab.html` |
-| `i18n-insight.js` | `window.VASInsightT` | `insight.html` |
-| `i18n-harness.js` | `window.VASHarnessT` | `harness.html` |
-| `i18n-milestone.js` | `window.VASMilestoneT` | `milestone.html` |
-| `i18n-privacy.js` | `window.VASPrivacyT` | `privacy.html` |
+| File | Role |
+|------|------|
+| `i18n/core.js` | Dynamic loader + dropdown logic. No translation data. |
+| `i18n/zh.js` | Traditional Chinese — all pages |
+| `i18n/en.js` | English — all pages |
+| `i18n/ja.js` | Japanese — all pages |
+| `i18n/cn.js` | Simplified Chinese — Tauri-only content |
+
+All pages load only `i18n/core.js`; language files are loaded on demand.
 
 ---
 

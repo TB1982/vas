@@ -66,14 +66,12 @@ The visual decisions on this site follow from the product philosophy in CLAUDE.m
 ├── km.md               # Known issues & solutions — append only
 ├── CLAUDE.md           # Core rules (always loaded)
 ├── CLAUDE-process.md   # This file — workflows and protocols
-├── i18n-shared.js      # Shared nav/footer translations + dropdown init
-├── i18n-index.js       # index.html (window.VASIndexT)
-├── i18n-guide.js       # guide.html (window.VASGuideT)
-├── i18n-collab.js      # collab.html (window.VASCollabT)
-├── i18n-harness.js     # harness.html (window.VASHarnessT)
-├── i18n-insight.js     # insight.html (window.VASInsightT)
-├── i18n-milestone.js   # milestone.html (window.VASMilestoneT)
-├── i18n-privacy.js     # privacy.html (window.VASPrivacyT)
+├── i18n/
+│   ├── core.js         # Dynamic loader + dropdown logic — no translations here
+│   ├── zh.js           # Traditional Chinese — all pages
+│   ├── en.js           # English — all pages
+│   ├── ja.js           # Japanese — all pages
+│   └── cn.js           # Simplified Chinese — Tauri-only content
 └── img/                # Screenshots — vas-guide-*.png used in guide.html
 ```
 

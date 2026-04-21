@@ -75,7 +75,7 @@
       m1Desc: 'The toolbar shrinks to a breathing light, sitting quietly in a corner of your desktop. Drag a file near it — it opens by itself. Drop, and you\'re straight into the editor. Walk away, it folds back and waits.',
       m2Label: 'Delay Capture', m2Title: 'That moment you could never capture — captured',
       m2Desc: 'Set a delay. Dropdowns, tooltips, hover states — the UI that vanishes the moment you click, caught at last. Straight into the editor, annotate, export. No "choose a folder" dialog. No confirm button. Nothing in the way.',
-      m3Label: 'Annotation Tools', m3Title: 'More than you expected', badgeAllVersions: 'All Versions', tauriOnly: 'Tauri Exclusive',
+      m3Label: 'Annotation Tools', m3Title: 'From shapes to symbols — power beyond words.', badgeAllVersions: 'All Versions', tauriOnly: 'Tauri Exclusive',
       m3Desc: 'Gradient fills, transparent overlays, symbol stamps, Bézier curves, image overlay, layer reordering, duplicate objects, multiple font choices — not just an annotation tool, but a lightweight design environment. If you can picture it, VAS can draw it.',
       m4Label: 'Global Shortcuts', m4Title: 'Your muscle memory, honoured',
       m4Desc: 'Migrating from any other screenshot tool? Shortcuts adapt to you — not the other way around. Record once in Preferences, and every tool responds to the key combination you\'ve always used.',
@@ -85,7 +85,7 @@
       insightTeaser: 'The thinking behind these details', insightBtn: 'Read Design Insights →',
       storyTitle: 'ORIGIN',
       storyH2: 'Because we didn\'t know, we made it.',
-      storyBody: 'Born from a collaboration between <strong class="text-white">a PM who can\'t write a single line of code</strong> and Claude from Claude Code —<br>iterated together to v3.43 in <strong class="gradient-text text-2xl font-bold">one week</strong>.',
+      storyBody: 'Born from a collaboration between <strong class="text-white">a PM who can\'t write a single line of code</strong> and Claude from Claude Code —<br>iterated together to v3.43 in <strong class="gradient-text text-2xl font-bold">one week</strong>.', // 歷史版本，不可更動
       storyByline: '— Nova & Claude, 2026',
       collabTeaser: 'Curious how it happened?',
       collabBtn: 'Read Collab Notes →',

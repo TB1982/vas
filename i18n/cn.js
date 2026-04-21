@@ -72,7 +72,7 @@
       m1Desc: '工具列缩成一条呼吸灯，待在桌面角落。拖着文件靠近，它自己张开。放开，直接进编辑器。走了，它缩回去，继续等。',
       m2Label: 'Delay Capture', m2Title: '那个截不到的瞬间，截到了',
       m2Desc: '设好延迟，dropdown、tooltip、hover 状态——点下去才出现的画面，终于不再溜走。截完直接进编辑器，标注、汇出，Workflow 不再有任何「选择开启资料夹」或「确定键」卡住你。',
-      m3Label: 'Annotation Tools', m3Title: '比你以为的更多可能',
+      m3Label: 'Annotation Tools', m3Title: '从形状到符号，给你超越文字的力量',
       badgeAllVersions: '全版本', tauriOnly: 'Tauri 专属',
       m3Desc: '渐层色块、透明叠加、符号印章、贝兹曲线、叠图、图层上下移动、复制物件、复数字型选择——不只是标注工具，也是一个轻量设计环境。你能想到的表达方式，它都有。',
       m4Label: 'Global Shortcuts', m4Title: '你的习惯，不用重学',
@@ -82,7 +82,7 @@
       navFeatures: '功能', navMoments: '细节', navOrigin: '起源', navRoadmap: '版本',
       insightTeaser: '这些设计背后的思路', insightBtn: '阅读设计洞察 →',
       storyTitle: 'ORIGIN', storyH2: '因为不知道，所以做得到。',
-      storyBody: '来自一位<strong class="text-white">一行程式码都不会写的 PM</strong>，<br>以及 Claude Code 的 Claude，<br>人机协作 <strong class="gradient-text text-2xl font-bold">一周</strong> 内迭代至 v3.43 而诞生的作品。',
+      storyBody: '来自一位<strong class="text-white">一行程式码都不会写的 PM</strong>，<br>以及 Claude Code 的 Claude，<br>人机协作 <strong class="gradient-text text-2xl font-bold">一周</strong> 内迭代至 v3.43 而诞生的作品。', // 歷史版本，不可更動
       storyByline: '— Nova & Claude，2026',
       collabTeaser: '想知道是怎么做到的？', collabBtn: '阅读协作笔记 →',
       harnessBtn: '阅读系统思维 →',
