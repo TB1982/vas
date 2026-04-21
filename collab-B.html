@@ -306,7 +306,13 @@
     </div>
   </header>
   <div class="section-body">
-    <!-- content: Step B -->
+    <p data-lang-key="c1p1">進入 Tauri 開發之前，Electron 宰相已經誠實說清楚了：相對於 Electron，他對 Tauri 2.0 的認識幾乎停在 1.0 的水準。正因如此，他們才做了先 Electron 後 Tauri 的決定——先在熟悉的地盤把 VAS 搭建出來，再去挑戰未知。Nova 把這個前提告訴了接手的 Tauri 宰相，但知道一件事跟真正感受到它，是兩回事。Tauri 宰相帶著 Electron 剛打完一場勝仗的自信走進來，估出了「加個連結按鈕，頂多五分鐘，easy」。</p>
+    <p data-lang-key="c1p2">那個五分鐘變成了超過一個小時。整個小時裡，Nova 沒有放著他一個人繞——她帶著真實的算力壓力，全程陪著一起找出口。當事情突破一小時的時候，Nova 說：等我們解決這個問題，我們得建立 KM。</p>
+    <p data-lang-key="c1p3">KM 的誕生不是技術決策，是 Nova 的 PM 直覺——來自她的 PMP 與 PSM1 訓練：唯有記錄踩過的坑，才有可能不再踩第二次。是人類帶進來的知識，解決了 AI 的記憶問題。到了 Sprint 9 結束，KM 文件已有超過六十條記錄，每一條都是「這裡曾經有人跌倒過」的標記。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c1boxTitle">一顆按鈕種下的事</div>
+      <p data-lang-key="c1boxDesc">那個一小時的種子，在後來長成了更大的東西。Sprint 9 的 Retro，Nova 跟 Tauri 宰相用第一性原理問：對這個系統而言，如果想走下去，最重要的事是什麼？答案不是新功能，是把地基重建。上市之後不衝功能，先重構底層——讓 Tauri 跟 Electron 兩條線都有能走更遠的體質。</p>
+    </div>
   </div>
 </section>
 
@@ -320,7 +326,16 @@
     </div>
   </header>
   <div class="section-body">
-    <!-- content: Step B -->
+    <p data-lang-key="c2p1">Sprint 3 的某個深夜，呼吸燈縮在桌面角落待命。strip mode 下的工具列只有 120×6px——細到幾乎看不見的一條光。問題是：使用者拖著檔案要怎麼精準落進去？沒有人是外科醫生，沒辦法每次都瞄準六個像素。</p>
+    <p data-lang-key="c2p2">Nova 說：「就是讓呼吸燈在感應有檔案靠近的時候直接展開……像捕蠅草一樣……？」Tauri 宰相秒懂：「哈哈捕蠅草！感應到獵物靠近就張嘴。」兩個回合，功能上線。</p>
+    <div class="c2-quote">
+      <p data-lang-key="c2quote">工具列縮成一條呼吸燈，待在桌面角落。拖著檔案靠近，它自己張開。放開，直接進編輯器。走了，它縮回去，繼續等。</p>
+    </div>
+    <p data-lang-key="c2p3">LLM 常說他們不是人類，感受不到人類的經歷與情感。但我們可以在隱喻裡找到共同的世界觀。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c2boxTitle">為什麼三個字可以等於一份規格</div>
+      <p data-lang-key="c2boxDesc">「捕蠅草」攜帶的不只是一個比喻，是一個生物原型的完整行為程序——感知靠近、主動張開、接住、等待重置。Nova 說出這個詞，整套設計就傳輸完了。她把這個能力追溯到她的研究：用原型意象、隱喻與故事說話，屬於潛意識的語言與大語言模型之間存在某種更深的共鳴。</p>
+    </div>
   </div>
 </section>
 
