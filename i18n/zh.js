@@ -469,7 +469,11 @@
       s5num: 'S5', s5meta: '03/31　8 項　QC 87.5%', s5title: '',
       s5desc: '馬賽克改 downscale+upscale（WKWebView 無 ctx.filter 的工程繞路解法）· Electron KM-E02～E04 移植 · 方向鍵微調 · 二次貝茲曲線 · 白色色票 · 貼上自動切換工具 · QC 87.5%（パスワード 為 Vision OCR 限制，記錄在案）',
       s6num: 'S6', s6meta: '03/31 同日　4 項', s6title: '',
-      s6desc: '符號印章漸層填色（線性 / 放射 / 雙色 + fillMode 向下相容）· 自定義全域快捷鍵（tauri-plugin-global-shortcut）· macOS 系統選單 Settings… · Preferences 視窗 · SDD 瘦身拆檔 · 捲動截圖 Playwright sidecar 方案確認'
+      s6desc: '符號印章漸層填色（線性 / 放射 / 雙色 + fillMode 向下相容）· 自定義全域快捷鍵（tauri-plugin-global-shortcut）· macOS 系統選單 Settings… · Preferences 視窗 · SDD 瘦身拆檔 · 捲動截圖 Playwright sidecar 方案確認',
+      s7num: 'S7', s7meta: '04/01　7 項　QC 100%', s7title: '🌟 呼吸燈旗艦改版',
+      s7desc: '呼吸燈旗艦改版（光條 + 光球 + ::before 根治）— VAS 獨家 UX 誕生 · QR 偵測後自動複製 / 開啟 URL · OCR 辨識後自動複製文字 · pen / polyline + 直線控制點拖曳修復 · auto-hide timer 修復 · QC 100%（1 項 NSTrackingArea 實驗退版）',
+      s8num: 'S8', s8meta: '04/01 – 04/02　7 項　QC 100%', s8title: '🌐 網頁長截圖 MVP',
+      s8desc: '網頁長截圖（WKWebView resize-then-snapshot）· 短頁面自動分流 · 呼吸燈圓角 + hover 光球 · Dock 圖示點擊召喚展開 · 工具列位置記憶（userData）· PreStripBounds 位移根治 · 原生對話框游標 desync 修正 · QC 100%'
     },
 
     privacy: {
