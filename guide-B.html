@@ -454,7 +454,40 @@
     <!-- ══ S05 ══ -->
     <section id="s05">
       <h2 data-lang-key="s5Title">自定義全域快捷鍵</h2>
-      <!-- content: Step F -->
+      <p class="g-section-sub">
+        <span data-lang-key="s5Sub">在偏好設定中為每個工具指定專屬的全域快捷鍵</span>
+        <span class="g-badge-t" style="margin-left: 8px;" data-lang-key="tauriOnlyBadge">Tauri 專屬</span>
+      </p>
+
+      <p data-lang-key="kb_intro">開啟偏好設定 → 快捷鍵，點選工具後直接按下目標按鍵組合即可錄製。不合規的組合會即時反白提示。</p>
+
+      <div class="docs-card" style="margin-top: 28px;">
+        <p class="docs-card-kicker" data-lang-key="kb_rules_title">按鍵接受規則</p>
+        <table class="g-acc-table" style="margin-top: 12px;">
+          <tbody>
+            <tr>
+              <td>F1 … F12</td>
+              <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="kb_r1">F 鍵不需修飾鍵</span></td>
+            </tr>
+            <tr>
+              <td>⇧F5、⌘⌃A</td>
+              <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="kb_r2">含修飾鍵的組合</span></td>
+            </tr>
+            <tr>
+              <td>A、1、X</td>
+              <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="kb_r3">裸字母或數字</span></td>
+            </tr>
+            <tr>
+              <td>⌘Q、⌘W、⌘H、⌘,</td>
+              <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="kb_r4">系統保留快捷鍵</span></td>
+            </tr>
+            <tr>
+              <td>單獨 ⌘ / ⌃ / ⌥</td>
+              <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="kb_r5">單獨修飾鍵</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
   </main>
