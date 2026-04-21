@@ -6,7 +6,27 @@ This file provides guidance for AI assistants working in this repository.
 2. **Never attribute content to a name other than Nova** without explicit instruction.
 3. **When adding a new page, always update `README.md` and the Repository Structure in this file** — both the file tree and the i18n table.
 4. **Never force-process high-density input in a single pass.** When Nova provides more than one complete document, two or more theoretical frameworks, or input spanning multiple conceptual layers in a single turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."* Protecting the session is part of the work.
-5. **Delegate large read/write tasks to Agent (haiku model).** When a task requires reading 3+ large source files OR writing 50+ lines of content, use the Agent tool instead of doing it in the main session. This protects the main context window. Use `model: "haiku"` — it is faster and less likely to stream-timeout than Sonnet. The main session handles verification only: `node --check`, `git log` review, `diff` spot-checks.
+5. **Delegate large i18n/write tasks to Agent (haiku model).** Trigger when ANY of these apply:
+   - Reading 2+ `i18n-*.js` files in the same task
+   - Adding or modifying 20+ i18n keys in one pass
+   - Creating a new full page (HTML + 3-language i18n)
+   - Applying Claude Design CSS updates across multiple pages
+
+   **Agent prompt rules (prevent timeout):**
+   - Scope per call: one file × one language × max 15 keys
+   - Output constraint: `"Return only a JSON object { key: value }. No explanation."`
+   - Verification: `"State how many keys you modified."`
+
+   Main session role: verify key count, spot-check values, apply via Edit, commit.
+6. **Trickle-flow discipline — applies to the main session itself.** Control output volume even when NOT using Agent:
+   - One Edit call = one logical unit (one section, one language block, one file)
+   - Commits are internal checkpoints — not pauses waiting for Nova's confirmation
+   - Self-alert: if about to read 3+ files, write 30+ lines, or edit 2+ i18n files at once → split into sequential steps
+   - Complete the full task, then report to Nova once at the end.
+7. **Claude Design collaboration protocol.** Claude Design is read-only on this repo — it cannot push. Nova relays CSS/design outputs manually.
+   - Claude Design owns: `base.css` visual rules, HTML layout structure
+   - 宰相 owns: all `i18n-*.js` files, `data-lang-key` attributes, content text
+   - When applying Claude Design changes: never touch `data-lang-key` or i18n values in the same pass. One concern at a time.
 
 ---
 
@@ -61,24 +81,28 @@ Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by 
 ## Repository Structure
 ```
 /
-├── index.html        # VAS product page
-├── guide.html        # User guide
-├── insight.html      # Design Insight — 設計洞察
-├── collab.html       # Collab Notes — 協作筆記
-├── harness.html      # Harness Engineering — 系統建構裏話
-├── milestone.html    # Milestone — 里程碑
-├── privacy.html      # Privacy Policy
-├── base.css          # Shared styles — single source of truth
-├── designrule.md     # Visual design rules — read before any HTML/CSS change
-├── i18n-shared.js    # Shared nav/footer translations + dropdown init
-├── i18n-index.js     # index.html (window.VASIndexT)
-├── i18n-guide.js     # guide.html (window.VASGuideT)
-├── i18n-collab.js    # collab.html (window.VASCollabT)
-├── i18n-harness.js   # harness.html (window.VASHarnessT)
-├── i18n-insight.js   # insight.html (window.VASInsightT)
-├── i18n-milestone.js # milestone.html (window.VASMilestoneT)
-├── i18n-privacy.js   # privacy.html (window.VASPrivacyT)
-└── img/              # Screenshots — vas-guide-*.png used in guide.html
+├── index.html          # VAS product page
+├── guide.html          # User guide
+├── insight.html        # Design Insight — 設計洞察
+├── collab.html         # Collab Notes — 協作筆記
+├── harness.html        # Harness Engineering — 系統建構裏話
+├── milestone.html      # Milestone — 里程碑
+├── privacy.html        # Privacy Policy
+├── design-system.html  # Claude Design visual system reference (read-only; do not edit)
+├── base.css            # Shared styles — single source of truth (owned by Claude Design)
+├── designrule.md       # Visual design rules — read before any HTML/CSS change
+├── version.js          # Single source of truth for app version (window.VAS_VERSION)
+├── km.md               # Known issues & solutions log — append only, never delete entries
+├── website-context.md  # Bridge doc for vas-desktop repo sync — update when site changes
+├── i18n-shared.js      # Shared nav/footer translations + dropdown init
+├── i18n-index.js       # index.html (window.VASIndexT)
+├── i18n-guide.js       # guide.html (window.VASGuideT)
+├── i18n-collab.js      # collab.html (window.VASCollabT)
+├── i18n-harness.js     # harness.html (window.VASHarnessT)
+├── i18n-insight.js     # insight.html (window.VASInsightT)
+├── i18n-milestone.js   # milestone.html (window.VASMilestoneT)
+├── i18n-privacy.js     # privacy.html (window.VASPrivacyT)
+└── img/                # Screenshots — vas-guide-*.png used in guide.html
 ```
 
 ---
@@ -159,6 +183,9 @@ Traditional Chinese, action-oriented: `更新手機版顯示數字大小` / `新
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n-shared.js` | `initDropdown()` / `updateDropdown()` — shared by all pages |
+| `version.js` | App version — update here only, all pages read `window.VAS_VERSION` |
+| `km.md` | KM log — append new issues here immediately, never wait until retro |
+| `website-context.md` | Sync this to `vas-desktop` whenever site content or structure changes |
 
 ---
 
