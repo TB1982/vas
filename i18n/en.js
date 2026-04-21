@@ -85,7 +85,7 @@
       insightTeaser: 'The thinking behind these details', insightBtn: 'Read Design Insights →',
       storyTitle: 'ORIGIN',
       storyH2: 'Because we didn\'t know, we made it.',
-      storyBody: 'Born from a collaboration between <strong class="text-white">a PM who can\'t write a single line of code</strong> and Claude from Claude Code —<br>iterated together to v3.60 in <strong class="gradient-text text-2xl font-bold">one week</strong>.',
+      storyBody: 'Born from a collaboration between <strong class="text-white">a PM who can\'t write a single line of code</strong> and Claude from Claude Code —<br>iterated together to v3.43 in <strong class="gradient-text text-2xl font-bold">one week</strong>.',
       storyByline: '— Nova & Claude, 2026',
       collabTeaser: 'Curious how it happened?',
       collabBtn: 'Read Collab Notes →',
