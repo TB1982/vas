@@ -678,6 +678,7 @@
             : 'VAS 浮動工作列';
         }
         document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+        window.currentLang = lang;
         VASCore.updateDropdown(lang);
         try { localStorage.setItem('vasLang', lang); } catch (e) {}
       });
@@ -690,6 +691,7 @@
   </script>
 
   <script>
+    var currentLang = 'zh'; // kept in sync by applyLang
     // ── Popup Data ──────────────────────────────────────────────
     const popupData = {
       zh: {
