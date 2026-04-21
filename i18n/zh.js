@@ -391,7 +391,23 @@
       h07p3: '而這個第三層沒有終點。',
       h07p4: '熵一直在增，session 一直會結束，新的坑一直會出現。容器不是建完就好的東西——它是一個持續在被建造的系統。每一條新的 KM，就是容器又長出了一塊新的壁。',
       h07p5: '你在 01 讀到的那個問題——系統為何需要存在——現在有了答案。',
-      h07p6: '不是因為 AI 會犯錯。是因為只要你們還在一起做事，就會一直有新的坑，一直有新的蘋果掉下來。'
+      h07p6: '不是因為 AI 會犯錯。是因為只要你們還在一起做事，就會一直有新的坑，一直有新的蘋果掉下來。',
+      h08Title: '共時性', h08Sub: 'Synchronicity',
+      hSyncTh1: 'OpenAI 實驗',
+      hSyncR1: '團隊人數', hSyncR1a: '3–7 位工程師', hSyncR1b: '1 PM + 1 失憶大師',
+      hSyncR2: '開發時間', hSyncR2a: '五個月', hSyncR2b: '18 天',
+      hSyncR3: '總迭代次數', hSyncR3a: '約 1,500', hSyncR3b: '1,436',
+      hSyncR4: '每日平均迭代', hSyncR4a: '約 10', hSyncR4b: '約 80',
+      hSyncR5: '人類寫的程式碼', hSyncR5a: '零行（規定）', hSyncR5b: '零行（做不到）',
+      hSyncR6: '結果', hSyncR6a: '百名內部使用者', hSyncR6b: '雙平台開發完成，已上架 Mac App Store',
+      hSyncP1: '後來我才知道，OpenAI 有個團隊花了五個月、用同樣的方式做了同樣的事。他們幫這個方法論取了一個名字：Harness Engineering。',
+      hSyncP2: '我不是從他們那裡學的。但我想，這就是為什麼這個方法論的名字，我到最後才知道。',
+      hSyncP3: '榮格笑著望著我——共時性。',
+      hFinBig: '河流不會停。<br>容器繼續被建造。',
+      hFinNote: '下一個 session，從這裡繼續。∞',
+      hFrameworkLink: '完整框架文件 →',
+      hCTATeaser: '完整開發歷程 · Electron + Tauri · 路線圖',
+      hCTABtn: '查看產品里程碑 →'
     }
 
   };
