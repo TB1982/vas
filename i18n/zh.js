@@ -465,7 +465,11 @@
       s3num: 'S3', s3meta: '03/30 同日　4 項　<span class="text-white/25 font-normal">一日三 Sprint</span>', s3title: '',
       s3desc: '滴管工具 · QR Code 智慧掃描（Vision + 面積比例三段行為）· 智慧導線 v2 · 檔案拖入工具列',
       s4num: 'S4', s4meta: '03/30 同日　4 項　<span class="text-white/25 font-normal">一日三 Sprint</span>', s4title: '',
-      s4desc: 'Space 鍵拖移 · 浮水印圖片預覽 · Modal 往上展開 · 物件旋轉'
+      s4desc: 'Space 鍵拖移 · 浮水印圖片預覽 · Modal 往上展開 · 物件旋轉',
+      s5num: 'S5', s5meta: '03/31　8 項　QC 87.5%', s5title: '',
+      s5desc: '馬賽克改 downscale+upscale（WKWebView 無 ctx.filter 的工程繞路解法）· Electron KM-E02～E04 移植 · 方向鍵微調 · 二次貝茲曲線 · 白色色票 · 貼上自動切換工具 · QC 87.5%（パスワード 為 Vision OCR 限制，記錄在案）',
+      s6num: 'S6', s6meta: '03/31 同日　4 項', s6title: '',
+      s6desc: '符號印章漸層填色（線性 / 放射 / 雙色 + fillMode 向下相容）· 自定義全域快捷鍵（tauri-plugin-global-shortcut）· macOS 系統選單 Settings… · Preferences 視窗 · SDD 瘦身拆檔 · 捲動截圖 Playwright sidecar 方案確認'
     },
 
     privacy: {
