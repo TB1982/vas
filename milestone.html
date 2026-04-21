@@ -550,6 +550,7 @@
     <script>
     (function () {
       function applyLang(lang) {
+        if (lang === 'cn') { applyLang('zh'); return; }
         VASCore.loadLang(lang, function (t) {
           var merged = Object.assign({}, t.shared || {}, t.milestone || {});
           document.querySelectorAll('[data-lang-key]').forEach(function (el) {

@@ -1922,7 +1922,7 @@
     const modalClose = document.getElementById('modalClose');
 
     function openModal(toolKey) {
-      const lang = currentLang;
+      const lang = currentLang === 'cn' ? 'zh' : currentLang;
       const data = popupData[lang][toolKey];
       if (!data) return;
       const iconEl = document.getElementById('modalIcon');
