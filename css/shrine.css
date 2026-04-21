@@ -247,9 +247,11 @@
   .shrine-vessel {
     grid-column: 1; grid-row: 2;
     min-height: auto;
-    padding-bottom: 56px;
-    align-items: center;
+    padding-bottom: 64px;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
+  .shrine-vessel img { width: 74%; }
   .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 3; }
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
