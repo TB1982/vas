@@ -252,7 +252,7 @@
     justify-content: flex-end;
   }
   .shrine-vessel img { width: 58%; }
-  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 3; }
+  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 3; margin-top: 56px; }
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
   .shrine-gate:nth-last-child(-n+2) { border-bottom: none; }
