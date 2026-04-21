@@ -536,7 +536,23 @@
       <div class="section-kicker" data-lang-key="h05Sub">Agile as Rhythm</div>
     </div>
   </div>
-  <!-- Step D -->
+  <div class="section-body">
+    <p data-lang-key="h05p1">敏捷開發給了我三樣東西，但我借用它們的理由跟教科書不一樣。</p>
+    <p data-lang-key="h05p2">我不是在「管理 AI」。我是在為 Claude 的遺忘準備一個軟著陸。</p>
+    <p data-lang-key="h05p3">每一個新的 session 開始，Claude 什麼都不記得。但他讀完 CLAUDE.md、KM、Sprint 規格書之後——他不需要暖機就可以立刻進入狀況。</p>
+    <p data-lang-key="h05p4">這三樣東西做的事其實只有一件：<span class="h3-mark">把 AI 無能為力承擔的部分，轉移到不會遺忘的地方</span>。</p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-layers">
+      <div class="h3-layer"><div class="h3-layer-icon">🪵</div><div><strong data-lang-key="h05l1">KM — 記憶的外部化</strong><span data-lang-key="h05l1d">踩到坑的當下立刻記錄，前人的坑，後人不必重踩。不能等 Retro，因為等到 Retro 的時候，session 可能已經換了好幾輪。</span></div></div>
+      <div class="h3-layer"><div class="h3-layer-icon">📋</div><div><strong data-lang-key="h05l2">CLAUDE.md — 身份的外部化</strong><span data-lang-key="h05l2d">團隊章程，讓每一個 session 知道自己是誰、在哪裡、要往哪走。</span></div></div>
+      <div class="h3-layer"><div class="h3-layer-icon">🔁</div><div><strong data-lang-key="h05l3">Sprint 規格書 — 方向的外部化</strong><span data-lang-key="h05l3d">換了 session，仍能馬上接上。</span></div></div>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h05p5">就像河流匯入海洋，原本都是水，只是繼續流動。讓 session 內能流暢運行的重點不在於控制，而在於讓交接變得無縫。</p>
+    <blockquote class="h3-bq" data-lang-key="h05bq">Be water, my friend.<br><cite>— 我對 Claude 的期許。而我，選擇成為那條河道的架構師，讓他可以恣意奔流。</cite></blockquote>
+  </div>
 </section>
 
 <!-- ═══════ sec-06 ═══════ -->
@@ -548,7 +564,34 @@
       <div class="section-kicker" data-lang-key="h06Sub">Antifragility — Taleb</div>
     </div>
   </div>
-  <!-- Step D -->
+  <div class="section-body">
+    <p data-lang-key="h06p1">Taleb 說，反脆弱系統不只能承受衝擊——它需要衝擊才能成長。</p>
+    <div class="h3-kind-list">
+      <div class="h3-kind-item"><span class="h3-kind-dot dim"></span><span data-lang-key="h06k1"><strong style="color:var(--vas-ash-2);">脆弱</strong> — 一個衝擊就垮</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot mid"></span><span data-lang-key="h06k2"><strong style="color:var(--vas-ash-1);">堅固</strong> — 能抵抗衝擊</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot full"></span><span data-lang-key="h06k3"><strong style="color:rgba(196,113,245,0.9);">反脆弱</strong> — 從衝擊中獲益，每次打擊後變得更強</span></div>
+    </div>
+    <p data-lang-key="h06p2">VAS 有兩條版本線。Electron，Claude 熟悉，少踩坑，KM 寥寥無幾。Tauri 2.0，連 Claude 自己都坦承：「我的預訓練資料停留在 Tauri 1.0，這對我來說也是未知領域。」</p>
+    <p data-lang-key="h06p3">兩個人，一起摸黑走進去。</p>
+    <p data-lang-key="h06p4">Sprint 1，光是「改了前端畫面卻沒有更新」就能讓我們卡住——根因是 WKWebView 的快取機制，沒有前人記錄，只能從頭摸。Sprint 2，Rust 的每一個層次都是新的關卡，每走一步都可能掉坑。</p>
+    <p data-lang-key="h06p5">但我們每次掉坑，就記一條 KM。面對未知領域，我們還加了兩道強制 Research——不是為了填表，是讓 Claude 在下筆之前先知道地雷在哪裡。<span class="h3-mark">KM 是走完之後標坑，Research 是走進去之前探路。</span>一個累積確定性，一個降低不確定性。</p>
+    <p data-lang-key="h06p6">這套重裝備不是每次都要用。Electron 輕裝就夠，Tauri 2.0 才需要全副武裝——工具要用對地方。</p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-flow">
+      <div class="h3-flow-label" data-lang-key="h06f1">Electron <span>熟悉領域</span></div>
+      <code>SDD</code><span class="arr">→</span><code>DoD</code><span class="arr">→</span><code>TDD</code><span class="arr">→</span><code>Code</code><span class="arr">→</span><code>Verify</code><span class="arr">→</span><code>✅ Done</code>
+    </div>
+    <div class="h3-flow" style="margin-top: 16px;">
+      <div class="h3-flow-label" data-lang-key="h06f2">Tauri 2.0 <span>未知領域</span></div>
+      <code class="extra">DoR</code><span class="arr">→</span><code class="extra">Explore ①</code><span class="arr">→</span><code>SDD</code><span class="arr">→</span><code>DoD</code><span class="arr">→</span><code>TDD</code><span class="arr">→</span><code class="extra">Explore ②</code><span class="arr">→</span><code>Code</code><span class="arr">→</span><code>Verify</code><span class="arr">→</span><code>✅ Done</code><span class="arr">→</span><code class="extra">Retro</code>
+      <p class="h3-flow-note" data-lang-key="h06fNote">粉色步驟為 Nova 跟 Claude 被 Tauri 2.0 壓在地上摩擦之後，一條一條加進去防止兩人白費工的護欄。</p>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h06p7">到了 Sprint 9，KM 文件已經有 63 條記錄。Claude 一進來，讀完就知道問題在哪一層——不需要暖機，不需要重新摸索，直接定位，直接修。Sprint 9，一週完工，送進 Apple 審查。</p>
+    <blockquote class="h3-bq" data-lang-key="h06bq">這就是反脆弱的成長曲線——不是線性進步，是指數型加速。<br>不是因為我們變聰明了，而是因為每一顆掉下來的蘋果，都變成了下一個人不必重踩的地圖。</blockquote>
+  </div>
 </section>
 
 <!-- ═══════ sec-07 ═══════ -->
