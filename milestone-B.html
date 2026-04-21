@@ -681,6 +681,130 @@
 
     </div>
   </div>
+
+  <!-- 過渡期 + Sprint S10–S20 -->
+  <div class="m4-wide" style="margin-top:0;">
+    <div class="m4-log">
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:var(--vas-ash-2);line-height:1.4;">04/04<br>│<br>04/10</div>
+        <div class="m4-log-inner">
+          <div class="m4-bridge">
+            <div class="m4-bridge-tag" data-lang-key="bridge_tag">📌 過渡期 04/04 – 04/10</div>
+            <div class="m4-bridge-title" data-lang-key="bridge_subtitle">基礎建設 &amp; Apple 審核</div>
+            <ul class="m4-bridge-list" data-lang-key="bridge_bullets">
+              <li>· 文件架構拆分（SDD / TDD / KM / Archive 獨立化），Electron 對齊 Tauri 結構</li>
+              <li>· Repo 整理與雙版本同步機制建立（SYNC-QUEUE）</li>
+              <li>· Apple 審核回應：4/3 提交 → 4/7 被拒 → 4/8 重新提交 → 4/11 再次被拒</li>
+              <li>· v1.2.0 / v1.2.1 hotfix 發布（對應審核修正）</li>
+              <li>· 決定啟動 v2.0（Tauri）重構，不再等待審核結果</li>
+            </ul>
+            <div class="m4-bridge-v2" data-lang-key="bridge_v2label">↳ v2.0 Architecture Refactor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s10num">S10</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s10meta">04/11　3 Phase　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s10title">🏗️ v2.0 Architecture ① 座標系統重構</div>
+          <div class="m4-log-desc" data-lang-key="s10desc">Rust ToolbarGeometry 純函數（14 cargo tests）· JS editor-utils.js 5 純函數（15 Vitest tests）· EditorInitPayload DPR 修復</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s11num">S11</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s11meta">04/11　6+ 項　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s11title">🏗️ v2.0 Architecture ② 漸層系統統一</div>
+          <div class="m4-log-desc" data-lang-key="s11desc">gradientFromAngle 統一六工具漸層引擎 · 角度轉盤 UI · i18n 三語同步 · 陰影 DPR 修正 · 折線箭頭端點內縮 · 文字裝飾線漸層</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s12num">S12</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s12meta">04/11　3 項　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s12title">🏗️ v2.0 Architecture ③ 資料模型正規化</div>
+          <div class="m4-log-desc" data-lang-key="s12desc">color / opacity / borderColor 三組屬性統一 · TOOL_ORDER 九工具全審 · 外框位移擴充至 fillrect / fillellipse</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s13num">S13</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s13meta">04/12　3 項　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s13title">🏗️ v2.0 Architecture ④ 屬性面板框架化 — Pilot</div>
+          <div class="m4-log-desc" data-lang-key="s13desc">TOOL_SCHEMA const 設計定案（rect + number）· 3 engine fns · showOptionsForTool / showOptionsForAnnot 遷移</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s14num">S14</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s14meta">04/12　4 工具　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s14title">🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 1</div>
+          <div class="m4-log-desc" data-lang-key="s14desc">ellipse / fillrect / fillellipse / pen 遷入 schema · shadow pre-pass 根治端點交界縫隙 · polyline 雙擊終點退一格修復</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s15num">S15</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s15meta">04/12　4 工具　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s15title">🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋</div>
+          <div class="m4-log-desc" data-lang-key="s15desc">line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s16num">S16</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s16meta">04/13　3+ 項　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s16title">🏗️ v2.0 Architecture ⑤ 幾何邏輯集中化</div>
+          <div class="m4-log-desc" data-lang-key="s16desc">TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取 · Vitest 47 pass</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s17num">S17</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s17meta">04/13　4 項　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s17title">🏗️ v2.0 Architecture ⑤ 渲染管線模組化</div>
+          <div class="m4-log-desc" data-lang-key="s17desc">TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper · rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s18num">S18</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s18meta">04/13　5 項　QC 100%（3 輪修復）</div>
+          <div class="m4-log-title" data-lang-key="s18title">🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生</div>
+          <div class="m4-log-desc" data-lang-key="s18desc">MAX_HISTORY=50 FIFO · imgSnap PNG 快照 + _imgCache 孤兒清理 · _symMeasureCache 上限 · selId 跨 undo 保留 · crop sizeSx 補償</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s19num">S19</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="s19meta">04/14　2 bugs　QC 100%（一次通過）</div>
+          <div class="m4-log-title" data-lang-key="s19title">🐛 Bug Sweep</div>
+          <div class="m4-log-desc" data-lang-key="s19desc">畫布閃動根治（選項列固定 88px · 動畫系統完整移除 -85 行）· 折線漸層端點色修復（終點 dotN 獨立投影）</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(120,220,140,0.7);font-weight:500;" data-lang-key="s20num">S20</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(120,220,140,0.2);">
+          <div class="m4-log-label green" data-lang-key="s20meta">04/14　4 項　QC 100%</div>
+          <div class="m4-log-title" data-lang-key="s20title">✨ Help Modal 優化 + Modal 邊界修復</div>
+          <div class="m4-log-desc" data-lang-key="s20desc">快捷鍵手風琴面板（4 分類 · 35 鍵 · i18n 20 新 key）· Modal 螢幕邊界 clamp · Esc 統一關閉所有 modal · 選項列垂直置中</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- ═══════ sec-04 · 路線圖 ═══════ -->
