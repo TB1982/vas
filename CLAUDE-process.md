@@ -3,6 +3,22 @@ _Companion to CLAUDE.md — read that file first. Core rules live there._
 
 ---
 
+## Product Strategy
+
+**Two-version positioning — use this framework for all copy involving both versions:**
+
+| | Electron | Tauri |
+|--|----------|-------|
+| Price | Free | Paid |
+| Role | Entry-level / classic | Premium / performance |
+| Size | ~113 MB | ~20 MB |
+| Language support | zh-Hant / EN / JA (trilingual, fixed) | zh-Hant / EN / JA / 简中 (quadrilingual) |
+| Narrative | 「經典版」— the origin, free forever | 「極致版」— the evolution, App Store |
+
+**Simplified Chinese (cn) is Tauri-only.** Electron remains trilingual permanently. When adding CN translations, they apply only to Tauri-era content and UI. Electron-specific pages or contexts: do not add CN.
+
+---
+
 ## Design Language
 
 The visual decisions on this site follow from the product philosophy in CLAUDE.md — they are not arbitrary aesthetic choices.
