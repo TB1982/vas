@@ -565,6 +565,8 @@
                 }
                 var cnNote = document.getElementById('cnLangNote');
                 if (cnNote) cnNote.style.display = lang === 'cn' ? '' : 'none';
+                var releaseLink = document.getElementById('releaseLink');
+                if (releaseLink) releaseLink.style.display = lang === 'cn' ? 'none' : '';
                 document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
                 VASCore.updateDropdown(lang);
                 try { localStorage.setItem('vasLang', lang); } catch (e) {}
