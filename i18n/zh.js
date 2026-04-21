@@ -478,7 +478,12 @@
       s9desc: '黑底極光花瓶 App icon（與 Electron 版形成視覺區隔）· 呼吸燈引導文字（三語）· 截圖權限引導（失敗時 toast → 開系統設定）· Release build + 沙箱 + 提交 Mac App Store',
       bridge_tag: '📌 過渡期 04/04 – 04/10', bridge_subtitle: '基礎建設 & Apple 審核',
       bridge_bullets: '<li>· 文件架構拆分（SDD / TDD / KM / Archive 獨立化），Electron 對齊 Tauri 結構</li><li>· Repo 整理與雙版本同步機制建立（SYNC-QUEUE）</li><li>· Apple 審核回應：4/3 提交 → 4/7 被拒 → 4/8 重新提交 → 4/11 再次被拒</li><li>· v1.2.0 / v1.2.1 hotfix 發布（對應審核修正）</li><li>· 決定啟動 v2.0（Tauri）重構，不再等待審核結果</li>',
-      bridge_v2label: '↳ v2.0 Architecture Refactor'
+      bridge_v2label: '↳ v2.0 Architecture Refactor',
+      t8: '<span class="text-white/30">04/11</span>  <span class="text-yellow-300/70">🏗️</span>  v2.0 重構啟動 — 三 Sprint 同日完工（座標 / 漸層 / 資料模型）',
+      t9: '<span class="text-white/30">04/12</span>  <span class="text-yellow-300/70">🏗️</span>  屬性面板 Pilot + TOOL_SCHEMA 10/10 全覆蓋（三 Sprint）',
+      t10: '<span class="text-white/30">04/13</span>  <span class="text-yellow-300/70">🏗️</span>  幾何 + 渲染管線模組化 + Undo/Redo 架構升級（三 Sprint）',
+      t11: '<span class="text-white/30">04/14</span>  <span class="text-green-300/80">✅</span>  Bug Sweep 一次通過 · Help Modal 優化 · v2.0 重構完工',
+      t12: '<span class="text-white/30">04/14</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Tauri v1.2.1 正式上架 Mac App Store 🎉</span>'
     },
 
     privacy: {
