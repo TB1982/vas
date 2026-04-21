@@ -440,7 +440,15 @@
       e4label: 'v3.10 → v3.27　在開發新功能與 Debug 舊功能的泥沼中掙扎',
       e4desc: '箭頭渲染 8 連修 · 馬賽克 / 模糊工具 · 符號印章四群組架構 · 無縫匯入匯出 · 一鍵套版演化：拍立得 / 底片 → Apple 六色漸層 → Mesh Gradient · 社群尺寸快選 · 批次浮水印 · 去背 · 品牌色庫 · 歷史截圖面板',
       e5label: 'v3.28 → v3.29　放下也是必要的決策',
-      e5desc: '隱私遮蔽工具：六層偵測引擎（NSDataDetector · NLTagger · 身分證 / 統編 / 信用卡 / IPv4/6 / API Token · 臺灣地址 · 中英文標籤感知 Regex），字元級精準 bounding box 非破壞性遮蔽 · 全 canvas Retina DPR 補正 · 7 項細節修正'
+      e5desc: '隱私遮蔽工具：六層偵測引擎（NSDataDetector · NLTagger · 身分證 / 統編 / 信用卡 / IPv4/6 / API Token · 臺灣地址 · 中英文標籤感知 Regex），字元級精準 bounding box 非破壞性遮蔽 · 全 canvas Retina DPR 補正 · 7 項細節修正',
+      e6label: 'v3.30 → v3.43　發布前最後衝刺　<span class="text-white/30 font-normal">單日 15 版</span>',
+      e6desc: '資安全面升級 · Retina WYSIWYG · 複數選取 · 對齊工具列 · Smart Snap · 線條二次貝茲曲線控制點 · 新開畫布（16 款尺寸預設）· QR Code 智慧掃描（三段行為）· 批次上限 · 裁切工具三項修正 · 套版搖桿步長 0.1',
+      e7label: 'v3.43　首發', e7desc: '第一個公開版本正式發布。VAS 有了真實外部使用者。同天開始進行 Tauri 架構遷移。',
+      e7blabel: 'v3.44 — 整修版',
+      e7bdesc: '完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。',
+      e7bitems: '<li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>工具列 Modal 位置跳動與累積偏移根治</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>修復三種截圖模式（全螢幕 / 視窗 / 矩形）全部失效</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>OCR 與隱私掃描功能修復</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>標號與文字工具尺寸縮放一致性修正</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">⌨️</span><span>方向鍵微調物件位置（Arrow nudge）</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🧹</span><span>拖曳匯出暫存檔 60 秒後自動清除</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🔒</span><span>安全性修補（brace-expansion 漏洞）</span></li>',
+      e8label: 'v3.60　陪著 Tauri 一起 Renew 再上線 🎉',
+      e8desc: '呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。'
     },
 
     privacy: {
