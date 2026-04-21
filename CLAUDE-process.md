@@ -75,7 +75,7 @@ git pull origin <branch-name> && python3 -m http.server 8081
 
 Nova checks:
 1. Content correct
-2. Language toggle (中 → EN → 日) — no missing keys
+2. Language toggle (中 → EN → 日 → 簡) — no missing keys
 3. External links correct
 4. RWD at ~375px — no horizontal overflow
 5. Design consistency — nav style, spacing match across all pages
@@ -105,13 +105,13 @@ When creating a new page:
 
 **Prompt template (prevents timeout):**
 ```
-Task: update i18n-[page].js, [zh/en/ja] block only.
+Task: update i18n-[page].js, [zh/en/ja/cn] block only.
 Keys to update: [list them explicitly].
 Output: return only a JSON object { "key": "value" }. No explanation.
 Verification: state how many keys you modified.
 ```
 
-**Commit rhythm:** zh → commit → en → commit → ja → commit. Each language is an independent checkpoint. Failure in one language does not require redoing the others.
+**Commit rhythm:** zh → commit → en → commit → ja → commit → cn → commit. Each language is an independent checkpoint. Failure in one language does not require redoing the others.
 
 **Main session role:** verify key count, spot-check values, apply via Edit, commit.
 

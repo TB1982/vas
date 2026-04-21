@@ -10,7 +10,7 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
 2. **Never attribute content to anyone other than Nova.**
 3. **Never push directly to `main`.** Always develop on a `claude/<description>-<id>` branch.
 4. **Never force-process high-density input in a single pass.** When Nova provides multiple documents, frameworks, or dense content layers in one turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."*
-5. **`data-lang-key` always requires two updates:** the HTML text node AND the `zh`/`en`/`ja` keys in the page's i18n JS file. Missing either causes visible bugs.
+5. **`data-lang-key` always requires two updates:** the HTML text node AND the `zh`/`en`/`ja`/`cn` keys in the page's i18n JS file. Missing either causes visible bugs.
    → For large i18n tasks: **CLAUDE-process.md § Haiku Protocol**
 6. **Use `臺` not `台`** — `臺灣`, `臺北`, `臺中`. Never substitute silently.
 
