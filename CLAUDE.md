@@ -6,6 +6,7 @@ This file provides guidance for AI assistants working in this repository.
 2. **Never attribute content to a name other than Nova** without explicit instruction.
 3. **When adding a new page, always update `README.md` and the Repository Structure in this file** — both the file tree and the i18n table.
 4. **Never force-process high-density input in a single pass.** When Nova provides more than one complete document, two or more theoretical frameworks, or input spanning multiple conceptual layers in a single turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."* Protecting the session is part of the work.
+5. **Delegate large read/write tasks to Agent (haiku model).** When a task requires reading 3+ large source files OR writing 50+ lines of content, use the Agent tool instead of doing it in the main session. This protects the main context window. Use `model: "haiku"` — it is faster and less likely to stream-timeout than Sonnet. The main session handles verification only: `node --check`, `git log` review, `diff` spot-checks.
 
 ---
 
