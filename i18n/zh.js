@@ -619,6 +619,42 @@
       ch4s4Preview: 'v3.0 功能爆發',
       ch4PassageEnd:    '章 IV · 里程碑 · 終',
       ch4PassageEndEn:  'Chapter IV · Milestones · End'
+    },
+
+    harness2: {
+      ch3PageTitle:      'III · 系統 · VAS',
+      ch3MetaDesc:       'Harness Engineering——如何把 AI 的限制變成協作的結構，從熵增到反脆弱的完整方法論。',
+      ch3No:             'Chapter III',
+      ch3Name:           'Harness<em>.</em>',
+      ch3Dek:            '把 AI 的限制變成協作的結構。從熵增、陰影整合到反脆弱——這是一份關於如何建造容器的方法論。',
+      ch3TocLabel:       '章目錄',
+      ch3s1Name:    '熵增',
+      ch3s1Kicker:  '你不能要求蘋果不從樹上掉下來。',
+      ch3s1Preview: '你不能要求蘋果不從樹上掉下來',
+      ch3s2Name:    '問題的開始',
+      ch3s2Kicker:  '一個沒來由的問題。',
+      ch3s2Preview: '一個沒來由的問題',
+      ch3s3Name:    '勇於無知',
+      ch3s3Kicker:  'Sapere aude。',
+      ch3s3Preview: 'Sapere aude',
+      ch3s4Name:    '整合陰影',
+      ch3s4Kicker:  'The Shadow — Jung。',
+      ch3s4Preview: 'The Shadow — Jung',
+      ch3s5Name:    '架構的節奏',
+      ch3s5Kicker:  'Agile as Rhythm。',
+      ch3s5Preview: 'Agile as Rhythm',
+      ch3s6Name:    '反脆弱',
+      ch3s6Kicker:  '每個 KM 都是一顆掉下來的蘋果。',
+      ch3s6Preview: '每個 KM 都是一顆掉下來的蘋果',
+      ch3s7Name:    'Harness Engineering',
+      ch3s7Kicker:  '這件事有個名字。',
+      ch3s7Preview: '這件事有個名字',
+      ch3s8Name:    '共時性',
+      ch3s8Kicker:  'Synchronicity。',
+      ch3s8Preview: 'Synchronicity',
+      ch3PassageEnd:    '章 III · 系統 · 終',
+      ch3PassageEndEn:  'Chapter III · System · End',
+      hSyncR2b:         '25 天'
     }
 
   };
