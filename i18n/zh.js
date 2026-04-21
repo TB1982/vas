@@ -408,6 +408,31 @@
       hFrameworkLink: '完整框架文件 →',
       hCTATeaser: '完整開發歷程 · Electron + Tauri · 路線圖',
       hCTABtn: '查看產品里程碑 →'
+    },
+
+    milestone: {
+      pageLabel: 'Milestone', insightLink: '設計洞察 →',
+      heroTag: 'VAS · 產品里程碑',
+      heroH1: '14 天，從零到<br><span class="gradient-text">雙平台上架</span>',
+      statDays: '天', statVersions: '版本迭代', statPlatforms: '平台上架',
+      storyTag: '產品故事弧', storyH2: '兩條線交織，互相成就',
+      m1meta: '2026 / 3 / 21　從零開始', m1h3: 'v0.1 — 什麼都沒有的第一天', m1p: '一週後，Electron v3.43 首發。',
+      m2meta: '2026 / 3 / 28　第一週結束', m2h3: 'Electron v3.43 首發',
+      m2p: '功能完整的第一個公開版本。從這裡開始，VAS 有了真實外部使用者。',
+      m3meta: '2026 / 3 / 28　同日啟動', m3h3: 'Tauri 移植啟動',
+      m3p: '決定為未來打一個更輕的底。移植不是拋棄 Electron，是帶著它的經驗重新出發。',
+      m4meta: '2026 / 3 / 31　回饋', m4h3: 'Electron v3.44 整修版',
+      m4p: '完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。',
+      m5meta: '2026 / 3 / 31　加速', m5h3: 'Tauri 新功能開發',
+      m5p: '底層穩了，開始疊加 Tauri 專屬功能——ShareSheet、自定義快捷鍵、呼吸燈彩蛋。前端共用，Electron 靜靜受惠。',
+      m6meta: '2026 / 4 / 14　終章・慶功', m6h3: 'Electron v3.60 慶功版 &amp; Tauri 1.2.1 同步首發',
+      m6p: '兩條線在這裡交匯。不是誰取代誰，是兩個版本各自走到最好的狀態，一起亮相。'
+    },
+
+    privacy: {
+      pageLabel: 'Legal',
+      appName: 'VAS 隱私權政策',
+      updatedDate: '最後更新：2026-04-03'
     }
 
   };
