@@ -448,7 +448,24 @@
       e7bdesc: '完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。',
       e7bitems: '<li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>工具列 Modal 位置跳動與累積偏移根治</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>修復三種截圖模式（全螢幕 / 視窗 / 矩形）全部失效</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>OCR 與隱私掃描功能修復</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>標號與文字工具尺寸縮放一致性修正</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">⌨️</span><span>方向鍵微調物件位置（Arrow nudge）</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🧹</span><span>拖曳匯出暫存檔 60 秒後自動清除</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🔒</span><span>安全性修補（brace-expansion 漏洞）</span></li>',
       e8label: 'v3.60　陪著 Tauri 一起 Renew 再上線 🎉',
-      e8desc: '呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。'
+      e8desc: '呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。',
+      tauriTag: 'Tauri 版', tauriH2: '7 + 4 天，20 個 Sprint，~100 項交付',
+      tauriSub: '從第一行 Rust code 到 App Store 送審，再到 v2.0 架構重構完工。',
+      t1: '<span class="text-white/30">03/28</span>  <span class="text-purple-300/80">🏁</span>  專案啟動（第一行 Rust code）',
+      t2: '<span class="text-white/30">03/29</span>  <span class="text-white/50">📦</span>  Sprint 1 完工 — 核心截圖功能可用',
+      t3: '<span class="text-white/30">03/30</span>  <span class="text-yellow-300/70">💎</span>  一日三 Sprint（S2–S4）— OCR / 隱私 / 旋轉 / QR Code 全上線',
+      t4: '<span class="text-white/30">03/31</span>  <span class="text-white/50">🎨</span>  SDD 文件系統重構拆檔 · 印章漸層 + 自訂快捷鍵 + Preferences 系統',
+      t5: '<span class="text-white/30">04/01</span>  <span class="text-purple-300/80">✨</span>  呼吸燈旗艦改版 — VAS 獨家 UX 誕生',
+      t6: '<span class="text-white/30">04/02</span>  <span class="text-white/50">🌐</span>  網頁長截圖 + Release build 首次成功',
+      t7: '<span class="text-white/30">04/03</span>  <span class="text-pink-300/80">🍎</span>  <span class="text-pink-300/80">Mac App Store 送審</span>',
+      s1num: 'S1', s1meta: '03/28 – 03/29　7 項', s1title: '🏁 專案啟動',
+      s1desc: 'Tauri 2 scaffold 從零建立 · 浮動工具列架構遷移 · 截圖三兄弟 · 批次格式轉換（6 格式）+ 文字 / 圖片浮水印 · asset protocol 坑繞路 · Toolbar 飄移根治 · WKWebView 五大開發坑記錄（KM-001～008）',
+      s2num: 'S2', s2meta: '03/30　5 項', s2title: '',
+      s2desc: '7 種格式匯出 + printpdf · Share Sheet · 拖曳匯出 · OCR（Swift Vision）+ 隱私遮蔽五層偵測含日文場景 · 編輯器 titlebar 重設計 · Modal 所見即所得修復 · Options Bar drag-region 根治',
+      s3num: 'S3', s3meta: '03/30 同日　4 項　<span class="text-white/25 font-normal">一日三 Sprint</span>', s3title: '',
+      s3desc: '滴管工具 · QR Code 智慧掃描（Vision + 面積比例三段行為）· 智慧導線 v2 · 檔案拖入工具列',
+      s4num: 'S4', s4meta: '03/30 同日　4 項　<span class="text-white/25 font-normal">一日三 Sprint</span>', s4title: '',
+      s4desc: 'Space 鍵拖移 · 浮水印圖片預覽 · Modal 往上展開 · 物件旋轉'
     },
 
     privacy: {
