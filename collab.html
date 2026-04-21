@@ -76,6 +76,7 @@
                 <button class="lang-opt active" data-lang="zh" role="option">中文</button>
                 <button class="lang-opt" data-lang="en" role="option">English</button>
                 <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+                <button class="lang-opt" data-lang="cn" role="option">简中</button>
             </div>
         </div>
     </header>
@@ -310,7 +311,6 @@
     <script>
     (function () {
       function applyLang(lang) {
-        if (lang === 'cn') { applyLang('zh'); return; }
         VASCore.loadLang(lang, function (t) {
           var merged = Object.assign({}, t.shared || {}, t.collab || {});
           document.querySelectorAll('[data-lang-key]').forEach(function (el) {
