@@ -661,7 +661,7 @@
       'gates.3.num':              'III · システム',
       'gates.3.name':             'Harness',
       'gates.4.num':              'IV · 里程碑',
-      'gates.4.name':             '十八日',
+      'gates.4.name':             '二十五日',
       'acquire.label':            'VAS をワークフローへ',
       'acquire.tauri.what':       'Tauri',
       'acquire.tauri.name':       'VAS 正式版 <em>macOS 12+ · App Store</em>',
@@ -677,8 +677,8 @@
       'unfold.p2':                'どんなツールの代わりにもならない。それはあの<em>中間</em>の場所——スクリーンショットを撮る瞬間と、ファイルを送り出す瞬間のあいだに、少し考える余白を。',
       'unfold.drop':              'これが VAS の最初の言葉であり、最後の言葉でもある。この先の四章——設計、協作、システム、里程碑——すべてこの一文の脚注だ。',
       'chronicle.label':          '版記',
-      'chronicle.edition':        '第十八日 · 器、成る',
-      'chronicle.edition.en':     'Eighteenth Day · The Vessel, Formed'
+      'chronicle.edition':        '第二十五日 · 器、成る',
+      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed'
     }
 
   };
