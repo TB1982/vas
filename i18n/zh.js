@@ -596,6 +596,29 @@
       c5phase1Desc: '最早的 CLAUDE.md 只有一件事：記錄踩過的雷，加一條規則防止再踩。每一條背後都有一個具體的失敗事件——<code>data-lang-key</code> 那條規則下面直接附了「Root cause of the bug (2026-03-29)」，footer 格式規則背後是某次格式跑掉的事故，某條身份規則背後是某次 AI 填入錯誤資訊的記憶。每一條規則都是一道傷疤的形狀，文件是傷疤的集合，不是設計的產物。',
       statsElectronPeriod: '3/22–3/29　<span style="color:var(--vas-ash-3)">8 天</span>',
       statsTauriPeriod:    '3/28–4/3（1.0 開發）　<span style="color:var(--vas-ash-3)">7 天</span><br>4/11–4/14（2.0 重構）　<span style="color:var(--vas-ash-3)">4 天</span>'
+    },
+
+    milestone2: {
+      ch4PageTitle:      'IV · 里程碑 · VAS',
+      ch4MetaDesc:       '從第一行程式碼到雙平台上架，25 天、50+ 版本、2 個平台的完整記錄。',
+      ch4No:             'Chapter IV',
+      ch4Name:           '二十五<em>日。</em>',
+      ch4Dek:            '從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 11 天 40+ 版本；Tauri 7 天開發 + 4 天重構，20 個 Sprint。',
+      ch4TocLabel:       '章目錄',
+      ch4s1Name:    '產品故事弧',
+      ch4s1Kicker:  '兩條線交織，互相成就。',
+      ch4s1Preview: '從 v0.1 到雙平台首發',
+      ch4s2Name:    'Electron 版',
+      ch4s2Kicker:  '當你的工程師不拒絕你。',
+      ch4s2Preview: '11 天，40+ 版本迭代',
+      ch4s3Name:    'Tauri 版',
+      ch4s3Kicker:  '第一行 Rust 到 App Store。',
+      ch4s3Preview: '7 天，20 個 Sprint，App Store',
+      ch4s4Name:    '路線圖',
+      ch4s4Kicker:  '下一步的形狀。',
+      ch4s4Preview: 'v3.0 功能爆發',
+      ch4PassageEnd:    '章 IV · 里程碑 · 終',
+      ch4PassageEndEn:  'Chapter IV · Milestones · End'
     }
 
   };
