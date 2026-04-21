@@ -16,6 +16,20 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
 
 ---
 
+## Product Philosophy
+**VAS takes its name from Jung's alchemical *vas*** — the vessel that holds prima materia and transforms it into lapis. This is not a metaphor; it is the product's actual definition.
+
+The product's core action: taking what cannot yet be expressed in words, making it visible through annotation, and enabling it to be transmitted to another person.
+
+**Copywriting test — ask before writing any copy:** Does this sentence honor the transformation, or does it describe a feature?
+- Fails: "讓資訊順勢滑入編輯模式" — describes a SaaS action
+- Passes: "有些話不能只用文字說。VAS 替你把它盛起來。" — names the transformation
+
+The visual logic follows from this, not the other way around.
+→ Extended design language reference: **CLAUDE-process.md § Design Language**
+
+---
+
 ## Project & Author Identity
 **Always use these exact values. Never invent alternatives.**
 
