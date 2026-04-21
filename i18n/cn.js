@@ -23,7 +23,7 @@
       downloadBtn: 'Tauri 版 · App Store',
       releaseNotesBtn: 'Release Notes',
       guideBtn: '操作手册',
-      sysReq: '需要 macOS · Electron 版免费 · Tauri 版付费',
+      sysReq: '需要 macOS · 简中仅提供付费版。',
       aboutLabel: 'ABOUT', aboutTitle: '关于 VAS',
       about1: '传递信息的炼金容器',
       about2: '让信息顺势流入，承载所有想表达的思绪，无痛送到它该去的地方。',
