@@ -404,7 +404,49 @@
       <div class="section-kicker" data-lang-key="i4Tag">消除中斷 · Eliminating Interruption</div>
     </div>
   </header>
-  <!-- SEC04_BODY_PLACEHOLDER -->
+  <div class="section-body">
+    <p data-lang-key="i4p1">
+      當我們開發出了「延遲截圖」後，全螢幕截圖功能在雙螢幕模式時提供的 Apple 原生選單反而變成了<em>摩擦力</em>。
+    </p>
+    <p data-lang-key="i4p2">
+      延遲截圖是為了捕捉滑鼠事件——報錯狀態、hover 效果、debug 瞬間而誕生的功能。使用者設定倒數等待時，滑鼠必須留在螢幕的某個角落。但原生的雙螢幕選單在讀秒結束後，卻會從工具列跳出來要求使用者在截圖前先回去工具列選擇要截哪個螢幕——就像你自拍已經設定好相機秒數，結果相機結束讀秒時卻在預覽螢幕問你「你要拍哪邊？」一樣荒謬。
+    </p>
+    <p data-lang-key="i4p3">
+      VAS 捨棄 Apple 原生選單，改用自製圖層遮罩覆蓋全螢幕：沒有延遲時點哪個螢幕就截哪個，按 Enter 直接合併成雙螢幕截圖。
+    </p>
+    <p data-lang-key="i4p4">
+      更進一步：當使用者設了延遲規則，VAS 會默認截取滑鼠當下所在的螢幕——<em>連選都不用選</em>，工具自己判斷。使用者根本不會意識到這個決策在背景發生過。
+    </p>
+  </div>
+  <div class="section-wide">
+    <div class="fig-grid-2">
+      <figure>
+        <img src="img/fullscreenmodal.webp" alt="原生雙螢幕選單：延遲截圖倒數期間跳出「請選擇要截哪個螢幕」" class="fig-img" loading="lazy">
+        <figcaption class="fig-caption" data-lang-key="i4imgCaption">這個選單就像計時自拍時——<br>相機等你擺好 pose，倒數完才問你要拍哪邊。</figcaption>
+      </figure>
+      <figure>
+        <img src="img/screenshot.webp" alt="VAS 自製全螢幕遮罩：延遲截圖開始前即選定螢幕" class="fig-img" loading="lazy">
+        <figcaption class="fig-caption" data-lang-key="i4imgCaption2">VAS 解法：無延遲狀態你點哪個螢幕我截哪個螢幕；<br>延遲模式不用選，你在哪我就截哪。</figcaption>
+      </figure>
+    </div>
+    <div style="margin-top: 28px;">
+      <div class="compare-box">
+        <span class="cb-num">1</span>
+        <span class="cb-label" data-lang-key="i4step1Label">延遲截圖</span>
+        <span data-lang-key="i4step1Desc">單螢幕設定延遲時，自動在時間倒數後選取當下螢幕截圖</span>
+      </div>
+      <div class="compare-box">
+        <span class="cb-num">2</span>
+        <span class="cb-label" data-lang-key="i4step2Label">自製遮罩</span>
+        <span data-lang-key="i4step2Desc">雙螢幕無延遲模式時，可自由選擇螢幕，或按 Enter 全選所有螢幕</span>
+      </div>
+      <div class="compare-box highlight">
+        <span class="cb-num">3</span>
+        <span class="cb-label" data-lang-key="i4step3Label">滑鼠位置默認</span>
+        <span data-lang-key="i4step3Desc">雙螢幕設定延遲模式時，連選都不用選，工具讀你游標在哪，就自動截哪裡</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════ 小節 05 ═══════ -->
