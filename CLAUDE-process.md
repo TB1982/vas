@@ -3,6 +3,53 @@ _Companion to CLAUDE.md — read that file first. Core rules live there._
 
 ---
 
+## Product Strategy
+
+**Two-version positioning — use this framework for all copy involving both versions:**
+
+| | Electron | Tauri |
+|--|----------|-------|
+| Price | Free | Paid |
+| Role | Entry-level / classic | Premium / performance |
+| Size | ~113 MB | ~20 MB |
+| Version scheme | v3.x (current: v3.60) | v2.x (current: v2.0.8) — independent numbering |
+| Distribution | GitHub Releases | Apple App Store (live since 2026-04-14) |
+| Language support | zh-Hant / EN / JA (trilingual, fixed) | zh-Hant / EN / JA / 简中 (quadrilingual) |
+| Narrative | 「經典版」— the origin, free forever | 「極致版」— the evolution, App Store |
+
+**Version numbering is completely independent.** Electron and Tauri do not share version numbers. When Nova says "version update", always confirm which version is being updated.
+
+**Simplified Chinese (cn) is Tauri-only.** Electron remains trilingual permanently. When adding CN translations, they apply only to Tauri-era content and UI. Electron-specific pages or contexts: do not add CN.
+
+**Electron maintenance policy:** No new Tauri-exclusive features will be backported intentionally. However, since both versions share frontend code, Electron may incidentally benefit from Tauri updates.
+
+**Active development (as of 2026-04):** Simplified Chinese support + long screenshot / web page screenshot refinement (currently experimental in Tauri).
+
+---
+
+## Design Language
+
+The visual decisions on this site follow from the product philosophy in CLAUDE.md — they are not arbitrary aesthetic choices.
+
+| Element | Why it's right |
+|---------|---------------|
+| Shippori Mincho | East Asian literary typeface for expressing the inexpressible — not chosen for style, chosen because it handles silence |
+| White space | The vessel needs stillness for transformation to occur; filling space is the wrong instinct |
+| The bottle shape | The neck is the point of concentration before emergence — that is VAS's core action |
+| Dark background | The prima materia is not cheerful; it is unformed, pre-verbal |
+
+**Editorial register per page** (Claude Design's vision):
+- `index.html` — Teenage Engineering–style object display: each feature is an independent artifact
+- `insight.html` — Pudding-style long-form feature: each insight is a chapter
+- `collab.html` — Dual-column script: Nova's thinking left, Claude's response right, timeline axis center
+- `harness.html` — Architecture white paper: diagrams, schema, structured comparison
+- `milestone.html` — Exhibition wall text: date-led, serial, short narrative per milestone
+- `guide.html` — Precision reference: three-column (TOC / explanation / figure), high density allowed
+
+**The Japanese editorial sensibility** runs across all pages: 《Brutus》, 《POPEYE》, Naoto Fukasawa's books — "一壺茶一個想法請自己來看". Short sentences. Sentences that end like a signature followed by a single dot.
+
+---
+
 ## Repository Structure
 
 ```
