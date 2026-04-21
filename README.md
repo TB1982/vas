@@ -25,7 +25,7 @@ Born from a collaboration between a PM who can't write a single line of code, an
 
 Static HTML / Tailwind CSS (CDN) / Vanilla JS — no build tools, no package manager.
 
-Trilingual (zh-Hant / EN / 日本語) via `data-lang-key` + per-page i18n JS files.
+Quadrilingual (zh-Hant / EN / 日本語 / 简中) via `data-lang-key` + per-page i18n JS files.
 
 ---
 
@@ -41,8 +41,6 @@ Trilingual (zh-Hant / EN / 日本語) via `data-lang-key` + per-page i18n JS fil
 | `i18n-harness.js` | `window.VASHarnessT` | `harness.html` |
 | `i18n-milestone.js` | `window.VASMilestoneT` | `milestone.html` |
 | `i18n-privacy.js` | `window.VASPrivacyT` | `privacy.html` |
-
-Version number single source of truth: `version.js` → `window.VAS_VERSION`.
 
 ---
 
