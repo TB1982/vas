@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-lang-key="ch1.title">I · 設計 · VAS</title>
+<meta name="description" data-lang-key="ch1.meta.desc"
+      content="不完美的工具——五條設計決策背後的故事。" />
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav · 和首頁共用 ═══════
+     不做章節頁專屬大版頭——頁首不跳
+-->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </div>
+  <div class="site-nav-links">
+    <a href="#" data-lang-key="home2.nav.design">設計</a>
+    <a href="#" data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="#" data-lang-key="home2.nav.system">系統</a>
+    <a href="#" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang">繁 · 简 · EN · 日</div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch1.no">
+    Chapter I
+  </div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch1.name">
+      不<em>完美</em>的工具。
+    </h1>
+    <div class="chapter-dek" data-lang-key="ch1.dek">
+      五條設計決策——每一條背後都有一次放棄、一次選擇、一件做過的事被推翻。
+      這章是 VAS 的<em>手藝自白</em>：工具從來不會因為功能多而好，只會因為<em>放棄得對</em>而好。
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch1.toc.label">章目錄</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name" data-lang-key="ch1.sec.01.name">不完美的 OCR</span>
+        <span class="preview" data-lang-key="ch1.sec.01.preview">遮不到的字，使用者一拉補上</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name" data-lang-key="ch1.sec.02.name">不替你編輯</span>
+        <span class="preview" data-lang-key="ch1.sec.02.preview">承接的是原文，不是猜出來的版本</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name" data-lang-key="ch1.sec.03.name">快捷鍵先於介面</span>
+        <span class="preview" data-lang-key="ch1.sec.03.preview">工具列是第二螢幕，鍵盤才是第一</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name" data-lang-key="ch1.sec.04.name">留一扇窗給中途者</span>
+        <span class="preview" data-lang-key="ch1.sec.04.preview">每一步都能退出，不綁定流程</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name" data-lang-key="ch1.sec.05.name">器物先於產品</span>
+        <span class="preview" data-lang-key="ch1.sec.05.preview">它有自己的樣子，然後才有人用</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 小節 01 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch1.sec.01.name">不完美的 OCR</h2>
+      <div class="section-kicker" data-lang-key="ch1.sec.01.kicker">
+        遮不到的字，使用者一拉就能補上。
+      </div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="ch1.sec.01.p1">
+      OCR 永遠會有遮漏。第一版的做法是<em>訓練更大的模型</em>——失敗了；
+      第二版的做法是<em>讓使用者選</em>——成功了。承認工具不完美，給使用者一個簡單的補救路徑，
+      比讓模型自己想辦法撿回來，便宜、快、而且可靠。
+    </p>
+    <p data-lang-key="ch1.sec.01.p2">
+      這條決策改變了 VAS 的整個面貌——從「AI 自動化工具」變成「人機協作器物」。
+      介面上多了一條透明的拖拉框，少了一套永遠在猜的推論層。
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ 小節 02 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch1.sec.02.name">不替你編輯</h2>
+      <div class="section-kicker" data-lang-key="ch1.sec.02.kicker">
+        承接的是原文，不是猜出來的版本。
+      </div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="ch1.sec.02.p1">
+      VAS 不會幫你<em>順一下語句</em>、不會幫你<em>調整標點</em>、不會幫你<em>修掉錯字</em>。
+      它做的只有一件事——把你看見的內容，以你看見的樣子，承接起來。
+    </p>
+    <p data-lang-key="ch1.sec.02.p2">
+      理由很簡單：編輯是編輯者的事。工具做編輯，就是在替編輯者做決定——那是偷竊。
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ 小節 03 · 範例省略，保留結構讓宰相知道怎麼接 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch1.sec.03.name">快捷鍵先於介面</h2>
+      <div class="section-kicker" data-lang-key="ch1.sec.03.kicker">
+        工具列是第二螢幕，鍵盤才是第一。
+      </div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="ch1.sec.03.p1">
+      <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：VAS 的快捷鍵哲學】</em>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ 小節 04 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch1.sec.04.name">留一扇窗給中途者</h2>
+      <div class="section-kicker" data-lang-key="ch1.sec.04.kicker">
+        每一步都能退出，不綁定流程。
+      </div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="ch1.sec.04.p1">
+      <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：離開權的設計】</em>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ 小節 05 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch1.sec.05.name">器物先於產品</h2>
+      <div class="section-kicker" data-lang-key="ch1.sec.05.kicker">
+        它有自己的樣子，然後才有人用。
+      </div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="ch1.sec.05.p1">
+      <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：器物哲學的結語】</em>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ 章末過場 · Passage ═══════
+     安靜收尾 · 翻頁到下一章 · 不是按鈕
+-->
+<section class="passage">
+  <div class="passage-colophon">
+    <span data-lang-key="ch1.passage.end">章 I · 設計 · 終</span><br>
+    <span class="faint" data-lang-key="ch1.passage.end.en">Chapter I · Design · End</span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="chapter-II.html">
+      <div class="num" data-lang-key="ch1.passage.next.num">II · 協作</div>
+      <div class="name" data-lang-key="ch1.passage.next.name">六個故事</div>
+      <div class="arrow">↓</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════
+     和首頁共用——進 repo 時用 shared.footer
+-->
+<footer style="padding: 56px 48px 40px; border-top: 1px solid var(--vas-rule); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end;">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。
+    一個不會寫程式的 PM，和一個沒有長期記憶的 AI，在十八天裡做出的器物。
+  </div>
+  <div style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+</body>
+</html>

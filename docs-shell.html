@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-lang-key="docs.title">操作手冊 · VAS</title>
+<meta name="description" data-lang-key="docs.meta.desc"
+      content="VAS 操作手冊——從第一次打開，到熟練使用，一頁讀完。" />
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/docs.css">
+
+<style>
+/* 一頁版的微調——給 scroll-margin，錨點跳轉時不被 nav 蓋住 */
+.docs-section { scroll-margin-top: 88px; padding: 64px 0 24px; border-top: 1px solid var(--vas-rule); }
+.docs-section:first-of-type { border-top: none; padding-top: 0; }
+.docs-section-kicker {
+  font-family: var(--vas-mono); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--vas-aurora-violet); opacity: .75;
+  margin-bottom: 12px;
+}
+.docs-subsection { scroll-margin-top: 88px; margin-top: 40px; }
+.docs-subsection h3 {
+  font-family: var(--vas-serif); font-weight: 500; font-size: 20px;
+  color: var(--vas-ash-0); margin-bottom: 12px;
+  word-break: keep-all; overflow-wrap: break-word;
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="site-nav-brand"><span class="mark"></span><span>VAS</span></div>
+  <div class="site-nav-links">
+    <a href="#" data-lang-key="home2.nav.design">設計</a>
+    <a href="#" data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="#" data-lang-key="home2.nav.system">系統</a>
+    <a href="#" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang">繁 · 简 · EN · 日</div>
+</nav>
+
+<div class="docs-layout">
+
+  <!-- ═══════ 桌面側邊 TOC · 錨點 + scroll-spy ═══════ -->
+  <aside class="docs-toc-sticky">
+    <div class="docs-toc-sticky-label" data-lang-key="docs.toc.label">Table of Contents</div>
+    <ul>
+      <li><a href="#welcome" data-lang-key="docs.nav.welcome">Welcome on Board</a></li>
+
+      <li class="group" data-lang-key="docs.nav.group.start">入門 · Getting Started</li>
+      <li><a href="#first-launch" data-lang-key="docs.nav.start.first">第一次打開 VAS</a></li>
+      <li><a href="#permissions" data-lang-key="docs.nav.start.perm">授權與隱私</a></li>
+      <li><a href="#first-capture" data-lang-key="docs.nav.start.capture">第一次截圖</a></li>
+
+      <li class="group" data-lang-key="docs.nav.group.core">核心 · Core</li>
+      <li><a href="#toolbar" data-lang-key="docs.nav.core.toolbar">工具列</a></li>
+      <li><a href="#editor" data-lang-key="docs.nav.core.editor">編輯器</a></li>
+      <li><a href="#shortcuts" data-lang-key="docs.nav.core.shortcuts">快捷鍵</a></li>
+
+      <li class="group" data-lang-key="docs.nav.group.adv">進階 · Advanced</li>
+      <li><a href="#customization" data-lang-key="docs.nav.adv.custom">自訂設定</a></li>
+      <li><a href="#tips" data-lang-key="docs.nav.adv.tips">Tips &amp; 疑難</a></li>
+    </ul>
+  </aside>
+
+  <main class="docs-main">
+
+    <!-- 手機跳節選單 -->
+    <details class="docs-toc-mobile">
+      <summary data-lang-key="docs.toc.mobile.label">跳到 · Jump to</summary>
+      <ol>
+        <li><a href="#welcome" data-lang-key="docs.nav.welcome">Welcome on Board</a></li>
+        <li><a href="#first-launch" data-lang-key="docs.nav.start.first">第一次打開 VAS</a></li>
+        <li><a href="#permissions" data-lang-key="docs.nav.start.perm">授權與隱私</a></li>
+        <li><a href="#first-capture" data-lang-key="docs.nav.start.capture">第一次截圖</a></li>
+        <li><a href="#toolbar" data-lang-key="docs.nav.core.toolbar">工具列</a></li>
+        <li><a href="#editor" data-lang-key="docs.nav.core.editor">編輯器</a></li>
+        <li><a href="#shortcuts" data-lang-key="docs.nav.core.shortcuts">快捷鍵</a></li>
+        <li><a href="#customization" data-lang-key="docs.nav.adv.custom">自訂設定</a></li>
+        <li><a href="#tips" data-lang-key="docs.nav.adv.tips">Tips &amp; 疑難</a></li>
+      </ol>
+    </details>
+
+    <!-- ═══ Welcome ═══ -->
+    <section class="docs-section" id="welcome">
+      <h1 data-lang-key="docs.welcome.h1">Welcome on Board</h1>
+      <div class="docs-dek" data-lang-key="docs.welcome.dek">
+        這是 VAS 的操作手冊，一頁讀完。往下捲是「入門 → 核心 → 進階」的順序；左側目錄永遠在——點一下就能跳到任何一節。Ctrl + F 搜尋也可以。
+      </div>
+    </section>
+
+    <!-- ═══ 01 · 入門 ═══ -->
+    <section class="docs-section" id="getting-started">
+      <div class="docs-section-kicker" data-lang-key="docs.nav.group.start">入門 · Getting Started</div>
+
+      <div class="docs-subsection" id="first-launch">
+        <h3 data-lang-key="docs.nav.start.first">第一次打開 VAS</h3>
+        <p data-lang-key="docs.sec.first.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：下載 / 安裝 / 啟動 的三步驟，配截圖】</em>
+        </p>
+      </div>
+
+      <div class="docs-subsection" id="permissions">
+        <h3 data-lang-key="docs.nav.start.perm">授權與隱私</h3>
+        <p data-lang-key="docs.sec.perm.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：macOS 的螢幕錄製權限、資料存放位置、不上傳任何內容的聲明】</em>
+        </p>
+      </div>
+
+      <div class="docs-subsection" id="first-capture">
+        <h3 data-lang-key="docs.nav.start.capture">第一次截圖</h3>
+        <p data-lang-key="docs.sec.capture.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：呼出→框選→OCR→編輯→送出，五步流程】</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ 02 · 核心 ═══ -->
+    <section class="docs-section" id="core">
+      <div class="docs-section-kicker" data-lang-key="docs.nav.group.core">核心 · Core</div>
+
+      <div class="docs-subsection" id="toolbar">
+        <h3 data-lang-key="docs.nav.core.toolbar">工具列</h3>
+        <p data-lang-key="docs.sec.toolbar.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：工具列各按鈕說明——點擊會開彈窗詳解功能】</em>
+        </p>
+      </div>
+
+      <div class="docs-subsection" id="editor">
+        <h3 data-lang-key="docs.nav.core.editor">編輯器</h3>
+        <p data-lang-key="docs.sec.editor.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：編輯器的區塊、選取、修改、匯出】</em>
+        </p>
+      </div>
+
+      <div class="docs-subsection" id="shortcuts">
+        <h3 data-lang-key="docs.nav.core.shortcuts">快捷鍵</h3>
+        <p data-lang-key="docs.sec.shortcuts.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：全域快捷鍵表——用 docs-accordion 或表格呈現】</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ 03 · 進階 ═══ -->
+    <section class="docs-section" id="advanced">
+      <div class="docs-section-kicker" data-lang-key="docs.nav.group.adv">進階 · Advanced</div>
+
+      <div class="docs-subsection" id="customization">
+        <h3 data-lang-key="docs.nav.adv.custom">自訂設定</h3>
+        <p data-lang-key="docs.sec.custom.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：外觀 / 快捷鍵 / OCR 選項 等可調項目】</em>
+        </p>
+      </div>
+
+      <div class="docs-subsection" id="tips">
+        <h3 data-lang-key="docs.nav.adv.tips">Tips &amp; 疑難</h3>
+        <p data-lang-key="docs.sec.tips.p1">
+          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：用 docs-accordion 列 FAQ——怎麼關 OCR、怎麼改字型、常見錯誤】</em>
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="padding: 56px 48px 40px; border-top: 1px solid var(--vas-rule); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end;">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。
+  </div>
+  <div style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki/docs<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<!-- ═══ Scroll-spy：捲動時 highlight 左側 TOC 當前位置 ═══ -->
+<script>
+(() => {
+  const links = document.querySelectorAll('.docs-toc-sticky a[href^="#"]');
+  const map = new Map();
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) map.set(el, a);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('is-current'));
+        const link = map.get(e.target);
+        if (link) link.classList.add('is-current');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  map.forEach((_, el) => io.observe(el));
+})();
+</script>
+
+</body>
+</html>
