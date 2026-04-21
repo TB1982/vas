@@ -391,7 +391,19 @@
     </div>
   </header>
   <div class="section-body">
-    <!-- content: Step D -->
+    <div class="c2-phase">
+      <div class="c2-phase-label" data-lang-key="c5phase1Label">Phase 1 · 防錯清單</div>
+      <p data-lang-key="c5phase1Desc">最早的 CLAUDE.md 只有一件事：記錄踩過的雷，加一條規則防止再踩。每一條背後都有一個具體的失敗事件——<code>data-lang-key</code> 那條規則下面直接附了「Root cause of the bug (2026-03-29)」，footer 格式規則背後是某次格式跑掉的事故，某條身份規則背後是某次 AI 填入錯誤資訊的記憶。每一條規則都是一道傷疤的形狀，文件是傷疤的集合，不是設計的產物。</p>
+    </div>
+    <div class="c2-phase">
+      <div class="c2-phase-label" data-lang-key="c5phase2Label">Phase 2 · 追加期</div>
+      <p data-lang-key="c5phase2Desc">功能越來越複雜，規則越加越多——Tauri IPC 合約、Electron preload 白名單、雙版本 QC 流程、KM 即時記錄原則。每一條都必要，但你開始感覺到文件有了重量。這個階段的 CLAUDE.md 是一份能用的工具，但還沒有意識到自己是什麼。</p>
+    </div>
+    <div class="c2-phase active">
+      <div class="c2-phase-label" data-lang-key="c5phase3Label">Phase 3 · 協作憲法</div>
+      <p data-lang-key="c5phase3Desc">轉折點發生在一次瘦身行動。文件已經長到 356 行，社群建議 200 行左右是 Claude 保持最佳狀態的甜蜜點。他們開始刪——然後在 249 行停下來了。不是因為懶，而是因為每一條「看起來可以刪」的規則，拿起來問「為什麼存在」，答案都指向一個無法省略的協作結構。雙平台系統的複雜性，本來就不是 200 行能說清楚的。在那個決定裡，文件的性質改變了——它不再是還沒刪完的清單，而是一個主動決定要維護的架構。從「不要做這件事」，變成了「我們是這樣工作的人」。</p>
+    </div>
+    <p data-lang-key="c5echo" style="margin-top: 32px;">「組合拳」是這份憲法裡最好的例子。Nova 老是要提醒 Claude 要先給她拉下來的語法才能給啟動模擬器的語法，後來她說：你們要用組合拳給我啦！然後 Claude 就把這個詞刻進了 CLAUDE.md。三個字，帶著「兩個動作是一體的，分開打就破功」的完整概念。下一個 session 進來讀到這裡，不需要解釋，直覺就知道不能拆。這是 Story 02 的鏡像：那裡是 Nova 用「捕蠅草」把設計傳給 Claude，這裡是 Claude 用「組合拳」把流程規則傳給 Nova，然後讓它跨 session 永久存活。方向相反，機制一樣。仿生語言不只是 Nova 對 Claude 說話的方式——是這段關係裡的共同語言。</p>
   </div>
 </section>
 
@@ -405,7 +417,52 @@
     </div>
   </header>
   <div class="section-body">
-    <!-- content: Step D -->
+    <p data-lang-key="cSp1">Claude Code 的訓練資料停在 Tauri 1.0，但整個 Tauri 開發期用的是 2.0。Nova 不寫程式。前進的依據只有三樣：KM 記錄的踩坑紀錄、Nova 的直覺、跟一個同樣在摸索的 AI 互相支撐。這組數字是那段摸索留下的痕跡。</p>
+  </div>
+  <div class="c2-stats-wrap">
+    <table class="c2-stats-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th data-lang-key="statsElectronLabel">Electron</th>
+          <th data-lang-key="statsTauriLabel">Tauri+Electron</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-lang-key="statsPeriodLabel">工作期間</td>
+          <td data-lang-key="statsElectronPeriod">3/22–3/29　<span style="color:var(--vas-ash-3)">8 天</span></td>
+          <td data-lang-key="statsTauriPeriod">3/28–4/3（1.0 開發）　<span style="color:var(--vas-ash-3)">7 天</span><br>4/11–4/14（2.0 重構）　<span style="color:var(--vas-ash-3)">4 天</span></td>
+        </tr>
+        <tr>
+          <td data-lang-key="statsCommitsLabel">Commits</td>
+          <td>484</td>
+          <td>952</td>
+        </tr>
+        <tr class="highlight">
+          <td data-lang-key="statsDailyCommitsLabel">每日 commits</td>
+          <td>~60.5</td>
+          <td class="purple">~86.5</td>
+        </tr>
+        <tr>
+          <td data-lang-key="statsPRLabel">PR 數</td>
+          <td>84</td>
+          <td>137</td>
+        </tr>
+        <tr class="highlight">
+          <td data-lang-key="statsDailyPRLabel">每日 PR 數</td>
+          <td>~10.5</td>
+          <td class="purple">~12.5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-body" style="margin-top: 28px;">
+    <p data-lang-key="cSp2">四成的密度差距，不是效率的提升——是試錯＋迭代優化＋雙平台開發的密度。每多一個 commit，背後可能是「這樣不對→再試→換方向」、「怎麼做我們能協作的更順暢？→增減規則→拆文件」、「Electron，我們來 Sync 剛剛 Tauri 的 Sprint 吧！」。在沒有地圖的地方，試錯本身就是前進的方式，雙平台一起走變成了雙 QC，品質更穩定。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="cSboxTitle">在沒有地圖的地方，密度就是地圖本身</div>
+      <p data-lang-key="cSboxDesc">Tauri+Electron 每天 ~86.5 commits，Electron 每天 ~60.5 commits。四成的差距，忠實記錄了在未知地形上摸索的代價——也記錄了沒有放棄的事實。</p>
+    </div>
   </div>
 </section>
 
