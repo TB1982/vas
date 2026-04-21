@@ -46,6 +46,24 @@
   padding: 6px 10px; border-radius: 4px; cursor: pointer;
 }
 .lang-opt:hover, .lang-opt.active { color: #fff; background: rgba(255,255,255,0.07); }
+
+/* ─── 頁尾 ───────────────────────────────── */
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding: 56px 48px 40px;
+  border-top: 1px solid var(--vas-rule);
+}
+@media (max-width: 768px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 32px;
+  }
+  .site-footer .footer-right { text-align: left; }
+}
 </style>
 </head>
 <body>
@@ -183,14 +201,14 @@
 </section>
 
 <!-- ═══════ 頁尾 ═══════ -->
-<footer style="padding: 56px 48px 40px; border-top: 1px solid var(--vas-rule); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end;">
+<footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
     <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
     一個不會寫程式的 PM，<br>
     和一個沒有長期記憶的 AI，<br>
     在十八天裡做出的器物。
   </div>
-  <div style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
     <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
   </div>
