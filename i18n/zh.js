@@ -501,7 +501,11 @@
       s17num: 'S17', s17meta: '04/13　4 項　QC 100%', s17title: '🏗️ v2.0 Architecture ⑤ 渲染管線模組化',
       s17desc: 'TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper（~10 處漸層重複消除）· rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一',
       s18num: 'S18', s18meta: '04/13　5 項　QC 100%（3 輪修復）', s18title: '🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生',
-      s18desc: 'MAX_HISTORY=50 FIFO · imgSnap PNG 快照 + _imgCache 孤兒清理 · _symMeasureCache 上限 · selId 跨 undo 保留 · crop sizeSx 補償'
+      s18desc: 'MAX_HISTORY=50 FIFO · imgSnap PNG 快照 + _imgCache 孤兒清理 · _symMeasureCache 上限 · selId 跨 undo 保留 · crop sizeSx 補償',
+      s19num: 'S19', s19meta: '04/14　2 bugs　QC 100%（一次通過）', s19title: '🐛 Bug Sweep',
+      s19desc: '畫布閃動根治（選項列固定 88px · 動畫系統完整移除 -85 行）· 折線漸層端點色修復（終點 dotN 獨立投影）',
+      s20num: 'S20', s20meta: '04/14　4 項　QC 100%', s20title: '✨ Help Modal 優化 + Modal 邊界修復',
+      s20desc: '快捷鍵手風琴面板（4 分類 · 35 鍵 · i18n 20 新 key）· Modal 螢幕邊界 clamp（四角 x/y · menu bar + Dock margin）· Esc 統一關閉所有 modal（歷史 ReferenceError 根治）· 選項列垂直置中'
     },
 
     privacy: {
