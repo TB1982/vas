@@ -495,7 +495,13 @@
       s14num: 'S14', s14meta: '04/12　4 工具　QC 100%', s14title: '🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 1',
       s14desc: 'ellipse / fillrect / fillellipse / pen 遷入 schema · shadow pre-pass 根治端點交界縫隙 · polyline 雙擊終點退一格修復',
       s15num: 'S15', s15meta: '04/12　4 工具　QC 100%', s15title: '🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋',
-      s15desc: 'line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正'
+      s15desc: 'line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正',
+      s16num: 'S16', s16meta: '04/13　3+ 項　QC 100%', s16title: '🏗️ v2.0 Architecture ⑤ 幾何邏輯集中化',
+      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取（任何工具下點擊物件自動切換）· Vitest 47 pass',
+      s17num: 'S17', s17meta: '04/13　4 項　QC 100%', s17title: '🏗️ v2.0 Architecture ⑤ 渲染管線模組化',
+      s17desc: 'TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper（~10 處漸層重複消除）· rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一',
+      s18num: 'S18', s18meta: '04/13　5 項　QC 100%（3 輪修復）', s18title: '🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生',
+      s18desc: 'MAX_HISTORY=50 FIFO · imgSnap PNG 快照 + _imgCache 孤兒清理 · _symMeasureCache 上限 · selId 跨 undo 保留 · crop sizeSx 補償'
     },
 
     privacy: {
