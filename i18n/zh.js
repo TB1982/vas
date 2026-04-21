@@ -473,7 +473,12 @@
       s7num: 'S7', s7meta: '04/01　7 項　QC 100%', s7title: '🌟 呼吸燈旗艦改版',
       s7desc: '呼吸燈旗艦改版（光條 + 光球 + ::before 根治）— VAS 獨家 UX 誕生 · QR 偵測後自動複製 / 開啟 URL · OCR 辨識後自動複製文字 · pen / polyline + 直線控制點拖曳修復 · auto-hide timer 修復 · QC 100%（1 項 NSTrackingArea 實驗退版）',
       s8num: 'S8', s8meta: '04/01 – 04/02　7 項　QC 100%', s8title: '🌐 網頁長截圖 MVP',
-      s8desc: '網頁長截圖（WKWebView resize-then-snapshot）· 短頁面自動分流 · 呼吸燈圓角 + hover 光球 · Dock 圖示點擊召喚展開 · 工具列位置記憶（userData）· PreStripBounds 位移根治 · 原生對話框游標 desync 修正 · QC 100%'
+      s8desc: '網頁長截圖（WKWebView resize-then-snapshot）· 短頁面自動分流 · 呼吸燈圓角 + hover 光球 · Dock 圖示點擊召喚展開 · 工具列位置記憶（userData）· PreStripBounds 位移根治 · 原生對話框游標 desync 修正 · QC 100%',
+      s9num: 'S9', s9meta: '04/02 – 04/03　15 項　QC 100%', s9title: '🍎 Mac App Store 送審',
+      s9desc: '黑底極光花瓶 App icon（與 Electron 版形成視覺區隔）· 呼吸燈引導文字（三語）· 截圖權限引導（失敗時 toast → 開系統設定）· Release build + 沙箱 + 提交 Mac App Store',
+      bridge_tag: '📌 過渡期 04/04 – 04/10', bridge_subtitle: '基礎建設 & Apple 審核',
+      bridge_bullets: '<li>· 文件架構拆分（SDD / TDD / KM / Archive 獨立化），Electron 對齊 Tauri 結構</li><li>· Repo 整理與雙版本同步機制建立（SYNC-QUEUE）</li><li>· Apple 審核回應：4/3 提交 → 4/7 被拒 → 4/8 重新提交 → 4/11 再次被拒</li><li>· v1.2.0 / v1.2.1 hotfix 發布（對應審核修正）</li><li>· 決定啟動 v2.0（Tauri）重構，不再等待審核結果</li>',
+      bridge_v2label: '↳ v2.0 Architecture Refactor'
     },
 
     privacy: {
