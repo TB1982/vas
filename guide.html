@@ -663,15 +663,17 @@
         if (editorImg) {
           editorImg.src = lang === 'ja' ? 'img/vas-guide-editor-jp.webp'
             : lang === 'en' ? 'img/vas-guide-editor-en.webp'
+            : lang === 'cn' ? 'img/vas-guide-editor-zh-CN.png'
             : 'img/vas-guide-editor-zh.webp';
           editorImg.alt = lang === 'ja' ? 'VAS エディタ画面の説明図'
             : lang === 'en' ? 'VAS editor interface diagram'
-            : 'VAS 編輯器介面說明圖';
+            : 'VAS 编辑器界面说明图';
         }
         var toolbarImg = document.getElementById('toolbarImg');
         if (toolbarImg) {
           toolbarImg.src = lang === 'ja' ? 'img/vastoolbar-jp.webp'
             : lang === 'en' ? 'img/vastoolbar-en.webp'
+            : lang === 'cn' ? 'img/vastoolbar-zh-CN.png'
             : 'img/vastoolbar.webp';
           toolbarImg.alt = lang === 'ja' ? 'VAS キャプチャツールバー'
             : lang === 'en' ? 'VAS capture toolbar'
