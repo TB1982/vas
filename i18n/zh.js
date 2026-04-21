@@ -505,7 +505,14 @@
       s19num: 'S19', s19meta: '04/14　2 bugs　QC 100%（一次通過）', s19title: '🐛 Bug Sweep',
       s19desc: '畫布閃動根治（選項列固定 88px · 動畫系統完整移除 -85 行）· 折線漸層端點色修復（終點 dotN 獨立投影）',
       s20num: 'S20', s20meta: '04/14　4 項　QC 100%', s20title: '✨ Help Modal 優化 + Modal 邊界修復',
-      s20desc: '快捷鍵手風琴面板（4 分類 · 35 鍵 · i18n 20 新 key）· Modal 螢幕邊界 clamp（四角 x/y · menu bar + Dock margin）· Esc 統一關閉所有 modal（歷史 ReferenceError 根治）· 選項列垂直置中'
+      s20desc: '快捷鍵手風琴面板（4 分類 · 35 鍵 · i18n 20 新 key）· Modal 螢幕邊界 clamp（四角 x/y · menu bar + Dock margin）· Esc 統一關閉所有 modal（歷史 ReferenceError 根治）· 選項列垂直置中',
+      roadmapTag: '下一階段', roadmapH2: '路線圖',
+      r1h: 'v1.0　功能驗證原型', r1p: '已上架 App Store（審核中）',
+      r2h: 'v2.0　架構重構（Sprint 10–20）', r2p: '已完成（04/11–04/14）',
+      r2items: '<li>✓ 座標系統統一（DPR 全修）</li><li>✓ 漸層引擎統一（六工具）</li><li>✓ 資料模型正規化</li><li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li><li>✓ 幾何 + 渲染管線模組化</li><li>✓ Undo/Redo 架構升級 + 記憶體衛生</li><li>✓ 自動化測試基建（Vitest 47 pass）</li>',
+      r3h: 'v3.0　功能爆發',
+      r3items: '<li>· 截圖知識庫 / 截圖比對 / 色票萃取</li><li>· 對話氣泡 / 群組 / 放大鏡標注</li><li>· 螢幕錄影 + GIF</li><li>· 雲端分享</li><li>· 格式刷（壓軸）</li>',
+      homeTeaser: '回到 VAS 產品首頁', homeBtn: '← 回首頁'
     },
 
     privacy: {
