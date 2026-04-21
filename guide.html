@@ -249,6 +249,7 @@
         <button class="lang-opt active" data-lang="zh" role="option">中文</button>
         <button class="lang-opt" data-lang="en" role="option">English</button>
         <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+        <button class="lang-opt" data-lang="cn" role="option">简中</button>
       </div>
     </div>
   </header>
@@ -648,39 +649,47 @@
     <p><a href="privacy.html" class="hover:text-white/50 transition-colors" data-lang-key="privacyLink">隱私權政策</a></p>
   </footer>
 
-  <script src="i18n-shared.js"></script>
-  <script src="i18n-guide.js"></script>
+  <script src="i18n/core.js"></script>
   <script>
-    const translations = window.VASGuideT;
-
-    let currentLang = 'zh';
-
-    function switchLanguage(lang) {
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'ja' ? 'ja' : 'en';
-      const trans = translations[lang] || translations['en'];
-      document.querySelectorAll('[data-lang-key]').forEach(el => {
-        const key = el.dataset.langKey;
-        if (trans[key] !== undefined) el.innerHTML = trans[key];
+  (function () {
+    function applyLang(lang) {
+      VASCore.loadLang(lang, function (t) {
+        var merged = Object.assign({}, t.shared || {}, t.guide || {});
+        document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+          var key = el.getAttribute('data-lang-key');
+          if (merged[key] !== undefined) el.innerHTML = merged[key];
+        });
+        var editorImg = document.getElementById('editorImg');
+        if (editorImg) {
+          editorImg.src = lang === 'ja' ? 'img/vas-guide-editor-jp.webp'
+            : lang === 'en' ? 'img/vas-guide-editor-en.webp'
+            : 'img/vas-guide-editor-zh.webp';
+          editorImg.alt = lang === 'ja' ? 'VAS エディタ画面の説明図'
+            : lang === 'en' ? 'VAS editor interface diagram'
+            : 'VAS 編輯器介面說明圖';
+        }
+        var toolbarImg = document.getElementById('toolbarImg');
+        if (toolbarImg) {
+          toolbarImg.src = lang === 'ja' ? 'img/vastoolbar-jp.webp'
+            : lang === 'en' ? 'img/vastoolbar-en.webp'
+            : 'img/vastoolbar.webp';
+          toolbarImg.alt = lang === 'ja' ? 'VAS キャプチャツールバー'
+            : lang === 'en' ? 'VAS capture toolbar'
+            : 'VAS 浮動工作列';
+        }
+        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+        VASCore.updateDropdown(lang);
+        try { localStorage.setItem('vasLang', lang); } catch (e) {}
       });
-      document.getElementById('editorImg').src = lang === 'zh'
-        ? 'img/vas-guide-editor-zh.webp'
-        : lang === 'ja' ? 'img/vas-guide-editor-jp.webp'
-        : 'img/vas-guide-editor-en.webp';
-      document.getElementById('editorImg').alt = lang === 'zh'
-        ? 'VAS 編輯器介面說明圖'
-        : lang === 'ja' ? 'VAS エディタ画面の説明図'
-        : 'VAS editor interface diagram';
-      const toolbarImg = document.getElementById('toolbarImg');
-      toolbarImg.src = lang === 'zh' ? 'img/vastoolbar.webp' : lang === 'ja' ? 'img/vastoolbar-jp.webp' : 'img/vastoolbar-en.webp';
-      toolbarImg.alt = lang === 'zh' ? 'VAS 浮動工作列' : lang === 'ja' ? 'VAS キャプチャツールバー' : 'VAS capture toolbar';
-      currentLang = lang;
-      window.VASShared.updateDropdown(lang);
-      try { localStorage.setItem('vasLang', lang); } catch (e) {}
     }
+    function init() { VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else { init(); }
+  }());
+  </script>
 
-    window.VASShared.initDropdown(switchLanguage);
-    window.VASShared.initNavDropdown();
-
+  <script>
     // ── Popup Data ──────────────────────────────────────────────
     const popupData = {
       zh: {

@@ -148,6 +148,7 @@
                 <button class="lang-opt active" data-lang="zh" role="option">中文</button>
                 <button class="lang-opt" data-lang="en" role="option">English</button>
                 <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+                <button class="lang-opt" data-lang="cn" role="option">简中</button>
             </div>
         </div>
     </nav>
@@ -158,6 +159,26 @@
         <h1 class="app-name" data-lang-key="appName">VAS Privacy Policy</h1>
         <p class="updated" data-lang-key="updatedDate">最後更新：2026-04-03</p>
         <div class="divider"></div>
+
+        <!-- 简体中文 -->
+        <section class="lang-block" lang="zh-Hans">
+            <p class="intro">VAS — Visual Annotation Studio（以下简称「本应用程序」）尊重您的隐私。</p>
+
+            <h2>数据收集</h2>
+            <p>本应用程序不会收集、储存或传送任何个人数据。所有图片处理（包含 OCR 文字识别与隐私遮蔽扫描）均在您的设备本地完成，不传送至任何服务器。</p>
+
+            <h2>系统权限</h2>
+            <p>本应用程序需要屏幕录制权限以执行截图功能，此权限仅用于截图，不用于其他任何用途。</p>
+
+            <h2>网络访问</h2>
+            <p>本应用程序仅在检查更新时使用网络连接，不会上传任何用户数据。</p>
+
+            <h2>第三方服务</h2>
+            <p>本应用程序不使用任何第三方分析、广告或追踪服务。</p>
+
+            <h2>联系方式</h2>
+            <p>如有任何隐私相关问题，请联系：<a href="mailto:babelon1882@gmail.com">babelon1882@gmail.com</a></p>
+        </section>
 
         <!-- 中文 -->
         <section class="lang-block" lang="zh-Hant">
@@ -224,31 +245,32 @@
         <p data-lang-key="footer">由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" style="color:rgba(196,113,245,0.6)">Nova</a> 最後更新於 2026</p>
     </footer>
 
-    <script src="i18n-shared.js"></script>
-    <script src="i18n-privacy.js"></script>
+    <script src="i18n/core.js"></script>
     <script>
-      (function () {
-        var pageT = window.VASPrivacyT;
-
-        function applyLang(lang) {
-          // 顯示對應 lang-block，隱藏其他
+    (function () {
+      function applyLang(lang) {
+        VASCore.loadLang(lang, function (t) {
+          // lang-block show/hide (cn falls back to zh-Hant block)
+          var blockLang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
           document.querySelectorAll('.lang-block').forEach(function (sec) {
-            sec.style.display = (sec.getAttribute('lang') === (lang === 'zh' ? 'zh-Hant' : lang)) ? '' : 'none';
+            sec.style.display = (sec.getAttribute('lang') === blockLang) ? '' : 'none';
           });
-          // 套用翻譯
-          var t = pageT[lang];
-          if (t) {
-            document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-              var key = el.getAttribute('data-lang-key');
-              if (t[key] !== undefined) el.innerHTML = t[key];
-            });
-          }
-          document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang;
-          window.VASShared.updateDropdown(lang);
+          // apply translations
+          var merged = Object.assign({}, t.shared || {}, t.privacy || {});
+          document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+            var key = el.getAttribute('data-lang-key');
+            if (merged[key] !== undefined) el.innerHTML = merged[key];
+          });
+          document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+          VASCore.updateDropdown(lang);
           try { localStorage.setItem('vasLang', lang); } catch (e) {}
-        }
-        window.VASShared.initDropdown(applyLang);
-      })();
+        });
+      }
+      function init() { VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else { init(); }
+    }());
     </script>
 
     <script type="application/ld+json">
