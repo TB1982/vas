@@ -551,9 +551,9 @@
       'acquire.guide.name':       '操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>',
       'acquire.guide.go':         '→ 閱讀',
       'unfold.label':             '為何存在',
-      'unfold.p1':                'VAS 是一只<em>傳遞資訊的煉金容器</em>——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。',
-      'unfold.p2':                '它不取代任何工具。它是那個<em>中間</em>的位置——在按下截圖鍵、和把檔案丟出去之間，留給你一段可以思考的緩衝。',
-      'unfold.drop':              '這是 VAS 的第一句話，也是最後一句。往下走的四個章節——設計、協作、系統、里程碑——都是這句話的註腳。',
+      'unfold.p1':                'VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越文字的力量。',
+      'unfold.p2':                '作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。',
+      'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          '版次記號',
       'chronicle.edition':        '第十八日 · 器成',
       'chronicle.edition.en':     'Eighteenth Day · The Vessel, Formed'
