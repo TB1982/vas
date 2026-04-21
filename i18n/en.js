@@ -269,7 +269,7 @@
       i5p4: 'This refactor also benefits the Electron version — a unified foundation means both platforms run on the same logic, and stability improves naturally. Electron may no longer gain new features, but it still needs to remain feature-complete, free, and stable — giving users the chance to build trust in VAS before deciding whether to upgrade to Tauri. One refactor, and the entire long-term dual-platform strategy is supported.',
       i5p5: 'What we only knew after finishing: foundation work is hard to estimate. We planned to wrap it in Sprint 10–13. We finished at Sprint 20 — the gap between expectation and reality is itself part of engineering. Digging to the root revealed: the coordinate-system drift originated in initialisation timing, not conversion logic. The TOOL_SCHEMA direction was correct from the start — all 10 tool types fit in without exceptions. When every part of the system speaks the same language, debugging itself becomes clearer.',
       i5boxTitle: 'Refactor complete — chain effects as expected',
-      i5bullets: '<li>✓ Unified coordinate system: all objects share the same spatial language</li><li>✓ Modular properties: solid/gradient/dash/size/direction shared across all tools</li><li>✓ TOOL_SCHEMA covers all 10 tool types, 47 Vitest automated tests passing</li><li>✓ Tauri can keep stacking new features without complexity conflicts</li><li>✓ Electron stability improves in parallel, preserving its role as the entry point</li>',
+      i5bullets: '<li>Unified coordinate system: all objects share the same spatial language</li><li>Modular properties: solid/gradient/dash/size/direction shared across all tools</li><li>TOOL_SCHEMA covers all 10 tool types, 47 Vitest automated tests passing</li><li>Tauri can keep stacking new features without complexity conflicts</li><li>Electron stability improves in parallel, preserving its role as the entry point</li>',
       collabTeaser: 'The stories behind design decisions · Human-AI collaboration notes',
       collabBtn: 'Read Collab Notes →'
     },
@@ -634,7 +634,7 @@
       r1p: 'Listed on App Store (under review)',
       r2h: 'v2.0　Architecture Refactor (Sprint 10–20)',
       r2p: 'Completed (04/11–04/14)',
-      r2items: '<li>✓ Coordinate system unified (DPR fully fixed)</li><li>✓ Gradient engine unified (6 tools)</li><li>✓ Data model normalisation</li><li>✓ Properties panel framework (TOOL_SCHEMA 10/10 coverage)</li><li>✓ Geometry + rendering pipeline modularisation</li><li>✓ Undo/Redo architecture upgrade + memory hygiene</li><li>✓ Automated test infrastructure (Vitest 47 pass)</li>',
+      r2items: '<li>Coordinate system unified (DPR fully fixed)</li><li>Gradient engine unified (6 tools)</li><li>Data model normalisation</li><li>Properties panel framework (TOOL_SCHEMA 10/10 coverage)</li><li>Geometry + rendering pipeline modularisation</li><li>Undo/Redo architecture upgrade + memory hygiene</li><li>Automated test infrastructure (Vitest 47 pass)</li>',
       r3h: 'v3.0　Feature explosion',
       r3items: '<li>· Screenshot library / comparison / swatch extraction</li><li>· Speech bubbles / grouping / magnifier annotations</li><li>· Screen recording + GIF</li><li>· Cloud sharing</li><li>· Format Painter (grand finale)</li>',
 

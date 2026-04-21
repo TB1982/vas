@@ -256,6 +256,16 @@
   transform: translateY(4px);
 }
 
+/* ─── 頁尾 · 所有 chapter 頁共用 ────────── */
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding: 56px 48px 40px;
+  border-top: 1px solid var(--vas-rule);
+}
+
 /* ─── 行動斷點 ────────────────────────── */
 @media (max-width: 768px) {
   .chapter-header,
@@ -284,4 +294,11 @@
     gap: 16px;
   }
   .passage-next .num { grid-column: 1 / -1; margin-bottom: -8px; }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 32px;
+  }
+  .site-footer .footer-right { text-align: left; }
 }
