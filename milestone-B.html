@@ -471,7 +471,103 @@
       <div class="section-kicker" data-lang-key="ch4s2Kicker">當你的工程師不拒絕你</div>
     </div>
   </div>
-  <!-- 內容：Step C -->
+  <div class="section-body">
+    <p data-lang-key="electronSub">當你的工程師不會找理由拒絕你，甚至比你還積極協作的迭代開發體驗。</p>
+  </div>
+  <div class="m4-wide">
+    <div class="m4-log">
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 21</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label" data-lang-key="e1label">v0.1 → v0.5　從無到有，兩邊都在摸索</div>
+          <div class="m4-log-desc" data-lang-key="e1desc">什麼都沒有的第一天，從矩形截圖開始、快捷鍵說明面板、線條工具、SVG 轉檔。</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 22</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label" data-lang-key="e1blabel">v0.6 → v2.2　飛速成長，規則制定與開發並行</div>
+          <div class="m4-log-desc" data-lang-key="e1bdesc">雙螢幕行為規則、編輯器 UX 細節、Resize 把手、IME 相容、編號功能、存檔檔名規則、文字工具精修、全螢幕雙螢幕截圖互動設計、編輯器縮放平移、裁切、調整尺寸、bug 修復、工具列邏輯、批次轉換、顏色工具、疊圖、延伸畫布、批次轉檔、延遲截圖、色塊漸層屬性。</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 23</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label" data-lang-key="e2label">v2.3 → v3.0　第一次實感算力追不上開發速度</div>
+          <div class="m4-log-desc" data-lang-key="e2desc">因算力消耗直接破了當週上限而被迫停工，半天重新整理脈絡後刷下人生第一次的 Claude Max 方案。Tauri 長期遷移策略與 i18n 術語規劃 · 截圖偏好設定 · 浮動三層選色面板（主題色盤、滴管、Hex 輸入、透明色票）· 編號標記三段尺寸 · 文字工具全面升級（字體選擇、大小快選、對齊、背景透明度）· 矩形 / 色塊圓角 · 線條折線模式 · 複製至剪貼簿 · 橢圓框工具</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 24</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label" data-lang-key="e3label">v3.1 → v3.9　工具雛形全面成形</div>
+          <div class="m4-log-desc" data-lang-key="e3desc">OCR 首登場（Tesseract.js）· 折線頂點把手修正 · OCR 引擎全面改寫為 macOS Vision · 折線縮放把手 · 工具列雙排佈局 · Smart Semantic Numbering（7 款樣式）· 描邊 px 輸入 · 框型選取工具＋像素複製至剪貼簿 · 筆型工具 · 六款虛線樣式 · 端點樣式升級 · 線條 / 色塊框線陰影一致化 · Options Bar 全面對齊 · 框線偏移 · 全工具虛線支援</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 25</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label" data-lang-key="e4label">v3.10 → v3.27　在開發新功能與 Debug 舊功能的泥沼中掙扎</div>
+          <div class="m4-log-desc" data-lang-key="e4desc">箭頭渲染 8 連修（透明度疊光 · 外框金字塔 · 端點缺口 · 方形頂點 · 方向偏移等）· 端點 UI 改為下拉選單 · 外框獨立粗細 / 虛線設定 · 馬賽克 / 模糊工具 · 符號印章四群組架構（形狀 / 字母 / 箭頭 / 其他）· 無縫匯入匯出（拖放匯入 · 剪貼簿 · Drag Out）· 一鍵套版演化：拍立得 / 底片 → Apple 六色漸層 → Mesh Gradient，三滑桿微調（留白 / 圓角 / 陰影）· 社群尺寸快選 · 批次浮水印（文字＋圖片，9-grid 定位）· 去背（macOS Vision）· 品牌色庫 · 歷史截圖面板</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 26</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label" data-lang-key="e5label">v3.28 → v3.29　放下也是必要的決策</div>
+          <div class="m4-log-desc" data-lang-key="e5desc">隱私遮蔽工具：六層偵測引擎（NSDataDetector · NLTagger · 身分證 / 統編 / 信用卡 / IPv4/6 / API Token · 臺灣地址 · 中英文標籤感知 Regex），字元級精準 bounding box 非破壞性遮蔽 · 歷史 Drawer 右側書籤式重設計（最終決定放下，延至 Tauri 再戰）· 全 canvas Retina DPR 補正 · 7 項細節修正</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date">3 / 27</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label yellow" data-lang-key="e6label">v3.30 → v3.43　發布前最後衝刺　單日 15 版</div>
+          <div class="m4-log-desc" data-lang-key="e6desc">資安全面升級：四視窗改 contextIsolation + preload 橋接 · XSS 防護 · 畫布尺寸 8192px 上限 · Retina WYSIWYG · 複數選取（框選 / Shift 加選 / Cmd+A）· 對齊工具列（8 個對齊 / 均分按鈕）· Smart Snap（8px 磁吸 + 均分輔助線）· 線條二次貝茲曲線控制點 · 新開畫布（16 款尺寸預設）· QR Code 智慧掃描 · 批次上限（100 檔 / 單檔 20 MB）· 裁切工具三項修正 · 套版搖桿步長 0.1</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(196,113,245,0.8);font-weight:500;">3 / 28</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(196,113,245,0.3);">
+          <div class="m4-log-label" data-lang-key="e7label">v3.43　首發</div>
+          <div class="m4-log-desc" data-lang-key="e7desc">第一個公開版本正式發布。VAS 有了真實外部使用者。同天開始進行 Tauri 架構遷移。</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:var(--vas-ash-2);font-weight:500;">3 / 31</div>
+        <div class="m4-log-inner">
+          <div class="m4-log-label white" data-lang-key="e7blabel">v3.44 — 整修版</div>
+          <div class="m4-log-desc" data-lang-key="e7bdesc">完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。</div>
+          <ul class="m4-log-list" data-lang-key="e7bitems">
+            <li><span>🔧</span><span>工具列 Modal 位置跳動與累積偏移根治</span></li>
+            <li><span>🔧</span><span>修復三種截圖模式（全螢幕 / 視窗 / 矩形）全部失效</span></li>
+            <li><span>🔧</span><span>OCR 與隱私掃描功能修復</span></li>
+            <li><span>🔧</span><span>標號與文字工具尺寸縮放一致性修正</span></li>
+            <li><span>⌨️</span><span>方向鍵微調物件位置（Arrow nudge）</span></li>
+            <li><span>🧹</span><span>拖曳匯出暫存檔 60 秒後自動清除</span></li>
+            <li><span>🔒</span><span>安全性修補（brace-expansion 漏洞）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(250,113,205,0.8);font-weight:500;">4 / 14</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(250,113,205,0.3);">
+          <div class="m4-log-label pink" data-lang-key="e8label">v3.60　陪著 Tauri 一起 Renew 再上線 🎉</div>
+          <div class="m4-log-desc" data-lang-key="e8desc">呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- ═══════ sec-03 · Tauri ═══════ -->
