@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-lang-key="home2.title">VAS · 給那些未能用文字明說的當下</title>
+<meta name="description" data-lang-key="home2.meta.desc"
+      content="VAS 是一只傳遞資訊的煉金容器——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。" />
+
+<!-- 字型：進 repo 後由 base.css.v3-proposal 接手；此處獨立載入以便預覽 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：五檔順序有意義，不要更動 -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shrine.css">
+<link rel="stylesheet" href="css/unfold.css">
+<link rel="stylesheet" href="css/acquire.css">
+<link rel="stylesheet" href="css/chronicle.css">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════
+     進 repo 後建議改用 repo 既有的 <header> partial。
+     此處為獨立預覽版。
+-->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </div>
+  <div class="site-nav-links">
+    <a href="#" data-lang-key="home2.nav.design">設計</a>
+    <a href="#" data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="#" data-lang-key="home2.nav.system">系統</a>
+    <a href="#" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang">繁 · 简 · EN · 日</div>
+</nav>
+
+<!-- ═══════ 首屏：器物 · 題辭 · 四道門 ═══════ -->
+<section class="shrine">
+  <div class="shrine-prose">
+    <div class="mark" data-lang-key="home2.shrine.kicker">A Vessel · since 2026</div>
+    <div class="shrine-name">VAS<em>.</em></div>
+    <div class="shrine-tagline" data-lang-key="home2.shrine.tagline">
+      給那些未能用文字明說的<wbr>當下。
+    </div>
+  </div>
+
+  <div class="shrine-vessel">
+    <div class="halo"></div>
+    <img src="img/vasweb.webp" alt="VAS vessel" />
+    <div class="base"></div>
+    <div class="shrine-colophon">
+      <span data-lang-key="home2.shrine.colophon.zh">容器 · 傳遞 · 未完成</span><br>
+      <span class="faint" data-lang-key="home2.shrine.colophon.en">vessel — passage — unfinished</span>
+    </div>
+  </div>
+
+  <!-- 四道門 · 首屏唯一入口 -->
+  <div class="shrine-gates">
+    <a class="shrine-gate" href="#">
+      <div class="num" data-lang-key="home2.gates.1.num">I · 設計</div>
+      <div class="name" data-lang-key="home2.gates.1.name">不完美的工具</div>
+    </a>
+    <a class="shrine-gate" href="#">
+      <div class="num" data-lang-key="home2.gates.2.num">II · 協作</div>
+      <div class="name" data-lang-key="home2.gates.2.name">六個故事</div>
+    </a>
+    <a class="shrine-gate hidden-door" href="#">
+      <div class="num" data-lang-key="home2.gates.3.num">III · 系統</div>
+      <div class="name" data-lang-key="home2.gates.3.name">Harness</div>
+    </a>
+    <a class="shrine-gate" href="#">
+      <div class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</div>
+      <div class="name" data-lang-key="home2.gates.4.name">十八日</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 取得 · 讓 VAS 走進工作流 ═══════ -->
+<section class="acquire" id="acquire">
+  <div class="acquire-label" data-lang-key="home2.acquire.label">讓 VAS 走進你的工作流</div>
+  <div class="acquire-body">
+    <a class="line" href="#">
+      <div class="what" data-lang-key="home2.acquire.tauri.what">Tauri</div>
+      <div class="name" data-lang-key="home2.acquire.tauri.name">
+        VAS 正式版 <em>macOS 12+ · App Store</em>
+      </div>
+      <div class="go" data-lang-key="home2.acquire.tauri.go">→ 前往</div>
+    </a>
+    <a class="line" href="#">
+      <div class="what" data-lang-key="home2.acquire.electron.what">Electron</div>
+      <div class="name" data-lang-key="home2.acquire.electron.name">
+        經典版 <em>免費下載 · 持續維護</em>
+      </div>
+      <div class="go" data-lang-key="home2.acquire.electron.go">→ 下載</div>
+    </a>
+    <a class="line" href="#">
+      <div class="what" data-lang-key="home2.acquire.guide.what">Guide</div>
+      <div class="name" data-lang-key="home2.acquire.guide.name">
+        操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>
+      </div>
+      <div class="go" data-lang-key="home2.acquire.guide.go">→ 閱讀</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 展開的題辭 ═══════ -->
+<section class="unfold">
+  <div class="unfold-label" data-lang-key="home2.unfold.label">為何存在</div>
+  <div class="unfold-body">
+    <p data-lang-key="home2.unfold.p1">
+      VAS 是一只<em>傳遞資訊的煉金容器</em>——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。
+    </p>
+    <p data-lang-key="home2.unfold.p2">
+      它不取代任何工具。它是那個<em>中間</em>的位置——在按下截圖鍵、和把檔案丟出去之間，留給你一段可以思考的緩衝。
+    </p>
+    <div class="drop" data-lang-key="home2.unfold.drop">
+      這是 VAS 的第一句話，也是最後一句。往下走的四個章節——設計、協作、系統、里程碑——都是這句話的註腳。
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 時間印記 ═══════ -->
+<section class="chronicle">
+  <div class="chronicle-label" data-lang-key="home2.chronicle.label">版次記號</div>
+  <div class="chronicle-line"></div>
+  <div class="chronicle-edition">
+    <span data-lang-key="home2.chronicle.edition">第十八日 · 器成</span>
+    <span class="jp" data-lang-key="home2.chronicle.edition.en">Eighteenth Day · The Vessel, Formed</span>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════
+     進 repo 後：刪除此 <footer>，改用 shared.footer partial。
+     此處為獨立預覽版。
+-->
+<footer style="padding: 56px 48px 40px; border-top: 1px solid var(--vas-rule); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end;">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。
+    一個不會寫程式的 PM，和一個沒有長期記憶的 AI，在十八天裡做出的器物。
+  </div>
+  <div style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+</body>
+</html>
