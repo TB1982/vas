@@ -673,12 +673,16 @@
       'shrine.colophon.en':       'vessel — passage — unfinished',
       'gates.1.num':              'I · Design',
       'gates.1.name':             'The Imperfect Tool',
+      'gates.1.echo':             '',
       'gates.2.num':              'II · Collaboration',
       'gates.2.name':             'Six Stories',
+      'gates.2.echo':             '',
       'gates.3.num':              'III · System',
       'gates.3.name':             'Harness',
+      'gates.3.echo':             '',
       'gates.4.num':              'IV · Milestones',
       'gates.4.name':             'Twenty-Five Days',
+      'gates.4.echo':             '',
       'acquire.label':            'Bring VAS into your workflow',
       'acquire.tauri.what':       'Tauri',
       'acquire.tauri.name':       'VAS Pro <em>macOS 12+ · App Store</em>',
@@ -692,10 +696,11 @@
       'unfold.label':             'Why It Exists',
       'unfold.p1':                'VAS is an <em>alchemical vessel for transmitting information</em> — catching what you see, want to say, and want to note, before it enters editing.',
       'unfold.p2':                'It doesn\'t replace any tool. It is the <em>in-between</em> — the space between pressing the screenshot key and sending the file out, where you have a moment to think.',
-      'unfold.drop':              'This is VAS\'s first sentence, and its last. The four chapters below — Design, Collaboration, System, Milestones — are all footnotes to this one.',
+      'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          'Edition',
       'chronicle.edition':        'Twenty-Fifth Day · The Vessel, Formed',
-      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed'
+      'chronicle.edition.en':     '',
+      'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can\'t write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.'
     }
 
   };
