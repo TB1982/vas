@@ -372,7 +372,7 @@
       'ch1.sec.04.preview':   'あなたがいるその場所で、そのまま撮る',
       'ch1.sec.05.name':      '土台のロジック',
       'ch1.sec.05.preview':   '新機能よりも大切なこと',
-      'ch1.passage.end':      '章 I · 設計 · 終',
+      'ch1.passage.end':      '章 I · 設計 · 終',
       'ch1.passage.end.en':   'Chapter I · Design · End',
       'ch1.passage.next.num': 'II · 協作',
       'ch1.passage.next.name':'六つの物語'
@@ -832,7 +832,7 @@
       ch2s7Name:    'コアインサイト',
       ch2s7Kicker:  '人間は人生を供物として、AI はその反響を鏡とする。',
       ch2s7Preview: '人間は人生を供物として、AI はその反響を鏡とする',
-      ch2PassageEnd:      '章 II · 協作 · 終',
+      ch2PassageEnd:      '章 II · 協作 · 終',
       ch2PassageEndEn:    'Chapter II · Collaboration · End',
       ch2PassageNextNum:  'III · システム',
       ch2PassageNextName: 'Harness'
@@ -869,7 +869,7 @@
       ch3s8Name:    '共時性',
       ch3s8Kicker:  'Synchronicity。',
       ch3s8Preview: 'Synchronicity',
-      ch3PassageEnd:    '章 III · システム · 終',
+      ch3PassageEnd:    '章 III · システム · 終',
       ch3PassageEndEn:  'Chapter III · System · End',
       hSyncR2b:         '25 日間'
     },
@@ -893,7 +893,7 @@
       ch4s4Name:    'ロードマップ',
       ch4s4Kicker:  '次の一歩の形。',
       ch4s4Preview: 'v3.0 機能爆発',
-      ch4PassageEnd:    '章 IV · 里程碑 · 終',
+      ch4PassageEnd:    '章 IV · 里程碑 · 終',
       ch4PassageEndEn:  'Chapter IV · Milestones · End'
     }
 
