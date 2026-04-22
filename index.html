@@ -239,10 +239,10 @@
       // html lang 屬性
       document.documentElement.lang =
         lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
     });
   }
 
-  applyLang('zh');
   VASCore.initDropdown(applyLang);
 </script>
 </body>

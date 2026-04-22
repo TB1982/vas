@@ -198,7 +198,93 @@
       kb_r4: 'System-reserved shortcut',
       kb_r5: 'Modifier key alone',
       insightTeaser: 'The thinking behind VAS design decisions',
-      insightBtn: 'Read Design Insights →'
+      insightBtn: 'Read Design Insights →',
+      popup: {
+        select: {
+          title: 'Select',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Click an annotation to select it; click empty space to deselect</li><li>Drag on empty space to rubber-band select multiple objects</li><li>Shift + click to add or remove from the selection</li><li>Right-click menu to reorder layers (Bring to Front / Send to Back / Move Up / Move Down)</li><li>Automatically returns to Select after drawing</li></ul></div><div><p class="modal-section-label">Single object selected</p><p class="tm-p">Shows all sub-properties for that object (varies by type): colour, stroke width, opacity, size, shadow, and more.</p></div><div><p class="modal-section-label">Smart Alignment (Snap)</p><ul class="tm-ul"><li><code>\\</code> — toggle snap on/off</li><li>Blue lines: edge / centre alignment guides</li><li>Red lines: equal-spacing reference lines</li><li>Alt + drag: bypass snap for free placement</li></ul></div><div><p class="modal-section-label">Multiple objects selected</p><p class="tm-p-faint" style="margin-bottom:4px;">Alignment toolbar:</p><div class="modal-align-grid"><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">Left</span><span style="font-size:11px;color:var(--vas-ash-3);">Align left edges</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">H Ctr</span><span style="font-size:11px;color:var(--vas-ash-3);">Align horizontal centres</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">Right</span><span style="font-size:11px;color:var(--vas-ash-3);">Align right edges</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">Top</span><span style="font-size:11px;color:var(--vas-ash-3);">Align top edges</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">V Ctr</span><span style="font-size:11px;color:var(--vas-ash-3);">Align vertical centres</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">Bottom</span><span style="font-size:11px;color:var(--vas-ash-3);">Align bottom edges</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">H Dist</span><span style="font-size:11px;color:var(--vas-ash-3);">Distribute horizontal spacing equally</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">V Dist</span><span style="font-size:11px;color:var(--vas-ash-3);">Distribute vertical spacing equally</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">Centre</span><span style="font-size:11px;color:var(--vas-ash-3);">Align to canvas centre line</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">↔</span><span style="font-size:11px;color:var(--vas-ash-3);">Flip horizontal</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">↕</span><span style="font-size:11px;color:var(--vas-ash-3);">Flip vertical</span></div></div></div>'
+        },
+        boxselect: {
+          title: 'Box Select',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to select a pixel region</li><li>The selected content can be copied and pasted as a new object on the canvas</li></ul></div>'
+        },
+        pen: {
+          title: 'Pen',
+          body: '<div><p class="modal-section-label">How to use</p><p class="tm-p">Drag on the canvas to draw a smooth freehand curve.</p></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Colour</span><span class="modal-tag">Stroke width (px)</span><span class="modal-tag">Line style (solid / dashed)</span><span class="modal-tag">Endpoint style (none / arrow / dot / square)</span><span class="modal-tag">Stroke outline colour</span><span class="modal-tag">Opacity</span><span class="modal-tag">Shadow</span></div></div>'
+        },
+        line: {
+          title: 'Line',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to draw a straight line; Shift + drag to lock to 90°</li><li>Select then drag the midpoint handle to convert to a Bézier curve</li><li>In polyline mode, double-click to finish</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Colour</span><span class="modal-tag">Stroke width</span><span class="modal-tag">Line style (solid / dashed)</span><span class="modal-tag">Start cap (none / arrow / dot)</span><span class="modal-tag">End cap (none / arrow / dot)</span><span class="modal-tag">Orthogonal polyline mode</span><span class="modal-tag">Flip horizontal</span><span class="modal-tag">Flip vertical</span><span class="modal-tag">Stroke outline colour</span><span class="modal-tag">Opacity</span><span class="modal-tag">Shadow</span></div></div>'
+        },
+        rect: {
+          title: 'Rectangle Frame',
+          body: '<div><p class="modal-section-label">Shape</p><div class="tm-tags"><span class="modal-tag">Rectangle</span><span class="modal-tag">Ellipse</span></div></div><div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to draw an outline frame</li><li>Shift + drag to lock to a perfect square or circle</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Colour</span><span class="modal-tag">Stroke width</span><span class="modal-tag">Corner radius (rectangle only, 0–100%)</span><span class="modal-tag">Line style (solid / dashed)</span><span class="modal-tag">Stroke outline colour</span><span class="modal-tag">Offset</span><span class="modal-tag">Flip horizontal</span><span class="modal-tag">Flip vertical</span><span class="modal-tag">Opacity</span><span class="modal-tag">Shadow</span></div></div>'
+        },
+        fillrect: {
+          title: 'Colour Block',
+          body: '<div><p class="modal-section-label">Shape</p><div class="tm-tags"><span class="modal-tag">Rectangle</span><span class="modal-tag">Ellipse</span></div></div><div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to draw a filled shape</li><li>Shift + drag to lock to a perfect square or circle</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Fill (solid / gradient)</span><span class="modal-tag">Gradient start &amp; end colour</span><span class="modal-tag">Gradient angle dial (0–360°)</span><span class="modal-tag">Supports transparent fill</span><span class="modal-tag">Corner radius (rectangle only, 0–100%)</span><span class="modal-tag">Border width</span><span class="modal-tag">Border colour</span><span class="modal-tag">Line style (solid / dashed)</span><span class="modal-tag">Opacity</span><span class="modal-tag">Shadow</span></div></div>'
+        },
+        text: {
+          title: 'Text',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Click on the canvas to place a text box</li><li>Enter for new line; Shift + Enter to confirm</li><li>Double-click existing text to re-edit</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Colour</span><span class="modal-tag">Font</span><span class="modal-tag">Size (8–400 px)</span><span class="modal-tag">Bold / Italic / Underline / Strikethrough</span><span class="modal-tag">Alignment (left / centre / right)</span><span class="modal-tag">Text stroke (numeric input + quick dropdown)</span><span class="modal-tag">Text background colour + opacity</span><span class="modal-tag">Shadow</span></div></div>'
+        },
+        number: {
+          title: 'Number Stamp',
+          body: '<div><p class="modal-section-label">How to use</p><p class="tm-p">Click on the canvas to place auto-incrementing number markers.</p></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Size (small / standard / large)</span><span class="modal-tag">Colour</span><span class="modal-tag">Style (dot / circle / filled circle / Roman / Chinese bracket / Chinese circle)</span><span class="modal-tag">Stroke width</span><span class="modal-tag">Stroke colour</span><span class="modal-tag">Shadow</span><span class="modal-tag">Reset counter</span></div></div>'
+        },
+        stamp: {
+          title: 'Symbol Stamp',
+          body: '<div><p class="modal-section-label">How to use</p><p class="tm-p">Click on the canvas to place a symbol; choose category and glyph from the floating panel.</p></div><div><p class="modal-section-label">Symbol categories</p><div class="tm-tags"><span class="modal-tag">Shapes</span><span class="modal-tag">Letters (circle / fullwidth / bold / bold italic / script)</span><span class="modal-tag">Arrows</span><span class="modal-tag">Other (markers / currency / math / technical)</span></div></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Colour</span><span class="modal-tag">Size (px)</span><span class="modal-tag">Shadow</span></div></div>'
+        },
+        mosaic: {
+          title: 'Mosaic / Blur',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to select an area — the effect is applied immediately</li><li>Switch to Select tool after applying to resize or delete the region</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Mode (mosaic / blur)</span><span class="modal-tag">Mosaic block size (4 / 8 / 16 / 32 px)</span><span class="modal-tag">Blur radius (4 / 8 / 16 / 24 px)</span></div></div>'
+        },
+        ocr: {
+          title: 'OCR',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to select a region — text is automatically recognised (Chinese and English supported)</li><li>Results appear in a floating panel with a Copy Text button</li></ul></div><div><p class="modal-section-label">Attributes</p><p class="tm-p-faint">No adjustable properties</p></div>'
+        },
+        privacy: {
+          title: 'Privacy Mask',
+          body: '<div class="tm-notice"><span class="g-badge-a">All versions</span><span class="tm-p" style="margin-left:4px;">Electron uses Vision Framework; Tauri additionally supports five-layer detection</span></div><div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Press K to scan the full image, or drag to define a region first</li><li>Auto-detects and masks: ID numbers, tax codes, credit card numbers, phone numbers, email, IPv4/IPv6, API tokens, and more</li><li>Switch to Select tool after applying to fine-tune or remove masks</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Mode (mosaic / blur)</span><span class="modal-tag">Mosaic block size (8 / 16 / 24 / 32 px)</span><span class="modal-tag">Blur radius (4 / 8 / 16 / 24 px)</span></div></div>'
+        },
+        zoomin: {
+          title: 'Zoom In',
+          body: '<div><p class="modal-section-label">How to use</p><p class="tm-p">Zoom in centred on the cursor, range 10%–400%.</p></div><div><p class="modal-section-label">Zoom presets</p><div class="tm-tags"><span class="modal-tag">10%</span><span class="modal-tag">25%</span><span class="modal-tag">50%</span><span class="modal-tag">75%</span><span class="modal-tag">100%</span><span class="modal-tag">150%</span><span class="modal-tag">200%</span><span class="modal-tag">300%</span><span class="modal-tag">400%</span></div></div><div><p class="modal-section-label">Canvas navigation</p><ul class="tm-ul"><li>Space + drag: pan the canvas</li><li>Trackpad two-finger pinch: zoom centred on cursor</li><li>⌘0: reset to fit window</li></ul></div>'
+        },
+        zoomout: {
+          title: 'Zoom Out',
+          body: '<div><p class="modal-section-label">How to use</p><p class="tm-p">Zoom out centred on the cursor, range 10%–400%.</p></div><div><p class="modal-section-label">Zoom presets</p><div class="tm-tags"><span class="modal-tag">10%</span><span class="modal-tag">25%</span><span class="modal-tag">50%</span><span class="modal-tag">75%</span><span class="modal-tag">100%</span><span class="modal-tag">150%</span><span class="modal-tag">200%</span><span class="modal-tag">300%</span><span class="modal-tag">400%</span></div></div><div><p class="modal-section-label">Canvas navigation</p><ul class="tm-ul"><li>Space + drag: pan the canvas</li><li>Trackpad two-finger pinch: zoom centred on cursor</li><li>⌘0: reset to fit window</li></ul></div>'
+        },
+        fit: {
+          title: 'Fit to Window',
+          body: '<div><p class="modal-section-label">How to use</p><p class="tm-p">Immediately scales the view to fit the window.</p></div><div><p class="modal-section-label">Canvas navigation</p><ul class="tm-ul"><li>Space + drag: pan the canvas</li><li>Trackpad two-finger pinch: zoom centred on cursor</li></ul></div>'
+        },
+        crop: {
+          title: 'Crop',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Drag to create a crop frame; 8 handles to adjust the region</li><li>Arrow keys nudge 1 px; Shift + arrow keys nudge 10 px</li><li>Double-click the canvas or press the confirm button to apply</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Confirm crop</span><span class="modal-tag">Cancel</span></div></div>'
+        },
+        resize: {
+          title: 'Resize',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Opens a popup — enter the target width</li><li>Height is calculated automatically to maintain aspect ratio; all annotations scale proportionally</li><li>Range: 1–8192 px</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Width input (px)</span><span class="modal-tag">Height (read-only, auto-calculated)</span><span class="modal-tag">Apply</span><span class="modal-tag">Cancel</span></div></div>'
+        },
+        extend: {
+          title: 'Extend Canvas',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Opens a popup — choose the extension direction (9-point compass)</li><li>Enter the distance (px); background fills white</li><li>Preview of the resulting dimensions shown at the bottom</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Direction (9 directions)</span><span class="modal-tag">Distance (px)</span><span class="modal-tag">Result size preview</span><span class="modal-tag">Apply</span><span class="modal-tag">Cancel</span></div></div>'
+        },
+        overlay: {
+          title: 'Overlay Image',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Click to open the file picker and select an image to overlay on the canvas</li><li>Drag to reposition; 8 handles to scale</li><li>Persists as a floating object — merged into the base image automatically on export</li></ul></div><div><p class="modal-section-label">Supported formats</p><div class="tm-tags"><span class="modal-tag">JPG</span><span class="modal-tag">PNG</span><span class="modal-tag">WebP</span><span class="modal-tag">GIF (first frame)</span><span class="modal-tag">SVG</span></div></div>'
+        },
+        template: {
+          title: 'One-click Template',
+          body: '<div><p class="modal-section-label">How to use</p><ul class="tm-ul"><li>Opens the template panel — choose a gradient background to apply</li><li>6 presets: Apple Red / Orange / Yellow / Green / Blue / Purple</li><li>Fully undoable</li></ul></div><div><p class="modal-section-label">Attributes</p><div class="tm-tags"><span class="modal-tag">Padding (2–30%)</span><span class="modal-tag">Corner radius (0–10)</span><span class="modal-tag">Shadow (0–10)</span></div></div><div><p class="modal-section-label">Social media presets</p><div class="tm-tags"><span class="modal-tag">LinkedIn (1200×627)</span><span class="modal-tag">Instagram 1:1 (1080×1080)</span><span class="modal-tag">Instagram 4:5 (1080×1350)</span><span class="modal-tag">X (1600×900)</span></div></div>'
+        },
+        undoredo: {
+          title: 'Undo / Redo',
+          body: '<div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘Z</span><span class="tm-p">Undo — step back one action</span></div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘⇧Z</span><span class="tm-p">Redo — restore the undone action</span></div></div>'
+        }
+      }
     },
 
     insight: {
