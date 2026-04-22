@@ -160,6 +160,8 @@
     color: var(--vas-aurora-violet);
     margin-right: 6px;
   }
+  .cb-list .ongoing { color: var(--vas-ash-3); font-style: italic; margin-top: 4px; }
+  .cb-list .ongoing::before { content: '→ '; color: var(--vas-ash-3); }
 
   /* 步驟 box · flex 兩欄：數字靠左，標籤+描述在右 */
   .cb-step {
@@ -510,13 +512,12 @@
   </div>
   <div class="section-wide">
     <div class="compare-box highlight">
-      <div class="cb-label" data-lang-key="i5boxTitle">重構完成 · 連鎖效應如預期</div>
+      <div class="cb-label" data-lang-key="i5boxTitle">重構完成——連鎖效應如預期</div>
       <ul class="cb-list" data-lang-key="i5bullets">
         <li>座標系統統一：所有物件共享同一套空間語言</li>
         <li>屬性模組化：實色／漸層／虛實線／大小／方向跨工具通用</li>
         <li>TOOL_SCHEMA 覆蓋全 10 種工具，47 支 Vitest 自動測試通過</li>
-        <li>Tauri 可持續疊加新功能，不會因複雜度打架</li>
-        <li>Electron 穩定性同步提升，入門磚角色得以維持</li>
+        <li class="ongoing">Keep going…</li>
       </ul>
     </div>
   </div>

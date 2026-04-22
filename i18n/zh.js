@@ -227,7 +227,7 @@
       i5p4: '這次重構也連帶讓 Electron 版受惠——底層統一，兩個平台都跑在同一套邏輯上，穩定性自然提升。',
       i5p5: 'Electron 雖然不再新增功能，但也需保持功能完整、免費、穩定，讓使用者有機會先信任 VAS，再決定要不要升級 Tauri。一次重構，把整個雙平台長期營運策略都撐起來了。',
       i5boxTitle: '重構完成——連鎖效應如預期',
-      i5bullets: '<li>座標系統統一：所有物件共享同一套空間語言</li><li>屬性模組化：實色／漸層／虛實線／大小／方向跨工具通用</li><li>TOOL_SCHEMA 覆蓋全 10 種工具，47 支 Vitest 自動測試通過</li><li>Tauri 可持續疊加新功能，不會因複雜度打架</li><li>Electron 穩定性同步提升，入門磚角色得以維持</li>',
+      i5bullets: '<li>座標系統統一：所有物件共享同一套空間語言</li><li>屬性模組化：實色／漸層／虛實線／大小／方向跨工具通用</li><li>TOOL_SCHEMA 覆蓋全 10 種工具，47 支 Vitest 自動測試通過</li><li class="ongoing">Keep going…</li>',
       collabTeaser: '設計決策背後的故事 · 人與 AI 的協作紀錄', collabBtn: '閱讀協作筆記 →'
     },
 
