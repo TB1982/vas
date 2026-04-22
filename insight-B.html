@@ -488,21 +488,24 @@
     <div class="section-no">05</div>
     <div>
       <h2 class="section-name" data-lang-key="i5Title">功能可以一直加，但底層要先說同一種語言</h2>
-      <div class="section-kicker" data-lang-key="i5Tag">系統架構 · Design Token Architecture</div>
+      <div class="section-kicker" data-lang-key="i5Tag">系統重構 · Design Token Architecture</div>
     </div>
   </header>
   <div class="section-body">
     <p data-lang-key="i5p1">
-      當工具種類越來越多——點、線、面、文字、符號——每個物件都有顏色、線條、大小、方向這些屬性。如果每個工具各自管自己的屬性，加功能就是更多的技術；但如果這些屬性是<em>共享的、模組化的</em>，改一個地方，全體同步，而 Electron VAS 也能無痛 renew。
+      當工具種類越來越多——點、線、面、文字、符號——每個物件都有顏色、線條、大小、方向這些屬性。重複疊加的屬性變成隱形技術債，功能可以用，但結構像拼裝車。
     </p>
     <p data-lang-key="i5p2">
-      Tauri VAS 的重構計畫已於 04/14 正式完工，歷時四天（04/11–04/14）、11 個 Sprint，走過六個架構面向：座標系統統一、漸層系統整合、資料模型規範化、TOOL_SCHEMA 屬性面板框架（覆蓋全 10 種工具）、幾何邏輯與渲染管線重寫、Undo/Redo 記憶體管理。
+      Tauri VAS 的重構計畫歷經 11 個 Sprint，走過六個架構面向：座標系統統一、漸層系統整合、資料模型規範化、TOOL_SCHEMA 屬性面板框架（覆蓋全 10 種工具）、幾何邏輯與渲染管線重寫、Undo/Redo 記憶體管理。
     </p>
     <p data-lang-key="i5p3">
-      比起開發前期卯起來加功能，VAS 這次停下腳步整理自己的代價是：四天、11 個 Sprint。地基穩了，之後疊加新的功能才不會與現有功能打架或浪費時間在 Debug。
+      而這件事仍在進行，會持續到我們從 KM 中汲取的教訓被完全轉化在系統重構裡。
     </p>
     <p data-lang-key="i5p4">
-      這次重構也連帶讓 Electron 版受惠——底層統一，兩個平台都跑在同一套邏輯上，穩定性自然提升。Electron 雖然不再新增功能，但也需保持功能完整、免費、穩定，讓使用者有機會先信任 VAS，再決定要不要升級 Tauri。一次重構，把整個<em>雙平台長期營運策略</em>都撐起來了。
+      這次重構也連帶讓 Electron 版受惠——底層統一，兩個平台都跑在同一套邏輯上，穩定性自然提升。
+    </p>
+    <p data-lang-key="i5p5">
+      Electron 雖然不再新增功能，但也需保持功能完整、免費、穩定，讓使用者有機會先信任 VAS，再決定要不要升級 Tauri。一次重構，把整個雙平台長期營運策略都撐起來了。
     </p>
   </div>
   <div class="section-wide">
@@ -516,11 +519,6 @@
         <li>Electron 穩定性同步提升，入門磚角色得以維持</li>
       </ul>
     </div>
-  </div>
-  <div class="section-body" style="margin-top: 28px;">
-    <p data-lang-key="i5p5">
-      完工後才知道的事：地基工程的時間很難精準估算。重構啟動前預估 Sprint 10–13 完成，結果一路跑到 Sprint 20——<em>理想與現實的差距，本身就是工程的一部分</em>。追到底才知道：座標系統的位移問題根源在初始化時序，不在換算邏輯；TOOL_SCHEMA 的設計方向從一開始就對了，10 種工具套進去，沒有任何例外情況。當工具都說同一種語言，連 Debug 本身也變清晰了。
-    </p>
   </div>
 </section>
 
