@@ -108,5 +108,9 @@ img { display: block; max-width: 100%; }
   .site-nav { padding: 20px 24px; }
 }
 
+/* Mobile-only line break helper */
+.m-br { display: none; }
+@media (max-width: 768px) { .m-br { display: block; } }
+
 /* Sticky nav offset for all anchor targets */
 [id] { scroll-margin-top: 96px; }
