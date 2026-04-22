@@ -109,7 +109,7 @@ img { display: block; max-width: 100%; }
   .site-nav-links { gap: 16px; font-size: 10px; }
 }
 @media (max-width: 560px) {
-  .site-nav-links { display: none; }
+  .is-home .site-nav-links { display: none; }
 }
 
 /* Mobile-only line break helper */
