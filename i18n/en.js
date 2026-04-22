@@ -847,7 +847,7 @@
       ch4s2Preview:  '11 days, 40+ versions',
       ch4s3Name:     'Tauri Version',
       ch4s3Kicker:   'From first line of Rust to App Store.',
-      ch4s3Preview:  '7+4 days (lol), 20 Sprints, App Store',
+      ch4s3Preview:  '7+4 days, 20 Sprints, App Store',
       ch4s4Name:     'Roadmap',
       ch4s4Kicker:   "The shape of what's next.",
       ch4s4Preview:  'v3.0 feature burst',

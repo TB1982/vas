@@ -625,7 +625,7 @@
       ch4s2Preview: '11 天，40+ 版本迭代',
       ch4s3Name:    'Tauri 版',
       ch4s3Kicker:  '第一行 Rust 到 App Store。',
-      ch4s3Preview: '7+4 天（笑），20 個 Sprint，App Store',
+      ch4s3Preview: '7+4 天，20 個 Sprint，App Store',
       ch4s4Name:    '路線圖',
       ch4s4Kicker:  '下一步的形狀。',
       ch4s4Preview: 'v3.0 功能爆發',
