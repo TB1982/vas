@@ -1,457 +1,382 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-M8YMJ7QH3S');
-  </script>
-  <title>VAS 操作手冊 — Visual Annotation Studio</title>
-  <meta name="description" content="VAS 操作手冊：編輯器介面、左側工具列與浮動工作列功能說明。">
-  <link rel="canonical" href="https://tb1982.github.io/vas/guide.html">
-  <meta property="og:title" content="VAS 操作手冊 — Visual Annotation Studio">
-  <meta property="og:description" content="VAS 編輯器介面、工具列與工作列完整功能說明。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tb1982.github.io/vas/guide.html">
-  <meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="zh_TW">
-  <link rel="icon" href="img/vas.ico">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="base.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <style>
-    .gradient-bg {
-      background: linear-gradient(135deg, #1a1035 0%, #0f0a2e 50%, #1a0a35 100%);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow">
+<title data-lang-key="heroTitle">VAS 操作手冊</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/guide.html">
+<meta name="description" data-lang-key="heroSub"
+      content="浮動工作列、編輯器介面與左側工具列功能說明">
 
-    .section-divider {
-      border-color: rgba(255,255,255,0.08);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    .tool-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(139,92,246,0.15);
-      border: 1px solid rgba(139,92,246,0.25);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 0.8125rem;
-      color: rgba(255,255,255,0.85);
-    }
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/docs.css">
 
-    .tool-chip .key {
-      font-size: 0.7rem;
-      color: rgba(139,92,246,0.9);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240,232,220,0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240,232,220,0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px; background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong); border-radius: 12px;
+    padding: 4px; display: none; z-index: 100; backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px; background: transparent; border: none;
+    color: var(--vas-ash-2); font-family: var(--vas-serif); font-size: 14px;
+    border-radius: 8px; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240,232,220,0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
 
-    .tool-icon {
-      font-size: 1rem;
-      width: 1.25rem;
-      text-align: center;
-      color: rgba(255,255,255,0.5);
-    }
+  /* ─── Guide 專用元件 ──────────────────────── */
+  .g-section-sub {
+    font-family: var(--vas-serif); font-size: 15px;
+    color: var(--vas-ash-2); margin: -8px 0 28px;
+  }
+  .g-img {
+    width: 100%; border-radius: 4px;
+    border: 1px solid var(--vas-rule); margin-bottom: 28px;
+  }
+  .g-toolbar-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin-bottom: 16px;
+  }
+  .g-card {
+    padding: 16px; border: 1px solid var(--vas-rule); border-radius: 2px;
+    transition: border-color .2s;
+  }
+  .g-card:hover { border-color: var(--vas-rule-strong); }
+  .g-card-name {
+    font-family: var(--vas-mono); font-size: 12px; letter-spacing: 0.08em;
+    color: var(--vas-ash-0); margin-bottom: 6px;
+  }
+  .g-card-desc {
+    font-family: var(--vas-serif); font-size: 13px; line-height: 1.75;
+    color: var(--vas-ash-2);
+  }
+  .g-bl-card {
+    padding: 20px 24px; border: 1px solid var(--vas-rule); border-radius: 2px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .g-bl-img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+  .g-bl-body { flex: 1; }
+  .g-bl-title { font-family: var(--vas-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--vas-ash-0); margin-bottom: 8px; }
+  .g-bl-desc { font-family: var(--vas-serif); font-size: 13px; line-height: 1.75; color: var(--vas-ash-2); }
+  .g-bl-list { list-style: none; padding: 0; margin: 8px 0 0; }
+  .g-bl-list li { display: flex; gap: 8px; align-items: baseline; margin-bottom: 4px; }
+  .g-badge-t, .g-badge-a {
+    font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.1em;
+    padding: 2px 7px; border-radius: 999px; flex-shrink: 0;
+  }
+  .g-badge-t { background: rgba(196,113,245,0.12); color: var(--vas-aurora-violet); border: 1px solid rgba(196,113,245,0.25); }
+  .g-badge-a { background: rgba(240,232,220,0.06); color: var(--vas-ash-2); border: 1px solid var(--vas-rule); }
+  .g-zones-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 12px; margin-top: 0;
+  }
+  .g-zone-name {
+    font-family: var(--vas-serif); font-weight: 500; font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .g-tools-wrap { display: flex; gap: 32px; align-items: flex-start; }
+  .g-sidebar-img { width: 68px; flex-shrink: 0; border-radius: 4px; border: 1px solid var(--vas-rule); }
+  .g-tools-body { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+  .g-grp-label {
+    font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--vas-ash-3); margin-bottom: 10px;
+  }
+  .g-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .g-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; border: 1px solid var(--vas-rule); border-radius: 2px;
+    font-family: var(--vas-serif); font-size: 14px; color: var(--vas-ash-1);
+    transition: border-color .2s;
+  }
+  .g-chip:hover { border-color: var(--vas-rule-strong); }
+  .g-chip-icon { font-size: 13px; color: var(--vas-ash-3); }
+  .g-chip-key {
+    font-family: var(--vas-mono); font-size: 11px;
+    color: var(--vas-aurora-violet); letter-spacing: 0.04em;
+  }
+  .g-acc-table { width: 100%; border-collapse: collapse; }
+  .g-acc-table td {
+    padding: 9px 0; border-bottom: 1px solid var(--vas-rule);
+    font-family: var(--vas-serif); font-size: 14px; color: var(--vas-ash-1);
+    vertical-align: top;
+  }
+  .g-acc-table td:first-child {
+    font-family: var(--vas-mono); font-size: 13px; color: var(--vas-ash-0);
+    width: 40%; padding-right: 16px;
+  }
+  .g-acc-table tr:last-child td { border-bottom: none; }
+  .g-check { color: #6ee7b7; margin-right: 6px; }
+  .g-cross { color: #fca5a5; margin-right: 6px; }
 
-    .guide-img {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .sidebar-img {
-      max-width: 96px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .capturebar-img {
-      width: 100%;
-      max-width: 520px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(139,92,246,0.7);
-    }
-
-    .toolbar-card {
-      cursor: default;
-      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1),
-                  background 0.22s ease,
-                  border-color 0.22s ease,
-                  box-shadow 0.22s ease;
-    }
-    .toolbar-card:hover {
-      transform: translateY(-7px);
-      background: rgba(139,92,246,0.14);
-      border-color: rgba(139,92,246,0.45);
-      box-shadow: 0 8px 28px rgba(139,92,246,0.22), 0 0 0 1px rgba(139,92,246,0.18);
-    }
-
-    .tool-chip {
-      cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
-    }
-    .tool-chip:hover {
-      background: rgba(139,92,246,0.22);
-      border-color: rgba(139,92,246,0.5);
-      box-shadow: 0 0 10px rgba(139,92,246,0.25);
-    }
-
-    .modal-backdrop {
-      position: fixed; inset: 0; z-index: 50;
-      display: flex; align-items: center; justify-content: center;
-      padding: 1rem;
-      background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(6px);
-    }
-    .modal-card {
-      position: relative;
-      background: rgba(18,12,48,0.98);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 1.5rem;
-      width: 100%;
-      max-width: 500px;
-      max-height: 82vh;
-      overflow-y: auto;
-    }
-    .modal-section-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(139,92,246,0.7);
-      margin-bottom: 0.4rem;
-    }
-    .modal-tag {
-      display: inline-block;
-      background: rgba(139,92,246,0.12);
-      border: 1px solid rgba(139,92,246,0.22);
-      border-radius: 6px;
-      padding: 2px 8px;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.72);
-      margin: 2px;
-    }
-    .modal-align-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      margin-top: 0.5rem;
-    }
-    .modal-align-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 6px;
-      padding: 4px 8px;
-    }
-
-    /* ── Keyboard Shortcut Accordion ────────────────────── */
-    .kbd-acc-item {
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .kbd-acc-btn {
-      display: flex; align-items: center; width: 100%;
-      padding: 10px 14px; gap: 8px;
-      background: rgba(255,255,255,0.03); border: none; cursor: pointer;
-      text-align: left;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.38);
-      transition: background 0.15s, color 0.15s;
-    }
-    .kbd-acc-btn:hover { background: rgba(139,92,246,0.08); color: rgba(139,92,246,0.75); }
-    .kbd-acc-item.open .kbd-acc-btn { color: rgba(139,92,246,0.85); background: rgba(139,92,246,0.08); }
-    .kbd-acc-count {
-      margin-left: auto; font-size: 0.65rem; font-weight: 400;
-      letter-spacing: 0; text-transform: none; color: rgba(255,255,255,0.2);
-    }
-    .kbd-acc-chevron { flex-shrink: 0; transition: transform 0.25s cubic-bezier(0.4,0,0.2,1); }
-    .kbd-acc-item.open .kbd-acc-chevron { transform: rotate(180deg); }
-    .kbd-acc-body {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1);
-    }
-    .kbd-acc-item.open .kbd-acc-body { max-height: 1400px; }
-    .kbd-acc-inner { padding: 12px 14px 14px; }
-
-    .badge-section-coming {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.4);
-    }
-    .modal-tauri-notice {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      background: rgba(139,92,246,0.12);
-      border: 1px solid rgba(139,92,246,0.25);
-      margin-bottom: 4px;
-    }    @media
-  </style>
+  @media (max-width: 768px) {
+    .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
+    .g-zones-grid { grid-template-columns: 1fr; }
+    .g-tools-wrap { flex-direction: column; }
+    .g-sidebar-img { width: 100%; max-width: 280px; }
+  }
+  @media (max-width: 480px) {
+    .g-toolbar-grid { grid-template-columns: 1fr; }
+  }
+  /* ── Tool Popup Modal ──────────────────────── */
+  .g-chip[data-tool] { cursor: pointer; }
+  .g-chip[data-tool]:hover { border-color: rgba(196,113,245,0.35); color: var(--vas-ash-0); }
+  .g-chip[data-tool]:hover .g-chip-icon { color: var(--vas-aurora-violet); }
+  .tool-modal-backdrop { position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); }
+  .tool-modal-backdrop.hidden { display:none; }
+  .tool-modal-card { position:relative;background:var(--vas-void-up);border:1px solid var(--vas-rule-strong);border-radius:12px;padding:24px 24px 28px;width:100%;max-width:480px;max-height:80vh;overflow-y:auto;scrollbar-width:none; }
+  .tool-modal-card::-webkit-scrollbar { display:none; }
+  .tool-modal-close { position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:var(--vas-ash-3);padding:4px;transition:color .2s; }
+  .tool-modal-close:hover { color:var(--vas-ash-0); }
+  .tool-modal-head { display:flex;align-items:center;gap:12px;margin-bottom:20px; }
+  .tool-modal-icon { font-size:18px;color:var(--vas-ash-3);width:28px;text-align:center;flex-shrink:0; }
+  .tool-modal-title { font-family:var(--vas-serif);font-size:16px;font-weight:500;color:var(--vas-ash-0);line-height:1.3; }
+  .tool-modal-shortcut { font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);letter-spacing:0.06em; }
+  .tool-modal-body { display:flex;flex-direction:column;gap:16px; }
+  .modal-section-label { font-family:var(--vas-mono);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(196,113,245,0.7);margin-bottom:6px; }
+  .modal-tag { display:inline-block;background:rgba(196,113,245,0.08);border:1px solid rgba(196,113,245,0.18);border-radius:4px;padding:2px 8px;font-family:var(--vas-mono);font-size:11px;color:var(--vas-ash-2);margin:2px; }
+  .modal-align-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:6px; }
+  .modal-align-row { display:flex;align-items:center;gap:8px;background:rgba(240,232,220,0.03);border-radius:4px;padding:4px 8px; }
+  .tm-p { font-family:var(--vas-serif);font-size:13px;line-height:1.75;color:var(--vas-ash-2); }
+  .tm-p-faint { font-family:var(--vas-serif);font-size:12px;line-height:1.75;color:var(--vas-ash-3); }
+  .tm-ul { list-style:disc;padding-left:16px;margin:0;font-family:var(--vas-serif);font-size:13px;line-height:1.8;color:var(--vas-ash-2); }
+  .tm-ul li+li { margin-top:2px; }
+  .tm-tags { display:flex;flex-wrap:wrap;margin-top:2px; }
+  .tm-kv { display:flex;align-items:center;gap:12px;margin-bottom:4px; }
+  .tm-notice { display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:6px;background:rgba(196,113,245,0.08); }
+</style>
 </head>
-<body class="gradient-bg min-h-screen text-white">
+<body>
 
-  <!-- Nav -->
-  <header class="sticky top-0 z-50 px-4 py-3 flex items-center gap-2" style="background: rgba(15,12,41,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-    <nav class="flex items-center gap-2 flex-1 min-w-0" aria-label="VAS 子頁面">
-      <a href="index.html" aria-label="返回 VAS 首頁" class="shrink-0" style="color:rgba(255,255,255,0.4); font-size:1.1rem; line-height:1; text-decoration:none; transition:color 0.2s; padding:4px 2px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">‹</a>
-      <a href="index.html" aria-label="VAS 首頁" class="shrink-0">
-        <img src="img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-md opacity-55 hover:opacity-90 transition-opacity">
-      </a>
-      <!-- Desktop pills (sm+) -->
-      <div class="nav-pill-group min-w-0 hidden sm:flex">
-        <a href="guide.html" class="nav-pill active" data-lang-key="navGuideShort" aria-current="page">操作</a>
-        <a href="insight.html" class="nav-pill" data-lang-key="navInsightShort">設計</a>
-        <a href="collab.html" class="nav-pill" data-lang-key="navCollabShort">協作</a>
-        <a href="harness.html" class="nav-pill" data-lang-key="navHarnessShort">系統</a>
-        <a href="milestone.html" class="nav-pill" data-lang-key="navMilestoneShort">里程碑</a>
-      </div>
-      <!-- Mobile: dropdown (below sm) -->
-      <div class="relative sm:hidden" id="navMobileWrap">
-        <button id="navMobileBtn" class="nav-pill-group flex items-center gap-1.5" style="appearance:none;cursor:pointer;" aria-haspopup="true" aria-expanded="false" aria-label="導覽選單">
-          <svg width="14" height="11" viewBox="0 0 14 11" fill="none" aria-hidden="true"><path d="M1 1.5h12M1 5.5h12M1 9.5h12" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <svg id="navMobileChevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style="transition:transform 0.2s"><path d="M1 1l4 4 4-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div id="navMobileMenu" style="display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);flex-direction:column;gap:2px;padding:6px;border-radius:16px;background:rgba(15,12,41,0.92);border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);min-width:96px;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
-          <a href="guide.html" class="nav-pill active" style="display:block;text-align:center;" data-lang-key="navGuideShort" aria-current="page">操作</a>
-          <a href="insight.html" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navInsightShort">設計</a>
-          <a href="collab.html" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navCollabShort">協作</a>
-          <a href="harness.html" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navHarnessShort">系統</a>
-          <a href="milestone.html" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navMilestoneShort">里程碑</a>
-        </div>
-      </div>
-    </nav>
-        <a href="#" class="text-lg font-bold tracking-widest gradient-text" style="text-decoration:none;position:absolute;left:50%;transform:translateX(-50%);" aria-label="回到頁首">VAS</a>
-        <div class="flex-1 flex justify-end"><div class="relative shrink-0" id="langDropdownWrap">
-      <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
-        <span id="langDropdownLabel">中</span>
-        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.7"/></svg>
-      </button>
-      <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
-        <button class="lang-opt active" data-lang="zh" role="option">中文</button>
-        <button class="lang-opt" data-lang="en" role="option">English</button>
-        <button class="lang-opt" data-lang="ja" role="option">日本語</button>
-        <button class="lang-opt" data-lang="cn" role="option">简中</button>
-      </div>
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <main class="max-w-4xl mx-auto px-6 pt-16 pb-12 space-y-16">
+<div class="docs-layout">
+
+  <!-- ═══ Sticky TOC (desktop) ═══ -->
+  <aside class="docs-toc-sticky" aria-label="頁面目錄">
+    <p class="docs-toc-sticky-label" data-lang-key="heroLabel">操作手冊</p>
+    <ol>
+      <li><a href="#s01" data-lang-key="s3Title">浮動工作列</a></li>
+      <li><a href="#s02" data-lang-key="s1Title">編輯器介面</a></li>
+      <li><a href="#s03" data-lang-key="s2Title">左側工具列</a></li>
+      <li><a href="#s04" data-lang-key="s4Title">鍵盤快捷鍵</a></li>
+      <li><a href="#s05" data-lang-key="s5Title">自定義全域快捷鍵</a></li>
+    </ol>
+  </aside>
+
+  <!-- ═══ Main content ═══ -->
+  <main class="docs-main" id="docs-main">
+
+    <!-- Mobile TOC -->
+    <details class="docs-toc-mobile">
+      <summary data-lang-key="heroLabel">操作手冊</summary>
+      <ol>
+        <li><a href="#s01" data-lang-key="s3Title">浮動工作列</a></li>
+        <li><a href="#s02" data-lang-key="s1Title">編輯器介面</a></li>
+        <li><a href="#s03" data-lang-key="s2Title">左側工具列</a></li>
+        <li><a href="#s04" data-lang-key="s4Title">鍵盤快捷鍵</a></li>
+        <li><a href="#s05" data-lang-key="s5Title">自定義全域快捷鍵</a></li>
+      </ol>
+    </details>
 
     <!-- Hero -->
-    <header class="text-center space-y-3">
-      <p class="section-label" data-lang-key="heroLabel">User Guide</p>
-      <h1 class="text-3xl md:text-4xl font-bold" data-lang-key="heroTitle">VAS 操作手冊</h1>
-      <p class="text-white/45 text-sm max-w-lg mx-auto" data-lang-key="heroSub">工具列、編輯器介面與浮動工作列功能說明</p>
-    </header>
+    <h1 data-lang-key="heroTitle">VAS 操作手冊</h1>
+    <p class="docs-dek" data-lang-key="heroSub">浮動工作列、編輯器介面與左側工具列功能說明</p>
 
-    <!-- Section 1: Capture Toolbar -->
-    <section>
-      <div class="mb-6">
-        <p class="section-label mb-2" data-lang-key="s3Label">Section 01</p>
-        <h2 class="text-xl font-semibold" data-lang-key="s3Title">浮動工作列</h2>
-        <p class="text-white/45 text-sm mt-1" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
-      </div>
+    <!-- ══ S01 ══ -->
+    <section id="s01">
+      <h2 data-lang-key="s3Title">浮動工作列</h2>
+      <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
 
-      <div class="flex justify-center mb-6">
-        <img id="toolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="capturebar-img" loading="lazy">
-      </div>
+      <img src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="g-img" loading="lazy">
 
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_fullscreen">全螢幕</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_fullscreen_desc">截取整個螢幕畫面，立即進入編輯器。</p>
+      <div class="g-toolbar-grid">
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_fullscreen">全螢幕</p>
+          <p class="g-card-desc" data-lang-key="cb_fullscreen_desc">截取整個螢幕畫面，立即進入編輯器。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_window">視窗</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_window_desc">點選後再點擊任意視窗，只截取該視窗範圍。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_window">視窗</p>
+          <p class="g-card-desc" data-lang-key="cb_window_desc">點選後再點擊任意視窗，只截取該視窗範圍。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_rect">矩形</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。直接框住 QR Code 會自動掃描並顯示內容。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_rect">矩形</p>
+          <p class="g-card-desc" data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。直接框住 QR Code 會自動掃描並顯示內容。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_delay">延遲</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_delay_desc">設定 1–3 秒延遲，補抓 tooltip、dropdown 等稍縱即逝的狀態。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_delay">延遲</p>
+          <p class="g-card-desc" data-lang-key="cb_delay_desc">設定 1–3 秒延遲，補抓 tooltip、dropdown 等稍縱即逝的狀態。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_open">開啟</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_open_desc">從本機開啟現有圖片，或建立指定尺寸的新畫布。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_open">開啟</p>
+          <p class="g-card-desc" data-lang-key="cb_open_desc">從本機開啟現有圖片，或建立指定尺寸的新畫布。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_whiteboard">白板</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_whiteboard_desc">開啟空白畫布，從零開始建立圖像內容。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_whiteboard">白板</p>
+          <p class="g-card-desc" data-lang-key="cb_whiteboard_desc">開啟空白畫布，從零開始建立圖像內容。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_batch">批次轉</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_batch_desc">拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_batch">批次轉</p>
+          <p class="g-card-desc" data-lang-key="cb_batch_desc">拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。</p>
         </div>
-        <div class="glass-card toolbar-card rounded-xl p-4">
-          <p class="text-sm font-semibold text-white/80 mb-1" data-lang-key="cb_help">?</p>
-          <p class="text-white/40 text-xs leading-relaxed" data-lang-key="cb_help_desc">顯示快捷鍵一覽，並提供操作手冊連結。</p>
+        <div class="g-card">
+          <p class="g-card-name" data-lang-key="cb_help">說明</p>
+          <p class="g-card-desc" data-lang-key="cb_help_desc">顯示快捷鍵一覽，並提供操作手冊連結。</p>
         </div>
       </div>
 
-      <!-- Breathing Light -->
-      <div class="glass-card rounded-xl p-5 mt-4">
-        <div class="flex items-center gap-2 mb-3">
-          <p class="text-sm font-semibold text-white/80" data-lang-key="bl_title">呼吸燈</p>
-          <span class="badge-all" data-lang-key="allVersions">全版本</span>
-        </div>
-        <div class="flex gap-4 items-start">
-          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" class="rounded-lg shrink-0" style="width:72px;height:72px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);" loading="lazy">
-          <p class="text-white/45 text-xs leading-relaxed"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.2em;height:1.2em;border:1px solid rgba(255,255,255,0.35);border-radius:50%;font-size:0.7em;color:rgba(255,255,255,0.5);vertical-align:middle;margin-right:4px;line-height:1;">?</span><span data-lang-key="bl_desc">可設定將工具列縮小成為呼吸燈，在桌面角落靜默待機，不佔空間。</span></p>
-        </div>
-        <ul class="space-y-2 text-white/45 text-xs leading-relaxed mt-3">
-          <li class="flex items-start gap-2"><span class="badge-tauri shrink-0" data-lang-key="tauriOnlyBadge">Tauri 專屬</span><span data-lang-key="bl_url">複製連結後靠近呼吸燈，會詢問是否進行網址截圖</span></li>
-          <li class="flex items-start gap-2"><span class="badge-all shrink-0" data-lang-key="allVersions">全版本</span><span data-lang-key="bl_file">拖曳檔案靠近呼吸燈，會自動展開編輯器並載入檔案</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Section 2: Editor Interface -->
-    <section>
-      <div class="mb-6">
-        <p class="section-label mb-2" data-lang-key="s1Label">Section 02</p>
-        <h2 class="text-xl font-semibold" data-lang-key="s1Title">編輯器介面</h2>
-        <p class="text-white/45 text-sm mt-1" data-lang-key="s1Sub">三個主要操作區域</p>
-      </div>
-      <img id="editorImg" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="guide-img" loading="lazy">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-        <div class="glass-card rounded-xl p-4">
-          <div class="text-sm font-semibold text-purple-300 mb-1" data-lang-key="zone1Name">主要功能選單</div>
-          <p class="text-white/50 text-xs leading-relaxed" data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</p>
-        </div>
-        <div class="glass-card rounded-xl p-4">
-          <div class="text-sm font-semibold text-orange-300 mb-1" data-lang-key="zone2Name">子屬性調整選單</div>
-          <p class="text-white/50 text-xs leading-relaxed" data-lang-key="zone2Desc">頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</p>
-        </div>
-        <div class="glass-card rounded-xl p-4">
-          <div class="text-sm font-semibold text-cyan-300 mb-1" data-lang-key="zone3Name">動態匯出按鈕</div>
-          <p class="text-white/50 text-xs leading-relaxed" data-lang-key="zone3Desc">右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。<span class="badge-tauri" style="margin-left:6px;">Tauri 專屬</span> Tauri 另提供 Sharesheet 分享功能。</p>
-        </div>
-        <div class="glass-card rounded-xl p-4">
-          <div class="text-sm font-semibold text-green-300 mb-1" data-lang-key="zone4Name">狀態列與磁吸工具開關</div>
-          <p class="text-white/50 text-xs leading-relaxed" data-lang-key="zone4Desc">左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關，可快速啟用或關閉智慧磁吸功能。</p>
+      <!-- 呼吸燈 -->
+      <div class="g-bl-card">
+        <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" class="g-bl-img" loading="lazy">
+        <div class="g-bl-body">
+          <p class="g-bl-title" data-lang-key="bl_title">呼吸燈</p>
+          <p class="g-bl-desc" data-lang-key="bl_desc">可設定將工具列縮小成為呼吸燈，在桌面角落靜默待機，不佔空間。</p>
+          <ul class="g-bl-list">
+            <li><span class="g-badge-t" data-lang-key="tauriOnlyBadge">Tauri 專屬</span><span class="g-bl-desc" data-lang-key="bl_url">複製連結後靠近呼吸燈，會詢問是否進行網址截圖</span></li>
+            <li><span class="g-badge-a" data-lang-key="allVersions">全版本</span><span class="g-bl-desc" data-lang-key="bl_file">拖曳檔案靠近呼吸燈，會自動展開編輯器並載入檔案</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <hr class="section-divider">
+    <!-- ══ S02 ══ -->
+    <section id="s02">
+      <h2 data-lang-key="s1Title">編輯器介面</h2>
+      <p class="g-section-sub" data-lang-key="s1Sub">四個主要操作區域</p>
 
-    <!-- Section 3: Sidebar Tools -->
-    <section>
-      <div class="mb-6">
-        <p class="section-label mb-2" data-lang-key="s2Label">Section 03</p>
-        <h2 class="text-xl font-semibold" data-lang-key="s2Title">左側工具列</h2>
-        <p class="text-white/45 text-sm mt-1" data-lang-key="s2Sub">所有標注工具一覽，括號內為快捷鍵</p>
-      </div>
+      <img src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="g-img" loading="lazy">
 
-      <div class="flex gap-4 items-start" style="display:flex;flex-direction:row;gap:1rem;align-items:flex-start;">
-        <div class="flex-shrink-0">
-          <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示" class="sidebar-img" loading="lazy">
+      <div class="g-zones-grid">
+        <div class="g-card">
+          <p class="g-zone-name" style="color:#c4b5fd;" data-lang-key="zone1Name">主要功能選單</p>
+          <p class="g-card-desc" data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</p>
         </div>
-        <div class="flex-1 space-y-6">
+        <div class="g-card">
+          <p class="g-zone-name" style="color:#fdba74;" data-lang-key="zone2Name">子屬性調整選單</p>
+          <p class="g-card-desc" data-lang-key="zone2Desc">頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</p>
+        </div>
+        <div class="g-card">
+          <p class="g-zone-name" style="color:#67e8f9;" data-lang-key="zone3Name">動態匯出按鈕</p>
+          <p class="g-card-desc" data-lang-key="zone3Desc">右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。<span class="g-badge-t" style="margin-left:6px;" data-lang-key="tauriOnlyBadge">Tauri 專屬</span></p>
+        </div>
+        <div class="g-card">
+          <p class="g-zone-name" style="color:#86efac;" data-lang-key="zone4Name">狀態列與磁吸工具開關</p>
+          <p class="g-card-desc" data-lang-key="zone4Desc">左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關，可快速啟用或關閉智慧磁吸功能。</p>
+        </div>
+      </div>
+    </section>
 
-          <!-- Group: Select -->
+    <!-- ══ S03 ══ -->
+    <section id="s03">
+      <h2 data-lang-key="s2Title">左側工具列</h2>
+      <p class="g-section-sub" data-lang-key="s2Sub">所有標注工具一覽，括號內為快捷鍵</p>
+
+      <div class="g-tools-wrap">
+        <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示" class="g-sidebar-img" loading="lazy">
+        <div class="g-tools-body">
+
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpSelect">選取</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="select" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">↖</span><span data-lang-key="t_select">選取</span><span class="key">V</span></span>
-              <span class="tool-chip" data-tool="boxselect" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⬚</span><span data-lang-key="t_boxselect">框型選取</span><span class="key">M</span></span>
+            <p class="g-grp-label" data-lang-key="grpSelect">選取</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="select" role="button" tabindex="0"><span class="g-chip-icon">↖</span><span data-lang-key="t_select">選取</span><span class="g-chip-key">V</span></span>
+              <span class="g-chip" data-tool="boxselect" role="button" tabindex="0"><span class="g-chip-icon">⬚</span><span data-lang-key="t_boxselect">框型選取</span><span class="g-chip-key">M</span></span>
             </div>
           </div>
 
-          <!-- Group: Draw -->
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpDraw">繪圖</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="pen" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">✒</span><span data-lang-key="t_pen">筆型</span><span class="key">P</span></span>
-              <span class="tool-chip" data-tool="line" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">╱</span><span data-lang-key="t_line">線條</span><span class="key">L</span></span>
-              <span class="tool-chip" data-tool="rect" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">▭</span><span data-lang-key="t_rect">矩形框</span><span class="key">R</span></span>
-              <span class="tool-chip" data-tool="fillrect" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">■</span><span data-lang-key="t_fillrect">色塊</span><span class="key">B</span></span>
+            <p class="g-grp-label" data-lang-key="grpDraw">繪圖</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="pen" role="button" tabindex="0"><span class="g-chip-icon">✒</span><span data-lang-key="t_pen">筆型</span><span class="g-chip-key">P</span></span>
+              <span class="g-chip" data-tool="line" role="button" tabindex="0"><span class="g-chip-icon">╱</span><span data-lang-key="t_line">線條</span><span class="g-chip-key">L</span></span>
+              <span class="g-chip" data-tool="rect" role="button" tabindex="0"><span class="g-chip-icon">▭</span><span data-lang-key="t_rect">矩形框</span><span class="g-chip-key">R</span></span>
+              <span class="g-chip" data-tool="fillrect" role="button" tabindex="0"><span class="g-chip-icon">■</span><span data-lang-key="t_fillrect">色塊</span><span class="g-chip-key">B</span></span>
             </div>
           </div>
 
-          <!-- Group: Annotate -->
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpAnnotate">標注</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="text" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">T</span><span data-lang-key="t_text">文字</span><span class="key">T</span></span>
-              <span class="tool-chip" data-tool="number" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">①</span><span data-lang-key="t_number">編號</span><span class="key">N</span></span>
-              <span class="tool-chip" data-tool="stamp" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">☺</span><span data-lang-key="t_symbol">符號印章</span><span class="key">U</span></span>
-              <span class="tool-chip" data-tool="mosaic" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⬜</span><span data-lang-key="t_mosaic">馬賽克／模糊</span><span class="key">X</span></span>
+            <p class="g-grp-label" data-lang-key="grpAnnotate">標注</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="text" role="button" tabindex="0"><span class="g-chip-icon">T</span><span data-lang-key="t_text">文字</span><span class="g-chip-key">T</span></span>
+              <span class="g-chip" data-tool="number" role="button" tabindex="0"><span class="g-chip-icon">①</span><span data-lang-key="t_number">編號</span><span class="g-chip-key">N</span></span>
+              <span class="g-chip" data-tool="stamp" role="button" tabindex="0"><span class="g-chip-icon">☺</span><span data-lang-key="t_symbol">符號印章</span><span class="g-chip-key">U</span></span>
+              <span class="g-chip" data-tool="mosaic" role="button" tabindex="0"><span class="g-chip-icon">⬜</span><span data-lang-key="t_mosaic">馬賽克／模糊</span><span class="g-chip-key">X</span></span>
             </div>
           </div>
 
-          <!-- Group: Privacy -->
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpPrivacy">隱私與遮蔽</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="ocr" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">文</span><span data-lang-key="t_ocr">OCR 文字辨識</span><span class="key">G</span></span>
-              <span class="tool-chip" data-tool="privacy" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon" style="text-decoration:line-through">文</span><span data-lang-key="t_privacy">隱私遮蔽</span><span class="key">K</span></span>
+            <p class="g-grp-label" data-lang-key="grpPrivacy">隱私與遮蔽</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="ocr" role="button" tabindex="0"><span class="g-chip-icon">文</span><span data-lang-key="t_ocr">OCR 文字辨識</span><span class="g-chip-key">G</span></span>
+              <span class="g-chip" data-tool="privacy" role="button" tabindex="0"><span class="g-chip-icon" style="text-decoration:line-through">文</span><span data-lang-key="t_privacy">隱私遮蔽</span><span class="g-chip-key">K</span></span>
             </div>
           </div>
 
-          <!-- Group: Canvas -->
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpCanvas">畫布操作</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="zoomin" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⊕</span><span data-lang-key="t_zoomin">放大</span><span class="key">⌘=</span></span>
-              <span class="tool-chip" data-tool="zoomout" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⊖</span><span data-lang-key="t_zoomout">縮小</span><span class="key">⌘-</span></span>
-              <span class="tool-chip" data-tool="fit" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⊡</span><span data-lang-key="t_fit">適合視窗</span><span class="key">⌘0</span></span>
+            <p class="g-grp-label" data-lang-key="grpCanvas">畫布操作</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="zoomin" role="button" tabindex="0"><span class="g-chip-icon">⊕</span><span data-lang-key="t_zoomin">放大</span><span class="g-chip-key">⌘=</span></span>
+              <span class="g-chip" data-tool="zoomout" role="button" tabindex="0"><span class="g-chip-icon">⊖</span><span data-lang-key="t_zoomout">縮小</span><span class="g-chip-key">⌘-</span></span>
+              <span class="g-chip" data-tool="fit" role="button" tabindex="0"><span class="g-chip-icon">⊡</span><span data-lang-key="t_fit">適合視窗</span><span class="g-chip-key">⌘0</span></span>
             </div>
           </div>
 
-          <!-- Group: Layout -->
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpLayout">版面功能</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="crop" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">✂</span><span data-lang-key="t_crop">裁切</span><span class="key">C</span></span>
-              <span class="tool-chip" data-tool="resize" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">↔</span><span data-lang-key="t_resize">調整大小</span><span class="key">S</span></span>
-              <span class="tool-chip" data-tool="extend" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⊞</span><span data-lang-key="t_extend">延伸畫布</span><span class="key">E</span></span>
-              <span class="tool-chip" data-tool="overlay" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">⧉</span><span data-lang-key="t_overlay">疊入圖片</span><span class="key">O</span></span>
-              <span class="tool-chip" data-tool="template" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">◱</span><span data-lang-key="t_open">一鍵套版</span></span>
+            <p class="g-grp-label" data-lang-key="grpLayout">版面功能</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="crop" role="button" tabindex="0"><span class="g-chip-icon">✂</span><span data-lang-key="t_crop">裁切</span><span class="g-chip-key">C</span></span>
+              <span class="g-chip" data-tool="resize" role="button" tabindex="0"><span class="g-chip-icon">↔</span><span data-lang-key="t_resize">調整大小</span><span class="g-chip-key">S</span></span>
+              <span class="g-chip" data-tool="extend" role="button" tabindex="0"><span class="g-chip-icon">⊞</span><span data-lang-key="t_extend">延伸畫布</span><span class="g-chip-key">E</span></span>
+              <span class="g-chip" data-tool="overlay" role="button" tabindex="0"><span class="g-chip-icon">⧉</span><span data-lang-key="t_overlay">疊入圖片</span><span class="g-chip-key">O</span></span>
+              <span class="g-chip" data-tool="template" role="button" tabindex="0"><span class="g-chip-icon">◱</span><span data-lang-key="t_open">一鍵套版</span></span>
             </div>
           </div>
 
-          <!-- Group: Other -->
           <div>
-            <p class="text-xs text-white/30 font-semibold mb-2 uppercase tracking-widest" data-lang-key="grpOther">其他</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="tool-chip" data-tool="undoredo" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">↩</span><span data-lang-key="t_undo">撤銷</span><span class="key">⌘Z</span></span>
-              <span class="tool-chip" data-tool="undoredo" role="button" tabindex="0" aria-haspopup="dialog"><span class="tool-icon">↪</span><span data-lang-key="t_redo">重做</span><span class="key">⌘⇧Z</span></span>
+            <p class="g-grp-label" data-lang-key="grpOther">其他</p>
+            <div class="g-chips">
+              <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↩</span><span data-lang-key="t_undo">撤銷</span><span class="g-chip-key">⌘Z</span></span>
+              <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↪</span><span data-lang-key="t_redo">重做</span><span class="g-chip-key">⌘⇧Z</span></span>
             </div>
           </div>
 
@@ -459,1926 +384,329 @@
       </div>
     </section>
 
-    <hr class="section-divider">
+    <!-- ══ S04 ══ -->
+    <section id="s04">
+      <h2 data-lang-key="s4Title">鍵盤快捷鍵</h2>
+      <p class="g-section-sub" data-lang-key="s4Sub">編輯器內建快捷鍵一覽</p>
 
-    <!-- Section 4: Keyboard Shortcuts -->
-    <section aria-labelledby="s4-heading">
-      <div class="mb-6">
-        <p class="section-label mb-2" data-lang-key="s4Label">Section 04</p>
-        <h2 id="s4-heading" class="text-xl font-semibold" data-lang-key="s4Title">鍵盤快捷鍵</h2>
-        <p class="text-white/45 text-sm mt-1" data-lang-key="s4Sub">編輯器內建快捷鍵一覽</p>
-      </div>
-
-      <div class="space-y-1">
-
-        <!-- Accordion: Tool Switching (16) -->
-        <div class="kbd-acc-item">
-          <button class="kbd-acc-btn" aria-expanded="false">
-            <span data-lang-key="sk_grpTool">工具切換</span>
-            <span class="kbd-acc-count">16</span>
-            <svg class="kbd-acc-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="kbd-acc-body">
-            <div class="kbd-acc-inner">
-              <table class="w-full text-xs">
-                <thead><tr class="border-b border-white/10"><th class="text-left py-1.5 pr-6 font-semibold text-white/30 w-1/3" data-lang-key="sk_col_shortcut">快捷鍵</th><th class="text-left py-1.5 font-semibold text-white/30" data-lang-key="sk_col_action">功能</th></tr></thead>
-                <tbody>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">V</td><td class="py-2 text-white/55" data-lang-key="sk_act_select">選取工具</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">M</td><td class="py-2 text-white/55" data-lang-key="sk_act_boxselect">框型選取</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">P</td><td class="py-2 text-white/55" data-lang-key="sk_act_pen">筆型工具</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">L</td><td class="py-2 text-white/55" data-lang-key="sk_act_line">線條工具</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">R</td><td class="py-2 text-white/55" data-lang-key="sk_act_rect">矩形框</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">B</td><td class="py-2 text-white/55" data-lang-key="sk_act_fillrect">色塊</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">T</td><td class="py-2 text-white/55" data-lang-key="sk_act_text">文字工具</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">N</td><td class="py-2 text-white/55" data-lang-key="sk_act_number">編號標記</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">U</td><td class="py-2 text-white/55" data-lang-key="sk_act_stamp">符號印章</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">X</td><td class="py-2 text-white/55" data-lang-key="sk_act_mosaic">馬賽克／模糊</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">G</td><td class="py-2 text-white/55" data-lang-key="sk_act_ocr">OCR 文字辨識</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">K</td><td class="py-2 text-white/55" data-lang-key="sk_act_privacy">隱私遮蔽</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">C</td><td class="py-2 text-white/55" data-lang-key="sk_act_crop">裁切</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">S</td><td class="py-2 text-white/55" data-lang-key="sk_act_resize">調整大小</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">E</td><td class="py-2 text-white/55" data-lang-key="sk_act_extend">延伸畫布</td></tr>
-                  <tr><td class="py-2 pr-6 font-mono text-white/65">O</td><td class="py-2 text-white/55" data-lang-key="sk_act_overlay">疊入圖片</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Accordion: Canvas (5) -->
-        <div class="kbd-acc-item">
-          <button class="kbd-acc-btn" aria-expanded="false">
-            <span data-lang-key="sk_grpCanvas">畫布操作</span>
-            <span class="kbd-acc-count">5</span>
-            <svg class="kbd-acc-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="kbd-acc-body">
-            <div class="kbd-acc-inner">
-              <table class="w-full text-xs">
-                <tbody>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">⌘ =</td><td class="py-2 text-white/55" data-lang-key="sk_act_zoomin">放大</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ -</td><td class="py-2 text-white/55" data-lang-key="sk_act_zoomout">縮小</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ 0</td><td class="py-2 text-white/55" data-lang-key="sk_act_fit">適合視窗</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Space ＋ 拖曳</td><td class="py-2 text-white/55" data-lang-key="sk_act_spacepan">平移畫布</td></tr>
-                  <tr><td class="py-2 pr-6 font-mono text-white/65">\</td><td class="py-2 text-white/55" data-lang-key="sk_act_snaptoggle">切換磁吸對齊</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Accordion: Edit (7) -->
-        <div class="kbd-acc-item">
-          <button class="kbd-acc-btn" aria-expanded="false">
-            <span data-lang-key="sk_grpEdit">編輯</span>
-            <span class="kbd-acc-count">7</span>
-            <svg class="kbd-acc-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="kbd-acc-body">
-            <div class="kbd-acc-inner">
-              <table class="w-full text-xs">
-                <tbody>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">⌘ Z</td><td class="py-2 text-white/55" data-lang-key="sk_act_undo">撤銷</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ ⇧ Z</td><td class="py-2 text-white/55" data-lang-key="sk_act_redo">重做</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ C</td><td class="py-2 text-white/55" data-lang-key="sk_act_copy">複製</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ V</td><td class="py-2 text-white/55" data-lang-key="sk_act_paste">貼上</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ ⇧ C</td><td class="py-2 text-white/55" data-lang-key="sk_act_copyimage">複製最終影像</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">⌘ A</td><td class="py-2 text-white/55" data-lang-key="sk_act_selectall">全選</td></tr>
-                  <tr><td class="py-2 pr-6 font-mono text-white/65">Delete / ⌫</td><td class="py-2 text-white/55" data-lang-key="sk_act_delete">刪除選取物件</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- Accordion: Object Actions (6) -->
-        <div class="kbd-acc-item">
-          <button class="kbd-acc-btn" aria-expanded="false">
-            <span data-lang-key="sk_grpObject">物件操作</span>
-            <span class="kbd-acc-count">6</span>
-            <svg class="kbd-acc-chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="kbd-acc-body">
-            <div class="kbd-acc-inner">
-              <table class="w-full text-xs">
-                <tbody>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65 w-1/3">Shift ＋ 旋轉</td><td class="py-2 text-white/55" data-lang-key="sk_act_shiftrotate">Shift＋旋轉：15° 鎖定</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Shift ＋ 拖曳角落</td><td class="py-2 text-white/55" data-lang-key="sk_act_shiftcorner">Shift＋拖曳角落：等比縮放</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Alt ＋ 拖曳</td><td class="py-2 text-white/55" data-lang-key="sk_act_altdrag">Alt＋拖曳：跳過磁吸</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">← → ↑ ↓</td><td class="py-2 text-white/55" data-lang-key="sk_act_nudge1">微調 1 px</td></tr>
-                  <tr class="border-b border-white/5"><td class="py-2 pr-6 font-mono text-white/65">Shift ＋ ← → ↑ ↓</td><td class="py-2 text-white/55" data-lang-key="sk_act_nudge10">微調 10 px</td></tr>
-                  <tr><td class="py-2 pr-6 font-mono text-white/65">Double-click</td><td class="py-2 text-white/55" data-lang-key="sk_act_dblpolyline">雙擊結束折線繪製</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Section 5: Custom Global Shortcuts -->
-    <section aria-labelledby="s5-heading">
-      <div class="mb-6">
-        <p class="section-label mb-2" data-lang-key="s5Label">Section 05</p>
-        <div class="flex items-center gap-3 flex-wrap mb-1">
-          <h2 id="s5-heading" class="text-xl font-semibold" data-lang-key="s5Title">自定義全域快捷鍵</h2>
-          <span class="badge-tauri" data-lang-key="tauriOnlyBadge">Tauri 專屬</span>
-        </div>
-        <p class="text-white/45 text-sm" data-lang-key="s5Sub">在偏好設定中為每個工具指定專屬的全域快捷鍵</p>
-      </div>
-
-      <div class="glass-card rounded-2xl p-6">
-        <p class="text-white/60 text-sm mb-6 leading-relaxed" data-lang-key="kb_intro">
-          開啟偏好設定 → 快捷鍵，點選工具後直接按下目標按鍵組合即可錄製。不合規的組合會即時反白提示。
-        </p>
-
-        <p class="modal-section-label mb-3" data-lang-key="kb_rules_title">按鍵接受規則</p>
-        <div class="overflow-x-auto">
-          <table class="w-full text-xs">
-            <thead>
-              <tr class="border-b border-white/10">
-                <th class="text-left py-2 pr-6 font-semibold text-white/35 w-2/5" data-lang-key="kb_col_input">輸入</th>
-                <th class="text-left py-2 font-semibold text-white/35" data-lang-key="kb_col_result">結果</th>
-              </tr>
-            </thead>
+      <details class="docs-accordion">
+        <summary>
+          <span class="name" data-lang-key="sk_grpTool">工具切換</span>
+          <span class="mark"></span>
+        </summary>
+        <div class="docs-accordion-body">
+          <table class="g-acc-table">
             <tbody>
-              <tr class="border-b border-white/5">
-                <td class="py-2.5 pr-6 font-mono text-white/65">F1 … F12</td>
-                <td class="py-2.5 text-white/55"><span class="text-green-400 mr-1.5" aria-hidden="true">✓</span><span data-lang-key="kb_r1">F 鍵不需修飾鍵</span></td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-2.5 pr-6 font-mono text-white/65">⇧F5、⌘⌃A</td>
-                <td class="py-2.5 text-white/55"><span class="text-green-400 mr-1.5" aria-hidden="true">✓</span><span data-lang-key="kb_r2">含修飾鍵的組合</span></td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-2.5 pr-6 font-mono text-white/65">A、1、X</td>
-                <td class="py-2.5 text-white/55"><span class="text-red-400 mr-1.5" aria-hidden="true">✕</span><span data-lang-key="kb_r3">裸字母或數字</span></td>
-              </tr>
-              <tr class="border-b border-white/5">
-                <td class="py-2.5 pr-6 font-mono text-white/65">⌘Q、⌘W、⌘H、⌘,</td>
-                <td class="py-2.5 text-white/55"><span class="text-red-400 mr-1.5" aria-hidden="true">✕</span><span data-lang-key="kb_r4">系統保留快捷鍵</span></td>
-              </tr>
-              <tr>
-                <td class="py-2.5 pr-6 font-mono text-white/65">單獨 ⌘ / ⌃ / ⌥</td>
-                <td class="py-2.5 text-white/55"><span class="text-red-400 mr-1.5" aria-hidden="true">✕</span><span data-lang-key="kb_r5">單獨修飾鍵</span></td>
-              </tr>
+              <tr><td>V</td><td data-lang-key="sk_act_select">選取工具</td></tr>
+              <tr><td>M</td><td data-lang-key="sk_act_boxselect">框型選取</td></tr>
+              <tr><td>P</td><td data-lang-key="sk_act_pen">筆型工具</td></tr>
+              <tr><td>L</td><td data-lang-key="sk_act_line">線條工具</td></tr>
+              <tr><td>R</td><td data-lang-key="sk_act_rect">矩形框</td></tr>
+              <tr><td>B</td><td data-lang-key="sk_act_fillrect">色塊</td></tr>
+              <tr><td>T</td><td data-lang-key="sk_act_text">文字工具</td></tr>
+              <tr><td>N</td><td data-lang-key="sk_act_number">編號標記</td></tr>
+              <tr><td>U</td><td data-lang-key="sk_act_stamp">符號印章</td></tr>
+              <tr><td>X</td><td data-lang-key="sk_act_mosaic">馬賽克／模糊</td></tr>
+              <tr><td>G</td><td data-lang-key="sk_act_ocr">OCR 文字辨識</td></tr>
+              <tr><td>K</td><td data-lang-key="sk_act_privacy">隱私遮蔽</td></tr>
+              <tr><td>C</td><td data-lang-key="sk_act_crop">裁切</td></tr>
+              <tr><td>S</td><td data-lang-key="sk_act_resize">調整大小</td></tr>
+              <tr><td>E</td><td data-lang-key="sk_act_extend">延伸畫布</td></tr>
+              <tr><td>O</td><td data-lang-key="sk_act_overlay">疊入圖片</td></tr>
             </tbody>
           </table>
         </div>
+      </details>
+
+      <details class="docs-accordion">
+        <summary>
+          <span class="name" data-lang-key="sk_grpCanvas">畫布操作</span>
+          <span class="mark"></span>
+        </summary>
+        <div class="docs-accordion-body">
+          <table class="g-acc-table">
+            <tbody>
+              <tr><td>⌘ =</td><td data-lang-key="sk_act_zoomin">放大</td></tr>
+              <tr><td>⌘ -</td><td data-lang-key="sk_act_zoomout">縮小</td></tr>
+              <tr><td>⌘ 0</td><td data-lang-key="sk_act_fit">適合視窗</td></tr>
+              <tr><td>Space ＋ 拖曳</td><td data-lang-key="sk_act_spacepan">平移畫布</td></tr>
+              <tr><td>\</td><td data-lang-key="sk_act_snaptoggle">切換磁吸對齊</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="docs-accordion">
+        <summary>
+          <span class="name" data-lang-key="sk_grpEdit">編輯</span>
+          <span class="mark"></span>
+        </summary>
+        <div class="docs-accordion-body">
+          <table class="g-acc-table">
+            <tbody>
+              <tr><td>⌘ Z</td><td data-lang-key="sk_act_undo">撤銷</td></tr>
+              <tr><td>⌘ ⇧ Z</td><td data-lang-key="sk_act_redo">重做</td></tr>
+              <tr><td>⌘ C</td><td data-lang-key="sk_act_copy">複製</td></tr>
+              <tr><td>⌘ V</td><td data-lang-key="sk_act_paste">貼上</td></tr>
+              <tr><td>⌘ ⇧ C</td><td data-lang-key="sk_act_copyimage">複製最終影像</td></tr>
+              <tr><td>⌘ A</td><td data-lang-key="sk_act_selectall">全選</td></tr>
+              <tr><td>Delete / ⌫</td><td data-lang-key="sk_act_delete">刪除選取物件</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="docs-accordion">
+        <summary>
+          <span class="name" data-lang-key="sk_grpObject">物件操作</span>
+          <span class="mark"></span>
+        </summary>
+        <div class="docs-accordion-body">
+          <table class="g-acc-table">
+            <tbody>
+              <tr><td>Shift ＋ 旋轉</td><td data-lang-key="sk_act_shiftrotate">Shift＋旋轉：15° 鎖定</td></tr>
+              <tr><td>Shift ＋ 拖曳角落</td><td data-lang-key="sk_act_shiftcorner">Shift＋拖曳角落：等比縮放</td></tr>
+              <tr><td>Alt ＋ 拖曳</td><td data-lang-key="sk_act_altdrag">Alt＋拖曳：跳過磁吸</td></tr>
+              <tr><td>← → ↑ ↓</td><td data-lang-key="sk_act_nudge1">微調 1 px</td></tr>
+              <tr><td>Shift ＋ ← → ↑ ↓</td><td data-lang-key="sk_act_nudge10">微調 10 px</td></tr>
+              <tr><td>Double-click</td><td data-lang-key="sk_act_dblpolyline">雙擊結束折線繪製</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ══ S05 ══ -->
+    <section id="s05">
+      <h2 data-lang-key="s5Title">自定義全域快捷鍵</h2>
+      <p class="g-section-sub">
+        <span data-lang-key="s5Sub">在偏好設定中為每個工具指定專屬的全域快捷鍵</span>
+        <span class="g-badge-t" style="margin-left: 8px;" data-lang-key="tauriOnlyBadge">Tauri 專屬</span>
+      </p>
+
+      <p data-lang-key="kb_intro">開啟偏好設定 → 快捷鍵，點選工具後直接按下目標按鍵組合即可錄製。不合規的組合會即時反白提示。</p>
+
+      <div class="docs-card" style="margin-top: 28px;">
+        <p class="docs-card-kicker" data-lang-key="kb_rules_title">按鍵接受規則</p>
+        <table class="g-acc-table" style="margin-top: 12px;">
+          <tbody>
+            <tr>
+              <td>F1 … F12</td>
+              <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="kb_r1">F 鍵不需修飾鍵</span></td>
+            </tr>
+            <tr>
+              <td>⇧F5、⌘⌃A</td>
+              <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="kb_r2">含修飾鍵的組合</span></td>
+            </tr>
+            <tr>
+              <td>A、1、X</td>
+              <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="kb_r3">裸字母或數字</span></td>
+            </tr>
+            <tr>
+              <td>⌘Q、⌘W、⌘H、⌘,</td>
+              <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="kb_r4">系統保留快捷鍵</span></td>
+            </tr>
+            <tr>
+              <td>單獨 ⌘ / ⌃ / ⌥</td>
+              <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="kb_r5">單獨修飾鍵</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- 設計洞察連結 -->
-    <div class="text-center py-4">
-      <p class="text-white/30 text-sm mb-4" data-lang-key="insightTeaser">VAS 設計決策背後的思路</p>
-      <a href="insight.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white/70 hover:text-white transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);" data-lang-key="insightBtn">閱讀設計洞察 →</a>
-    </div>
-
   </main>
+</div><!-- /.docs-layout -->
 
-  <!-- Tool Popup Modal -->
-  <div id="toolModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card" id="modalCard">
-      <button id="modalClose" class="absolute top-4 right-4 text-white/30 hover:text-white/80 transition-colors text-lg leading-none" aria-label="關閉">✕</button>
-      <div class="flex items-center gap-3 mb-5">
-        <span id="modalIcon" class="text-xl w-7 text-center text-white/40"></span>
-        <div>
-          <h3 id="modalTitle" class="text-base font-semibold text-white leading-tight"></h3>
-          <span id="modalShortcut" class="text-xs font-mono text-purple-400"></span>
-        </div>
+<!-- ── Tool Popup Modal ── -->
+<div id="toolModal" class="tool-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+  <div class="tool-modal-card">
+    <button id="tmClose" class="tool-modal-close" aria-label="關閉">✕</button>
+    <div class="tool-modal-head">
+      <span id="tmIcon" class="tool-modal-icon"></span>
+      <div>
+        <div id="tmTitle" class="tool-modal-title"></div>
+        <div id="tmShortcut" class="tool-modal-shortcut"></div>
       </div>
-      <div id="modalBody" class="text-sm space-y-4"></div>
     </div>
+    <div id="tmBody" class="tool-modal-body"></div>
   </div>
+</div>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/10 mt-16 py-10 text-center text-white/25 text-xs space-y-2">
-    <p data-lang-key="footer">由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最後更新於 2026</p>
-    <p><a href="privacy.html" class="hover:text-white/50 transition-colors" data-lang-key="privacyLink">隱私權政策</a></p>
-  </footer>
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。<br>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
 
-  <script src="i18n/core.js"></script>
-  <script>
-  (function () {
-    function applyLang(lang) {
-      VASCore.loadLang(lang, function (t) {
-        var merged = Object.assign({}, t.shared || {}, t.guide || {});
-        document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-          var key = el.getAttribute('data-lang-key');
-          if (merged[key] !== undefined) el.innerHTML = merged[key];
-        });
-        var editorImg = document.getElementById('editorImg');
-        if (editorImg) {
-          editorImg.src = lang === 'ja' ? 'img/vas-guide-editor-jp.webp'
-            : lang === 'en' ? 'img/vas-guide-editor-en.webp'
-            : lang === 'cn' ? 'img/vas-guide-editor-zh-CN.png'
-            : 'img/vas-guide-editor-zh.webp';
-          editorImg.alt = lang === 'ja' ? 'VAS エディタ画面の説明図'
-            : lang === 'en' ? 'VAS editor interface diagram'
-            : 'VAS 编辑器界面说明图';
-        }
-        var toolbarImg = document.getElementById('toolbarImg');
-        if (toolbarImg) {
-          toolbarImg.src = lang === 'ja' ? 'img/vastoolbar-jp.webp'
-            : lang === 'en' ? 'img/vastoolbar-en.webp'
-            : lang === 'cn' ? 'img/vastoolbar-zh-CN.png'
-            : 'img/vastoolbar.webp';
-          toolbarImg.alt = lang === 'ja' ? 'VAS キャプチャツールバー'
-            : lang === 'en' ? 'VAS capture toolbar'
-            : 'VAS 浮動工作列';
-        }
-        document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
-        window.currentLang = lang;
-        VASCore.updateDropdown(lang);
-        try { localStorage.setItem('vasLang', lang); } catch (e) {}
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.guide || {});
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
       });
-    }
-    function init() { VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else { init(); }
-  }());
-  </script>
-
-  <script>
-    var currentLang = 'zh'; // kept in sync by applyLang
-    // ── Popup Data ──────────────────────────────────────────────
-    const popupData = {
-      zh: {
-        select: {
-          icon: '↖', title: '選取', shortcut: 'V',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>點選標注物件以選取；點選空白處取消選取</li>
-                <li>空白處拖曳可框選多個物件</li>
-                <li>Shift＋點選可逐一加選／取消物件</li>
-                <li>右鍵選單可調整圖層順序（移到最前／最後／上移／下移）</li>
-                <li>繪製完成後自動切回選取工具</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">選取單一物件時</p>
-              <p class="text-white/55 text-xs leading-relaxed">顯示該物件的所有子屬性（依物件類型而定），包含顏色、線寬、透明度、大小、陰影等屬性。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">智慧對齊（磁吸）</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li><span class="font-mono text-purple-300">\\</span> 快速切換磁吸開關</li>
-                <li>藍色線：物件邊緣／中心對齊提示線</li>
-                <li>紅色線：等距參考線，顯示物件間距是否相等</li>
-                <li>Alt＋拖曳：暫時跳過磁吸，自由放置物件</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">選取複數物件時（多選模式）</p>
-              <p class="text-white/40 text-xs mb-2">顯示對齊工具列：</p>
-              <div class="modal-align-grid">
-                ${[['齊左','對齊最左邊物件的左緣'],['水中','水平置中'],['齊右','對齊最右邊物件的右緣'],['齊上','對齊最上方物件的上緣'],['垂中','垂直置中'],['齊下','對齊最下方物件的下緣'],['水均','水平均分間距'],['垂均','垂直均分間距'],['對齊中線','對齊畫布中心線'],['↔','水平鏡射'],['↕','垂直鏡射']].map(([k,v])=>`<div class="modal-align-row"><span class="text-purple-300 font-semibold text-xs w-14 shrink-0">${k}</span><span class="text-white/40 text-xs">${v}</span></div>`).join('')}
-              </div>
-            </div>`
-        },
-        boxselect: {
-          icon: '⬚', title: '框型選取', shortcut: 'M',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳框選像素區域</li>
-                <li>框選後可將該範圍的圖片內容複製貼上，成為新的物件</li>
-              </ul>
-            </div>`
-        },
-        pen: {
-          icon: '✒', title: '筆型', shortcut: 'P',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">在畫布上拖曳自由手繪平滑曲線。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['顏色','線寬（px）','線條樣式（實線／虛線）','端點樣式（無／箭頭／圓點／方形）','筆畫描邊色','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        line: {
-          icon: '╱', title: '線條', shortcut: 'L',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳繪製直線；Shift＋拖曳鎖定 90° 直角</li>
-                <li>選取後拖曳中間控制點可轉為貝茲曲線</li>
-                <li>折線模式下，雙擊結束繪製</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['顏色','線寬','線條樣式（實線／虛線）','起端樣式（無／箭頭／圓點）','末端樣式（無／箭頭／圓點）','直角折線模式','水平鏡射','垂直鏡射','筆畫描邊色','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        rect: {
-          icon: '▭', title: '矩形框', shortcut: 'R',
-          body: `
-            <div>
-              <p class="modal-section-label">形狀</p>
-              <div class="flex flex-wrap">
-                ${['矩形框','橢圓框'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳繪製外框</li>
-                <li>Shift＋拖曳鎖定正方形／圓形（橢圓框同樣支援）</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['顏色','線寬','圓角半徑（矩形適用，0–100%）','線條樣式（實線／虛線）','描邊色','位移','水平鏡射','垂直鏡射','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        fillrect: {
-          icon: '■', title: '色塊', shortcut: 'B',
-          body: `
-            <div>
-              <p class="modal-section-label">形狀</p>
-              <div class="flex flex-wrap">
-                ${['矩形色塊','橢圓色塊'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳繪製填色形狀</li>
-                <li>Shift＋拖曳鎖定正方形／圓形</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['填色（純色／漸層）','漸層兩端顏色','漸層角度轉盤（0–360°）','支援透明色','圓角半徑（矩形適用，0–100%）','邊框寬度','邊框顏色','線條樣式（實線／虛線）','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        text: {
-          icon: 'T', title: '文字', shortcut: 'T',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>點選畫布放置文字框</li>
-                <li>Enter 換行；Shift＋Enter 確認</li>
-                <li>雙擊已有文字可重新編輯</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['顏色','字型','字級（8–400 px）','粗體 / 斜體 / 底線 / 刪除線','對齊（左／中／右）','文字描邊（可輸入數值，提供快捷下拉）','文字背景色＋透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        number: {
-          icon: '①', title: '編號', shortcut: 'N',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">點選畫布放置自動遞增數字標記。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['尺寸（小／標準／大）','顏色','樣式（圓點／圓圈／實心圓／羅馬數字／中文圓括號／中文圓圈）','描邊粗細','描邊顏色','陰影','重置編號'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        stamp: {
-          icon: '☺', title: '符號印章', shortcut: 'U',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">點選畫布放置符號；從浮動面板挑選符號類別與圖案。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">符號分類</p>
-              <div class="flex flex-wrap">
-                ${['形狀','字母（圓圈體／全形／粗體／粗斜體／花體）','箭頭','其他（標記／貨幣／數學／技術符號）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['顏色','大小（px）','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        mosaic: {
-          icon: '⬜', title: '馬賽克／模糊', shortcut: 'X',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳框選區域，立即套用遮蔽效果</li>
-                <li>套用後可切換至選取工具調整範圍大小或刪除物件，以補償自動辨識遮蔽的不足</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['模式（馬賽克／模糊）','馬賽克區塊尺寸（4 / 8 / 16 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        ocr: {
-          icon: '文', title: 'OCR 文字辨識', shortcut: 'G',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳選取區域，自動辨識範圍內的文字（支援中英文）</li>
-                <li>辨識結果顯示於浮動面板，提供「複製文字」按鈕</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <p class="text-white/40 text-xs">無可調屬性</p>
-            </div>`
-        },
-        privacy: {
-          icon: '文', title: '隱私遮蔽', shortcut: 'K', strikeIcon: true,
-          body: `
-            <div class="modal-tauri-notice"><span class="badge-all" style="flex-shrink:0;font-size:0.6rem;padding:2px 8px;border-radius:999px;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);color:rgba(134,239,172,0.9);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">全版本</span><span class="text-white/50 text-xs" style="margin-left:6px;">Electron 使用 Vision Framework，Tauri 另支援五層偵測（含日文）</span></div>
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>按 K 對全圖掃描；或拖曳指定範圍後掃描</li>
-                <li>自動偵測並遮蔽：身分證字號、統一編號、信用卡號、電話、Email、IPv4／IPv6、API Token 等</li>
-                <li>套用後可切換至選取工具微調或刪除遮蔽物件</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['模式（馬賽克／模糊）','馬賽克區塊尺寸（8 / 16 / 24 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        zoomin: {
-          icon: '⊕', title: '放大', shortcut: '⌘=',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">以游標為中心放大畫面，範圍 10%–400%。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">縮放比例快捷選單</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">畫布導航</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋拖曳：平移畫布</li>
-                <li>觸控板雙指縮放：以游標為中心縮放</li>
-                <li>⌘0：重置至適合視窗大小</li>
-              </ul>
-            </div>`
-        },
-        zoomout: {
-          icon: '⊖', title: '縮小', shortcut: '⌘-',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">以游標為中心縮小畫面，範圍 10%–400%。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">縮放比例快捷選單</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">畫布導航</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋拖曳：平移畫布</li>
-                <li>觸控板雙指縮放：以游標為中心縮放</li>
-                <li>⌘0：重置至適合視窗大小</li>
-              </ul>
-            </div>`
-        },
-        fit: {
-          icon: '⊡', title: '適合視窗', shortcut: '⌘0',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">按下後立即將畫面縮放至 100% 並 fit 視窗。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">畫布導航</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋拖曳：平移畫布</li>
-                <li>觸控板雙指縮放：以游標為中心縮放</li>
-              </ul>
-            </div>`
-        },
-        crop: {
-          icon: '✂', title: '裁切', shortcut: 'C',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳建立裁切框，8 個控制點可調整範圍</li>
-                <li>方向鍵微調 1 px；Shift＋方向鍵 10 px</li>
-                <li>雙擊畫布或點選確認按鈕完成裁切</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['確認裁切按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        resize: {
-          icon: '↔', title: '調整大小', shortcut: 'S',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>開啟 popup 視窗，輸入目標寬度</li>
-                <li>高度依比例自動計算，所有標注物件同步等比縮放</li>
-                <li>範圍：1–8192 px</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['寬度輸入（px）','高度（唯讀，自動計算）','套用按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        extend: {
-          icon: '⊞', title: '延伸畫布', shortcut: 'E',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>開啟 popup 視窗，選擇延伸方向（九宮格方向盤）</li>
-                <li>輸入延伸距離（px），背景固定白色</li>
-                <li>視窗下方顯示延伸後的尺寸預覽</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['延伸方向（九方向）','延伸距離（px）','延伸後尺寸預覽','確認延伸按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        overlay: {
-          icon: '⧉', title: '疊入圖片', shortcut: 'O',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>點選後開啟檔案選擇器，選取圖片疊加於畫布上</li>
-                <li>可拖曳移動位置，8 個控制點縮放</li>
-                <li>作為浮動物件持續存在，拖曳匯出時自動合併至底圖</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">支援格式</p>
-              <div class="flex flex-wrap">
-                ${['JPG','PNG','WebP','GIF（第一幀）','SVG'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        template: {
-          icon: '◱', title: '一鍵套版', shortcut: '—',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>開啟模板面板，選擇漸層背景樣式套用</li>
-                <li>提供 6 款：Apple 紅／橙／黃／綠／藍／紫</li>
-                <li>支援撤銷還原</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">屬性</p>
-              <div class="flex flex-wrap">
-                ${['留白（2–30%）','圓角（0–10）','陰影（0–10）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">社群媒體尺寸預設</p>
-              <div class="flex flex-wrap">
-                ${['LinkedIn（1200×627）','Instagram 1:1（1080×1080）','Instagram 4:5（1080×1350）','X（1600×900）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        undoredo: {
-          icon: '↩↪', title: '撤銷 ／ 重做', shortcut: '⌘Z ／ ⌘⇧Z',
-          body: `
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘Z</span>
-                <span class="text-white/55 text-xs">撤銷：回到上一步操作</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘⇧Z</span>
-                <span class="text-white/55 text-xs">重做：重做已撤銷的操作</span>
-              </div>
-            </div>`
-        }
-      },
-
-      en: {
-        select: {
-          icon: '↖', title: 'Select', shortcut: 'V',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Click an annotation to select it; click empty area to deselect</li>
-                <li>Drag on empty canvas to lasso-select multiple objects</li>
-                <li>Shift-click to add or remove objects from selection</li>
-                <li>Right-click to reorder layers (bring to front / send to back / move up / down)</li>
-                <li>After drawing, the tool auto-switches back to Select</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Single selection</p>
-              <p class="text-white/55 text-xs leading-relaxed">Shows all sub-properties of the selected object (varies by type): colour, stroke width, opacity, size, shadow, and more.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Smart Alignment (Snapping)</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li><span class="font-mono text-purple-300">\\</span> toggles snapping on / off</li>
-                <li>Blue lines: edge / centre alignment guides</li>
-                <li>Red lines: equal-distance guides showing uniform spacing</li>
-                <li>Alt + drag: temporarily bypass snapping for free placement</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Multi-selection</p>
-              <p class="text-white/40 text-xs mb-2">Displays the alignment toolbar:</p>
-              <div class="modal-align-grid">
-                ${[['Align L','Align to leftmost object'],['Center H','Horizontal centre'],['Align R','Align to rightmost object'],['Align T','Align to topmost object'],['Center V','Vertical centre'],['Align B','Align to bottommost object'],['Distrib H','Distribute horizontally'],['Distrib V','Distribute vertically'],['To Centre','Align to canvas centre'],['↔','Flip horizontal'],['↕','Flip vertical']].map(([k,v])=>`<div class="modal-align-row"><span class="text-purple-300 font-semibold text-xs w-20 shrink-0">${k}</span><span class="text-white/40 text-xs">${v}</span></div>`).join('')}
-              </div>
-            </div>`
-        },
-        boxselect: {
-          icon: '⬚', title: 'Box Select', shortcut: 'M',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to select a pixel region</li>
-                <li>Copy and paste the selected area as a new object</li>
-              </ul>
-            </div>`
-        },
-        pen: {
-          icon: '✒', title: 'Pen', shortcut: 'P',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Drag on the canvas to draw smooth freehand curves.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Colour','Stroke width (px)','Line style (solid / dashed)','Endpoint style (none / arrow / dot / square)','Stroke border colour','Opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        line: {
-          icon: '╱', title: 'Line', shortcut: 'L',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to draw a straight line; Shift-drag to snap to 90°</li>
-                <li>Drag the midpoint handle on a selected line to create a Bézier curve</li>
-                <li>In polyline mode, double-click to finish drawing</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Colour','Stroke width','Line style (solid / dashed)','Start endpoint (none / arrow / dot)','End endpoint (none / arrow / dot)','Right-angle mode','Flip horizontal','Flip vertical','Stroke border colour','Opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        rect: {
-          icon: '▭', title: 'Rectangle', shortcut: 'R',
-          body: `
-            <div>
-              <p class="modal-section-label">Shape</p>
-              <div class="flex flex-wrap">
-                ${['Rectangle','Ellipse'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to draw an outline shape</li>
-                <li>Shift-drag to lock to square / circle (ellipse mode also supported)</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Colour','Stroke width','Corner radius (rectangle only, 0–100%)','Line style (solid / dashed)','Border colour','Offset','Flip horizontal','Flip vertical','Opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        fillrect: {
-          icon: '■', title: 'Fill Shape', shortcut: 'B',
-          body: `
-            <div>
-              <p class="modal-section-label">Shape</p>
-              <div class="flex flex-wrap">
-                ${['Rectangle fill','Ellipse fill'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to draw a filled shape</li>
-                <li>Shift-drag to lock to square / circle</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Fill (solid / gradient)','Gradient colours (A & B)','Gradient angle dial (0–360°)','Transparent colour support','Corner radius (rectangle only, 0–100%)','Border width','Border colour','Line style (solid / dashed)','Opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        text: {
-          icon: 'T', title: 'Text', shortcut: 'T',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Click canvas to place a text box</li>
-                <li>Enter for new line; Shift-Enter to confirm</li>
-                <li>Double-click existing text to re-edit</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Colour','Font','Size (8–400 px)','Bold / Italic / Underline / Strikethrough','Alignment (L / C / R)','Text stroke (custom value with quick dropdown)','Text background colour + opacity','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        number: {
-          icon: '①', title: 'Number', shortcut: 'N',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Click canvas to place an auto-incrementing number marker.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Size (small / standard / large)','Colour','Style (dot / circle / filled circle / Roman / CJK paren / CJK circle)','Stroke width','Stroke colour','Shadow','Reset counter'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        stamp: {
-          icon: '☺', title: 'Symbol Stamp', shortcut: 'U',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Click canvas to place a symbol; choose category and glyph from the floating panel.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Categories</p>
-              <div class="flex flex-wrap">
-                ${['Shapes','Letters (circle / full-width / bold / bold-italic / script)','Arrows','Other (marks / currency / math / technical)'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Colour','Size (px)','Shadow'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        mosaic: {
-          icon: '⬜', title: 'Mosaic / Blur', shortcut: 'X',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to select an area — effect is applied immediately</li>
-                <li>After applying, switch to Select to resize or delete the mask object to refine automatic redaction</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Mode (mosaic / blur)','Mosaic block size (4 / 8 / 16 / 32 px)','Blur radius (4 / 8 / 16 / 24 px)'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        ocr: {
-          icon: '文', title: 'OCR', shortcut: 'G',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to select a region — text is recognised automatically (Chinese & English supported)</li>
-                <li>Results appear in a floating panel with a "Copy Text" button</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <p class="text-white/40 text-xs">No adjustable properties</p>
-            </div>`
-        },
-        privacy: {
-          icon: '文', title: 'Privacy Mask', shortcut: 'K', strikeIcon: true,
-          body: `
-            <div class="modal-tauri-notice"><span class="badge-all" style="flex-shrink:0;font-size:0.6rem;padding:2px 8px;border-radius:999px;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);color:rgba(134,239,172,0.9);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">All Versions</span><span class="text-white/50 text-xs" style="margin-left:6px;">Electron uses Vision Framework; Tauri adds 5-layer detection (incl. Japanese)</span></div>
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Press K to scan the full image, or drag to scan a specific region</li>
-                <li>Auto-detects and masks: National ID, Tax ID, credit card numbers, phone numbers, Email, IPv4 / IPv6, API tokens, and more</li>
-                <li>Switch to Select after scanning to fine-tune or delete mask objects</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Mode (mosaic / blur)','Mosaic block size (8 / 16 / 24 / 32 px)','Blur radius (4 / 8 / 16 / 24 px)'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        zoomin: {
-          icon: '⊕', title: 'Zoom In', shortcut: '⌘=',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Zoom in centred on the cursor. Range: 10%–400%.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Quick zoom presets</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">Canvas Navigation</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space + drag: pan the canvas</li>
-                <li>Trackpad pinch: zoom centred on cursor</li>
-                <li>⌘0: reset to fit window</li>
-              </ul>
-            </div>`
-        },
-        zoomout: {
-          icon: '⊖', title: 'Zoom Out', shortcut: '⌘-',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Zoom out centred on the cursor. Range: 10%–400%.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Quick zoom presets</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">Canvas Navigation</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space + drag: pan the canvas</li>
-                <li>Trackpad pinch: zoom centred on cursor</li>
-                <li>⌘0: reset to fit window</li>
-              </ul>
-            </div>`
-        },
-        fit: {
-          icon: '⊡', title: 'Fit to Window', shortcut: '⌘0',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <p class="text-white/55 text-xs leading-relaxed">Instantly resets the canvas to 100% and fits it to the window.</p>
-            </div>
-            <div>
-              <p class="modal-section-label">Canvas Navigation</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space + drag: pan the canvas</li>
-                <li>Trackpad pinch: zoom centred on cursor</li>
-              </ul>
-            </div>`
-        },
-        crop: {
-          icon: '✂', title: 'Crop', shortcut: 'C',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Drag to create a crop frame with 8 adjustment handles</li>
-                <li>Arrow keys nudge 1 px; Shift-arrows nudge 10 px</li>
-                <li>Double-click or click the confirm button to apply</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Confirm button','Cancel button'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        resize: {
-          icon: '↔', title: 'Resize', shortcut: 'S',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Opens a popup — enter the target width</li>
-                <li>Height is calculated automatically; all annotations scale proportionally</li>
-                <li>Range: 1–8192 px</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Width (px)','Height (read-only, auto)','Apply button','Cancel button'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        extend: {
-          icon: '⊞', title: 'Extend Canvas', shortcut: 'E',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Opens a popup — choose direction from the 9-point pad</li>
-                <li>Enter the extension distance (px); background is fixed white</li>
-                <li>Result dimensions are shown at the bottom of the popup</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Direction (9 options)','Distance (px)','Result size preview','Confirm button','Cancel button'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        overlay: {
-          icon: '⧉', title: 'Overlay Image', shortcut: 'O',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Opens a file picker to place an image on the canvas</li>
-                <li>Drag to reposition; 8-handle resize</li>
-                <li>Stays as a floating object — merges into the base image on export</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Supported formats</p>
-              <div class="flex flex-wrap">
-                ${['JPG','PNG','WebP','GIF (first frame)','SVG'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        template: {
-          icon: '◱', title: 'One-click Template', shortcut: '—',
-          body: `
-            <div>
-              <p class="modal-section-label">How to use</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Opens the template panel — click a gradient style to apply</li>
-                <li>6 gradients: Red / Orange / Yellow / Green / Blue / Purple</li>
-                <li>Supports undo</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">Properties</p>
-              <div class="flex flex-wrap">
-                ${['Padding (2–30%)','Corner radius (0–10)','Shadow (0–10)'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">Social media size presets</p>
-              <div class="flex flex-wrap">
-                ${['LinkedIn (1200×627)','Instagram 1:1 (1080×1080)','Instagram 4:5 (1080×1350)','X (1600×900)'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        undoredo: {
-          icon: '↩↪', title: 'Undo / Redo', shortcut: '⌘Z / ⌘⇧Z',
-          body: `
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘Z</span>
-                <span class="text-white/55 text-xs">Undo: revert to previous step</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘⇧Z</span>
-                <span class="text-white/55 text-xs">Redo: restore the undone action</span>
-              </div>
-            </div>`
-        }
-      },
-      ja: {
-        select: {
-          icon: '↖', title: '選択', shortcut: 'V',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>注釈をクリックして選択；空白エリアをクリックで選択解除</li>
-                <li>空白キャンバスをドラッグして複数オブジェクトをまとめて選択</li>
-                <li>Shift クリックで選択に追加／解除</li>
-                <li>右クリックメニューでレイヤー順序を変更（最前面 / 最背面 / 上へ / 下へ）</li>
-                <li>描画完了後、選択ツールに自動切替</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">単一選択</p>
-              <p class="text-white/55 text-xs leading-relaxed">選択したオブジェクトのサブプロパティをすべて表示（種類によって異なります）：色・線幅・不透明度・サイズ・シャドウなど。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">スマート整列（スナップ）</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li><span class="font-mono text-purple-300">\\</span> スナップのオン/オフを切替</li>
-                <li>青い線：エッジ / 中心の整列ガイド</li>
-                <li>赤い線：等間隔ガイド（均等な間隔を表示）</li>
-                <li>Alt＋ドラッグ：一時的にスナップを無効にして自由配置</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">複数選択</p>
-              <p class="text-white/40 text-xs mb-2">整列ツールバーを表示：</p>
-              <div class="modal-align-grid">
-                ${[['左揃え','最も左のオブジェクトの左端に揃える'],['中央H','水平中央揃え'],['右揃え','最も右のオブジェクトの右端に揃える'],['上揃え','最も上のオブジェクトの上端に揃える'],['中央V','垂直中央揃え'],['下揃え','最も下のオブジェクトの下端に揃える'],['均等H','水平方向に均等配置'],['均等V','垂直方向に均等配置'],['中心線','キャンバス中心線に揃える'],['↔','水平ミラー'],['↕','垂直ミラー']].map(([k,v])=>`<div class="modal-align-row"><span class="text-purple-300 font-semibold text-xs w-16 shrink-0">${k}</span><span class="text-white/40 text-xs">${v}</span></div>`).join('')}
-              </div>
-            </div>`
-        },
-        boxselect: {
-          icon: '⬚', title: '範囲選択', shortcut: 'M',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグして画素範囲を選択</li>
-                <li>選択範囲をコピー＆ペーストして新しいオブジェクトとして配置</li>
-              </ul>
-            </div>`
-        },
-        pen: {
-          icon: '✒', title: 'ペン', shortcut: 'P',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">キャンバス上をドラッグしてなめらかなフリーハンド曲線を描きます。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['色','線幅 (px)','線スタイル（実線 / 破線）','端点スタイル（なし / 矢印 / 点 / 四角）','アウトライン色','不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        line: {
-          icon: '╱', title: '線条', shortcut: 'L',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグで直線を描画；Shift ドラッグで90°スナップ</li>
-                <li>選択した線の中点ハンドルをドラッグしてベジェ曲線に変換</li>
-                <li>折れ線モードではダブルクリックで描画を完了</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['色','線幅','線スタイル（実線 / 破線）','始点スタイル（なし / 矢印 / 点）','終点スタイル（なし / 矢印 / 点）','直角モード','水平ミラー','垂直ミラー','アウトライン色','不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        rect: {
-          icon: '▭', title: '矩形', shortcut: 'R',
-          body: `
-            <div>
-              <p class="modal-section-label">シェイプ</p>
-              <div class="flex flex-wrap">
-                ${['矩形','楕円'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグして枠線シェイプを描画</li>
-                <li>Shift ドラッグで正方形 / 正円に固定（楕円モードも対応）</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['色','線幅','角丸（矩形のみ、0–100%）','線スタイル（実線 / 破線）','枠色','オフセット','水平ミラー','垂直ミラー','不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        fillrect: {
-          icon: '■', title: '塗りつぶし', shortcut: 'B',
-          body: `
-            <div>
-              <p class="modal-section-label">シェイプ</p>
-              <div class="flex flex-wrap">
-                ${['矩形塗りつぶし','楕円塗りつぶし'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグして塗りつぶしシェイプを描画</li>
-                <li>Shift ドラッグで正方形 / 正円に固定</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['塗り（単色 / グラデーション）','グラデーション色（A・B）','グラデーション角度ダイヤル（0–360°）','透明色サポート','角丸（矩形のみ、0–100%）','枠線幅','枠線色','線スタイル（実線 / 破線）','不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        text: {
-          icon: 'T', title: 'テキスト', shortcut: 'T',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>キャンバスをクリックしてテキストボックスを配置</li>
-                <li>Enter で改行；Shift-Enter で確定</li>
-                <li>既存のテキストをダブルクリックして再編集</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['色','フォント','サイズ（8–400 px）','太字 / 斜体 / 下線 / 取り消し線','揃え（左 / 中 / 右）','テキストアウトライン（クイックドロップダウン付き）','テキスト背景色＋不透明度','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        number: {
-          icon: '①', title: '番号', shortcut: 'N',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">キャンバスをクリックして自動連番マーカーを配置します。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['サイズ（小 / 標準 / 大）','色','スタイル（点 / 丸 / 塗り丸 / ローマ数字 / CJK括弧 / CJK丸数字）','線幅','線色','シャドウ','カウンターリセット'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        stamp: {
-          icon: '☺', title: 'シンボルスタンプ', shortcut: 'U',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">キャンバスをクリックしてシンボルを配置；フローティングパネルでカテゴリとグリフを選択します。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">カテゴリ</p>
-              <div class="flex flex-wrap">
-                ${['シェイプ','文字（丸囲み / 全角 / 太字 / 太字斜体 / スクリプト）','矢印','その他（記号 / 通貨 / 数学 / テクニカル）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['色','サイズ (px)','シャドウ'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        mosaic: {
-          icon: '⬜', title: 'モザイク / ぼかし', shortcut: 'X',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグして範囲を指定——エフェクトが即時適用されます</li>
-                <li>適用後は選択ツールに切り替えてマスクオブジェクトのリサイズ・削除で微調整できます</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['モード（モザイク / ぼかし）','モザイクブロックサイズ（4 / 8 / 16 / 32 px）','ぼかし半径（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        ocr: {
-          icon: '文', title: 'OCR', shortcut: 'G',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグして範囲を指定——テキストが自動認識されます（中国語・英語・日本語対応）</li>
-                <li>結果はフローティングパネルに表示され、「テキストをコピー」ボタンで取得できます</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <p class="text-white/40 text-xs">調整可能なプロパティはありません</p>
-            </div>`
-        },
-        privacy: {
-          icon: '文', title: 'プライバシー遮蔽', shortcut: 'K', strikeIcon: true,
-          body: `
-            <div class="modal-tauri-notice"><span class="badge-all" style="flex-shrink:0;font-size:0.6rem;padding:2px 8px;border-radius:999px;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);color:rgba(134,239,172,0.9);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">全バージョン</span><span class="text-white/50 text-xs" style="margin-left:6px;">Electron は Vision Framework を使用；Tauri は5層検出（日本語含む）を追加</span></div>
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>K キーで画像全体をスキャン、またはドラッグで範囲を指定</li>
-                <li>自動検出・遮蔽：マイナンバー・法人番号・クレジットカード番号・電話番号・メール・IPv4/IPv6・API トークンなど</li>
-                <li>スキャン後は選択ツールに切り替えてマスクオブジェクトを微調整・削除できます</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['モード（モザイク / ぼかし）','モザイクブロックサイズ（8 / 16 / 24 / 32 px）','ぼかし半径（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        zoomin: {
-          icon: '⊕', title: '拡大', shortcut: '⌘=',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">カーソルを中心に拡大します。範囲：10%〜400%。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">クイックズームプリセット</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">キャンバスナビゲーション</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋ドラッグ：キャンバスをパン</li>
-                <li>トラックパッドピンチ：カーソル中心にズーム</li>
-                <li>⌘0：ウィンドウに合わせてリセット</li>
-              </ul>
-            </div>`
-        },
-        zoomout: {
-          icon: '⊖', title: '縮小', shortcut: '⌘-',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">カーソルを中心に縮小します。範囲：10%〜400%。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">クイックズームプリセット</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">キャンバスナビゲーション</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋ドラッグ：キャンバスをパン</li>
-                <li>トラックパッドピンチ：カーソル中心にズーム</li>
-                <li>⌘0：ウィンドウに合わせてリセット</li>
-              </ul>
-            </div>`
-        },
-        fit: {
-          icon: '⊡', title: 'ウィンドウに合わせる', shortcut: '⌘0',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <p class="text-white/55 text-xs leading-relaxed">キャンバスを100%にリセットし、ウィンドウサイズにフィットさせます。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">キャンバスナビゲーション</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋ドラッグ：キャンバスをパン</li>
-                <li>トラックパッドピンチ：カーソル中心にズーム</li>
-              </ul>
-            </div>`
-        },
-        crop: {
-          icon: '✂', title: 'トリミング', shortcut: 'C',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ドラッグして8ハンドル付きのトリム枠を作成</li>
-                <li>矢印キーで1px単位；Shift＋矢印で10px単位の微調整</li>
-                <li>ダブルクリックまたは確定ボタンで適用</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['確定ボタン','キャンセルボタン'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        resize: {
-          icon: '↔', title: 'サイズ変更', shortcut: 'S',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ポップアップが開きます——目的の幅を入力</li>
-                <li>高さは自動計算；すべての注釈が比例スケール</li>
-                <li>範囲：1〜8192 px</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['幅 (px)','高さ（読み取り専用、自動）','適用ボタン','キャンセルボタン'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        extend: {
-          icon: '⊞', title: 'キャンバス拡張', shortcut: 'E',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ポップアップが開きます——9点パッドで方向を選択</li>
-                <li>拡張距離 (px) を入力；背景は白で固定</li>
-                <li>結果のサイズはポップアップ下部に表示されます</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['方向（9種）','距離 (px)','結果サイズプレビュー','確定ボタン','キャンセルボタン'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        overlay: {
-          icon: '⧉', title: '画像オーバーレイ', shortcut: 'O',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>ファイルピッカーが開き、キャンバスに画像を配置</li>
-                <li>ドラッグで位置変更；8ハンドルでリサイズ</li>
-                <li>フローティングオブジェクトとして保持——書き出し時にベース画像に結合</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">対応フォーマット</p>
-              <div class="flex flex-wrap">
-                ${['JPG','PNG','WebP','GIF（最初のフレーム）','SVG'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        template: {
-          icon: '◱', title: 'ワンクリックテンプレート', shortcut: '—',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方法</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>テンプレートパネルが開きます——グラデーションスタイルをクリックして適用</li>
-                <li>6種：赤 / オレンジ / 黄 / 緑 / 青 / 紫</li>
-                <li>元に戻す対応</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">プロパティ</p>
-              <div class="flex flex-wrap">
-                ${['パディング（2〜30%）','角丸（0〜10）','シャドウ（0〜10）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">SNS サイズプリセット</p>
-              <div class="flex flex-wrap">
-                ${['LinkedIn (1200×627)','Instagram 1:1 (1080×1080)','Instagram 4:5 (1080×1350)','X (1600×900)'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        undoredo: {
-          icon: '↩↪', title: '元に戻す / やり直し', shortcut: '⌘Z / ⌘⇧Z',
-          body: `
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘Z</span>
-                <span class="text-white/55 text-xs">元に戻す：ひとつ前の状態に戻る</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘⇧Z</span>
-                <span class="text-white/55 text-xs">やり直し：取り消した操作を復元する</span>
-              </div>
-            </div>`
-        }
-      },
-
-      cn: {
-        select: {
-          icon: '↖', title: '选取', shortcut: 'V',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>点选标注对象以选取；点选空白处取消选取</li>
-                <li>空白处拖曳可框选多个对象</li>
-                <li>Shift＋点选可逐一加选／取消对象</li>
-                <li>右键选单可调整图层顺序（移到最前／最后／上移／下移）</li>
-                <li>绘制完成后自动切回选取工具</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">选取单一对象时</p>
-              <p class="text-white/55 text-xs leading-relaxed">显示该对象的所有子属性（依对象类型而定），包含颜色、线宽、透明度、大小、阴影等属性。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">智慧对齐（磁吸）</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li><span class="font-mono text-purple-300">\\</span> 快速切换磁吸开关</li>
-                <li>蓝色线：对象边缘／中心对齐提示线</li>
-                <li>红色线：等距参考线，显示对象间距是否相等</li>
-                <li>Alt＋拖曳：暂时跳过磁吸，自由放置对象</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">选取多个对象时（多选模式）</p>
-              <p class="text-white/40 text-xs mb-2">显示对齐工具栏：</p>
-              <div class="modal-align-grid">
-                ${[['齐左','对齐最左边对象的左缘'],['水中','水平置中'],['齐右','对齐最右边对象的右缘'],['齐上','对齐最上方对象的上缘'],['垂中','垂直置中'],['齐下','对齐最下方对象的下缘'],['水均','水平均等间距'],['垂均','垂直均等间距'],['对齐中线','对齐画布中心线'],['↔','水平镜像'],['↕','垂直镜像']].map(([k,v])=>`<div class="modal-align-row"><span class="text-purple-300 font-semibold text-xs w-14 shrink-0">${k}</span><span class="text-white/40 text-xs">${v}</span></div>`).join('')}
-              </div>
-            </div>`
-        },
-        boxselect: {
-          icon: '⬚', title: '框型选取', shortcut: 'M',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳框选像素区域</li>
-                <li>框选后可将该范围的图片内容复制粘贴，成为新的对象</li>
-              </ul>
-            </div>`
-        },
-        pen: {
-          icon: '✒', title: '笔型', shortcut: 'P',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">在画布上拖曳自由手绘平滑曲线。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['颜色','线宽（px）','线条样式（实线／虚线）','端点样式（无／箭头／圆点／方形）','笔画描边色','透明度','阴影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        line: {
-          icon: '╱', title: '线条', shortcut: 'L',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳绘制直线；Shift＋拖曳锁定 90° 直角</li>
-                <li>选取后拖曳中间控制点可转为贝兹曲线</li>
-                <li>折线模式下，双击结束绘制</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['颜色','线宽','线条样式（实线／虚线）','起端样式（无／箭头／圆点）','末端样式（无／箭头／圆点）','直角折线模式','水平镜像','垂直镜像','笔画描边色','透明度','阴影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        rect: {
-          icon: '▭', title: '矩形框', shortcut: 'R',
-          body: `
-            <div>
-              <p class="modal-section-label">形状</p>
-              <div class="flex flex-wrap">
-                ${['矩形框','椭圆框'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳绘制外框</li>
-                <li>Shift＋拖曳锁定正方形／圆形（椭圆框同样支持）</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['颜色','线宽','圆角半径（矩形适用，0–100%）','线条样式（实线／虚线）','描边色','位移','水平镜像','垂直镜像','透明度','阴影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        fillrect: {
-          icon: '■', title: '色块', shortcut: 'B',
-          body: `
-            <div>
-              <p class="modal-section-label">形状</p>
-              <div class="flex flex-wrap">
-                ${['矩形色块','椭圆色块'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳绘制填色形状</li>
-                <li>Shift＋拖曳锁定正方形／圆形</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['填色（纯色／渐变）','渐变两端颜色','渐变角度转盘（0–360°）','支持透明色','圆角半径（矩形适用，0–100%）','边框宽度','边框颜色','线条样式（实线／虚线）','透明度','阴影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        text: {
-          icon: 'T', title: '文字', shortcut: 'T',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>点选画布放置文字框</li>
-                <li>Enter 换行；Shift＋Enter 确认</li>
-                <li>双击已有文字可重新编辑</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['颜色','字体','字号（8–400 px）','粗体 / 斜体 / 下划线 / 删除线','对齐（左／中／右）','文字描边（可输入数值，提供快捷下拉）','文字背景色＋透明度','阴影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        number: {
-          icon: '①', title: '编号', shortcut: 'N',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">点击画布放置自动递增数字标记。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['尺寸（小／标准／大）','颜色','样式（圆点／圆圈／实心圆／罗马数字／中文圆括号／中文圆圈）','描边粗细','描边颜色','阴影','重置编号'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        stamp: {
-          icon: '☺', title: '符号印章', shortcut: 'U',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">点击画布放置符号；从浮动面板选择符号类别与图案。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">符号分类</p>
-              <div class="flex flex-wrap">
-                ${['形状','字母（圆圈体／全形／粗体／粗斜体／花体）','箭头','其他（标记／货币／数学／技术符号）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['颜色','大小（px）','阴影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        mosaic: {
-          icon: '⬜', title: '马赛克／模糊', shortcut: 'X',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳框选区域，立即套用遮蔽效果</li>
-                <li>套用后可切换至选取工具调整范围大小或删除对象，以补偿自动识别遮蔽的不足</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['模式（马赛克／模糊）','马赛克区块尺寸（4 / 8 / 16 / 32 px）','模糊半径（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        ocr: {
-          icon: '文', title: 'OCR 文字识别', shortcut: 'G',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳选取区域，自动识别范围内的文字（支持中英文）</li>
-                <li>识别结果显示于浮动面板，提供「复制文字」按钮</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <p class="text-white/40 text-xs">无可调属性</p>
-            </div>`
-        },
-        privacy: {
-          icon: '文', title: '隐私遮蔽', shortcut: 'K', strikeIcon: true,
-          body: `
-            <div class="modal-tauri-notice"><span class="badge-all" style="flex-shrink:0;font-size:0.6rem;padding:2px 8px;border-radius:999px;background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);color:rgba(134,239,172,0.9);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">全版本</span><span class="text-white/50 text-xs" style="margin-left:6px;">Electron 使用 Vision Framework，Tauri 另支持五层检测（含日文）</span></div>
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>按 K 对全图扫描；或拖曳指定范围后扫描</li>
-                <li>自动检测并遮蔽：身份证字号、统一编号、信用卡号、电话、Email、IPv4／IPv6、API Token 等</li>
-                <li>套用后可切换至选取工具微调或删除遮蔽对象</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['模式（马赛克／模糊）','马赛克区块尺寸（8 / 16 / 24 / 32 px）','模糊半径（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        zoomin: {
-          icon: '⊕', title: '放大', shortcut: '⌘=',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">以光标为中心放大画面，范围 10%–400%。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">缩放比例快捷选单</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">画布导航</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋拖曳：平移画布</li>
-                <li>触控板双指缩放：以光标为中心缩放</li>
-                <li>⌘0：重置至适合窗口大小</li>
-              </ul>
-            </div>`
-        },
-        zoomout: {
-          icon: '⊖', title: '缩小', shortcut: '⌘-',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">以光标为中心缩小画面，范围 10%–400%。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">缩放比例快捷选单</p>
-              <div class="flex flex-wrap">
-                ${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">画布导航</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋拖曳：平移画布</li>
-                <li>触控板双指缩放：以光标为中心缩放</li>
-                <li>⌘0：重置至适合窗口大小</li>
-              </ul>
-            </div>`
-        },
-        fit: {
-          icon: '⊡', title: '适合窗口', shortcut: '⌘0',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <p class="text-white/55 text-xs leading-relaxed">按下后立即将画面缩放至 100% 并 fit 窗口。</p>
-            </div>
-            <div>
-              <p class="modal-section-label">画布导航</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>Space＋拖曳：平移画布</li>
-                <li>触控板双指缩放：以光标为中心缩放</li>
-              </ul>
-            </div>`
-        },
-        crop: {
-          icon: '✂', title: '裁切', shortcut: 'C',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>拖曳建立裁切框，8 个控制点可调整范围</li>
-                <li>方向键微调 1 px；Shift＋方向键 10 px</li>
-                <li>双击画布或点击确认按钮完成裁切</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['确认裁切按钮','取消按钮'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        resize: {
-          icon: '↔', title: '调整大小', shortcut: 'S',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>打开 popup 窗口，输入目标宽度</li>
-                <li>高度依比例自动计算，所有标注对象同步等比缩放</li>
-                <li>范围：1–8192 px</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['宽度输入（px）','高度（只读，自动计算）','应用按钮','取消按钮'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        extend: {
-          icon: '⊞', title: '延伸画布', shortcut: 'E',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>打开 popup 窗口，选择延伸方向（九宫格方向盘）</li>
-                <li>输入延伸距离（px），背景固定白色</li>
-                <li>窗口下方显示延伸后的尺寸预览</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['延伸方向（九方向）','延伸距离（px）','延伸后尺寸预览','确认延伸按钮','取消按钮'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        overlay: {
-          icon: '⧉', title: '叠入图片', shortcut: 'O',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>点击后打开文件选择器，选取图片叠加于画布上</li>
-                <li>可拖曳移动位置，8 个控制点缩放</li>
-                <li>作为浮动对象持续存在，拖曳导出时自动合并至底图</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">支持格式</p>
-              <div class="flex flex-wrap">
-                ${['JPG','PNG','WebP','GIF（第一帧）','SVG'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        template: {
-          icon: '◱', title: '一键套版', shortcut: '—',
-          body: `
-            <div>
-              <p class="modal-section-label">操作方式</p>
-              <ul class="space-y-1 text-white/55 text-xs leading-relaxed list-disc list-inside">
-                <li>打开模板面板，选择渐变背景样式应用</li>
-                <li>提供 6 款：Apple 红／橙／黄／绿／蓝／紫</li>
-                <li>支持撤销恢复</li>
-              </ul>
-            </div>
-            <div>
-              <p class="modal-section-label">属性</p>
-              <div class="flex flex-wrap">
-                ${['留白（2–30%）','圆角（0–10）','阴影（0–10）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div>
-              <p class="modal-section-label">社交媒体尺寸预设</p>
-              <div class="flex flex-wrap">
-                ${['LinkedIn（1200×627）','Instagram 1:1（1080×1080）','Instagram 4:5（1080×1350）','X（1600×900）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}
-              </div>
-            </div>`
-        },
-        undoredo: {
-          icon: '↩↪', title: '撤销 ／ 重做', shortcut: '⌘Z ／ ⌘⇧Z',
-          body: `
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘Z</span>
-                <span class="text-white/55 text-xs">撤销：回到上一步操作</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="modal-tag font-mono">⌘⇧Z</span>
-                <span class="text-white/55 text-xs">重做：重做已撤销的操作</span>
-              </div>
-            </div>`
-        }
-      }
-    };
-
-    // ── Modal Logic ───────────────────────────────────────────────
-    const modal = document.getElementById('toolModal');
-    const modalClose = document.getElementById('modalClose');
-
-    function openModal(toolKey) {
-      const lang = currentLang;
-      const data = popupData[lang][toolKey];
-      if (!data) return;
-      const iconEl = document.getElementById('modalIcon');
-      iconEl.innerHTML = data.strikeIcon
-        ? `<span style="text-decoration:line-through">${data.icon}</span>`
-        : data.icon;
-      document.getElementById('modalTitle').textContent = data.title;
-      document.getElementById('modalShortcut').textContent = data.shortcut || '';
-      document.getElementById('modalBody').innerHTML = data.body;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      modalClose.focus();
-    }
-
-    function closeModal() {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-    document.querySelectorAll('[data-tool]').forEach(chip => {
-      chip.addEventListener('click', () => openModal(chip.dataset.tool));
-      chip.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(chip.dataset.tool); }
-      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
     });
-
-    // currentLang is kept in sync inside switchLanguage()
-
-    // ── Keyboard Shortcut Accordion ──────────────────────────────
-    document.querySelectorAll('.kbd-acc-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.kbd-acc-item');
-        var isOpen = item.classList.contains('open');
-        item.classList.toggle('open', !isOpen);
-        btn.setAttribute('aria-expanded', String(!isOpen));
-      });
-    });
-  </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "name": "VAS 操作手冊",
-  "headline": "VAS 操作手冊 — Visual Annotation Studio",
-  "description": "VAS 編輯器介面、左側工具列與浮動工作列完整功能說明。",
-  "inLanguage": "zh-Hant",
-  "url": "https://tb1982.github.io/vas/guide.html",
-  "author": {
-    "@type": "Person",
-    "name": "Nova",
-    "email": "babelon1882@gmail.com",
-    "sameAs": [
-      "https://github.com/tb1982",
-      "https://www.linkedin.com/in/yingtzuliu",
-      "https://www.instagram.com/liuyingtzu"
-    ]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Nova"
-  },
-  "about": {
-    "@type": "SoftwareApplication",
-    "name": "VAS — Visual Annotation Studio",
-    "operatingSystem": "macOS",
-    "applicationCategory": "MultimediaApplication"
   }
-}
+  /* Sticky TOC highlight */
+  function initTocHighlight() {
+    var links = document.querySelectorAll('.docs-toc-sticky a');
+    if (!links.length) return;
+    var sections = Array.from(links).map(function (a) {
+      return document.querySelector(a.getAttribute('href'));
+    }).filter(Boolean);
+    function onScroll() {
+      var scroll = window.scrollY + 120;
+      var current = sections[0];
+      sections.forEach(function (s) { if (s.offsetTop <= scroll) current = s; });
+      links.forEach(function (a) {
+        a.classList.toggle('is-current', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  function init() {
+    VASCore.initDropdown(applyLang);
+    initTocHighlight();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
 </script>
+<script>
+(function () {
+  var popupData = {
+    select: {
+      icon: '↖', title: '選取', shortcut: 'V',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>點選標注物件以選取；點選空白處取消選取</li><li>空白處拖曳可框選多個物件</li><li>Shift＋點選可逐一加選／取消物件</li><li>右鍵選單可調整圖層順序（移到最前／最後／上移／下移）</li><li>繪製完成後自動切回選取工具</li></ul></div><div><p class="modal-section-label">選取單一物件時</p><p class="tm-p">顯示該物件的所有子屬性（依物件類型而定），包含顏色、線寬、透明度、大小、陰影等屬性。</p></div><div><p class="modal-section-label">智慧對齊（磁吸）</p><ul class="tm-ul"><li><code>\\</code> 快速切換磁吸開關</li><li>藍色線：物件邊緣／中心對齊提示線</li><li>紅色線：等距參考線，顯示物件間距是否相等</li><li>Alt＋拖曳：暫時跳過磁吸，自由放置物件</li></ul></div><div><p class="modal-section-label">選取複數物件時（多選模式）</p><p class="tm-p-faint" style="margin-bottom:4px;">顯示對齊工具列：</p><div class="modal-align-grid">${[['齊左','對齊最左邊物件的左緣'],['水中','水平置中'],['齊右','對齊最右邊物件的右緣'],['齊上','對齊最上方物件的上緣'],['垂中','垂直置中'],['齊下','對齊最下方物件的下緣'],['水均','水平均分間距'],['垂均','垂直均分間距'],['對齊中線','對齊畫布中心線'],['↔','水平鏡射'],['↕','垂直鏡射']].map(([k,v])=>`<div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">${k}</span><span style="font-size:11px;color:var(--vas-ash-3);">${v}</span></div>`).join('')}</div></div>`
+    },
+    boxselect: {
+      icon: '⬚', title: '框型選取', shortcut: 'M',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框選像素區域</li><li>框選後可將該範圍的圖片內容複製貼上，成為新的物件</li></ul></div>`
+    },
+    pen: {
+      icon: '✒', title: '筆型', shortcut: 'P',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">在畫布上拖曳自由手繪平滑曲線。</p></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','線寬（px）','線條樣式（實線／虛線）','端點樣式（無／箭頭／圓點／方形）','筆畫描邊色','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    line: {
+      icon: '╱', title: '線條', shortcut: 'L',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳繪製直線；Shift＋拖曳鎖定 90° 直角</li><li>選取後拖曳中間控制點可轉為貝茲曲線</li><li>折線模式下，雙擊結束繪製</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','線寬','線條樣式（實線／虛線）','起端樣式（無／箭頭／圓點）','末端樣式（無／箭頭／圓點）','直角折線模式','水平鏡射','垂直鏡射','筆畫描邊色','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    rect: {
+      icon: '▭', title: '矩形框', shortcut: 'R',
+      body: `<div><p class="modal-section-label">形狀</p><div class="tm-tags">${['矩形框','橢圓框'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳繪製外框</li><li>Shift＋拖曳鎖定正方形／圓形（橢圓框同樣支援）</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','線寬','圓角半徑（矩形適用，0–100%）','線條樣式（實線／虛線）','描邊色','位移','水平鏡射','垂直鏡射','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    fillrect: {
+      icon: '■', title: '色塊', shortcut: 'B',
+      body: `<div><p class="modal-section-label">形狀</p><div class="tm-tags">${['矩形色塊','橢圓色塊'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳繪製填色形狀</li><li>Shift＋拖曳鎖定正方形／圓形</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['填色（純色／漸層）','漸層兩端顏色','漸層角度轉盤（0–360°）','支援透明色','圓角半徑（矩形適用，0–100%）','邊框寬度','邊框顏色','線條樣式（實線／虛線）','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    text: {
+      icon: 'T', title: '文字', shortcut: 'T',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>點選畫布放置文字框</li><li>Enter 換行；Shift＋Enter 確認</li><li>雙擊已有文字可重新編輯</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','字型','字級（8–400 px）','粗體 / 斜體 / 底線 / 刪除線','對齊（左／中／右）','文字描邊（可輸入數值，提供快捷下拉）','文字背景色＋透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    number: {
+      icon: '①', title: '編號', shortcut: 'N',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">點選畫布放置自動遞增數字標記。</p></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['尺寸（小／標準／大）','顏色','樣式（圓點／圓圈／實心圓／羅馬數字／中文圓括號／中文圓圈）','描邊粗細','描邊顏色','陰影','重置編號'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    stamp: {
+      icon: '☺', title: '符號印章', shortcut: 'U',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">點選畫布放置符號；從浮動面板挑選符號類別與圖案。</p></div><div><p class="modal-section-label">符號分類</p><div class="tm-tags">${['形狀','字母（圓圈體／全形／粗體／粗斜體／花體）','箭頭','其他（標記／貨幣／數學／技術符號）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','大小（px）','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    mosaic: {
+      icon: '⬜', title: '馬賽克／模糊', shortcut: 'X',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框選區域，立即套用遮蔽效果</li><li>套用後可切換至選取工具調整範圍大小或刪除物件，以補償自動辨識遮蔽的不足</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['模式（馬賽克／模糊）','馬賽克區塊尺寸（4 / 8 / 16 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    ocr: {
+      icon: '文', title: 'OCR 文字辨識', shortcut: 'G',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳選取區域，自動辨識範圍內的文字（支援中英文）</li><li>辨識結果顯示於浮動面板，提供「複製文字」按鈕</li></ul></div><div><p class="modal-section-label">屬性</p><p class="tm-p-faint">無可調屬性</p></div>`
+    },
+    privacy: {
+      icon: '文', title: '隱私遮蔽', shortcut: 'K',
+      body: `<div class="tm-notice"><span class="g-badge-a">全版本</span><span class="tm-p" style="margin-left:4px;">Electron 使用 Vision Framework，Tauri 另支援五層偵測</span></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>按 K 對全圖掃描；或拖曳指定範圍後掃描</li><li>自動偵測並遮蔽：身分證字號、統一編號、信用卡號、電話、Email、IPv4／IPv6、API Token 等</li><li>套用後可切換至選取工具微調或刪除遮蔽物件</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['模式（馬賽克／模糊）','馬賽克區塊尺寸（8 / 16 / 24 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    zoomin: {
+      icon: '⊕', title: '放大', shortcut: '⌘=',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">以游標為中心放大畫面，範圍 10%–400%。</p></div><div><p class="modal-section-label">縮放比例快捷選單</p><div class="tm-tags">${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">畫布導航</p><ul class="tm-ul"><li>Space＋拖曳：平移畫布</li><li>觸控板雙指縮放：以游標為中心縮放</li><li>⌘0：重置至適合視窗大小</li></ul></div>`
+    },
+    zoomout: {
+      icon: '⊖', title: '縮小', shortcut: '⌘-',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">以游標為中心縮小畫面，範圍 10%–400%。</p></div><div><p class="modal-section-label">縮放比例快捷選單</p><div class="tm-tags">${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">畫布導航</p><ul class="tm-ul"><li>Space＋拖曳：平移畫布</li><li>觸控板雙指縮放：以游標為中心縮放</li><li>⌘0：重置至適合視窗大小</li></ul></div>`
+    },
+    fit: {
+      icon: '⊡', title: '適合視窗', shortcut: '⌘0',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">按下後立即將畫面縮放至適合視窗大小。</p></div><div><p class="modal-section-label">畫布導航</p><ul class="tm-ul"><li>Space＋拖曳：平移畫布</li><li>觸控板雙指縮放：以游標為中心縮放</li></ul></div>`
+    },
+    crop: {
+      icon: '✂', title: '裁切', shortcut: 'C',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立裁切框，8 個控制點可調整範圍</li><li>方向鍵微調 1 px；Shift＋方向鍵 10 px</li><li>雙擊畫布或點選確認按鈕完成裁切</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['確認裁切按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    resize: {
+      icon: '↔', title: '調整大小', shortcut: 'S',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>開啟 popup 視窗，輸入目標寬度</li><li>高度依比例自動計算，所有標注物件同步等比縮放</li><li>範圍：1–8192 px</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['寬度輸入（px）','高度（唯讀，自動計算）','套用按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    extend: {
+      icon: '⊞', title: '延伸畫布', shortcut: 'E',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>開啟 popup 視窗，選擇延伸方向（九宮格方向盤）</li><li>輸入延伸距離（px），背景固定白色</li><li>視窗下方顯示延伸後的尺寸預覽</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['延伸方向（九方向）','延伸距離（px）','延伸後尺寸預覽','確認延伸按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    overlay: {
+      icon: '⧉', title: '疊入圖片', shortcut: 'O',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>點選後開啟檔案選擇器，選取圖片疊加於畫布上</li><li>可拖曳移動位置，8 個控制點縮放</li><li>作為浮動物件持續存在，拖曳匯出時自動合併至底圖</li></ul></div><div><p class="modal-section-label">支援格式</p><div class="tm-tags">${['JPG','PNG','WebP','GIF（第一幀）','SVG'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    template: {
+      icon: '◱', title: '一鍵套版', shortcut: '—',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>開啟模板面板，選擇漸層背景樣式套用</li><li>提供 6 款：Apple 紅／橙／黃／綠／藍／紫</li><li>支援撤銷還原</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['留白（2–30%）','圓角（0–10）','陰影（0–10）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">社群媒體尺寸預設</p><div class="tm-tags">${['LinkedIn（1200×627）','Instagram 1:1（1080×1080）','Instagram 4:5（1080×1350）','X（1600×900）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    undoredo: {
+      icon: '↩↪', title: '撤銷 ／ 重做', shortcut: '⌘Z ／ ⌘⇧Z',
+      body: `<div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘Z</span><span class="tm-p">撤銷：回到上一步操作</span></div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘⇧Z</span><span class="tm-p">重做：重做已撤銷的操作</span></div></div>`
+    }
+  };
 
+  function openModal(tool) {
+    var d = popupData[tool]; if (!d) return;
+    document.getElementById('tmIcon').textContent = d.icon;
+    document.getElementById('tmTitle').textContent = d.title;
+    document.getElementById('tmShortcut').textContent = d.shortcut;
+    document.getElementById('tmBody').innerHTML = d.body;
+    document.getElementById('toolModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('toolModal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.g-chip[data-tool]').forEach(function (chip) {
+      chip.addEventListener('click', function () { openModal(chip.dataset.tool); });
+      chip.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(chip.dataset.tool); } });
+    });
+    document.getElementById('tmClose').addEventListener('click', closeModal);
+    document.getElementById('toolModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  });
+}());
+</script>
 </body>
 </html>
