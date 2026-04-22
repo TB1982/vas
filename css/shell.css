@@ -341,10 +341,6 @@
   transform: translateX(6px);
   transition: opacity .2s, transform .2s;
   pointer-events: none;
-  background: var(--vas-void-up);
-  padding: 3px 8px;
-  border-radius: 2px;
-  border: 1px solid var(--vas-rule);
 }
 .dot-nav-item:hover .dn-label {
   opacity: 1;
