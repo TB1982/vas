@@ -254,7 +254,7 @@
 }
 .passage-next:hover .arrow {
   color: var(--vas-aurora-violet);
-  transform: translateY(4px);
+  transform: translateX(4px);
 }
 
 /* ─── 頁尾 · 所有 chapter 頁共用 ────────── */

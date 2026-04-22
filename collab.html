@@ -516,7 +516,7 @@
 <!-- ═══════ 章末過場 · Passage ═══════ -->
 <section class="passage">
   <div class="passage-colophon">
-    <span data-lang-key="ch2PassageEnd">章 II · 協作 · 終</span><br>
+    <span data-lang-key="ch2PassageEnd">章 II · 協作 ·&nbsp;終</span><br>
     <span class="faint" data-lang-key="ch2PassageEndEn">Chapter II · Collaboration · End</span>
   </div>
   <div class="passage-body">
@@ -524,7 +524,7 @@
     <a class="passage-next" href="harness.html">
       <div class="num" data-lang-key="ch2PassageNextNum">III · 系統</div>
       <div class="name" data-lang-key="ch2PassageNextName">Harness</div>
-      <div class="arrow">↓</div>
+      <div class="arrow">→</div>
     </a>
   </div>
 </section>
@@ -578,9 +578,17 @@
     var sections = Array.from(items).map(function(item) {
       return document.querySelector(item.getAttribute('href'));
     }).filter(Boolean);
+    var passage = document.querySelector('.passage');
     var maxVisited = -1;
     function onScroll() {
       var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
       var currentIdx = -1;
       sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
       if (currentIdx > maxVisited) maxVisited = currentIdx;

@@ -916,7 +916,7 @@
 <div class="passage">
   <div>
     <div class="passage-colophon">
-      <span data-lang-key="ch4PassageEnd">章 IV · 里程碑 · 終</span>
+      <span data-lang-key="ch4PassageEnd">章 IV · 里程碑 ·&nbsp;終</span>
       <span class="faint" data-lang-key="ch4PassageEndEn">Chapter IV · Milestones · End</span>
     </div>
     <div class="chronicle-line">
@@ -928,7 +928,7 @@
     <a class="passage-next" href="guide.html">
       <span class="num" data-lang-key="navGuide">操作手冊</span>
       <span class="name">Guide</span>
-      <span class="arrow">↓</span>
+      <span class="arrow">→</span>
     </a>
   </div>
 </div>
@@ -979,9 +979,17 @@
     var sections = Array.from(items).map(function(item) {
       return document.querySelector(item.getAttribute('href'));
     }).filter(Boolean);
+    var passage = document.querySelector('.passage');
     var maxVisited = -1;
     function onScroll() {
       var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
       var currentIdx = -1;
       sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
       if (currentIdx > maxVisited) maxVisited = currentIdx;
