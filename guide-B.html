@@ -143,7 +143,8 @@
   .g-chip[data-tool]:hover .g-chip-icon { color: var(--vas-aurora-violet); }
   .tool-modal-backdrop { position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); }
   .tool-modal-backdrop.hidden { display:none; }
-  .tool-modal-card { position:relative;background:var(--vas-void-up);border:1px solid var(--vas-rule-strong);border-radius:12px;padding:24px 24px 28px;width:100%;max-width:480px;max-height:80vh;overflow-y:auto; }
+  .tool-modal-card { position:relative;background:var(--vas-void-up);border:1px solid var(--vas-rule-strong);border-radius:12px;padding:24px 24px 28px;width:100%;max-width:480px;max-height:80vh;overflow-y:auto;scrollbar-width:none; }
+  .tool-modal-card::-webkit-scrollbar { display:none; }
   .tool-modal-close { position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:var(--vas-ash-3);padding:4px;transition:color .2s; }
   .tool-modal-close:hover { color:var(--vas-ash-0); }
   .tool-modal-head { display:flex;align-items:center;gap:12px;margin-bottom:20px; }
