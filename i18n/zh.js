@@ -511,7 +511,7 @@
       r2h: 'v2.0　架構重構（Sprint 10–20）', r2p: '已完成（04/11–04/14）',
       r2items: '<li>✓ 座標系統統一（DPR 全修）</li><li>✓ 漸層引擎統一（六工具）</li><li>✓ 資料模型正規化</li><li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li><li>✓ 幾何 + 渲染管線模組化</li><li>✓ Undo/Redo 架構升級 + 記憶體衛生</li><li>✓ 自動化測試基建（Vitest 47 pass）</li>',
       r2bh: 'v2.1　品質基建（Sprint 21–24）', r2bp: '已完成（04/18–04/21）',
-      r2bitems: '<li>✓ 測試基建補強</li><li>✓ i18n 架構重整</li><li>✓ 隱私掃描多語特化</li><li>✓ 文件歸檔系統</li>',
+      r2bitems: '<li>✓ Sprint 21　測試基建補強</li><li>✓ Sprint 22　i18n 架構重整</li><li>✓ Sprint 23　隱私掃描多語特化</li><li>✓ Sprint 24　文件歸檔系統</li>',
       r2ch: 'v2.2　截圖品質修復', r2cp: '規劃中',
       r2citems: '<li>· 延伸螢幕截圖 DPR 顯示修復（來源 Monitor scale 偵測）</li><li>· 截圖管線整體重構（WKWebView / Capture 路徑）</li><li>· 下一次 App Store 更新</li>',
       r3h: 'v3.0　功能爆發',
