@@ -34,6 +34,10 @@
   --vas-serif-en: 'Fraunces', 'Shippori Mincho', serif;
   --vas-mono:     'JetBrains Mono', 'SF Mono', monospace;
 }
+/* 簡中模式改用 Noto Serif SC 優先，避免系統 fallback 造成基線浮動 */
+html[lang="zh-Hans"] {
+  --vas-serif: 'Noto Serif SC', 'Shippori Mincho', 'Fraunces', serif;
+}
 
 /* ─── base reset · 作用在頁面整體 ──────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }

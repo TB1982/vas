@@ -161,7 +161,8 @@
       kb_intro: '开启偏好设置 → 快捷键，点选工具后直接按下目标按键组合即可录制。不合规的组合会即时反白提示。',
       kb_rules_title: '按键接受规则',
       kb_col_input: '输入', kb_col_result: '结果',
-      kb_r1: 'F 键不需修饰键', kb_r2: '含修饰键的组合',
+      kb_inp_alone: '单独',
+kb_r1: 'F 键不需修饰键', kb_r2: '含修饰键的组合',
       kb_r3: '裸字母或数字', kb_r4: '系统保留快捷键', kb_r5: '单独修饰键',
       insightTeaser: 'VAS 设计决策背后的思路', insightBtn: '阅读设计洞察 →',
       popup: {
