@@ -598,6 +598,7 @@
       h07p4: 'Entropy keeps increasing, sessions keep ending, new pitfalls keep appearing. The container isn\'t something you build and walk away from—it\'s a system that\'s continuously being built. Every new KM entry is another brick in the container\'s wall.',
       h07p5: 'The question you read in section 01—why the system needs to exist—now has an answer.',
       h07p6: 'Not because AI makes mistakes. But because as long as you\'re building things together, there will always be new pits, always new apples falling.',
+      h07p8: 'Harness Engineering is an elastic net: catching what should stay, letting what should pass flow through.',
       h08Title: 'Synchronicity', h08Sub: 'Synchronicity',
       hSyncTh1: 'OpenAI Experiment',
       hSyncR1: 'Team size', hSyncR1a: '3–7 engineers', hSyncR1b: '1 PM + 1 amnesiac master',
