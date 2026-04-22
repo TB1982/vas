@@ -323,11 +323,12 @@
   text-decoration: none;
 }
 .dn-dot {
-  width: 5px; height: 5px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--vas-ash-3);
+  background: transparent;
+  border: 1px solid var(--vas-ash-3);
   flex-shrink: 0;
-  transition: background .25s, transform .25s, box-shadow .25s;
+  transition: background .25s, transform .25s, box-shadow .25s, border-color .25s;
 }
 .dn-label {
   position: absolute;
@@ -346,8 +347,13 @@
   opacity: 1;
   transform: translateX(0);
 }
+.dot-nav-item.is-visited .dn-dot {
+  background: var(--vas-ash-3);
+  border-color: var(--vas-ash-3);
+}
 .dot-nav-item.is-current .dn-dot {
   background: var(--vas-aurora-violet);
+  border-color: var(--vas-aurora-violet);
   transform: scale(1.6);
   box-shadow: 0 0 8px rgba(196, 113, 245, 0.45);
 }
@@ -355,6 +361,9 @@
   opacity: 1;
   transform: translateX(0);
   color: var(--vas-aurora-violet);
+}
+.dot-nav-item.is-visited .dn-label {
+  color: var(--vas-ash-2);
 }
 .dot-nav-trigger {
   display: none;
