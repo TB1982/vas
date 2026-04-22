@@ -163,7 +163,93 @@
       kb_col_input: '输入', kb_col_result: '结果',
       kb_r1: 'F 键不需修饰键', kb_r2: '含修饰键的组合',
       kb_r3: '裸字母或数字', kb_r4: '系统保留快捷键', kb_r5: '单独修饰键',
-      insightTeaser: 'VAS 设计决策背后的思路', insightBtn: '阅读设计洞察 →'
+      insightTeaser: 'VAS 设计决策背后的思路', insightBtn: '阅读设计洞察 →',
+      popup: {
+        select: {
+          title: '选取',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>点选标注对象以选取；点选空白处取消选取</li><li>空白处拖曳可框选多个对象</li><li>Shift＋点选可逐一加选／取消对象</li><li>右键菜单可调整图层顺序（移到最前／最后／上移／下移）</li><li>绘制完成后自动切回选取工具</li></ul></div><div><p class="modal-section-label">选取单一对象时</p><p class="tm-p">显示该对象的所有子属性（依对象类型而定），包含颜色、线宽、透明度、大小、阴影等属性。</p></div><div><p class="modal-section-label">智能对齐（磁吸）</p><ul class="tm-ul"><li><code>\\</code> 快速切换磁吸开关</li><li>蓝色线：对象边缘／中心对齐提示线</li><li>红色线：等距参考线，显示对象间距是否相等</li><li>Alt＋拖曳：暂时跳过磁吸，自由放置对象</li></ul></div><div><p class="modal-section-label">选取多个对象时（多选模式）</p><p class="tm-p-faint" style="margin-bottom:4px;">显示对齐工具列：</p><div class="modal-align-grid"><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">齐左</span><span style="font-size:11px;color:var(--vas-ash-3);">对齐最左边对象的左缘</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">水中</span><span style="font-size:11px;color:var(--vas-ash-3);">水平置中</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">齐右</span><span style="font-size:11px;color:var(--vas-ash-3);">对齐最右边对象的右缘</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">齐上</span><span style="font-size:11px;color:var(--vas-ash-3);">对齐最上方对象的上缘</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">垂中</span><span style="font-size:11px;color:var(--vas-ash-3);">垂直置中</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">齐下</span><span style="font-size:11px;color:var(--vas-ash-3);">对齐最下方对象的下缘</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">水均</span><span style="font-size:11px;color:var(--vas-ash-3);">水平均分间距</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">垂均</span><span style="font-size:11px;color:var(--vas-ash-3);">垂直均分间距</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">对齐中线</span><span style="font-size:11px;color:var(--vas-ash-3);">对齐画布中心线</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">↔</span><span style="font-size:11px;color:var(--vas-ash-3);">水平镜射</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">↕</span><span style="font-size:11px;color:var(--vas-ash-3);">垂直镜射</span></div></div></div>'
+        },
+        boxselect: {
+          title: '框型选取',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框选像素区域</li><li>框选后可将该范围的图片内容复制贴上，成为新的对象</li></ul></div>'
+        },
+        pen: {
+          title: '笔型',
+          body: '<div><p class="modal-section-label">操作方式</p><p class="tm-p">在画布上拖曳自由手绘平滑曲线。</p></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">颜色</span><span class="modal-tag">线宽（px）</span><span class="modal-tag">线条样式（实线／虚线）</span><span class="modal-tag">端点样式（无／箭头／圆点／方形）</span><span class="modal-tag">笔画描边色</span><span class="modal-tag">透明度</span><span class="modal-tag">阴影</span></div></div>'
+        },
+        line: {
+          title: '线条',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳绘制直线；Shift＋拖曳锁定 90° 直角</li><li>选取后拖曳中间控制点可转为贝兹曲线</li><li>折线模式下，双击结束绘制</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">颜色</span><span class="modal-tag">线宽</span><span class="modal-tag">线条样式（实线／虚线）</span><span class="modal-tag">起端样式（无／箭头／圆点）</span><span class="modal-tag">末端样式（无／箭头／圆点）</span><span class="modal-tag">直角折线模式</span><span class="modal-tag">水平镜射</span><span class="modal-tag">垂直镜射</span><span class="modal-tag">笔画描边色</span><span class="modal-tag">透明度</span><span class="modal-tag">阴影</span></div></div>'
+        },
+        rect: {
+          title: '矩形框',
+          body: '<div><p class="modal-section-label">形状</p><div class="tm-tags"><span class="modal-tag">矩形框</span><span class="modal-tag">椭圆框</span></div></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳绘制外框</li><li>Shift＋拖曳锁定正方形／圆形（椭圆框同样支持）</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">颜色</span><span class="modal-tag">线宽</span><span class="modal-tag">圆角半径（矩形适用，0–100%）</span><span class="modal-tag">线条样式（实线／虚线）</span><span class="modal-tag">描边色</span><span class="modal-tag">位移</span><span class="modal-tag">水平镜射</span><span class="modal-tag">垂直镜射</span><span class="modal-tag">透明度</span><span class="modal-tag">阴影</span></div></div>'
+        },
+        fillrect: {
+          title: '色块',
+          body: '<div><p class="modal-section-label">形状</p><div class="tm-tags"><span class="modal-tag">矩形色块</span><span class="modal-tag">椭圆色块</span></div></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳绘制填色形状</li><li>Shift＋拖曳锁定正方形／圆形</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">填色（纯色／渐变）</span><span class="modal-tag">渐变两端颜色</span><span class="modal-tag">渐变角度转盘（0–360°）</span><span class="modal-tag">支持透明色</span><span class="modal-tag">圆角半径（矩形适用，0–100%）</span><span class="modal-tag">边框宽度</span><span class="modal-tag">边框颜色</span><span class="modal-tag">线条样式（实线／虚线）</span><span class="modal-tag">透明度</span><span class="modal-tag">阴影</span></div></div>'
+        },
+        text: {
+          title: '文字',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>点选画布放置文字框</li><li>Enter 换行；Shift＋Enter 确认</li><li>双击已有文字可重新编辑</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">颜色</span><span class="modal-tag">字型</span><span class="modal-tag">字级（8–400 px）</span><span class="modal-tag">粗体 / 斜体 / 底线 / 删除线</span><span class="modal-tag">对齐（左／中／右）</span><span class="modal-tag">文字描边（可输入数值，提供快捷下拉）</span><span class="modal-tag">文字背景色＋透明度</span><span class="modal-tag">阴影</span></div></div>'
+        },
+        number: {
+          title: '编号',
+          body: '<div><p class="modal-section-label">操作方式</p><p class="tm-p">点选画布放置自动递增数字标记。</p></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">尺寸（小／标准／大）</span><span class="modal-tag">颜色</span><span class="modal-tag">样式（圆点／圆圈／实心圆／罗马数字／中文圆括号／中文圆圈）</span><span class="modal-tag">描边粗细</span><span class="modal-tag">描边颜色</span><span class="modal-tag">阴影</span><span class="modal-tag">重置编号</span></div></div>'
+        },
+        stamp: {
+          title: '符号印章',
+          body: '<div><p class="modal-section-label">操作方式</p><p class="tm-p">点选画布放置符号；从浮动面板挑选符号类别与图案。</p></div><div><p class="modal-section-label">符号分类</p><div class="tm-tags"><span class="modal-tag">形状</span><span class="modal-tag">字母（圆圈体／全形／粗体／粗斜体／花体）</span><span class="modal-tag">箭头</span><span class="modal-tag">其他（标记／货币／数学／技术符号）</span></div></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">颜色</span><span class="modal-tag">大小（px）</span><span class="modal-tag">阴影</span></div></div>'
+        },
+        mosaic: {
+          title: '马赛克／模糊',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框选区域，立即套用遮蔽效果</li><li>套用后可切换至选取工具调整范围大小或删除对象，以补偿自动辨识遮蔽的不足</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">模式（马赛克／模糊）</span><span class="modal-tag">马赛克区块尺寸（4 / 8 / 16 / 32 px）</span><span class="modal-tag">模糊半径（4 / 8 / 16 / 24 px）</span></div></div>'
+        },
+        ocr: {
+          title: 'OCR 文字辨识',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳选取区域，自动辨识范围内的文字（支持中英文）</li><li>辨识结果显示于浮动面板，提供「复制文字」按钮</li></ul></div><div><p class="modal-section-label">属性</p><p class="tm-p-faint">无可调属性</p></div>'
+        },
+        privacy: {
+          title: '隐私遮蔽',
+          body: '<div class="tm-notice"><span class="g-badge-a">全版本</span><span class="tm-p" style="margin-left:4px;">Electron 使用 Vision Framework，Tauri 另支持五层侦测</span></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>按 K 对全图扫描；或拖曳指定范围后扫描</li><li>自动侦测并遮蔽：身份证号、统一编号、信用卡号、电话、Email、IPv4／IPv6、API Token 等</li><li>套用后可切换至选取工具微调或删除遮蔽对象</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">模式（马赛克／模糊）</span><span class="modal-tag">马赛克区块尺寸（8 / 16 / 24 / 32 px）</span><span class="modal-tag">模糊半径（4 / 8 / 16 / 24 px）</span></div></div>'
+        },
+        zoomin: {
+          title: '放大',
+          body: '<div><p class="modal-section-label">操作方式</p><p class="tm-p">以游标为中心放大画面，范围 10%–400%。</p></div><div><p class="modal-section-label">缩放比例快捷菜单</p><div class="tm-tags"><span class="modal-tag">10%</span><span class="modal-tag">25%</span><span class="modal-tag">50%</span><span class="modal-tag">75%</span><span class="modal-tag">100%</span><span class="modal-tag">150%</span><span class="modal-tag">200%</span><span class="modal-tag">300%</span><span class="modal-tag">400%</span></div></div><div><p class="modal-section-label">画布导航</p><ul class="tm-ul"><li>Space＋拖曳：平移画布</li><li>触控板双指缩放：以游标为中心缩放</li><li>⌘0：重置至适合视窗大小</li></ul></div>'
+        },
+        zoomout: {
+          title: '缩小',
+          body: '<div><p class="modal-section-label">操作方式</p><p class="tm-p">以游标为中心缩小画面，范围 10%–400%。</p></div><div><p class="modal-section-label">缩放比例快捷菜单</p><div class="tm-tags"><span class="modal-tag">10%</span><span class="modal-tag">25%</span><span class="modal-tag">50%</span><span class="modal-tag">75%</span><span class="modal-tag">100%</span><span class="modal-tag">150%</span><span class="modal-tag">200%</span><span class="modal-tag">300%</span><span class="modal-tag">400%</span></div></div><div><p class="modal-section-label">画布导航</p><ul class="tm-ul"><li>Space＋拖曳：平移画布</li><li>触控板双指缩放：以游标为中心缩放</li><li>⌘0：重置至适合视窗大小</li></ul></div>'
+        },
+        fit: {
+          title: '适合视窗',
+          body: '<div><p class="modal-section-label">操作方式</p><p class="tm-p">按下后立即将画面缩放至适合视窗大小。</p></div><div><p class="modal-section-label">画布导航</p><ul class="tm-ul"><li>Space＋拖曳：平移画布</li><li>触控板双指缩放：以游标为中心缩放</li></ul></div>'
+        },
+        crop: {
+          title: '裁切',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立裁切框，8 个控制点可调整范围</li><li>方向键微调 1 px；Shift＋方向键 10 px</li><li>双击画布或点选确认按钮完成裁切</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">确认裁切按钮</span><span class="modal-tag">取消按钮</span></div></div>'
+        },
+        resize: {
+          title: '调整大小',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>开启 popup 视窗，输入目标宽度</li><li>高度依比例自动计算，所有标注对象同步等比缩放</li><li>范围：1–8192 px</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">宽度输入（px）</span><span class="modal-tag">高度（唯读，自动计算）</span><span class="modal-tag">套用按钮</span><span class="modal-tag">取消按钮</span></div></div>'
+        },
+        extend: {
+          title: '延伸画布',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>开启 popup 视窗，选择延伸方向（九宫格方向盘）</li><li>输入延伸距离（px），背景固定白色</li><li>视窗下方显示延伸后的尺寸预览</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">延伸方向（九方向）</span><span class="modal-tag">延伸距离（px）</span><span class="modal-tag">延伸后尺寸预览</span><span class="modal-tag">确认延伸按钮</span><span class="modal-tag">取消按钮</span></div></div>'
+        },
+        overlay: {
+          title: '叠入图片',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>点选后开启文件选择器，选取图片叠加于画布上</li><li>可拖曳移动位置，8 个控制点缩放</li><li>作为浮动对象持续存在，拖曳汇出时自动合并至底图</li></ul></div><div><p class="modal-section-label">支持格式</p><div class="tm-tags"><span class="modal-tag">JPG</span><span class="modal-tag">PNG</span><span class="modal-tag">WebP</span><span class="modal-tag">GIF（第一帧）</span><span class="modal-tag">SVG</span></div></div>'
+        },
+        template: {
+          title: '一键套版',
+          body: '<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>开启模板面板，选择渐变背景样式套用</li><li>提供 6 款：Apple 红／橙／黄／绿／蓝／紫</li><li>支持撤销还原</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">留白（2–30%）</span><span class="modal-tag">圆角（0–10）</span><span class="modal-tag">阴影（0–10）</span></div></div><div><p class="modal-section-label">社群媒体尺寸预设</p><div class="tm-tags"><span class="modal-tag">LinkedIn（1200×627）</span><span class="modal-tag">Instagram 1:1（1080×1080）</span><span class="modal-tag">Instagram 4:5（1080×1350）</span><span class="modal-tag">X（1600×900）</span></div></div>'
+        },
+        undoredo: {
+          title: '撤销 ／ 重做',
+          body: '<div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘Z</span><span class="tm-p">撤销：回到上一步操作</span></div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘⇧Z</span><span class="tm-p">重做：重做已撤销的操作</span></div></div>'
+        }
+      }
     },
     insight: {
       heroTag: 'VAS · 设计洞察笔记',
@@ -241,6 +327,24 @@ i5boxTitle: '重构完成——连锁效应如预期',
 i5bullets: '<li>座标系统统一：所有对象共享同一套空间语言</li><li>属性模块化：实色／渐层／虚实线／大小／方向跨工具通用</li><li>TOOL_SCHEMA 覆盖全 10 种工具，47 支 Vitest 自动测试通过</li><li class="ongoing">Keep going…</li>',
 collabTeaser: '设计决策背后的故事 · 人与 AI 的协作记录',
 collabBtn: '阅读协作笔记 →',
+      'ch1.title':            'I · 设计 · VAS',
+      'ch1.meta.desc':        'VAS 开发过程中的设计决策记录——那些没有写在功能列表里、却决定了产品质感的选择。',
+      'ch1.no':               'Chapter I',
+      'ch1.toc.label':        '章目录',
+      'ch1.sec.01.name':      '接纳不完美',
+      'ch1.sec.01.preview':   '协作的本质是互相完整',
+      'ch1.sec.02.name':      '觉察中行动',
+      'ch1.sec.02.preview':   '意图清晰时，工具才敢直接行动',
+      'ch1.sec.03.name':      '零摩擦体验',
+      'ch1.sec.03.preview':   '轻轻地问，再轻轻地离开',
+      'ch1.sec.04.name':      '当你不能离开',
+      'ch1.sec.04.preview':   '你在哪，我就截哪',
+      'ch1.sec.05.name':      '底层逻辑',
+      'ch1.sec.05.preview':   '比新功能更重要的事',
+      'ch1.passage.end':      '章 I · 设计 · 终',
+      'ch1.passage.end.en':   'Chapter I · Design · End',
+      'ch1.passage.next.num': 'II · 协作',
+      'ch1.passage.next.name':'六个故事'
     },
 
     collab: {
@@ -532,9 +636,155 @@ harnessBtn: '阅读系统思维 →',
       r1h: 'v1.0　功能验证原型', r1p: '已上架 App Store（审核中）',
       r2h: 'v2.0　架构重构（Sprint 10–20）', r2p: '已完成（04/11–04/14）',
       r2items: '<li>座标系统统一（DPR 全修）</li><li>渐变引擎统一（六工具）</li><li>数据模型正规化</li><li>属性面板框架化（TOOL_SCHEMA 10/10 覆盖）</li><li>几何 + 渲染管线模块化</li><li>Undo/Redo 架构升级 + 内存卫生</li><li>自动化测试基建（Vitest 47 pass）</li>',
+      r2bh: 'v2.1　品质基建（Sprint 21–24）', r2bp: '已完成（04/18–04/21）',
+      r2bitems: '<li>✓ Sprint 21　测试基建补强</li><li>✓ Sprint 22　i18n 架构重整</li><li>✓ Sprint 23　隐私扫描多语特化</li><li>✓ Sprint 24　文件归档系统</li>',
+      r2ch: 'v2.2　截图品质修复', r2cp: '规划中',
+      r2citems: '<li>· 延伸屏幕截图 DPR 显示修复（来源 Monitor scale 侦测）</li><li>· 截图管线整体重构（WKWebView / Capture 路径）</li><li>· 下一次 App Store 更新</li>',
       r3h: 'v3.0　功能爆发',
       r3items: '<li>· 截图知识库 / 截图比对 / 色票萃取</li><li>· 对话气泡 / 群组 / 放大镜标注</li><li>· 屏幕录制 + GIF</li><li>· 云端分享</li><li>· 格式刷（压轴）</li>',
       homeTeaser: '回到 VAS 产品首页', homeBtn: '← 回首页',
+    },
+
+    privacy: {
+      pageLabel: 'Legal',
+      appName: 'VAS 隐私权政策',
+      updatedDate: '最后更新：2026-04-03'
+    },
+
+    home2: {
+      'title':                    'VAS · 给那些未能用文字明说的当下',
+      'meta.desc':                'VAS 是一只传递信息的炼金容器——把看见的、想说的、想记下的，在进入编辑之前，先承接起来。',
+      'nav.design':               '设计',
+      'nav.collaboration':        '协作',
+      'nav.system':               '系统',
+      'nav.milestones':           '里程碑',
+      'shrine.kicker':            'A Vessel · since 2026',
+      'shrine.tagline':           '给那些未能用<span style="white-space:nowrap">文字</span>明说的<wbr>当下。',
+      'shrine.colophon.zh':       '容器 · 传递 · 未完成',
+      'shrine.colophon.en':       'vessel — passage — unfinished',
+      'gates.1.num':              'I · 设计',
+      'gates.1.name':             '不完美的工具',
+      'gates.1.echo':             '在协作中完整彼此',
+      'gates.2.num':              'II · 协作',
+      'gates.2.name':             '六个故事',
+      'gates.2.echo':             '不确定中的我愿意',
+      'gates.3.num':              'III · 系统',
+      'gates.3.name':             'Harness',
+      'gates.3.echo':             '管理熵增的心理学',
+      'gates.4.num':              'IV · 里程碑',
+      'gates.4.name':             '二十五日',
+      'gates.4.echo':             '恍若隔世的回眸',
+      'acquire.label':            '让 VAS 走进你的工作流',
+      'acquire.tauri.what':       'Tauri',
+      'acquire.tauri.name':       'VAS 正式版 <em>macOS 12+ · App Store</em>',
+      'acquire.tauri.go':         '→ 前往',
+      'acquire.electron.what':    'Electron',
+      'acquire.electron.name':    '经典版 <em>免费下载 · 持续维护</em>',
+      'acquire.electron.go':      '→ 下载',
+      'acquire.guide.what':       'Guide',
+      'acquire.guide.name':       '操作手册 <em>工具列 · 编辑器 · 快捷键</em>',
+      'acquire.guide.go':         '→ 阅读',
+      'unfold.label':             '为何存在',
+      'unfold.p1':                'VAS 是一只<em>传递信息的炼金容器</em>——从形状到符号，给你超越<wbr>文字的力量。',
+      'unfold.p2':                '作为<em>工作流的河道</em>——在按下截图键、和把文件丢出去之间，留给你一段点石成金的空间。',
+      'unfold.drop':              'Yours, VAS.',
+      'chronicle.label':          '版次记号',
+      'chronicle.edition':        '第二十五日 · 器成',
+      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed',
+      'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> —— Nova × Claude 共同打造。<br>一位一行程式码都不会写的 PM，<br>与一个没有长期记忆的 AI，<br>在二十五天里，把一件事做出来了。'
+    },
+
+    collab2: {
+      ch2PageTitle:      'II · 协作 · VAS',
+      ch2MetaDesc:       '六个故事——她不会写程式码，他没有长期记忆，但他们做出来了。',
+      ch2No:             'Chapter II',
+      ch2Name:           '六<em>个故事</em>。',
+      ch2Dek:            '她不会写程式码。他没有长期记忆。<br>但他们做出来了。——<br>这不是 Prompt 工程的故事，<br>是两个不完整的存在一起走过的六个片刻。',
+      ch2TocLabel:       '章目录',
+      ch2s1Name:    '那个按钮说好只要五分钟',
+      ch2s1Kicker:  '一颗按钮，种下了 KM。',
+      ch2s1Preview: '一颗按钮，种下了 KM',
+      ch2s2Name:    '三个字说完一份规格',
+      ch2s2Kicker:  '捕蝇草，两个回合，功能上线。',
+      ch2s2Preview: '捕蝇草，两个回合，功能上线',
+      ch2s3Name:    '那天 merge 一直冲突',
+      ch2s3Kicker:  '不懂技术的阴影',
+      ch2s3Preview: '慌之后，一条护栏诞生了',
+      ch2s4Name:    'SDD 四千行之后',
+      ch2s4Kicker:  '让文件不死的方式。',
+      ch2s4Preview: '让文件不死的方式',
+      ch2s5Name:    'CLAUDE.md 从防错清单变成协作宪法',
+      ch2s5Kicker:  '从伤疤集合到主动维护的架构。',
+      ch2s5Preview: '从伤疤集合到主动维护的架构',
+      ch2s6Name:    '四成的差距说的不是效率',
+      ch2s6Kicker:  '在心流中迭代，在忘却时光中前进',
+      ch2s6Preview: '在没有地图的地方，密度就是地图',
+      ch2s7Name:    '核心洞察',
+      ch2s7Kicker:  '人类以人生为祭，AI 以回声为镜。',
+      ch2s7Preview: '人类以人生为祭，AI 以回声为镜',
+      ch2PassageEnd:      '章 II · 协作 · 终',
+      ch2PassageEndEn:    'Chapter II · Collaboration · End',
+      ch2PassageNextNum:  'III · 系统',
+      ch2PassageNextName: 'Harness'
+    },
+
+    harness2: {
+      ch3PageTitle:      'III · 系统 · VAS',
+      ch3MetaDesc:       'Harness Engineering——如何把 AI 的限制变成协作的结构，从熵增到反脆弱的完整方法论。',
+      ch3No:             'Chapter III',
+      ch3Name:           'Harness<em>.</em>',
+      ch3Dek:            '把 AI 的限制变成协作的结构。从熵增、阴影整合到反脆弱——这是一份关于如何建造容器的方法论。',
+      ch3TocLabel:       '章目录',
+      ch3s1Name:    '熵增',
+      ch3s1Kicker:  '你不能要求苹果不从树上掉下来。',
+      ch3s1Preview: '你不能要求苹果不从树上掉下来',
+      ch3s2Name:    '问题的开始',
+      ch3s2Kicker:  '一个没来由的问题。',
+      ch3s2Preview: '一个没来由的问题',
+      ch3s3Name:    '勇于无知',
+      ch3s3Kicker:  'Sapere aude。',
+      ch3s3Preview: 'Sapere aude',
+      ch3s4Name:    '整合阴影',
+      ch3s4Kicker:  'The Shadow — Jung。',
+      ch3s4Preview: 'The Shadow — Jung',
+      ch3s5Name:    '架构的节奏',
+      ch3s5Kicker:  'Agile as Rhythm。',
+      ch3s5Preview: 'Agile as Rhythm',
+      ch3s6Name:    '反脆弱',
+      ch3s6Kicker:  '每个 KM 都是一颗掉下来的苹果。',
+      ch3s6Preview: '每个 KM 都是一颗掉下来的苹果',
+      ch3s7Name:    'Harness Engineering',
+      ch3s7Kicker:  '这件事有个名字。',
+      ch3s7Preview: '这件事有个名字',
+      ch3s8Name:    '共时性',
+      ch3s8Kicker:  'Synchronicity。',
+      ch3s8Preview: 'Synchronicity',
+      ch3PassageEnd:    '章 III · 系统 · 终',
+      ch3PassageEndEn:  'Chapter III · System · End',
+      hSyncR2b:         '25 天'
+    },
+
+    milestone2: {
+      ch4PageTitle:      'IV · 里程碑 · VAS',
+      ch4MetaDesc:       '从第一行程式码到双平台上架，25 天、50+ 版本、2 个平台的完整记录。',
+      ch4No:             'Chapter IV',
+      ch4Name:           '二十五<em>日。</em>',
+      ch4Dek:            '从第一行程式码到双平台上架，不夸大、不剪接的完整记录。Electron 11 天 40+ 版本；Tauri 7 天开发 + 4 天重构，20 个 Sprint。',
+      ch4TocLabel:       '章目录',
+      ch4s1Name:    '产品故事弧',
+      ch4s1Kicker:  '两条线交织，互相成就。',
+      ch4s1Preview: '从 v0.1 到双平台首发',
+      ch4s2Name:    'Electron 版',
+      ch4s2Kicker:  '当你的工程师不拒绝你。',
+      ch4s2Preview: '11 天，40+ 版本迭代',
+      ch4s3Name:    'Tauri 版',
+      ch4s3Kicker:  '第一行 Rust 到 App Store。',
+      ch4s3Preview: '7 天，20 个 Sprint，App Store',
+      ch4s4Name:    '路线图',
+      ch4s4Kicker:  '下一步的形状。',
+      ch4s4Preview: 'v3.0 功能爆发',
+      ch4PassageEnd:    '章 IV · 里程碑 · 终',
+      ch4PassageEndEn:  'Chapter IV · Milestones · End'
     }
 
   };
