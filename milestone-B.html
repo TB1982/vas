@@ -956,10 +956,10 @@
     }).filter(Boolean);
     function onScroll() {
       var scroll = window.scrollY + 160;
-      var current = sections[0];
+      var current = null;
       sections.forEach(function(s) { if (s.offsetTop <= scroll) current = s; });
       items.forEach(function(item) {
-        item.classList.toggle('is-current', item.getAttribute('href') === '#' + current.id);
+        item.classList.toggle('is-current', current !== null && item.getAttribute('href') === '#' + current.id);
       });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
