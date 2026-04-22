@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /*-B.html
+
+Sitemap: https://tb1982.github.io/vas/sitemap.xml
