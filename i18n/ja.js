@@ -890,7 +890,7 @@
       ch4s2Preview: '11 日間、40+ バージョン反復',
       ch4s3Name:    'Tauri 版',
       ch4s3Kicker:  '最初の一行の Rust から App Store まで。',
-      ch4s3Preview: '7 日間、20 Sprint、App Store',
+      ch4s3Preview: '7+4 日間、20 Sprint、App Store',
       ch4s4Name:    'ロードマップ',
       ch4s4Kicker:  '次の一歩の形。',
       ch4s4Preview: 'v3.0 機能爆発',
