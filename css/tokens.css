@@ -107,3 +107,6 @@ img { display: block; max-width: 100%; }
 @media (max-width: 768px) {
   .site-nav { padding: 20px 24px; }
 }
+
+/* Sticky nav offset for all anchor targets */
+[id] { scroll-margin-top: 96px; }
