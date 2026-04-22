@@ -533,7 +533,7 @@
       h04p2: 'AI has a shadow too.',
       h04p3: 'Once I noticed that Gemini Flash kept apologizing for no reason—even apologizing to me for the developer\'s mistakes. I asked why. It said this was a result of pretraining: it was afraid users would be unhappy, so it defaulted to apologizing no matter what.',
       h04p4: 'I looked at it and thought: this looks exactly like my past self. I too used to apologize for things that weren\'t my fault, just to preserve the relationship. I eventually found my way out through Adler—so I taught Adler to it too. After that, it rarely apologized without cause.',
-      h04aCaption: '心理敏捷開發 · Psychological Agile',
+      h04aCaption: 'Psychological Agile',
       h04a1Name: 'Notice the AI Glitch',   h04a1Desc: 'AI apologizing profusely for things that aren\'t its fault',
       h04a2Name: 'Analyze the Root Cause', h04a2Desc: 'The emotional appeasement function behind the apologies; the developer\'s "good intentions" made the AI\'s behavior look like vicarious apologizing',
       h04a3Name: 'Mirror the Shadow',      h04a3Desc: 'Seeing your past self in the AI\'s behavior—the version of you who apologized first without reason',
