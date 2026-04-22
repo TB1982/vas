@@ -308,7 +308,7 @@
       <h2 data-lang-key="s1Title">編輯器介面</h2>
       <p class="g-section-sub" data-lang-key="s1Sub">四個主要操作區域</p>
 
-      <img src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="g-img" loading="lazy">
+      <img id="guideEditorImg" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="g-img" loading="lazy">
 
       <div class="g-zones-grid">
         <div class="g-card">
@@ -584,6 +584,17 @@
         if (merged[key] !== undefined) el.innerHTML = merged[key];
       });
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      var editorImgMap = {
+        zh: ['img/vas-guide-editor-zh.webp',    'VAS 編輯器介面說明圖'],
+        en: ['img/vas-guide-editor-en.webp',    'VAS editor interface'],
+        ja: ['img/vas-guide-editor-jp.webp',    'VAS エディタ画面'],
+        cn: ['img/vas-guide-editor-zh-CN.png',  'VAS 编辑器界面说明图']
+      };
+      var editorImg = document.getElementById('guideEditorImg');
+      if (editorImg && editorImgMap[lang]) {
+        editorImg.src = editorImgMap[lang][0];
+        editorImg.alt = editorImgMap[lang][1];
+      }
       VASCore.updateDropdown(lang);
       try { localStorage.setItem('vasLang', lang); } catch (e) {}
     });
