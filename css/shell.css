@@ -302,3 +302,64 @@
   }
   .site-footer .footer-right { text-align: left; }
 }
+
+/* ─── Dot Nav · 右側段落指示器 ──────────────
+   position: fixed · 桌面專用（手機隱藏）
+   ─────────────────────────────────────── */
+.dot-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 40;
+}
+.dot-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.dn-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--vas-ash-3);
+  flex-shrink: 0;
+  transition: background .25s, transform .25s, box-shadow .25s;
+}
+.dn-label {
+  position: absolute;
+  right: 14px;
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--vas-ash-1);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+  background: var(--vas-void-up);
+  padding: 3px 8px;
+  border-radius: 2px;
+  border: 1px solid var(--vas-rule);
+}
+.dot-nav-item:hover .dn-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+.dot-nav-item.is-current .dn-dot {
+  background: var(--vas-aurora-violet);
+  transform: scale(1.6);
+  box-shadow: 0 0 8px rgba(196, 113, 245, 0.45);
+}
+.dot-nav-item.is-current .dn-label {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--vas-aurora-violet);
+}
+@media (max-width: 960px) {
+  .dot-nav { display: none; }
+}

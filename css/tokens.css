@@ -55,9 +55,15 @@ img { display: block; max-width: 100%; }
    站內 nav · 靜一點的頂部導覽
    ═══════════════════════════════════════════════ */
 .site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(14, 11, 26, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex; align-items: center; justify-content: space-between;
   padding: 28px 48px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--vas-rule);
   transition: border-color .3s;
 }
 .site-nav-brand {
