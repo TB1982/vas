@@ -169,6 +169,7 @@
     },
 
     insight: {
+      'ch1.name': '那些沒有寫在<br><em>功能列表</em>裡的決定。',
       heroTag: 'VAS · 設計洞察筆記',
       heroH1: '那些沒有寫在<br><span class="gradient-text">功能列表</span>裡的決定',
       i1Tag: '人機協作 · Human-AI Collaboration',
