@@ -73,6 +73,8 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   letter-spacing: 0.02em;
 }
+a.site-nav-brand { color: inherit; text-decoration: none; cursor: pointer; transition: color .2s; }
+a.site-nav-brand:hover { color: var(--vas-ash-0); }
 .site-nav-brand .mark {
   width: 8px; height: 8px;
   border-radius: 50%;
