@@ -106,6 +106,10 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 768px) {
   .site-nav { padding: 20px 24px; }
+  .site-nav-links { gap: 16px; font-size: 10px; }
+}
+@media (max-width: 560px) {
+  .site-nav-links { display: none; }
 }
 
 /* Mobile-only line break helper */
