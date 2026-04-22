@@ -519,6 +519,7 @@
   </div>
 </footer>
 
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
   <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch2s1Name">那個按鈕說好只要五分鐘</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch2s2Name">三個字說完一份規格</span><span class="dn-dot"></span></a>
@@ -560,6 +561,17 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
   }
   function init() { VASCore.initDropdown(applyLang); initDotNav(); }
   if (document.readyState === 'loading') {
