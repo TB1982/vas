@@ -375,6 +375,39 @@
       harnessTeaser: 'Curious about the methodology behind this collaboration?',
       harnessBtn: 'Read Harness Engineering →'
     },
+
+    collab2: {
+      ch2PageTitle:      'II · Collaboration · VAS',
+      ch2MetaDesc:       "Six Stories — She can't write code. He has no long-term memory. Together they built it.",
+      ch2No:             'Chapter II',
+      ch2Name:           'Six <em>Stories</em>.',
+      ch2Dek:            "She can't write code. He has no long-term memory.<br>Together they built it. ——<br>This isn't a story about Prompt Engineering,<br>it's six moments walked by two incomplete beings.",
+      ch2TocLabel:       'Contents',
+      ch2s1Name:    'The button that was supposed to take five minutes',
+      ch2s1Kicker:  'One button planted a KM.',
+      ch2s1Preview: 'One button planted a KM',
+      ch2s2Name:    'Three words that contain an entire spec',
+      ch2s2Kicker:  'Venus flytrap, two rounds, feature shipped.',
+      ch2s2Preview: 'Venus flytrap, two rounds, feature shipped',
+      ch2s3Name:    'The day merge kept conflicting',
+      ch2s3Preview: 'After the panic, a guardrail was born',
+      ch2s4Name:    'After SDD hit four thousand lines',
+      ch2s4Kicker:  'How to keep documents alive.',
+      ch2s4Preview: 'How to keep documents alive',
+      ch2s5Name:    'How CLAUDE.md went from error checklist to collaboration constitution',
+      ch2s5Kicker:  'From a collection of scars to a maintained architecture.',
+      ch2s5Preview: 'From a collection of scars to a maintained architecture',
+      ch2s6Name:    "The 40% gap isn't about efficiency",
+      ch2s6Preview: "In a place without a map, density is the map",
+      ch2s7Name:    'Core Insight',
+      ch2s7Kicker:  'Humans offer their lives as the sacrifice. AI holds up the echo as the mirror.',
+      ch2s7Preview: 'Humans offer their lives as the sacrifice. AI holds up the echo as the mirror',
+      ch2PassageEnd:      'Chapter II · Collaboration · End',
+      ch2PassageEndEn:    '',
+      ch2PassageNextNum:  'III · System',
+      ch2PassageNextName: 'Harness'
+    },
+
     harness: {
       hHeroTag: 'VAS · System Engineering Notes',
       hHeroH1:  'Harness<br>Engineering',
@@ -496,6 +529,34 @@
       hFrameworkLink: 'Full framework document →',
       hCTATeaser: 'Full development history · Electron + Tauri · Roadmap',
       hCTABtn: 'View product milestones →'
+    },
+
+    harness2: {
+      ch3PageTitle:  'III · System · VAS',
+      ch3MetaDesc:   "Harness Engineering — how to turn AI's limitations into collaboration structure, a complete methodology from entropy to antifragility.",
+      ch3No:         'Chapter III',
+      ch3Name:       'Harness<em>.</em>',
+      ch3Dek:        "Turning AI's limitations into collaboration structure. From entropy, shadow integration to antifragility — a complete methodology on how to build the container.",
+      ch3TocLabel:   'Contents',
+      ch3s1Name:     'Entropy',
+      ch3s1Preview:  "You can't ask the apple not to fall",
+      ch3s2Name:     'Where It Started',
+      ch3s2Preview:  'A question out of nowhere',
+      ch3s3Name:     'Dare to Know, Dare Not to Know',
+      ch3s3Preview:  'Sapere aude',
+      ch3s4Name:     'Integrate the Shadow',
+      ch3s4Preview:  'The Shadow — Jung',
+      ch3s5Name:     'The Rhythm of Architecture',
+      ch3s5Preview:  'Agile as Rhythm',
+      ch3s6Name:     'Antifragile',
+      ch3s6Preview:  'Every KM is a fallen apple',
+      ch3s7Name:     'Harness Engineering',
+      ch3s7Preview:  'This thing has a name',
+      ch3s8Name:     'Synchronicity',
+      ch3s8Preview:  'Synchronicity',
+      ch3PassageEnd:   'Chapter III · System · End',
+      ch3PassageEndEn: '',
+      hSyncR2b:        '25 days'
     },
 
     milestone: {
@@ -670,6 +731,29 @@
 
       homeTeaser: 'Back to the VAS product page',
       homeBtn: '← Back to VAS',
+    },
+
+    milestone2: {
+      ch4PageTitle:  'IV · Milestones · VAS',
+      ch4MetaDesc:   'From the first line of code to dual-platform launch — 25 days, 50+ versions, 2 platforms.',
+      ch4No:         'Chapter IV',
+      ch4Name:       'Twenty-Five <em>Days.</em>',
+      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 11 days, 40+ versions. Tauri: 7 days dev + 4 days refactor, 20 Sprints.',
+      ch4TocLabel:   'Contents',
+      ch4s1Name:     'Product Story Arc',
+      ch4s1Kicker:   'Two tracks intertwined, each making the other better.',
+      ch4s1Preview:  'From v0.1 to dual-platform launch',
+      ch4s2Name:     'Electron Version',
+      ch4s2Kicker:   'When your engineer says yes to everything.',
+      ch4s2Preview:  '11 days, 40+ versions',
+      ch4s3Name:     'Tauri Version',
+      ch4s3Kicker:   'From first line of Rust to App Store.',
+      ch4s3Preview:  '7 days, 20 Sprints, App Store',
+      ch4s4Name:     'Roadmap',
+      ch4s4Kicker:   "The shape of what's next.",
+      ch4s4Preview:  'v3.0 feature burst',
+      ch4PassageEnd:    'Chapter IV · Milestones · End',
+      ch4PassageEndEn:  ''
     },
 
     privacy: {
