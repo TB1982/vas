@@ -10,7 +10,7 @@
    和 site-nav 不重疊——nav 在最頂，此頭在 nav 之下
    ─────────────────────────────────────── */
 .chapter-header {
-  padding: 120px 48px 80px;
+  padding: 72px 48px 64px;
   max-width: 1040px;
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -68,7 +68,7 @@
 
 /* ─── TOC · 章目錄 ─────────────────────── */
 .toc {
-  padding: 64px 48px 40px;
+  padding: 40px 48px 32px;
   max-width: 1040px;
   display: grid;
   grid-template-columns: 120px 1fr;
