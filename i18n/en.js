@@ -864,7 +864,7 @@
       'shrine.kicker':            'A Vessel · since 2026',
       'shrine.tagline':           'For the moments<wbr> that words could not name.',
       'shrine.colophon.zh':       'vessel · passage · unfinished',
-      'shrine.colophon.en':       'vessel — passage — unfinished',
+      'shrine.colophon.en':       '',
       'gates.1.num':              'I · Design',
       'gates.1.name':             'The Imperfect Tool',
       'gates.1.echo':             '',
