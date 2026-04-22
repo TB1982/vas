@@ -12,13 +12,14 @@ Born from a collaboration between a PM who can't write a single line of code, an
 | File | URL | Description |
 |------|-----|-------------|
 | `index.html` | `/` | Product page — download, features, roadmap |
-| `index-B.html` | `/index-B.html` | Homepage v2 candidate (煉金侘寂) — pending merge |
 | `guide.html` | `/guide.html` | User guide — screenshots and walkthrough |
 | `insight.html` | `/insight.html` | Design insights — the thinking behind VAS |
 | `collab.html` | `/collab.html` | Collab notes — how Nova & Claude built it |
 | `harness.html` | `/harness.html` | Harness Engineering — methodology essay, 8 chapters |
 | `milestone.html` | `/milestone.html` | Version history & roadmap |
 | `privacy.html` | `/privacy.html` | Privacy policy |
+
+**Archive:** `archive/` — previous versions of all pages above (including v1 variants)
 
 ---
 
@@ -48,11 +49,11 @@ Each language file exports a nested object: `shared` (nav, footer) + per-page na
 
 | File | Used by |
 |------|---------|
-| `css/tokens.css` | index-B, chapter shells, docs shell |
-| `css/shrine.css` | index-B — hero section |
-| `css/unfold.css` | index-B — colophon |
-| `css/acquire.css` | index-B — download lines |
-| `css/chronicle.css` | index-B — edition mark |
+| `css/tokens.css` | index, chapter shells, docs shell |
+| `css/shrine.css` | index — hero section |
+| `css/unfold.css` | index — colophon |
+| `css/acquire.css` | index — download lines |
+| `css/chronicle.css` | index — edition mark |
 | `css/shell.css` | Inner page chapter shells |
 | `css/docs.css` | Guide / docs shell |
 
@@ -67,7 +68,7 @@ Each language file exports a nested object: `shared` (nav, footer) + per-page na
 | `HANDOFF.md` | Claude Design → 宰相 handoff notes |
 | `chapter-shell.html` | Inner page shell template |
 | `docs-shell.html` | Guide/docs shell template |
-| `i18n-keys.md` | i18n key list for index-B |
+| `i18n-keys.md` | i18n key list for index |
 | `docs-i18n-keys.md` | i18n key list for docs shell |
 
 ---

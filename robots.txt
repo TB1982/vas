@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /*-B.html
+Disallow: /archive/
 
 Sitemap: https://tb1982.github.io/vas/sitemap.xml
