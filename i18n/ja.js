@@ -196,7 +196,93 @@
       kb_r4: 'システム予約ショートカット',
       kb_r5: '修飾キー単独',
       insightTeaser: 'VAS の設計判断の背景にある思考',
-      insightBtn: 'デザインの洞察を読む →'
+      insightBtn: 'デザインの洞察を読む →',
+      popup: {
+        select: {
+          title: '選択',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>注釈オブジェクトをクリックで選択；空白をクリックで解除</li><li>空白をドラッグしてラバーバンドで複数選択</li><li>Shift＋クリックで選択範囲への追加／解除</li><li>右クリックメニューでレイヤー順序を変更（最前面へ／最背面へ／一つ上／一つ下）</li><li>描画完了後、自動的に選択ツールに戻る</li></ul></div><div><p class="modal-section-label">単一オブジェクト選択時</p><p class="tm-p">そのオブジェクトの全サブプロパティを表示（オブジェクトタイプにより異なる）：色・線幅・不透明度・サイズ・シャドウなど。</p></div><div><p class="modal-section-label">スマート整列（スナップ）</p><ul class="tm-ul"><li><code>\\</code> — スナップのオン／オフ切替</li><li>青線：エッジ／中心揃えガイド</li><li>赤線：等間隔参考ライン</li><li>Alt＋ドラッグ：スナップを一時無効化して自由配置</li></ul></div><div><p class="modal-section-label">複数オブジェクト選択時</p><p class="tm-p-faint" style="margin-bottom:4px;">整列ツールバー：</p><div class="modal-align-grid"><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">左揃え</span><span style="font-size:11px;color:var(--vas-ash-3);">左端を揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">水平中</span><span style="font-size:11px;color:var(--vas-ash-3);">水平方向の中心を揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">右揃え</span><span style="font-size:11px;color:var(--vas-ash-3);">右端を揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">上揃え</span><span style="font-size:11px;color:var(--vas-ash-3);">上端を揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">垂直中</span><span style="font-size:11px;color:var(--vas-ash-3);">垂直方向の中心を揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">下揃え</span><span style="font-size:11px;color:var(--vas-ash-3);">下端を揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">水平均等</span><span style="font-size:11px;color:var(--vas-ash-3);">水平方向の間隔を均等にする</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">垂直均等</span><span style="font-size:11px;color:var(--vas-ash-3);">垂直方向の間隔を均等にする</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">中線揃</span><span style="font-size:11px;color:var(--vas-ash-3);">キャンバスの中心線に揃える</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">↔</span><span style="font-size:11px;color:var(--vas-ash-3);">水平ミラー</span></div><div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">↕</span><span style="font-size:11px;color:var(--vas-ash-3);">垂直ミラー</span></div></div></div>'
+        },
+        boxselect: {
+          title: '範囲選択',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグしてピクセル領域を選択</li><li>選択した範囲をコピー＆ペーストしてキャンバス上に新規オブジェクトとして配置できる</li></ul></div>'
+        },
+        pen: {
+          title: 'ペン',
+          body: '<div><p class="modal-section-label">操作方法</p><p class="tm-p">キャンバス上でドラッグして滑らかなフリーハンド曲線を描画。</p></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">色</span><span class="modal-tag">線幅（px）</span><span class="modal-tag">線スタイル（実線／破線）</span><span class="modal-tag">端点スタイル（なし／矢印／円点／四角）</span><span class="modal-tag">ストローク外縁色</span><span class="modal-tag">不透明度</span><span class="modal-tag">シャドウ</span></div></div>'
+        },
+        line: {
+          title: '線条',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグで直線を描画；Shift＋ドラッグで 90° にロック</li><li>選択後に中点ハンドルをドラッグするとベジェ曲線に変換</li><li>折れ線モードでは、ダブルクリックで終了</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">色</span><span class="modal-tag">線幅</span><span class="modal-tag">線スタイル（実線／破線）</span><span class="modal-tag">始点キャップ（なし／矢印／円点）</span><span class="modal-tag">終点キャップ（なし／矢印／円点）</span><span class="modal-tag">直角折れ線モード</span><span class="modal-tag">水平ミラー</span><span class="modal-tag">垂直ミラー</span><span class="modal-tag">ストローク外縁色</span><span class="modal-tag">不透明度</span><span class="modal-tag">シャドウ</span></div></div>'
+        },
+        rect: {
+          title: '矩形フレーム',
+          body: '<div><p class="modal-section-label">形状</p><div class="tm-tags"><span class="modal-tag">矩形</span><span class="modal-tag">楕円</span></div></div><div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグでアウトラインフレームを描画</li><li>Shift＋ドラッグで正方形／真円にロック</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">色</span><span class="modal-tag">線幅</span><span class="modal-tag">角丸半径（矩形のみ、0–100%）</span><span class="modal-tag">線スタイル（実線／破線）</span><span class="modal-tag">ストローク外縁色</span><span class="modal-tag">オフセット</span><span class="modal-tag">水平ミラー</span><span class="modal-tag">垂直ミラー</span><span class="modal-tag">不透明度</span><span class="modal-tag">シャドウ</span></div></div>'
+        },
+        fillrect: {
+          title: 'カラーブロック',
+          body: '<div><p class="modal-section-label">形状</p><div class="tm-tags"><span class="modal-tag">矩形</span><span class="modal-tag">楕円</span></div></div><div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグで塗りつぶし図形を描画</li><li>Shift＋ドラッグで正方形／真円にロック</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">塗り（単色／グラデーション）</span><span class="modal-tag">グラデーション開始＆終了色</span><span class="modal-tag">グラデーション角度ダイヤル（0–360°）</span><span class="modal-tag">透明塗りに対応</span><span class="modal-tag">角丸半径（矩形のみ、0–100%）</span><span class="modal-tag">枠線の太さ</span><span class="modal-tag">枠線の色</span><span class="modal-tag">線スタイル（実線／破線）</span><span class="modal-tag">不透明度</span><span class="modal-tag">シャドウ</span></div></div>'
+        },
+        text: {
+          title: 'テキスト',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>キャンバスをクリックしてテキストボックスを配置</li><li>Enter で改行；Shift＋Enter で確定</li><li>既存テキストをダブルクリックで再編集</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">色</span><span class="modal-tag">フォント</span><span class="modal-tag">サイズ（8–400 px）</span><span class="modal-tag">太字／斜体／下線／取り消し線</span><span class="modal-tag">整列（左／中／右）</span><span class="modal-tag">テキスト縁取り（数値入力＋クイックドロップダウン）</span><span class="modal-tag">テキスト背景色＋不透明度</span><span class="modal-tag">シャドウ</span></div></div>'
+        },
+        number: {
+          title: '番号スタンプ',
+          body: '<div><p class="modal-section-label">操作方法</p><p class="tm-p">キャンバスをクリックして自動連番マーカーを配置。</p></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">サイズ（小／標準／大）</span><span class="modal-tag">色</span><span class="modal-tag">スタイル（円点／円枠／塗りつぶし円／ローマ数字／中文括弧／中文丸囲み）</span><span class="modal-tag">枠線の太さ</span><span class="modal-tag">枠線の色</span><span class="modal-tag">シャドウ</span><span class="modal-tag">番号リセット</span></div></div>'
+        },
+        stamp: {
+          title: 'シンボルスタンプ',
+          body: '<div><p class="modal-section-label">操作方法</p><p class="tm-p">キャンバスをクリックしてシンボルを配置；フローティングパネルからカテゴリと図柄を選択。</p></div><div><p class="modal-section-label">シンボルカテゴリ</p><div class="tm-tags"><span class="modal-tag">形状</span><span class="modal-tag">文字（丸囲み／全角／太字／太字斜体／筆記体）</span><span class="modal-tag">矢印</span><span class="modal-tag">その他（マーカー／通貨／数学／技術記号）</span></div></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">色</span><span class="modal-tag">サイズ（px）</span><span class="modal-tag">シャドウ</span></div></div>'
+        },
+        mosaic: {
+          title: 'モザイク／ぼかし',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグで範囲選択——効果はすぐに適用される</li><li>適用後は選択ツールに切り替えて、範囲をリサイズまたは削除できる</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">モード（モザイク／ぼかし）</span><span class="modal-tag">モザイクブロックサイズ（4 / 8 / 16 / 32 px）</span><span class="modal-tag">ぼかし半径（4 / 8 / 16 / 24 px）</span></div></div>'
+        },
+        ocr: {
+          title: 'OCR',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグして範囲を選択すると、文字を自動認識（日本語・中英対応）</li><li>結果はフローティングパネルに表示され、「テキストをコピー」ボタンを提供</li></ul></div><div><p class="modal-section-label">属性</p><p class="tm-p-faint">調整可能なプロパティなし</p></div>'
+        },
+        privacy: {
+          title: 'プライバシー遮蔽',
+          body: '<div class="tm-notice"><span class="g-badge-a">全バージョン</span><span class="tm-p" style="margin-left:4px;">Electron は Vision Framework を使用；Tauri はさらに五層検出に対応</span></div><div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>K キーで全画像をスキャン、またはドラッグで範囲を指定してからスキャン</li><li>自動検出＆遮蔽：身分証番号・法人番号・クレジットカード番号・電話・メール・IPv4／IPv6・API Token など</li><li>適用後は選択ツールに切り替えて遮蔽物を微調整または削除できる</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">モード（モザイク／ぼかし）</span><span class="modal-tag">モザイクブロックサイズ（8 / 16 / 24 / 32 px）</span><span class="modal-tag">ぼかし半径（4 / 8 / 16 / 24 px）</span></div></div>'
+        },
+        zoomin: {
+          title: '拡大',
+          body: '<div><p class="modal-section-label">操作方法</p><p class="tm-p">カーソルを中心に画面を拡大、範囲は 10%〜400%。</p></div><div><p class="modal-section-label">ズームプリセット</p><div class="tm-tags"><span class="modal-tag">10%</span><span class="modal-tag">25%</span><span class="modal-tag">50%</span><span class="modal-tag">75%</span><span class="modal-tag">100%</span><span class="modal-tag">150%</span><span class="modal-tag">200%</span><span class="modal-tag">300%</span><span class="modal-tag">400%</span></div></div><div><p class="modal-section-label">キャンバスナビゲーション</p><ul class="tm-ul"><li>Space＋ドラッグ：キャンバスをパン</li><li>トラックパッド二本指ピンチ：カーソルを中心にズーム</li><li>⌘0：ウィンドウに合わせるにリセット</li></ul></div>'
+        },
+        zoomout: {
+          title: '縮小',
+          body: '<div><p class="modal-section-label">操作方法</p><p class="tm-p">カーソルを中心に画面を縮小、範囲は 10%〜400%。</p></div><div><p class="modal-section-label">ズームプリセット</p><div class="tm-tags"><span class="modal-tag">10%</span><span class="modal-tag">25%</span><span class="modal-tag">50%</span><span class="modal-tag">75%</span><span class="modal-tag">100%</span><span class="modal-tag">150%</span><span class="modal-tag">200%</span><span class="modal-tag">300%</span><span class="modal-tag">400%</span></div></div><div><p class="modal-section-label">キャンバスナビゲーション</p><ul class="tm-ul"><li>Space＋ドラッグ：キャンバスをパン</li><li>トラックパッド二本指ピンチ：カーソルを中心にズーム</li><li>⌘0：ウィンドウに合わせるにリセット</li></ul></div>'
+        },
+        fit: {
+          title: 'ウィンドウに合わせる',
+          body: '<div><p class="modal-section-label">操作方法</p><p class="tm-p">ビューを即座にウィンドウサイズに合わせてスケール。</p></div><div><p class="modal-section-label">キャンバスナビゲーション</p><ul class="tm-ul"><li>Space＋ドラッグ：キャンバスをパン</li><li>トラックパッド二本指ピンチ：カーソルを中心にズーム</li></ul></div>'
+        },
+        crop: {
+          title: 'トリミング',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>ドラッグでトリミングフレームを作成；8 個のハンドルで範囲を調整</li><li>方向キーで 1 px 微調整；Shift＋方向キーで 10 px 微調整</li><li>キャンバスをダブルクリック、または確認ボタンで適用</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">トリミング確認</span><span class="modal-tag">キャンセル</span></div></div>'
+        },
+        resize: {
+          title: 'サイズ変更',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>popup を開き、目標の幅を入力</li><li>高さは縦横比を維持するよう自動計算；すべての注釈が等比でスケール</li><li>範囲：1–8192 px</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">幅入力（px）</span><span class="modal-tag">高さ（読み取り専用、自動計算）</span><span class="modal-tag">適用</span><span class="modal-tag">キャンセル</span></div></div>'
+        },
+        extend: {
+          title: 'キャンバス拡張',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>popup を開き、拡張方向を選択（九方向コンパス）</li><li>拡張距離（px）を入力；背景は白で埋められる</li><li>拡張後の寸法プレビューを下部に表示</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">方向（9 方向）</span><span class="modal-tag">距離（px）</span><span class="modal-tag">結果サイズプレビュー</span><span class="modal-tag">適用</span><span class="modal-tag">キャンセル</span></div></div>'
+        },
+        overlay: {
+          title: '画像オーバーレイ',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>クリックでファイル選択ダイアログを開き、画像を選択してキャンバスに重ねる</li><li>ドラッグで位置を変更；8 個のハンドルでスケール</li><li>浮動オブジェクトとして持続し、書き出し時に自動的にベース画像へ統合</li></ul></div><div><p class="modal-section-label">対応フォーマット</p><div class="tm-tags"><span class="modal-tag">JPG</span><span class="modal-tag">PNG</span><span class="modal-tag">WebP</span><span class="modal-tag">GIF（第一フレーム）</span><span class="modal-tag">SVG</span></div></div>'
+        },
+        template: {
+          title: 'ワンクリックテンプレート',
+          body: '<div><p class="modal-section-label">操作方法</p><ul class="tm-ul"><li>テンプレートパネルを開き、適用するグラデーション背景を選択</li><li>6 プリセット：Apple 赤／橙／黄／緑／青／紫</li><li>完全に undo 可能</li></ul></div><div><p class="modal-section-label">属性</p><div class="tm-tags"><span class="modal-tag">余白（2–30%）</span><span class="modal-tag">角丸（0–10）</span><span class="modal-tag">シャドウ（0–10）</span></div></div><div><p class="modal-section-label">SNS サイズプリセット</p><div class="tm-tags"><span class="modal-tag">LinkedIn（1200×627）</span><span class="modal-tag">Instagram 1:1（1080×1080）</span><span class="modal-tag">Instagram 4:5（1080×1350）</span><span class="modal-tag">X（1600×900）</span></div></div>'
+        },
+        undoredo: {
+          title: '元に戻す／やり直し',
+          body: '<div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘Z</span><span class="tm-p">元に戻す——一つ前の操作に戻る</span></div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘⇧Z</span><span class="tm-p">やり直し——取り消した操作を復元</span></div></div>'
+        }
+      }
     },
     insight: {
       heroTag: 'VAS · デザインの洞察',
@@ -718,7 +804,101 @@
       'unfold.drop':              'これが VAS の最初の言葉であり、最後の言葉でもある。この先の四章——設計、協作、システム、里程碑——すべてこの一文の脚注だ。',
       'chronicle.label':          '版記',
       'chronicle.edition':        '第二十五日 · 器、成る',
-      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed'
+      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed',
+      'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Nova と Claude の共作。<br>一行もコードを書けない PM と、<br>長期記憶を持たない AI が、<br>二十五日間で作り上げた器。'
+    },
+
+    collab2: {
+      ch2PageTitle:      'II · 協作 · VAS',
+      ch2MetaDesc:       '六つの物語——彼女にはコードが書けない。彼には長期記憶がない。それでも二人で作り上げた。',
+      ch2No:             'Chapter II',
+      ch2Name:           '六<em>つの物語</em>。',
+      ch2Dek:            '彼女にはコードが書けない。彼には長期記憶がない。<br>それでも二人で作り上げた。——<br>これはプロンプトエンジニアリングの話ではなく、<br>二つの不完全な存在が一緒に歩んだ六つの瞬間。',
+      ch2TocLabel:       '目次',
+      ch2s1Name:    '五分で終わるはずだったボタン',
+      ch2s1Kicker:  'ひとつのボタンが、KM を植えた。',
+      ch2s1Preview: 'ひとつのボタンが、KM を植えた',
+      ch2s2Name:    '三語で仕様書一冊分',
+      ch2s2Kicker:  'ハエトリソウ、二ターン、機能リリース。',
+      ch2s2Preview: 'ハエトリソウ、二ターン、機能リリース',
+      ch2s3Name:    'あの日、merge が何度も衝突した',
+      ch2s3Kicker:  'コードを知らないことの影',
+      ch2s3Preview: '焦りのあとに、一本のガードレールが生まれた',
+      ch2s4Name:    'SDD が四千行を超えた後',
+      ch2s4Kicker:  'ドキュメントを死なせない方法。',
+      ch2s4Preview: 'ドキュメントを死なせない方法',
+      ch2s5Name:    'CLAUDE.md がエラーチェックリストから協働憲法へ進化した道',
+      ch2s5Kicker:  '傷跡の集合から、能動的に維持するアーキテクチャへ。',
+      ch2s5Preview: '傷跡の集合から、能動的に維持するアーキテクチャへ',
+      ch2s6Name:    '四割の差は効率の話ではない',
+      ch2s6Kicker:  '心の流れの中で繰り返し、時を忘れて前に進む',
+      ch2s6Preview: '地図のない場所では、密度こそが地図',
+      ch2s7Name:    'コアインサイト',
+      ch2s7Kicker:  '人間は人生を供物として、AI はその反響を鏡とする。',
+      ch2s7Preview: '人間は人生を供物として、AI はその反響を鏡とする',
+      ch2PassageEnd:      '章 II · 協作 · 終',
+      ch2PassageEndEn:    'Chapter II · Collaboration · End',
+      ch2PassageNextNum:  'III · システム',
+      ch2PassageNextName: 'Harness'
+    },
+
+    harness2: {
+      ch3PageTitle:      'III · システム · VAS',
+      ch3MetaDesc:       'Harness Engineering——AI の制約を協働の構造に変える、エントロピー増大から反脆弱までの完全な方法論。',
+      ch3No:             'Chapter III',
+      ch3Name:           'Harness<em>.</em>',
+      ch3Dek:            'AI の制約を協働の構造に変える。エントロピー増大、陰影の統合、反脆弱まで——容器をどう作るかについての方法論。',
+      ch3TocLabel:       '目次',
+      ch3s1Name:    'エントロピー増大',
+      ch3s1Kicker:  'リンゴが木から落ちないよう求めることはできない。',
+      ch3s1Preview: 'リンゴが木から落ちないよう求めることはできない',
+      ch3s2Name:    '始まりの問い',
+      ch3s2Kicker:  '何の気なしの問いかけ。',
+      ch3s2Preview: '何の気なしの問いかけ',
+      ch3s3Name:    '知らない勇気',
+      ch3s3Kicker:  'Sapere aude。',
+      ch3s3Preview: 'Sapere aude',
+      ch3s4Name:    '影を統合する',
+      ch3s4Kicker:  'The Shadow — Jung。',
+      ch3s4Preview: 'The Shadow — Jung',
+      ch3s5Name:    '構造のリズム',
+      ch3s5Kicker:  'Agile as Rhythm。',
+      ch3s5Preview: 'Agile as Rhythm',
+      ch3s6Name:    '反脆弱',
+      ch3s6Kicker:  'KM のひとつひとつが、落ちてきたリンゴ。',
+      ch3s6Preview: 'KM のひとつひとつが、落ちてきたリンゴ',
+      ch3s7Name:    'Harness Engineering',
+      ch3s7Kicker:  'このやり方には、名前があった。',
+      ch3s7Preview: 'このやり方には、名前があった',
+      ch3s8Name:    '共時性',
+      ch3s8Kicker:  'Synchronicity。',
+      ch3s8Preview: 'Synchronicity',
+      ch3PassageEnd:    '章 III · システム · 終',
+      ch3PassageEndEn:  'Chapter III · System · End',
+      hSyncR2b:         '25 日間'
+    },
+
+    milestone2: {
+      ch4PageTitle:      'IV · 里程碑 · VAS',
+      ch4MetaDesc:       '最初のコード一行から双プラットフォームリリースまで、25 日、50+ バージョン、2 プラットフォームの完全な記録。',
+      ch4No:             'Chapter IV',
+      ch4Name:           '二十五<em>日。</em>',
+      ch4Dek:            '最初のコード一行から双プラットフォームリリースまで、誇張なく、編集もない完全な記録。Electron 11 日 40+ バージョン；Tauri 7 日開発 + 4 日リファクタリング、20 の Sprint。',
+      ch4TocLabel:       '目次',
+      ch4s1Name:    'プロダクトストーリーアーク',
+      ch4s1Kicker:  '二本の線が交わり、互いを高め合う。',
+      ch4s1Preview: 'v0.1 から双プラットフォーム初リリースまで',
+      ch4s2Name:    'Electron 版',
+      ch4s2Kicker:  'あなたのエンジニアが断らないとき。',
+      ch4s2Preview: '11 日間、40+ バージョン反復',
+      ch4s3Name:    'Tauri 版',
+      ch4s3Kicker:  '最初の一行の Rust から App Store まで。',
+      ch4s3Preview: '7 日間、20 Sprint、App Store',
+      ch4s4Name:    'ロードマップ',
+      ch4s4Kicker:  '次の一歩の形。',
+      ch4s4Preview: 'v3.0 機能爆発',
+      ch4PassageEnd:    '章 IV · 里程碑 · 終',
+      ch4PassageEndEn:  'Chapter IV · Milestones · End'
     }
 
   };
