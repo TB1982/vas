@@ -728,6 +728,12 @@
       r2items: '<li>Coordinate system unified (DPR fully fixed)</li><li>Gradient engine unified (6 tools)</li><li>Data model normalisation</li><li>Properties panel framework (TOOL_SCHEMA 10/10 coverage)</li><li>Geometry + rendering pipeline modularisation</li><li>Undo/Redo architecture upgrade + memory hygiene</li><li>Automated test infrastructure (Vitest 47 pass)</li>',
       r3h: 'v3.0　Feature explosion',
       r3items: '<li>· Screenshot library / comparison / swatch extraction</li><li>· Speech bubbles / grouping / magnifier annotations</li><li>· Screen recording + GIF</li><li>· Cloud sharing</li><li>· Format Painter (grand finale)</li>',
+      r2bh: 'v2.1　Quality Infrastructure (Sprint 21–24)',
+      r2bp: 'Completed (04/18–04/21)',
+      r2bitems: '<li>✓ Sprint 21　Test infrastructure</li><li>✓ Sprint 22　i18n architecture refactor</li><li>✓ Sprint 23　Privacy scan multi-language</li><li>✓ Sprint 24　Document archiving system</li>',
+      r2ch: 'v2.2　Screenshot Quality Fix',
+      r2cp: 'In planning',
+      r2citems: '<li>· Extended screen capture DPR fix (Monitor scale detection)</li><li>· Screenshot pipeline refactor (WKWebView / Capture path)</li><li>· Next App Store update</li>',
 
       homeTeaser: 'Back to the VAS product page',
       homeBtn: '← Back to VAS',
