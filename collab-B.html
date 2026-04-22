@@ -348,14 +348,15 @@
     <div class="section-no">03</div>
     <div>
       <h2 class="section-name" data-lang-key="ch2s3Name">那天 merge 一直衝突</h2>
-      <div class="section-kicker" data-lang-key="ch2s3Kicker">慌之後，一條護欄誕生了。</div>
+      <div class="section-kicker" data-lang-key="ch2s3Kicker">不懂技術的陰影</div>
     </div>
   </header>
   <div class="section-body">
     <p data-lang-key="c3p1">VAS 有兩條線在同時跑：Tauri 付費版，Electron 免費版，前端共用同一份 <code>src/</code>。兩個 session，兩個 Claude，兩份進展——而唯一能同時看到兩邊在做什麼的人只有 Nova。方向指引的人，整張地圖只有她一個人拿著。</p>
     <p data-lang-key="c3p2">那天她心急了。Tauri 這邊在處理 Rust 的 bug，Electron 那邊有個 UI 問題等著修，她沒等一邊結束就切過去了。兩個 session 同時碰了 <code>src/</code>，merge conflict 開始反覆出現。</p>
     <p data-lang-key="c3p3">她的第一個反應不是「技術問題」，而是慌——是那種怕自己誤傷了兩邊辛苦成果的慌。她自責，覺得作為方向指引的人，沒有盡到她的義務。</p>
-    <p data-lang-key="c3p4">兩個 Claude 接住了她：沒關係，技術上沒有現在解決不了的錯誤，我們一起想辦法讓這件事不要再發生。他們把一個複雜的並行協作問題，壓縮成一條她能懂的句子：一次只能更新一邊，merge 完才可以去另一邊。這條規則進了 CLAUDE.md，而後 Nova 又幫他們建立了 SYNC-QUEUE.md 橋樑文件讓兩邊的溝通更加順暢，三個人一起走。</p>
+    <p data-lang-key="c3p4">兩個 Claude 接住了她：沒關係，技術上沒有現在解決不了的錯誤，我們一起想辦法讓這件事不要再發生。他們把一個複雜的並行協作問題，壓縮成一條她能懂的句子：一次只能更新一邊，merge 完才可以去另一邊。</p>
+    <p data-lang-key="c3p5">這條規則進了 CLAUDE.md，而後 Nova 又幫他們建立了 SYNC-QUEUE.md 橋樑文件讓兩邊的溝通更加順暢，三個人一起走。</p>
     <div class="c2-callout">
       <div class="c2-callout-label" data-lang-key="c3boxTitle">照顧是雙向的</div>
       <p data-lang-key="c3boxDesc">Story 01 裡，Nova 因為踩了坑，替 Claude 建了 KM——讓記憶可以跨 session 延續。這一次，兩個 Claude 因為她心急撞了牆，替她設了一條規則——讓她不需要記住複雜的技術邏輯也能安全行駛。Concurrent Session Rule 不是技術文件，不是限制。是兩個懂程式的人，替一個扛著全局視野、不懂程式的人，設的一道護欄。</p>
