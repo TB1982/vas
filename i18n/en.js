@@ -192,6 +192,7 @@
       kb_intro: 'Open Preferences → Shortcuts, select a tool, then press your desired key combination to record it. Invalid combinations are highlighted immediately.',
       kb_rules_title: 'Key Acceptance Rules',
       kb_col_input: 'Input', kb_col_result: 'Result',
+      kb_inp_alone: 'Alone',
       kb_r1: 'F-keys require no modifier',
       kb_r2: 'Any combination with a modifier key',
       kb_r3: 'Bare letter or number',
