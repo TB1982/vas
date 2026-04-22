@@ -276,7 +276,25 @@
       i5boxTitle: 'Refactor complete — chain effects as expected',
       i5bullets: '<li>Unified coordinate system: all objects share the same spatial language</li><li>Modular properties: solid/gradient/dash/size/direction shared across all tools</li><li>TOOL_SCHEMA covers all 10 tool types, 47 Vitest automated tests passing</li><li class="ongoing">Keep going…</li>',
       collabTeaser: 'The stories behind design decisions · Human-AI collaboration notes',
-      collabBtn: 'Read Collab Notes →'
+      collabBtn: 'Read Collab Notes →',
+      'ch1.title':            'I · Design · VAS',
+      'ch1.meta.desc':        'A record of design decisions made during VAS development — choices that never appeared in the feature list, yet shaped the feel of the product.',
+      'ch1.no':               'Chapter I',
+      'ch1.toc.label':        'Contents',
+      'ch1.sec.01.name':      'Accept Imperfection',
+      'ch1.sec.01.preview':   'The essence of collaboration is completion',
+      'ch1.sec.02.name':      'Act with Awareness',
+      'ch1.sec.02.preview':   'When intent is clear, the tool dares to act directly',
+      'ch1.sec.03.name':      'Zero-Friction Experience',
+      'ch1.sec.03.preview':   'A quiet ask, then quietly gone',
+      'ch1.sec.04.name':      'When You Can\'t Step Away',
+      'ch1.sec.04.preview':   'Wherever you are, that\'s where I capture',
+      'ch1.sec.05.name':      'Underlying Logic',
+      'ch1.sec.05.preview':   'Something more important than new features',
+      'ch1.passage.end':      'Chapter I · Design · End',
+      'ch1.passage.end.en':   '',
+      'ch1.passage.next.num': 'II · Collaboration',
+      'ch1.passage.next.name':'Six Stories'
     },
 
     collab: {

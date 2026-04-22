@@ -543,10 +543,10 @@
 
 <footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
     一個不會寫程式的 PM，<br>
     和一個沒有長期記憶的 AI，<br>
-    在二十五天裡做出的器物。<br>
+    在二十五天裡做出的器物。</div>
     <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
   </div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
@@ -561,6 +561,8 @@
   function applyLang(lang) {
     VASCore.loadLang(lang, function (t) {
       var merged = Object.assign({}, t.shared || {}, t.guide || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
       document.querySelectorAll('[data-lang-key]').forEach(function (el) {
         var key = el.getAttribute('data-lang-key');
         if (merged[key] !== undefined) el.innerHTML = merged[key];
