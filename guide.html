@@ -252,7 +252,7 @@
       <h2 data-lang-key="s3Title">浮動工作列</h2>
       <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
 
-      <img src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="g-img" loading="lazy">
+      <img id="guideToolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="g-img" loading="lazy">
 
       <div class="g-toolbar-grid">
         <div class="g-card">
@@ -595,6 +595,18 @@
         editorImg.src = editorImgMap[lang][0];
         editorImg.alt = editorImgMap[lang][1];
       }
+      var toolbarImgMap = {
+        zh: ['img/vastoolbar.webp',        'VAS 浮動工作列'],
+        en: ['img/vastoolbar-en.webp',     'VAS capture toolbar'],
+        ja: ['img/vastoolbar-jp.webp',     'VAS ツールバー'],
+        cn: ['img/vastoolbar-zh-CN.png',   'VAS 浮动工具栏']
+      };
+      var toolbarImg = document.getElementById('guideToolbarImg');
+      if (toolbarImg && toolbarImgMap[lang]) {
+        toolbarImg.src = toolbarImgMap[lang][0];
+        toolbarImg.alt = toolbarImgMap[lang][1];
+      }
+      window.guideCurrentLang = lang;
       VASCore.updateDropdown(lang);
       try { localStorage.setItem('vasLang', lang); } catch (e) {}
     });
@@ -718,10 +730,14 @@
 
   function openModal(tool) {
     var d = popupData[tool]; if (!d) return;
+    var lang = window.guideCurrentLang || 'zh';
+    var i18nPopup = window.VASI18n && window.VASI18n[lang] &&
+                    window.VASI18n[lang].guide && window.VASI18n[lang].guide.popup;
+    var td = (i18nPopup && i18nPopup[tool]) || {};
     document.getElementById('tmIcon').textContent = d.icon;
-    document.getElementById('tmTitle').textContent = d.title;
+    document.getElementById('tmTitle').textContent = td.title || d.title;
     document.getElementById('tmShortcut').textContent = d.shortcut;
-    document.getElementById('tmBody').innerHTML = d.body;
+    document.getElementById('tmBody').innerHTML = td.body || d.body;
     document.getElementById('toolModal').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
   }
