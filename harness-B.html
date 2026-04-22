@@ -716,6 +716,17 @@
   </div>
 </footer>
 
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch3s1Name">熵增</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch3s2Name">問題的開始</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch3s3Name">勇於無知</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch3s4Name">整合陰影</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch3s5Name">架構的節奏</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-06"><span class="dn-label" data-lang-key="ch3s6Name">反脆弱</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-07"><span class="dn-label" data-lang-key="ch3s7Name">Harness Engineering</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-08"><span class="dn-label" data-lang-key="ch3s8Name">共時性</span><span class="dn-dot"></span></a>
+</nav>
+
 <script src="i18n/core.js"></script>
 <script>
 (function () {
@@ -731,7 +742,24 @@
       try { localStorage.setItem('vasLang', lang); } catch (e) {}
     });
   }
-  function init() { VASCore.initDropdown(applyLang); }
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var current = sections[0];
+      sections.forEach(function(s) { if (s.offsetTop <= scroll) current = s; });
+      items.forEach(function(item) {
+        item.classList.toggle('is-current', item.getAttribute('href') === '#' + current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  function init() { VASCore.initDropdown(applyLang); initDotNav(); }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
