@@ -954,12 +954,16 @@
     var sections = Array.from(items).map(function(item) {
       return document.querySelector(item.getAttribute('href'));
     }).filter(Boolean);
+    var maxVisited = -1;
     function onScroll() {
       var scroll = window.scrollY + 160;
-      var current = sections[0];
-      sections.forEach(function(s) { if (s.offsetTop <= scroll) current = s; });
-      items.forEach(function(item) {
-        item.classList.toggle('is-current', item.getAttribute('href') === '#' + current.id);
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
       });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
