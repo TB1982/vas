@@ -571,7 +571,7 @@
       ch2MetaDesc:       '六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>個故事</em>。',
-      ch2Dek:            '她不會寫程式碼。他沒有長期記憶。但他們做出來了。——這不是 Prompt 工程的故事，是兩個不完整的存在，在一起走過的六個片刻。',
+      ch2Dek:            '她不會寫程式碼。他沒有長期記憶。<span class="m-br"></span>但他們做出來了。——<span class="m-br"></span>這不是 Prompt 工程的故事，<span class="m-br"></span>是兩個不完整的存在一起走過的六個片刻。',
       ch2TocLabel:       '章目錄',
       ch2s1Name:    '那個按鈕說好只要五分鐘',
       ch2s1Kicker:  '一顆按鈕，種下了 KM。',
