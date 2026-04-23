@@ -580,7 +580,7 @@
   </div>
 </footer>
 
-<!-- ═══ Scroll-spy ═══ -->
+<!-- ═══ Scroll-spy · TOC 高亮 ═══ -->
 <script>
 (() => {
   const links = document.querySelectorAll('.docs-toc-sticky a[href^="#"]');
@@ -603,6 +603,61 @@
 
   map.forEach((_, el) => io.observe(el));
 })();
+</script>
+
+<!-- ═══ i18n · 四語切換 + 工具列/編輯器圖同步 ═══ -->
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.guide || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+
+      var editorImgMap = {
+        zh: ['img/vas-guide-editor-zh.webp',    'VAS 編輯器介面說明圖'],
+        en: ['img/vas-guide-editor-en.webp',    'VAS editor interface'],
+        ja: ['img/vas-guide-editor-jp.webp',    'VAS エディタ画面'],
+        cn: ['img/vas-guide-editor-zh-CN.png',  'VAS 编辑器界面说明图']
+      };
+      var editorImg = document.getElementById('guideEditorImg');
+      if (editorImg && editorImgMap[lang]) {
+        editorImg.src = editorImgMap[lang][0];
+        editorImg.alt = editorImgMap[lang][1];
+      }
+
+      var toolbarImgMap = {
+        zh: ['img/vastoolbar.webp',        'VAS 浮動工作列'],
+        en: ['img/vastoolbar-en.webp',     'VAS capture toolbar'],
+        ja: ['img/vastoolbar-jp.webp',     'VAS ツールバー'],
+        cn: ['img/vastoolbar-zh-CN.png',   'VAS 浮动工具栏']
+      };
+      var toolbarImg = document.getElementById('guideToolbarImg');
+      if (toolbarImg && toolbarImgMap[lang]) {
+        toolbarImg.src = toolbarImgMap[lang][0];
+        toolbarImg.alt = toolbarImgMap[lang][1];
+      }
+
+      window.guideCurrentLang = lang;
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+
+  function init() {
+    VASCore.initDropdown(applyLang);
+    VASCore.initNavDropdown();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
 </script>
 
 </body>
