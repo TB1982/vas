@@ -309,6 +309,9 @@
 }
 
 /* ─── RWD ─────────────────────────────── */
+/* ─── docsDek desktop/mobile toggle ────── */
+.docs-dek--mobile { display: none; }
+
 @media (max-width: 900px) {
   .docs-welcome-blocks {
     grid-template-columns: 1fr;
@@ -325,7 +328,6 @@
   .docs-toc-sticky { display: none; }
   .docs-dek--desktop { display: none; }
   .docs-dek--mobile  { display: block; }
-  .docs-bl-preview { max-width: 168px; height: 48px; }
   .docs-main p { font-size: 16px; }
   .docs-main h1 { font-size: clamp(28px, 7vw, 36px); }
 }
@@ -523,15 +525,15 @@
 body.is-guide .dot-nav        { display: none; }
 body.is-guide .dot-nav-trigger { display: none; }
 
-/* ─── docsDek desktop/mobile toggle ────── */
-.docs-dek--mobile { display: none; }
-
 /* ─── Breath light preview image ─────── */
 .docs-bl-preview {
   max-width: 280px; height: 80px;
   overflow: hidden; position: relative;
   border: 1px solid var(--vas-rule); border-radius: 2px;
   margin: 24px 0 32px;
+}
+@media (max-width: 768px) {
+  .docs-bl-preview { max-width: 168px; height: 48px; }
 }
 
 /* ─── Breath light card ───────────────── */
