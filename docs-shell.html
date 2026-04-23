@@ -147,7 +147,7 @@
     <!-- ═══ Welcome ═══ -->
     <section class="docs-section" id="welcome">
       <h1>Welcome on Board</h1>
-      <div class="docs-dek">
+      <div class="docs-dek" data-lang-key="docsDek">
         這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
         往下捲是「入門 → 核心 → 進階」的順序；<br>
         左側目錄永遠陪著你，點一下就能跳到任何一節。<br>
@@ -160,41 +160,41 @@
       <div class="docs-section-kicker">入門 · Getting Started</div>
 
       <div class="docs-subsection" id="first-launch">
-        <h3>第一次打開 VAS</h3>
-        <p>從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
+        <h3 data-lang-key="flH3">第一次打開 VAS</h3>
+        <p data-lang-key="flP1">從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
         <figure class="docs-figure">
           <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS 浮動工作列">
         </figure>
-        <p>如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
+        <p data-lang-key="flP2">如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
         <div style="max-width: 280px; height: 80px; overflow: hidden; position: relative; border: 1px solid var(--vas-rule); border-radius: 2px; margin: 24px 0 32px;">
           <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
         </div>
-        <p>VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
+        <p data-lang-key="flP3">VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
         <figure class="docs-figure">
           <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
             <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
           </div>
-          <figcaption>MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
+          <figcaption data-lang-key="flCaption">MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
         </figure>
         <div class="docs-note">
-          <div class="docs-note-label">想讓VAS完全消失？</div>
-          <p>到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
-          <p>VAS 依然會在選單列待命。</p>
+          <div class="docs-note-label" data-lang-key="flNoteLabel">想讓VAS完全消失？</div>
+          <p data-lang-key="flNoteP1">到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
+          <p data-lang-key="flNoteP2">VAS 依然會在選單列待命。</p>
         </div>
       </div>
 
       <div class="docs-subsection" id="permissions">
-        <h3>授權與隱私</h3>
-        <p>VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。</p>
-        <p>所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
+        <h3 data-lang-key="permH3">授權與隱私</h3>
+        <p data-lang-key="permP1">VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。</p>
+        <p data-lang-key="permP2">所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
       </div>
 
       <div class="docs-subsection" id="first-capture">
-        <h3>第一次截圖</h3>
-        <p>按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
-        <p>選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把畫面帶進編輯器，讓你繼續編織你無法單用文字描述的意念。</p>
-        <p>編輯完，用「拖曳匯出」拖出去給任何視窗或文件。</p>
-        <p>三秒內結束。</p>
+        <h3 data-lang-key="fcH3">第一次截圖</h3>
+        <p data-lang-key="fcP1">按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
+        <p data-lang-key="fcP2">選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把畫面帶進編輯器，讓你繼續編織你無法單用文字描述的意念。</p>
+        <p data-lang-key="fcP3">編輯完，用「拖曳匯出」拖出去給任何視窗或文件。</p>
+        <p data-lang-key="fcP4">三秒內結束。</p>
       </div>
     </section>
 
