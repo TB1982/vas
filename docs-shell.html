@@ -3,27 +3,95 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
 <title data-lang-key="docs.title">操作手冊 · VAS</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/docs-shell.html">
 <meta name="description" data-lang-key="docs.meta.desc"
       content="VAS 操作手冊——從第一次打開，到熟練使用，一頁讀完。" />
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/shell.css">
 <link rel="stylesheet" href="css/docs.css">
+
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240,232,220,0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240,232,220,0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px; background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong); border-radius: 12px;
+    padding: 4px; display: none; z-index: 100; backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px; background: transparent; border: none;
+    color: var(--vas-ash-2); font-family: var(--vas-serif); font-size: 14px;
+    border-radius: 8px; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240,232,220,0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+</style>
 </head>
 <body>
 
 <nav class="site-nav">
-  <div class="site-nav-brand"><span class="mark"></span><span>VAS</span></div>
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
   <div class="site-nav-links">
-    <a href="#" data-lang-key="home2.nav.design">設計</a>
-    <a href="#" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="#" data-lang-key="home2.nav.system">系統</a>
-    <a href="#" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang">繁 · 简 · EN · 日</div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
+  </div>
 </nav>
 
 <div class="docs-layout">
