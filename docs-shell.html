@@ -165,15 +165,17 @@
         <figure class="docs-figure">
           <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS 浮動工作列">
         </figure>
-        <p>VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
-        <figure class="docs-figure">
-          <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——螢幕右上角的小瓶子">
-          <figcaption>MENUBAR · 螢幕右上角，那個瓶子就是 VAS。</figcaption>
-        </figure>
         <p>如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
         <div style="max-width: 280px; height: 80px; overflow: hidden; position: relative; border: 1px solid var(--vas-rule); border-radius: 2px; margin: 24px 0 32px;">
           <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
         </div>
+        <p>VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
+        <figure class="docs-figure">
+          <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
+            <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
+          </div>
+          <figcaption>MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
+        </figure>
         <div class="docs-note">
           <div class="docs-note-label">想讓VAS完全消失？</div>
           <p>到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
@@ -802,6 +804,56 @@
     });
   });
 }());
+</script>
+
+<!-- ── FAQPage 結構化資料（AEO / SEO）── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "權限沒給,VAS 沒反應怎麼辦?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "macOS 會跳出系統提示。照指示到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS,之後重新打開 VAS 即可。這是 macOS 的硬性規定,VAS 沒辦法繞過。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "把 VAS 放到桌面角落後找不到了怎麼辦?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "呼吸燈只有 120×6px,確實很低調。按 Dock 上的 VAS 圖示,不管它原本在哪,都會被召喚到你眼前展開成工具列。或者乾脆在選單列左鍵瓶子把桌面工具列關掉,之後都用右鍵選單操作。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 網頁截圖為什麼截到登入頁?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "網頁截圖功能會在背景獨立開一個瀏覽器實例去抓畫面,這個背景瀏覽器沒有你平常使用的登入狀態。如果你要截需要登入才看得到的頁面,目前推薦使用瀏覽器原生外掛諸如 FireShot。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 在雙螢幕下的行為?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕;延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為,請回報給我們。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 可以自訂快捷鍵嗎?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "付費版可以自訂任一快捷鍵。免費版預設提供 ⌘^1 / ⌘^2 / ⌘^X 三組截圖快捷鍵,且出廠預設關閉——需要到工具列「快捷鍵說明」手動開啟。"
+      }
+    }
+  ]
+}
 </script>
 
 </body>
