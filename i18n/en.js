@@ -765,7 +765,7 @@
       m6p: 'Two tracks converge here. Not one replacing the other — both versions reaching their best state, debuting together.',
 
       electronTag: 'Electron',
-      electronH2: '11 days, 40+ versions',
+      electronH2: '11 days, 68 versions', // 歷史數字，不可更動
       electronSub: 'What it feels like when your engineer never says no — and ships even harder than you do.',
       e1label: 'v0.1 → v0.5　From nothing, both sides learning',
       e1desc: 'Day one with nothing. Started with rectangle capture, a keyboard shortcut panel, line tool, and SVG export.',
@@ -914,17 +914,17 @@
 
     milestone2: {
       ch4PageTitle:  'IV · Milestones · VAS',
-      ch4MetaDesc:   'From the first line of code to dual-platform launch — 25 days, 50+ versions, 2 platforms.',
+      ch4MetaDesc:   'From the first line of code to dual-platform launch — 25 days, 80+ versions, 2 platforms.', // 歷史數字，不可更動
       ch4No:         'Chapter IV',
       ch4Name:       'Twenty-Five <em>Days.</em>',
-      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 7 days, 40+ versions. Apple review: 7 days. Tauri: 7 days dev + 4 days refactor, 20 Sprints.', // 歷史數字，不可更動
+      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 7 days, 68 versions. Apple review: 7 days. Tauri: 7 days dev + 4 days refactor, 20 Sprints.', // 歷史數字，不可更動
       ch4TocLabel:   'Contents',
       ch4s1Name:     'Product Story Arc',
       ch4s1Kicker:   'Two tracks intertwined, each making the other better.',
       ch4s1Preview:  'From v0.1 to dual-platform launch',
       ch4s2Name:     'Electron Version',
       ch4s2Kicker:   'When your engineer says yes to everything.',
-      ch4s2Preview:  '11 days, 40+ versions',
+      ch4s2Preview:  '11 days, 68 versions', // 歷史數字，不可更動
       ch4s3Name:     'Tauri Version',
       ch4s3Kicker:   'From first line of Rust to App Store.',
       ch4s3Preview:  '7+4 days, 20 Sprints, App Store', // 歷史數字，不可更動
