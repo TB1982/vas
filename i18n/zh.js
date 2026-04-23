@@ -621,7 +621,7 @@
       'nav.system':               '系統',
       'nav.milestones':           '里程碑',
       'shrine.kicker':            'A Vessel · since 2026',
-      'shrine.tagline':           '給那些未能用<span style="white-space:nowrap">文字</span>明說的<wbr>當下。',
+      'shrine.tagline':           '給那些未能用文字<br>明說的當下。',
       'shrine.colophon.zh':       '容器 · 傳遞 · 未完成',
       'shrine.colophon.en':       'vessel — passage — unfinished',
       'gates.1.num':              'I · 設計',
