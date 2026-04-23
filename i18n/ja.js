@@ -715,7 +715,7 @@
       e8desc: '呼吸ライト自動非表示 · 全画面 screen-select overlay · Electron がより安定し、エディタ機能完全。永久無料。',
 
       tauriTag: 'Tauri 版',
-      tauriH2: '7 + 4 日間、20 スプリント、~100 デリバラブル',
+      tauriH2: '7 + 4 日間、20 スプリント、~100 デリバラブル', // 歷史數字，不可更動
       tauriSub: 'Rust コードの最初の行から App Store 申請、そして v2.0 アーキテクチャリファクタリング完了まで。',
       t1: '<span class="text-white/30">03/28</span>  <span class="text-purple-300/80">🏁</span>  プロジェクト開始（Rust コード初行）',
       t2: '<span class="text-white/30">03/29</span>  <span class="text-white/50">📦</span>  Sprint 1 完了 — コアキャプチャ機能が動作',
@@ -960,7 +960,7 @@
       ch4MetaDesc:       '最初のコード一行から双プラットフォームリリースまで、25 日、50+ バージョン、2 プラットフォームの完全な記録。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
-      ch4Dek:            '最初のコード一行から双プラットフォームリリースまで、誇張なく、編集もない完全な記録。Electron 7 日 40+ バージョン；Apple 審査 7 日；Tauri 7 日開発 + 4 日リファクタリング、20 の Sprint。',
+      ch4Dek:            '最初のコード一行から双プラットフォームリリースまで、誇張なく、編集もない完全な記録。Electron 7 日 40+ バージョン；Apple 審査 7 日；Tauri 7 日開発 + 4 日リファクタリング、20 の Sprint。', // 歷史數字，不可更動
       ch4TocLabel:       '目次',
       ch4s1Name:    'プロダクトストーリーアーク',
       ch4s1Kicker:  '二本の線が交わり、互いを高め合う。',
@@ -970,7 +970,7 @@
       ch4s2Preview: '11 日間、40+ バージョン反復',
       ch4s3Name:    'Tauri 版',
       ch4s3Kicker:  '最初の一行の Rust から App Store まで。',
-      ch4s3Preview: '7+4 日間、20 Sprint、App Store',
+      ch4s3Preview: '7+4 日間、20 Sprint、App Store', // 歷史數字，不可更動
       ch4s4Name:    'ロードマップ',
       ch4s4Kicker:  '次の一歩の形。',
       ch4s4Preview: 'v3.0 機能爆発',

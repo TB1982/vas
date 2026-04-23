@@ -790,7 +790,7 @@
       e8desc: 'Breathing light auto-hide · Full-screen screen-select overlay · Electron more stable with complete editor features, permanently free.',
 
       tauriTag: 'Tauri',
-      tauriH2: '7 + 4 days, 20 Sprints, ~100 deliverables',
+      tauriH2: '7 + 4 days, 20 Sprints, ~100 deliverables', // 歷史數字，不可更動
       tauriSub: 'From the first line of Rust code to App Store submission, through to v2.0 architecture refactor complete.',
       t1: '<span class="text-white/30">03/28</span>  <span class="text-purple-300/80">🏁</span>  Project kick-off (first line of Rust code)',
       t2: '<span class="text-white/30">03/29</span>  <span class="text-white/50">📦</span>  Sprint 1 complete — core capture working',
@@ -917,7 +917,7 @@
       ch4MetaDesc:   'From the first line of code to dual-platform launch — 25 days, 50+ versions, 2 platforms.',
       ch4No:         'Chapter IV',
       ch4Name:       'Twenty-Five <em>Days.</em>',
-      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 7 days, 40+ versions. Apple review: 7 days. Tauri: 7 days dev + 4 days refactor, 20 Sprints.',
+      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 7 days, 40+ versions. Apple review: 7 days. Tauri: 7 days dev + 4 days refactor, 20 Sprints.', // 歷史數字，不可更動
       ch4TocLabel:   'Contents',
       ch4s1Name:     'Product Story Arc',
       ch4s1Kicker:   'Two tracks intertwined, each making the other better.',
@@ -927,7 +927,7 @@
       ch4s2Preview:  '11 days, 40+ versions',
       ch4s3Name:     'Tauri Version',
       ch4s3Kicker:   'From first line of Rust to App Store.',
-      ch4s3Preview:  '7+4 days, 20 Sprints, App Store',
+      ch4s3Preview:  '7+4 days, 20 Sprints, App Store', // 歷史數字，不可更動
       ch4s4Name:     'Roadmap',
       ch4s4Kicker:   "The shape of what's next.",
       ch4s4Preview:  'v3.0 feature burst',

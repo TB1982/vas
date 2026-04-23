@@ -537,7 +537,7 @@
       e7bitems: '<li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>工具列 Modal 位置跳動與累積偏移根治</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>修復三種截圖模式（全螢幕 / 視窗 / 矩形）全部失效</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>OCR 與隱私掃描功能修復</span></li><li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">🔧</span><span>標號與文字工具尺寸縮放一致性修正</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">⌨️</span><span>方向鍵微調物件位置（Arrow nudge）</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🧹</span><span>拖曳匯出暫存檔 60 秒後自動清除</span></li><li class="flex gap-2"><span class="text-blue-400/80 mt-0.5" aria-hidden="true">🔒</span><span>安全性修補（brace-expansion 漏洞）</span></li>',
       e8label: 'v3.60　陪著 Tauri 一起 Renew 再上線 🎉',
       e8desc: '呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。',
-      tauriTag: 'Tauri 版', tauriH2: '7 + 4 天，20 個 Sprint，~100 項交付',
+      tauriTag: 'Tauri 版', tauriH2: '7 + 4 天，20 個 Sprint，~100 項交付', // 歷史數字，不可更動
       tauriSub: '從第一行 Rust code 到 App Store 送審，再到 v2.0 架構重構完工。',
       t1: '<span class="text-white/30">03/28</span>  <span class="text-purple-300/80">🏁</span>  專案啟動（第一行 Rust code）',
       t2: '<span class="text-white/30">03/29</span>  <span class="text-white/50">📦</span>  Sprint 1 完工 — 核心截圖功能可用',
@@ -696,7 +696,7 @@
       ch4MetaDesc:       '從第一行程式碼到雙平台上架，25 天、50+ 版本、2 個平台的完整記錄。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
-      ch4Dek:            '從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 7 天 40+ 版本；Apple 審查 7 天；Tauri 7 天開發 + 4 天重構，20 個 Sprint。',
+      ch4Dek:            '從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 7 天 40+ 版本；Apple 審查 7 天；Tauri 7 天開發 + 4 天重構，20 個 Sprint。', // 歷史數字，不可更動
       ch4TocLabel:       '章目錄',
       ch4s1Name:    '產品故事弧',
       ch4s1Kicker:  '兩條線交織，互相成就。',
@@ -706,7 +706,7 @@
       ch4s2Preview: '11 天，40+ 版本迭代',
       ch4s3Name:    'Tauri 版',
       ch4s3Kicker:  '第一行 Rust 到 App Store。',
-      ch4s3Preview: '7+4 天，20 個 Sprint，App Store',
+      ch4s3Preview: '7+4 天，20 個 Sprint，App Store', // 歷史數字，不可更動
       ch4s4Name:    '路線圖',
       ch4s4Kicker:  '下一步的形狀。',
       ch4s4Preview: 'v3.0 功能爆發',
