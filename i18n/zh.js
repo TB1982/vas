@@ -645,7 +645,8 @@
       'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          '版次記號',
       'chronicle.edition':        '第二十五日 · 器成',
-      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed'
+      'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed',
+      'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>一個不會寫程式的 PM，<br>和一個沒有長期記憶的 AI，<br>在二十五天裡做出的器物。'
     },
 
     collab2: {
