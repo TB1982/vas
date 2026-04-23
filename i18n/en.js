@@ -975,7 +975,7 @@
       'acquire.guide.name':       'Manual <em>Toolbar · Editor · Shortcuts</em>',
       'acquire.guide.go':         '→ Read',
       'unfold.label':             'Why It Exists',
-      'unfold.p1':                'VAS is an <em>alchemical vessel for transmitting information</em> — from shapes to symbols, giving you power<wbr> beyond words.',
+      'unfold.p1':                'VAS is an <em>alchemical vessel for transmitting imagery</em> — from shapes to symbols, giving you power<wbr> beyond words.',
       'unfold.p2':                'A <em>channel through your workflow</em> — between pressing the screenshot key and sending the file out, a space where stone can be turned to gold.',
       'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          'Edition',

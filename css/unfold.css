@@ -26,6 +26,7 @@
   max-width: 32ch;
 }
 .unfold-body p + p { margin-top: 1.6em; }
+.unfold-body p { text-wrap: pretty; }
 .unfold-body em {
   font-style: normal;
   font-weight: 600;
