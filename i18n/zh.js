@@ -25,7 +25,7 @@
       guideBtn: '操作手冊',
       sysReq: '需要 macOS · Electron 版免費 · Tauri 版付費',
       aboutLabel: 'ABOUT', aboutTitle: '關於 VAS',
-      about1: '傳遞資訊的煉金容器',
+      about1: '傳遞意象的煉金容器',
       about2: '讓資訊順勢流入，乘載所有想表達的思緒，無痛送到它該去的地方。',
       featuresLabel: 'SAME WORKFLOW', featuresTitle: '找到你的使用方式',
       tabQA: '🔬 QA / 測試工程師', tabDesign: '🎨 設計師 / 學生',
@@ -615,7 +615,7 @@
 
     home2: {
       'title':                    'VAS · 給那些未能用文字明說的當下',
-      'meta.desc':                'VAS 是一只傳遞資訊的煉金容器——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。',
+      'meta.desc':                'VAS 是一只傳遞意象的煉金容器——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。',
       'nav.design':               '設計',
       'nav.collaboration':        '協作',
       'nav.system':               '系統',
@@ -643,7 +643,7 @@
       'acquire.guide.name':       '操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>',
       'acquire.guide.go':         '→ 閱讀',
       'unfold.label':             '為何存在',
-      'unfold.p1':                'VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越<wbr>文字的力量。',
+      'unfold.p1':                'VAS 是一只<em>傳遞意象的煉金容器</em>——從形狀到符號，給你超越<wbr>文字的力量。',
       'unfold.p2':                '作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。',
       'unfold.drop':              'Yours, VAS.',
       'chronicle.label':          '版次記號',

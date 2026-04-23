@@ -129,4 +129,47 @@ img.height = 1080;
 
 ---
 
+## 7. guide.html 手機版多重 CSS cascade 問題（2026-04）
+
+**症狀群**
+1. 手機版 docsDek 說明文字不顯示
+2. 呼吸燈觸發點（`.dot-nav-trigger`）在 guide 頁手機版不出現
+3. 點擊呼吸燈圓點無反應（游標變手形，但選單不打開）
+4. 段落間距在手機版過大
+
+**根本原因**
+
+| # | 症狀 | 根本原因 |
+|---|------|----------|
+| 1 | docsDek mobile 不顯示 | `.docs-dek--mobile { display: none; }` 全域規則寫在 `@media` 的 `display: block` **之後**，cascade 蓋掉 |
+| 2 | 呼吸燈圓點不出現 | `body.is-guide .dot-nav-trigger { display: none; }` 的 specificity (0,2,1) > shell.css 的 `.dot-nav-trigger { display: block; }` (0,1,0) |
+| 3 | 點了沒反應 | `body.is-guide .dot-nav { display: none; }` (0,2,1) 蓋掉 `.dot-nav.is-open { display: flex; }` (0,2,0)，is-open toggle 完全無效 |
+| 4 | 段落間距過大 | `.docs-section` padding 64px + `.docs-dek` margin-bottom 56px，手機版缺乏 override |
+
+**解法**
+
+```css
+/* docs.css — 全域 display:none 必須在 @media display:block 之前 */
+.docs-dek--mobile { display: none; }      /* ← 移到 @media 之前 */
+@media (max-width: 768px) {
+  .docs-dek--mobile { display: block; }   /* 後來者勝 ✓ */
+}
+
+/* guide 頁手機版：用更高 specificity 的 @media 解除桌面隱藏 */
+@media (max-width: 960px) {
+  body.is-guide .dot-nav-trigger { display: block; }
+  body.is-guide .dot-nav.is-open { display: flex; }  /* (0,3,1) > (0,2,1) ✓ */
+}
+
+/* 手機版間距縮減 */
+@media (max-width: 768px) {
+  .docs-section { padding: 32px 0 12px; }
+  .docs-main .docs-dek { margin-bottom: 20px; }
+}
+```
+
+**規則**：「全域隱藏 + media query 顯示」時，全域隱藏必須寫在 media query **之前**，讓 media query 成為後來者勝出。若全域 specificity 更高，需在 media query 裡用相同或更高 specificity 的選擇器覆蓋。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*
