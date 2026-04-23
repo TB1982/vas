@@ -850,7 +850,7 @@
       'nav.system':               'システム',
       'nav.milestones':           '里程碑',
       'shrine.kicker':            'A Vessel · since 2026',
-      'shrine.tagline':           '言葉にならなかった<wbr>その瞬間へ。',
+      'shrine.tagline':           '言葉にならなかった<br>その瞬間へ。',
       'shrine.colophon.zh':       '器 · 伝達 · 未完成',
       'shrine.colophon.en':       'vessel — passage — unfinished',
       'gates.1.num':              'I · 設計',
