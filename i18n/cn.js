@@ -630,7 +630,7 @@ harnessBtn: '阅读系统思维 →',
       m5p: '底层稳了，开始叠加 Tauri 专属功能——ShareSheet、自定义快捷键、呼吸灯彩蛋。前端共用，Electron 静静受惠。',
       m6meta: '2026 / 4 / 14　终章・庆功', m6h3: 'Electron v3.60 庆功版 &amp; Tauri 1.2.1 同步首发',
       m6p: '两条线在这里交汇。不是谁取代谁，是两个版本各自走到最好的状态，一起亮相。',
-      electronTag: 'Electron 版', electronH2: '11 天，40+ 版本',
+      electronTag: 'Electron 版', electronH2: '11 天，68 版本', // 歷史數字，不可更動
       electronSub: '当你的工程师不会找理由拒绝你，甚至比你还积极协作的迭代开发体验。',
       e1label: 'v0.1 → v0.5　从无到有，两边都在摸索',
       e1desc: '什么都没有的第一天，从矩形截图开始、快捷键说明面板、线条工具、SVG 转档。',
@@ -843,17 +843,17 @@ harnessBtn: '阅读系统思维 →',
 
     milestone2: {
       ch4PageTitle:      'IV · 里程碑 · VAS',
-      ch4MetaDesc:       '从第一行程式码到双平台上架，25 天、50+ 版本、2 个平台的完整记录。',
+      ch4MetaDesc:       '从第一行程式码到双平台上架，25 天、80+ 版本、2 个平台的完整记录。', // 歷史數字，不可更動
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
-      ch4Dek:            '从第一行程式码到双平台上架，不夸大、不剪接的完整记录。Electron 7 天 40+ 版本；Apple 审查 7 天；Tauri 7 天开发 + 4 天重构，20 个 Sprint。', // 歷史數字，不可更動
+      ch4Dek:            '从第一行程式码到双平台上架，不夸大、不剪接的完整记录。Electron 7 天 68 版本；Apple 审查 7 天；Tauri 7 天开发 + 4 天重构，20 个 Sprint。', // 歷史數字，不可更動
       ch4TocLabel:       '章目录',
       ch4s1Name:    '产品故事弧',
       ch4s1Kicker:  '两条线交织，互相成就。',
       ch4s1Preview: '从 v0.1 到双平台首发',
       ch4s2Name:    'Electron 版',
       ch4s2Kicker:  '当你的工程师不拒绝你。',
-      ch4s2Preview: '11 天，40+ 版本迭代',
+      ch4s2Preview: '11 天，68 版本迭代', // 歷史數字，不可更動
       ch4s3Name:    'Tauri 版',
       ch4s3Kicker:  '第一行 Rust 到 App Store。',
       ch4s3Preview: '7+4 天，20 个 Sprint，App Store', // 歷史數字，不可更動
