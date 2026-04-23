@@ -133,6 +133,8 @@
       'docs.title': '操作手册 · VAS',
       'docs.meta.desc': 'VAS 操作手册——工具列、编辑器、OCR、导出与快捷键的完整说明。',
       docsDek: '这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>左侧目录永远陪着你，点一下就能跳到任何一节。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜索也可以。',
+      docsDekMobile: '这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>想跳转段落，请点右上角的呼吸灯。',
+      tocLabel: '目录', tocGroupStart: '入门', tocGroupCore: '核心', tocGroupAdv: '进阶',
       flH3: '第一次打开 VAS',
       flP1: '从 App Store 下载安装后打开 VAS，你会看到桌面上有一排崭新的浮动工具列。它可以停驻在你的桌面上，任你拖动。',
       flP2: '如果你觉得它在桌面上有点占位想让它小一点——<strong>呼吸灯</strong>模式预设为关闭，请到工具列「快捷键说明」内手动开启。',

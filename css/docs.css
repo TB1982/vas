@@ -323,7 +323,9 @@
     padding: 24px 24px 56px;
   }
   .docs-toc-sticky { display: none; }
-  .docs-toc-mobile { display: block; }
+  .docs-dek--desktop { display: none; }
+  .docs-dek--mobile  { display: block; }
+  .docs-bl-preview { max-width: 168px; height: 48px; }
   .docs-main p { font-size: 16px; }
   .docs-main h1 { font-size: clamp(28px, 7vw, 36px); }
 }
@@ -515,6 +517,21 @@
   line-height: 1.6; color: var(--vas-ash-3);
   letter-spacing: 0.04em;
   margin-top: 6px;
+}
+
+/* ─── Guide page: dot-nav desktop suppression ─ */
+body.is-guide .dot-nav        { display: none; }
+body.is-guide .dot-nav-trigger { display: none; }
+
+/* ─── docsDek desktop/mobile toggle ────── */
+.docs-dek--mobile { display: none; }
+
+/* ─── Breath light preview image ─────── */
+.docs-bl-preview {
+  max-width: 280px; height: 80px;
+  overflow: hidden; position: relative;
+  border: 1px solid var(--vas-rule); border-radius: 2px;
+  margin: 24px 0 32px;
 }
 
 /* ─── Breath light card ───────────────── */
