@@ -943,7 +943,7 @@
 
     home2: {
       'title':                    'VAS · For the Moments Words Could Not Name',
-      'meta.desc':                'VAS is an alchemical vessel for transmitting information — catching what you see, want to say, and want to note, before it enters editing.',
+      'meta.desc':                'VAS is an alchemical vessel for transmitting imagery — from shapes to symbols, giving you power beyond words.',
       'nav.design':               'Design',
       'nav.collaboration':        'Collaboration',
       'nav.system':               'System',

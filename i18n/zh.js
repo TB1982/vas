@@ -615,7 +615,7 @@
 
     home2: {
       'title':                    'VAS · 給那些未能用文字明說的當下',
-      'meta.desc':                'VAS 是一只傳遞意象的煉金容器——把看見的、想說的、想記下的，在進入編輯之前，先承接起來。',
+      'meta.desc':                'VAS 是一只傳遞意象的煉金容器——從形狀到符號，給你超越文字的力量。',
       'nav.design':               '設計',
       'nav.collaboration':        '協作',
       'nav.system':               '系統',
