@@ -52,7 +52,7 @@
   .lang-opt.active { color: var(--vas-aurora-violet); }
 </style>
 </head>
-<body>
+<body class="is-guide">
 
 <nav class="site-nav">
   <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
@@ -124,34 +124,20 @@
 
   <main class="docs-main">
 
-    <!-- 手機跳節選單 -->
-    <details class="docs-toc-mobile">
-      <summary>跳到 · Jump to</summary>
-      <ol>
-        <li><a href="#welcome">Welcome on Board</a></li>
-        <li><a href="#first-launch">第一次打開 VAS</a></li>
-        <li><a href="#permissions">授權與隱私</a></li>
-        <li><a href="#first-capture">第一次截圖</a></li>
-        <li><a href="#menubar">系統選單中的瓶子</a></li>
-        <li><a href="#breath">一盞呼吸燈 x 一鍵召喚</a></li>
-        <li><a href="#toolbar">工具列</a></li>
-        <li><a href="#editor">編輯器</a></li>
-        <li><a href="#export">匯出</a></li>
-        <li><a href="#ocr">OCR 與 QR Code</a></li>
-        <li><a href="#shortcuts">快捷鍵</a></li>
-        <li><a href="#customization">自訂設定</a></li>
-        <li><a href="#tips">疑難與邊界</a></li>
-      </ol>
-    </details>
 
     <!-- ═══ Welcome ═══ -->
     <section class="docs-section" id="welcome">
       <h1>Welcome on Board</h1>
-      <div class="docs-dek" data-lang-key="docsDek">
+      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">
         這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
         往下捲是「入門 → 核心 → 進階」的順序；<br>
         左側目錄永遠陪著你，點一下就能跳到任何一節。<br>
         <span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜尋也可以。
+      </div>
+      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">
+        這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
+        往下捲是「入門 → 核心 → 進階」的順序；<br>
+        想跳段落看的話請按右上角的呼吸燈。
       </div>
     </section>
 
@@ -668,9 +654,43 @@
     });
   }
 
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+
   function init() {
     VASCore.initDropdown(applyLang);
     VASCore.initNavDropdown();
+    initDotNav();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -851,6 +871,24 @@
   ]
 }
 </script>
+
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#welcome"><span class="dn-label">Welcome</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#first-launch"><span class="dn-label" data-lang-key="flH3">第一次打開 VAS</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#permissions"><span class="dn-label" data-lang-key="permH3">授權與隱私</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#first-capture"><span class="dn-label" data-lang-key="fcH3">第一次截圖</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#menubar"><span class="dn-label" data-lang-key="mbH3">系統選單中的瓶子</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#breath"><span class="dn-label" data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#toolbar"><span class="dn-label" data-lang-key="s3Title">工具列</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#editor"><span class="dn-label" data-lang-key="s1Title">編輯器</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#export"><span class="dn-label" data-lang-key="exportH3">匯出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ocr"><span class="dn-label" data-lang-key="ocrH3">OCR 與 QR Code</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#shortcuts"><span class="dn-label" data-lang-key="kbH3">快捷鍵</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#customization"><span class="dn-label" data-lang-key="custH3">自訂設定</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#tips"><span class="dn-label" data-lang-key="tipsH3">疑難與邊界</span><span class="dn-dot"></span></a>
+</nav>
 
 </body>
 </html>
