@@ -836,6 +836,69 @@
         </div>
       </div>
 
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(250,113,205,0.8);font-weight:500;" data-lang-key="hotfixnum">v2.0.x</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(250,113,205,0.15);">
+          <div class="m4-log-label pink" data-lang-key="hotfixmeta">04/17 ～ 04/18　8 輪　2 小時破關</div>
+          <div class="m4-log-title" data-lang-key="hotfixtitle">🔥 多螢幕工具列消失災難修復</div>
+          <div class="m4-log-desc" data-lang-key="hotfixdesc">current_monitor scale_factor 修正 · NSWindowRestoration 強制覆蓋 · per-monitor probe · two-stage restore · NSScreen objc 原生 enumerate · MIN_VISIBLE_PHYS X/Y 軸拆分</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(160,180,255,0.9);font-weight:500;" data-lang-key="s21num">S21</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(160,180,255,0.15);">
+          <div class="m4-log-label white" data-lang-key="s21meta">04/18 ～ 04/20　5 Story　QC 100%（cargo test 30/30 · Vitest 147/147）</div>
+          <div class="m4-log-title" data-lang-key="s21title">🧪 測試基建 + 多螢幕純函式重構</div>
+          <div class="m4-log-desc" data-lang-key="s21desc">geometry_tests 14 → 30 · thin-wrapper pure inner 拆解（MonitorGeom · probe_pref_against_screens）· hotfix 命名回歸測試 × 4 · 打包 QC 範本精簡（手動項 23 → 13）· Resize Modal Enter/Esc</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(200,150,255,0.9);font-weight:500;" data-lang-key="s22num">S22</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(200,150,255,0.15);">
+          <div class="m4-log-label yellow" data-lang-key="s22meta">04/20 ～ 04/21　4 Story　QC 100%（Vitest 147 → 179 全綠）</div>
+          <div class="m4-log-title" data-lang-key="s22title">🌐 i18n 架構重構 + 簡中 Pro 化</div>
+          <div class="m4-log-desc" data-lang-key="s22desc">i18n.js 1592 → 123 行 + per-lang 拆檔 · key 完整性 / 型別 / liveness 自動化（10 tests）· CJK 硬寫掃描器 + 清 18 筆歷史債 · zh-CN 429 keys 全覆蓋 + _detectLang Pro gate + fallback chain</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(255,160,100,0.9);font-weight:500;" data-lang-key="s23num">S23</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(255,160,100,0.15);">
+          <div class="m4-log-label pink" data-lang-key="s23meta">04/21　1 Story　QC 100%（11/11，含 TW/JP 回歸）</div>
+          <div class="m4-log-title" data-lang-key="s23title">🔒 簡中隱私遮蔽特化</div>
+          <div class="m4-log-desc" data-lang-key="s23desc">PRC 身份證 / 手機 / 統一社信代碼 / 地址 regex · lookbehind 標籤 × 5 · label-contains × 8 · zh-Hans OCR 順序修正（联→朕 / 码→6 根治）</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(160,170,195,0.9);font-weight:500;" data-lang-key="s24num">S24</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(160,170,195,0.15);">
+          <div class="m4-log-label white" data-lang-key="s24meta">04/21　5 Story　verify 腳本 32/32 PASS</div>
+          <div class="m4-log-title" data-lang-key="s24title">📚 文件系統重構</div>
+          <div class="m4-log-desc" data-lang-key="s24desc">KM 89 條拆分 9 主題歸檔 · SDD archive 拆 7 檔 · TDD 歸檔 S01-S20 · KM 重新編目（KM-NNN → KM-前綴-NN）· 路徑引用全更新 + verify 腳本</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(80,220,200,0.9);font-weight:500;" data-lang-key="s25num">S25</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(80,220,200,0.15);">
+          <div class="m4-log-label green" data-lang-key="s25meta">04/22　3 Story　QC 100%（cargo test 36/36 + 硬體 ✅）</div>
+          <div class="m4-log-title" data-lang-key="s25title">🎯 截圖 DPR WYSIWYG 修復 + 剪貼簿貼圖</div>
+          <div class="m4-log-desc" data-lang-key="s25desc">infer_capture_dpr 純函式（monitor 尺寸比對推斷 DPR）· PNG pHYs metadata 讀取（三路修復）· 剪貼簿貼圖 Toast UX（NSPasteboard · changeCount 抑制重複彈）</div>
+        </div>
+      </div>
+
+      <div class="m4-log-entry">
+        <div class="m4-log-date" style="color:rgba(120,220,140,0.7);font-weight:500;" data-lang-key="s26num">S26</div>
+        <div class="m4-log-inner" style="border-left-color:rgba(120,220,140,0.2);">
+          <div class="m4-log-label green" data-lang-key="s26meta">04/22　3 Story + 3 計畫外　QC 100%（npm 179/179 + cargo 36/36）</div>
+          <div class="m4-log-title" data-lang-key="s26title">📦 i18n 收尾 + v2.1.0 App Store 送審</div>
+          <div class="m4-log-desc" data-lang-key="s26desc">SYMBOL_SETS 14 中文 key → 英文 id（56 翻譯 × 4 語）· FONT_FAMILIES label 死碼刪除 · zh-CN 字型 SC 特化 · 延伸畫布 Undo bug 根治 · App Store 文案四語全面補完 · v2.1.0 ✅</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -891,11 +954,11 @@
         </div>
       </div>
 
-      <div class="m4-roadmap-item">
-        <div class="m4-roadmap-icon">🚧</div>
+      <div class="m4-roadmap-item done">
+        <div class="m4-roadmap-icon">✅</div>
         <div>
           <div class="m4-roadmap-title" data-lang-key="r2ch">v2.2　截圖品質修復</div>
-          <div class="m4-roadmap-sub" data-lang-key="r2cp">規劃中</div>
+          <div class="m4-roadmap-sub" data-lang-key="r2cp">已完成（04/22）</div>
           <ul class="m4-roadmap-list" data-lang-key="r2citems">
             <li>· 延伸螢幕截圖 DPR 顯示修復（來源 Monitor scale 偵測）</li>
             <li>· 截圖管線整體重構（WKWebView / Capture 路徑）</li>
