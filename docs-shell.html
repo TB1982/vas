@@ -3,27 +3,95 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
 <title data-lang-key="docs.title">操作手冊 · VAS</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/docs-shell.html">
 <meta name="description" data-lang-key="docs.meta.desc"
       content="VAS 操作手冊——從第一次打開，到熟練使用，一頁讀完。" />
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/shell.css">
 <link rel="stylesheet" href="css/docs.css">
+
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240,232,220,0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240,232,220,0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px; background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong); border-radius: 12px;
+    padding: 4px; display: none; z-index: 100; backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px; background: transparent; border: none;
+    color: var(--vas-ash-2); font-family: var(--vas-serif); font-size: 14px;
+    border-radius: 8px; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240,232,220,0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+</style>
 </head>
 <body>
 
 <nav class="site-nav">
-  <div class="site-nav-brand"><span class="mark"></span><span>VAS</span></div>
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
   <div class="site-nav-links">
-    <a href="#" data-lang-key="home2.nav.design">設計</a>
-    <a href="#" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="#" data-lang-key="home2.nav.system">系統</a>
-    <a href="#" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang">繁 · 简 · EN · 日</div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
+  </div>
 </nav>
 
 <div class="docs-layout">
@@ -135,20 +203,6 @@
         <p>換句話說：如果你完全不想在桌面上看到任何 VAS 的痕跡，把工具列關掉，所有事情都用右鍵選單完成。</p>
       </div>
 
-      <div class="docs-subsection" id="toolbar">
-        <h3>工具列</h3>
-        <p>工具列是 VAS 的主要操作介面。左邊三顆是截圖模式，右邊是進階功能：</p>
-        <ul class="docs-list">
-          <li><strong>全螢幕</strong> <span class="docs-kbd">⌘^1</span>——截整個螢幕。雙螢幕下會截目前滑鼠所在的那個螢幕。</li>
-          <li><strong>視窗</strong> <span class="docs-kbd">⌘^2</span>——以視窗為單位框選。</li>
-          <li><strong>矩形</strong> <span class="docs-kbd">⌘^X</span>——任意框選。</li>
-          <li><strong>貼上圖片</strong>——把剪貼簿裡的圖片直接進編輯器。</li>
-          <li><strong>白板</strong>——開一張空白畫布，直接畫、直接打字、直接拼貼其他圖片。</li>
-          <li><strong>批次轉</strong>——批次處理多張圖片。</li>
-        </ul>
-        <p>工具列右邊還有說明鍵與「六個點」的拖曳把手——長按可以把工具列拖到桌面任何位置。</p>
-      </div>
-
       <div class="docs-subsection" id="breath">
         <h3>呼吸燈與召喚</h3>
         <p>當你不用 VAS 的時候，工具列會縮成一條 120×6px 的光——<strong>呼吸燈</strong>。低調、不擋事，但它一直在感知你。</p>
@@ -168,24 +222,133 @@
         </div>
       </div>
 
+      <div class="docs-subsection" id="toolbar">
+        <h3 data-lang-key="s3Title">工具列</h3>
+        <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
+
+        <img id="guideToolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="g-img" loading="lazy">
+
+        <div class="g-toolbar-grid">
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_fullscreen">全螢幕</p>
+            <p class="g-card-desc" data-lang-key="cb_fullscreen_desc">截取整個螢幕畫面，立即進入編輯器。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_window">視窗</p>
+            <p class="g-card-desc" data-lang-key="cb_window_desc">點選後再點擊任意視窗，只截取該視窗範圍。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_rect">矩形</p>
+            <p class="g-card-desc" data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。直接框住 QR Code 會自動掃描並顯示內容。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_delay">延遲</p>
+            <p class="g-card-desc" data-lang-key="cb_delay_desc">設定 1–3 秒延遲，補抓 tooltip、dropdown 等稍縱即逝的狀態。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_open">開啟</p>
+            <p class="g-card-desc" data-lang-key="cb_open_desc">從本機開啟現有圖片，或建立指定尺寸的新畫布。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_whiteboard">白板</p>
+            <p class="g-card-desc" data-lang-key="cb_whiteboard_desc">開啟空白畫布，從零開始建立圖像內容。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_batch">批次轉</p>
+            <p class="g-card-desc" data-lang-key="cb_batch_desc">拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_help">說明</p>
+            <p class="g-card-desc" data-lang-key="cb_help_desc">顯示快捷鍵一覽，並提供操作手冊連結。</p>
+          </div>
+        </div>
+      </div>
+
       <div class="docs-subsection" id="editor">
-        <h3>編輯器</h3>
+        <h3 data-lang-key="s1Title">編輯器</h3>
         <p>截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
         <figure class="docs-figure">
-          <img src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖">
+          <img id="guideEditorImg" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖">
           <figcaption>EDITOR · 四個操作區域。</figcaption>
         </figure>
         <ul class="docs-list">
-          <li><strong>主要功能選單</strong>——左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</li>
-          <li><strong>子屬性調整選單</strong>——頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</li>
-          <li><strong>動態匯出按鈕</strong>——右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。</li>
-          <li><strong>狀態列與磁吸工具開關</strong>——左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關。</li>
+          <li><strong data-lang-key="zone1Name">主要功能選單</strong>——<span data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</span></li>
+          <li><strong data-lang-key="zone2Name">子屬性調整選單</strong>——<span data-lang-key="zone2Desc">頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</span></li>
+          <li><strong data-lang-key="zone3Name">動態匯出按鈕</strong>——<span data-lang-key="zone3Desc">右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。</span></li>
+          <li><strong data-lang-key="zone4Name">狀態列與磁吸工具開關</strong>——<span data-lang-key="zone4Desc">左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關。</span></li>
         </ul>
-        <p style="margin-top: 24px;">標注工具分七組：選取、繪圖、標注、隱私與遮蔽、畫布操作、版面功能、其他。</p>
-        <figure class="docs-figure">
-          <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示">
-          <figcaption>SIDEBAR · 標注工具一覽。</figcaption>
-        </figure>
+
+        <p class="g-section-sub" style="margin-top: 32px;" data-lang-key="s2Sub">所有標注工具一覽，點擊查看操作方式</p>
+        <div class="g-tools-wrap">
+          <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示" class="g-sidebar-img" loading="lazy">
+          <div class="g-tools-body">
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpSelect">選取</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="select" role="button" tabindex="0"><span class="g-chip-icon">↖</span><span data-lang-key="t_select">選取</span><span class="g-chip-key">V</span></span>
+                <span class="g-chip" data-tool="boxselect" role="button" tabindex="0"><span class="g-chip-icon">⬚</span><span data-lang-key="t_boxselect">框型選取</span><span class="g-chip-key">M</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpDraw">繪圖</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="pen" role="button" tabindex="0"><span class="g-chip-icon">✒</span><span data-lang-key="t_pen">筆型</span><span class="g-chip-key">P</span></span>
+                <span class="g-chip" data-tool="line" role="button" tabindex="0"><span class="g-chip-icon">╱</span><span data-lang-key="t_line">線條</span><span class="g-chip-key">L</span></span>
+                <span class="g-chip" data-tool="rect" role="button" tabindex="0"><span class="g-chip-icon">▭</span><span data-lang-key="t_rect">矩形框</span><span class="g-chip-key">R</span></span>
+                <span class="g-chip" data-tool="fillrect" role="button" tabindex="0"><span class="g-chip-icon">■</span><span data-lang-key="t_fillrect">色塊</span><span class="g-chip-key">B</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpAnnotate">標注</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="text" role="button" tabindex="0"><span class="g-chip-icon">T</span><span data-lang-key="t_text">文字</span><span class="g-chip-key">T</span></span>
+                <span class="g-chip" data-tool="number" role="button" tabindex="0"><span class="g-chip-icon">①</span><span data-lang-key="t_number">編號</span><span class="g-chip-key">N</span></span>
+                <span class="g-chip" data-tool="stamp" role="button" tabindex="0"><span class="g-chip-icon">☺</span><span data-lang-key="t_symbol">符號印章</span><span class="g-chip-key">U</span></span>
+                <span class="g-chip" data-tool="mosaic" role="button" tabindex="0"><span class="g-chip-icon">⬜</span><span data-lang-key="t_mosaic">馬賽克／模糊</span><span class="g-chip-key">X</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpPrivacy">隱私與遮蔽</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="ocr" role="button" tabindex="0"><span class="g-chip-icon">文</span><span data-lang-key="t_ocr">OCR 文字辨識</span><span class="g-chip-key">G</span></span>
+                <span class="g-chip" data-tool="privacy" role="button" tabindex="0"><span class="g-chip-icon" style="text-decoration:line-through">文</span><span data-lang-key="t_privacy">隱私遮蔽</span><span class="g-chip-key">K</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpCanvas">畫布操作</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="zoomin" role="button" tabindex="0"><span class="g-chip-icon">⊕</span><span data-lang-key="t_zoomin">放大</span><span class="g-chip-key">⌘=</span></span>
+                <span class="g-chip" data-tool="zoomout" role="button" tabindex="0"><span class="g-chip-icon">⊖</span><span data-lang-key="t_zoomout">縮小</span><span class="g-chip-key">⌘-</span></span>
+                <span class="g-chip" data-tool="fit" role="button" tabindex="0"><span class="g-chip-icon">⊡</span><span data-lang-key="t_fit">適合視窗</span><span class="g-chip-key">⌘0</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpLayout">版面功能</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="crop" role="button" tabindex="0"><span class="g-chip-icon">✂</span><span data-lang-key="t_crop">裁切</span><span class="g-chip-key">C</span></span>
+                <span class="g-chip" data-tool="resize" role="button" tabindex="0"><span class="g-chip-icon">↔</span><span data-lang-key="t_resize">調整大小</span><span class="g-chip-key">S</span></span>
+                <span class="g-chip" data-tool="extend" role="button" tabindex="0"><span class="g-chip-icon">⊞</span><span data-lang-key="t_extend">延伸畫布</span><span class="g-chip-key">E</span></span>
+                <span class="g-chip" data-tool="overlay" role="button" tabindex="0"><span class="g-chip-icon">⧉</span><span data-lang-key="t_overlay">疊入圖片</span><span class="g-chip-key">O</span></span>
+                <span class="g-chip" data-tool="template" role="button" tabindex="0"><span class="g-chip-icon">◱</span><span data-lang-key="t_open">一鍵套版</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpOther">其他</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↩</span><span data-lang-key="t_undo">撤銷</span><span class="g-chip-key">⌘Z</span></span>
+                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↪</span><span data-lang-key="t_redo">重做</span><span class="g-chip-key">⌘⇧Z</span></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
 
       <div class="docs-subsection" id="export">
@@ -386,19 +549,38 @@
     </section>
 
   </main>
+</div><!-- /.docs-layout -->
+
+<!-- ── Tool Popup Modal ── -->
+<div id="toolModal" class="tool-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+  <div class="tool-modal-card">
+    <button id="tmClose" class="tool-modal-close" aria-label="關閉">✕</button>
+    <div class="tool-modal-head">
+      <span id="tmIcon" class="tool-modal-icon"></span>
+      <div>
+        <div id="tmTitle" class="tool-modal-title"></div>
+        <div id="tmShortcut" class="tool-modal-shortcut"></div>
+      </div>
+    </div>
+    <div id="tmBody" class="tool-modal-body"></div>
+  </div>
 </div>
 
-<footer style="padding: 56px 48px 40px; border-top: 1px solid var(--vas-rule); display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end;">
+<footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
   </div>
-  <div style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
-    vas.wiki/docs<br>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
     <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
   </div>
 </footer>
 
-<!-- ═══ Scroll-spy ═══ -->
+<!-- ═══ Scroll-spy · TOC 高亮 ═══ -->
 <script>
 (() => {
   const links = document.querySelectorAll('.docs-toc-sticky a[href^="#"]');
@@ -421,6 +603,61 @@
 
   map.forEach((_, el) => io.observe(el));
 })();
+</script>
+
+<!-- ═══ i18n · 四語切換 + 工具列/編輯器圖同步 ═══ -->
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.guide || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+
+      var editorImgMap = {
+        zh: ['img/vas-guide-editor-zh.webp',    'VAS 編輯器介面說明圖'],
+        en: ['img/vas-guide-editor-en.webp',    'VAS editor interface'],
+        ja: ['img/vas-guide-editor-jp.webp',    'VAS エディタ画面'],
+        cn: ['img/vas-guide-editor-zh-CN.png',  'VAS 编辑器界面说明图']
+      };
+      var editorImg = document.getElementById('guideEditorImg');
+      if (editorImg && editorImgMap[lang]) {
+        editorImg.src = editorImgMap[lang][0];
+        editorImg.alt = editorImgMap[lang][1];
+      }
+
+      var toolbarImgMap = {
+        zh: ['img/vastoolbar.webp',        'VAS 浮動工作列'],
+        en: ['img/vastoolbar-en.webp',     'VAS capture toolbar'],
+        ja: ['img/vastoolbar-jp.webp',     'VAS ツールバー'],
+        cn: ['img/vastoolbar-zh-CN.png',   'VAS 浮动工具栏']
+      };
+      var toolbarImg = document.getElementById('guideToolbarImg');
+      if (toolbarImg && toolbarImgMap[lang]) {
+        toolbarImg.src = toolbarImgMap[lang][0];
+        toolbarImg.alt = toolbarImgMap[lang][1];
+      }
+
+      window.guideCurrentLang = lang;
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+
+  function init() {
+    VASCore.initDropdown(applyLang);
+    VASCore.initNavDropdown();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
 </script>
 
 </body>
