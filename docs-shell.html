@@ -203,20 +203,6 @@
         <p>換句話說：如果你完全不想在桌面上看到任何 VAS 的痕跡，把工具列關掉，所有事情都用右鍵選單完成。</p>
       </div>
 
-      <div class="docs-subsection" id="toolbar">
-        <h3>工具列</h3>
-        <p>工具列是 VAS 的主要操作介面。左邊三顆是截圖模式，右邊是進階功能：</p>
-        <ul class="docs-list">
-          <li><strong>全螢幕</strong> <span class="docs-kbd">⌘^1</span>——截整個螢幕。雙螢幕下會截目前滑鼠所在的那個螢幕。</li>
-          <li><strong>視窗</strong> <span class="docs-kbd">⌘^2</span>——以視窗為單位框選。</li>
-          <li><strong>矩形</strong> <span class="docs-kbd">⌘^X</span>——任意框選。</li>
-          <li><strong>貼上圖片</strong>——把剪貼簿裡的圖片直接進編輯器。</li>
-          <li><strong>白板</strong>——開一張空白畫布，直接畫、直接打字、直接拼貼其他圖片。</li>
-          <li><strong>批次轉</strong>——批次處理多張圖片。</li>
-        </ul>
-        <p>工具列右邊還有說明鍵與「六個點」的拖曳把手——長按可以把工具列拖到桌面任何位置。</p>
-      </div>
-
       <div class="docs-subsection" id="breath">
         <h3>呼吸燈與召喚</h3>
         <p>當你不用 VAS 的時候，工具列會縮成一條 120×6px 的光——<strong>呼吸燈</strong>。低調、不擋事，但它一直在感知你。</p>
@@ -233,6 +219,48 @@
         <div class="docs-note">
           <div class="docs-note-label">召喚</div>
           <p>如果你把 VAS 放在桌面某個角落後忘了它在哪——呼吸燈真的很低調——按 Dock 上的 VAS 圖示，不管它在哪裡，都會展開成工具列狀態等你過去。</p>
+        </div>
+      </div>
+
+      <div class="docs-subsection" id="toolbar">
+        <h3 data-lang-key="s3Title">工具列</h3>
+        <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
+
+        <img id="guideToolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="g-img" loading="lazy">
+
+        <div class="g-toolbar-grid">
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_fullscreen">全螢幕</p>
+            <p class="g-card-desc" data-lang-key="cb_fullscreen_desc">截取整個螢幕畫面，立即進入編輯器。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_window">視窗</p>
+            <p class="g-card-desc" data-lang-key="cb_window_desc">點選後再點擊任意視窗，只截取該視窗範圍。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_rect">矩形</p>
+            <p class="g-card-desc" data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。直接框住 QR Code 會自動掃描並顯示內容。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_delay">延遲</p>
+            <p class="g-card-desc" data-lang-key="cb_delay_desc">設定 1–3 秒延遲，補抓 tooltip、dropdown 等稍縱即逝的狀態。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_open">開啟</p>
+            <p class="g-card-desc" data-lang-key="cb_open_desc">從本機開啟現有圖片，或建立指定尺寸的新畫布。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_whiteboard">白板</p>
+            <p class="g-card-desc" data-lang-key="cb_whiteboard_desc">開啟空白畫布，從零開始建立圖像內容。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_batch">批次轉</p>
+            <p class="g-card-desc" data-lang-key="cb_batch_desc">拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_help">說明</p>
+            <p class="g-card-desc" data-lang-key="cb_help_desc">顯示快捷鍵一覽，並提供操作手冊連結。</p>
+          </div>
         </div>
       </div>
 
