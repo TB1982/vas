@@ -715,7 +715,7 @@
       e8desc: '呼吸ライト自動非表示 · 全画面 screen-select overlay · Electron がより安定し、エディタ機能完全。永久無料。',
 
       tauriTag: 'Tauri 版',
-      tauriH2: '7 + 4 日間、26 スプリント、~100 デリバラブル',
+      tauriH2: '7 + 4 日間、20 スプリント、~100 デリバラブル', // 歷史數字，不可更動
       tauriSub: 'Rust コードの最初の行から App Store 申請、そして v2.0 アーキテクチャリファクタリング完了まで。',
       t1: '<span class="text-white/30">03/28</span>  <span class="text-purple-300/80">🏁</span>  プロジェクト開始（Rust コード初行）',
       t2: '<span class="text-white/30">03/29</span>  <span class="text-white/50">📦</span>  Sprint 1 完了 — コアキャプチャ機能が動作',
@@ -816,20 +816,6 @@
       s20meta: '04/14　4 項目　QC 100%',
       s20title: '✨ Help Modal 最適化 + Modal 境界修正',
       s20desc: 'キーボードショートカットアコーディオンパネル（4 カテゴリ · 35 キー · i18n 20 新 key）· Modal 画面境界 clamp（四隅 x/y · メニューバー + Dock マージン）· Esc で全 modal を統一クローズ（過去の ReferenceError 根本修正）· オプションバー垂直中央揃え',
-      hotfixnum: 'v2.0.x', hotfixmeta: '04/17–18　8 ラウンド　2 時間で危機収束', hotfixtitle: '🔥 マルチモニター ツールバー消失バグ修正',
-      hotfixdesc: 'current_monitor scale_factor 修正 · NSWindowRestoration 強制上書き · per-monitor プローブ · 二段階リストア · NSScreen objc ネイティブ列挙 · MIN_VISIBLE_PHYS X/Y 分離',
-      s21num: 'S21', s21meta: '04/18–20　5 ストーリー　QC 100%（cargo test 30/30 · Vitest 147/147）', s21title: '🧪 テスト基盤 + マルチ画面純粋関数リファクタリング',
-      s21desc: 'geometry_tests 14→30 · thin-wrapper 純粋な内部分解（MonitorGeom · probe_pref_against_screens）· hotfix 回帰テスト ×4 · パッケージング QC テンプレート簡略化（手動項目 23→13）· Resize Modal Enter/Esc',
-      s22num: 'S22', s22meta: '04/20–21　4 ストーリー　QC 100%（Vitest 147→179 全 green）', s22title: '🌐 i18n アーキテクチャリファクタリング + 中国語簡体字 Pro',
-      s22desc: 'i18n.js 1592→123 行 + 言語別分割 · キー整合性 / 型 / 活性自動テスト（10 件）· CJK ハードコードスキャナー + 歴史的負債 18 件解消 · zh-CN 429 キー + _detectLang Pro ゲート + フォールバックチェーン',
-      s23num: 'S23', s23meta: '04/21　1 ストーリー　QC 100%（TW/JP 回帰含む 11/11）', s23title: '🔒 簡体字中国語プライバシーマスキング',
-      s23desc: 'PRC 身分証 / 携帯 / 統一社会信用コード / 住所 regex · lookbehind ラベル ×5 · label-contains ×8 · zh-Hans OCR 順序修正（联→朕 / 码→6 根本原因）',
-      s24num: 'S24', s24meta: '04/21　5 ストーリー　verify スクリプト 32/32 PASS', s24title: '📚 ドキュメントシステムリファクタリング',
-      s24desc: 'KM 89 件 → 9 テーマ別アーカイブ · SDD アーカイブ 7 ファイル分割 · TDD S01–S20 アーカイブ · KM 番号振り直し（KM-NNN → KM-prefix-NN）· パス参照更新 + verify スクリプト',
-      s25num: 'S25', s25meta: '04/22　3 ストーリー　QC 100%（cargo test 36/36 + ハードウェア ✅）', s25title: '🎯 スクリーンショット DPR WYSIWYG 修正 + クリップボード貼り付け',
-      s25desc: 'infer_capture_dpr 純粋関数（モニターサイズ比較）· PNG pHYs メタデータ読み取り（3 パス修正）· クリップボード貼り付け Toast UX（NSPasteboard · changeCount 重複抑制）',
-      s26num: 'S26', s26meta: '04/22　3 ストーリー + 3 未予定　QC 100%（npm 179/179 + cargo 36/36）', s26title: '📦 i18n 完結 + v2.1.0 App Store 申請',
-      s26desc: 'SYMBOL_SETS 14 キー → English id（56 翻訳 × 4 言語）· FONT_FAMILIES デッドコード削除 · zh-CN フォント SC 特化 · canvas Undo バグ修正 · App Store 説明文 4 言語全面改訂 · v2.1.0 ✅',
 
       roadmapTag: '次のフェーズ',
       roadmapH2: 'ロードマップ',
@@ -843,9 +829,9 @@
       r2bh: 'v2.1　品質インフラ整備（Sprint 21–24）',
       r2bp: '完了（04/18–04/21）',
       r2bitems: '<li>✓ Sprint 21　テスト基盤</li><li>✓ Sprint 22　i18n アーキテクチャリファクタリング</li><li>✓ Sprint 23　プライバシースキャン多言語対応</li><li>✓ Sprint 24　ドキュメントアーカイブシステム</li>',
-      r2ch: 'v2.2　スクリーンショット品質修正 + i18n 全整備',
-      r2cp: '完了（04/22）',
-      r2citems: '<li>✓ スクリーンショット DPR WYSIWYG 修正（infer_capture_dpr）</li><li>✓ クリップボード貼り付け Toast UX</li><li>✓ i18n 完結 + v2.1.0 App Store 申請</li>',
+      r2ch: 'v2.2　スクリーンショット品質修正',
+      r2cp: '計画中',
+      r2citems: '<li>· 拡張画面キャプチャの DPR 修正（モニタースケール検出）</li><li>· スクリーンショットパイプラインのリファクタリング（WKWebView / キャプチャ経路）</li><li>· 次回の App Store 更新</li>',
 
       homeTeaser: 'VAS プロダクトページに戻る',
       homeBtn: '← ホームに戻る'
@@ -974,7 +960,7 @@
       ch4MetaDesc:       '最初のコード一行から双プラットフォームリリースまで、25 日、50+ バージョン、2 プラットフォームの完全な記録。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
-      ch4Dek:            '最初のコード一行から双プラットフォームリリースまで、誇張なく、編集もない完全な記録。Electron 11 日 40+ バージョン；Tauri 7 日開発 + 4 日リファクタリング、26 の Sprint。',
+      ch4Dek:            '最初のコード一行から双プラットフォームリリースまで、誇張なく、編集もない完全な記録。Electron 7 日 40+ バージョン；Apple 審査 7 日；Tauri 7 日開発 + 4 日リファクタリング、20 の Sprint。', // 歷史數字，不可更動
       ch4TocLabel:       '目次',
       ch4s1Name:    'プロダクトストーリーアーク',
       ch4s1Kicker:  '二本の線が交わり、互いを高め合う。',
@@ -984,7 +970,7 @@
       ch4s2Preview: '11 日間、40+ バージョン反復',
       ch4s3Name:    'Tauri 版',
       ch4s3Kicker:  '最初の一行の Rust から App Store まで。',
-      ch4s3Preview: '7+4 日間、26 Sprint、App Store',
+      ch4s3Preview: '7+4 日間、20 Sprint、App Store', // 歷史數字，不可更動
       ch4s4Name:    'ロードマップ',
       ch4s4Kicker:  '次の一歩の形。',
       ch4s4Preview: 'v3.0 機能爆発',
