@@ -28,6 +28,119 @@
   color: var(--vas-ash-0); margin-bottom: 12px;
   word-break: keep-all; overflow-wrap: break-word;
 }
+
+/* 內容細部元件 —— 不加新組件，只用 token 調現有的 */
+.docs-main ul.docs-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 56ch; }
+.docs-main ul.docs-list > li {
+  padding: 10px 0 10px 18px;
+  position: relative;
+  font-family: var(--vas-serif); font-size: 16px; line-height: 1.85;
+  color: var(--vas-ash-1);
+  border-bottom: 1px solid var(--vas-rule);
+}
+.docs-main ul.docs-list > li:last-child { border-bottom: none; }
+.docs-main ul.docs-list > li::before {
+  content: '·'; position: absolute; left: 4px; top: 9px;
+  color: var(--vas-aurora-violet); opacity: .6;
+  font-family: var(--vas-mono);
+}
+.docs-main ul.docs-list > li strong {
+  color: var(--vas-ash-0); font-weight: 500;
+}
+
+.docs-note {
+  margin: 24px 0; padding: 18px 22px;
+  border: 1px solid rgba(196, 113, 245, 0.22);
+  background: rgba(196, 113, 245, 0.04);
+  max-width: 56ch;
+}
+.docs-note-label {
+  font-family: var(--vas-mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--vas-ash-3); margin-bottom: 8px;
+}
+.docs-note p {
+  font-family: var(--vas-serif); font-size: 15px;
+  line-height: 1.85; color: var(--vas-ash-1);
+  margin: 0; max-width: none;
+}
+
+.docs-kbd {
+  display: inline-block;
+  padding: 1px 7px;
+  font-family: var(--vas-mono); font-size: 12px;
+  color: var(--vas-ash-0);
+  background: rgba(240, 232, 220, 0.08);
+  border: 1px solid var(--vas-rule-strong);
+  border-radius: 3px;
+  margin: 0 1px;
+  vertical-align: baseline;
+}
+.docs-main p code, .docs-main li code {
+  font-family: var(--vas-mono); font-size: 13px;
+  color: var(--vas-ash-2);
+  background: rgba(240, 232, 220, 0.06);
+  padding: 1px 5px; border-radius: 2px;
+}
+
+/* 快捷鍵表 */
+.docs-shortcut-table {
+  width: 100%; max-width: 56ch;
+  border-collapse: collapse;
+  font-family: var(--vas-serif); font-size: 15px;
+  margin: 12px 0 28px;
+}
+.docs-shortcut-table th {
+  font-family: var(--vas-mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--vas-ash-3);
+  padding: 10px 0; text-align: left;
+  border-bottom: 1px solid var(--vas-rule);
+  font-weight: normal;
+}
+.docs-shortcut-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--vas-rule);
+  color: var(--vas-ash-1);
+  vertical-align: top;
+}
+.docs-shortcut-table td:first-child {
+  width: 42%; color: var(--vas-ash-0);
+  padding-right: 24px;
+}
+.docs-shortcut-table .kicker {
+  font-family: var(--vas-mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--vas-aurora-violet); opacity: .75;
+  margin: 28px 0 0;
+}
+
+/* 圖片 caption */
+.docs-figure { margin: 24px 0 32px; max-width: 720px; }
+.docs-figure img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--vas-rule);
+  border-radius: 2px;
+}
+.docs-figure figcaption {
+  margin-top: 10px;
+  font-family: var(--vas-mono); font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--vas-ash-3); line-height: 1.6;
+}
+
+/* 付費標記 */
+.docs-tag-pro {
+  display: inline-block;
+  padding: 1px 7px;
+  font-family: var(--vas-mono); font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--vas-aurora-violet);
+  border: 1px solid rgba(196, 113, 245, 0.3);
+  border-radius: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 </style>
 </head>
 <body>
@@ -45,25 +158,29 @@
 
 <div class="docs-layout">
 
-  <!-- ═══════ 桌面側邊 TOC · 錨點 + scroll-spy ═══════ -->
+  <!-- ═══════ 桌面側邊 TOC ═══════ -->
   <aside class="docs-toc-sticky">
-    <div class="docs-toc-sticky-label" data-lang-key="docs.toc.label">Table of Contents</div>
+    <div class="docs-toc-sticky-label">Table of Contents</div>
     <ul>
-      <li><a href="#welcome" data-lang-key="docs.nav.welcome">Welcome on Board</a></li>
+      <li><a href="#welcome">Welcome on Board</a></li>
 
-      <li class="group" data-lang-key="docs.nav.group.start">入門 · Getting Started</li>
-      <li><a href="#first-launch" data-lang-key="docs.nav.start.first">第一次打開 VAS</a></li>
-      <li><a href="#permissions" data-lang-key="docs.nav.start.perm">授權與隱私</a></li>
-      <li><a href="#first-capture" data-lang-key="docs.nav.start.capture">第一次截圖</a></li>
+      <li class="group">入門 · Getting Started</li>
+      <li><a href="#first-launch">第一次打開 VAS</a></li>
+      <li><a href="#permissions">授權與隱私</a></li>
+      <li><a href="#first-capture">第一次截圖</a></li>
 
-      <li class="group" data-lang-key="docs.nav.group.core">核心 · Core</li>
-      <li><a href="#toolbar" data-lang-key="docs.nav.core.toolbar">工具列</a></li>
-      <li><a href="#editor" data-lang-key="docs.nav.core.editor">編輯器</a></li>
-      <li><a href="#shortcuts" data-lang-key="docs.nav.core.shortcuts">快捷鍵</a></li>
+      <li class="group">核心 · Core</li>
+      <li><a href="#menubar">系統選單與瓶子</a></li>
+      <li><a href="#toolbar">工具列</a></li>
+      <li><a href="#breath">呼吸燈與召喚</a></li>
+      <li><a href="#editor">編輯器</a></li>
+      <li><a href="#export">匯出</a></li>
 
-      <li class="group" data-lang-key="docs.nav.group.adv">進階 · Advanced</li>
-      <li><a href="#customization" data-lang-key="docs.nav.adv.custom">自訂設定</a></li>
-      <li><a href="#tips" data-lang-key="docs.nav.adv.tips">Tips &amp; 疑難</a></li>
+      <li class="group">進階 · Advanced</li>
+      <li><a href="#ocr">OCR 與 QR Code</a></li>
+      <li><a href="#shortcuts">快捷鍵</a></li>
+      <li><a href="#customization">自訂設定</a></li>
+      <li><a href="#tips">疑難與邊界</a></li>
     </ul>
   </aside>
 
@@ -71,96 +188,330 @@
 
     <!-- 手機跳節選單 -->
     <details class="docs-toc-mobile">
-      <summary data-lang-key="docs.toc.mobile.label">跳到 · Jump to</summary>
+      <summary>跳到 · Jump to</summary>
       <ol>
-        <li><a href="#welcome" data-lang-key="docs.nav.welcome">Welcome on Board</a></li>
-        <li><a href="#first-launch" data-lang-key="docs.nav.start.first">第一次打開 VAS</a></li>
-        <li><a href="#permissions" data-lang-key="docs.nav.start.perm">授權與隱私</a></li>
-        <li><a href="#first-capture" data-lang-key="docs.nav.start.capture">第一次截圖</a></li>
-        <li><a href="#toolbar" data-lang-key="docs.nav.core.toolbar">工具列</a></li>
-        <li><a href="#editor" data-lang-key="docs.nav.core.editor">編輯器</a></li>
-        <li><a href="#shortcuts" data-lang-key="docs.nav.core.shortcuts">快捷鍵</a></li>
-        <li><a href="#customization" data-lang-key="docs.nav.adv.custom">自訂設定</a></li>
-        <li><a href="#tips" data-lang-key="docs.nav.adv.tips">Tips &amp; 疑難</a></li>
+        <li><a href="#welcome">Welcome on Board</a></li>
+        <li><a href="#first-launch">第一次打開 VAS</a></li>
+        <li><a href="#permissions">授權與隱私</a></li>
+        <li><a href="#first-capture">第一次截圖</a></li>
+        <li><a href="#menubar">系統選單與瓶子</a></li>
+        <li><a href="#toolbar">工具列</a></li>
+        <li><a href="#breath">呼吸燈與召喚</a></li>
+        <li><a href="#editor">編輯器</a></li>
+        <li><a href="#export">匯出</a></li>
+        <li><a href="#ocr">OCR 與 QR Code</a></li>
+        <li><a href="#shortcuts">快捷鍵</a></li>
+        <li><a href="#customization">自訂設定</a></li>
+        <li><a href="#tips">疑難與邊界</a></li>
       </ol>
     </details>
 
     <!-- ═══ Welcome ═══ -->
     <section class="docs-section" id="welcome">
-      <h1 data-lang-key="docs.welcome.h1">Welcome on Board</h1>
-      <div class="docs-dek" data-lang-key="docs.welcome.dek">
-        這是 VAS 的操作手冊，一頁讀完。往下捲是「入門 → 核心 → 進階」的順序；左側目錄永遠在——點一下就能跳到任何一節。Ctrl + F 搜尋也可以。
+      <h1>Welcome on Board</h1>
+      <div class="docs-dek">
+        這是 VAS 的操作手冊，一頁讀完。往下捲是「入門 → 核心 → 進階」的順序；左側目錄永遠在——點一下就能跳到任何一節。<span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜尋也可以。
       </div>
     </section>
 
     <!-- ═══ 01 · 入門 ═══ -->
     <section class="docs-section" id="getting-started">
-      <div class="docs-section-kicker" data-lang-key="docs.nav.group.start">入門 · Getting Started</div>
+      <div class="docs-section-kicker">入門 · Getting Started</div>
 
       <div class="docs-subsection" id="first-launch">
-        <h3 data-lang-key="docs.nav.start.first">第一次打開 VAS</h3>
-        <p data-lang-key="docs.sec.first.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：下載 / 安裝 / 啟動 的三步驟，配截圖】</em>
-        </p>
+        <h3>第一次打開 VAS</h3>
+        <p>從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列——VAS 住在 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
+        <figure class="docs-figure">
+          <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——螢幕右上角的小瓶子">
+          <figcaption>MENUBAR · 螢幕右上角，那個瓶子就是 VAS。</figcaption>
+        </figure>
+        <p>但他同時也可以停駐在你的桌面上，任你拖動。<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
+        <p>打開「呼吸燈」模式後，桌面上會多一條很低調的光——120×6px 的一條光，待在桌面邊角。它可能不明顯，那是刻意的；VAS 要的是「你需要它的時候它就在」，不是「打開就佔你一整片桌面」。</p>
+        <div class="docs-note">
+          <div class="docs-note-label">找不到呼吸燈？</div>
+          <p>到選單列點一下瓶子（左鍵），可以顯示或隱藏桌面上的工具列——如果你是桌面潔癖患者，隱藏就好，VAS 依然會在選單列待命。</p>
+        </div>
       </div>
 
       <div class="docs-subsection" id="permissions">
-        <h3 data-lang-key="docs.nav.start.perm">授權與隱私</h3>
-        <p data-lang-key="docs.sec.perm.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：macOS 的螢幕錄製權限、資料存放位置、不上傳任何內容的聲明】</em>
-        </p>
+        <h3>授權與隱私</h3>
+        <p>VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。</p>
+        <p>所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
+        <div class="docs-note">
+          <div class="docs-note-label">權限沒給怎麼辦</div>
+          <p>如果第一次使用時沒授權，之後 VAS 會跳出系統提示請你去「系統設定 → 隱私權與安全性 → 螢幕錄製」裡手動開啟。給完權限後重新開啟 VAS 就可以了。</p>
+        </div>
       </div>
 
       <div class="docs-subsection" id="first-capture">
-        <h3 data-lang-key="docs.nav.start.capture">第一次截圖</h3>
-        <p data-lang-key="docs.sec.capture.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：呼出→框選→OCR→編輯→送出，五步流程】</em>
-        </p>
+        <h3>第一次截圖</h3>
+        <p>按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
+        <p>選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把它丟進編輯器，並在背景跑完 OCR。文字辨識完成後會自動複製到剪貼簿，你只要<span class="docs-kbd">⌘V</span> 就能把辨識到的文字貼到任何地方。</p>
+        <p>編輯完，用「拖曳匯出」拖出去給任何視窗或文件。三秒內結束。</p>
       </div>
     </section>
 
     <!-- ═══ 02 · 核心 ═══ -->
     <section class="docs-section" id="core">
-      <div class="docs-section-kicker" data-lang-key="docs.nav.group.core">核心 · Core</div>
+      <div class="docs-section-kicker">核心 · Core</div>
+
+      <div class="docs-subsection" id="menubar">
+        <h3>系統選單與瓶子</h3>
+        <p>選單列右上角那個瓶子，是 VAS 的「<strong>系統選單</strong>」入口。兩個按法：</p>
+        <ul class="docs-list">
+          <li><strong>左鍵</strong>——快速切換桌面工具列的顯示／隱藏。給桌面潔癖患者一個完全不顯示於桌面的選項。</li>
+          <li><strong>右鍵</strong>——展開系統選單，可以完整執行所有工具列功能，不用把工具列叫出來。</li>
+        </ul>
+        <p>換句話說：如果你完全不想在桌面上看到任何 VAS 的痕跡，把工具列關掉，所有事情都用右鍵選單完成。</p>
+      </div>
 
       <div class="docs-subsection" id="toolbar">
-        <h3 data-lang-key="docs.nav.core.toolbar">工具列</h3>
-        <p data-lang-key="docs.sec.toolbar.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：工具列各按鈕說明——點擊會開彈窗詳解功能】</em>
-        </p>
+        <h3>工具列</h3>
+        <p>工具列是 VAS 的主要操作介面。左邊三顆是截圖模式，右邊是進階功能：</p>
+        <ul class="docs-list">
+          <li><strong>全螢幕</strong> <span class="docs-kbd">⌘^1</span>——截整個螢幕。雙螢幕下會截目前滑鼠所在的那個螢幕。</li>
+          <li><strong>視窗</strong> <span class="docs-kbd">⌘^2</span>——以視窗為單位框選。</li>
+          <li><strong>矩形</strong> <span class="docs-kbd">⌘^X</span>——任意框選。</li>
+          <li><strong>貼上圖片</strong>——把剪貼簿裡的圖片直接進編輯器。</li>
+          <li><strong>白板</strong>——開一張空白畫布，直接畫、直接打字、直接拼貼其他圖片。</li>
+          <li><strong>批次轉</strong>——批次處理多張圖片。</li>
+        </ul>
+        <p>工具列右邊還有說明鍵與「六個點」的拖曳把手——長按可以把工具列拖到桌面任何位置。</p>
+      </div>
+
+      <div class="docs-subsection" id="breath">
+        <h3>呼吸燈與召喚</h3>
+        <p>當你不用 VAS 的時候，工具列會縮成一條 120×6px 的光——<strong>呼吸燈</strong>。低調、不擋事，但它一直在感知你。</p>
+        <p>三種情境會觸發呼吸燈：</p>
+        <ul class="docs-list">
+          <li><strong>拖檔案靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間，圖直接進編輯器；如果你剛剛還在編輯別的東西，它會收納那張、直接展開編輯器繼續。</li>
+          <li><strong>複製網址靠近</strong>——呼吸燈張開，跳出 toast：「檢測到 ⟨網址⟩—點擊開始截圖」。點一下就開始網頁截圖流程。</li>
+          <li><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進去。</li>
+        </ul>
+        <figure class="docs-figure">
+          <img src="img/vas-paste-toast.png" alt="工具列展開時跳出的「貼上圖片」toast">
+          <figcaption>TOAST · 當你從瀏覽器複製圖片，VAS 會問一次。</figcaption>
+        </figure>
+        <div class="docs-note">
+          <div class="docs-note-label">召喚</div>
+          <p>如果你把 VAS 放在桌面某個角落後忘了它在哪——呼吸燈真的很低調——按 Dock 上的 VAS 圖示，不管它在哪裡，都會展開成工具列狀態等你過去。</p>
+        </div>
       </div>
 
       <div class="docs-subsection" id="editor">
-        <h3 data-lang-key="docs.nav.core.editor">編輯器</h3>
-        <p data-lang-key="docs.sec.editor.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：編輯器的區塊、選取、修改、匯出】</em>
-        </p>
+        <h3>編輯器</h3>
+        <p>截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
+        <figure class="docs-figure">
+          <img src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖">
+          <figcaption>EDITOR · 四個操作區域。</figcaption>
+        </figure>
+        <ul class="docs-list">
+          <li><strong>主要功能選單</strong>——左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</li>
+          <li><strong>子屬性調整選單</strong>——頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</li>
+          <li><strong>動態匯出按鈕</strong>——右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。</li>
+          <li><strong>狀態列與磁吸工具開關</strong>——左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關。</li>
+        </ul>
+        <p style="margin-top: 24px;">標注工具分七組：選取、繪圖、標注、隱私與遮蔽、畫布操作、版面功能、其他。</p>
+        <figure class="docs-figure">
+          <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示">
+          <figcaption>SIDEBAR · 標注工具一覽。</figcaption>
+        </figure>
       </div>
 
-      <div class="docs-subsection" id="shortcuts">
-        <h3 data-lang-key="docs.nav.core.shortcuts">快捷鍵</h3>
-        <p data-lang-key="docs.sec.shortcuts.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：全域快捷鍵表——用 docs-accordion 或表格呈現】</em>
-        </p>
+      <div class="docs-subsection" id="export">
+        <h3>匯出</h3>
+        <p>編輯完了，VAS 給你四條出口：</p>
+        <ul class="docs-list">
+          <li><strong>Drag out</strong>——直接從編輯器拖到 Finder、Slack、任何一個接受檔案的 App。不儲存、不彈視窗、就是拖。</li>
+          <li><strong>複製到剪貼簿</strong>——按 <span class="docs-kbd">⌘C</span>，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
+          <li><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件。</li>
+          <li><strong>存檔</strong>——儲存成 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
+        </ul>
       </div>
     </section>
 
     <!-- ═══ 03 · 進階 ═══ -->
     <section class="docs-section" id="advanced">
-      <div class="docs-section-kicker" data-lang-key="docs.nav.group.adv">進階 · Advanced</div>
+      <div class="docs-section-kicker">進階 · Advanced</div>
+
+      <div class="docs-subsection" id="ocr">
+        <h3>OCR 與 QR Code</h3>
+        <p>截圖完成的同時，VAS 在背景跑兩件事——文字辨識與 QR Code 掃描。兩件事都不上雲。</p>
+
+        <p style="margin-top: 24px;"><strong>OCR · 文字辨識</strong></p>
+        <p>辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
+        <div class="docs-note">
+          <div class="docs-note-label">OCR 關不掉</div>
+          <p>OCR 是 VAS 的內建功能不提供關閉選項——但它永遠只在你本機跑，不用的話忽略就好。</p>
+        </div>
+
+        <p style="margin-top: 32px;"><strong>QR Code · 掃描</strong></p>
+        <p>VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
+        <ul class="docs-list">
+          <li><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
+          <li><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
+          <li><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
+        </ul>
+      </div>
+
+      <div class="docs-subsection" id="shortcuts">
+        <h3>快捷鍵</h3>
+        <p>編輯器內建快捷鍵一覽，分四組：</p>
+
+        <details class="docs-accordion">
+          <summary><span class="name">工具切換</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>選取工具</td><td><span class="docs-kbd">V</span></td></tr>
+                <tr><td>框型選取</td><td><span class="docs-kbd">M</span></td></tr>
+                <tr><td>筆型工具</td><td><span class="docs-kbd">P</span></td></tr>
+                <tr><td>線條工具</td><td><span class="docs-kbd">L</span></td></tr>
+                <tr><td>矩形框</td><td><span class="docs-kbd">R</span></td></tr>
+                <tr><td>色塊</td><td><span class="docs-kbd">B</span></td></tr>
+                <tr><td>文字工具</td><td><span class="docs-kbd">T</span></td></tr>
+                <tr><td>編號標記</td><td><span class="docs-kbd">N</span></td></tr>
+                <tr><td>符號印章</td><td><span class="docs-kbd">U</span></td></tr>
+                <tr><td>馬賽克／模糊</td><td><span class="docs-kbd">X</span></td></tr>
+                <tr><td>OCR 文字辨識</td><td><span class="docs-kbd">G</span></td></tr>
+                <tr><td>隱私遮蔽</td><td><span class="docs-kbd">K</span></td></tr>
+                <tr><td>裁切</td><td><span class="docs-kbd">C</span></td></tr>
+                <tr><td>調整大小</td><td><span class="docs-kbd">S</span></td></tr>
+                <tr><td>延伸畫布</td><td><span class="docs-kbd">E</span></td></tr>
+                <tr><td>疊入圖片</td><td><span class="docs-kbd">O</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary><span class="name">畫布操作</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>放大</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">=</span></td></tr>
+                <tr><td>縮小</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">-</span></td></tr>
+                <tr><td>適合視窗</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">0</span></td></tr>
+                <tr><td>平移畫布</td><td><span class="docs-kbd">Space</span> ＋ 拖曳</td></tr>
+                <tr><td>切換磁吸對齊</td><td><span class="docs-kbd">\</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary><span class="name">編輯</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>撤銷</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">Z</span></td></tr>
+                <tr><td>重做</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">⇧</span> <span class="docs-kbd">Z</span></td></tr>
+                <tr><td>複製</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">C</span></td></tr>
+                <tr><td>貼上</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">V</span></td></tr>
+                <tr><td>複製最終影像</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">⇧</span> <span class="docs-kbd">C</span></td></tr>
+                <tr><td>全選</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">A</span></td></tr>
+                <tr><td>刪除選取物件</td><td><span class="docs-kbd">Delete</span> / <span class="docs-kbd">⌫</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary><span class="name">物件操作</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>15° 鎖定旋轉</td><td><span class="docs-kbd">Shift</span> ＋ 旋轉</td></tr>
+                <tr><td>等比縮放</td><td><span class="docs-kbd">Shift</span> ＋ 拖曳角落</td></tr>
+                <tr><td>跳過磁吸</td><td><span class="docs-kbd">Alt</span> ＋ 拖曳</td></tr>
+                <tr><td>微調 1 px</td><td><span class="docs-kbd">←</span> <span class="docs-kbd">→</span> <span class="docs-kbd">↑</span> <span class="docs-kbd">↓</span></td></tr>
+                <tr><td>微調 10 px</td><td><span class="docs-kbd">Shift</span> ＋ <span class="docs-kbd">←</span> <span class="docs-kbd">→</span> <span class="docs-kbd">↑</span> <span class="docs-kbd">↓</span></td></tr>
+                <tr><td>結束折線繪製</td><td>Double-click</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="docs-note" style="margin-top: 32px;">
+          <div class="docs-note-label">全域快捷鍵預設是關的</div>
+          <p>全域截圖快捷鍵出廠預設<strong>關閉</strong>，避免與你系統裡其他 App 衝突。開啟方式：工具列 →「快捷鍵說明」→ 手動開啟。付費版另外提供<strong>完全自訂</strong>——每一組快捷鍵都可以改成你習慣的組合。</p>
+        </div>
+      </div>
 
       <div class="docs-subsection" id="customization">
-        <h3 data-lang-key="docs.nav.adv.custom">自訂設定</h3>
-        <p data-lang-key="docs.sec.custom.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：外觀 / 快捷鍵 / OCR 選項 等可調項目】</em>
-        </p>
+        <h3>自訂設定</h3>
+        <p>VAS 刻意做得不多設定項，因為我們相信好的工具<strong>預設就是對的</strong>。能調的幾項是：</p>
+        <ul class="docs-list">
+          <li><strong>桌面工具列顯示／隱藏</strong>——選單列左鍵瓶子即可切換。</li>
+          <li><strong>呼吸燈開關</strong>——出廠預設關閉，工具列的「快捷鍵說明」裡可手動開啟。</li>
+          <li><strong>全域快捷鍵開關</strong>——出廠預設關閉，工具列的「快捷鍵說明」裡可手動開啟。</li>
+          <li><strong>自訂快捷鍵</strong> <span class="docs-tag-pro">PRO</span>——付費版可把任一快捷鍵改成你慣用的組合。</li>
+          <li><strong>OCR 語言</strong>——目前跟隨系統語言特化當地隱私遮蔽相關規則。</li>
+        </ul>
       </div>
 
       <div class="docs-subsection" id="tips">
-        <h3 data-lang-key="docs.nav.adv.tips">Tips &amp; 疑難</h3>
-        <p data-lang-key="docs.sec.tips.p1">
-          <em style="color: var(--vas-ash-3);">【此處由內容撰寫者補上：用 docs-accordion 列 FAQ——怎麼關 OCR、怎麼改字型、常見錯誤】</em>
-        </p>
+        <h3>疑難與邊界</h3>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name">權限沒給，VAS 沒反應</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body">
+            macOS 會跳出系統提示。照指示到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，之後重新打開 VAS 即可。這是 macOS 的硬性規定，VAS 沒辦法繞過。
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name">把 VAS 放到桌面角落後，我找不到了</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body">
+            呼吸燈只有 120×6px，確實很低調。按 Dock 上的 VAS 圖示，不管它原本在哪，都會被召喚到你眼前展開成工具列。或者乾脆在選單列左鍵瓶子把桌面工具列關掉，之後都用右鍵選單操作。
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name">網頁截圖截到登入頁</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body">
+            網頁截圖功能會在背景獨立開一個瀏覽器實例去抓畫面，這個背景瀏覽器沒有你平常使用的登入狀態。如果你要截需要登入才看得到的頁面，需要先在那個背景瀏覽器裡登入一次。
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name">雙螢幕的行為</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body">
+            雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕；延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為，請回報給我們。
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name">可以關掉 OCR 嗎</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body">
+            OCR 無法關閉——它是 VAS 的內建功能，不是選項。但它永遠只在你的電腦本機跑，不上雲、不分析、不訓練。如果你不需要辨識結果，忽略剪貼簿裡的文字就好。
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name">可以自訂快捷鍵嗎</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body">
+            付費版可以。免費版預設提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三組截圖快捷鍵，且出廠預設關閉——需要到工具列「快捷鍵說明」手動開啟。
+          </div>
+        </details>
       </div>
     </section>
 
@@ -177,7 +528,7 @@
   </div>
 </footer>
 
-<!-- ═══ Scroll-spy：捲動時 highlight 左側 TOC 當前位置 ═══ -->
+<!-- ═══ Scroll-spy ═══ -->
 <script>
 (() => {
   const links = document.querySelectorAll('.docs-toc-sticky a[href^="#"]');
