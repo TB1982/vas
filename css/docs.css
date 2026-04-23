@@ -510,6 +510,12 @@
   font-family: var(--vas-serif); font-size: 13px;
   line-height: 1.75; color: var(--vas-ash-2);
 }
+.g-card-note {
+  font-family: var(--vas-mono); font-size: 10px;
+  line-height: 1.6; color: var(--vas-ash-3);
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
 
 /* ─── Breath light card ───────────────── */
 .g-bl-card {
