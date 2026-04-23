@@ -524,6 +524,9 @@
 /* ─── Guide page: dot-nav desktop suppression ─ */
 body.is-guide .dot-nav        { display: none; }
 body.is-guide .dot-nav-trigger { display: none; }
+@media (max-width: 960px) {
+  body.is-guide .dot-nav-trigger { display: block; }
+}
 
 /* ─── Breath light preview image ─────── */
 .docs-bl-preview {
