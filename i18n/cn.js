@@ -334,7 +334,7 @@ kb_r1: 'F 键不需修饰键', kb_r2: '含修饰键的组合',
     insight: {
       heroTag: 'VAS · 设计洞察笔记',
 heroH1: '那些没有写在<br><span class="gradient-text">功能列表</span>里的决定',
-      'ch1.name': '那些没有写在<br><em>功能列表</em>里的决定。',
+      'ch1.name': '那些没有写在<br><em>功能列表</em>里的<br>决定。',
       'ch1.dek': '五条设计决策——<br>每一条背後都有一次放弃、一次选择、<br>一件做过的事被推翻。<br>这章是 VAS 的<em>手艺自白</em>：<br>让工具不只是工具。',
 i1Tag: '人机协作 · Human-AI Collaboration',
 i2Tag: '使用者意图 · Behaviour as Meaning',
