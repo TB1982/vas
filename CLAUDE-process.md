@@ -48,6 +48,25 @@ The visual decisions on this site follow from the product philosophy in CLAUDE.m
 
 **The Japanese editorial sensibility** runs across all pages: 《Brutus》, 《POPEYE》, Naoto Fukasawa's books — "一壺茶一個想法請自己來看". Short sentences. Sentences that end like a signature followed by a single dot.
 
+### UI & Editorial Standards
+
+These rules prevent known recurring mistakes across all pages.
+
+**1. Translation coverage — special menus**
+After any i18n update, explicitly verify these three zones — they are NOT in the main content area and are routinely missed:
+- Breathing-light dot-nav labels (`.dn-label[data-lang-key]`)
+- Guide left-sidebar TOC groups (`.group[data-lang-key]`)
+- Top nav links (`data-lang-key="home2.nav.*"`)
+
+**2. Mobile spacing**
+Default section padding (e.g., `64px 0 24px`) and dek `margin-bottom: 56px` are desktop-calibrated. Always add `@media (max-width: 768px)` overrides for both when creating a new section type. Rule of thumb: mobile top-padding ≤ 50% of desktop value.
+
+**3. English heading deduplication**
+English headings can echo when layout reflows — e.g., a page-level `<title>` of "User Guide · VAS" combined with an `<h1>` of "VAS User Guide" creates awkward repetition. After writing any English heading, read the full page top-to-bottom and remove accidental echo.
+
+**4. Horizontal nav overflow on mobile**
+English labels are typically 1.5–2× wider than their Chinese equivalents. Any horizontal button row (language switcher, nav links, chip rows) must be mentally tested at 375px with full English text before committing. If total width exceeds ~320px, redesign for wrapping or abbreviation.
+
 ---
 
 ## Repository Structure
@@ -120,10 +139,14 @@ git pull origin <branch-name> && python3 -m http.server 8081
 
 Nova checks:
 1. Content correct
-2. Language toggle (中 → EN → 日 → 簡) — no missing keys
+2. Language toggle (中 → EN → 日 → 簡) — no missing keys; verify dot-nav, TOC groups, and nav links specifically
 3. External links correct
 4. RWD at ~375px — no horizontal overflow
 5. Design consistency — nav style, spacing match across all pages
+
+**CSS self-check before committing any new rule:**
+- If writing `selector { display: none }` globally AND `@media { selector { display: block } }`, the global rule must appear **before** the `@media` block in the file — otherwise the global rule wins via cascade order.
+- If using a page-scope suppressor (`body.is-xxx .selector { display: none }`, specificity ≥ 0,2,1), always add a paired `@media` override with **equal or higher specificity** for interactive states (`is-open`, `is-active`, etc.).
 
 ---
 
