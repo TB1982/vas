@@ -696,7 +696,7 @@
       ch4MetaDesc:       '從第一行程式碼到雙平台上架，25 天、50+ 版本、2 個平台的完整記錄。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
-      ch4Dek:            '從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 11 天 40+ 版本；Tauri 7 天開發 + 4 天重構，20 個 Sprint。',
+      ch4Dek:            '從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 7 天 40+ 版本；Apple 審查 7 天；Tauri 7 天開發 + 4 天重構，20 個 Sprint。',
       ch4TocLabel:       '章目錄',
       ch4s1Name:    '產品故事弧',
       ch4s1Kicker:  '兩條線交織，互相成就。',

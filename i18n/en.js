@@ -917,7 +917,7 @@
       ch4MetaDesc:   'From the first line of code to dual-platform launch — 25 days, 50+ versions, 2 platforms.',
       ch4No:         'Chapter IV',
       ch4Name:       'Twenty-Five <em>Days.</em>',
-      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 11 days, 40+ versions. Tauri: 7 days dev + 4 days refactor, 20 Sprints.',
+      ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 7 days, 40+ versions. Apple review: 7 days. Tauri: 7 days dev + 4 days refactor, 20 Sprints.',
       ch4TocLabel:   'Contents',
       ch4s1Name:     'Product Story Arc',
       ch4s1Kicker:   'Two tracks intertwined, each making the other better.',
