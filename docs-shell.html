@@ -274,10 +274,10 @@
 
       <div class="docs-subsection" id="editor">
         <h3 data-lang-key="s1Title">編輯器</h3>
-        <p>截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
+        <p data-lang-key="editorIntro">截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
         <figure class="docs-figure">
           <img id="guideEditorImg" class="js-editor-img" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖">
-          <figcaption>EDITOR · 四個操作區域。</figcaption>
+          <figcaption data-lang-key="editorCaption">EDITOR · 四個操作區域。</figcaption>
         </figure>
         <ul class="docs-list">
           <li><strong data-lang-key="zone1Name" style="color:#f87171;">主要功能選單</strong>——<span data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</span></li>
@@ -359,13 +359,13 @@
       </div>
 
       <div class="docs-subsection" id="export">
-        <h3>匯出</h3>
-        <p>編輯完了，VAS 給你四條出口：</p>
+        <h3 data-lang-key="exportH3">匯出</h3>
+        <p data-lang-key="exportIntro">編輯完了，VAS 給你四條出口：</p>
         <ul class="docs-list">
-          <li><strong>Drag out</strong>——直接從編輯器拖到桌面、Finder、Slack、任何一個接受圖片的 App。不儲存、不彈視窗、拖過去就傳輸完畢。</li>
-          <li><strong>複製到剪貼簿</strong>——按 <span class="docs-kbd">⌘C</span>，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
-          <li><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
-          <li><strong>存檔</strong>——可儲存為 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
+          <li data-lang-key="exportLi1"><strong>Drag out</strong>——直接從編輯器拖到桌面、Finder、Slack、任何一個接受圖片的 App。不儲存、不彈視窗、拖過去就傳輸完畢。</li>
+          <li data-lang-key="exportLi2"><strong>複製到剪貼簿</strong>——按 <span class="docs-kbd">⌘C</span>，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
+          <li data-lang-key="exportLi3"><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
+          <li data-lang-key="exportLi4"><strong>存檔</strong>——可儲存為 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
         </ul>
       </div>
     </section>
@@ -375,20 +375,20 @@
       <div class="docs-section-kicker">進階 · Advanced</div>
 
       <div class="docs-subsection" id="ocr">
-        <h3>OCR 與 QR Code</h3>
-        <p>截圖不一定為了編輯。</p>
+        <h3 data-lang-key="ocrH3">OCR 與 QR Code</h3>
+        <p data-lang-key="ocrIntro">截圖不一定為了編輯。</p>
 
-        <p style="margin-top: 24px;"><strong>OCR · 文字辨識</strong></p>
-        <p>辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。</p>
-        <p>針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——</p>
-        <p>譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
+        <p style="margin-top: 24px;" data-lang-key="ocrLabel"><strong>OCR · 文字辨識</strong></p>
+        <p data-lang-key="ocrP1">辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。</p>
+        <p data-lang-key="ocrP2">針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——</p>
+        <p data-lang-key="ocrP3">譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
 
-        <p style="margin-top: 32px;"><strong>QR Code · 掃描</strong></p>
-        <p>VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
+        <p style="margin-top: 32px;" data-lang-key="qrLabel"><strong>QR Code · 掃描</strong></p>
+        <p data-lang-key="qrIntro">VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
         <ul class="docs-list">
-          <li><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
-          <li><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
-          <li><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
+          <li data-lang-key="qrLi1"><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
+          <li data-lang-key="qrLi2"><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
+          <li data-lang-key="qrLi3"><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
         </ul>
       </div>
 
