@@ -147,7 +147,7 @@
     <!-- ═══ Welcome ═══ -->
     <section class="docs-section" id="welcome">
       <h1>Welcome on Board</h1>
-      <div class="docs-dek">
+      <div class="docs-dek" data-lang-key="docsDek">
         這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
         往下捲是「入門 → 核心 → 進階」的順序；<br>
         左側目錄永遠陪著你，點一下就能跳到任何一節。<br>
@@ -160,41 +160,41 @@
       <div class="docs-section-kicker">入門 · Getting Started</div>
 
       <div class="docs-subsection" id="first-launch">
-        <h3>第一次打開 VAS</h3>
-        <p>從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
+        <h3 data-lang-key="flH3">第一次打開 VAS</h3>
+        <p data-lang-key="flP1">從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
         <figure class="docs-figure">
           <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS 浮動工作列">
         </figure>
-        <p>如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
+        <p data-lang-key="flP2">如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
         <div style="max-width: 280px; height: 80px; overflow: hidden; position: relative; border: 1px solid var(--vas-rule); border-radius: 2px; margin: 24px 0 32px;">
           <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
         </div>
-        <p>VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
+        <p data-lang-key="flP3">VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
         <figure class="docs-figure">
           <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
             <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
           </div>
-          <figcaption>MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
+          <figcaption data-lang-key="flCaption">MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
         </figure>
         <div class="docs-note">
-          <div class="docs-note-label">想讓VAS完全消失？</div>
-          <p>到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
-          <p>VAS 依然會在選單列待命。</p>
+          <div class="docs-note-label" data-lang-key="flNoteLabel">想讓VAS完全消失？</div>
+          <p data-lang-key="flNoteP1">到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
+          <p data-lang-key="flNoteP2">VAS 依然會在選單列待命。</p>
         </div>
       </div>
 
       <div class="docs-subsection" id="permissions">
-        <h3>授權與隱私</h3>
-        <p>VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。</p>
-        <p>所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
+        <h3 data-lang-key="permH3">授權與隱私</h3>
+        <p data-lang-key="permP1">VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。</p>
+        <p data-lang-key="permP2">所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
       </div>
 
       <div class="docs-subsection" id="first-capture">
-        <h3>第一次截圖</h3>
-        <p>按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
-        <p>選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把畫面帶進編輯器，讓你繼續編織你無法單用文字描述的意念。</p>
-        <p>編輯完，用「拖曳匯出」拖出去給任何視窗或文件。</p>
-        <p>三秒內結束。</p>
+        <h3 data-lang-key="fcH3">第一次截圖</h3>
+        <p data-lang-key="fcP1">按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
+        <p data-lang-key="fcP2">選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把畫面帶進編輯器，讓你繼續編織你無法單用文字描述的意念。</p>
+        <p data-lang-key="fcP3">編輯完，用「拖曳匯出」拖出去給任何視窗或文件。</p>
+        <p data-lang-key="fcP4">三秒內結束。</p>
       </div>
     </section>
 
@@ -203,29 +203,29 @@
       <div class="docs-section-kicker">核心 · Core</div>
 
       <div class="docs-subsection" id="menubar">
-        <h3>系統選單中的瓶子</h3>
-        <p>選單列右上角那個瓶子，是 VAS 的「<strong>系統選單</strong>」入口。兩個按法：</p>
+        <h3 data-lang-key="mbH3">系統選單中的瓶子</h3>
+        <p data-lang-key="mbIntro">選單列右上角那個瓶子，是 VAS 的「<strong>系統選單</strong>」入口。兩個按法：</p>
         <ul class="docs-list">
-          <li><strong>左鍵</strong>——快速切換桌面工具列的顯示／隱藏。給桌面潔癖患者一個完全不顯示於桌面的選項。</li>
-          <li><strong>右鍵</strong>——展開系統選單，可以完整執行所有工具列功能，不用把工具列叫出來。</li>
+          <li data-lang-key="mbLi1"><strong>左鍵</strong>——快速切換桌面工具列的顯示／隱藏。給桌面潔癖患者一個完全不顯示於桌面的選項。</li>
+          <li data-lang-key="mbLi2"><strong>右鍵</strong>——展開系統選單，可以完整執行所有工具列功能，不用把工具列叫出來。</li>
         </ul>
-        <p>如果你完全不想在桌面上看到任何 VAS 的痕跡，左鍵把工具列關掉，右鍵仍可以操作工具列所有功能。</p>
+        <p data-lang-key="mbP2">如果你完全不想在桌面上看到任何 VAS 的痕跡，左鍵把工具列關掉，右鍵仍可以操作工具列所有功能。</p>
       </div>
 
       <div class="docs-subsection" id="breath">
-        <h3>一盞呼吸燈 x 一鍵召喚</h3>
-        <p>當你不用 VAS 又希望他能小一點在桌面上待機時，請開啟<strong>呼吸燈</strong>模式。</p>
-        <p>工具列會縮成一條 120×6px 的光。低調、不擋事，靜靜的等你。</p>
-        <p>而當你有事要找它時：</p>
+        <h3 data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</h3>
+        <p data-lang-key="blP1">當你不用 VAS 又希望他能小一點在桌面上待機時，請開啟<strong>呼吸燈</strong>模式。</p>
+        <p data-lang-key="blP2">工具列會縮成一條 120×6px 的光。低調、不擋事，靜靜的等你。</p>
+        <p data-lang-key="blP3">而當你有事要找它時：</p>
         <ul class="docs-list">
-          <li><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間，圖直接進編輯器；如果你剛剛還在編輯別的東西，它會收納那張、直接展開編輯器繼續。</li>
-          <li><strong>複製網址靠近</strong>——呼吸燈張開，跳出 toast：「檢測到 ⟨網址⟩—點擊開始截圖」。點一下就開始網頁截圖流程。</li>
-          <li><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器。</li>
+          <li data-lang-key="blLi1"><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間，圖直接進編輯器；如果你剛剛還在編輯別的東西，它會收納那張、直接展開編輯器繼續。</li>
+          <li data-lang-key="blLi2"><strong>複製網址靠近</strong>——呼吸燈張開，跳出 toast：「檢測到 ⟨網址⟩—點擊開始截圖」。點一下就開始網頁截圖流程。</li>
+          <li data-lang-key="blLi3"><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器。</li>
         </ul>
         <div class="docs-note">
-          <div class="docs-note-label">召喚</div>
-          <p>如果你把 VAS 放在桌面某個角落後忘了它在哪——我們知道呼吸燈真的很低調——</p>
-          <p>按 Dock 上的 VAS 圖示，不管它在哪裡，都會展開成工具列狀態等你過去。</p>
+          <div class="docs-note-label" data-lang-key="blNoteLabel">召喚</div>
+          <p data-lang-key="blNoteP1">如果你把 VAS 放在桌面某個角落後忘了它在哪——我們知道呼吸燈真的很低調——</p>
+          <p data-lang-key="blNoteP2">按 Dock 上的 VAS 圖示，不管它在哪裡，都會展開成工具列狀態等你過去。</p>
         </div>
       </div>
 
@@ -274,10 +274,10 @@
 
       <div class="docs-subsection" id="editor">
         <h3 data-lang-key="s1Title">編輯器</h3>
-        <p>截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
+        <p data-lang-key="editorIntro">截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
         <figure class="docs-figure">
           <img id="guideEditorImg" class="js-editor-img" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖">
-          <figcaption>EDITOR · 四個操作區域。</figcaption>
+          <figcaption data-lang-key="editorCaption">EDITOR · 四個操作區域。</figcaption>
         </figure>
         <ul class="docs-list">
           <li><strong data-lang-key="zone1Name" style="color:#f87171;">主要功能選單</strong>——<span data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</span></li>
@@ -359,13 +359,13 @@
       </div>
 
       <div class="docs-subsection" id="export">
-        <h3>匯出</h3>
-        <p>編輯完了，VAS 給你四條出口：</p>
+        <h3 data-lang-key="exportH3">匯出</h3>
+        <p data-lang-key="exportIntro">編輯完了，VAS 給你四條出口：</p>
         <ul class="docs-list">
-          <li><strong>Drag out</strong>——直接從編輯器拖到桌面、Finder、Slack、任何一個接受圖片的 App。不儲存、不彈視窗、拖過去就傳輸完畢。</li>
-          <li><strong>複製到剪貼簿</strong>——按 <span class="docs-kbd">⌘C</span>，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
-          <li><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
-          <li><strong>存檔</strong>——可儲存為 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
+          <li data-lang-key="exportLi1"><strong>Drag out</strong>——直接從編輯器拖到桌面、Finder、Slack、任何一個接受圖片的 App。不儲存、不彈視窗、拖過去就傳輸完畢。</li>
+          <li data-lang-key="exportLi2"><strong>複製到剪貼簿</strong>——按 <span class="docs-kbd">⌘C</span>，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
+          <li data-lang-key="exportLi3"><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
+          <li data-lang-key="exportLi4"><strong>存檔</strong>——可儲存為 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
         </ul>
       </div>
     </section>
@@ -375,29 +375,29 @@
       <div class="docs-section-kicker">進階 · Advanced</div>
 
       <div class="docs-subsection" id="ocr">
-        <h3>OCR 與 QR Code</h3>
-        <p>截圖不一定為了編輯。</p>
+        <h3 data-lang-key="ocrH3">OCR 與 QR Code</h3>
+        <p data-lang-key="ocrIntro">截圖不一定為了編輯。</p>
 
-        <p style="margin-top: 24px;"><strong>OCR · 文字辨識</strong></p>
-        <p>辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。</p>
-        <p>針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——</p>
-        <p>譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
+        <p style="margin-top: 24px;" data-lang-key="ocrLabel"><strong>OCR · 文字辨識</strong></p>
+        <p data-lang-key="ocrP1">辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。</p>
+        <p data-lang-key="ocrP2">針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——</p>
+        <p data-lang-key="ocrP3">譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
 
-        <p style="margin-top: 32px;"><strong>QR Code · 掃描</strong></p>
-        <p>VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
+        <p style="margin-top: 32px;" data-lang-key="qrLabel"><strong>QR Code · 掃描</strong></p>
+        <p data-lang-key="qrIntro">VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
         <ul class="docs-list">
-          <li><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
-          <li><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
-          <li><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
+          <li data-lang-key="qrLi1"><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
+          <li data-lang-key="qrLi2"><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
+          <li data-lang-key="qrLi3"><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
         </ul>
       </div>
 
       <div class="docs-subsection" id="shortcuts">
-        <h3>快捷鍵</h3>
-        <p>編輯器內建快捷鍵一覽，分四組：</p>
+        <h3 data-lang-key="kbH3">快捷鍵</h3>
+        <p data-lang-key="kbIntro">編輯器內建快捷鍵一覽，分四組：</p>
 
         <details class="docs-accordion">
-          <summary><span class="name">工具切換</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc1">工具切換</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -423,7 +423,7 @@
         </details>
 
         <details class="docs-accordion">
-          <summary><span class="name">畫布操作</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc2">畫布操作</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -438,7 +438,7 @@
         </details>
 
         <details class="docs-accordion">
-          <summary><span class="name">編輯</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc3">編輯</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -455,7 +455,7 @@
         </details>
 
         <details class="docs-accordion">
-          <summary><span class="name">物件操作</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc4">物件操作</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -472,37 +472,37 @@
       </div>
 
       <div class="docs-subsection" id="customization">
-        <h3>自訂設定</h3>
-        <p>VAS 刻意做得不多設定項，因為我們相信好的工具<strong>預設就是對的</strong>。能調的幾項是：</p>
+        <h3 data-lang-key="custH3">自訂設定</h3>
+        <p data-lang-key="custIntro">VAS 刻意做得不多設定項，因為我們相信好的工具<strong>預設就是對的</strong>。能調的幾項是：</p>
         <ul class="docs-list">
-          <li><strong>桌面工具列顯示／隱藏</strong>——選單列左鍵瓶子即可切換。</li>
-          <li><strong>呼吸燈開關</strong>——出廠預設關閉，工具列的「快捷鍵說明」裡可手動開啟。</li>
-          <li><strong>自訂快捷鍵</strong> <span class="docs-tag-pro">PRO</span>——付費版可把任一快捷鍵改成你慣用的組合。</li>
+          <li data-lang-key="custLi1"><strong>桌面工具列顯示／隱藏</strong>——選單列左鍵瓶子即可切換。</li>
+          <li data-lang-key="custLi2"><strong>呼吸燈開關</strong>——出廠預設關閉，工具列的「快捷鍵說明」裡可手動開啟。</li>
+          <li data-lang-key="custLi3"><strong>自訂快捷鍵</strong> <span class="docs-tag-pro">PRO</span>——付費版可把任一快捷鍵改成你慣用的組合。</li>
         </ul>
 
         <div class="docs-card" style="margin-top: 28px;">
-          <p class="docs-card-kicker">按鍵接受規則</p>
+          <p class="docs-card-kicker" data-lang-key="custCardKicker">按鍵接受規則</p>
           <table class="g-acc-table" style="margin-top: 12px;">
             <tbody>
               <tr>
                 <td>F1 … F12</td>
-                <td><span class="g-check" aria-hidden="true">✓</span>F 鍵不需修飾鍵</td>
+                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR1">F 鍵不需修飾鍵</span></td>
               </tr>
               <tr>
                 <td>⇧F5、⌘⌃A</td>
-                <td><span class="g-check" aria-hidden="true">✓</span>含修飾鍵的組合</td>
+                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR2">含修飾鍵的組合</span></td>
               </tr>
               <tr>
                 <td>A、1、X</td>
-                <td><span class="g-cross" aria-hidden="true">✕</span>裸字母或數字</td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR3">裸字母或數字</span></td>
               </tr>
               <tr>
                 <td>⌘Q、⌘W、⌘H、⌘,</td>
-                <td><span class="g-cross" aria-hidden="true">✕</span>系統保留快捷鍵</td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR4">系統保留快捷鍵</span></td>
               </tr>
               <tr>
                 <td>單獨 ⌘ / ⌃ / ⌥</td>
-                <td><span class="g-cross" aria-hidden="true">✕</span>單獨修飾鍵</td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR5">單獨修飾鍵</span></td>
               </tr>
             </tbody>
           </table>
@@ -510,54 +510,54 @@
       </div>
 
       <div class="docs-subsection" id="tips">
-        <h3>疑難與邊界</h3>
+        <h3 data-lang-key="tipsH3">疑難與邊界</h3>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name">權限沒給，VAS 沒反應</span>
+            <span class="name" data-lang-key="tipsQ1">權限沒給，VAS 沒反應</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body">
+          <div class="docs-accordion-body" data-lang-key="tipsA1">
             macOS 會跳出系統提示。照指示到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，之後重新打開 VAS 即可。這是 macOS 的硬性規定，VAS 沒辦法繞過。
           </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name">把 VAS 放到桌面角落後，我找不到了</span>
+            <span class="name" data-lang-key="tipsQ2">把 VAS 放到桌面角落後，我找不到了</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body">
+          <div class="docs-accordion-body" data-lang-key="tipsA2">
             呼吸燈只有 120×6px，確實很低調。按 Dock 上的 VAS 圖示，不管它原本在哪，都會被召喚到你眼前展開成工具列。或者乾脆在選單列左鍵瓶子把桌面工具列關掉，之後都用右鍵選單操作。
           </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name">網頁截圖截到登入頁</span>
+            <span class="name" data-lang-key="tipsQ3">網頁截圖截到登入頁</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body">
+          <div class="docs-accordion-body" data-lang-key="tipsA3">
             網頁截圖功能會在背景獨立開一個瀏覽器實例去抓畫面，這個背景瀏覽器沒有你平常使用的登入狀態。如果你要截需要登入才看得到的頁面，目前推薦使用瀏覽器原生外掛諸如 FireShot。
           </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name">雙螢幕的行為</span>
+            <span class="name" data-lang-key="tipsQ4">雙螢幕的行為</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body">
+          <div class="docs-accordion-body" data-lang-key="tipsA4">
             雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕；延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為，請回報給我們。
           </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name">可以自訂快捷鍵嗎</span>
+            <span class="name" data-lang-key="tipsQ5">可以自訂快捷鍵嗎</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body">
+          <div class="docs-accordion-body" data-lang-key="tipsA5">
             付費版可以。免費版預設提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三組截圖快捷鍵，且出廠預設關閉——需要到工具列「快捷鍵說明」手動開啟。
           </div>
         </details>
