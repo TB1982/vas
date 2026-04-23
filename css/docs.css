@@ -330,6 +330,8 @@
   .docs-dek--mobile  { display: block; }
   .docs-main p { font-size: 16px; }
   .docs-main h1 { font-size: clamp(28px, 7vw, 36px); }
+  .docs-section { padding: 32px 0 12px; }
+  .docs-main .docs-dek { margin-bottom: 20px; }
 }
 
 @media (max-width: 375px) {
@@ -526,6 +528,7 @@ body.is-guide .dot-nav        { display: none; }
 body.is-guide .dot-nav-trigger { display: none; }
 @media (max-width: 960px) {
   body.is-guide .dot-nav-trigger { display: block; }
+  body.is-guide .dot-nav.is-open { display: flex; }
 }
 
 /* ─── Breath light preview image ─────── */
