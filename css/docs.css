@@ -545,7 +545,12 @@
 /* ─── Sidebar tools ───────────────────── */
 .g-tools-wrap { display: flex; gap: 32px; align-items: flex-start; }
 .g-sidebar-img { width: 68px; flex-shrink: 0; border-radius: 4px; border: 1px solid var(--vas-rule); }
-.g-tools-body { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+.g-tools-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 32px;
+}
 .g-grp-label {
   font-family: var(--vas-mono); font-size: 10px;
   letter-spacing: 0.2em; text-transform: uppercase;
@@ -614,6 +619,7 @@
   .g-zones-grid { grid-template-columns: 1fr; }
   .g-tools-wrap { flex-direction: column; }
   .g-sidebar-img { width: 100%; max-width: 280px; }
+  .g-tools-body { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .g-toolbar-grid { grid-template-columns: 1fr; }
