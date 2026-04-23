@@ -371,7 +371,7 @@
       heroTag: 'VAS · Design Insights',
       heroH1: 'Decisions that never made it onto<br>the <span class="gradient-text">feature list</span>',
       'ch1.name': "Decisions that never made it onto<br><em>the feature list</em>.",
-      'ch1.dek': "Five design decisions —<br>every one a choice made, a path abandoned,<br>something done and then undone.<br>This chapter is VAS's <em>craft confession</em>:<br>you have to work very hard to make it look effortless.",
+      'ch1.dek': "Five design decisions —<br>every one a choice made, a path abandoned,<br>something done and then undone.<br>Making the tool more than a tool.<br>you have to work very hard to make it look effortless.",
       i1Tag: 'Human-AI Collaboration',
       i2Tag: 'Behaviour as Meaning',
       i3Tag: 'Frictionless by Design',
