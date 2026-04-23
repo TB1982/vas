@@ -159,6 +159,7 @@
       docsDek: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>the left menu stays with you—click any section to jump.<br><span class="docs-kbd">Ctrl</span>+<span class="docs-kbd">F</span> search works too.',
       docsDekMobile: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>tap the breathing light in the top right to jump to any section.',
       tocLabel: 'Contents', tocGroupStart: 'Getting Started', tocGroupCore: 'Core', tocGroupAdv: 'Advanced',
+      tocKickerStart: 'GETTING STARTED', tocKickerCore: 'CORE', tocKickerAdv: 'ADVANCED',
       flH3: 'Opening VAS for the first time',
       flP1: 'After downloading from the App Store and opening VAS, you\'ll see a fresh floating toolbar on your desktop. It stays where you place it—drag it freely.',
       flP2: 'If the toolbar takes up too much space and you want it smaller—the <strong>breathing light</strong> mode is off by default. Turn it on manually in the toolbar\'s "Keyboard Shortcuts".',
