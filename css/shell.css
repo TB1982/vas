@@ -141,7 +141,7 @@
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 48px;
-  align-items: baseline;
+  align-items: start;
   margin-bottom: 40px;
 }
 .section-no {
@@ -155,7 +155,7 @@
   font-family: var(--vas-serif);
   font-weight: 500;
   font-size: clamp(26px, 3.2vw, 36px);
-  line-height: 1.25;
+  line-height: 1.45;
   letter-spacing: -0.005em;
   color: var(--vas-ash-0);
   margin-bottom: 8px;
