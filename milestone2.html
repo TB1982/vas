@@ -307,7 +307,7 @@ body {
   content: '';
   position: absolute;
   left: 240px;
-  top: 72px;
+  top: 76px;
   width: 9px; height: 9px;
   margin-left: -4px;
   border-radius: 50%;
@@ -412,6 +412,16 @@ body {
 }
 .archive-body .arc-date { color: var(--vas-ash-3); }
 .archive-body .arc-ver { color: var(--vas-aurora-violet); }
+.arc-divider {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--vas-mono); font-size: 10px;
+  letter-spacing: 0.12em; color: var(--vas-ash-3);
+  margin: 14px 0;
+}
+.arc-divider::before, .arc-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: var(--vas-rule);
+}
 .archive-placeholder {
   margin-top: 8px;
   padding: 16px 20px;
@@ -634,7 +644,7 @@ body {
       <div class="arc-line"><span class="arc-date">04 · 02</span><span class="arc-ver">v3.47</span><span>全螢幕截圖 UX 改善 · 螢幕選擇啟用</span></div>
       <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.46</span><span>自動隱藏 bug 修正 · 顯示時間拉把</span></div>
       <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.45</span><span>工具列自動隱藏（Home Bar 細條樣式）</span></div>
-      <div style="border-top:1px solid var(--vas-rule);margin:12px 0;opacity:0.4;"></div>
+      <div class="arc-divider">↓ Tauri 版平臺轉移前 · v3.43 對外釋出後  ↑</div>
       <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.43</span><span>套版滑桿步進精細化</span></div>
       <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.42</span><span>裁切框支援方向鍵微移</span></div>
       <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.41</span><span>裁切框翻轉修正 · 雙擊確認</span></div>
