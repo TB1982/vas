@@ -12,6 +12,7 @@
 .chapter-header {
   padding: 72px 48px 64px;
   max-width: 1040px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 48px;
@@ -70,6 +71,7 @@
 .toc {
   padding: 40px 48px 32px;
   max-width: 1040px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 48px;
@@ -130,7 +132,8 @@
 /* ─── Section · 小節 ──────────────────── */
 .section {
   padding: 80px 48px;
-  max-width: 960px;
+  max-width: 1040px;
+  margin: 0 auto;
   border-bottom: 1px solid var(--vas-rule);
   scroll-margin-top: 40px;
 }
@@ -185,6 +188,7 @@
 .passage {
   padding: 120px 48px 100px;
   max-width: 1040px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 48px;
@@ -264,6 +268,8 @@
   gap: 48px;
   align-items: end;
   padding: 56px 48px 40px;
+  max-width: 1040px;
+  margin: 0 auto;
   border-top: 1px solid var(--vas-rule);
 }
 
