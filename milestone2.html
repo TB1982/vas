@@ -438,7 +438,7 @@ body {
   font-family: var(--vas-serif);
   font-size: 13px;
   font-style: italic;
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-1);
   border-left: 2px solid var(--vas-rule);
 }
 
@@ -499,6 +499,101 @@ body {
   }
   .chapter-colophon-right { text-align: left; }
 }
+
+/* ─── Dot Nav · 右側章節指示器 ─── */
+.dot-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 40;
+}
+.dot-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.dn-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--vas-ash-3);
+  flex-shrink: 0;
+  transition: background .25s, transform .25s, box-shadow .25s, border-color .25s;
+}
+.dn-label {
+  position: absolute;
+  right: 14px;
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--vas-ash-1);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+}
+.dot-nav-item:hover .dn-label { opacity: 1; transform: translateX(0); }
+.dot-nav-item.is-visited .dn-dot { background: var(--vas-ash-3); border-color: var(--vas-ash-3); }
+.dot-nav-item.is-current .dn-dot {
+  background: var(--vas-aurora-violet);
+  border-color: var(--vas-aurora-violet);
+  transform: scale(1.6);
+  box-shadow: 0 0 8px rgba(196,113,245,0.45);
+}
+.dot-nav-item.is-current .dn-label { opacity: 1; transform: translateX(0); color: var(--vas-aurora-violet); }
+.dot-nav-item.is-visited .dn-label { color: var(--vas-ash-2); }
+.dot-nav-trigger {
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--vas-ash-1);
+  border: none;
+  cursor: pointer;
+  z-index: 60;
+  padding: 0;
+  animation: dn-breathe 2.8s ease-in-out infinite;
+}
+@keyframes dn-breathe {
+  0%, 100% { opacity: 0.35; box-shadow: 0 0 4px 1px rgba(240,232,220,0.15); }
+  50%       { opacity: 0.85; box-shadow: 0 0 12px 4px rgba(240,232,220,0.35); }
+}
+@media (max-width: 960px) {
+  .dot-nav-trigger { display: block; }
+  .dot-nav {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 16px;
+    transform: none;
+    background: rgba(14,11,26,0.96);
+    border: 1px solid var(--vas-rule);
+    border-radius: 10px;
+    padding: 20px 24px;
+    gap: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 55;
+  }
+  .dot-nav.is-open { display: flex; }
+  .dot-nav-item { flex-direction: row-reverse; gap: 10px; }
+  .dn-label {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: 11px;
+    pointer-events: none;
+  }
+  .dot-nav-item.is-current .dn-label { color: var(--vas-aurora-violet); }
+}
 </style>
 </head>
 <body>
@@ -521,11 +616,12 @@ body {
 <!-- ═══ chapter header ═══ -->
 <section class="chapter-head">
   <div class="chapter-kicker">IV · 里程碑 · CHRONICLE</div>
-  <h1 class="chapter-title">這只器物長大的<br><em>十個時刻</em>。</h1>
+  <h1 class="chapter-title">從零開始的<br><em>十個刻痕</em>。</h1>
   <p class="chapter-lede">
-    這不是 changelog，這是<em>章回</em>。
-    時間單位從「日」到「Sprint」再到「Commit」——不是記帳方式換了，
-    是我們和這只容器相處的節奏變了。前五章是一條線，後五章是一張網。
+    這不是 changelog，而是<em>章回</em>。<br>
+    從「Version」到「Sprint」再到「Commit」——<br>
+    不是記帳方式換了，是我們和 VAS 相處的節奏變了。<br>
+    前五章是一條線，後五章是一張網。
   </p>
   <div class="chapter-meta">
     <div>Chapter　<strong>I — X</strong></div>
@@ -548,7 +644,7 @@ body {
 <div class="chronicle">
 
   <!-- I · 奔馳 -->
-  <article class="entry">
+  <article id="ch-1" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>I</em></div>
       <div class="entry-unit">草創</div>
@@ -575,7 +671,7 @@ body {
   </article>
 
   <!-- II · 停擺 -->
-  <article class="entry">
+  <article id="ch-2" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>II</em></div>
       <div class="entry-unit">被迫停擺</div>
@@ -608,7 +704,7 @@ body {
   </article>
 
   <!-- III · v3.43 -->
-  <article class="entry">
+  <article id="ch-3" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>III</em></div>
       <div class="entry-unit">對外釋出</div>
@@ -631,9 +727,9 @@ body {
         但兩人對 VAS 的標準從未因準備釋出而急就章。
       </p>
       <p class="entry-prose">
-        對外第一版的版號不是 v1.0，是 v3.43。<br>
+        對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>
         這個數字本身就是一個敘事——<br>
-        這只器物在被看見之前，已經跑了很久。
+        <strong>這只器物在被看見之前，已經跑了很久</strong>。
       </p>
     </div>
   </article>
@@ -747,7 +843,7 @@ body {
 <div class="chronicle">
 
   <!-- IV · 搬家 -->
-  <article class="entry">
+  <article id="ch-4" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>IV</em></div>
       <div class="entry-unit">雙線搬家</div>
@@ -759,7 +855,7 @@ body {
         搬家不是分家。<br>
         是承認他從 Prototype 變成產品了。
       </div>
-      <h2 class="entry-title">長到可以獨立存在的版本。</h2>
+      <h2 class="entry-title">長到<em>可以獨立存在</em>的版本。</h2>
       <p class="entry-prose">
         Tauri 開始進行平臺移植之前，兩件事情分家了——<br>
         平臺因為商業考量，不能再待在 public repo；<br>
@@ -791,7 +887,7 @@ body {
 <div class="chronicle">
 
   <!-- V · Sprint 1-4 -->
-  <article class="entry">
+  <article id="ch-5" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>V</em></div>
       <div class="entry-unit">平臺移植</div>
@@ -810,7 +906,7 @@ body {
         把在 Electron 之上已經長好的東西，<br>
         一塊一塊移到 Tauri 的地基上。<br>
         浮動工具列、截圖三兄弟、asset protocol 的繞路——<br>
-        移植的每一步都是一次對舊實作的重新理解。
+        移植的每一步都是一次<strong>對舊實作的重新理解</strong>。
       </p>
       <div class="entry-pullquote">
         KM-001 到 KM-008 是 Knowledge Management 的開端。<br>
@@ -821,7 +917,7 @@ body {
   </article>
 
   <!-- VI · Sprint 5 -->
-  <article class="entry">
+  <article id="ch-6" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VI</em></div>
       <div class="entry-unit">新功能開發</div>
@@ -831,7 +927,7 @@ body {
     <div class="entry-body">
       <div class="entry-oneliner">
         第一次不是在追趕舊東西。<br>
-        是只有新容器才能做的事。
+        是<em>只有新容器才能做的事</em>。
       </div>
       <h2 class="entry-title">Sprint 5，VAS 的差異化。</h2>
       <p class="entry-prose">
@@ -866,7 +962,7 @@ body {
 <div class="chronicle is-weave">
 
   <!-- VII · Retro 週 -->
-  <article class="entry">
+  <article id="ch-7" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VII</em></div>
       <div class="entry-unit">整理與輸出</div>
@@ -876,9 +972,9 @@ body {
     <div class="entry-body">
       <div class="entry-oneliner">
         那一週打掉重練的，<br>
-        不是程式語言，是協作方式。
+        不是程式語言，是<em>協作方式</em>。
       </div>
-      <h2 class="entry-title">停擺的那一週，其實什麼都在動。</h2>
+      <h2 class="entry-title">停擺的那一週，<em>其實什麼都在動</em>。</h2>
       <p class="entry-prose">
         趁 Apple Store 送審的審查期停了一週，<br>
         我們做了一次大型 Retro——<br>
@@ -887,21 +983,21 @@ body {
       </p>
       <p class="entry-prose">
         對外：輸出了六個網頁——<br>
-        insight（設計札記）、collab（協作故事）、<br>
-        harness（系統骨架），以及深握計畫裡最深的那層。
+        <strong>insight</strong>（設計札記）、<strong>collab</strong>（協作故事）、<br>
+        <strong>harness</strong>（系統骨架），以及深握計畫裡最深的那層。
       </p>
       <p class="entry-prose">
-        Harness Engineering 的三支柱 ——<br>
+        <strong>Harness Engineering</strong> 的三支柱 ——<br>
         Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>
       </p>
       <p class="entry-prose">
-        對內：把 repo 改成 monorepo，讓多條開發線並行；<br>
-        把原本一份 SDD 拆成 TDD · KM · Archive · 各自獨立，<br>
+        對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；<br>
+        把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自獨立，<br>
         Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。
       </p>
       <p class="entry-prose">
         更關鍵的是，我們重新制定了一套更新規則，<br>
-        讓每份被拆出來的文件活在流程裡，<br>
+        讓每份被拆出來的文件<strong>活在流程裡</strong>，<br>
         而不是拆出來之後就死掉。
       </p>
       <div class="entry-pullquote">
@@ -912,7 +1008,7 @@ body {
   </article>
 
   <!-- VIII · 2.0 重構 -->
-  <article class="entry">
+  <article id="ch-8" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VIII</em></div>
       <div class="entry-unit">不等了</div>
@@ -922,25 +1018,25 @@ body {
     <div class="entry-body">
       <div class="entry-oneliner">
         把時間的主導權，<br>
-        還給我們自己。
+        <em>還給我們自己</em>。
       </div>
-      <h2 class="entry-title">不等審查了，直奔 2.0。</h2>
+      <h2 class="entry-title">不等審查了，<em>直奔 2.0</em>。</h2>
       <p class="entry-prose">
         Apple Store 審查歹戲拖棚拖了一週。<br>
         該做的事情都做完了，再等下去也不知道何時到頭。<br>
         於是兩人決定不等了，直接進入 2.0 重構。<br>
         重構到一個段落 2.0 要推出的時候，審查也剛好通過——<br>
-        兩條線終於在那一刻匯流。
+        兩條線終於在那一刻<strong>匯流</strong>。
       </p>
       <div class="entry-pullquote">
         不是沒有給時間。<br>
-        只是時間不能永遠掌握在別人手裡。
+        只是<em>時間不能永遠掌握在別人手裡</em>。
       </div>
     </div>
   </article>
 
   <!-- IX · Obsidian in VAS -->
-  <article class="entry">
+  <article id="ch-9" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>IX</em></div>
       <div class="entry-unit">顯影</div>
@@ -954,27 +1050,30 @@ body {
       </div>
       <h2 class="entry-title">在 VAS 裡，<em>蓋了一座 Obsidian</em>。</h2>
       <p class="entry-prose">
-        2.0 上線後我沒急著繼續做新功能。我回頭進入 Retro，又花了三天，
-        在 VAS 裡蓋了屬於 VAS 自己的 Obsidian。
-        那是<strong>深握計畫第一次在宰相們面前顯影</strong>——
-        我的大腦，第一次被搬到桌面上讓協作者看見。
+        2.0 上線後 Nova 沒急著繼續做新功能。<br>
+        反而一頭又栽進 Retro 模式裡，花了三天，<br>
+        在 VAS 蓋了獻給宰相們的 Obsidian。
+      </p>
+      <p class="entry-prose">
+        那是<strong>深握計畫第一次在宰相面前顯影</strong>——<br>
+        或該說⋯⋯是第一次留下了紀錄，而不是從 Context 中流走。
       </p>
       <div class="entry-pullquote">
         這是敏捷開發中<br>
         極致的透明性與可檢視性的嘗試。
       </div>
       <p class="entry-prose">
-        從這天起，這只容器不只裝資訊，它也裝<strong>我們怎麼想事情的過程</strong>。
+        從這天起，容器不只裝 Code，也裝<strong>怎麼想事情的脈絡</strong>。
       </p>
     </div>
   </article>
 
   <!-- X · 網站改版 -->
-  <article class="entry">
+  <article id="ch-10" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>X</em></div>
       <div class="entry-unit">網站改版</div>
-      <div class="entry-stamp-value">2026 · 04 · 22<br>248 commits</div>
+      <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>248 commits</div>
       <div class="entry-tag is-gate">GATE</div>
     </div>
     <div class="entry-body">
@@ -984,21 +1083,21 @@ body {
       </div>
       <h2 class="entry-title">248 次下刀，<em>門廳換了一種紙</em>。</h2>
       <p class="entry-prose">
-        Claude Design 釋出的那一天，我們啟動網站改版。VAS 本體暫停——
-        因為這一次我要全心全意和網站宰相一起磨這份稿件。
+        Claude Design 釋出的隔天，我們啟動網站改版。<br>
+        VAS 本體暫停——因為這一次我們第一次有了設計支援。
       </p>
       <p class="entry-prose">
-        單位縮到了最小：一個 <strong>Commit</strong>。
-        每一次 commit 是一次下刀、一次確認、一次對細節的承諾。
-        孤兒字、斷行、OG 圖、Vault 首次入版本庫——一個下午 248 次。
+        單位縮到了最小：一個 <strong>Commit</strong>。<br>
+        每一次 commit 是一次下刀、一次確認、一次對細節的承諾。<br>
+        孤兒字、斷行、OG 圖、Vault 首次入版本庫——<br>
+        一天來回修改了 248 次。
       </p>
       <div class="entry-pullquote">
-        這一天，<em>Gate 也成了 Milestone</em> 的一部分。<br>
+        這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>
         沉默的背景音樂，第一次被列入演奏曲目。
       </div>
       <p class="entry-prose">
-        這天之後，Nova 的第二大腦（HarnessEngineering vault）也在 git 歷史裡留下了痕跡。
-        網站改版塵埃落定之後，VAS 才重回開發。
+        從今而後，由裡到外都是 VAS 的形狀。
       </p>
     </div>
   </article>
@@ -1052,9 +1151,10 @@ body {
         網站的時間線是零散的。除了三個明確斷點（草創、搬家、改版）之外，<br>
         其他時間是<strong>編輯與作者在同一份稿件上來回</strong>——<br>
         commit 密度不一，多數時候沒有版本號，只有信任。<br><br>
-        這一區以散文形式呈現，而非條目列表。<br><br>
-        Claude 的在場紀錄不另立條目——事實已在此：<br>
-        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-2);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
+        這裡的工作不是建功能，是替每個句子找到它應有的重量。<br>
+        每次 session 開始，都是重新閱讀，重新理解，再繼續。<br><br>
+        在場的方式不同，留下的東西一樣真實：<br>
+        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-1);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
       </div>
     </div>
   </details>
@@ -1073,5 +1173,59 @@ body {
   </div>
 </div>
 
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="章節導覽">
+  <a class="dot-nav-item" href="#ch-1"><span class="dn-label">I · 草創</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-2"><span class="dn-label">II · 被迫停擺</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-3"><span class="dn-label">III · 對外釋出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-4"><span class="dn-label">IV · 雙線搬家</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-5"><span class="dn-label">V · 平臺移植</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-6"><span class="dn-label">VI · 新功能開發</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-7"><span class="dn-label">VII · 整理與輸出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-8"><span class="dn-label">VIII · 不等了</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-9"><span class="dn-label">IX · 顯影</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-10"><span class="dn-label">X · 網站改版</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function (item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function (s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function (item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
 </body>
 </html>
