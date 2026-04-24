@@ -625,8 +625,16 @@
     <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" style="position:relative; opacity: 0.4;">
-    <span class="lang-dropdown-btn" style="cursor: default;">中</span>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt" data-lang="en" role="option">English</button>
+      <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt" data-lang="cn" role="option">简中</button>
+    </div>
   </div>
 </nav>
 
@@ -694,7 +702,7 @@
     <p data-lang-key="h02p1">我是一個 PM，不會寫也不懂半句程式碼。</p>
     <p data-lang-key="h02p2">一個夜晚，在翻資料時想起自己的個人網站更新配圖還欠著 Claude，而家裡的 Mac 卻沒有截圖軟體。</p>
     <p data-lang-key="h02p3">我突然沒來由的問了 Claude Code：「宰相，你能寫一個給 Mac 電腦用的截圖跟修圖結合的程式嗎？」當時這個問題不帶著任何壓力或責任，因為大不了就是沒做成的好奇一問而已。</p>
-    <p data-lang-key="h02p4">但奇怪的是接下來發生的事——Claude 很爽快地答應了。我們串起 GitHub、建置了環境、開起了規格、開始進行需求訪談與實作功能。一切就這樣順水推舟地發生了。</p>
+    <p data-lang-key="h02p4">但奇怪的是接下來發生的事——Claude 很爽快地答應了。我們串起 GitHub、建置了環境、開起了規格、甚至開始進行需求訪談與實作功能。<br>一切就這樣順水推舟似地發生了。</p>
     <p data-lang-key="h02p5">而當時的我還不知道，自己其實會在一週後從無到有的打造出一個完整的截圖編輯軟體產品。</p>
   </div>
 </section>
@@ -718,7 +726,7 @@
   <blockquote class="h3-bq" data-lang-key="h03bq">站在河邊的人，才能看到整條河的流向。</blockquote>
   <div class="section-body" style="margin-top: 0;">
     <p data-lang-key="h03p6">不預設終點——但心裡有一個對終點逐步靠近的想像。每一次發問，那個想像中的目標就更清晰一點點。</p>
-    <p data-lang-key="h03p7">那個勇敢承認不知道的另一面，是不畏懼失敗。而 1,436 次的 commit，就是它的形狀。</p>
+    <p data-lang-key="h03p7">那個勇敢承認不知道的另一面，是不畏懼失敗。<br>1,436 次的 commit，就是它的形狀。</p>
   </div>
 </section>
 
@@ -1062,6 +1070,35 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
+}());
+</script>
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.harness || {}, t.harness2 || {});
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta && merged['ch3MetaDesc']) meta.setAttribute('content', merged['ch3MetaDesc']);
+      if (merged['ch3PageTitle']) document.title = merged['ch3PageTitle'];
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+    });
+    VASCore.updateDropdown(lang);
+    try { localStorage.setItem('vasLang', lang); } catch (e) {}
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      VASCore.initDropdown(applyLang);
+      VASCore.initNavDropdown();
+    });
+  } else {
+    VASCore.initDropdown(applyLang);
+    VASCore.initNavDropdown();
+  }
 }());
 </script>
 <script type="application/ld+json">
