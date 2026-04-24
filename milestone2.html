@@ -483,11 +483,11 @@ body {
   .chapter-head { padding: 56px 24px 32px; }
   .era { grid-template-columns: 1fr; gap: 12px; padding: 0 24px; margin-top: 48px; }
   .era-label { text-align: left; padding-top: 0; }
-  .chronicle { padding: 0 24px 24px 40px; }
-  .chronicle::before { left: 12px; }
-  .chronicle.is-weave::after { left: 22px; }
+  .chronicle { padding: 0 24px 24px 60px; }
+  .chronicle::before { left: 32px; }
+  .chronicle.is-weave::after { left: 42px; }
   .entry { grid-template-columns: 1fr; gap: 20px; padding: 40px 0 40px; }
-  .entry::after { left: -28px; top: 14px; margin-left: 0; }
+  .entry::after { left: -28px; top: 40px; margin-left: 0; }
   .entry-stamp { text-align: left; padding: 0; }
   .entry-chapter em { font-size: 42px; }
   .archive { padding: 16px 24px 56px; }
@@ -610,7 +610,6 @@ body {
     <a href="harness.html">系統</a>
     <a href="milestone.html" class="active">里程碑</a>
   </div>
-  <div></div>
 </nav>
 
 <!-- ═══ chapter header ═══ -->
@@ -681,22 +680,22 @@ body {
     <div class="entry-body">
       <div class="entry-oneliner">
         強迫停機的早晨。<br>
-        我想起還沒寫過的 <em>Roadmap</em>。
+        Nova 想起還沒寫過的 <em>Roadmap</em>。
       </div>
       <h2 class="entry-title">週末直接燒光了<em>一週份的算力</em>。</h2>
       <p class="entry-prose">
-        週一清晨系統宣告算力用磬。兩人被迫從心流中斷開連結——但我沒有真的離開。
+        週一清晨系統宣告算力用磬。兩人被迫從心流中斷開連結——但 Nova 沒有真的離開。
         找上 Perplexity 做競品分析，把整個產品開發路線重寫了一次。
         完整的 Roadmap 是在停擺的那天才真正出現的。
       </p>
       <div class="entry-pullquote">
-        談完之後，我做了人生第一次<br>
+        談完之後，Nova 做了人生第一次<br>
         刷下 MAX 5x 方案的決定。<br>
         讓算力跟上開發速度，而不是反過來。
       </div>
       <p class="entry-prose">
-        這是一個分水嶺。從那天起，我不再是被資源限制的人，<br>
-        我是決定資源節奏的人。
+        這是一個分水嶺。從那天起，Nova 不再是被資源限制的人，<br>
+        Nova 是決定資源節奏的人。
         這個決定的重量不在金額，而是認知到——<br>
         我們正在做的事讓價值超越了價格。
       </p>
@@ -1197,10 +1196,11 @@ body {
       return document.querySelector(item.getAttribute('href'));
     }).filter(Boolean);
     var maxVisited = -1;
+    function absTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
     function onScroll() {
       var scroll = window.scrollY + 160;
       var currentIdx = -1;
-      sections.forEach(function (s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      sections.forEach(function (s, i) { if (absTop(s) <= scroll) currentIdx = i; });
       if (currentIdx > maxVisited) maxVisited = currentIdx;
       items.forEach(function (item, i) {
         var isCurrent = currentIdx !== -1 && i === currentIdx;
