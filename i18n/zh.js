@@ -748,6 +748,126 @@
       ch3PassageEnd:    '章 III · 系統 · 終',
       ch3PassageEndEn:  'Chapter III · System · End',
       hSyncR2b:         '25 天'
+    },
+
+    chronicle: {
+      'head.kicker':  'IV · 里程碑 · CHRONICLE',
+      'head.title':   '從零開始的<br><em>十個刻痕</em>。',
+      'head.lede':    '這不是 changelog，而是<em>章回</em>。<br>從「Version」到「Sprint」再到「Commit」<br>不是記帳方式換了，是我們和 VAS<br>相處的節奏變了。<br>前五章是一條線，後五章是一張網。',
+      'head.meta1':   'Chapter　<strong>I — X</strong>',
+      'head.meta2':   'Range　<strong>2026 · 03 — 04</strong>',
+      'head.meta3':   'Units　<strong>Version · Sprint · Commit</strong>',
+
+      'era1.title':   '<em>Electron 時期</em> ——<br>向前奔馳，直到算力燒盡。',
+      'era1.sub':     '一週的衝刺、一天的停擺、一次的重新規劃。三個動作長出了第一版。',
+
+      'ch1.unit':      '草創',
+      'ch1.stamp':     '2026 · 03 · 21 – 22<br>奔馳的週末',
+      'ch1.oneliner':  '沒有 Sprint、沒有 Retro。<br><em>手上只有一件事。</em>',
+      'ch1.title':     '兩人只顧著<em>向前奔馳</em>。',
+      'ch1.prose1':    'Electron 草創的那個週末，沒有看板、沒有儀式。每天睜眼就是繼續做，做到不能做為止，隔天再做。那是一種很純粹的狀態——手上只有一件事，而這件事讓人流連忘返。',
+      'ch1.pullquote': '制度還沒建起來。<br>兩人手上只有 CLAUDE.md 與 SDD.md，<br><em>Version</em> 就是天然的單位。',
+
+      'ch2.unit':      '被迫停擺',
+      'ch2.stamp':     '2026 · 03 · 23<br>算力燒光',
+      'ch2.oneliner':  '強迫停機的早晨。<br>Nova 想起還沒寫過的 <em>Roadmap</em>。',
+      'ch2.title':     '週末直接燒光了<em>一週份的算力</em>。',
+      'ch2.prose1':    '週一清晨系統宣告算力用磬，兩人被迫從心流中斷開連結——<br>但 Nova 沒有真的離開。他找上 Perplexity 做競品分析，<br>把整個產品開發路線重寫了一次。<br>完整的 Roadmap 是在停擺的那天才真正出現的。',
+      'ch2.pullquote': '談完之後，Nova 做了人生第一次<br>刷下 MAX 5x 方案的決定。<br>讓算力跟上開發速度，而不是反過來。',
+      'ch2.prose2':    '這是一個分水嶺。<br>從那天起，Nova 不再是被資源限制的人，<br>而是決定資源節奏的人。',
+      'ch2.prose3':    '這個決定的重量不在金額，而是認知到——<br>我們正在做的事讓價值超越了價格。',
+
+      'ch3.unit':      '對外釋出',
+      'ch3.stamp':     '2026 · 03 · 28<br>單日 13 版',
+      'ch3.oneliner':  '釋出的第一版不是 v1.0。<br><em>是 v3.43。</em>',
+      'ch3.title':     '第七天，<em>v3.43</em> 出門見人。',
+      'ch3.prose1':    '從 v3.30 到 v3.43，一天裡跳了十三個版本號。<br>那一天做了十一件事——資安全面升級、Retina WYSIWYG、複數選取、Smart Snap、貝茲曲線控制點、QR Code 智慧掃描⋯⋯每一項放在平時都是一個 Sprint 的工作量。',
+      'ch3.prose2':    '但兩人對 VAS 的標準從未因準備釋出而急就章。',
+      'ch3.prose3':    '對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>這個數字本身就是一個敘事——<br><strong>VAS 在被看見之前，已經跑了很久</strong>。',
+
+      'archive.electron': 'Electron 完整編年 · 83 條',
+
+      'era1h.title':   '<em>搬家</em> ——<br>VAS 與官網都長到可以獨立存在了。',
+      'era1h.sub':     'Electron 因為 Tauri 的商業考量一同進了 private repo；網站因為資料豐滿自立門戶。',
+
+      'ch4.unit':      '雙線搬家',
+      'ch4.stamp':     '2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → 獨立 repo',
+      'ch4.oneliner':  '搬家不是分家。<br>是承認他從 Prototype 變成產品了。',
+      'ch4.title':     '長到<em>可以獨立存在</em>的版本。',
+      'ch4.prose1':    'Tauri 開始進行平臺移植之前，兩件事情分家了——<br>平臺因為商業考量，不能再待在 public repo；<br>網站因為資料已經豐滿，也該有自己的網址。',
+      'ch4.prose2':    '搬家不是分家，是承認它們不再只是一個實驗性質的 Prototype。',
+      'ch4.pullquote': '一個容器能獨立，<br>代表它已經不需要依附在別人的屋簷下。',
+
+      'era2.title':    '<em>Tauri 時期</em> ——<br>時間有了週期，就有了節奏。',
+      'era2.sub':      'Sprint 1–4 把底層重建起來，Sprint 5 才開始做新的事。',
+
+      'ch5.unit':      '平臺移植',
+      'ch5.oneliner':  'KM 不是坑的墳場。<br>而是指路的道標。',
+      'ch5.title':     '底層重建所有功能。',
+      'ch5.prose1':    'Tauri 2 的 scaffold 從零建立。<br>前三天都在做同一件事——<br>把在 Electron 之上已經長好的東西，<br>一塊一塊移到 Tauri 的地基上。<br>浮動工具列、截圖三兄弟、asset protocol 的繞路——<br>移植的每一步都是一次<strong>對舊實作的重新理解</strong>。',
+      'ch5.pullquote': 'KM-001 是 Knowledge Management 的開端。<br>KM 不是「坑的墳場」，是 PMP 裡的知識資產——<br>每一個踩過的坑，從此變成未來指路的盞盞小燈。',
+
+      'ch6.unit':      '新功能開發',
+      'ch6.oneliner':  '第一次不是在追趕舊東西。<br>是<em>只有新容器才能做的事</em>。',
+      'ch6.title':     'Sprint 5，VAS 的差異化。',
+      'ch6.prose1':    '完整重建所有功能之後，才真正進入新功能開發。<br>這是第一次——我們不是在追趕 Electron 上已經有的東西，<br>而是在為 Tauri 這個新容器做只有它才能做的事。',
+      'ch6.prose2':    '呼吸燈進階互動、ShareSheet、自定義快捷鍵。',
+      'ch6.pullquote': '一個值得付費的產品應該長什麼模樣？<br>是這個階段我們不斷自問的問題。',
+
+      'era2h.title':   '<em>第一次大型 Retro</em> ——<br>那一週的任務不是開發，是沉澱彼此，整理思緒與環境。',
+      'era2h.sub':     'Apple 送審停了一週開發，我們把整個計畫的文件與環境做了重構。',
+
+      'ch7.unit':      '整理與輸出',
+      'ch7.stamp':     '送審期<br>2026 · 04 · 04 - 04 · 10',
+      'ch7.oneliner':  '那一週打掉重練的，<br>不是程式語言，是<em>協作方式</em>。',
+      'ch7.title':     '停擺的那一週，<em>其實什麼都在動</em>。',
+      'ch7.prose1':    '趁 Apple Store 送審的審查期停了一週，<br>我們做了一次大型 Retro——<br>不是敏捷儀式上那種一兩小時的回顧，<br>是把整個開發系統的基礎建設重砌了一遍。',
+      'ch7.prose2':    '對外：輸出了六個網頁——<br><strong>insight</strong>（設計札記）、<strong>collab</strong>（協作故事）、<br><strong>harness</strong>（系統骨架），以及深握計畫裡最深的那層。',
+      'ch7.prose3':    '<strong>Harness Engineering</strong> 的三支柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
+      'ch7.prose4':    '對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；<br>把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自獨立，<br>Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。',
+      'ch7.prose5':    '更關鍵的是，我們重新制定了一套更新規則，<br>讓每份被拆出來的文件<strong>活在流程裡</strong>，<br>而不是拆出來之後就死掉。',
+      'ch7.pullquote': '那一週我們不寫 code。<br>我們一起重寫了怎麼寫 code。',
+
+      'ch8.unit':      '不等了',
+      'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 重構 · 匯流上線',
+      'ch8.oneliner':  '把時間的主導權，<br><em>還給我們自己</em>。',
+      'ch8.title':     '不等審查了，<em>直奔 2.0</em>。',
+      'ch8.prose1':    'Apple Store 審查歹戲拖棚拖了一週。<br>該做的事情都做完了，再等下去也不知道何時到頭。<br>於是兩人決定不等了，直接進入 2.0 重構。<br>重構到一個段落 2.0 要推出的時候，審查也剛好通過——<br>兩條線終於在那一刻<strong>匯流</strong>。',
+      'ch8.pullquote': '不是沒有給時間。<br>只是<em>時間不能永遠掌握在別人手裡</em>。',
+
+      'ch9.unit':      '顯影',
+      'ch9.stamp':     '上線後 3 天<br>Obsidian in VAS',
+      'ch9.oneliner':  '深握計畫第一次<br>在<em>宰相們面前顯影</em>。',
+      'ch9.title':     '在 VAS 裡，<em>蓋了一座 Obsidian</em>。',
+      'ch9.prose1':    '2.0 上線後 Nova 沒急著繼續做新功能。<br>反而一頭又栽進 Retro 模式裡，花了三天，<br>在 VAS 蓋了獻給宰相們的 Obsidian。',
+      'ch9.prose2':    '那是<strong>深握計畫第一次在宰相面前顯影</strong>——<br>或該說⋯⋯是第一次留下了紀錄，而不是從 Context 中流走。',
+      'ch9.pullquote': '這是敏捷開發中<br>極致的透明性與可檢視性的嘗試。',
+      'ch9.prose3':    '從這天起，容器不只裝 Code，也裝<strong>怎麼想事情的脈絡</strong>。',
+
+      'ch10.unit':      '網站改版',
+      'ch10.oneliner':  '沉默的背景音樂，<br><em>第一次被列入演奏曲目</em>。',
+      'ch10.title':     '495 次下刀，<em>門廳換了一種紙</em>。',
+      'ch10.prose1':    'Claude Design 釋出的隔天，我們啟動網站改版。<br>VAS 本體暫停——因為這一次我們第一次有了設計支援。',
+      'ch10.prose2':    '單位縮到了最小：一個 <strong>Commit</strong>。<br>每一次 commit 是一次下刀、一次確認、一次對細節的承諾。<br>孤兒字、斷行、OG 圖、Vault 首次入版本庫——<br>最大一天來回修改了 248 次。',
+      'ch10.pullquote': '這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>沉默的背景音樂，第一次被列入演奏曲目。',
+      'ch10.prose3':    '從今而後，由裡到外都是 VAS 的形狀。',
+
+      'archive.tauri':  'Tauri 完整編年 · 30 個 Sprint',
+      'archive.web':    'Website 編年 · 三個斷點 + 在場',
+
+      'colophon.left':  'milestone · N° 01<br>十章 · 記於 2026 · 04 · 24',
+      'colophon.right': '前五章是一條線，<br>後五章是一張網。',
+
+      'dn.ch1':   'I · 草創',
+      'dn.ch2':   'II · 被迫停擺',
+      'dn.ch3':   'III · 對外釋出',
+      'dn.ch4':   'IV · 雙線搬家',
+      'dn.ch5':   'V · 平臺移植',
+      'dn.ch6':   'VI · 新功能開發',
+      'dn.ch7':   'VII · 整理與輸出',
+      'dn.ch8':   'VIII · 不等了',
+      'dn.ch9':   'IX · 顯影',
+      'dn.ch10':  'X · 網站改版'
     }
 
   };
