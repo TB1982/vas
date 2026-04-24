@@ -499,6 +499,101 @@ body {
   }
   .chapter-colophon-right { text-align: left; }
 }
+
+/* ─── Dot Nav · 右側章節指示器 ─── */
+.dot-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 40;
+}
+.dot-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.dn-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--vas-ash-3);
+  flex-shrink: 0;
+  transition: background .25s, transform .25s, box-shadow .25s, border-color .25s;
+}
+.dn-label {
+  position: absolute;
+  right: 14px;
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--vas-ash-1);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+}
+.dot-nav-item:hover .dn-label { opacity: 1; transform: translateX(0); }
+.dot-nav-item.is-visited .dn-dot { background: var(--vas-ash-3); border-color: var(--vas-ash-3); }
+.dot-nav-item.is-current .dn-dot {
+  background: var(--vas-aurora-violet);
+  border-color: var(--vas-aurora-violet);
+  transform: scale(1.6);
+  box-shadow: 0 0 8px rgba(196,113,245,0.45);
+}
+.dot-nav-item.is-current .dn-label { opacity: 1; transform: translateX(0); color: var(--vas-aurora-violet); }
+.dot-nav-item.is-visited .dn-label { color: var(--vas-ash-2); }
+.dot-nav-trigger {
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--vas-ash-1);
+  border: none;
+  cursor: pointer;
+  z-index: 60;
+  padding: 0;
+  animation: dn-breathe 2.8s ease-in-out infinite;
+}
+@keyframes dn-breathe {
+  0%, 100% { opacity: 0.35; box-shadow: 0 0 4px 1px rgba(240,232,220,0.15); }
+  50%       { opacity: 0.85; box-shadow: 0 0 12px 4px rgba(240,232,220,0.35); }
+}
+@media (max-width: 960px) {
+  .dot-nav-trigger { display: block; }
+  .dot-nav {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 16px;
+    transform: none;
+    background: rgba(14,11,26,0.96);
+    border: 1px solid var(--vas-rule);
+    border-radius: 10px;
+    padding: 20px 24px;
+    gap: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 55;
+  }
+  .dot-nav.is-open { display: flex; }
+  .dot-nav-item { flex-direction: row-reverse; gap: 10px; }
+  .dn-label {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: 11px;
+    pointer-events: none;
+  }
+  .dot-nav-item.is-current .dn-label { color: var(--vas-aurora-violet); }
+}
 </style>
 </head>
 <body>
@@ -548,7 +643,7 @@ body {
 <div class="chronicle">
 
   <!-- I · 奔馳 -->
-  <article class="entry">
+  <article id="ch-1" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>I</em></div>
       <div class="entry-unit">草創</div>
@@ -575,7 +670,7 @@ body {
   </article>
 
   <!-- II · 停擺 -->
-  <article class="entry">
+  <article id="ch-2" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>II</em></div>
       <div class="entry-unit">被迫停擺</div>
@@ -608,7 +703,7 @@ body {
   </article>
 
   <!-- III · v3.43 -->
-  <article class="entry">
+  <article id="ch-3" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>III</em></div>
       <div class="entry-unit">對外釋出</div>
@@ -747,7 +842,7 @@ body {
 <div class="chronicle">
 
   <!-- IV · 搬家 -->
-  <article class="entry">
+  <article id="ch-4" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>IV</em></div>
       <div class="entry-unit">雙線搬家</div>
@@ -791,7 +886,7 @@ body {
 <div class="chronicle">
 
   <!-- V · Sprint 1-4 -->
-  <article class="entry">
+  <article id="ch-5" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>V</em></div>
       <div class="entry-unit">平臺移植</div>
@@ -821,7 +916,7 @@ body {
   </article>
 
   <!-- VI · Sprint 5 -->
-  <article class="entry">
+  <article id="ch-6" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VI</em></div>
       <div class="entry-unit">新功能開發</div>
@@ -866,7 +961,7 @@ body {
 <div class="chronicle is-weave">
 
   <!-- VII · Retro 週 -->
-  <article class="entry">
+  <article id="ch-7" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VII</em></div>
       <div class="entry-unit">整理與輸出</div>
@@ -912,7 +1007,7 @@ body {
   </article>
 
   <!-- VIII · 2.0 重構 -->
-  <article class="entry">
+  <article id="ch-8" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VIII</em></div>
       <div class="entry-unit">不等了</div>
@@ -940,7 +1035,7 @@ body {
   </article>
 
   <!-- IX · Obsidian in VAS -->
-  <article class="entry">
+  <article id="ch-9" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>IX</em></div>
       <div class="entry-unit">顯影</div>
@@ -973,7 +1068,7 @@ body {
   </article>
 
   <!-- X · 網站改版 -->
-  <article class="entry">
+  <article id="ch-10" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>X</em></div>
       <div class="entry-unit">網站改版</div>
@@ -1077,5 +1172,59 @@ body {
   </div>
 </div>
 
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="章節導覽">
+  <a class="dot-nav-item" href="#ch-1"><span class="dn-label">I · 草創</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-2"><span class="dn-label">II · 被迫停擺</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-3"><span class="dn-label">III · 對外釋出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-4"><span class="dn-label">IV · 雙線搬家</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-5"><span class="dn-label">V · 平臺移植</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-6"><span class="dn-label">VI · 新功能開發</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-7"><span class="dn-label">VII · 整理與輸出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-8"><span class="dn-label">VIII · 不等了</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-9"><span class="dn-label">IX · 顯影</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-10"><span class="dn-label">X · 網站改版</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function (item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function (s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function (item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
 </body>
 </html>
