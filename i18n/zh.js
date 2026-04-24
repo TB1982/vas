@@ -209,7 +209,7 @@
       tipsQ4: '雙螢幕的行為',
       tipsA4: '雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕；延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為，請回報給我們。',
       tipsQ5: '可以自訂快捷鍵嗎',
-      tipsA5: '付費版可以。免費版預設提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三組截圖快捷鍵，且出廠預設關閉——需要到工具列「快捷鍵說明」手動開啟。',
+      tipsA5: '付費版可以。免費版預設提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三組截圖快捷鍵。',
       allVersions: '全版本',
       bl_title: '呼吸燈', bl_desc: '可設定將工具列縮小成為呼吸燈，在桌面角落靜默待機，不佔空間。',
       bl_url: '複製連結後靠近呼吸燈，會詢問是否進行網址截圖',

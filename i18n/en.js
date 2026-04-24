@@ -231,7 +231,7 @@
       tipsQ4: 'Dual-display behavior',
       tipsA4: 'Dual-display scenarios are specifically optimized. Full-screen captures the screen where your cursor is; delayed screenshots also use cursor position to determine the target display. If you encounter unexpected behavior, please let us know.',
       tipsQ5: 'Can I customize keyboard shortcuts?',
-      tipsA5: 'Yes, in the paid version. The free version includes three screenshot shortcuts (<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>) that are disabled by default—enable them manually via "Keyboard Shortcuts" in the toolbar.',
+      tipsA5: 'Yes, in the paid version. The free version includes three screenshot shortcuts: <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>.',
       allVersions: 'All Versions',
       bl_title: 'Breathing Light', bl_desc: 'The toolbar can be minimised into a breathing light — sitting quietly in a corner of your desktop, out of the way.', bl_url: 'Copy a URL then hover over the breathing light — it will ask if you want to capture that webpage', bl_file: 'Drag a file toward the breathing light — the editor opens automatically and loads the file',
       s4Label: 'Section 04',

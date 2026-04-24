@@ -207,7 +207,7 @@
       tipsQ4: '双屏的行为',
       tipsA4: '双屏情境已经特化调整过。全屏截图会截目前鼠标所在的屏幕；延迟截图也是以鼠标位置决定目标屏幕。如果你遇到不符预期的行为，请回报给我们。',
       tipsQ5: '可以自定义快捷键吗',
-      tipsA5: '付费版可以。免费版预设提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三组截图快捷键，且出厂预设关闭——需要到工具列「快捷键说明」手动开启。',
+      tipsA5: '付费版可以。免费版预设提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三组截图快捷键。',
       allVersions: '全版本',
       bl_title: '呼吸灯', bl_desc: '可设定将工具列缩小成为呼吸灯，在桌面角落静默待机，不占空间。',
       bl_url: '复制连结后靠近呼吸灯，会询问是否进行网址截图',
