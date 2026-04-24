@@ -412,6 +412,16 @@ body {
 }
 .archive-body .arc-date { color: var(--vas-ash-3); }
 .archive-body .arc-ver { color: var(--vas-aurora-violet); }
+/* 行內紫色圓點連結 */
+.inline-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: radial-gradient(circle, #c471f5, #fa71cd 60%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(196, 113, 245, 0.5);
+  vertical-align: middle;
+  margin-left: 6px;
+}
 .arc-divider {
   display: flex; align-items: center; gap: 10px;
   font-family: var(--vas-mono); font-size: 10px;
@@ -797,15 +807,16 @@ body {
       <p class="entry-prose">
         Tauri 2 的 scaffold 從零建立。<br>
         前三天都在做同一件事——<br>
-        把在 Electron 之上已經長好的東西，一塊一塊移到 Tauri 的地基上。<br>
+        把在 Electron 之上已經長好的東西，<br>
+        一塊一塊移到 Tauri 的地基上。<br>
         浮動工具列、截圖三兄弟、asset protocol 的繞路——<br>
         移植的每一步都是一次對舊實作的重新理解。
       </p>
-      <p class="entry-prose">
-        KM-001 到 KM-008 八個 Knowledge Management 條目在這段時間成形。<br>
+      <div class="entry-pullquote">
+        KM-001 到 KM-008 是 Knowledge Management 的開端。<br>
         KM 不是「坑的墳場」，是 PMP 裡的知識資產——<br>
         每一個踩過的坑，從此變成未來指路的盞盞小燈。
-      </p>
+      </div>
     </div>
   </article>
 
@@ -829,10 +840,12 @@ body {
         而是在為 Tauri 這個新容器做只有它才能做的事。
       </p>
       <p class="entry-prose">
-        呼吸燈進階互動、ShareSheet、自定義快捷鍵。<br>
+        呼吸燈進階互動、ShareSheet、自定義快捷鍵。
+      </p>
+      <div class="entry-pullquote">
         一個值得付費的產品應該長什麼模樣？<br>
         是這個階段我們不斷自問的問題。
-      </p>
+      </div>
     </div>
   </article>
 
@@ -856,34 +869,44 @@ body {
   <article class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VII</em></div>
-      <div class="entry-unit">整理與結晶</div>
-      <div class="entry-stamp-value">送審期<br>一週</div>
+      <div class="entry-unit">整理與輸出</div>
+      <div class="entry-stamp-value">送審期<br>2026 · 04 · 04 - 04 · 10</div>
       <div class="entry-tag is-retro">RETRO</div>
     </div>
     <div class="entry-body">
       <div class="entry-oneliner">
-        那一週的基礎建設，<br>
-        不是程式語言，是<em>協作方式</em>。
+        那一週打掉重練的，<br>
+        不是程式語言，是協作方式。
       </div>
-      <h2 class="entry-title">停擺的那一週，<em>其實什麼都在動</em>。</h2>
+      <h2 class="entry-title">停擺的那一週，其實什麼都在動。</h2>
       <p class="entry-prose">
-        趁 Apple Store 送審的審查期停了一週，我做了一次大型 Retro——
-        不是敏捷儀式上那種 15 分鐘的回顧，是<strong>把整個開發系統的基礎建設重砌一遍</strong>。
+        趁 Apple Store 送審的審查期停了一週，<br>
+        我們做了一次大型 Retro——<br>
+        不是敏捷儀式上那種一兩小時的回顧，<br>
+        是把整個開發系統的基礎建設重砌了一遍。
       </p>
       <p class="entry-prose">
-        對外：輸出了四份文件——<strong>insight</strong>（設計札記）、<strong>collab</strong>（協作故事）、
-        <strong>harness</strong>（系統骨架），以及深握計畫裡最深的那層，
-        <strong>Harness Engineering</strong> 的三支柱 Context / Constraints / Entropy。
+        對外：輸出了六個網頁——<br>
+        insight（設計札記）、collab（協作故事）、<br>
+        harness（系統骨架），以及深握計畫裡最深的那層。
       </p>
       <p class="entry-prose">
-        對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；
-        把原本一份 SDD 拆成 <strong>TDD · KM · Archive · Claude.md</strong>——
-        更關鍵的是，我們定了一套更新規則，讓每份被拆出來的文件<strong>活在流程裡</strong>，
+        Harness Engineering 的三支柱 ——<br>
+        Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>
+      </p>
+      <p class="entry-prose">
+        對內：把 repo 改成 monorepo，讓多條開發線並行；<br>
+        把原本一份 SDD 拆成 TDD · KM · Archive · 各自獨立，<br>
+        Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。
+      </p>
+      <p class="entry-prose">
+        更關鍵的是，我們重新制定了一套更新規則，<br>
+        讓每份被拆出來的文件活在流程裡，<br>
         而不是拆出來之後就死掉。
       </p>
       <div class="entry-pullquote">
         那一週我們不寫 code。<br>
-        我們重寫了<em>怎麼一起寫 code</em>。
+        我們一起重寫了怎麼寫 code。
       </div>
     </div>
   </article>
