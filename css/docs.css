@@ -347,7 +347,6 @@
    - docs-note · 提示框
    - docs-kbd · 鍵盤樣式
    - docs-figure · 圖片 caption
-   - docs-tag-pro · PRO 標記
    - docs-shortcut-table · 快捷鍵表
    - g-* · 工具列 / 編輯器 / 晶片
    - tool-modal · 工具彈窗
@@ -477,15 +476,6 @@
   color: var(--vas-ash-3); line-height: 1.6;
 }
 
-/* ─── PRO tag ─────────────────────────── */
-.docs-tag-pro {
-  display: inline-block; padding: 1px 7px;
-  font-family: var(--vas-mono); font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--vas-aurora-violet);
-  border: 1px solid rgba(196, 113, 245, 0.3);
-  border-radius: 2px; margin-left: 8px; vertical-align: middle;
-}
 
 /* ─── Section sub-label / Full-width img ─ */
 .g-section-sub {
