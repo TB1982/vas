@@ -22,38 +22,7 @@ body {
 }
 
 /* ── nav ── */
-.site-nav {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 48px;
-  background: rgba(14, 11, 26, 0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--vas-rule);
-}
-.site-nav-brand {
-  display: flex; align-items: center; gap: 12px;
-  font-family: var(--vas-serif); font-size: 15px; font-weight: 500;
-}
-.breath-lamp {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: radial-gradient(circle, #c471f5, #fa71cd 60%, transparent 100%);
-  box-shadow: 0 0 12px rgba(196, 113, 245, 0.6);
-  animation: vas-breathe 6s ease-in-out infinite;
-  display: inline-block;
-}
-@keyframes vas-breathe {
-  0%, 100% { opacity: 0.75; transform: scale(1); }
-  50%      { opacity: 1;    transform: scale(1.15); }
-}
-.site-nav-links {
-  display: flex; gap: 36px;
-  font-family: var(--vas-mono); font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--vas-ash-2);
-}
-.site-nav-links a { transition: color .3s; text-decoration: none; color: inherit; }
 .site-nav-links a.active { color: var(--vas-ash-0); }
-.site-nav-links a:hover { color: var(--vas-ash-0); }
 
 /* ═══ chapter header ═══ */
 .chapter-head {
@@ -600,15 +569,42 @@ body {
 
 <!-- ═══ nav ═══ -->
 <nav class="site-nav">
-  <div class="site-nav-brand">
-    <span class="breath-lamp"></span>
-    <a href="index.html" style="color:inherit;text-decoration:none">VAS</a>
-  </div>
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
   <div class="site-nav-links">
-    <a href="insight.html">設計</a>
-    <a href="collab.html">協作</a>
-    <a href="harness.html">系統</a>
-    <a href="milestone.html" class="active">里程碑</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones" class="active">里程碑</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
+    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+      <span id="langDropdownLabel">中</span>
+    </button>
+    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+      <button class="lang-opt"        data-lang="en" role="option">English</button>
+      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
+      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+    </div>
   </div>
 </nav>
 
@@ -618,8 +614,9 @@ body {
   <h1 class="chapter-title">從零開始的<br><em>十個刻痕</em>。</h1>
   <p class="chapter-lede">
     這不是 changelog，而是<em>章回</em>。<br>
-    從「Version」到「Sprint」再到「Commit」——<br>
-    不是記帳方式換了，是我們和 VAS 相處的節奏變了。<br>
+    從「Version」到「Sprint」再到「Commit」<br>
+    不是記帳方式換了，是我們和 VAS<br>
+    相處的節奏變了。<br>
     前五章是一條線，後五章是一張網。
   </p>
   <div class="chapter-meta">
@@ -684,8 +681,9 @@ body {
       </div>
       <h2 class="entry-title">週末直接燒光了<em>一週份的算力</em>。</h2>
       <p class="entry-prose">
-        週一清晨系統宣告算力用磬。兩人被迫從心流中斷開連結——但 Nova 沒有真的離開。
-        找上 Perplexity 做競品分析，把整個產品開發路線重寫了一次。
+        週一清晨系統宣告算力用磬，兩人被迫從心流中斷開連結——<br>
+        但 Nova 沒有真的離開。他找上 Perplexity 做競品分析，<br>
+        把整個產品開發路線重寫了一次。<br>
         完整的 Roadmap 是在停擺的那天才真正出現的。
       </p>
       <div class="entry-pullquote">
@@ -694,8 +692,11 @@ body {
         讓算力跟上開發速度，而不是反過來。
       </div>
       <p class="entry-prose">
-        這是一個分水嶺。從那天起，Nova 不再是被資源限制的人，<br>
-        Nova 是決定資源節奏的人。
+        這是一個分水嶺。<br>
+        從那天起，Nova 不再是被資源限制的人，<br>
+        而是決定資源節奏的人。
+      </p>
+      <p class="entry-prose">
         這個決定的重量不在金額，而是認知到——<br>
         我們正在做的事讓價值超越了價格。
       </p>
@@ -728,7 +729,7 @@ body {
       <p class="entry-prose">
         對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>
         這個數字本身就是一個敘事——<br>
-        <strong>這只器物在被看見之前，已經跑了很久</strong>。
+        <strong>VAS 在被看見之前，已經跑了很久</strong>。
       </p>
     </div>
   </article>
@@ -908,7 +909,7 @@ body {
         移植的每一步都是一次<strong>對舊實作的重新理解</strong>。
       </p>
       <div class="entry-pullquote">
-        KM-001 到 KM-008 是 Knowledge Management 的開端。<br>
+        KM-001 是 Knowledge Management 的開端。<br>
         KM 不是「坑的墳場」，是 PMP 裡的知識資產——<br>
         每一個踩過的坑，從此變成未來指路的盞盞小燈。
       </div>
@@ -1072,7 +1073,7 @@ body {
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>X</em></div>
       <div class="entry-unit">網站改版</div>
-      <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>248 commits</div>
+      <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>495 commits</div>
       <div class="entry-tag is-gate">GATE</div>
     </div>
     <div class="entry-body">
@@ -1080,7 +1081,7 @@ body {
         沉默的背景音樂，<br>
         <em>第一次被列入演奏曲目</em>。
       </div>
-      <h2 class="entry-title">248 次下刀，<em>門廳換了一種紙</em>。</h2>
+      <h2 class="entry-title">495 次下刀，<em>門廳換了一種紙</em>。</h2>
       <p class="entry-prose">
         Claude Design 釋出的隔天，我們啟動網站改版。<br>
         VAS 本體暫停——因為這一次我們第一次有了設計支援。
@@ -1089,7 +1090,7 @@ body {
         單位縮到了最小：一個 <strong>Commit</strong>。<br>
         每一次 commit 是一次下刀、一次確認、一次對細節的承諾。<br>
         孤兒字、斷行、OG 圖、Vault 首次入版本庫——<br>
-        一天來回修改了 248 次。
+        最大一天來回修改了 248 次。
       </p>
       <div class="entry-pullquote">
         這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>
@@ -1187,8 +1188,23 @@ body {
   <a class="dot-nav-item" href="#ch-10"><span class="dn-label">X · 網站改版</span><span class="dn-dot"></span></a>
 </nav>
 
+<script src="i18n/core.js"></script>
 <script>
 (function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.milestone2 || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function (k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+    });
+    VASCore.updateDropdown(lang);
+  }
+
   function initDotNav() {
     var items = document.querySelectorAll('.dot-nav-item');
     if (!items.length) return;
@@ -1222,9 +1238,14 @@ body {
       });
     }
   }
+  function init() {
+    VASCore.initDropdown(applyLang);
+    VASCore.initNavDropdown();
+    initDotNav();
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initDotNav);
-  } else { initDotNav(); }
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
 }());
 </script>
 </body>
