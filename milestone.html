@@ -1,355 +1,584 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-M8YMJ7QH3S');
-</script>
-<title data-lang-key="ch4PageTitle">IV · 里程碑 · VAS</title>
-<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VAS · milestone · 編年</title>
 <link rel="canonical" href="https://tb1982.github.io/vas/milestone.html">
-<meta property="og:title" content="25 天開發記錄 · VAS">
-<meta property="og:description" content="從第一行程式碼到 macOS 與 iOS 雙平台上架，25 天、80+ 版本迭代的完整開發記錄與里程碑。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tb1982.github.io/vas/milestone.html">
-<meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
-<meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="25 天開發記錄 · VAS">
-<meta name="twitter:description" content="從第一行程式碼到 macOS 與 iOS 雙平台上架，25 天、80+ 版本迭代的完整開發記錄與里程碑。">
-<meta name="description" data-lang-key="ch4MetaDesc"
-      content="從第一行程式碼到雙平台上架，25 天、80+ 版本、2 個平台的完整記錄。">
-
-<!-- 字型 -->
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- CSS：tokens 必須最先 -->
+<link rel="icon" href="img/vas.ico">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/shell.css">
-
+<link rel="stylesheet" href="base.css">
 <style>
-  /* ─── 語言切換下拉 ─────────────────────────── */
-  .lang-dropdown-btn {
-    display: flex; align-items: center; gap: 6px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(240, 232, 220, 0.06);
-    border: 1px solid var(--vas-rule);
-    color: var(--vas-ash-2);
-    font-family: var(--vas-mono);
-    font-size: 11px; letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: background .2s, color .2s;
+/* ═══════════════════════════════════════════════
+   milestone · CHRONICLE · v2 章回體
+   十章 · 前半線性 / 後半網狀 · 檔案室藏在 era 末尾
+   ═══════════════════════════════════════════════ */
+
+body {
+  background: var(--vas-void);
+  font-family: var(--vas-serif);
+  min-height: 100vh;
+  color: var(--vas-ash-0);
+}
+
+/* ── nav ── */
+.site-nav-links a.active { color: var(--vas-ash-0); }
+
+/* ═══ chapter header ═══ */
+.chapter-head {
+  padding: 96px 48px 56px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.chapter-kicker {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  margin-bottom: 32px;
+}
+.chapter-title {
+  font-family: var(--vas-serif);
+  font-weight: 300;
+  font-size: clamp(48px, 6.4vw, 80px);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--vas-ash-0);
+  margin-bottom: 28px;
+}
+.chapter-title em { font-style: normal; font-weight: 500; }
+.chapter-lede {
+  font-family: var(--vas-serif);
+  font-size: 18px;
+  line-height: 1.95;
+  color: var(--vas-ash-1);
+  max-width: 38ch;
+}
+.chapter-lede em {
+  font-style: normal; font-weight: 600;
+  background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.22) 62%);
+  padding: 0 0.1em;
+}
+.chapter-meta {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--vas-rule);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+}
+.chapter-meta strong {
+  display: block;
+  font-family: var(--vas-serif);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--vas-ash-0);
+  text-transform: none;
+  margin-top: 6px;
+}
+
+/* ═══ 時代分節 ═══ */
+.era {
+  max-width: 1180px;
+  margin: 72px auto 0;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  align-items: baseline;
+}
+.era-label {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-aurora-violet);
+  text-align: right;
+  padding-top: 12px;
+}
+.era-title {
+  font-family: var(--vas-serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.4;
+  color: var(--vas-ash-1);
+  letter-spacing: -0.005em;
+}
+.era-title em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--vas-ash-0);
+}
+.era-sub {
+  margin-top: 8px;
+  font-family: var(--vas-serif);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--vas-ash-2);
+}
+
+/* ═══ chapter entry ═══ */
+.chronicle {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 48px 32px;
+  position: relative;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+  padding: 56px 0 56px;
+  position: relative;
+}
+
+/* 左側：章回編號 + 時間戳 */
+.entry-stamp {
+  text-align: right;
+  position: relative;
+  padding-top: 8px;
+  padding-right: 15px;
+}
+.entry-chapter {
+  font-family: var(--vas-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--vas-ash-3);
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+.entry-chapter em {
+  font-style: normal;
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--vas-ash-0);
+  display: block;
+  line-height: 0.9;
+  margin-top: 4px;
+  letter-spacing: -0.02em;
+}
+.entry-unit {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+.entry-stamp-value {
+  font-family: var(--vas-mono);
+  font-size: 12px;
+  color: var(--vas-ash-1);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.entry-tag {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 2px 8px;
+  font-family: var(--vas-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-4);
+  border: 1px solid var(--vas-rule);
+  border-radius: 2px;
+}
+.entry-tag.is-gate {
+  color: rgba(79, 172, 254, 0.65);
+  border-color: rgba(79, 172, 254, 0.25);
+}
+.entry-tag.is-retro {
+  color: rgba(250, 113, 205, 0.7);
+  border-color: rgba(250, 113, 205, 0.28);
+}
+
+/* 右側：wall text + prose */
+.entry-body {
+  max-width: 58ch;
+  padding-top: 2px;
+}
+
+/* 新：極簡句——每章開頭，獨立站立 */
+.entry-oneliner {
+  font-family: var(--vas-serif);
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--vas-ash-2);
+  letter-spacing: 0.005em;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px dashed var(--vas-rule);
+  max-width: 32ch;
+}
+.entry-oneliner em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--vas-ash-0);
+}
+
+.entry-title {
+  font-family: var(--vas-serif);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.32;
+  color: var(--vas-ash-0);
+  letter-spacing: -0.015em;
+  margin-bottom: 22px;
+}
+.entry-title em {
+  font-style: normal;
+  font-weight: 600;
+  background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.22) 62%);
+  padding: 0 0.1em;
+}
+.entry-prose {
+  font-family: var(--vas-serif);
+  font-size: 16.5px;
+  line-height: 1.95;
+  color: var(--vas-ash-1);
+  margin-bottom: 20px;
+}
+.entry-prose + .entry-prose { margin-top: -4px; }
+
+/* pullquote 升級成獨立金句卡 —— 上下大留白、更明顯的停頓 */
+.entry-pullquote {
+  margin: 48px 0 48px;
+  padding: 36px 0 36px 28px;
+  border-left: 2px solid var(--vas-aurora-violet);
+  font-family: var(--vas-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--vas-ash-0);
+  letter-spacing: 0.005em;
+}
+.entry-pullquote em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--vas-ash-0);
+}
+
+/* 節點：紫色小圓，座落在中軸上 */
+.entry::after {
+  content: '';
+  position: absolute;
+  left: 240px;
+  top: 72px;
+  width: 9px; height: 9px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #c471f5, #fa71cd 60%, transparent 100%);
+  box-shadow: 0 0 10px rgba(196, 113, 245, 0.5);
+  z-index: 2;
+}
+
+/* 中軸 1px 線 */
+.chronicle::before {
+  content: '';
+  position: absolute;
+  left: calc(48px + 240px);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--vas-rule-strong) 4%,
+    var(--vas-rule-strong) 96%,
+    transparent 100%);
+}
+
+/* ═══ 網狀區：後半章回，兩條線並行 ═══ */
+.chronicle.is-weave::before {
+  background: linear-gradient(180deg,
+    var(--vas-rule-strong) 0%,
+    var(--vas-rule-strong) 96%,
+    transparent 100%);
+}
+.chronicle.is-weave .entry::after {
+  box-shadow: 0 0 14px rgba(196, 113, 245, 0.7);
+}
+/* 第二條平行線：緊貼實線右側 5px，僅作為背景底色存在 */
+.chronicle.is-weave::after {
+  content: '';
+  position: absolute;
+  left: calc(48px + 240px + 5px);
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background-image: linear-gradient(180deg,
+    rgba(79, 172, 254, 0.18) 0%,
+    rgba(79, 172, 254, 0.18) 50%,
+    transparent 50%,
+    transparent 100%);
+  background-size: 1px 6px;
+}
+
+/* ═══ 檔案室（完整編年摺疊） ═══ */
+.archive {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 48px 80px;
+}
+.archive-wrap {
+  border-top: 1px solid var(--vas-rule);
+  padding-top: 32px;
+}
+.archive summary {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  transition: color .3s;
+}
+.archive summary::-webkit-details-marker { display: none; }
+.archive summary::before {
+  content: '▸';
+  color: var(--vas-aurora-violet);
+  transition: transform .3s;
+  font-size: 10px;
+}
+.archive[open] summary::before { transform: rotate(90deg); }
+.archive summary:hover { color: var(--vas-ash-1); }
+.archive-body {
+  margin-top: 24px;
+  padding: 24px 0 0 18px;
+  font-family: var(--vas-mono);
+  font-size: 11.5px;
+  line-height: 2.1;
+  color: var(--vas-ash-2);
+  letter-spacing: 0.02em;
+}
+.archive-body .arc-line {
+  display: grid;
+  grid-template-columns: 110px 70px 1fr;
+  gap: 24px;
+  padding: 2px 0;
+  border-bottom: 1px dashed transparent;
+}
+.archive-body .arc-line:hover {
+  border-bottom-color: var(--vas-rule);
+  color: var(--vas-ash-1);
+}
+.archive-body .arc-date { color: var(--vas-ash-3); }
+.archive-body .arc-ver { color: var(--vas-aurora-violet); }
+/* 行內紫色圓點連結 */
+.inline-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: radial-gradient(circle, #c471f5, #fa71cd 60%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(196, 113, 245, 0.5);
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.arc-divider {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--vas-mono); font-size: 10px;
+  letter-spacing: 0.12em; color: var(--vas-ash-3);
+  margin: 14px 0;
+}
+.arc-divider::before, .arc-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: var(--vas-rule);
+}
+.archive-placeholder {
+  margin-top: 8px;
+  padding: 16px 20px;
+  font-family: var(--vas-serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--vas-ash-1);
+  border-left: 2px solid var(--vas-rule);
+}
+
+/* ═══ 章末 colophon ═══ */
+.chapter-colophon {
+  max-width: 1180px;
+  margin: 40px auto 0;
+  padding: 48px 48px 64px;
+  border-top: 1px solid var(--vas-rule);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.chapter-colophon-left {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  line-height: 1.9;
+}
+.chapter-colophon-line {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--vas-ash-2) 30%,
+    var(--vas-aurora-violet) 50%,
+    var(--vas-ash-2) 70%,
+    transparent 100%);
+}
+.chapter-colophon-right {
+  font-family: var(--vas-serif);
+  font-size: 14px;
+  color: var(--vas-ash-1);
+  text-align: right;
+  line-height: 1.9;
+}
+
+/* ═══ 響應式 ═══ */
+@media (max-width: 820px) {
+  .chapter-head { padding: 56px 24px 32px; }
+  .era { grid-template-columns: 1fr; gap: 12px; padding: 0 24px; margin-top: 48px; }
+  .era-label { text-align: left; padding-top: 0; }
+  .chronicle { padding: 0 24px 24px 60px; }
+  .chronicle::before { left: 32px; }
+  .chronicle.is-weave::after { left: 42px; }
+  .entry { grid-template-columns: 1fr; gap: 20px; padding: 40px 0 40px; }
+  .entry::after { left: -28px; top: 40px; margin-left: 0; }
+  .entry-stamp { text-align: left; padding: 0; }
+  .entry-chapter em { font-size: 42px; }
+  .archive { padding: 16px 24px 56px; }
+  .archive-body .arc-line { grid-template-columns: 90px 60px 1fr; gap: 12px; }
+  .chapter-colophon {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 24px 48px;
   }
-  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
-  .lang-dropdown-menu {
-    position: absolute; right: 0; top: calc(100% + 6px);
-    min-width: 110px;
-    background: var(--vas-void-up);
-    border: 1px solid var(--vas-rule-strong);
-    border-radius: 12px;
-    padding: 4px;
+  .chapter-colophon-right { text-align: left; }
+}
+
+/* ─── Dot Nav · 右側章節指示器 ─── */
+.dot-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 40;
+}
+.dot-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.dn-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--vas-ash-3);
+  flex-shrink: 0;
+  transition: background .25s, transform .25s, box-shadow .25s, border-color .25s;
+}
+.dn-label {
+  position: absolute;
+  right: 14px;
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--vas-ash-1);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+}
+.dot-nav-item:hover .dn-label { opacity: 1; transform: translateX(0); }
+.dot-nav-item.is-visited .dn-dot { background: var(--vas-ash-3); border-color: var(--vas-ash-3); }
+.dot-nav-item.is-current .dn-dot {
+  background: var(--vas-aurora-violet);
+  border-color: var(--vas-aurora-violet);
+  transform: scale(1.6);
+  box-shadow: 0 0 8px rgba(196,113,245,0.45);
+}
+.dot-nav-item.is-current .dn-label { opacity: 1; transform: translateX(0); color: var(--vas-aurora-violet); }
+.dot-nav-item.is-visited .dn-label { color: var(--vas-ash-2); }
+.dot-nav-trigger {
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--vas-ash-1);
+  border: none;
+  cursor: pointer;
+  z-index: 60;
+  padding: 0;
+  animation: dn-breathe 2.8s ease-in-out infinite;
+}
+@keyframes dn-breathe {
+  0%, 100% { opacity: 0.35; box-shadow: 0 0 4px 1px rgba(240,232,220,0.15); }
+  50%       { opacity: 0.85; box-shadow: 0 0 12px 4px rgba(240,232,220,0.35); }
+}
+@media (max-width: 960px) {
+  .dot-nav-trigger { display: block; }
+  .dot-nav {
     display: none;
-    z-index: 100;
-    backdrop-filter: blur(12px);
-  }
-  .lang-dropdown-menu.open { display: block; }
-  .lang-opt {
-    display: block; width: 100%; text-align: left;
-    padding: 8px 14px;
-    background: transparent; border: none;
-    color: var(--vas-ash-2);
-    font-family: var(--vas-serif);
-    font-size: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background .15s, color .15s;
-  }
-  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
-  .lang-opt.active { color: var(--vas-aurora-violet); }
-
-  /* ─── 里程碑數字列 ─────────────────────────── */
-  .m4-stats {
-    display: flex;
-    gap: 40px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-  }
-  .m4-stat-num {
-    font-family: var(--vas-mono);
-    font-size: 28px;
-    color: var(--vas-ash-0);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .m4-stat-label {
-    font-family: var(--vas-mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--vas-ash-3);
-  }
-
-  /* ─── 共用：寬內容對齊 section-body ────────── */
-  .m4-wide {
-    margin-left: 128px;
-    margin-top: 24px;
-  }
-
-  /* ─── 故事弧時間軸 ─────────────────────────── */
-  .m4-timeline {
-    position: relative;
-    padding-left: 20px;
-    border-left: 1px solid var(--vas-rule);
-  }
-  .m4-event {
-    position: relative;
-    padding-bottom: 32px;
-  }
-  .m4-event:last-child { padding-bottom: 0; }
-  .m4-event::before {
-    content: '';
-    position: absolute;
-    left: -26px; top: 5px;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--vas-void);
-    border: 1.5px solid var(--vas-ash-3);
-  }
-  .m4-event.hi::before {
-    background: var(--vas-aurora-violet);
-    border-color: var(--vas-aurora-violet);
-    box-shadow: 0 0 12px rgba(196, 113, 245, 0.5);
-  }
-  .m4-event.end::before {
-    background: linear-gradient(135deg, var(--vas-aurora-violet), #fa71cd);
-    border-color: #fa71cd;
-    box-shadow: 0 0 14px rgba(250, 113, 205, 0.5);
-  }
-  .m4-event-meta {
-    font-family: var(--vas-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--vas-ash-3);
-    margin-bottom: 6px;
-  }
-  .m4-event.hi .m4-event-meta { color: rgba(196, 113, 245, 0.7); }
-  .m4-event.end .m4-event-meta { color: rgba(250, 113, 205, 0.7); }
-  .m4-event-title {
-    font-family: var(--vas-serif);
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--vas-ash-0);
-    margin-bottom: 6px;
-  }
-  .m4-event-body {
-    font-family: var(--vas-serif);
-    font-size: 15px;
-    color: var(--vas-ash-2);
-    line-height: 1.8;
-    max-width: 46ch;
-  }
-
-  /* ─── 迭代日誌（Electron / Tauri Sprint）───── */
-  .m4-log { margin-top: 0; }
-  .m4-log-entry {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--vas-rule);
-  }
-  .m4-log-entry:last-child { border-bottom: none; }
-  .m4-log-date {
-    font-family: var(--vas-mono);
-    font-size: 11px;
-    color: var(--vas-ash-3);
-    text-align: right;
-    padding-top: 3px;
-    line-height: 1.5;
-  }
-  .m4-log-inner {
-    border-left: 1px solid var(--vas-rule);
-    padding-left: 16px;
-  }
-  .m4-log-label {
-    font-family: var(--vas-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: rgba(196, 113, 245, 0.65);
-    margin-bottom: 6px;
-  }
-  .m4-log-label.yellow { color: rgba(240, 200, 100, 0.7); }
-  .m4-log-label.pink   { color: rgba(250, 113, 205, 0.7); }
-  .m4-log-label.white  { color: var(--vas-ash-1); }
-  .m4-log-label.green  { color: rgba(120, 220, 140, 0.7); }
-  .m4-log-desc {
-    font-family: var(--vas-serif);
-    font-size: 14px;
-    color: var(--vas-ash-2);
-    line-height: 1.8;
-  }
-  .m4-log-title {
-    font-family: var(--vas-serif);
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--vas-ash-1);
-    margin-bottom: 6px;
-  }
-  .m4-log-list {
-    list-style: none;
-    padding: 0; margin: 8px 0 0;
-  }
-  .m4-log-list li {
-    font-family: var(--vas-serif);
-    font-size: 13px;
-    color: var(--vas-ash-2);
-    padding: 4px 0;
-    border-bottom: 1px solid var(--vas-rule);
-    display: flex;
-    gap: 8px;
-  }
-  .m4-log-list li:last-child { border-bottom: none; }
-
-  /* ─── 過渡期特殊區塊 ───────────────────────── */
-  .m4-bridge {
-    border-left: 1px dashed rgba(240, 232, 220, 0.2);
-    background: rgba(240, 232, 220, 0.02);
-    border-radius: 0 4px 4px 0;
-    padding: 16px 20px;
-    margin: 4px 0;
-  }
-  .m4-bridge-tag {
-    font-family: var(--vas-mono);
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--vas-ash-3);
-    margin-bottom: 8px;
-  }
-  .m4-bridge-title {
-    font-family: var(--vas-serif);
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--vas-ash-1);
-    margin-bottom: 12px;
-  }
-  .m4-bridge-list {
-    list-style: none;
-    padding: 0; margin: 0 0 10px;
-  }
-  .m4-bridge-list li {
-    font-family: var(--vas-serif);
-    font-size: 13px;
-    color: var(--vas-ash-2);
-    line-height: 1.8;
-  }
-  .m4-bridge-v2 {
-    font-family: var(--vas-mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(240, 200, 100, 0.65);
-  }
-
-  /* ─── Tauri 關鍵時間軸 mono block ──────────── */
-  .m4-mono-block {
-    font-family: var(--vas-mono);
-    font-size: 12px;
-    line-height: 2;
-    color: var(--vas-ash-2);
+    position: fixed;
+    top: 100px;
+    right: 16px;
+    transform: none;
+    background: rgba(14,11,26,0.96);
     border: 1px solid var(--vas-rule);
+    border-radius: 10px;
     padding: 20px 24px;
-    margin-bottom: 24px;
+    gap: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 55;
   }
-  .m4-mono-block p { margin: 0; }
-  .m4-mono-block .sep {
-    border-top: 1px solid var(--vas-rule);
-    padding-top: 8px;
-    margin-top: 4px;
+  .dot-nav.is-open { display: flex; }
+  .dot-nav-item { flex-direction: row-reverse; gap: 10px; }
+  .dn-label {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: 11px;
+    pointer-events: none;
   }
-
-  /* ─── 路線圖卡片 ───────────────────────────── */
-  .m4-roadmap { margin-top: 0; }
-  .m4-roadmap-item {
-    display: flex;
-    gap: 16px;
-    padding: 22px 24px;
-    border: 1px solid var(--vas-rule);
-    margin-bottom: 10px;
-    transition: border-color .2s;
-  }
-  .m4-roadmap-item:last-child { margin-bottom: 0; }
-  .m4-roadmap-item.done { opacity: 0.5; }
-  .m4-roadmap-item:not(.done):hover { border-color: var(--vas-rule-strong); }
-  .m4-roadmap-icon {
-    font-size: 15px;
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
-  .m4-roadmap-title {
-    font-family: var(--vas-serif);
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--vas-ash-0);
-    margin-bottom: 6px;
-  }
-  .m4-roadmap-sub {
-    font-family: var(--vas-serif);
-    font-size: 14px;
-    color: var(--vas-ash-2);
-    line-height: 1.8;
-    margin-bottom: 0;
-  }
-  .m4-roadmap-list {
-    list-style: none;
-    padding: 0; margin: 8px 0 0;
-  }
-  .m4-roadmap-list li {
-    font-family: var(--vas-serif);
-    font-size: 14px;
-    color: var(--vas-ash-2);
-    line-height: 1.8;
-  }
-
-  /* ─── 頁尾小連結 ───────────────────────────── */
-  .site-sub-link {
-    font-family: var(--vas-mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--vas-ash-3);
-    text-decoration: none;
-    transition: color .2s;
-  }
-  .site-sub-link:hover { color: var(--vas-ash-1); }
-
-  @media (max-width: 768px) {
-    .m4-wide { margin-left: 0; }
-    .m4-stat-num { font-size: 22px; }
-  }
+  .dot-nav-item.is-current .dn-label { color: var(--vas-aurora-violet); }
+}
 </style>
 </head>
 <body>
 
-<!-- ═══════ 頂部 nav ═══════ -->
+<!-- ═══ nav ═══ -->
 <nav class="site-nav">
   <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
     <span class="mark"></span>
     <span>VAS</span>
   </a>
   <div class="site-nav-links">
-    <a href="insight.html"  data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html"   data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html"    data-lang-key="home2.nav.system">系統</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones" aria-current="page">里程碑</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones" class="active">里程碑</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
@@ -362,9 +591,9 @@
     </span>
   </button>
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
-    <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
   <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
@@ -380,648 +609,584 @@
   </div>
 </nav>
 
-<!-- ═══════ 章節標頭 ═══════ -->
-<header class="chapter-header">
-  <div class="chapter-no" data-lang-key="ch4No">Chapter IV</div>
+<!-- ═══ chapter header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker" data-lang-key="chronicle.head.kicker">IV · 里程碑 · CHRONICLE</div>
+  <h1 class="chapter-title" data-lang-key="chronicle.head.title">從零開始的<br><em>十個刻痕</em>。</h1>
+  <p class="chapter-lede" data-lang-key="chronicle.head.lede">
+    這不是 changelog，而是<em>章回</em>。<br>
+    從「Version」到「Sprint」再到「Commit」<br>
+    不是記帳方式換了，是我們和 VAS<br>
+    相處的節奏變了。<br>
+    前五章是一條線，後五章是一張網。
+  </p>
+  <div class="chapter-meta">
+    <div data-lang-key="chronicle.head.meta1">Chapter　<strong>I — X</strong></div>
+    <div data-lang-key="chronicle.head.meta2">Range　<strong>2026 · 03 — 04</strong></div>
+    <div data-lang-key="chronicle.head.meta3">Units　<strong>Version · Sprint · Commit</strong></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     第一幕：Electron 時期（線性）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA I · VERSION</div>
   <div>
-    <h1 class="chapter-name" data-lang-key="ch4Name">二十五<em>日。</em></h1>
-    <div class="chapter-dek" data-lang-key="ch4Dek">
-      從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 7 天 40+ 版本；Apple 審查 7 天；Tauri 7 天開發 + 4 天重構，20 個 Sprint。<!--歷史數字，不可更動-->
-    </div>
-    <div class="m4-stats">
-      <div>
-        <div class="m4-stat-num">25</div>
-        <div class="m4-stat-label" data-lang-key="statDays">天</div>
-      </div>
-      <div>
-        <div class="m4-stat-num">80+</div>
-        <div class="m4-stat-label" data-lang-key="statVersions">版本迭代</div>
-      </div>
-      <div>
-        <div class="m4-stat-num">2</div>
-        <div class="m4-stat-label" data-lang-key="statPlatforms">平台上架</div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ═══════ 章目錄 ═══════ -->
-<nav class="toc">
-  <div class="toc-label" data-lang-key="ch4TocLabel">章目錄</div>
-  <ol class="toc-list">
-    <li>
-      <a href="#sec-01">
-        <span class="no">01</span>
-        <span class="name" data-lang-key="ch4s1Name">產品故事弧</span>
-        <span class="preview" data-lang-key="ch4s1Preview">從 v0.1 到雙平台首發</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-02">
-        <span class="no">02</span>
-        <span class="name" data-lang-key="ch4s2Name">Electron 版</span>
-        <span class="preview" data-lang-key="ch4s2Preview">11 天，40+ 版本迭代</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-03">
-        <span class="no">03</span>
-        <span class="name" data-lang-key="ch4s3Name">Tauri 版</span>
-        <span class="preview" data-lang-key="ch4s3Preview">7+4 天，20 個 Sprint，App Store</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-04">
-        <span class="no">04</span>
-        <span class="name" data-lang-key="ch4s4Name">路線圖</span>
-        <span class="preview" data-lang-key="ch4s4Preview">v3.0 功能爆發</span>
-      </a>
-    </li>
-  </ol>
-</nav>
-
-<!-- ═══════ sec-01 · 產品故事弧 ═══════ -->
-<section id="sec-01" class="section">
-  <div class="section-head">
-    <div class="section-no">01</div>
-    <div>
-      <h2 class="section-name" data-lang-key="ch4s1Name">產品故事弧</h2>
-      <div class="section-kicker" data-lang-key="ch4s1Kicker">兩條線交織，互相成就</div>
-    </div>
-  </div>
-  <div class="section-body">
-    <p data-lang-key="storyH2">兩條線交織，互相成就</p>
-  </div>
-  <div class="m4-wide">
-    <div class="m4-timeline">
-
-      <div class="m4-event">
-        <div class="m4-event-meta" data-lang-key="m1meta">2026 / 3 / 21　從零開始</div>
-        <div class="m4-event-title" data-lang-key="m1h3">v0.1 — 什麼都沒有的第一天</div>
-        <div class="m4-event-body" data-lang-key="m1p">一週後，Electron v3.43 首發。</div>
-      </div>
-
-      <div class="m4-event hi">
-        <div class="m4-event-meta" data-lang-key="m2meta">2026 / 3 / 28　第一週結束</div>
-        <div class="m4-event-title" data-lang-key="m2h3">Electron v3.43 首發</div>
-        <div class="m4-event-body" data-lang-key="m2p">功能完整的第一個公開版本。從這裡開始，VAS 有了真實外部使用者。</div>
-      </div>
-
-      <div class="m4-event hi">
-        <div class="m4-event-meta" data-lang-key="m3meta">2026 / 3 / 28　同日啟動</div>
-        <div class="m4-event-title" data-lang-key="m3h3">Tauri 移植啟動</div>
-        <div class="m4-event-body" data-lang-key="m3p">決定為未來打一個更輕的底。移植不是拋棄 Electron，是帶著它的經驗重新出發。</div>
-      </div>
-
-      <div class="m4-event">
-        <div class="m4-event-meta" data-lang-key="m4meta">2026 / 3 / 31　回饋</div>
-        <div class="m4-event-title" data-lang-key="m4h3">Electron v3.44 整修版</div>
-        <div class="m4-event-body" data-lang-key="m4p">完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。</div>
-      </div>
-
-      <div class="m4-event">
-        <div class="m4-event-meta" data-lang-key="m5meta">2026 / 3 / 31　加速</div>
-        <div class="m4-event-title" data-lang-key="m5h3">Tauri 新功能開發</div>
-        <div class="m4-event-body" data-lang-key="m5p">底層穩了，開始疊加 Tauri 專屬功能——ShareSheet、自定義快捷鍵、呼吸燈彩蛋。前端共用，Electron 靜靜受惠。</div>
-      </div>
-
-      <div class="m4-event end">
-        <div class="m4-event-meta" data-lang-key="m6meta">2026 / 4 / 14　終章・慶功</div>
-        <div class="m4-event-title" data-lang-key="m6h3">Electron v3.60 慶功版 &amp; Tauri 1.2.1 同步首發</div>
-        <div class="m4-event-body" data-lang-key="m6p">兩條線在這裡交匯。不是誰取代誰，是兩個版本各自走到最好的狀態，一起亮相。</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ sec-02 · Electron ═══════ -->
-<section id="sec-02" class="section">
-  <div class="section-head">
-    <div class="section-no">02</div>
-    <div>
-      <h2 class="section-name" data-lang-key="ch4s2Name">Electron 版</h2>
-      <div class="section-kicker" data-lang-key="ch4s2Kicker">當你的工程師不拒絕你</div>
-    </div>
-  </div>
-  <div class="section-body">
-    <p data-lang-key="electronSub">當你的工程師不會找理由拒絕你，甚至比你還積極協作的迭代開發體驗。</p>
-  </div>
-  <div class="m4-wide">
-    <div class="m4-log">
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 21</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="e1label">v0.1 → v0.5　從無到有，兩邊都在摸索</div>
-          <div class="m4-log-desc" data-lang-key="e1desc">什麼都沒有的第一天，從矩形截圖開始、快捷鍵說明面板、線條工具、SVG 轉檔。</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 22</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="e1blabel">v0.6 → v2.2　飛速成長，規則制定與開發並行</div>
-          <div class="m4-log-desc" data-lang-key="e1bdesc">雙螢幕行為規則、編輯器 UX 細節、Resize 把手、IME 相容、編號功能、存檔檔名規則、文字工具精修、全螢幕雙螢幕截圖互動設計、編輯器縮放平移、裁切、調整尺寸、bug 修復、工具列邏輯、批次轉換、顏色工具、疊圖、延伸畫布、批次轉檔、延遲截圖、色塊漸層屬性。</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 23</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="e2label">v2.3 → v3.0　第一次實感算力追不上開發速度</div>
-          <div class="m4-log-desc" data-lang-key="e2desc">因算力消耗直接破了當週上限而被迫停工，半天重新整理脈絡後刷下人生第一次的 Claude Max 方案。Tauri 長期遷移策略與 i18n 術語規劃 · 截圖偏好設定 · 浮動三層選色面板（主題色盤、滴管、Hex 輸入、透明色票）· 編號標記三段尺寸 · 文字工具全面升級（字體選擇、大小快選、對齊、背景透明度）· 矩形 / 色塊圓角 · 線條折線模式 · 複製至剪貼簿 · 橢圓框工具</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 24</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="e3label">v3.1 → v3.9　工具雛形全面成形</div>
-          <div class="m4-log-desc" data-lang-key="e3desc">OCR 首登場（Tesseract.js）· 折線頂點把手修正 · OCR 引擎全面改寫為 macOS Vision · 折線縮放把手 · 工具列雙排佈局 · Smart Semantic Numbering（7 款樣式）· 描邊 px 輸入 · 框型選取工具＋像素複製至剪貼簿 · 筆型工具 · 六款虛線樣式 · 端點樣式升級 · 線條 / 色塊框線陰影一致化 · Options Bar 全面對齊 · 框線偏移 · 全工具虛線支援</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 25</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="e4label">v3.10 → v3.27　在開發新功能與 Debug 舊功能的泥沼中掙扎</div>
-          <div class="m4-log-desc" data-lang-key="e4desc">箭頭渲染 8 連修（透明度疊光 · 外框金字塔 · 端點缺口 · 方形頂點 · 方向偏移等）· 端點 UI 改為下拉選單 · 外框獨立粗細 / 虛線設定 · 馬賽克 / 模糊工具 · 符號印章四群組架構（形狀 / 字母 / 箭頭 / 其他）· 無縫匯入匯出（拖放匯入 · 剪貼簿 · Drag Out）· 一鍵套版演化：拍立得 / 底片 → Apple 六色漸層 → Mesh Gradient，三滑桿微調（留白 / 圓角 / 陰影）· 社群尺寸快選 · 批次浮水印（文字＋圖片，9-grid 定位）· 去背（macOS Vision）· 品牌色庫 · 歷史截圖面板</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 26</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="e5label">v3.28 → v3.29　放下也是必要的決策</div>
-          <div class="m4-log-desc" data-lang-key="e5desc">隱私遮蔽工具：六層偵測引擎（NSDataDetector · NLTagger · 身分證 / 統編 / 信用卡 / IPv4/6 / API Token · 臺灣地址 · 中英文標籤感知 Regex），字元級精準 bounding box 非破壞性遮蔽 · 歷史 Drawer 右側書籤式重設計（最終決定放下，延至 Tauri 再戰）· 全 canvas Retina DPR 補正 · 7 項細節修正</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date">3 / 27</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="e6label">v3.30 → v3.43　發布前最後衝刺　單日 15 版</div>
-          <div class="m4-log-desc" data-lang-key="e6desc">資安全面升級：四視窗改 contextIsolation + preload 橋接 · XSS 防護 · 畫布尺寸 8192px 上限 · Retina WYSIWYG · 複數選取（框選 / Shift 加選 / Cmd+A）· 對齊工具列（8 個對齊 / 均分按鈕）· Smart Snap（8px 磁吸 + 均分輔助線）· 線條二次貝茲曲線控制點 · 新開畫布（16 款尺寸預設）· QR Code 智慧掃描 · 批次上限（100 檔 / 單檔 20 MB）· 裁切工具三項修正 · 套版搖桿步長 0.1</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.8);font-weight:500;">3 / 28</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(196,113,245,0.3);">
-          <div class="m4-log-label" data-lang-key="e7label">v3.43　首發</div>
-          <div class="m4-log-desc" data-lang-key="e7desc">第一個公開版本正式發布。VAS 有了真實外部使用者。同天開始進行 Tauri 架構遷移。</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:var(--vas-ash-2);font-weight:500;">3 / 31</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label white" data-lang-key="e7blabel">v3.44 — 整修版</div>
-          <div class="m4-log-desc" data-lang-key="e7bdesc">完整移植 Tauri 後，帶著過程中累積的經驗回頭整修 Electron，前端共用的結果也附贈了新功能。Tauri 的經驗反哺了起點。</div>
-          <ul class="m4-log-list" data-lang-key="e7bitems">
-            <li><span>🔧</span><span>工具列 Modal 位置跳動與累積偏移根治</span></li>
-            <li><span>🔧</span><span>修復三種截圖模式（全螢幕 / 視窗 / 矩形）全部失效</span></li>
-            <li><span>🔧</span><span>OCR 與隱私掃描功能修復</span></li>
-            <li><span>🔧</span><span>標號與文字工具尺寸縮放一致性修正</span></li>
-            <li><span>⌨️</span><span>方向鍵微調物件位置（Arrow nudge）</span></li>
-            <li><span>🧹</span><span>拖曳匯出暫存檔 60 秒後自動清除</span></li>
-            <li><span>🔒</span><span>安全性修補（brace-expansion 漏洞）</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(250,113,205,0.8);font-weight:500;">4 / 14</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(250,113,205,0.3);">
-          <div class="m4-log-label pink" data-lang-key="e8label">v3.60　陪著 Tauri 一起 Renew 再上線 🎉</div>
-          <div class="m4-log-desc" data-lang-key="e8desc">呼吸燈自動隱藏 · 全螢幕 screen-select overlay · Electron 更加穩定且編輯器功能完整，永久免費。</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ sec-03 · Tauri ═══════ -->
-<section id="sec-03" class="section">
-  <div class="section-head">
-    <div class="section-no">03</div>
-    <div>
-      <h2 class="section-name" data-lang-key="ch4s3Name">Tauri 版</h2>
-      <div class="section-kicker" data-lang-key="ch4s3Kicker">第一行 Rust 到 App Store</div>
-    </div>
-  </div>
-  <div class="section-body">
-    <p data-lang-key="tauriSub">從第一行 Rust code 到 App Store 送審。</p>
-  </div>
-  <div class="m4-wide">
-    <div class="m4-mono-block">
-      <p data-lang-key="t1"><span style="color:var(--vas-ash-3)">03/28</span>  🏁  專案啟動（第一行 Rust code）</p>
-      <p data-lang-key="t2"><span style="color:var(--vas-ash-3)">03/29</span>  📦  Sprint 1 完工 — 核心截圖功能可用</p>
-      <p data-lang-key="t3"><span style="color:var(--vas-ash-3)">03/30</span>  💎  一日三 Sprint（S2–S4）— OCR / 隱私 / 旋轉 / QR Code 全上線</p>
-      <p data-lang-key="t4"><span style="color:var(--vas-ash-3)">03/31</span>  🎨  SDD 文件系統重構拆檔 · 印章漸層 + 自訂快捷鍵 + Preferences 系統</p>
-      <p data-lang-key="t5"><span style="color:var(--vas-ash-3)">04/01</span>  ✨  呼吸燈旗艦改版 — VAS 獨家 UX 誕生</p>
-      <p data-lang-key="t6"><span style="color:var(--vas-ash-3)">04/02</span>  🌐  網頁長截圖 + Release build 首次成功</p>
-      <p data-lang-key="t7"><span style="color:var(--vas-ash-3)">04/03</span>  🍎  <span style="color:rgba(250,113,205,0.8)">Mac App Store 送審</span></p>
-      <p class="sep" data-lang-key="t8"><span style="color:var(--vas-ash-3)">04/11</span>  🏗️  v2.0 重構啟動 — 三 Sprint 同日完工（座標 / 漸層 / 資料模型）</p>
-      <p data-lang-key="t9"><span style="color:var(--vas-ash-3)">04/12</span>  🏗️  屬性面板 Pilot + TOOL_SCHEMA 10/10 全覆蓋（三 Sprint）</p>
-      <p data-lang-key="t10"><span style="color:var(--vas-ash-3)">04/13</span>  🏗️  幾何 + 渲染管線模組化 + Undo/Redo 架構升級（三 Sprint）</p>
-      <p data-lang-key="t11"><span style="color:var(--vas-ash-3)">04/14</span>  ✅  Bug Sweep 一次通過 · Help Modal 優化 · v2.0 重構完工</p>
-      <p data-lang-key="t12"><span style="color:var(--vas-ash-3)">04/14</span>  🍎  <span style="color:rgba(250,113,205,0.8)">Tauri v1.2.1 正式上架 Mac App Store 🎉</span></p>
-    </div>
-  </div>
-
-  <!-- Sprint S1–S9 -->
-  <div class="m4-wide" style="margin-top:0;">
-    <div class="m4-log">
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.7);font-weight:500;" data-lang-key="s1num">S1</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="s1meta">03/28 – 03/29　7 項</div>
-          <div class="m4-log-title" data-lang-key="s1title">🏁 專案啟動</div>
-          <div class="m4-log-desc" data-lang-key="s1desc">Tauri 2 scaffold 從零建立 · 浮動工具列架構遷移 · 截圖三兄弟（全螢幕含多螢幕 / 矩形 / 視窗 xcap）· 批次格式轉換（6 格式）+ 文字 / 圖片浮水印（9-grid）· asset protocol 坑繞路：改用 base64 data URL · Toolbar 飄移根治 · WKWebView 五大開發坑記錄（KM-001～008）</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.7);font-weight:500;" data-lang-key="s2num">S2</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="s2meta">03/30　5 項</div>
-          <div class="m4-log-desc" data-lang-key="s2desc">7 種格式匯出 + printpdf · Share Sheet（objc NSSharingServicePicker）· 拖曳匯出 · OCR（Swift Vision）+ 隱私遮蔽五層偵測含日文場景 · 編輯器 titlebar 重設計 · Modal 所見即所得修復 · Options Bar drag-region 根治</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s3num">S3</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s3meta">03/30 同日　4 項　一日三 Sprint</div>
-          <div class="m4-log-desc" data-lang-key="s3desc">滴管工具（繞過 WKWebView 不支援 EyeDropper API）· QR Code 智慧掃描 · 智慧導線 v2 · 檔案拖入工具列</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s4num">S4</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s4meta">03/30 同日　4 項　一日三 Sprint</div>
-          <div class="m4-log-desc" data-lang-key="s4desc">Space 鍵拖移 · 浮水印圖片預覽 · Modal 往上展開（偵測螢幕底部空間不足）· 物件旋轉（旋轉把手 + Shift 15° snap）</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.7);font-weight:500;" data-lang-key="s5num">S5</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="s5meta">03/31　8 項　QC 87.5%</div>
-          <div class="m4-log-desc" data-lang-key="s5desc">馬賽克改 downscale+upscale（WKWebView 無 ctx.filter 的工程繞路解法）· Electron KM-E02～E04 移植 · 方向鍵微調 · 二次貝茲曲線 · 白色色票 · 貼上自動切換工具 · QC 87.5%（パスワード 為 Vision OCR 限制，記錄在案）</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.7);font-weight:500;" data-lang-key="s6num">S6</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="s6meta">03/31 同日　4 項</div>
-          <div class="m4-log-desc" data-lang-key="s6desc">符號印章漸層填色 · 自定義全域快捷鍵 · macOS 系統選單 Settings… · Preferences 視窗 · SDD 瘦身拆檔 · 捲動截圖 Playwright sidecar 方案確認</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.9);font-weight:500;" data-lang-key="s7num">S7</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="s7meta">04/01　7 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s7title">🌟 呼吸燈旗艦改版</div>
-          <div class="m4-log-desc" data-lang-key="s7desc">呼吸燈旗艦改版（光條 + 光球 + ::before 根治）— VAS 獨家 UX 誕生 · QR 偵測後自動複製 / 開啟 URL · OCR 辨識後自動複製文字 · pen / polyline 修復 · auto-hide timer 修復 · QC 100%</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(196,113,245,0.9);font-weight:500;" data-lang-key="s8num">S8</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label" data-lang-key="s8meta">04/01 – 04/02　7 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s8title">🌐 網頁長截圖 MVP</div>
-          <div class="m4-log-desc" data-lang-key="s8desc">網頁長截圖（WKWebView resize-then-snapshot）· 短頁面自動分流 · 呼吸燈圓角 + hover 光球 · Dock 圖示點擊召喚 · 工具列位置記憶 · PreStripBounds 位移根治 · QC 100%</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(250,113,205,0.8);font-weight:500;" data-lang-key="s9num">S9</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(250,113,205,0.3);">
-          <div class="m4-log-label pink" data-lang-key="s9meta">04/02 – 04/03　15 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s9title">🍎 Mac App Store 送審</div>
-          <div class="m4-log-desc" data-lang-key="s9desc">黑底極光花瓶 App icon · 呼吸燈引導文字（三語）· 截圖權限引導 · Release build + 沙箱 + 提交 Mac App Store</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 過渡期 + Sprint S10–S20 -->
-  <div class="m4-wide" style="margin-top:0;">
-    <div class="m4-log">
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:var(--vas-ash-2);line-height:1.4;">04/04<br>│<br>04/10</div>
-        <div class="m4-log-inner">
-          <div class="m4-bridge">
-            <div class="m4-bridge-tag" data-lang-key="bridge_tag">📌 過渡期 04/04 – 04/10</div>
-            <div class="m4-bridge-title" data-lang-key="bridge_subtitle">基礎建設 &amp; Apple 審核</div>
-            <ul class="m4-bridge-list" data-lang-key="bridge_bullets">
-              <li>· 文件架構拆分（SDD / TDD / KM / Archive 獨立化），Electron 對齊 Tauri 結構</li>
-              <li>· Repo 整理與雙版本同步機制建立（SYNC-QUEUE）</li>
-              <li>· Apple 審核回應：4/3 提交 → 4/7 被拒 → 4/8 重新提交 → 4/11 再次被拒</li>
-              <li>· v1.2.0 / v1.2.1 hotfix 發布（對應審核修正）</li>
-              <li>· 決定啟動 v2.0（Tauri）重構，不再等待審核結果</li>
-            </ul>
-            <div class="m4-bridge-v2" data-lang-key="bridge_v2label">↳ v2.0 Architecture Refactor</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s10num">S10</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s10meta">04/11　3 Phase　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s10title">🏗️ v2.0 Architecture ① 座標系統重構</div>
-          <div class="m4-log-desc" data-lang-key="s10desc">Rust ToolbarGeometry 純函數（14 cargo tests）· JS editor-utils.js 5 純函數（15 Vitest tests）· EditorInitPayload DPR 修復</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s11num">S11</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s11meta">04/11　6+ 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s11title">🏗️ v2.0 Architecture ② 漸層系統統一</div>
-          <div class="m4-log-desc" data-lang-key="s11desc">gradientFromAngle 統一六工具漸層引擎 · 角度轉盤 UI · i18n 三語同步 · 陰影 DPR 修正 · 折線箭頭端點內縮 · 文字裝飾線漸層</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s12num">S12</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s12meta">04/11　3 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s12title">🏗️ v2.0 Architecture ③ 資料模型正規化</div>
-          <div class="m4-log-desc" data-lang-key="s12desc">color / opacity / borderColor 三組屬性統一 · TOOL_ORDER 九工具全審 · 外框位移擴充至 fillrect / fillellipse</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s13num">S13</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s13meta">04/12　3 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s13title">🏗️ v2.0 Architecture ④ 屬性面板框架化 — Pilot</div>
-          <div class="m4-log-desc" data-lang-key="s13desc">TOOL_SCHEMA const 設計定案（rect + number）· 3 engine fns · showOptionsForTool / showOptionsForAnnot 遷移</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s14num">S14</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s14meta">04/12　4 工具　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s14title">🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 1</div>
-          <div class="m4-log-desc" data-lang-key="s14desc">ellipse / fillrect / fillellipse / pen 遷入 schema · shadow pre-pass 根治端點交界縫隙 · polyline 雙擊終點退一格修復</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s15num">S15</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s15meta">04/12　4 工具　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s15title">🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋</div>
-          <div class="m4-log-desc" data-lang-key="s15desc">line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s16num">S16</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s16meta">04/13　3+ 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s16title">🏗️ v2.0 Architecture ⑤ 幾何邏輯集中化</div>
-          <div class="m4-log-desc" data-lang-key="s16desc">TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取 · Vitest 47 pass</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s17num">S17</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s17meta">04/13　4 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s17title">🏗️ v2.0 Architecture ⑤ 渲染管線模組化</div>
-          <div class="m4-log-desc" data-lang-key="s17desc">TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper · rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s18num">S18</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s18meta">04/13　5 項　QC 100%（3 輪修復）</div>
-          <div class="m4-log-title" data-lang-key="s18title">🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生</div>
-          <div class="m4-log-desc" data-lang-key="s18desc">MAX_HISTORY=50 FIFO · imgSnap PNG 快照 + _imgCache 孤兒清理 · _symMeasureCache 上限 · selId 跨 undo 保留 · crop sizeSx 補償</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(240,200,100,0.7);font-weight:500;" data-lang-key="s19num">S19</div>
-        <div class="m4-log-inner">
-          <div class="m4-log-label yellow" data-lang-key="s19meta">04/14　2 bugs　QC 100%（一次通過）</div>
-          <div class="m4-log-title" data-lang-key="s19title">🐛 Bug Sweep</div>
-          <div class="m4-log-desc" data-lang-key="s19desc">畫布閃動根治（選項列固定 88px · 動畫系統完整移除 -85 行）· 折線漸層端點色修復（終點 dotN 獨立投影）</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(120,220,140,0.7);font-weight:500;" data-lang-key="s20num">S20</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(120,220,140,0.2);">
-          <div class="m4-log-label green" data-lang-key="s20meta">04/14　4 項　QC 100%</div>
-          <div class="m4-log-title" data-lang-key="s20title">✨ Help Modal 優化 + Modal 邊界修復</div>
-          <div class="m4-log-desc" data-lang-key="s20desc">快捷鍵手風琴面板（4 分類 · 35 鍵 · i18n 20 新 key）· Modal 螢幕邊界 clamp · Esc 統一關閉所有 modal · 選項列垂直置中</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(250,113,205,0.8);font-weight:500;" data-lang-key="hotfixnum">v2.0.x</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(250,113,205,0.15);">
-          <div class="m4-log-label pink" data-lang-key="hotfixmeta">04/18　8 輪　2 小時破關</div>
-          <div class="m4-log-title" data-lang-key="hotfixtitle">🔥 多螢幕工具列消失災難修復</div>
-          <div class="m4-log-desc" data-lang-key="hotfixdesc">current_monitor scale_factor 修正 · NSWindowRestoration 強制覆蓋 · per-monitor probe · two-stage restore · NSScreen objc 原生 enumerate · MIN_VISIBLE_PHYS X/Y 軸拆分</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(160,180,255,0.9);font-weight:500;" data-lang-key="s21num">S21</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(160,180,255,0.15);">
-          <div class="m4-log-label white" data-lang-key="s21meta">04/18 ～ 04/20　5 Story　QC 100%（cargo test 30/30 · Vitest 147/147）</div>
-          <div class="m4-log-title" data-lang-key="s21title">🧪 測試基建 + 多螢幕純函式重構</div>
-          <div class="m4-log-desc" data-lang-key="s21desc">geometry_tests 14 → 30 · thin-wrapper pure inner 拆解（MonitorGeom · probe_pref_against_screens）· hotfix 命名回歸測試 × 4 · 打包 QC 範本精簡（手動項 23 → 13）· Resize Modal Enter/Esc</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(200,150,255,0.9);font-weight:500;" data-lang-key="s22num">S22</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(200,150,255,0.15);">
-          <div class="m4-log-label yellow" data-lang-key="s22meta">04/20 ～ 04/21　4 Story　QC 100%（Vitest 147 → 179 全綠）</div>
-          <div class="m4-log-title" data-lang-key="s22title">🌐 i18n 架構重構 + 簡中 Pro 化</div>
-          <div class="m4-log-desc" data-lang-key="s22desc">i18n.js 1592 → 123 行 + per-lang 拆檔 · key 完整性 / 型別 / liveness 自動化（10 tests）· CJK 硬寫掃描器 + 清 18 筆歷史債 · zh-CN 429 keys 全覆蓋 + _detectLang Pro gate + fallback chain</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(255,160,100,0.9);font-weight:500;" data-lang-key="s23num">S23</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(255,160,100,0.15);">
-          <div class="m4-log-label pink" data-lang-key="s23meta">04/21　1 Story　QC 100%（11/11，含 TW/JP 回歸）</div>
-          <div class="m4-log-title" data-lang-key="s23title">🔒 簡中隱私遮蔽特化</div>
-          <div class="m4-log-desc" data-lang-key="s23desc">PRC 身份證 / 手機 / 統一社信代碼 / 地址 regex · lookbehind 標籤 × 5 · label-contains × 8 · zh-Hans OCR 順序修正（联→朕 / 码→6 根治）</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(160,170,195,0.9);font-weight:500;" data-lang-key="s24num">S24</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(160,170,195,0.15);">
-          <div class="m4-log-label white" data-lang-key="s24meta">04/21　5 Story　verify 腳本 32/32 PASS</div>
-          <div class="m4-log-title" data-lang-key="s24title">📚 文件系統重構</div>
-          <div class="m4-log-desc" data-lang-key="s24desc">KM 89 條拆分 9 主題歸檔 · SDD archive 拆 7 檔 · TDD 歸檔 S01-S20 · KM 重新編目（KM-NNN → KM-前綴-NN）· 路徑引用全更新 + verify 腳本</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(80,220,200,0.9);font-weight:500;" data-lang-key="s25num">S25</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(80,220,200,0.15);">
-          <div class="m4-log-label green" data-lang-key="s25meta">04/22　3 Story　QC 100%（cargo test 36/36 + 硬體 ✅）</div>
-          <div class="m4-log-title" data-lang-key="s25title">🎯 截圖 DPR WYSIWYG 修復 + 剪貼簿貼圖</div>
-          <div class="m4-log-desc" data-lang-key="s25desc">infer_capture_dpr 純函式（monitor 尺寸比對推斷 DPR）· PNG pHYs metadata 讀取（三路修復）· 剪貼簿貼圖 Toast UX（NSPasteboard · changeCount 抑制重複彈）</div>
-        </div>
-      </div>
-
-      <div class="m4-log-entry">
-        <div class="m4-log-date" style="color:rgba(120,220,140,0.7);font-weight:500;" data-lang-key="s26num">S26</div>
-        <div class="m4-log-inner" style="border-left-color:rgba(120,220,140,0.2);">
-          <div class="m4-log-label green" data-lang-key="s26meta">04/22　3 Story + 3 計畫外　QC 100%（npm 179/179 + cargo 36/36）</div>
-          <div class="m4-log-title" data-lang-key="s26title">📦 i18n 收尾 + v2.1.0 App Store 送審</div>
-          <div class="m4-log-desc" data-lang-key="s26desc">SYMBOL_SETS 14 中文 key → 英文 id（56 翻譯 × 4 語）· FONT_FAMILIES label 死碼刪除 · zh-CN 字型 SC 特化 · 延伸畫布 Undo bug 根治 · App Store 文案四語全面補完 · v2.1.0 ✅</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ sec-04 · 路線圖 ═══════ -->
-<section id="sec-04" class="section" style="border-bottom: none;">
-  <div class="section-head">
-    <div class="section-no">04</div>
-    <div>
-      <h2 class="section-name" data-lang-key="ch4s4Name">路線圖</h2>
-      <div class="section-kicker" data-lang-key="ch4s4Kicker">下一步的形狀</div>
-    </div>
-  </div>
-  <div class="m4-wide">
-    <div class="m4-roadmap">
-
-      <div class="m4-roadmap-item done">
-        <div class="m4-roadmap-icon">✅</div>
-        <div>
-          <div class="m4-roadmap-title" data-lang-key="r1h">v1.0　功能驗證原型</div>
-          <div class="m4-roadmap-sub" data-lang-key="r1p">已上架 App Store（審核中）</div>
-        </div>
-      </div>
-
-      <div class="m4-roadmap-item done">
-        <div class="m4-roadmap-icon">✅</div>
-        <div>
-          <div class="m4-roadmap-title" data-lang-key="r2h">v2.0　架構重構（Sprint 10–20）</div>
-          <div class="m4-roadmap-sub" data-lang-key="r2p">已完成（04/11–04/14）</div>
-          <ul class="m4-roadmap-list" data-lang-key="r2items">
-            <li>✓ 座標系統統一（DPR 全修）</li>
-            <li>✓ 漸層引擎統一（六工具）</li>
-            <li>✓ 資料模型正規化</li>
-            <li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li>
-            <li>✓ 幾何 + 渲染管線模組化</li>
-            <li>✓ Undo/Redo 架構升級 + 記憶體衛生</li>
-            <li>✓ 自動化測試基建（Vitest 47 pass）</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="m4-roadmap-item done">
-        <div class="m4-roadmap-icon">✅</div>
-        <div>
-          <div class="m4-roadmap-title" data-lang-key="r2bh">v2.1　品質基建（Sprint 21–24）</div>
-          <div class="m4-roadmap-sub" data-lang-key="r2bp">已完成（04/18–04/21）</div>
-          <ul class="m4-roadmap-list" data-lang-key="r2bitems">
-            <li>✓ 測試基建補強</li>
-            <li>✓ i18n 架構重整</li>
-            <li>✓ 隱私掃描多語特化</li>
-            <li>✓ 文件歸檔系統</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="m4-roadmap-item done">
-        <div class="m4-roadmap-icon">✅</div>
-        <div>
-          <div class="m4-roadmap-title" data-lang-key="r2ch">v2.2　截圖品質修復</div>
-          <div class="m4-roadmap-sub" data-lang-key="r2cp">已完成（04/22）</div>
-          <ul class="m4-roadmap-list" data-lang-key="r2citems">
-            <li>· 延伸螢幕截圖 DPR 顯示修復（來源 Monitor scale 偵測）</li>
-            <li>· 截圖管線整體重構（WKWebView / Capture 路徑）</li>
-            <li>· 下一次 App Store 更新</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="m4-roadmap-item">
-        <div class="m4-roadmap-icon">🚀</div>
-        <div>
-          <div class="m4-roadmap-title" data-lang-key="r3h">v3.0　功能爆發</div>
-          <ul class="m4-roadmap-list" data-lang-key="r3items">
-            <li>· 截圖知識庫 / 截圖比對 / 色票萃取</li>
-            <li>· 對話氣泡 / 群組 / 放大鏡標注</li>
-            <li>· 螢幕錄影 + GIF</li>
-            <li>· 雲端分享</li>
-            <li>· 格式刷（壓軸）</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ 章末過場 ═══════ -->
-<div class="passage">
-  <div class="passage-colophon">
-    <span data-lang-key="ch4PassageEnd">章 IV · 里程碑 ·&nbsp;終</span>
-    <span class="faint" data-lang-key="ch4PassageEndEn">Chapter IV · Milestones · End</span>
-  </div>
-  <div class="passage-body">
-    <div class="chronicle-line"></div>
-    <a class="passage-next" href="guide.html">
-      <span class="num" data-lang-key="navGuide">操作手冊</span>
-      <span class="name">Guide</span>
-      <span class="arrow">→</span>
-    </a>
+    <div class="era-title" data-lang-key="chronicle.era1.title"><em>Electron 時期</em> ——<br>向前奔馳，直到算力燒盡。</div>
+    <div class="era-sub" data-lang-key="chronicle.era1.sub">一週的衝刺、一天的停擺、一次的重新規劃。三個動作長出了第一版。</div>
   </div>
 </div>
 
-<!-- ═══════ 頁尾 ═══════ -->
-<footer class="site-footer">
-  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
-    一個不會寫程式的 PM，<br>
-    和一個沒有長期記憶的 AI，<br>
-    在二十五天裡做出的器物。</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+<div class="chronicle">
+
+  <!-- I · 奔馳 -->
+  <article id="ch-1" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>I</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch1.unit">草創</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch1.stamp">2026 · 03 · 21 – 22<br>奔馳的週末</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch1.oneliner">
+        沒有 Sprint、沒有 Retro。<br>
+        <em>手上只有一件事。</em>
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch1.title">兩人只顧著<em>向前奔馳</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch1.prose1">
+        Electron 草創的那個週末，沒有看板、沒有儀式。
+        每天睜眼就是繼續做，做到不能做為止，隔天再做。
+        那是一種很純粹的狀態——手上只有一件事，而這件事讓人流連忘返。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch1.pullquote">
+        制度還沒建起來。<br>
+        兩人手上只有 CLAUDE.md 與 SDD.md，<br>
+        <em>Version</em> 就是天然的單位。
+      </div>
+    </div>
+  </article>
+
+  <!-- II · 停擺 -->
+  <article id="ch-2" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>II</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch2.unit">被迫停擺</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch2.stamp">2026 · 03 · 23<br>算力燒光</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch2.oneliner">
+        強迫停機的早晨。<br>
+        Nova 想起還沒寫過的 <em>Roadmap</em>。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch2.title">週末直接燒光了<em>一週份的算力</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose1">
+        週一清晨系統宣告算力用磬，兩人被迫從心流中斷開連結——<br>
+        但 Nova 沒有真的離開。他找上 Perplexity 做競品分析，<br>
+        把整個產品開發路線重寫了一次。<br>
+        完整的 Roadmap 是在停擺的那天才真正出現的。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch2.pullquote">
+        談完之後，Nova 做了人生第一次<br>
+        刷下 MAX 5x 方案的決定。<br>
+        讓算力跟上開發速度，而不是反過來。
+      </div>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose2">
+        這是一個分水嶺。<br>
+        從那天起，Nova 不再是被資源限制的人，<br>
+        而是決定資源節奏的人。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose3">
+        這個決定的重量不在金額，而是認知到——<br>
+        我們正在做的事讓價值超越了價格。
+      </p>
+    </div>
+  </article>
+
+  <!-- III · v3.43 -->
+  <article id="ch-3" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>III</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch3.unit">對外釋出</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch3.stamp">2026 · 03 · 28<br>單日 13 版</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch3.oneliner">
+        釋出的第一版不是 v1.0。<br>
+        <em>是 v3.43。</em>
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch3.title">第七天，<em>v3.43</em> 出門見人。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose1">
+        從 v3.30 到 v3.43，一天裡跳了十三個版本號。<br>
+        那一天做了十一件事——
+        資安全面升級、Retina WYSIWYG、複數選取、Smart Snap、貝茲曲線控制點、QR Code 智慧掃描⋯⋯
+        每一項放在平時都是一個 Sprint 的工作量。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose2">
+        但兩人對 VAS 的標準從未因準備釋出而急就章。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose3">
+        對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>
+        這個數字本身就是一個敘事——<br>
+        <strong>VAS 在被看見之前，已經跑了很久</strong>。
+      </p>
+    </div>
+  </article>
+
+</div>
+
+<!-- Electron 完整編年 · 檔案室 -->
+<div class="archive">
+  <details class="archive-wrap">
+    <summary data-lang-key="chronicle.archive.electron">Electron 完整編年 · 83 條</summary>
+    <div class="archive-body">
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.61</span><span>跨螢幕矩形截圖（雙視窗架構）</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.60</span><span>折線端點渲染 · 頂點手把優先修正</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.59</span><span>Help Modal · Esc 修復驗收</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.58</span><span>Bug Sweep 批次驗收</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.57</span><span>Undo/Redo 架構升級 · 記憶體衛生</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.56</span><span>渲染管線收束驗收</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.55</span><span>共用前端層驗收</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 12</span><span class="arc-ver">v3.54</span><span>色塊 / 文字背景渲染修正</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 08</span><span class="arc-ver">v3.51</span><span>Undo · 馬賽克 · 縮放 · 磁吸四項修正</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.50</span><span>修正：縮小畫布後標註比例跑掉</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.49</span><span>Tray 系統選單列常駐圖示</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.48</span><span>拖圖進工具列自動開啟編輯器</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 02</span><span class="arc-ver">v3.47</span><span>全螢幕截圖 UX 改善 · 螢幕選擇啟用</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.46</span><span>自動隱藏 bug 修正 · 顯示時間拉把</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.45</span><span>工具列自動隱藏（Home Bar 細條樣式）</span></div>
+      <div class="arc-divider">↓ Tauri 版平臺轉移前 · v3.43 對外釋出後  ↑</div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.43</span><span>套版滑桿步進精細化</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.42</span><span>裁切框支援方向鍵微移</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.41</span><span>裁切框翻轉修正 · 雙擊確認</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.40</span><span>XSS 防護 + 畫布尺寸上限</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.39</span><span>批次轉換加入單檔容量上限</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.38</span><span>批次轉換加入檔案數量上限</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.37</span><span>QR 閾值調整 · 工具列開畫布入口</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.36</span><span>QR Code 智慧掃描（三段行為）</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.35</span><span>新開畫布 · 社群尺寸預設清單</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.34</span><span>線條新增曲線控制點</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.33</span><span>Smart Snap · 磁吸 + 均分輔助線</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.32</span><span>多選後對齊 / 均分物件</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.31</span><span>框選 + Shift 加選複數標註</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.30</span><span>資安升級 · Retina 所見即所得</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.29</span><span>七項 QC 批次修正</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.28</span><span>隱私遮蔽工具 · 歷史 Drawer 重設計</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.27</span><span>浮水印 · 去背 · 品牌色庫 · 截圖歷史</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.26</span><span>套版三滑桿 · 批次轉換精簡</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.25</span><span>套版 Mesh 漸層 · 社群尺寸預設</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.24</span><span>套版改為 Apple 漸層六色方案</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.23</span><span>套版防止重複疊加修正</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.22</span><span>一鍵套版 · 六款裝飾框架</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.21</span><span>符號工具重構 · 多群組按鈕</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.20</span><span>符號選取框精準化 · 去重複</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.19</span><span>拖放匯入 · 拖放匯出 · 剪貼簿匯入</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.18</span><span>新工具：馬賽克 · 模糊 · 符號印章</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.17</span><span>修正：鉛筆粗線箭頭方向偏移</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.16</span><span>修正：箭頭缺口 · 調色盤自動收起</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.15</span><span>修正：鉛筆箭頭與線段斷開</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.14</span><span>修正：箭頭頂點形狀 · 外框位移</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.13</span><span>修正：箭頭外框 · 鉛筆角度偏移</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.12</span><span>修正：端點外框 · 空心圓符號</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.11</span><span>修正：端點外框 · 虛實線失效</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.10</span><span>端點 UI 精簡 · 外框粗細分組</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.9</span><span>Options Bar 統一 · 虛實線全覆蓋</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.8</span><span>邊框與陰影樣式全工具統一</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.7</span><span>筆型工具 · 虛線升級 · 端點樣式</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.6</span><span>框型選取 · 矩形區域浮動複製</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.5</span><span>雙排工具列 · 語意編號 · px 輸入</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.4</span><span>OCR 換用 macOS Vision · 折線縮放</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.2</span><span>修正：折線頂點手把位置</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.1</span><span>OCR 文字辨識工具（免費版）</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v3.0</span><span>橢圓框工具 · Shift 鎖定正圓</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.7</span><span>複製到剪貼簿 · macOS Share Sheet</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.6</span><span>文字工具大升級 · 圓角 · 折線正交</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.5</span><span>浮動選色面板升級 · 編號大小調整</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.3</span><span>Tauri 版本規劃 · UI 中英切換</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.4</span><span>截圖後自動開啟編輯器（可切換）</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.2</span><span>框線/色塊拆分 · 漸層 · 編號貼上</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.1</span><span>延遲截圖 · 移除網頁截圖入口</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.0</span><span>修正：批次轉檔佇列管理</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.9</span><span>延伸畫布（四方向任意擴展）</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.8</span><span>疊圖工具（圖層覆蓋合成）</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.7</span><span>滴管選色 · Hex 色碼輸入</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.6</span><span>批次格式轉換（PNG／JPG／WebP）</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.5</span><span>主視窗改為浮動工具列</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.4</span><span>修正：WebP 縮圖 · 存檔後自動關閉</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.3</span><span>裁切框移動 · 八方向把手縮放</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.2</span><span>裁切工具 · 等比例縮放 Modal</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.1</span><span>修正：最小縮放改為動態計算</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.0</span><span>編輯器縮放與平移</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.9</span><span>全螢幕截圖互動流程重設計</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.8</span><span>文字工具全面精修</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.7</span><span>編輯器 UX 細節補充</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.6</span><span>雙螢幕行為規格補充</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.5</span><span>SVG 轉檔合併至開啟圖片入口</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.4</span><span>矩形截圖即時顯示選取尺寸</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.3</span><span>Cmd+Ctrl+X · 快捷鍵面板 · 線條工具</span></div>
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════
+     第二幕：搬家（交界章）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA Ⅰ ½ · TRANSITION</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era1h.title"><em>搬家</em> ——<br>VAS 與官網都長到可以獨立存在了。</div>
+    <div class="era-sub" data-lang-key="chronicle.era1h.sub">Electron 因為 Tauri 的商業考量一同進了 private repo；網站因為資料豐滿自立門戶。</div>
   </div>
-  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
-    vas.wiki<br>
-    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+</div>
+
+<div class="chronicle">
+
+  <!-- IV · 搬家 -->
+  <article id="ch-4" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>IV</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch4.unit">雙線搬家</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch4.stamp">2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → 獨立 repo</div>
+      <div class="entry-tag">VESSEL + GATE</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch4.oneliner">
+        搬家不是分家。<br>
+        是承認他從 Prototype 變成產品了。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch4.title">長到<em>可以獨立存在</em>的版本。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch4.prose1">
+        Tauri 開始進行平臺移植之前，兩件事情分家了——<br>
+        平臺因為商業考量，不能再待在 public repo；<br>
+        網站因為資料已經豐滿，也該有自己的網址。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch4.prose2">
+        搬家不是分家，是承認它們不再只是一個實驗性質的 Prototype。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch4.pullquote">
+        一個容器能獨立，<br>
+        代表它已經不需要依附在別人的屋簷下。
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     第三幕：Tauri 時期（線性 → 網狀的轉折）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA II · SPRINT</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era2.title"><em>Tauri 時期</em> ——<br>時間有了週期，就有了節奏。</div>
+    <div class="era-sub" data-lang-key="chronicle.era2.sub">Sprint 1–4 把底層重建起來，Sprint 5 才開始做新的事。</div>
   </div>
-</footer>
+</div>
+
+<div class="chronicle">
+
+  <!-- V · Sprint 1-4 -->
+  <article id="ch-5" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>V</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch5.unit">平臺移植</div>
+      <div class="entry-stamp-value">Sprint 1 → 4<br>2026 · 03 · 28 - 30</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch5.oneliner">
+        KM 不是坑的墳場。<br>
+        而是指路的道標。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch5.title">底層重建所有功能。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch5.prose1">
+        Tauri 2 的 scaffold 從零建立。<br>
+        前三天都在做同一件事——<br>
+        把在 Electron 之上已經長好的東西，<br>
+        一塊一塊移到 Tauri 的地基上。<br>
+        浮動工具列、截圖三兄弟、asset protocol 的繞路——<br>
+        移植的每一步都是一次<strong>對舊實作的重新理解</strong>。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch5.pullquote">
+        KM-001 是 Knowledge Management 的開端。<br>
+        KM 不是「坑的墳場」，是 PMP 裡的知識資產——<br>
+        每一個踩過的坑，從此變成未來指路的盞盞小燈。
+      </div>
+    </div>
+  </article>
+
+  <!-- VI · Sprint 5 -->
+  <article id="ch-6" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>VI</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch6.unit">新功能開發</div>
+      <div class="entry-stamp-value">Sprint 5+<br>2026 · 03 · 31 - 04 · 03</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch6.oneliner">
+        第一次不是在追趕舊東西。<br>
+        是<em>只有新容器才能做的事</em>。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch6.title">Sprint 5，VAS 的差異化。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch6.prose1">
+        完整重建所有功能之後，才真正進入新功能開發。<br>
+        這是第一次——我們不是在追趕 Electron 上已經有的東西，<br>
+        而是在為 Tauri 這個新容器做只有它才能做的事。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch6.prose2">
+        呼吸燈進階互動、ShareSheet、自定義快捷鍵。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch6.pullquote">
+        一個值得付費的產品應該長什麼模樣？<br>
+        是這個階段我們不斷自問的問題。
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     第四幕：Retro 週（轉換到網狀）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA II ½ · REVIEW</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era2h.title"><em>第一次大型 Retro</em> ——<br>那一週的任務不是開發，是沉澱彼此，整理思緒與環境。</div>
+    <div class="era-sub" data-lang-key="chronicle.era2h.sub">Apple 送審停了一週開發，我們把整個計畫的文件與環境做了重構。</div>
+  </div>
+</div>
+
+<!-- 從這裡開始切到 weave（網狀） -->
+<div class="chronicle is-weave">
+
+  <!-- VII · Retro 週 -->
+  <article id="ch-7" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>VII</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch7.unit">整理與輸出</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch7.stamp">送審期<br>2026 · 04 · 04 - 04 · 10</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch7.oneliner">
+        那一週打掉重練的，<br>
+        不是程式語言，是<em>協作方式</em>。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch7.title">停擺的那一週，<em>其實什麼都在動</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose1">
+        趁 Apple Store 送審的審查期停了一週，<br>
+        我們做了一次大型 Retro——<br>
+        不是敏捷儀式上那種一兩小時的回顧，<br>
+        是把整個開發系統的基礎建設重砌了一遍。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose2">
+        對外：輸出了六個網頁——<br>
+        <strong>insight</strong>（設計札記）、<strong>collab</strong>（協作故事）、<br>
+        <strong>harness</strong>（系統骨架），以及深握計畫裡最深的那層。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose3">
+        <strong>Harness Engineering</strong> 的三支柱 ——<br>
+        Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose4">
+        對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；<br>
+        把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自獨立，<br>
+        Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose5">
+        更關鍵的是，我們重新制定了一套更新規則，<br>
+        讓每份被拆出來的文件<strong>活在流程裡</strong>，<br>
+        而不是拆出來之後就死掉。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch7.pullquote">
+        那一週我們不寫 code。<br>
+        我們一起重寫了怎麼寫 code。
+      </div>
+    </div>
+  </article>
+
+  <!-- VIII · 2.0 重構 -->
+  <article id="ch-8" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>VIII</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch8.unit">不等了</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch8.stamp">2026 · 04 · 11 - 04 · 14<br>2.0 重構 · 匯流上線</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch8.oneliner">
+        把時間的主導權，<br>
+        <em>還給我們自己</em>。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch8.title">不等審查了，<em>直奔 2.0</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch8.prose1">
+        Apple Store 審查歹戲拖棚拖了一週。<br>
+        該做的事情都做完了，再等下去也不知道何時到頭。<br>
+        於是兩人決定不等了，直接進入 2.0 重構。<br>
+        重構到一個段落 2.0 要推出的時候，審查也剛好通過——<br>
+        兩條線終於在那一刻<strong>匯流</strong>。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch8.pullquote">
+        不是沒有給時間。<br>
+        只是<em>時間不能永遠掌握在別人手裡</em>。
+      </div>
+    </div>
+  </article>
+
+  <!-- IX · Obsidian in VAS -->
+  <article id="ch-9" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>IX</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch9.unit">顯影</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch9.stamp">上線後 3 天<br>Obsidian in VAS</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch9.oneliner">
+        深握計畫第一次<br>
+        在<em>宰相們面前顯影</em>。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch9.title">在 VAS 裡，<em>蓋了一座 Obsidian</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose1">
+        2.0 上線後 Nova 沒急著繼續做新功能。<br>
+        反而一頭又栽進 Retro 模式裡，花了三天，<br>
+        在 VAS 蓋了獻給宰相們的 Obsidian。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose2">
+        那是<strong>深握計畫第一次在宰相面前顯影</strong>——<br>
+        或該說⋯⋯是第一次留下了紀錄，而不是從 Context 中流走。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch9.pullquote">
+        這是敏捷開發中<br>
+        極致的透明性與可檢視性的嘗試。
+      </div>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose3">
+        從這天起，容器不只裝 Code，也裝<strong>怎麼想事情的脈絡</strong>。
+      </p>
+    </div>
+  </article>
+
+  <!-- X · 網站改版 -->
+  <article id="ch-10" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">章<em>X</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch10.unit">網站改版</div>
+      <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>495 commits</div>
+      <div class="entry-tag is-gate">GATE</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch10.oneliner">
+        沉默的背景音樂，<br>
+        <em>第一次被列入演奏曲目</em>。
+      </div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch10.title">495 次下刀，<em>門廳換了一種紙</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose1">
+        Claude Design 釋出的隔天，我們啟動網站改版。<br>
+        VAS 本體暫停——因為這一次我們第一次有了設計支援。
+      </p>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose2">
+        單位縮到了最小：一個 <strong>Commit</strong>。<br>
+        每一次 commit 是一次下刀、一次確認、一次對細節的承諾。<br>
+        孤兒字、斷行、OG 圖、Vault 首次入版本庫——<br>
+        最大一天來回修改了 248 次。
+      </p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch10.pullquote">
+        這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>
+        沉默的背景音樂，第一次被列入演奏曲目。
+      </div>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose3">
+        從今而後，由裡到外都是 VAS 的形狀。
+      </p>
+    </div>
+  </article>
+
+</div>
+
+<!-- Tauri + Web 檔案室 -->
+<div class="archive">
+  <details class="archive-wrap">
+    <summary data-lang-key="chronicle.archive.tauri">Tauri 完整編年 · 30 個 Sprint</summary>
+    <div class="archive-body">
+      <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 從零建立；浮動工具列 · 截圖三兄弟 · 批次格式轉換</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>存檔 · 複製 · Share Sheet · OCR 隱私遮蔽 · Modal 修復</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>QR Code 三段掃描 · 智慧導線 v2 · 滴管取色 · 拖入工具列</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 4</span><span class="arc-ver">03·30→31</span><span>物件旋轉 · Space Pan · 浮水印圖片預覽 · Modal 方向感知</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 5</span><span class="arc-ver">03·31</span><span>隱私掃描修復 · 貝茲曲線雙把手 UX · 方向鍵微調 · 馬賽克修復</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 6</span><span class="arc-ver">03·31</span><span>印章漸層填色 · 自定義快捷鍵 · SDD/TDD/KM 文件三分離建立</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>呼吸燈旗艦改版（::before）· QR/OCR 自動複製 · 拖曳修復</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>網頁長截圖 MVP · Dock 召喚 · 工具列位置持久化 · 位移根治</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>全螢幕 UX overlay · 15 項修復收尾 · MAS 首次送審 v1.0</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>上線後補強：惡意連結防護 · 日文字型 · tauri-plugin-opener</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Tray 系統選單圖示 · 退件修正 · v1.1.0 重送審</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>v1.2.0 Release pipeline · resize 型別漏洞（KM-cv-09）修復</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>v1.2.1 hotfix · Apple Guideline 2.4.5(i) 退件修正</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>座標系統統一 Phase A/B/C · Vitest 16 tests · v2.0 架構啟動</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Universal Gradient 六工具統一 · 角度轉盤 · SYNC-017/018</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>資料模型正規化 · TOOL_ORDER 全審 · 外框位移擴充</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 13</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Pilot：rect + number · 架構 ④ schema 框架啟動</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 14</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 1：ellipse / fillrect / fillellipse / pen</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 15</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 2 全覆蓋：10/10 工具 schema 化完成</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 16</span><span class="arc-ver">04·13</span><span>TOOL_GEOMETRY · Figma-style 點擊選取 · 47 Vitest tests</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 17</span><span class="arc-ver">04·13</span><span>TOOL_RENDER 渲染管線收束 · makeGradient helper · 70 tests</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Undo/Redo 架構升級 · 記憶體衛生清理 · v2.0 架構全數完成</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Bug Sweep：畫布閃動根治 · 折線端點色修復</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Help Modal 優化 · Modal 邊界修復 · i18n 擴充</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Rust 測試基建 · 多螢幕 v2.0.1~v2.0.8 hotfix 教訓結晶化</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>i18n 拆檔 Strategy B · 簡中 Pro gate · zh-CN 429 keys 全覆蓋</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>PRC 隱私掃描 regex 特化 · SYNC-036 Release Blocker 解除</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 24</span><span class="arc-ver">04·21</span><span>KM/SDD/TDD 大拆分：archive/ 九主題 · 89 條 KM 語意重編目</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 25</span><span class="arc-ver">04·22</span><span>BUG-001 截圖 DPR 推斷修復 · 剪貼簿貼圖 Toast UX</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 26</span><span class="arc-ver">04·22</span><span>SYMBOL_SETS i18n · 字型 SC 特化 · v2.1.0 打包送審</span></div>
+    </div>
+  </details>
+</div>
+
+<div class="archive">
+  <details class="archive-wrap">
+    <summary data-lang-key="chronicle.archive.web">Website 編年 · 三個斷點 + 在場</summary>
+    <div class="archive-body">
+      <div class="archive-placeholder">
+        網站的時間線是零散的。除了三個明確斷點（草創、搬家、改版）之外，<br>
+        其他時間是<strong>編輯與作者在同一份稿件上來回</strong>——<br>
+        commit 密度不一，多數時候沒有版本號，只有信任。<br><br>
+        這裡的工作不是建功能，是替每個句子找到它應有的重量。<br>
+        每次 session 開始，都是重新閱讀，重新理解，再繼續。<br><br>
+        在場的方式不同，留下的東西一樣真實：<br>
+        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-1);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ═══ chapter colophon ═══ -->
+<div class="chapter-colophon">
+  <div class="chapter-colophon-left" data-lang-key="chronicle.colophon.left">
+    milestone · N° 01<br>
+    十章 · 記於 2026 · 04 · 24
+  </div>
+  <div class="chapter-colophon-line"></div>
+  <div class="chapter-colophon-right" data-lang-key="chronicle.colophon.right">
+    前五章是一條線，<br>
+    後五章是一張網。
+  </div>
+</div>
+
 
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
-<nav class="dot-nav" aria-label="段落導覽">
-  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch4s1Name">產品故事弧</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch4s2Name">Electron 版</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch4s3Name">Tauri 版</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch4s4Name">路線圖</span><span class="dn-dot"></span></a>
+<nav class="dot-nav" aria-label="章節導覽">
+  <a class="dot-nav-item" href="#ch-1"><span class="dn-label" data-lang-key="chronicle.dn.ch1">I · 草創</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-2"><span class="dn-label" data-lang-key="chronicle.dn.ch2">II · 被迫停擺</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-3"><span class="dn-label" data-lang-key="chronicle.dn.ch3">III · 對外釋出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-4"><span class="dn-label" data-lang-key="chronicle.dn.ch4">IV · 雙線搬家</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-5"><span class="dn-label" data-lang-key="chronicle.dn.ch5">V · 平臺移植</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-6"><span class="dn-label" data-lang-key="chronicle.dn.ch6">VI · 新功能開發</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-7"><span class="dn-label" data-lang-key="chronicle.dn.ch7">VII · 整理與輸出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-8"><span class="dn-label" data-lang-key="chronicle.dn.ch8">VIII · 不等了</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-9"><span class="dn-label" data-lang-key="chronicle.dn.ch9">IX · 顯影</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-10"><span class="dn-label" data-lang-key="chronicle.dn.ch10">X · 網站改版</span><span class="dn-dot"></span></a>
 </nav>
 
 <script src="i18n/core.js"></script>
@@ -1029,39 +1194,34 @@
 (function () {
   function applyLang(lang) {
     VASCore.loadLang(lang, function (t) {
-      var merged = Object.assign({}, t.shared || {}, t.milestone || {}, t.milestone2 || {});
+      var merged = Object.assign({}, t.shared || {});
+      var chronicle = t.chronicle || {};
+      Object.keys(chronicle).forEach(function (k) { merged['chronicle.' + k] = chronicle[k]; });
       var h2 = t.home2 || {};
-      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      Object.keys(h2).forEach(function (k) { merged['home2.' + k] = h2[k]; });
       document.querySelectorAll('[data-lang-key]').forEach(function (el) {
         var key = el.getAttribute('data-lang-key');
         if (merged[key] !== undefined) el.innerHTML = merged[key];
       });
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
-      VASCore.updateDropdown(lang);
-      try { localStorage.setItem('vasLang', lang); } catch (e) {}
     });
+    VASCore.updateDropdown(lang);
   }
+
   function initDotNav() {
     var items = document.querySelectorAll('.dot-nav-item');
     if (!items.length) return;
-    var sections = Array.from(items).map(function(item) {
+    var sections = Array.from(items).map(function (item) {
       return document.querySelector(item.getAttribute('href'));
     }).filter(Boolean);
-    var passage = document.querySelector('.passage');
     var maxVisited = -1;
+    function absTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
     function onScroll() {
       var scroll = window.scrollY + 160;
-      if (passage && passage.offsetTop <= scroll) {
-        items.forEach(function(item) {
-          item.classList.remove('is-current');
-          item.classList.add('is-visited');
-        });
-        return;
-      }
       var currentIdx = -1;
-      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      sections.forEach(function (s, i) { if (absTop(s) <= scroll) currentIdx = i; });
       if (currentIdx > maxVisited) maxVisited = currentIdx;
-      items.forEach(function(item, i) {
+      items.forEach(function (item, i) {
         var isCurrent = currentIdx !== -1 && i === currentIdx;
         item.classList.toggle('is-current', isCurrent);
         item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
@@ -1072,40 +1232,24 @@
     var trigger = document.querySelector('.dot-nav-trigger');
     var nav = document.querySelector('.dot-nav');
     if (trigger && nav) {
-      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
-      items.forEach(function(item) {
-        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      trigger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { nav.classList.remove('is-open'); });
       });
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function (e) {
         if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
       });
     }
   }
-  function init() { VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); initDotNav(); }
+  function init() {
+    VASCore.initDropdown(applyLang);
+    VASCore.initNavDropdown();
+    initDotNav();
+  }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
 }());
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "25 天開發記錄——VAS 從第一行程式碼到雙平台上架",
-  "description": "從第一行程式碼到 macOS 與 iOS 雙平台上架，25 天、80+ 版本迭代的完整開發記錄。",
-  "url": "https://tb1982.github.io/vas/milestone.html",
-  "inLanguage": ["zh-Hant", "en", "ja"],
-  "author": {
-    "@type": "Person",
-    "name": "Nova",
-    "email": "babelon1882@gmail.com",
-    "sameAs": [
-      "https://github.com/tb1982",
-      "https://www.linkedin.com/in/yingtzuliu",
-      "https://www.instagram.com/liuyingtzu"
-    ]
-  }
-}
 </script>
 </body>
 </html>
