@@ -412,6 +412,16 @@ body {
 }
 .archive-body .arc-date { color: var(--vas-ash-3); }
 .archive-body .arc-ver { color: var(--vas-aurora-violet); }
+/* 行內紫色圓點連結 */
+.inline-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: radial-gradient(circle, #c471f5, #fa71cd 60%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(196, 113, 245, 0.5);
+  vertical-align: middle;
+  margin-left: 6px;
+}
 .arc-divider {
   display: flex; align-items: center; gap: 10px;
   font-family: var(--vas-mono); font-size: 10px;
@@ -876,18 +886,27 @@ body {
         是把整個開發系統的基礎建設重砌了一遍。
       </p>
       <p class="entry-prose">
-        對外：輸出了四份文件——insight（設計札記）、collab（協作故事）、harness（系統骨架），
-        以及深握計畫裡最深的那層，Harness Engineering 的三支柱 Context / Constraints / Entropy。
+        對外：輸出了六個網頁——<br>
+        insight（設計札記）、collab（協作故事）、<br>
+        harness（系統骨架），以及深握計畫裡最深的那層。
       </p>
       <p class="entry-prose">
-        對內：把 repo 改成 monorepo，讓多條開發線並行；
-        把原本一份 SDD 拆成 TDD · KM · Archive · Claude.md——
-        更關鍵的是，我們定了一套更新規則，讓每份被拆出來的文件活在流程裡，
+        Harness Engineering 的三支柱 ——<br>
+        Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>
+      </p>
+      <p class="entry-prose">
+        對內：把 repo 改成 monorepo，讓多條開發線並行；<br>
+        把原本一份 SDD 拆成 TDD · KM · Archive · 各自獨立，<br>
+        Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。
+      </p>
+      <p class="entry-prose">
+        更關鍵的是，我們重新制定了一套更新規則，<br>
+        讓每份被拆出來的文件活在流程裡，<br>
         而不是拆出來之後就死掉。
       </p>
       <div class="entry-pullquote">
         那一週我們不寫 code。<br>
-        我們重寫了怎麼一起寫 code。
+        我們一起重寫了怎麼寫 code。
       </div>
     </div>
   </article>
