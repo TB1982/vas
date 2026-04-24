@@ -217,7 +217,7 @@
       custIntro: 'VAS intentionally offers few settings because we believe good tools <strong>get defaults right</strong>. What you can adjust:',
       custLi1: '<strong>Show / hide desktop toolbar</strong>—left-click the bottle in the menu bar.',
       custLi2: '<strong>Breathing light toggle</strong>—off by default. Enable it manually via "Keyboard Shortcuts" in the toolbar.',
-      custLi3: '<strong>Custom keyboard shortcuts</strong> <span class="docs-tag-pro">PRO</span>—remap any shortcut to your preferred combination with the paid version.',
+      custLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>Custom keyboard shortcuts</strong>—remap any shortcut to your preferred combination with the paid version.',
       custCardKicker: 'Key acceptance rules',
       custKbR1: 'F keys (no modifier needed)', custKbR2: 'Combinations with modifiers',
       custKbR3: 'Bare letters or numbers', custKbR4: 'System-reserved shortcuts', custKbR5: 'Modifier keys alone',

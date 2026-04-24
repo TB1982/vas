@@ -193,7 +193,7 @@
       custIntro: 'VAS 刻意做得不多设置项，因为我们相信好的工具<strong>默认就是对的</strong>。能调的几项是：',
       custLi1: '<strong>桌面工具列显示／隐藏</strong>——菜单列左键瓶子即可切换。',
       custLi2: '<strong>呼吸灯开关</strong>——出厂预设关闭，工具列的「快捷键说明」里可手动开启。',
-      custLi3: '<strong>自定快捷键</strong> <span class="docs-tag-pro">PRO</span>——付费版可把任一快捷键改成你习惯用的组合。',
+      custLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 专属</span><strong>自定快捷键</strong>——付费版可把任一快捷键改成你习惯用的组合。',
       custCardKicker: '按键接受规则',
       custKbR1: 'F 键无需修饰键', custKbR2: '含修饰键的组合',
       custKbR3: '裸字母或数字', custKbR4: '系统保留快捷键', custKbR5: '单独修饰键',

@@ -215,7 +215,7 @@
       custIntro: 'VAS は意図的に設定項目を少なくしています。優れたツールは<strong>デフォルトが正解</strong>だと考えるからです。調整できる項目：',
       custLi1: '<strong>デスクトップツールバーの表示／非表示</strong>——メニューバーのボトルを左クリックで切り替え。',
       custLi2: '<strong>ブリーズライトのオン／オフ</strong>——出荷時は無効。ツールバーの「ショートカットガイド」から手動で有効にできます。',
-      custLi3: '<strong>ショートカットのカスタマイズ</strong> <span class="docs-tag-pro">PRO</span>——有料版では任意のショートカットを好みの組み合わせに変更できます。',
+      custLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ショートカットのカスタマイズ</strong>——有料版では任意のショートカットを好みの組み合わせに変更できます。',
       custCardKicker: 'キー受付ルール',
       custKbR1: 'F キーは修飾キー不要', custKbR2: '修飾キーを含む組み合わせ',
       custKbR3: '裸の英字や数字', custKbR4: 'システム予約ショートカット', custKbR5: '修飾キー単体',
