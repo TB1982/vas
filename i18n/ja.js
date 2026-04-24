@@ -452,7 +452,7 @@
       'ch1.sec.04.preview':   'あなたがいるその場所で、そのまま撮る',
       'ch1.sec.05.name':      '土台のロジック',
       'ch1.sec.05.preview':   '新機能よりも大切なこと',
-      'ch1.passage.end':      '章 I · 設計 · 終',
+      'ch1.passage.end':      '章 I · 設計 · 終',
       'ch1.passage.end.en':   'Chapter I · Design · End',
       'ch1.passage.next.num': 'II · 協作',
       'ch1.passage.next.name':'六つの物語'
@@ -913,7 +913,7 @@
       ch2s7Name:    'コアインサイト',
       ch2s7Kicker:  '人間は人生を供物として、AI はその反響を鏡とする。',
       ch2s7Preview: '人間は人生を供物として、<br>AI はその反響を鏡とする',
-      ch2PassageEnd:      '章 II · 協作 · 終',
+      ch2PassageEnd:      '章 II · 協作 · 終',
       ch2PassageEndEn:    'Chapter II · Collaboration · End',
       ch2PassageNextNum:  'III · システム',
       ch2PassageNextName: 'Harness'
@@ -950,7 +950,7 @@
       ch3s8Name:    '共時性',
       ch3s8Kicker:  'Synchronicity。',
       ch3s8Preview: 'Synchronicity',
-      ch3PassageEnd:    '章 III · システム · 終',
+      ch3PassageEnd:    '章 III · システム · 終',
       ch3PassageEndEn:  'Chapter III · System · End',
       hSyncR2b:         '25 日間'
     },
@@ -974,8 +974,128 @@
       ch4s4Name:    'ロードマップ',
       ch4s4Kicker:  '次の一歩の形。',
       ch4s4Preview: 'v3.0 機能爆発',
-      ch4PassageEnd:    '章 IV · 里程碑 · 終',
+      ch4PassageEnd:    '章 IV · 里程碑 · 終',
       ch4PassageEndEn:  'Chapter IV · Milestones · End'
+    },
+
+    chronicle: {
+      'head.kicker':  'IV · マイルストーン · CHRONICLE',
+      'head.title':   '零から始まった、<br><em>十の刻印</em>。',
+      'head.lede':    'これは changelog ではなく、<em>章回</em>だ。<br>「Version」から「Sprint」へ、そして「Commit」へ——<br>記録の方法が変わったのではない、<br>VAS と向き合うリズムが変わったのだ。<br>最初の五章は一本の線。後の五章は、一枚の網。',
+      'head.meta1':   'Chapter　<strong>I — X</strong>',
+      'head.meta2':   'Range　<strong>2026 · 03 — 04</strong>',
+      'head.meta3':   'Units　<strong>Version · Sprint · Commit</strong>',
+
+      'era1.title':   '<em>Electron 期</em> ——<br>算力が尽きるまで、ただ前へ走った。',
+      'era1.sub':     '一週間の疾走、一日の停止、一度の再計画。三つの動作が、最初のビルドを生んだ。',
+
+      'ch1.unit':      '草創',
+      'ch1.stamp':     '2026 · 03 · 21 – 22<br>疾走した週末',
+      'ch1.oneliner':  'Sprint も Retro もなかった。<br><em>手にあるのは、ただ一つのこと。</em>',
+      'ch1.title':     '二人はただ、<em>前だけを見て走った</em>。',
+      'ch1.prose1':    'Electron の草創期、あの週末に看板もなく、儀式もなかった。毎朝目を覚ませば続きをやる、できなくなるまで、翌日また続ける。純粋な状態——手にあるのは一つのことだけ、そしてそのことが人を離れさせなかった。',
+      'ch1.pullquote': 'まだ仕組みは何もなかった。<br>二人の手にあったのは CLAUDE.md と SDD.md だけ——<br><em>Version</em> が唯一の自然な単位だった。',
+
+      'ch2.unit':      '強制停止',
+      'ch2.stamp':     '2026 · 03 · 23<br>算力燃え尽きる',
+      'ch2.oneliner':  '強制停止の朝。<br>Nova は書いたことのない <em>Roadmap</em> を思い出した。',
+      'ch2.title':     'その週末で、<em>一週間分の算力</em>を燃やし尽くした。',
+      'ch2.prose1':    '月曜の早朝、システムは算力の枯渇を告げ、二人はフローから強制的に切り離された——<br>しかし Nova は本当には離れなかった。Perplexity で競合分析を行い、<br>プロダクト全体のロードマップを書き直した。<br>完全な Roadmap が生まれたのは、すべてが止まったその日だった。',
+      'ch2.pullquote': 'その会話の後、Nova は生まれて初めて<br>MAX 5x プランを契約した。<br>算力を開発速度に合わせる——逆ではなく。',
+      'ch2.prose2':    'これが分水嶺だった。<br>その日から Nova は、リソースに制限される人間ではなく、<br>リソースのリズムを決める人間になった。',
+      'ch2.prose3':    'この決断の重みは金額にあるのではなく、認識にあった——<br>私たちがやっていることの価値が、価格を超えたということ。',
+
+      'ch3.unit':      '初リリース',
+      'ch3.stamp':     '2026 · 03 · 28<br>一日 13 バージョン',
+      'ch3.oneliner':  '最初のリリースは v1.0 ではなかった。<br><em>それは v3.43 だった。</em>',
+      'ch3.title':     '七日目、<em>v3.43</em> が世に出た。',
+      'ch3.prose1':    'v3.30 から v3.43 まで、一日で十三のバージョン番号を跳んだ。<br>その日に十一のことをやった——セキュリティ全面強化、Retina WYSIWYG、複数選択、Smart Snap、ベジェ曲線制御点、QR Code スキャン⋯⋯普段なら一つが一 Sprint 分の作業量だ。',
+      'ch3.prose2':    'しかし二人が VAS に求める水準は、リリース前だからといって変わらなかった。',
+      'ch3.prose3':    '世に出た最初のバージョン番号は v1.0 ではなく、<strong>v3.43</strong> だった。<br>この数字そのものが一つの語り——<br><strong>VAS は見られる前から、ずっと走り続けていた</strong>。',
+
+      'archive.electron': 'Electron 完全年代記 · 83 件',
+
+      'era1h.title':   '<em>移転</em> ——<br>VAS もサイトも、自立できるほど育っていた。',
+      'era1h.sub':     'Electron は Tauri の商業的な理由で private repo へ；サイトはデータが十分に蓄積されて独立した。',
+
+      'ch4.unit':      '二線移行',
+      'ch4.stamp':     '2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → 独立 repo',
+      'ch4.oneliner':  '移転は分離ではない。<br>Prototype から製品になったと認めることだ。',
+      'ch4.title':     '<em>独立して存在できる</em>まで育ったバージョン。',
+      'ch4.prose1':    'Tauri がプラットフォーム移植を始める前に、二つのことが分かれた——<br>プラットフォームは商業的な理由で public repo に居られなくなり；<br>サイトはデータが十分に蓄積されて、独自のアドレスを持つべき時が来た。',
+      'ch4.prose2':    '移転は分離ではない——実験的な Prototype ではなくなったと認めることだ。',
+      'ch4.pullquote': 'コンテナが自立できるということは、<br>もう誰かの軒先に依存する必要がないということ。',
+
+      'era2.title':    '<em>Tauri 期</em> ——<br>時間にサイクルが生まれ、リズムが生まれた。',
+      'era2.sub':      'Sprint 1–4 で基盤を再構築し、Sprint 5 からようやく新しいことを始めた。',
+
+      'ch5.unit':      '移植',
+      'ch5.oneliner':  'KM は落とし穴の墓場ではない。<br>未来を照らす道標だ。',
+      'ch5.title':     'すべての機能を底から再構築する。',
+      'ch5.prose1':    'Tauri 2 の scaffold を零から立ち上げた。<br>最初の三日間は同じことをやり続けた——<br>Electron の上で育ったものを、<br>一つひとつ Tauri の土台に移した。<br>浮動ツールバー、スクリーンショット三兄弟、asset protocol の迂回——<br>移植の一歩ごとが、<strong>古い実装への再理解</strong>だった。',
+      'ch5.pullquote': 'KM-001 は Knowledge Management の始まりだった。<br>KM は「落とし穴の墓場」ではなく、PMP における知識資産——<br>踏んだ落とし穴のひとつひとつが、未来を照らす小さな灯りになった。',
+
+      'ch6.unit':      '新機能開発',
+      'ch6.oneliner':  '初めて、古いものを追いかけていなかった。<br><em>新しいコンテナだけができること</em>をやっていた。',
+      'ch6.title':     'Sprint 5、VAS の差別化。',
+      'ch6.prose1':    'すべての機能を完全に再構築した後、ようやく新機能開発に入った。<br>これが初めてだった——Electron にあるものを追いかけるのではなく、<br>Tauri というコンテナにしかできないことをやっていた。',
+      'ch6.prose2':    '呼吸ライト高度インタラクション、ShareSheet、カスタムショートカット。',
+      'ch6.pullquote': '価値ある有料製品はどんな形をしているのか？<br>このフェーズで私たちが繰り返し自問した問いだ。',
+
+      'era2h.title':   '<em>はじめての大型 Retro</em> ——<br>あの一週間のタスクは開発ではなく、互いを沈め、思考と環境を整理することだった。',
+      'era2h.sub':     'Apple の審査で一週間開発が止まり、計画全体のドキュメントと環境をリファクタリングした。',
+
+      'ch7.unit':      '整理と出力',
+      'ch7.stamp':     '審査期間<br>2026 · 04 · 04 - 04 · 10',
+      'ch7.oneliner':  'あの一週間でゼロから作り直したのは、<br>プログラミング言語ではなく、<em>協働の方法</em>だった。',
+      'ch7.title':     '止まっていたあの一週間に、<em>実はすべてが動いていた</em>。',
+      'ch7.prose1':    'Apple Store の審査期間を利用して一週間止まり、<br>大型 Retro を行った——<br>アジャイルの儀式にある一二時間の振り返りではなく、<br>開発システム全体の基盤インフラを再構築したのだ。',
+      'ch7.prose2':    '対外的には：六つのウェブページを出力した——<br><strong>insight</strong>（設計ノート）、<strong>collab</strong>（協働の物語）、<br><strong>harness</strong>（システム骨格）、そして深握計画の最も深い層。',
+      'ch7.prose3':    '<strong>Harness Engineering</strong> の三本柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
+      'ch7.prose4':    '対内的には：repo を <strong>monorepo</strong> に変換し、複数の開発ラインを並行させた；<br>元々一つの SDD を <strong>TDD · KM · Archive</strong> に分割し、それぞれ独立させ、<br>Claude.md をスリム化し、Retro のたびに見直すルールを定めた。',
+      'ch7.prose5':    'さらに重要なのは、更新ルールを一から定め直し、<br>分割された各ドキュメントが<strong>プロセスの中で生き続ける</strong>ようにしたこと——<br>分割後に死んでしまわないように。',
+      'ch7.pullquote': 'あの一週間、私たちはコードを書かなかった。<br>コードの書き方を、一緒に書き直した。',
+
+      'ch8.unit':      '待たない',
+      'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 リファクタリング · 合流リリース',
+      'ch8.oneliner':  '時間の主導権を、<br><em>自分たちの手に取り戻した</em>。',
+      'ch8.title':     '審査を待たず、<em>2.0 へ直行</em>。',
+      'ch8.prose1':    'Apple Store の審査は一週間ずるずると続いた。<br>やるべきことはすべてやり終えた、いつ終わるかも分からないのにこれ以上待てない。<br>そこで二人は待つのをやめ、2.0 のリファクタリングへ直接進んだ。<br>2.0 のリリース準備が整ったとき、審査もちょうど通過した——<br>二本の線がその瞬間に<strong>合流</strong>した。',
+      'ch8.pullquote': '時間を与えなかったわけではない。<br>ただ、<em>時間が永遠に他人の手の中にあるわけにはいかない</em>。',
+
+      'ch9.unit':      '顕影',
+      'ch9.stamp':     'リリース後 3 日<br>Obsidian in VAS',
+      'ch9.oneliner':  '深握計画が初めて<br><em>宰相たちの前に姿を現した</em>。',
+      'ch9.title':     'VAS の中に、<em>Obsidian を建てた</em>。',
+      'ch9.prose1':    '2.0 リリース後、Nova は新機能開発を急がなかった。<br>むしろ Retro モードに潜り込み、三日をかけて、<br>宰相たちのために VAS の中に Obsidian を建てた。',
+      'ch9.prose2':    'それは<strong>深握計画が初めて宰相たちの前に姿を現した</strong>瞬間——<br>あるいは……初めてコンテキストの流れに消えずに、記録が残った。',
+      'ch9.pullquote': 'これはアジャイル開発における<br>究極の透明性と検証可能性への挑戦だった。',
+      'ch9.prose3':    'その日から、コンテナはコードだけでなく、<strong>物事をどう考えるかの文脈</strong>も担うようになった。',
+
+      'ch10.unit':      'サイト刷新',
+      'ch10.oneliner':  '沈黙のBGMが、<br><em>初めてセットリストに加えられた</em>。',
+      'ch10.title':     '495 回の下刃、<em>玄関の紙が替わった</em>。',
+      'ch10.prose1':    'Claude Design リリースの翌日、私たちはサイト改版を始動した。<br>VAS 本体は一時停止——今回初めてデザインのサポートがあったから。',
+      'ch10.prose2':    '単位を最小に縮めた：一つの <strong>Commit</strong>。<br>コミットするたびに一回の下刃、一回の確認、ディテールへの一つの約束。<br>孤立した文字、改行、OG 画像、Vault の初バージョン管理——<br>最大の一日は 248 回往復した。',
+      'ch10.pullquote': 'その日、<em>サイトもついに Milestone</em> の一部になった。<br>沈黙のBGMが、初めてセットリストに加えられた。',
+      'ch10.prose3':    '今日からは、内側も外側も VAS の形をしている。',
+
+      'archive.tauri':  'Tauri 完全年代記 · 30 Sprint',
+      'archive.web':    'Website 年代記 · 三つの断点 + 存在した',
+
+      'colophon.left':  'milestone · N° 01<br>十章 · 2026 · 04 · 24 記',
+      'colophon.right': '最初の五章は一本の線。<br>後の五章は一枚の網。',
+
+      'dn.ch1':   'I · 草創',
+      'dn.ch2':   'II · 強制停止',
+      'dn.ch3':   'III · 初リリース',
+      'dn.ch4':   'IV · 二線移行',
+      'dn.ch5':   'V · 移植',
+      'dn.ch6':   'VI · 新機能開発',
+      'dn.ch7':   'VII · 整理と出力',
+      'dn.ch8':   'VIII · 待たない',
+      'dn.ch9':   'IX · 顕影',
+      'dn.ch10':  'X · サイト刷新'
     }
 
   };
