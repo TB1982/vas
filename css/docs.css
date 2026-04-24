@@ -552,6 +552,7 @@ body.is-guide .dot-nav-trigger { display: none; }
 .g-badge-t, .g-badge-a {
   font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.1em;
   padding: 2px 7px; border-radius: 999px; flex-shrink: 0;
+  display: inline-block; vertical-align: middle;
 }
 .g-badge-t { background: rgba(196,113,245,0.12); color: var(--vas-aurora-violet); border: 1px solid rgba(196,113,245,0.25); }
 .g-badge-a { background: rgba(240,232,220,0.06); color: var(--vas-ash-2); border: 1px solid var(--vas-rule); }
