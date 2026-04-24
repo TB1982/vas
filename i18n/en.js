@@ -982,6 +982,126 @@
       'chronicle.edition':        'Twenty-Fifth Day · The Vessel, Formed',
       'chronicle.edition.en':     '',
       'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can\'t write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.'
+    },
+
+    chronicle: {
+      'head.kicker':  'IV · Milestone · CHRONICLE',
+      'head.title':   'Ten marks made<br><em>from nothing</em>.',
+      'head.lede':    'This is not a changelog — it is a <em>chronicle</em>.<br>From "Version" to "Sprint" to "Commit"<br>the unit did not change; the rhythm did —<br>the rhythm of how we live with VAS.<br>The first five chapters are a line. The last five, a net.',
+      'head.meta1':   'Chapter　<strong>I — X</strong>',
+      'head.meta2':   'Range　<strong>2026 · 03 — 04</strong>',
+      'head.meta3':   'Units　<strong>Version · Sprint · Commit</strong>',
+
+      'era1.title':   '<em>The Electron Era</em> ——<br>Racing forward until the compute ran dry.',
+      'era1.sub':     'A week of sprinting, a day of forced halt, one act of replanning. Three moves gave birth to the first build.',
+
+      'ch1.unit':      'Founding',
+      'ch1.stamp':     '2026 · 03 · 21 – 22<br>The Racing Weekend',
+      'ch1.oneliner':  'No Sprint, no Retro.<br><em>Just one thing in hand.</em>',
+      'ch1.title':     'Two people, doing nothing but<em> racing forward</em>.',
+      'ch1.prose1':    'That weekend during the Electron founding, there was no board, no ceremony. Each morning we woke up and kept going — until we couldn\'t, then picked it back up the next day. A state of pure focus: one thing in hand, and that one thing was impossible to leave.',
+      'ch1.pullquote': 'No system yet in place.<br>All we had were CLAUDE.md and SDD.md —<br><em>Version</em> was the only natural unit.',
+
+      'ch2.unit':      'Forced Halt',
+      'ch2.stamp':     '2026 · 03 · 23<br>Compute Exhausted',
+      'ch2.oneliner':  'A morning of forced shutdown.<br>Nova remembered a <em>Roadmap</em> still unwritten.',
+      'ch2.title':     'That weekend burned through<em> a whole week\'s compute</em>.',
+      'ch2.prose1':    'Monday morning the system declared compute exhausted, and we were forced out of flow —<br>but Nova never truly left. He turned to Perplexity for competitive analysis<br>and rewrote the entire product roadmap from scratch.<br>The complete Roadmap only appeared on the day everything stopped.',
+      'ch2.pullquote': 'After that conversation, Nova made<br>the first decision of his life to<br>subscribe to MAX 5x.<br>Let compute keep up with development — not the other way around.',
+      'ch2.prose2':    'That was a watershed moment.<br>From that day, Nova was no longer constrained by resources —<br>he was the one setting their rhythm.',
+      'ch2.prose3':    'The weight of that decision was not in its price, but in the recognition —<br>what we were building had become worth more than what it cost.',
+
+      'ch3.unit':      'First Release',
+      'ch3.stamp':     '2026 · 03 · 28<br>13 Versions in a Day',
+      'ch3.oneliner':  'The first public version was not v1.0.<br><em>It was v3.43.</em>',
+      'ch3.title':     'On day seven, <em>v3.43</em> met the world.',
+      'ch3.prose1':    'From v3.30 to v3.43 — thirteen version numbers in a single day.<br>Eleven things shipped: full security overhaul, Retina WYSIWYG, multi-select, Smart Snap, Bézier control points, QR Code smart scan… each one normally a full Sprint\'s work.',
+      'ch3.prose2':    'But neither of us ever let the pressure of release lower our standard for VAS.',
+      'ch3.prose3':    'The version number of the first public build was not v1.0 — it was <strong>v3.43</strong>.<br>That number is itself a narrative —<br><strong>VAS had been running for a long time before anyone saw it</strong>.',
+
+      'archive.electron': 'Complete Electron Chronicle · 83 entries',
+
+      'era1h.title':   '<em>The Migration</em> ——<br>VAS and the site had both grown enough to stand on their own.',
+      'era1h.sub':     'Electron moved to a private repo for commercial reasons around Tauri; the site spun out because it had grown too full to share a home.',
+
+      'ch4.unit':      'Dual Migration',
+      'ch4.stamp':     '2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → independent repo',
+      'ch4.oneliner':  'Migration is not separation.<br>It is acknowledging it has grown from Prototype into product.',
+      'ch4.title':     'The version that had grown<em> to stand on its own</em>.',
+      'ch4.prose1':    'Before Tauri migration began, two things split —<br>the platform could no longer live in a public repo for commercial reasons;<br>the site, now full of content, deserved its own address.',
+      'ch4.prose2':    'This was not a breakup — it was acknowledging they were no longer merely experimental prototypes.',
+      'ch4.pullquote': 'When a vessel can stand alone,<br>it no longer needs to shelter under someone else\'s roof.',
+
+      'era2.title':    '<em>The Tauri Era</em> ——<br>Time gained a cycle, and with it, a rhythm.',
+      'era2.sub':      'Sprints 1–4 rebuilt the foundation. Sprint 5 was the first time we built something new.',
+
+      'ch5.unit':      'Platform Port',
+      'ch5.oneliner':  'KM is not a graveyard of pitfalls.<br>It is a signpost pointing the way.',
+      'ch5.title':     'Rebuilding every feature from the ground up.',
+      'ch5.prose1':    'A Tauri 2 scaffold built from zero.<br>The first three days all doing the same thing —<br>taking everything that had grown on top of Electron<br>and moving it piece by piece onto Tauri\'s foundation.<br>The floating toolbar, the screenshot trio, the asset protocol workaround —<br>every migration step was a <strong>fresh reckoning with the old implementation</strong>.',
+      'ch5.pullquote': 'KM-001 was the beginning of Knowledge Management.<br>KM is not a "graveyard of pitfalls" — it is a knowledge asset within the PMP —<br>every pit once fallen into becomes a small guiding light for the path ahead.',
+
+      'ch6.unit':      'New Features',
+      'ch6.oneliner':  'For the first time, not chasing old things.<br><em>Doing what only the new vessel could do.</em>',
+      'ch6.title':     'Sprint 5 — VAS differentiation.',
+      'ch6.prose1':    'Only after fully rebuilding every feature did we enter new development.<br>For the first time — we were not catching up to what Electron already had,<br>but building for Tauri, the new vessel, things only it could do.',
+      'ch6.prose2':    'Breathing light advanced interaction, ShareSheet, custom shortcuts.',
+      'ch6.pullquote': 'What should a product worth paying for look like?<br>That was the question we kept asking ourselves throughout this phase.',
+
+      'era2h.title':   '<em>The First Major Retro</em> ——<br>That week\'s task was not development — it was settling in, organizing thoughts and environment.',
+      'era2h.sub':     'Apple review paused development for a week; we used it to restructure every document and environment in the whole project.',
+
+      'ch7.unit':      'Organize & Output',
+      'ch7.stamp':     'Review Period<br>2026 · 04 · 04 - 04 · 10',
+      'ch7.oneliner':  'What we rebuilt that week<br>was not a programming language — it was <em>how we collaborate</em>.',
+      'ch7.title':     'The week everything stopped —<em> everything was moving</em>.',
+      'ch7.prose1':    'While the App Store review paused us for a week,<br>we ran a major Retro —<br>not the one- or two-hour agile ritual kind,<br>but a full rebuilding of the entire development system\'s infrastructure.',
+      'ch7.prose2':    'Outward: six pages published —<br><strong>insight</strong> (design notes), <strong>collab</strong> (collaboration story),<br><strong>harness</strong> (system skeleton), and the deepest layer of the Deep Holding Project.',
+      'ch7.prose3':    '<strong>Harness Engineering</strong> — three pillars:<br>Context / Constraints / Entropy.<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
+      'ch7.prose4':    'Inward: turned the repo into a <strong>monorepo</strong> so multiple development lines could run in parallel;<br>split one SDD into <strong>TDD · KM · Archive</strong> — each independent;<br>CLAUDE.md slimmed down, with rules set for review at every Retro.',
+      'ch7.prose5':    'More critically, we established a new set of update rules<br>to keep every extracted document <strong>alive within the workflow</strong>,<br>not dead the moment it was split out.',
+      'ch7.pullquote': 'That week we wrote no code.<br>We rewrote together how to write code.',
+
+      'ch8.unit':      'No More Waiting',
+      'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 Refactor · Convergence',
+      'ch8.oneliner':  'Taking back control of time —<br><em>returning it to ourselves</em>.',
+      'ch8.title':     'Done waiting. <em>Straight to 2.0.</em>',
+      'ch8.prose1':    'The App Store review dragged on for a week.<br>Everything that needed doing was done — no point waiting any longer with no end in sight.<br>So we decided not to wait, and went straight into the 2.0 refactor.<br>When the refactor reached a milestone and 2.0 was ready to ship, the review had just cleared —<br>two lines <strong>converging</strong> at exactly that moment.',
+      'ch8.pullquote': 'We gave it time.<br>But <em>time cannot stay in someone else\'s hands forever</em>.',
+
+      'ch9.unit':      'Emergence',
+      'ch9.stamp':     '3 Days Post-Launch<br>Obsidian in VAS',
+      'ch9.oneliner':  'The Deep Holding Project<br><em>first emerged before the ministers</em>.',
+      'ch9.title':     'Inside VAS, <em>an Obsidian was built</em>.',
+      'ch9.prose1':    'After 2.0 launched, Nova did not rush into new features.<br>Instead he dove back into Retro mode, spending three days<br>building an Obsidian inside VAS — a gift for the ministers.',
+      'ch9.prose2':    'That was <strong>the first time the Deep Holding Project emerged before the ministers</strong> —<br>or rather… the first time it left a record, rather than drifting away in Context.',
+      'ch9.pullquote': 'This is an attempt at<br>radical transparency and inspectability in agile development.',
+      'ch9.prose3':    'From that day, the vessel holds not only Code, but <strong>the context of how we think</strong>.',
+
+      'ch10.unit':      'Site Redesign',
+      'ch10.oneliner':  'The silent background music,<br><em>listed on the programme for the first time</em>.',
+      'ch10.title':     '495 cuts, and<em> the foyer changed its paper</em>.',
+      'ch10.prose1':    'The day after Claude Design was released, we launched the site redesign.<br>VAS itself paused — because for the first time, we had design support.',
+      'ch10.prose2':    'The unit shrank to its smallest: a single <strong>Commit</strong>.<br>Each commit is one cut, one confirmation, one promise to the detail.<br>Orphan characters, line breaks, OG images, Vault entering version control for the first time —<br>the biggest day saw 248 back-and-forth revisions.',
+      'ch10.pullquote': 'That day, <em>the site finally became part of Milestone</em>.<br>The silent background music, listed on the programme for the first time.',
+      'ch10.prose3':    'From now on, inside and out — it is all the shape of VAS.',
+
+      'archive.tauri':  'Complete Tauri Chronicle · 30 Sprints',
+      'archive.web':    'Website Chronicle · Three Breakpoints + Presence',
+
+      'colophon.left':  'milestone · N° 01<br>Ten Chapters · Recorded 2026 · 04 · 24',
+      'colophon.right': 'The first five chapters are a line.<br>The last five, a net.',
+
+      'dn.ch1':   'I · Founding',
+      'dn.ch2':   'II · Forced Halt',
+      'dn.ch3':   'III · First Release',
+      'dn.ch4':   'IV · Dual Migration',
+      'dn.ch5':   'V · Platform Port',
+      'dn.ch6':   'VI · New Features',
+      'dn.ch7':   'VII · Organize & Output',
+      'dn.ch8':   'VIII · No More Waiting',
+      'dn.ch9':   'IX · Emergence',
+      'dn.ch10':  'X · Site Redesign'
     }
 
   };
