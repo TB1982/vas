@@ -162,11 +162,11 @@
   font-size: 15px;
   line-height: 1.8;
   color: var(--vas-ash-1);
-  max-width: 44ch;
+  max-width: 56ch;
 }
 .section-body {
   margin-left: 128px; /* 80px no + 48px gap，讓正文和 name 對齊 */
-  max-width: 44ch;
+  max-width: 60ch;
   font-family: var(--vas-serif);
   font-size: 17px;
   line-height: 1.95;
