@@ -9,7 +9,8 @@
       navInsight: 'Design Insights', navInsightShort: 'Insights',
       navMilestone: 'Milestones',  navMilestoneShort: 'Milestone',
       navCollab: 'Collab Notes',   navCollabShort: 'Collab',
-      navHarness: 'System Thinking', navHarnessShort: 'System'
+      navHarness: 'System Thinking', navHarnessShort: 'System',
+      ctaDownload: 'Download VAS'
     },
 
     index: {

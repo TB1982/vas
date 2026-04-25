@@ -11,7 +11,8 @@
       navInsight: '設計洞察', navInsightShort: '設計',
       navMilestone: '里程碑', navMilestoneShort: '里程碑',
       navCollab: '協作筆記', navCollabShort: '協作',
-      navHarness: '系統建構裏話', navHarnessShort: '系統'
+      navHarness: '系統建構裏話', navHarnessShort: '系統',
+      ctaDownload: '下載 VAS'
     },
 
     index: {
