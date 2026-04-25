@@ -3,7 +3,7 @@
   window.VASI18n.ja = {
 
     shared: {
-      footer: 'GitHub でデプロイ　｜　Claude Code で構築　｜　2026年 <a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最終更新',
+      footer: 'GitHub でデプロイ　｜　Claude Code で構築　｜　2026年 <a href="mailto:nova@yoursvas.app" class="hover:text-white/50 transition-colors">Nova</a> 最終更新',
       privacyLink: 'プライバシーポリシー', pmLink: 'ディープホールディング計画',
       navGuide: '操作マニュアル', navGuideShort: '操作',
       navInsight: 'デザインの洞察', navInsightShort: '洞察',
@@ -856,7 +856,7 @@
       's4.h2': 'サードパーティサービス',
       's4.p': '本アプリはいかなるサードパーティの分析・広告・トラッキングサービスも使用しません。',
       's5.h2': 'お問い合わせ',
-      's5.p': 'プライバシーに関するご質問は、こちらまでご連絡ください：<a href="mailto:babelon1882@gmail.com">babelon1882@gmail.com</a>',
+      's5.p': 'プライバシーに関するご質問は、こちらまでご連絡ください：<a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a>',
     },
 
     home2: {

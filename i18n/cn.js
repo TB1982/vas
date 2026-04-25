@@ -5,7 +5,7 @@
   window.VASI18n.cn = {
 
     shared: {
-      footer: '由 GitHub 部署　｜　Claude Code 倾力打造　｜　<a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最后更新于 2026',
+      footer: '由 GitHub 部署　｜　Claude Code 倾力打造　｜　<a href="mailto:nova@yoursvas.app" class="hover:text-white/50 transition-colors">Nova</a> 最后更新于 2026',
       privacyLink: '隐私权政策', pmLink: '深握计划',
       navGuide: '操作手册', navGuideShort: '操作',
       navInsight: '设计洞察', navInsightShort: '设计',
@@ -741,7 +741,7 @@ harnessBtn: '阅读系统思维 →',
       's4.h2': '第三方服务',
       's4.p': '本应用不使用任何第三方分析、广告或追踪服务。',
       's5.h2': '联系方式',
-      's5.p': '如有任何隐私相关问题，请联系：<a href="mailto:babelon1882@gmail.com">babelon1882@gmail.com</a>',
+      's5.p': '如有任何隐私相关问题，请联系：<a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a>',
     },
 
     home2: {
