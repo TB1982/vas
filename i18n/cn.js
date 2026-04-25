@@ -745,7 +745,7 @@ harnessBtn: '阅读系统思维 →',
 
     home2: {
       'title':                    'VAS · 给那些未能用文字明说的当下',
-      'meta.desc':                'VAS 是一只传递信息的炼金容器——把看见的、想说的、想记下的，在进入编辑之前，先承接起来。',
+      'meta.desc':                '不会写程序的 PM × Claude，25 天人机协作打造 Mac 截图标注工具。免费 Electron 版 + App Store Tauri 版，OCR 隐私遮蔽、浮动工具栏、QR Code 扫描。',
       'nav.design':               '设计',
       'nav.collaboration':        '协作',
       'nav.system':               '系统',

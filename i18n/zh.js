@@ -632,7 +632,7 @@
 
     home2: {
       'title':                    'VAS | 不會寫程式的 PM，用 AI 人機協作創造 Mac 截圖工具',
-      'meta.desc':                'VAS 是一只傳遞意象的煉金容器——從形狀到符號，給你超越文字的力量。',
+      'meta.desc':                '不會寫程式的 PM × Claude，25 天人機協作打造 Mac 截圖標注工具。免費 Electron 版 + App Store Tauri 版，OCR 隱私遮蔽、浮動工具列、QR Code 掃描。',
       'nav.design':               '設計',
       'nav.collaboration':        '協作',
       'nav.system':               '系統',
