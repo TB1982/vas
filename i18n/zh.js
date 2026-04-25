@@ -132,7 +132,7 @@
       cb_batch: '批次轉', cb_batch_desc: '拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。',
       cb_batch_note: '單次最大 100 張圖，單檔 20mb',
       cb_help: '說明', cb_help_desc: '顯示快捷鍵一覽，並提供操作手冊連結與呼吸燈開關。',
-      'docs.title': '操作手冊 · VAS',
+      'docs.title': 'VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ',
       'docs.meta.desc': 'VAS 操作手冊——工具列、編輯器、OCR、匯出與快捷鍵的完整說明。',
       docsDek: '這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>往下捲是「入門 → 核心 → 進階」的順序；<br>左側目錄永遠陪著你，點一下就能跳到任何一節。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜尋也可以。',
       docsDekMobile: '這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>往下捲是「入門 → 核心 → 進階」的順序；<br>想跳段落看的話請按右上角的呼吸燈。',
@@ -655,7 +655,7 @@
     },
 
     collab2: {
-      ch2PageTitle:      'II · 協作 · VAS',
+      ch2PageTitle:      'AI 協作開發實錄 | PM × Claude 25 天打造 Mac App',
       ch2MetaDesc:       '六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>個故事</em>。',
@@ -717,7 +717,7 @@
     },
 
     harness2: {
-      ch3PageTitle:      'III · 系統 · VAS',
+      ch3PageTitle:      'Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作',
       ch3MetaDesc:       'Harness Engineering——如何把 AI 的限制變成協作的結構，從熵增到反脆弱的完整方法論。',
       ch3No:             'Chapter III',
       ch3Name:           'Harness<em>.</em>',
