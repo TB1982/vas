@@ -3,7 +3,7 @@
   window.VASI18n.en = {
 
     shared: {
-      footer: 'Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by <a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a>',
+      footer: 'Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by <a href="mailto:nova@yoursvas.app" class="hover:text-white/50 transition-colors">Nova</a>',
       privacyLink: 'Privacy Policy', pmLink: 'Deep Holding Project',
       navGuide: 'User Guide',      navGuideShort: 'Guide',
       navInsight: 'Design Insights', navInsightShort: 'Insights',
@@ -955,7 +955,7 @@
       's4.h2': 'Third-Party Services',
       's4.p': 'The App does not use any third-party analytics, advertising, or tracking services.',
       's5.h2': 'Contact',
-      's5.p': 'For any privacy-related questions, please contact: <a href="mailto:babelon1882@gmail.com">babelon1882@gmail.com</a>',
+      's5.p': 'For any privacy-related questions, please contact: <a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a>',
     },
 
     home2: {
