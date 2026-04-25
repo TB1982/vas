@@ -1,12 +1,7 @@
 name: Build i18n static pages
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'i18n/**'
-      - '*.html'
-      - 'build-i18n.js'
+  workflow_dispatch:
 
 jobs:
   build:
