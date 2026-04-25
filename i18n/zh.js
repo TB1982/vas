@@ -616,7 +616,7 @@
     },
 
     home2: {
-      'title':                    'VAS · 給那些未能用文字明說的當下',
+      'title':                    'VAS | 不會寫程式的 PM，用 AI 人機協作創造 Mac 截圖工具',
       'meta.desc':                'VAS 是一只傳遞意象的煉金容器——從形狀到符號，給你超越文字的力量。',
       'nav.design':               '設計',
       'nav.collaboration':        '協作',
