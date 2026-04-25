@@ -261,6 +261,26 @@ function fixGuideImages(html, lang) {
   return html;
 }
 
+// Fix privacy.html JSON-LD: url, inLanguage, name per language
+function fixPrivacyJsonLd(html, lang, t) {
+  const meta = LANG_META[lang];
+  const url  = `${CANONICAL}/${lang}/privacy.html`;
+  const name = (t.privacy || {}).appName || 'VAS Privacy Policy';
+  html = html.replace(
+    /"url":\s*"https:\/\/tb1982\.github\.io\/vas\/privacy\.html"/,
+    `"url": "${url}"`
+  );
+  html = html.replace(
+    /"inLanguage":\s*\[[^\]]*\]/,
+    `"inLanguage": "${meta.hreflang}"`
+  );
+  html = html.replace(
+    /"name":\s*"VAS Privacy Policy"/,
+    `"name": "${name}"`
+  );
+  return html;
+}
+
 // Escape special chars for use in attribute values
 function esc(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -304,7 +324,8 @@ function buildLang(lang, t) {
     html = removeI18nScripts(html);
     html = fixPaths(html);
     html = fixInternalLinks(html, page);
-    if (page === 'guide.html') html = fixGuideImages(html, lang);
+    if (page === 'guide.html')   html = fixGuideImages(html, lang);
+    if (page === 'privacy.html') html = fixPrivacyJsonLd(html, lang, t);
 
     // Fix og:url placeholder
     html = html.replace(/\/{{LANG}}\/{{PAGE}}/g, `/${lang}/${page}`);
