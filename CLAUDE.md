@@ -13,6 +13,7 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
 5. **`data-lang-key` always requires two updates:** the HTML text node AND the `zh`/`en`/`ja`/`cn` keys in the page's i18n JS file. Missing either causes visible bugs.
    → For large i18n tasks: **CLAUDE-process.md § Haiku Protocol**
 6. **Use `臺` not `台`** — `臺灣`, `臺北`, `臺中`. Never substitute silently.
+7. **Milestone numbers require Nova's approval before any edit.** All specific figures in the `milestone` i18n namespace (version numbers, day counts, Sprint counts, dates) must be confirmed with Nova before changing. Nova holds the correct memory — do not infer, update, or globally replace these values unilaterally.
 
 ---
 
