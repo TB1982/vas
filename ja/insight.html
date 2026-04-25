@@ -244,12 +244,32 @@
     <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../insight.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="../en/insight.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="insight.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="../cn/insight.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../insight.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="../en/insight.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+    <a href="insight.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">日本語</a>
+    <a href="../cn/insight.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>日</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../insight.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/insight.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="insight.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/insight.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch1.no">Chapter I</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch1.name">機能リストには<br>載らなかった<br><em>決断</em>たち。</h1>
+    <div class="chapter-dek" data-lang-key="ch1.dek">五つの設計決断——<br>それぞれに選択があり、放棄があり、<br>やり直したものがある。<br>これは VAS の<em>手藝告白</em>：<br>ツールを、ツール以上にする。</div>
+  </div>
 </header>
 
 <!-- ═══════ 章目錄 · TOC ═══════ -->

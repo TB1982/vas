@@ -91,12 +91,90 @@
     <a href="harness.html" data-lang-key="home2.nav.system">System</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="guide.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="../ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="guide.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">English</a>
+    <a href="../ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+    <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="guide.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<div class="docs-layout">
+
+  <!-- ═══════ 桌面側邊 TOC ═══════ -->
+  <aside class="docs-toc-sticky">
+    <div class="docs-toc-sticky-label" data-lang-key="tocLabel">Contents</div>
+    <ul>
+      <li><a href="#welcome">Welcome on Board</a></li>
+
+      <li class="group" data-lang-key="tocGroupStart">Getting Started</li>
+      <li><a href="#first-launch" data-lang-key="flH3">Opening VAS for the first time</a></li>
+      <li><a href="#permissions" data-lang-key="permH3">Permissions & privacy</a></li>
+      <li><a href="#first-capture" data-lang-key="fcH3">Taking your first screenshot</a></li>
+
+      <li class="group" data-lang-key="tocGroupCore">Core</li>
+      <li><a href="#menubar" data-lang-key="mbH3">The bottle in your menu bar</a></li>
+      <li><a href="#breath" data-lang-key="blH3">One breathing light. One keystroke away.</a></li>
+      <li><a href="#toolbar" data-lang-key="s3Title">Capture Toolbar</a></li>
+      <li><a href="#editor" data-lang-key="s1Title">Editor Interface</a></li>
+      <li><a href="#export" data-lang-key="exportH3">Export</a></li>
+
+      <li class="group" data-lang-key="tocGroupAdv">Advanced</li>
+      <li><a href="#ocr" data-lang-key="ocrH3">OCR & QR Code</a></li>
+      <li><a href="#shortcuts" data-lang-key="kbH3">Keyboard shortcuts</a></li>
+      <li><a href="#customization" data-lang-key="custH3">Custom settings</a></li>
+      <li><a href="#tips" data-lang-key="tipsH3">Troubleshooting & edge cases</a></li>
+    </ul>
+  </aside>
+
+  <main class="docs-main">
+
+
+    <!-- ═══ Welcome ═══ -->
+    <section class="docs-section" id="welcome">
+      <h1>Welcome on Board</h1>
+      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">This is VAS's operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>the left menu stays with you—click any section to jump.<br><span class="docs-kbd">Ctrl</span>+<span class="docs-kbd">F</span> search works too.</div>
+      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">This is VAS's operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>tap the breathing light in the top right to jump to any section.</div>
+    </section>
+
+    <!-- ═══ 01 · 入門 ═══ -->
+    <section class="docs-section" id="getting-started">
+      <div class="docs-section-kicker" data-lang-key="tocKickerStart">GETTING STARTED</div>
+
+      <div class="docs-subsection" id="first-launch">
+        <h3 data-lang-key="flH3">Opening VAS for the first time</h3>
+        <p data-lang-key="flP1">After downloading from the App Store and opening VAS, you'll see a fresh floating toolbar on your desktop. It stays where you place it—drag it freely.</p>
+        <figure class="docs-figure">
+          <img class="js-toolbar-img" src="../img/vastoolbar-en.webp" alt="VAS floating toolbar — Mac screenshot annotation tool">
+        </figure>
+        <p data-lang-key="flP2">If the toolbar takes up too much space and you want it smaller—the <strong>breathing light</strong> mode is off by default. Turn it on manually in the toolbar's "Keyboard Shortcuts".</p>
+        <div class="docs-bl-preview">
+          <img src="../img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
+        </div>
+        <p data-lang-key="flP3">VAS also lives in your macOS menu bar, shaped like a bottle in the top-right corner of your screen.</p>
+        <figure class="docs-figure">
+          <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
+            <img src="../img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
+          </div>
+          <figcaption data-lang-key="flCaption">MENUBAR · Top right—VAS and Claude stand ready side by side.</figcaption>
+        </figure>
+        <div class="docs-note">
+          <div class="docs-note-label" data-lang-key="flNoteLabel">Want VAS to disappear completely?</div>
+          <p data-lang-key="flNoteP1">Click the bottle in the top-right menu bar (left-click) to summon or fully hide the desktop toolbar—we've thought of everything for desk minimalists.</p>
+          <p data-lang-key="flNoteP2">VAS remains on standby in your menu bar.</p>
+        </div>
+      </div>
 
       <div class="docs-subsection" id="permissions">
         <h3 data-lang-key="permH3">Permissions & privacy</h3>

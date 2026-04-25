@@ -249,12 +249,32 @@
     <a href="harness.html" data-lang-key="home2.nav.system">System</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="collab.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="../cn/collab.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="collab.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">English</a>
+    <a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+    <a href="../cn/collab.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="collab.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/collab.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch2No">Chapter II</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch2Name">Six <em>Stories</em>.</h1>
+    <div class="chapter-dek" data-lang-key="ch2Dek">She can't write code.<br>He has no long-term memory.<br>Together they built it. ——<br>This isn't a story about<br>Prompt Engineering,<br>it's six moments walked by two incomplete beings.</div>
+  </div>
 </header>
 
 <!-- ═══════ 章目錄 · TOC ═══════ -->
