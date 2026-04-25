@@ -9,7 +9,8 @@
       navInsight: 'デザインの洞察', navInsightShort: '洞察',
       navMilestone: 'マイルストーン', navMilestoneShort: 'マイル',
       navCollab: '協作ノート',     navCollabShort: '協作',
-      navHarness: 'システム構築の裏話', navHarnessShort: 'システム'
+      navHarness: 'システム構築の裏話', navHarnessShort: 'システム',
+      ctaDownload: 'VAS をダウンロード'
     },
     index: {
       backLabel: '深握プロジェクト',
