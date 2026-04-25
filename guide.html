@@ -154,11 +154,11 @@
         <h3 data-lang-key="flH3">第一次打開 VAS</h3>
         <p data-lang-key="flP1">從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
         <figure class="docs-figure">
-          <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS 浮動工作列">
+          <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列">
         </figure>
         <p data-lang-key="flP2">如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
         <div class="docs-bl-preview">
-          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
+          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
         </div>
         <p data-lang-key="flP3">VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
         <figure class="docs-figure">
@@ -224,7 +224,7 @@
         <h3 data-lang-key="s3Title">工具列</h3>
         <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
 
-        <img id="guideToolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="g-img js-toolbar-img" loading="lazy">
+        <img id="guideToolbarImg" src="img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列" class="g-img js-toolbar-img" loading="lazy">
 
         <div class="g-toolbar-grid">
           <div class="g-card">
@@ -267,7 +267,7 @@
         <h3 data-lang-key="s1Title">編輯器</h3>
         <p data-lang-key="editorIntro">截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
         <figure class="docs-figure">
-          <img id="guideEditorImg" class="js-editor-img" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖">
+          <img id="guideEditorImg" class="js-editor-img" src="img/vas-guide-editor-zh.webp" alt="VAS 截圖編輯器介面——標注工具、OCR 隱私遮蔽與匯出功能完整說明">
           <figcaption data-lang-key="editorCaption">EDITOR · 四個操作區域。</figcaption>
         </figure>
         <ul class="docs-list">
@@ -629,10 +629,10 @@
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
 
       var editorImgMap = {
-        zh: ['img/vas-guide-editor-zh.webp',    'VAS 編輯器介面說明圖'],
-        en: ['img/vas-guide-editor-en.webp',    'VAS editor interface'],
-        ja: ['img/vas-guide-editor-jp.webp',    'VAS エディタ画面'],
-        cn: ['img/vas-guide-editor-zh-CN.png',  'VAS 编辑器界面说明图']
+        zh: ['img/vas-guide-editor-zh.webp',    'VAS 截圖編輯器介面——標注工具、OCR 隱私遮蔽與匯出功能完整說明'],
+        en: ['img/vas-guide-editor-en.webp',    'VAS screenshot editor — annotation tools, OCR privacy masking and export'],
+        ja: ['img/vas-guide-editor-jp.webp',    'VAS スクリーンショットエディタ——注釈ツール・OCRプライバシーマスク・書き出し機能の完全ガイド'],
+        cn: ['img/vas-guide-editor-zh-CN.png',  'VAS 截图编辑器界面——标注工具、OCR 隐私遮蔽与导出功能完整说明']
       };
       if (editorImgMap[lang]) {
         document.querySelectorAll('.js-editor-img').forEach(function(img) {
@@ -642,10 +642,10 @@
       }
 
       var toolbarImgMap = {
-        zh: ['img/vastoolbar.webp',        'VAS 浮動工作列'],
-        en: ['img/vastoolbar-en.webp',     'VAS capture toolbar'],
-        ja: ['img/vastoolbar-jp.webp',     'VAS ツールバー'],
-        cn: ['img/vastoolbar-zh-CN.png',   'VAS 浮动工具栏']
+        zh: ['img/vastoolbar.webp',        'VAS Mac 截圖工具浮動工具列'],
+        en: ['img/vastoolbar-en.webp',     'VAS floating toolbar — Mac screenshot annotation tool'],
+        ja: ['img/vastoolbar-jp.webp',     'VAS Macスクリーンショットツール フローティングツールバー'],
+        cn: ['img/vastoolbar-zh-CN.png',   'VAS Mac 截图工具浮动工具栏']
       };
       if (toolbarImgMap[lang]) {
         document.querySelectorAll('.js-toolbar-img').forEach(function(img) {
