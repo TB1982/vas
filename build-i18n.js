@@ -259,8 +259,9 @@ function replaceStaticLangSwitcher(html, lang, page) {
 function removeI18nScripts(html) {
   // Remove <script src="...core.js"></script> (specific tag, no content span risk)
   html = html.replace(/<script[^>]*src="[^"]*i18n\/core\.js"[^>]*><\/script>[ \t]*\n?/g, '');
-  // Neutralize the initDropdown call only (single line, no block removal)
-  html = html.replace(/\bVASCore\.initDropdown\s*\([^)]+\)\s*;?/g, '');
+  // Neutralize VASCore calls so initDotNav() isn't blocked by ReferenceError
+  html = html.replace(/\bVASCore\.initDropdown\s*\([^)]*\)\s*;?/g, '');
+  html = html.replace(/\bVASCore\.initNavDropdown\s*\(\s*\)\s*;?/g, '');
   return html;
 }
 
