@@ -307,7 +307,7 @@
       i5p4: '這次重構也連帶讓 Electron 版受惠——底層統一，兩個平台都跑在同一套邏輯上，穩定性自然提升。',
       i5p5: 'Electron 雖然不再新增功能，但也需保持功能完整、免費、穩定，讓使用者有機會先信任 VAS，再決定要不要升級 Tauri。一次重構，把整個雙平台長期營運策略都撐起來了。',
       i5boxTitle: '重構完成——連鎖效應如預期',
-      i5bullets: '<li>座標系統統一：所有物件共享同一套空間語言</li><li>屬性模組化：實色／漸層／虛實線／大小／方向跨工具通用</li><li>TOOL_SCHEMA 覆蓋全 10 種工具，47 支 Vitest 自動測試通過</li><li>對話氣泡繼承透明度、陰影、漸層——不用重造任何一個輪子</li>',
+      i5bullets: '<li>座標系統統一：所有物件共享同一套空間語言</li><li>屬性模組化：實色／漸層／虛實線／大小／方向跨工具通用</li><li>TOOL_SCHEMA 覆蓋全 10 種工具，211 支 Vitest 自動測試通過</li><li>對話氣泡繼承透明度、陰影、漸層——不用重造任何一個輪子</li>',
       collabTeaser: '設計決策背後的故事 · 人與 AI 的協作紀錄', collabBtn: '閱讀協作筆記 →'
     },
 
@@ -587,7 +587,7 @@
       s15num: 'S15', s15meta: '04/12　4 工具　QC 100%', s15title: '🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋',
       s15desc: 'line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正',
       s16num: 'S16', s16meta: '04/13　3+ 項　QC 100%', s16title: '🏗️ v2.0 Architecture ⑤ 幾何邏輯集中化',
-      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取（任何工具下點擊物件自動切換）· Vitest 47 pass',
+      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取（任何工具下點擊物件自動切換）· Vitest 211 pass',
       s17num: 'S17', s17meta: '04/13　4 項　QC 100%', s17title: '🏗️ v2.0 Architecture ⑤ 渲染管線模組化',
       s17desc: 'TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper（~10 處漸層重複消除）· rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一',
       s18num: 'S18', s18meta: '04/13　5 項　QC 100%（3 輪修復）', s18title: '🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生',
@@ -599,7 +599,7 @@
       roadmapTag: '下一階段', roadmapH2: '路線圖',
       r1h: 'v1.0　功能驗證原型', r1p: '已上架 App Store（審核中）',
       r2h: 'v2.0　架構重構（Sprint 10–20）', r2p: '已完成（04/11–04/14）',
-      r2items: '<li>✓ 座標系統統一（DPR 全修）</li><li>✓ 漸層引擎統一（六工具）</li><li>✓ 資料模型正規化</li><li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li><li>✓ 幾何 + 渲染管線模組化</li><li>✓ Undo/Redo 架構升級 + 記憶體衛生</li><li>✓ 自動化測試基建（Vitest 47 pass）</li>',
+      r2items: '<li>✓ 座標系統統一（DPR 全修）</li><li>✓ 漸層引擎統一（六工具）</li><li>✓ 資料模型正規化</li><li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li><li>✓ 幾何 + 渲染管線模組化</li><li>✓ Undo/Redo 架構升級 + 記憶體衛生</li><li>✓ 自動化測試基建（Vitest 211 pass）</li>',
       r2bh: 'v2.1　品質基建（Sprint 21–24）', r2bp: '已完成（04/18–04/21）',
       r2bitems: '<li>✓ Sprint 21　測試基建補強</li><li>✓ Sprint 22　i18n 架構重整</li><li>✓ Sprint 23　隱私掃描多語特化</li><li>✓ Sprint 24　文件歸檔系統</li>',
       r2ch: 'v2.2　截圖品質修復', r2cp: '規劃中',
