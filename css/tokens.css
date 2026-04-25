@@ -100,7 +100,7 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
   display: flex; gap: 32px;
   position: absolute; left: 50%; transform: translateX(-50%);
   font-family: var(--vas-mono);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--vas-ash-2);
@@ -116,7 +116,7 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
 .lang-flat-row  { display: flex; align-items: center; gap: 4px; flex-wrap: nowrap; }
 .lang-flat-row .lang-opt {
   font-family: var(--vas-mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 4px 6px;
