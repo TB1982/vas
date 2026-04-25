@@ -608,17 +608,12 @@ body {
     <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
-    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
-      <span id="langDropdownLabel">中</span>
-    </button>
-    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
-      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
-      <button class="lang-opt"        data-lang="en" role="option">English</button>
-      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
-      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
+      <a href="milestone.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+      <a href="en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+      <a href="ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+      <a href="cn/milestone.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
     </div>
-  </div>
 </nav>
 
 <!-- ═══ chapter header ═══ -->
@@ -1254,7 +1249,7 @@ body {
     }
   }
   function init() {
-    VASCore.initDropdown(applyLang);
+    
     VASCore.initNavDropdown();
     initDotNav();
   }

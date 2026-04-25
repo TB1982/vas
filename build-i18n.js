@@ -211,10 +211,10 @@ function replaceStaticLangSwitcher(html, lang, page) {
 
   const opts = links.map(l => {
     const active = l.code === lang ? ' active' : '';
-    return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none">${l.label}</a>`;
+    return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap">${l.label}</a>`;
   }).join('\n');
 
-  const staticNav = `<div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">\n${opts}\n    </div>`;
+  const staticNav = `<div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">\n${opts}\n    </div>`;
 
   // Match the full lang dropdown wrapper div (with nested content)
   return html.replace(
@@ -286,6 +286,34 @@ function esc(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+// ── source zh pages: replace JS dropdown with static links ───────────────────
+
+function patchSourceLangSwitcher() {
+  PAGES.forEach(page => {
+    const fpath = path.join(BASE, page);
+    let html = fs.readFileSync(fpath, 'utf8');
+    if (!html.includes('<button id="langDropdownBtn"')) return; // already patched
+    const links = [
+      { code: 'zh', hreflang: 'zh-Hant', label: '中文',    href: page },
+      { code: 'en', hreflang: 'en',       label: 'English', href: `en/${page}` },
+      { code: 'ja', hreflang: 'ja',       label: '日本語',  href: `ja/${page}` },
+      { code: 'cn', hreflang: 'zh-Hans',  label: '简中',    href: `cn/${page}` },
+    ];
+    const opts = links.map(l => {
+      const active = l.code === 'zh' ? ' active' : '';
+      return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap">${l.label}</a>`;
+    }).join('\n');
+    const staticNav = `<div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">\n${opts}\n    </div>`;
+    html = html.replace(
+      /<div[^>]*\bid="langDropdownWrap"[^>]*>[\s\S]*?<\/div>\s*<\/div>/,
+      staticNav
+    );
+    html = html.replace(/\bVASCore\.initDropdown\s*\([^)]+\)\s*;?/g, '');
+    fs.writeFileSync(fpath, html, 'utf8');
+    console.log(`[zh] lang switcher → ${page}`);
+  });
+}
+
 // ── source zh pages: add hreflang only ───────────────────────────────────────
 
 function patchSourcePages() {
@@ -339,6 +367,7 @@ function buildLang(lang, t) {
 
 function main() {
   console.log('── VAS i18n static build ──');
+  patchSourceLangSwitcher();
   patchSourcePages();
   TARGET_LANGS.forEach(lang => {
     const t = loadI18n(lang);
