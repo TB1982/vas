@@ -766,6 +766,7 @@
       'ch1.unit':      '草創',
       'ch1.stamp':     '2026 · 03 · 21 – 22<br>奔馳的週末',
       'ch1.oneliner':  '沒有 Sprint、沒有 Retro。<br><em>手上只有一件事。</em>',
+      ch1PageTitle:    'AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策',
       'ch1.title':     '兩人只顧著<em>向前奔馳</em>。',
       'ch1.prose1':    'Electron 草創的那個週末，沒有看板、沒有儀式。每天睜眼就是繼續做，做到不能做為止，隔天再做。那是一種很純粹的狀態——手上只有一件事，而這件事讓人流連忘返。',
       'ch1.pullquote': '制度還沒建起來。<br>兩人手上只有 CLAUDE.md 與 SDD.md，<br><em>Version</em> 就是天然的單位。',
