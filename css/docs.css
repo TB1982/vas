@@ -319,6 +319,15 @@
   }
 }
 
+/* ─── 英文版 TOC 加寬 + 縮字 ─────────── */
+html[lang="en"] .docs-layout {
+  grid-template-columns: 260px 1fr;
+}
+html[lang="en"] .docs-toc-sticky a {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 @media (max-width: 768px) {
   .docs-layout {
     grid-template-columns: 1fr;
