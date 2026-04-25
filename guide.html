@@ -11,11 +11,14 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title data-lang-key="docs.title">操作手冊 · VAS</title>
+<title>VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ</title>
 <link rel="icon" href="img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://tb1982.github.io/vas/docs-shell.html">
 <meta name="description" data-lang-key="docs.meta.desc"
       content="VAS 操作手冊——從第一次打開，到熟練使用，一頁讀完。" />
+<meta property="og:title" content="VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ">
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
@@ -620,6 +623,7 @@
         var key = el.getAttribute('data-lang-key');
         if (merged[key] !== undefined) el.innerHTML = merged[key];
       });
+      if (merged['docs.title']) document.title = merged['docs.title'];
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
 
       var editorImgMap = {

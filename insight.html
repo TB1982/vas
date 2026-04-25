@@ -11,12 +11,12 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title data-lang-key="ch1.title">I · 設計 · VAS</title>
+<title>AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策</title>
 <meta name="description" data-lang-key="ch1.meta.desc"
       content="記錄 VAS 開發過程中，那些沒有寫在功能列表裡、但決定了產品質感的設計決策。" />
 <link rel="icon" href="img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://tb1982.github.io/vas/insight.html">
-<meta property="og:title" content="VAS Design Insights — 設計洞察筆記（改版預覽）">
+<meta property="og:title" content="AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策">
 <meta property="og:description" content="記錄 VAS 開發過程中，那些沒有寫在功能列表裡、但決定了產品質感的設計決策。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tb1982.github.io/vas/insight.html">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VAS Design Insights — 設計洞察筆記">
+<meta name="twitter:title" content="AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策">
 <meta name="twitter:description" content="記錄 VAS 開發過程中，那些沒有寫在功能列表裡、但決定了產品質感的設計決策。">
 
 <!-- 字型 -->
@@ -606,6 +606,7 @@
         var key = el.getAttribute('data-lang-key');
         if (merged[key] !== undefined) el.innerHTML = merged[key];
       });
+      if (merged['ch1PageTitle']) document.title = merged['ch1PageTitle'];
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
       VASCore.updateDropdown(lang);
       try { localStorage.setItem('vasLang', lang); } catch (e) {}

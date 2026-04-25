@@ -11,12 +11,12 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title data-lang-key="ch2PageTitle">II · 協作 · VAS</title>
+<title>AI 協作開發實錄 | PM × Claude 25 天打造 Mac App</title>
 <link rel="icon" href="img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://tb1982.github.io/vas/collab.html">
 <meta name="description" data-lang-key="ch2MetaDesc"
       content="六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。">
-<meta property="og:title" content="VAS · 六個故事 · 協作筆記（改版預覽）">
+<meta property="og:title" content="AI 協作開發實錄 | PM × Claude 25 天打造 Mac App">
 <meta property="og:description" content="六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tb1982.github.io/vas/collab.html">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六個故事 · VAS 協作筆記">
+<meta name="twitter:title" content="AI 協作開發實錄 | PM × Claude 25 天打造 Mac App">
 <meta name="twitter:description" content="六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。">
 
 <!-- 字型 -->
@@ -574,6 +574,7 @@
         var key = el.getAttribute('data-lang-key');
         if (merged[key] !== undefined) el.innerHTML = merged[key];
       });
+      if (merged['ch2PageTitle']) document.title = merged['ch2PageTitle'];
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
       VASCore.updateDropdown(lang);
       try { localStorage.setItem('vasLang', lang); } catch (e) {}
