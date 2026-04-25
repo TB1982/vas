@@ -91,79 +91,12 @@
     <a href="harness.html" data-lang-key="home2.nav.system">系统</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
-      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
-      <a href="../en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
-      <a href="../ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
-      <a href="guide.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
+      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+      <a href="../en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+      <a href="../ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+      <a href="guide.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
     </div>
-</nav>
-
-<div class="docs-layout">
-
-  <!-- ═══════ 桌面側邊 TOC ═══════ -->
-  <aside class="docs-toc-sticky">
-    <div class="docs-toc-sticky-label" data-lang-key="tocLabel">目录</div>
-    <ul>
-      <li><a href="#welcome">Welcome on Board</a></li>
-
-      <li class="group" data-lang-key="tocGroupStart">入门</li>
-      <li><a href="#first-launch" data-lang-key="flH3">第一次打开 VAS</a></li>
-      <li><a href="#permissions" data-lang-key="permH3">授权与隐私</a></li>
-      <li><a href="#first-capture" data-lang-key="fcH3">第一次截图</a></li>
-
-      <li class="group" data-lang-key="tocGroupCore">核心</li>
-      <li><a href="#menubar" data-lang-key="mbH3">系统菜单中的瓶子</a></li>
-      <li><a href="#breath" data-lang-key="blH3">一盏呼吸灯 x 一键召唤</a></li>
-      <li><a href="#toolbar" data-lang-key="s3Title">浮动工作列</a></li>
-      <li><a href="#editor" data-lang-key="s1Title">编辑器介面</a></li>
-      <li><a href="#export" data-lang-key="exportH3">导出</a></li>
-
-      <li class="group" data-lang-key="tocGroupAdv">进阶</li>
-      <li><a href="#ocr" data-lang-key="ocrH3">OCR 与 QR Code</a></li>
-      <li><a href="#shortcuts" data-lang-key="kbH3">快捷键</a></li>
-      <li><a href="#customization" data-lang-key="custH3">自定义设置</a></li>
-      <li><a href="#tips" data-lang-key="tipsH3">疑难与边界</a></li>
-    </ul>
-  </aside>
-
-  <main class="docs-main">
-
-
-    <!-- ═══ Welcome ═══ -->
-    <section class="docs-section" id="welcome">
-      <h1>Welcome on Board</h1>
-      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>左侧目录永远陪着你，点一下就能跳到任何一节。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜索也可以。</div>
-      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>想跳转段落，请点右上角的呼吸灯。</div>
-    </section>
-
-    <!-- ═══ 01 · 入門 ═══ -->
-    <section class="docs-section" id="getting-started">
-      <div class="docs-section-kicker" data-lang-key="tocKickerStart">入门</div>
-
-      <div class="docs-subsection" id="first-launch">
-        <h3 data-lang-key="flH3">第一次打开 VAS</h3>
-        <p data-lang-key="flP1">从 App Store 下载安装后打开 VAS，你会看到桌面上有一排崭新的浮动工具列。它可以停驻在你的桌面上，任你拖动。</p>
-        <figure class="docs-figure">
-          <img class="js-toolbar-img" src="../img/vastoolbar-zh-CN.png" alt="VAS Mac 截图工具浮动工具栏">
-        </figure>
-        <p data-lang-key="flP2">如果你觉得它在桌面上有点占位想让它小一点——<strong>呼吸灯</strong>模式预设为关闭，请到工具列「快捷键说明」内手动开启。</p>
-        <div class="docs-bl-preview">
-          <img src="../img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
-        </div>
-        <p data-lang-key="flP3">VAS 同时进驻 macOS 菜单列上，以一个瓶子的形状出现在你屏幕右上角。</p>
-        <figure class="docs-figure">
-          <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
-            <img src="../img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
-          </div>
-          <figcaption data-lang-key="flCaption">MENUBAR · 右上角，VAS 与 Claude 并肩待命。</figcaption>
-        </figure>
-        <div class="docs-note">
-          <div class="docs-note-label" data-lang-key="flNoteLabel">想让VAS完全消失？</div>
-          <p data-lang-key="flNoteP1">到右上菜单列点一下瓶子（左键），可以召唤或完全隐藏桌面上的工具列——如果你是桌面洁癖患者，我们都帮你想好了。</p>
-          <p data-lang-key="flNoteP2">VAS 依然会在菜单列待命。</p>
-        </div>
-      </div>
 
       <div class="docs-subsection" id="permissions">
         <h3 data-lang-key="permH3">授权与隐私</h3>
