@@ -801,7 +801,7 @@
       s16num: 'S16',
       s16meta: '04/13　3+ 項目　QC 100%',
       s16title: '🏗️ v2.0 Architecture ⑤ ジオメトリロジック集中化',
-      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 一行 dispatch）· Figma スタイルのクリック選択（任意ツールでオブジェクトをクリックすると自動切替）· Vitest 47 pass',
+      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 一行 dispatch）· Figma スタイルのクリック選択（任意ツールでオブジェクトをクリックすると自動切替）· Vitest 47 pass', // 歷史資料，勿動
       s17num: 'S17',
       s17meta: '04/13　4 項目　QC 100%',
       s17title: '🏗️ v2.0 Architecture ⑤ レンダリングパイプラインモジュール化',
@@ -825,7 +825,7 @@
       r1p: 'App Store 掲載済み（審査中）',
       r2h: 'v2.0　アーキテクチャリファクタリング（Sprint 10–20）',
       r2p: '完了（04/11–04/14）',
-      r2items: '<li>座標系の統一（DPR 全修正）</li><li>グラデーションエンジン統一（6 ツール）</li><li>データモデル正規化</li><li>プロパティパネルのフレームワーク化（TOOL_SCHEMA 10/10 カバー）</li><li>ジオメトリ + レンダリングパイプラインのモジュール化</li><li>Undo/Redo アーキテクチャ強化 + メモリ衛生</li><li>自動テスト基盤（Vitest 47 pass）</li>',
+      r2items: '<li>座標系の統一（DPR 全修正）</li><li>グラデーションエンジン統一（6 ツール）</li><li>データモデル正規化</li><li>プロパティパネルのフレームワーク化（TOOL_SCHEMA 10/10 カバー）</li><li>ジオメトリ + レンダリングパイプラインのモジュール化</li><li>Undo/Redo アーキテクチャ強化 + メモリ衛生</li><li>自動テスト基盤（Vitest 47 pass）</li>', // 歷史資料，勿動
       r3h: 'v3.0　機能爆発',
       r3items: '<li>· スクリーンショットライブラリ / 比較 / カラースウォッチ抽出</li><li>· 吹き出し / グループ化 / 拡大鏡アノテーション</li><li>· 画面録画 + GIF</li><li>· クラウド共有</li><li>· フォーマットブラシ（大トリ）</li>',
       r2bh: 'v2.1　品質インフラ整備（Sprint 21–24）',

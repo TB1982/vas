@@ -876,7 +876,7 @@
       s16num: 'S16',
       s16meta: '04/13　3+ items　QC 100%',
       s16title: '🏗️ v2.0 Architecture ⑤ Geometry Logic Centralisation',
-      s16desc: 'TOOL_GEOMETRY schema (bounds / getHandles / moveAnnot single-line dispatch) · Figma-style click-to-select (click any object in any tool mode auto-switches) · Vitest 47 pass',
+      s16desc: 'TOOL_GEOMETRY schema (bounds / getHandles / moveAnnot single-line dispatch) · Figma-style click-to-select (click any object in any tool mode auto-switches) · Vitest 47 pass', // 歷史資料，勿動
       s17num: 'S17',
       s17meta: '04/13　4 items　QC 100%',
       s17title: '🏗️ v2.0 Architecture ⑤ Rendering Pipeline Modularisation',
@@ -900,7 +900,7 @@
       r1p: 'Listed on App Store (under review)',
       r2h: 'v2.0　Architecture Refactor (Sprint 10–20)',
       r2p: 'Completed (04/11–04/14)',
-      r2items: '<li>Coordinate system unified (DPR fully fixed)</li><li>Gradient engine unified (6 tools)</li><li>Data model normalisation</li><li>Properties panel framework (TOOL_SCHEMA 10/10 coverage)</li><li>Geometry + rendering pipeline modularisation</li><li>Undo/Redo architecture upgrade + memory hygiene</li><li>Automated test infrastructure (Vitest 47 pass)</li>',
+      r2items: '<li>Coordinate system unified (DPR fully fixed)</li><li>Gradient engine unified (6 tools)</li><li>Data model normalisation</li><li>Properties panel framework (TOOL_SCHEMA 10/10 coverage)</li><li>Geometry + rendering pipeline modularisation</li><li>Undo/Redo architecture upgrade + memory hygiene</li><li>Automated test infrastructure (Vitest 47 pass)</li>', // 歷史資料，勿動
       r3h: 'v3.0　Feature explosion',
       r3items: '<li>· Screenshot library / comparison / swatch extraction</li><li>· Speech bubbles / grouping / magnifier annotations</li><li>· Screen recording + GIF</li><li>· Cloud sharing</li><li>· Format Painter (grand finale)</li>',
       r2bh: 'v2.1　Quality Infrastructure (Sprint 21–24)',
