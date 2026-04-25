@@ -10,7 +10,7 @@ const vm   = require('vm');
 const BASE          = __dirname;
 const CANONICAL     = 'https://tb1982.github.io/vas';
 const TARGET_LANGS  = ['en', 'ja', 'cn'];
-const PAGES         = ['index.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html'];
+const PAGES         = ['index.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html', 'privacy.html'];
 
 const LANG_META = {
   en: { htmlLang: 'en',       hreflang: 'en',       label: 'EN',   labelFull: 'English'  },
@@ -52,6 +52,9 @@ function getMerged(t, page) {
     case 'guide.html':
       Object.assign(m, t.shared   || {}, t.guide    || {});
       break;
+    case 'privacy.html':
+      Object.assign(m, t.shared   || {}, t.privacy  || {});
+      break;
   }
   // All pages include home2 with 'home2.' prefix (for nav links, footer, etc.)
   flat(m, t.home2 || {}, 'home2.');
@@ -71,6 +74,7 @@ function getTitle(t, page) {
     case 'milestone.html': return (t.milestone2|| {}).ch4PageTitle            || null;
     case 'guide.html':     return (t.guide     || {})['docs.title']            || null;
     case 'index.html':     return (t.home2     || {})['title']                || null;
+    case 'privacy.html':   return (t.privacy   || {}).pageTitle                || null;
   }
   return null;
 }
@@ -83,6 +87,7 @@ function getMetaDesc(t, page) {
     case 'milestone.html': return (t.milestone2|| {}).ch4MetaDesc             || null;
     case 'guide.html':     return (t.guide     || {})['docs.meta.desc']        || null;
     case 'index.html':     return (t.home2     || {})['meta.desc']            || null;
+    case 'privacy.html':   return (t.privacy   || {}).metaDesc                || null;
   }
   return null;
 }
@@ -123,9 +128,8 @@ function fixPaths(html) {
 
 // Fix internal page links in nav / acquire section
 function fixInternalLinks(html, page) {
-  // In generated pages, relative links already resolve within the same dir.
-  // Only privacy.html is not generated → point back to root.
-  return html.replace(/\bhref="privacy\.html"/g, 'href="../privacy.html"');
+  // All pages including privacy.html are generated — relative links resolve within the same dir.
+  return html;
 }
 
 // Update <html lang="...">
