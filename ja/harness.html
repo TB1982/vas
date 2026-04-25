@@ -630,12 +630,33 @@
     <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../harness.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="../en/harness.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="harness.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="../cn/harness.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../harness.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="../en/harness.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+    <a href="harness.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">日本語</a>
+    <a href="../cn/harness.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>日</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../harness.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/harness.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="harness.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/harness.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch3No">Chapter III</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch3Name">Harness<em>.</em></h1>
+    <div class="chapter-dek" data-lang-key="ch3Dek">AI の制約を協働の構造に変える。エントロピー増大、陰影の統合、反脆弱まで——容器をどう作るかについての方法論。</div>
+    <div style="font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--vas-ash-3); text-transform: uppercase; margin-top: 22px;">容器工法・八則　／　Vessel Making — Eight Notes</div>
+  </div>
 </header>
 
 <!-- ═══════ 章目錄 ═══════ -->
@@ -1091,11 +1112,16 @@
   "@type": "TechArticle",
   "headline": "Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作",
   "description": "Harness Engineering：不會寫程式的 PM 如何用敏捷與 KM 管理 AI 的熵增與遺忘，從心理學、反脆弱到 Harness Engineering 協作結構的完整方法論。",
-  "inLanguage": ["zh-Hant", "en", "ja"],
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
   "url": "https://tb1982.github.io/vas/harness.html",
   "datePublished": "2026-04-01",
   "dateModified": "2026-04-25",
   "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://tb1982.github.io/vas/"
+  },
   "author": {
     "@type": "Person",
     "name": "Nova",

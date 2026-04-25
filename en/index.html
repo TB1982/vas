@@ -104,12 +104,32 @@
     <a href="harness.html"  data-lang-key="home2.nav.system">System</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../index.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="index.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="../ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="../cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../index.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="index.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">English</a>
+    <a href="../ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+    <a href="../cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../index.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="index.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════ 首屏：器物 · 題辭 · 四道門 ═══════ -->
+<section class="shrine">
+  <div class="shrine-prose">
+    <div class="mark" data-lang-key="home2.shrine.kicker">A Vessel · since 2026</div>
+    <div class="shrine-name">VAS<em>.</em></div>
+    <div class="shrine-tagline" data-lang-key="home2.shrine.tagline">For the moments<br>that words could not name.</div>
+  </div>
 
   <div class="shrine-vessel">
     <div class="halo"></div>
@@ -238,8 +258,34 @@
   "name": "VAS",
   "operatingSystem": "macOS",
   "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "GraphicsApplication",
+  "softwareVersion": "2.1.0",
   "description": "VAS 是一只傳遞意象的煉金容器——從形狀到符號，給你超越文字的力量。",
   "url": "https://tb1982.github.io/vas/",
+  "downloadUrl": "https://apps.apple.com/app/vas/id6761584119",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "VAS Pro (Tauri · App Store)",
+      "price": "9.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://apps.apple.com/app/vas/id6761584119"
+    },
+    {
+      "@type": "Offer",
+      "name": "VAS Classic (Electron · Free)",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://tb1982.github.io/vas/"
+  },
   "author": {
     "@type": "Person",
     "name": "Nova",
@@ -250,6 +296,30 @@
       "https://www.instagram.com/liuyingtzu"
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Deep Holding Project",
+  "alternateName": "深握計畫",
+  "url": "https://tb1982.github.io/vas/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://tb1982.github.io/vas/img/vas-share.webp"
+  },
+  "foundingDate": "2026",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "babelon1882@gmail.com",
+    "contactType": "customer support"
+  },
+  "sameAs": [
+    "https://github.com/tb1982",
+    "https://www.linkedin.com/in/yingtzuliu",
+    "https://www.instagram.com/liuyingtzu"
+  ]
 }
 </script>
 </body>

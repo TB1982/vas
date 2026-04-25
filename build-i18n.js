@@ -197,30 +197,62 @@ function addHreflang(html, page) {
   return html.replace('</head>', tags + '\n</head>');
 }
 
-// Replace JS-based language switcher with static links
+// Replace langDropdownWrap div regardless of nesting depth (div counter)
+function replaceLangDropdown(html, newContent) {
+  const m = html.match(/<div[^>]*\bid="langDropdownWrap"[^>]*>/);
+  if (!m) return html;
+  const start = html.indexOf(m[0]);
+  let depth = 0, i = start;
+  while (i < html.length) {
+    if (html[i] === '<') {
+      if (html.slice(i, i + 4) === '<div') depth++;
+      else if (html.slice(i, i + 6) === '</div>') {
+        depth--;
+        if (depth === 0) {
+          const end = html.indexOf('>', i) + 1;
+          return html.slice(0, start) + newContent + html.slice(end);
+        }
+      }
+    }
+    i++;
+  }
+  return html;
+}
+
+// Build the two-section (PC flat + mobile dropdown) lang switcher HTML
+function buildLangSwitcherHtml(links, mobileLabel, activeLang) {
+  const flatLinks = links.map(l => {
+    const isActive = l.code === activeLang;
+    const activeStyle = isActive ? ';color:#fff;font-weight:700' : '';
+    return `    <a href="${l.href}" class="lang-opt${isActive ? ' active' : ''}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap${activeStyle}">${l.label}</a>`;
+  }).join('\n');
+  const ddLinks = links.map(l => {
+    const active = l.code === activeLang ? ' active' : '';
+    return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none">${l.label}</a>`;
+  }).join('\n');
+  return `<div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+${flatLinks}
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>${mobileLabel}</span></button>
+    <div class="lang-dropdown-menu">
+${ddLinks}
+    </div>
+  </div>
+</div>`;
+}
+
+// Replace JS-based language switcher with static links (PC flat + mobile dropdown)
 function replaceStaticLangSwitcher(html, lang, page) {
   const links = [
-    { code: 'zh', hreflang: 'zh-Hant', label: '中文', href: `../${page}` },
-    { code: 'en', hreflang: 'en',       label: 'English',
-      href: lang === 'en' ? page : `../en/${page}` },
-    { code: 'ja', hreflang: 'ja',       label: '日本語',
-      href: lang === 'ja' ? page : `../ja/${page}` },
-    { code: 'cn', hreflang: 'zh-Hans',  label: '简中',
-      href: lang === 'cn' ? page : `../cn/${page}` },
+    { code: 'zh', hreflang: 'zh-Hant', label: '中文',    href: `../${page}` },
+    { code: 'en', hreflang: 'en',       label: 'English', href: lang === 'en' ? page : `../en/${page}` },
+    { code: 'ja', hreflang: 'ja',       label: '日本語',  href: lang === 'ja' ? page : `../ja/${page}` },
+    { code: 'cn', hreflang: 'zh-Hans',  label: '简中',    href: lang === 'cn' ? page : `../cn/${page}` },
   ];
-
-  const opts = links.map(l => {
-    const active = l.code === lang ? ' active' : '';
-    return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap">${l.label}</a>`;
-  }).join('\n');
-
-  const staticNav = `<div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">\n${opts}\n    </div>`;
-
-  // Match the full lang dropdown wrapper div (with nested content)
-  return html.replace(
-    /<div[^>]*\bid="langDropdownWrap"[^>]*>[\s\S]*?<\/div>\s*<\/div>/,
-    staticNav
-  );
+  const mobileLabel = LANG_META[lang].label;
+  return replaceLangDropdown(html, buildLangSwitcherHtml(links, mobileLabel, lang));
 }
 
 // Disable i18n re-rendering on generated static pages
@@ -292,22 +324,14 @@ function patchSourceLangSwitcher() {
   PAGES.forEach(page => {
     const fpath = path.join(BASE, page);
     let html = fs.readFileSync(fpath, 'utf8');
-    if (!html.includes('<button id="langDropdownBtn"')) return; // already patched
+    if (html.includes('lang-flat-row')) return; // already two-section
     const links = [
       { code: 'zh', hreflang: 'zh-Hant', label: '中文',    href: page },
       { code: 'en', hreflang: 'en',       label: 'English', href: `en/${page}` },
       { code: 'ja', hreflang: 'ja',       label: '日本語',  href: `ja/${page}` },
       { code: 'cn', hreflang: 'zh-Hans',  label: '简中',    href: `cn/${page}` },
     ];
-    const opts = links.map(l => {
-      const active = l.code === 'zh' ? ' active' : '';
-      return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap">${l.label}</a>`;
-    }).join('\n');
-    const staticNav = `<div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">\n${opts}\n    </div>`;
-    html = html.replace(
-      /<div[^>]*\bid="langDropdownWrap"[^>]*>[\s\S]*?<\/div>\s*<\/div>/,
-      staticNav
-    );
+    html = replaceLangDropdown(html, buildLangSwitcherHtml(links, '中', 'zh'));
     html = html.replace(/\bVASCore\.initDropdown\s*\([^)]+\)\s*;?/g, '');
     fs.writeFileSync(fpath, html, 'utf8');
     console.log(`[zh] lang switcher → ${page}`);

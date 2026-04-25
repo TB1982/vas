@@ -14,6 +14,11 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
    → For large i18n tasks: **CLAUDE-process.md § Haiku Protocol**
 6. **Use `臺` not `台`** — `臺灣`, `臺北`, `臺中`. Never substitute silently.
 7. **Milestone numbers require Nova's approval before any edit.** All specific figures in the `milestone` i18n namespace (version numbers, day counts, Sprint counts, dates) must be confirmed with Nova before changing. Nova holds the correct memory — do not infer, update, or globally replace these values unilaterally.
+8. **Version release checklist — update all three locations together:**
+   - `index.html` JSON-LD `softwareVersion` (Tauri track only — this is the App Store primary)
+   - `index.html` JSON-LD offers `name`: `"VAS Pro (Tauri vX.X.X · App Store)"` and `"VAS Classic (Electron vX.XX · Free)"`
+   - `index.html` JSON-LD offers `url` for the Electron download link (`/releases/download/vX.XX.X/VAS-X.XX.X-arm64.dmg`)
+   - Tauri and Electron version numbers are **independent counters**. Tauri started at v1.0; Electron's first public release was v3.43. Never assume they are in sync.
 
 ---
 

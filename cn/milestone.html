@@ -608,12 +608,35 @@ body {
     <a href="harness.html"   data-lang-key="home2.nav.system">系统</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="../en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="milestone.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="../en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+    <a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+    <a href="milestone.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>简</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="milestone.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══ chapter header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker" data-lang-key="chronicle.head.kicker">IV · 里程碑 · CHRONICLE</div>
+  <h1 class="chapter-title" data-lang-key="chronicle.head.title">从零开始的<br><em>十个刻痕</em>。</h1>
+  <p class="chapter-lede" data-lang-key="chronicle.head.lede">这不是 changelog，而是<em>章回</em>。<br>从「Version」到「Sprint」再到「Commit」<br>不是记账方式换了，是我们和 VAS<br>相处的节奏变了。<br>前五章是一条线，后五章是一张网。</p>
+  <div class="chapter-meta">
+    <div data-lang-key="chronicle.head.meta1">Chapter　<strong>I — X</strong></div>
+    <div data-lang-key="chronicle.head.meta2">Range　<strong>2026 · 03 — 04</strong></div>
+    <div data-lang-key="chronicle.head.meta3">Units　<strong>Version · Sprint · Commit</strong></div>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════
@@ -1088,11 +1111,16 @@ body {
   "@type": "Article",
   "headline": "VAS 開發里程碑 | 25 天 80+ 版本雙平臺 App 上架完整記錄",
   "description": "VAS 從零到雙平臺上架的完整開發時間軸：25 天、80+ 版本、Electron + Tauri、App Store 審查歷程，以及每個 Sprint 的技術決策。",
-  "inLanguage": ["zh-Hant", "en", "ja"],
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
   "url": "https://tb1982.github.io/vas/milestone.html",
   "datePublished": "2026-03-21",
   "dateModified": "2026-04-25",
   "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://tb1982.github.io/vas/"
+  },
   "author": {
     "@type": "Person",
     "name": "Nova",

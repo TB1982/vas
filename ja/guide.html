@@ -91,12 +91,90 @@
     <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="../en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="guide.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="../en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+    <a href="guide.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">日本語</a>
+    <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>日</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="guide.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
+</nav>
+
+<div class="docs-layout">
+
+  <!-- ═══════ 桌面側邊 TOC ═══════ -->
+  <aside class="docs-toc-sticky">
+    <div class="docs-toc-sticky-label" data-lang-key="tocLabel">目次</div>
+    <ul>
+      <li><a href="#welcome">Welcome on Board</a></li>
+
+      <li class="group" data-lang-key="tocGroupStart">入門</li>
+      <li><a href="#first-launch" data-lang-key="flH3">VAS を初めて開く</a></li>
+      <li><a href="#permissions" data-lang-key="permH3">アクセス許可とプライバシー</a></li>
+      <li><a href="#first-capture" data-lang-key="fcH3">初めてのスクリーンショット</a></li>
+
+      <li class="group" data-lang-key="tocGroupCore">基本</li>
+      <li><a href="#menubar" data-lang-key="mbH3">メニューバーのボトル</a></li>
+      <li><a href="#breath" data-lang-key="blH3">ブリーズライト × ワンクリック召喚</a></li>
+      <li><a href="#toolbar" data-lang-key="s3Title">キャプチャツールバー</a></li>
+      <li><a href="#editor" data-lang-key="s1Title">エディタ画面</a></li>
+      <li><a href="#export" data-lang-key="exportH3">書き出し</a></li>
+
+      <li class="group" data-lang-key="tocGroupAdv">応用</li>
+      <li><a href="#ocr" data-lang-key="ocrH3">OCR と QR コード</a></li>
+      <li><a href="#shortcuts" data-lang-key="kbH3">キーボードショートカット</a></li>
+      <li><a href="#customization" data-lang-key="custH3">カスタム設定</a></li>
+      <li><a href="#tips" data-lang-key="tipsH3">トラブルシューティング</a></li>
+    </ul>
+  </aside>
+
+  <main class="docs-main">
+
+
+    <!-- ═══ Welcome ═══ -->
+    <section class="docs-section" id="welcome">
+      <h1>Welcome on Board</h1>
+      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>左側のメニューはいつでも表示されており、クリックで任意のセクションへ移動できます。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> での検索も使えます。</div>
+      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>セクションへジャンプするには、右上のブリーズライトをタップしてください。</div>
+    </section>
+
+    <!-- ═══ 01 · 入門 ═══ -->
+    <section class="docs-section" id="getting-started">
+      <div class="docs-section-kicker" data-lang-key="tocKickerStart">入門</div>
+
+      <div class="docs-subsection" id="first-launch">
+        <h3 data-lang-key="flH3">VAS を初めて開く</h3>
+        <p data-lang-key="flP1">App Store からダウンロードしてインストール後、VAS を開くと、デスクトップに新しいフローティングツールバーが表示されます。デスクトップに固定でき、自由にドラッグして移動できます。</p>
+        <figure class="docs-figure">
+          <img class="js-toolbar-img" src="../img/vastoolbar-jp.webp" alt="VAS Macスクリーンショットツール フローティングツールバー">
+        </figure>
+        <p data-lang-key="flP2">ツールバーのスペースが気になる場合——<strong>ブリーズライト</strong>モードはデフォルトで無効です。ツールバーの「ショートカットガイド」から手動で有効にしてください。</p>
+        <div class="docs-bl-preview">
+          <img src="../img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
+        </div>
+        <p data-lang-key="flP3">VAS は macOS のメニューバーにも常駐し、画面右上にボトルのアイコンとして表示されます。</p>
+        <figure class="docs-figure">
+          <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
+            <img src="../img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
+          </div>
+          <figcaption data-lang-key="flCaption">MENUBAR · 右上隅、VAS と Claude が並んでスタンバイ。</figcaption>
+        </figure>
+        <div class="docs-note">
+          <div class="docs-note-label" data-lang-key="flNoteLabel">VAS を完全に消したい？</div>
+          <p data-lang-key="flNoteP1">右上のメニューバーのボトルを左クリックすると、デスクトップのツールバーを呼び出すか、完全に非表示にするかを切り替えられます。デスクトップをすっきり保ちたい方のために用意した機能です。</p>
+          <p data-lang-key="flNoteP2">VAS はメニューバーで待機し続けます。</p>
+        </div>
+      </div>
 
       <div class="docs-subsection" id="permissions">
         <h3 data-lang-key="permH3">アクセス許可とプライバシー</h3>
@@ -793,11 +871,16 @@
   "@type": "TechArticle",
   "headline": "VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ",
   "description": "VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。",
-  "inLanguage": ["zh-Hant", "en", "ja"],
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
   "url": "https://tb1982.github.io/vas/guide.html",
   "datePublished": "2026-04-01",
   "dateModified": "2026-04-25",
   "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://tb1982.github.io/vas/"
+  },
   "author": {
     "@type": "Person",
     "name": "Nova",

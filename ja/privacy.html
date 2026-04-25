@@ -174,12 +174,23 @@
     <a href="harness.html"    data-lang-key="home2.nav.system">システム</a>
     <a href="milestone.html"  data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="privacy.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="en/privacy.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="ja/privacy.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="cn/privacy.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="../privacy.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="../en/privacy.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+    <a href="privacy.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">日本語</a>
+    <a href="../cn/privacy.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>日</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../privacy.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/privacy.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="privacy.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/privacy.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
 </nav>
 
 <!-- ═══════ 隱私權政策內容 ═══════ -->

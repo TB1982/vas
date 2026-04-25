@@ -91,12 +91,23 @@
     <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;flex-wrap:nowrap;">
-      <a href="guide.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-      <a href="en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-      <a href="ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-      <a href="cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+    <a href="guide.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+    <a href="en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
+    <a href="ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
+    <a href="cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="guide.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
+  </div>
+</div>
 </nav>
 
 <div class="docs-layout">
@@ -883,11 +894,16 @@
   "@type": "TechArticle",
   "headline": "VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ",
   "description": "VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。",
-  "inLanguage": ["zh-Hant", "en", "ja"],
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
   "url": "https://tb1982.github.io/vas/guide.html",
   "datePublished": "2026-04-01",
   "dateModified": "2026-04-25",
   "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://tb1982.github.io/vas/"
+  },
   "author": {
     "@type": "Person",
     "name": "Nova",

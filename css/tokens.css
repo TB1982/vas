@@ -113,9 +113,13 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
   color: var(--vas-ash-3);
   letter-spacing: 0.1em;
 }
+.lang-flat-row  { display: flex; align-items: center; gap: 4px; flex-wrap: nowrap; }
+.lang-mobile-dd { display: none; position: relative; }
 
 @media (max-width: 768px) {
   .site-nav { padding: 20px 24px; }
+  .lang-flat-row  { display: none; }
+  .lang-mobile-dd { display: block; }
   .site-nav-links { gap: 16px; font-size: 10px; }
 }
 @media (max-width: 560px) {
