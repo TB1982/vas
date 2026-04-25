@@ -959,7 +959,7 @@
 
     home2: {
       'title':                    'VAS · For the Moments Words Could Not Name',
-      'meta.desc':                'VAS is an alchemical vessel for transmitting imagery — from shapes to symbols, giving you power beyond words.',
+      'meta.desc':                'A non-coder PM × Claude built a Mac screenshot annotation tool in 25 days. Free Electron download + Tauri Pro on the App Store. OCR privacy masking, floating toolbar, QR Code scanner.',
       'nav.design':               'Design',
       'nav.collaboration':        'Collaboration',
       'nav.system':               'System',

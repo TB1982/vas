@@ -860,7 +860,7 @@
 
     home2: {
       'title':                    'VAS · 言葉にならなかった、あの瞬間へ',
-      'meta.desc':                'VAS は情報を伝えるための錬金術の器——見たもの、言いたいこと、記しておきたいことを、編集に入る前に、まず受け止める。',
+      'meta.desc':                'プログラミング未経験の PM が Claude と 25 日間で Mac スクリーンショット注釈ツールを開発。Electron 版無料配布・Tauri Pro は App Store で公開。OCR プライバシーマスキング・浮動ツールバー・QR コードスキャン対応。',
       'nav.design':               '設計',
       'nav.collaboration':        '協作',
       'nav.system':               'システム',
