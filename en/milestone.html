@@ -571,6 +571,36 @@ body {
   }
   .dot-nav-item.is-current .dn-label { color: var(--vas-aurora-violet); }
 }
+
+/* ─── site-footer ─── */
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding: 56px 48px 40px;
+  max-width: 1040px;
+  margin: 0 auto;
+  border-top: 1px solid var(--vas-rule);
+}
+.site-sub-link {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  text-decoration: none;
+  transition: color .2s;
+}
+.site-sub-link:hover { color: var(--vas-ash-1); }
+@media (max-width: 768px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 32px;
+  }
+  .site-footer .footer-right { text-align: left; }
+}
 </style>
 <link rel="alternate" hreflang="zh-Hant" href="https://tb1982.github.io/vas/milestone.html">
 <link rel="alternate" hreflang="en"       href="https://tb1982.github.io/vas/en/milestone.html">
