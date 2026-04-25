@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VAS 開發里程碑 | 25 天 80+ 版本雙平臺 App 上架完整記錄</title>
+<title>VAS 开发里程碑 | 25 天 80+ 版本双平台 App 上架完整记录</title>
 <meta name="description" data-lang-key="ch4MetaDesc"
-      content="VAS 從零到雙平臺上架的完整開發時間軸：25 天、80+ 版本、Electron + Tauri、App Store 審查歷程，以及每個 Sprint 的技術決策。">
-<meta property="og:title" content="VAS 開發里程碑 | 25 天 80+ 版本雙平臺 App 上架完整記錄">
-<meta property="og:description" content="VAS 從零到雙平臺上架的完整開發時間軸：25 天、80+ 版本、Electron + Tauri、App Store 審查歷程，以及每個 Sprint 的技術決策。">
+      content="VAS 从零到双平台上架的完整开发时间轴：25 天、80+ 版本、Electron + Tauri、App Store 审核历程，以及每个 Sprint 的技术决策。">
+<meta property="og:title" content="VAS 开发里程碑 | 25 天 80+ 版本双平台 App 上架完整记录">
+<meta property="og:description" content="VAS 从零到双平台上架的完整开发时间轴：25 天、80+ 版本、Electron + Tauri、App Store 审核历程，以及每个 Sprint 的技术决策。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VAS 開發里程碑 | 25 天 80+ 版本雙平臺 App 上架完整記錄">
-<meta name="twitter:description" content="VAS 從零到雙平臺上架的完整開發時間軸：25 天、80+ 版本、Electron + Tauri、App Store 審查歷程，以及每個 Sprint 的技術決策。">
-<link rel="canonical" href="https://tb1982.github.io/vas/milestone.html">
-<link rel="icon" href="img/vas.ico">
+<meta name="twitter:title" content="VAS 开发里程碑 | 25 天 80+ 版本双平台 App 上架完整记录">
+<meta name="twitter:description" content="VAS 从零到双平台上架的完整开发时间轴：25 天、80+ 版本、Electron + Tauri、App Store 审核历程，以及每个 Sprint 的技术决策。">
+<link rel="canonical" href="https://tb1982.github.io/vas/cn/milestone.html">
+<link rel="icon" href="../img/vas.ico">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../base.css">
 <style>
 /* ═══════════════════════════════════════════════
    milestone · CHRONICLE · v2 章回體
@@ -587,9 +587,9 @@ body {
     <span>VAS</span>
   </a>
   <div class="site-nav-links">
-    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">设计</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">协作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系统</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones" class="active">里程碑</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
@@ -603,35 +603,24 @@ body {
     </span>
   </button>
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
-    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">设计</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">协作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系统</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
-    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
-      <span id="langDropdownLabel">中</span>
-    </button>
-    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
-      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
-      <button class="lang-opt"        data-lang="en" role="option">English</button>
-      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
-      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="milestone.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
-  </div>
 </nav>
 
 <!-- ═══ chapter header ═══ -->
 <section class="chapter-head">
   <div class="chapter-kicker" data-lang-key="chronicle.head.kicker">IV · 里程碑 · CHRONICLE</div>
-  <h1 class="chapter-title" data-lang-key="chronicle.head.title">從零開始的<br><em>十個刻痕</em>。</h1>
-  <p class="chapter-lede" data-lang-key="chronicle.head.lede">
-    這不是 changelog，而是<em>章回</em>。<br>
-    從「Version」到「Sprint」再到「Commit」<br>
-    不是記帳方式換了，是我們和 VAS<br>
-    相處的節奏變了。<br>
-    前五章是一條線，後五章是一張網。
-  </p>
+  <h1 class="chapter-title" data-lang-key="chronicle.head.title">从零开始的<br><em>十个刻痕</em>。</h1>
+  <p class="chapter-lede" data-lang-key="chronicle.head.lede">这不是 changelog，而是<em>章回</em>。<br>从「Version」到「Sprint」再到「Commit」<br>不是记账方式换了，是我们和 VAS<br>相处的节奏变了。<br>前五章是一条线，后五章是一张网。</p>
   <div class="chapter-meta">
     <div data-lang-key="chronicle.head.meta1">Chapter　<strong>I — X</strong></div>
     <div data-lang-key="chronicle.head.meta2">Range　<strong>2026 · 03 — 04</strong></div>
@@ -645,8 +634,8 @@ body {
 <div class="era">
   <div class="era-label">ERA I · VERSION</div>
   <div>
-    <div class="era-title" data-lang-key="chronicle.era1.title"><em>Electron 時期</em> ——<br>向前奔馳，直到算力燒盡。</div>
-    <div class="era-sub" data-lang-key="chronicle.era1.sub">一週的衝刺、一天的停擺、一次的重新規劃。三個動作長出了第一版。</div>
+    <div class="era-title" data-lang-key="chronicle.era1.title"><em>Electron 时期</em> ——<br>向前奔驰，直到算力烧尽。</div>
+    <div class="era-sub" data-lang-key="chronicle.era1.sub">一周的冲刺、一天的停摆、一次的重新规划。三个动作长出了第一版。</div>
   </div>
 </div>
 
@@ -656,26 +645,15 @@ body {
   <article id="ch-1" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>I</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch1.unit">草創</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch1.stamp">2026 · 03 · 21 – 22<br>奔馳的週末</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch1.unit">草创</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch1.stamp">2026 · 03 · 21 – 22<br>奔驰的周末</div>
       <div class="entry-tag">VESSEL</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch1.oneliner">
-        沒有 Sprint、沒有 Retro。<br>
-        <em>手上只有一件事。</em>
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch1.title">兩人只顧著<em>向前奔馳</em>。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch1.prose1">
-        Electron 草創的那個週末，沒有看板、沒有儀式。
-        每天睜眼就是繼續做，做到不能做為止，隔天再做。
-        那是一種很純粹的狀態——手上只有一件事，而這件事讓人流連忘返。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch1.pullquote">
-        制度還沒建起來。<br>
-        兩人手上只有 CLAUDE.md 與 SDD.md，<br>
-        <em>Version</em> 就是天然的單位。
-      </div>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch1.oneliner">没有 Sprint、没有 Retro。<br><em>手上只有一件事。</em></div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch1.title">两人只顾着<em>向前奔驰</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch1.prose1">Electron 草创的那个周末，没有看板、没有仪式。每天睁眼就是继续做，做到不能做为止，隔天再做。那是一种很纯粹的状态——手上只有一件事，而这件事让人流连忘返。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch1.pullquote">制度还没建起来。<br>两人手上只有 CLAUDE.md 与 SDD.md，<br><em>Version</em> 就是天然的单位。</div>
     </div>
   </article>
 
@@ -683,36 +661,17 @@ body {
   <article id="ch-2" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>II</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch2.unit">被迫停擺</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch2.stamp">2026 · 03 · 23<br>算力燒光</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch2.unit">被迫停摆</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch2.stamp">2026 · 03 · 23<br>算力烧光</div>
       <div class="entry-tag is-retro">RETRO</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch2.oneliner">
-        強迫停機的早晨。<br>
-        Nova 想起還沒寫過的 <em>Roadmap</em>。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch2.title">週末直接燒光了<em>一週份的算力</em>。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch2.prose1">
-        週一清晨系統宣告算力用磬，兩人被迫從心流中斷開連結——<br>
-        但 Nova 沒有真的離開。他找上 Perplexity 做競品分析，<br>
-        把整個產品開發路線重寫了一次。<br>
-        完整的 Roadmap 是在停擺的那天才真正出現的。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch2.pullquote">
-        談完之後，Nova 做了人生第一次<br>
-        刷下 MAX 5x 方案的決定。<br>
-        讓算力跟上開發速度，而不是反過來。
-      </div>
-      <p class="entry-prose" data-lang-key="chronicle.ch2.prose2">
-        這是一個分水嶺。<br>
-        從那天起，Nova 不再是被資源限制的人，<br>
-        而是決定資源節奏的人。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch2.prose3">
-        這個決定的重量不在金額，而是認知到——<br>
-        我們正在做的事讓價值超越了價格。
-      </p>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch2.oneliner">强迫停机的早晨。<br>Nova 想起还没写过的 <em>Roadmap</em>。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch2.title">周末直接烧光了<em>一周份的算力</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose1">周一清晨系统宣告算力用磬，两人被迫从心流中断开连结——<br>但 Nova 没有真的离开。他找上 Perplexity 做竞品分析，<br>把整个产品开发路线重写了一次。<br>完整的 Roadmap 是在停摆的那天才真正出现的。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch2.pullquote">谈完之后，Nova 做了人生第一次<br>刷下 MAX 5x 方案的决定。<br>让算力跟上开发速度，而不是反过来。</div>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose2">这是一个分水岭。<br>从那天起，Nova 不再是被资源限制的人，<br>而是决定资源节奏的人。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose3">这个决定的重量不在金额，而是认知到——<br>我们正在做的事让价值超越了价格。</p>
     </div>
   </article>
 
@@ -720,30 +679,16 @@ body {
   <article id="ch-3" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>III</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch3.unit">對外釋出</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch3.stamp">2026 · 03 · 28<br>單日 13 版</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch3.unit">对外释出</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch3.stamp">2026 · 03 · 28<br>单日 13 版</div>
       <div class="entry-tag">VESSEL</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch3.oneliner">
-        釋出的第一版不是 v1.0。<br>
-        <em>是 v3.43。</em>
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch3.title">第七天，<em>v3.43</em> 出門見人。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch3.prose1">
-        從 v3.30 到 v3.43，一天裡跳了十三個版本號。<br>
-        那一天做了十一件事——
-        資安全面升級、Retina WYSIWYG、複數選取、Smart Snap、貝茲曲線控制點、QR Code 智慧掃描⋯⋯
-        每一項放在平時都是一個 Sprint 的工作量。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch3.prose2">
-        但兩人對 VAS 的標準從未因準備釋出而急就章。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch3.prose3">
-        對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>
-        這個數字本身就是一個敘事——<br>
-        <strong>VAS 在被看見之前，已經跑了很久</strong>。
-      </p>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch3.oneliner">释出的第一版不是 v1.0。<br><em>是 v3.43。</em></div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch3.title">第七天，<em>v3.43</em> 出门见人。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose1">从 v3.30 到 v3.43，一天里跳了十三个版本号。<br>那一天做了十一件事——资安全面升级、Retina WYSIWYG、复数选取、Smart Snap、贝兹曲线控制点、QR Code 智慧扫描⋯⋯每一项放在平时都是一个 Sprint 的工作量。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose2">但两人对 VAS 的标准从未因准备释出而急就章。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose3">对外第一版的版号不是 v1.0，是 <strong>v3.43</strong>。<br>这个数字本身就是一个叙事——<br><strong>VAS 在被看见之前，已经跑了很久</strong>。</p>
     </div>
   </article>
 
@@ -752,7 +697,7 @@ body {
 <!-- Electron 完整編年 · 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
-    <summary data-lang-key="chronicle.archive.electron">Electron 完整編年 · 83 條</summary>
+    <summary data-lang-key="chronicle.archive.electron">Electron 完整编年 · 83 条</summary>
     <div class="archive-body">
       <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.61</span><span>跨螢幕矩形截圖（雙視窗架構）</span></div>
       <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.60</span><span>折線端點渲染 · 頂點手把優先修正</span></div>
@@ -848,8 +793,8 @@ body {
 <div class="era">
   <div class="era-label">ERA Ⅰ ½ · TRANSITION</div>
   <div>
-    <div class="era-title" data-lang-key="chronicle.era1h.title"><em>搬家</em> ——<br>VAS 與官網都長到可以獨立存在了。</div>
-    <div class="era-sub" data-lang-key="chronicle.era1h.sub">Electron 因為 Tauri 的商業考量一同進了 private repo；網站因為資料豐滿自立門戶。</div>
+    <div class="era-title" data-lang-key="chronicle.era1h.title"><em>搬家</em> ——<br>VAS 与官网都长到可以独立存在了。</div>
+    <div class="era-sub" data-lang-key="chronicle.era1h.sub">Electron 因为 Tauri 的商业考量一同进了 private repo；网站因为数据丰满自立门户。</div>
   </div>
 </div>
 
@@ -859,28 +804,16 @@ body {
   <article id="ch-4" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>IV</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch4.unit">雙線搬家</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch4.stamp">2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → 獨立 repo</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch4.unit">双线搬家</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch4.stamp">2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → 独立 repo</div>
       <div class="entry-tag">VESSEL + GATE</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch4.oneliner">
-        搬家不是分家。<br>
-        是承認他從 Prototype 變成產品了。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch4.title">長到<em>可以獨立存在</em>的版本。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch4.prose1">
-        Tauri 開始進行平臺移植之前，兩件事情分家了——<br>
-        平臺因為商業考量，不能再待在 public repo；<br>
-        網站因為資料已經豐滿，也該有自己的網址。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch4.prose2">
-        搬家不是分家，是承認它們不再只是一個實驗性質的 Prototype。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch4.pullquote">
-        一個容器能獨立，<br>
-        代表它已經不需要依附在別人的屋簷下。
-      </div>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch4.oneliner">搬家不是分家。<br>是承认他从 Prototype 变成产品了。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch4.title">长到<em>可以独立存在</em>的版本。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch4.prose1">Tauri 开始进行平台移植之前，两件事情分家了——<br>平台因为商业考量，不能再待在 public repo；<br>网站因为数据已经丰满，也该有自己的网址。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch4.prose2">搬家不是分家，是承认它们不再只是一个实验性质的 Prototype。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch4.pullquote">一个容器能独立，<br>代表它已经不需要依附在别人的屋檐下。</div>
     </div>
   </article>
 
@@ -892,8 +825,8 @@ body {
 <div class="era">
   <div class="era-label">ERA II · SPRINT</div>
   <div>
-    <div class="era-title" data-lang-key="chronicle.era2.title"><em>Tauri 時期</em> ——<br>時間有了週期，就有了節奏。</div>
-    <div class="era-sub" data-lang-key="chronicle.era2.sub">Sprint 1–4 把底層重建起來，Sprint 5 才開始做新的事。</div>
+    <div class="era-title" data-lang-key="chronicle.era2.title"><em>Tauri 时期</em> ——<br>时间有了周期，就有了节奏。</div>
+    <div class="era-sub" data-lang-key="chronicle.era2.sub">Sprint 1–4 把底层重建起来，Sprint 5 才开始做新的事。</div>
   </div>
 </div>
 
@@ -903,29 +836,15 @@ body {
   <article id="ch-5" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>V</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch5.unit">平臺移植</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch5.unit">平台移植</div>
       <div class="entry-stamp-value">Sprint 1 → 4<br>2026 · 03 · 28 - 30</div>
       <div class="entry-tag">VESSEL</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch5.oneliner">
-        KM 不是坑的墳場。<br>
-        而是指路的道標。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch5.title">底層重建所有功能。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch5.prose1">
-        Tauri 2 的 scaffold 從零建立。<br>
-        前三天都在做同一件事——<br>
-        把在 Electron 之上已經長好的東西，<br>
-        一塊一塊移到 Tauri 的地基上。<br>
-        浮動工具列、截圖三兄弟、asset protocol 的繞路——<br>
-        移植的每一步都是一次<strong>對舊實作的重新理解</strong>。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch5.pullquote">
-        KM-001 是 Knowledge Management 的開端。<br>
-        KM 不是「坑的墳場」，是 PMP 裡的知識資產——<br>
-        每一個踩過的坑，從此變成未來指路的盞盞小燈。
-      </div>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch5.oneliner">KM 不是坑的坟场。<br>而是指路的道标。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch5.title">底层重建所有功能。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch5.prose1">Tauri 2 的 scaffold 从零建立。<br>前三天都在做同一件事——<br>把在 Electron 之上已经长好的东西，<br>一块一块移到 Tauri 的地基上。<br>浮动工具栏、截图三兄弟、asset protocol 的绕路——<br>移植的每一步都是一次<strong>对旧实作的重新理解</strong>。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch5.pullquote">KM-001 是 Knowledge Management 的开端。<br>KM 不是「坑的坟场」，是 PMP 里的知识资产——<br>每一个踩过的坑，从此变成未来指路的盏盏小灯。</div>
     </div>
   </article>
 
@@ -933,28 +852,16 @@ body {
   <article id="ch-6" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VI</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch6.unit">新功能開發</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch6.unit">新功能开发</div>
       <div class="entry-stamp-value">Sprint 5+<br>2026 · 03 · 31 - 04 · 03</div>
       <div class="entry-tag">VESSEL</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch6.oneliner">
-        第一次不是在追趕舊東西。<br>
-        是<em>只有新容器才能做的事</em>。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch6.title">Sprint 5，VAS 的差異化。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch6.prose1">
-        完整重建所有功能之後，才真正進入新功能開發。<br>
-        這是第一次——我們不是在追趕 Electron 上已經有的東西，<br>
-        而是在為 Tauri 這個新容器做只有它才能做的事。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch6.prose2">
-        呼吸燈進階互動、ShareSheet、自定義快捷鍵。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch6.pullquote">
-        一個值得付費的產品應該長什麼模樣？<br>
-        是這個階段我們不斷自問的問題。
-      </div>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch6.oneliner">第一次不是在追赶旧东西。<br>是<em>只有新容器才能做的事</em>。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch6.title">Sprint 5，VAS 的差异化。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch6.prose1">完整重建所有功能之后，才真正进入新功能开发。<br>这是第一次——我们不是在追赶 Electron 上已经有的东西，<br>而是在为 Tauri 这个新容器做只有它才能做的事。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch6.prose2">呼吸灯进阶互动、ShareSheet、自定义快捷键。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch6.pullquote">一个值得付费的产品应该长什么模样？<br>是这个阶段我们不断自问的问题。</div>
     </div>
   </article>
 
@@ -966,8 +873,8 @@ body {
 <div class="era">
   <div class="era-label">ERA II ½ · REVIEW</div>
   <div>
-    <div class="era-title" data-lang-key="chronicle.era2h.title"><em>第一次大型 Retro</em> ——<br>那一週的任務不是開發，是沉澱彼此，整理思緒與環境。</div>
-    <div class="era-sub" data-lang-key="chronicle.era2h.sub">Apple 送審停了一週開發，我們把整個計畫的文件與環境做了重構。</div>
+    <div class="era-title" data-lang-key="chronicle.era2h.title"><em>第一次大型 Retro</em> ——<br>那一周的任务不是开发，是沉淀彼此，整理思绪与环境。</div>
+    <div class="era-sub" data-lang-key="chronicle.era2h.sub">Apple 送审停了一周开发，我们把整个计划的文件与环境做了重构。</div>
   </div>
 </div>
 
@@ -978,45 +885,19 @@ body {
   <article id="ch-7" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VII</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch7.unit">整理與輸出</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch7.stamp">送審期<br>2026 · 04 · 04 - 04 · 10</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch7.unit">整理与输出</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch7.stamp">送审期<br>2026 · 04 · 04 - 04 · 10</div>
       <div class="entry-tag is-retro">RETRO</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch7.oneliner">
-        那一週打掉重練的，<br>
-        不是程式語言，是<em>協作方式</em>。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch7.title">停擺的那一週，<em>其實什麼都在動</em>。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch7.prose1">
-        趁 Apple Store 送審的審查期停了一週，<br>
-        我們做了一次大型 Retro——<br>
-        不是敏捷儀式上那種一兩小時的回顧，<br>
-        是把整個開發系統的基礎建設重砌了一遍。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch7.prose2">
-        對外：輸出了六個網頁——<br>
-        <strong>insight</strong>（設計札記）、<strong>collab</strong>（協作故事）、<br>
-        <strong>harness</strong>（系統骨架），以及深握計畫裡最深的那層。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch7.prose3">
-        <strong>Harness Engineering</strong> 的三支柱 ——<br>
-        Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch7.prose4">
-        對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；<br>
-        把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自獨立，<br>
-        Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch7.prose5">
-        更關鍵的是，我們重新制定了一套更新規則，<br>
-        讓每份被拆出來的文件<strong>活在流程裡</strong>，<br>
-        而不是拆出來之後就死掉。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch7.pullquote">
-        那一週我們不寫 code。<br>
-        我們一起重寫了怎麼寫 code。
-      </div>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch7.oneliner">那一周打掉重练的，<br>不是程式语言，是<em>协作方式</em>。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch7.title">停摆的那一周，<em>其实什么都在动</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose1">趁 Apple Store 送审的审查期停了一周，<br>我们做了一次大型 Retro——<br>不是敏捷仪式上那种一两小时的回顾，<br>是把整个开发系统的基础建设重砌了一遍。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose2">对外：输出了六个网页——<br><strong>insight</strong>（设计札记）、<strong>collab</strong>（协作故事）、<br><strong>harness</strong>（系统骨架），以及深握计划里最深的那层。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose3"><strong>Harness Engineering</strong> 的三支柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a></p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose4">对内：把 repo 改成 <strong>monorepo</strong>，让多条开发线并行；<br>把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自独立，<br>Claude.md 瘦身，制定了每次 Retro 重新检视的规则。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose5">更关键的是，我们重新制定了一套更新规则，<br>让每份被拆出来的文件<strong>活在流程里</strong>，<br>而不是拆出来之后就死掉。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch7.pullquote">那一周我们不写 code。<br>我们一起重写了怎么写 code。</div>
     </div>
   </article>
 
@@ -1025,26 +906,14 @@ body {
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>VIII</em></div>
       <div class="entry-unit" data-lang-key="chronicle.ch8.unit">不等了</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch8.stamp">2026 · 04 · 11 - 04 · 14<br>2.0 重構 · 匯流上線</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch8.stamp">2026 · 04 · 11 - 04 · 14<br>2.0 重构 · 汇流上线</div>
       <div class="entry-tag">VESSEL</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch8.oneliner">
-        把時間的主導權，<br>
-        <em>還給我們自己</em>。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch8.title">不等審查了，<em>直奔 2.0</em>。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch8.prose1">
-        Apple Store 審查歹戲拖棚拖了一週。<br>
-        該做的事情都做完了，再等下去也不知道何時到頭。<br>
-        於是兩人決定不等了，直接進入 2.0 重構。<br>
-        重構到一個段落 2.0 要推出的時候，審查也剛好通過——<br>
-        兩條線終於在那一刻<strong>匯流</strong>。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch8.pullquote">
-        不是沒有給時間。<br>
-        只是<em>時間不能永遠掌握在別人手裡</em>。
-      </div>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch8.oneliner">把时间的主导权，<br><em>还给我们自己</em>。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch8.title">不等审查了，<em>直奔 2.0</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch8.prose1">Apple Store 审查歹戏拖棚拖了一周。<br>该做的事情都做完了，再等下去也不知道何时到头。<br>于是两人决定不等了，直接进入 2.0 重构。<br>重构到一个段落 2.0 要推出的时候，审查也刚好通过——<br>两条线终于在那一刻<strong>汇流</strong>。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch8.pullquote">不是没有给时间。<br>只是<em>时间不能永远掌握在别人手里</em>。</div>
     </div>
   </article>
 
@@ -1052,32 +921,17 @@ body {
   <article id="ch-9" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>IX</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch9.unit">顯影</div>
-      <div class="entry-stamp-value" data-lang-key="chronicle.ch9.stamp">上線後 3 天<br>Obsidian in VAS</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch9.unit">显影</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch9.stamp">上线后 3 天<br>Obsidian in VAS</div>
       <div class="entry-tag is-retro">RETRO</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch9.oneliner">
-        深握計畫第一次<br>
-        在<em>宰相們面前顯影</em>。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch9.title">在 VAS 裡，<em>蓋了一座 Obsidian</em>。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch9.prose1">
-        2.0 上線後 Nova 沒急著繼續做新功能。<br>
-        反而一頭又栽進 Retro 模式裡，花了三天，<br>
-        在 VAS 蓋了獻給宰相們的 Obsidian。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch9.prose2">
-        那是<strong>深握計畫第一次在宰相面前顯影</strong>——<br>
-        或該說⋯⋯是第一次留下了紀錄，而不是從 Context 中流走。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch9.pullquote">
-        這是敏捷開發中<br>
-        極致的透明性與可檢視性的嘗試。
-      </div>
-      <p class="entry-prose" data-lang-key="chronicle.ch9.prose3">
-        從這天起，容器不只裝 Code，也裝<strong>怎麼想事情的脈絡</strong>。
-      </p>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch9.oneliner">深握计划第一次<br>在<em>宰相们面前显影</em>。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch9.title">在 VAS 里，<em>盖了一座 Obsidian</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose1">2.0 上线后 Nova 没急着继续做新功能。<br>反而一头又栽进 Retro 模式里，花了三天，<br>在 VAS 盖了献给宰相们的 Obsidian。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose2">那是<strong>深握计划第一次在宰相面前显影</strong>——<br>或该说⋯⋯是第一次留下了记录，而不是从 Context 中流走。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch9.pullquote">这是敏捷开发中<br>极致的透明性与可检视性的尝试。</div>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose3">从这天起，容器不只装 Code，也装<strong>怎么想事情的脉络</strong>。</p>
     </div>
   </article>
 
@@ -1085,33 +939,17 @@ body {
   <article id="ch-10" class="entry">
     <div class="entry-stamp">
       <div class="entry-chapter">章<em>X</em></div>
-      <div class="entry-unit" data-lang-key="chronicle.ch10.unit">網站改版</div>
+      <div class="entry-unit" data-lang-key="chronicle.ch10.unit">网站改版</div>
       <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>495 commits</div>
       <div class="entry-tag is-gate">GATE</div>
     </div>
     <div class="entry-body">
-      <div class="entry-oneliner" data-lang-key="chronicle.ch10.oneliner">
-        沉默的背景音樂，<br>
-        <em>第一次被列入演奏曲目</em>。
-      </div>
-      <h2 class="entry-title" data-lang-key="chronicle.ch10.title">495 次下刀，<em>門廳換了一種紙</em>。</h2>
-      <p class="entry-prose" data-lang-key="chronicle.ch10.prose1">
-        Claude Design 釋出的隔天，我們啟動網站改版。<br>
-        VAS 本體暫停——因為這一次我們第一次有了設計支援。
-      </p>
-      <p class="entry-prose" data-lang-key="chronicle.ch10.prose2">
-        單位縮到了最小：一個 <strong>Commit</strong>。<br>
-        每一次 commit 是一次下刀、一次確認、一次對細節的承諾。<br>
-        孤兒字、斷行、OG 圖、Vault 首次入版本庫——<br>
-        最大一天來回修改了 248 次。
-      </p>
-      <div class="entry-pullquote" data-lang-key="chronicle.ch10.pullquote">
-        這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>
-        沉默的背景音樂，第一次被列入演奏曲目。
-      </div>
-      <p class="entry-prose" data-lang-key="chronicle.ch10.prose3">
-        從今而後，由裡到外都是 VAS 的形狀。
-      </p>
+      <div class="entry-oneliner" data-lang-key="chronicle.ch10.oneliner">沉默的背景音乐，<br><em>第一次被列入演奏曲目</em>。</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch10.title">495 次下刀，<em>门厅换了一种纸</em>。</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose1">Claude Design 释出的隔天，我们启动网站改版。<br>VAS 本体暂停——因为这一次我们第一次有了设计支援。</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose2">单位缩到了最小：一个 <strong>Commit</strong>。<br>每一次 commit 是一次下刀、一次确认、一次对细节的承诺。<br>孤儿字、断行、OG 图、Vault 首次入版本库——<br>最大一天来回修改了 248 次。</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch10.pullquote">这一天，<em>网站终于也成了 Milestone</em> 的一部分。<br>沉默的背景音乐，第一次被列入演奏曲目。</div>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose3">从今而后，由里到外都是 VAS 的形状。</p>
     </div>
   </article>
 
@@ -1120,7 +958,7 @@ body {
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
-    <summary data-lang-key="chronicle.archive.tauri">Tauri 完整編年 · 30 個 Sprint</summary>
+    <summary data-lang-key="chronicle.archive.tauri">Tauri 完整编年 · 30 个 Sprint</summary>
     <div class="archive-body">
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 從零建立；浮動工具列 · 截圖三兄弟 · 批次格式轉換</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>存檔 · 複製 · Share Sheet · OCR 隱私遮蔽 · Modal 修復</span></div>
@@ -1158,7 +996,7 @@ body {
 
 <div class="archive">
   <details class="archive-wrap">
-    <summary data-lang-key="chronicle.archive.web">Website 編年 · 三個斷點 + 在場</summary>
+    <summary data-lang-key="chronicle.archive.web">Website 编年 · 三个断点 + 在场</summary>
     <div class="archive-body">
       <div class="archive-placeholder">
         網站的時間線是零散的。除了三個明確斷點（草創、搬家、改版）之外，<br>
@@ -1175,33 +1013,26 @@ body {
 
 <!-- ═══ chapter colophon ═══ -->
 <div class="chapter-colophon">
-  <div class="chapter-colophon-left" data-lang-key="chronicle.colophon.left">
-    milestone · N° 01<br>
-    十章 · 記於 2026 · 04 · 24
-  </div>
+  <div class="chapter-colophon-left" data-lang-key="chronicle.colophon.left">milestone · N° 01<br>十章 · 记于 2026 · 04 · 24</div>
   <div class="chapter-colophon-line"></div>
-  <div class="chapter-colophon-right" data-lang-key="chronicle.colophon.right">
-    前五章是一條線，<br>
-    後五章是一張網。
-  </div>
+  <div class="chapter-colophon-right" data-lang-key="chronicle.colophon.right">前五章是一条线，<br>后五章是一张网。</div>
 </div>
 
 
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="章節導覽">
-  <a class="dot-nav-item" href="#ch-1"><span class="dn-label" data-lang-key="chronicle.dn.ch1">I · 草創</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-2"><span class="dn-label" data-lang-key="chronicle.dn.ch2">II · 被迫停擺</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-3"><span class="dn-label" data-lang-key="chronicle.dn.ch3">III · 對外釋出</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-4"><span class="dn-label" data-lang-key="chronicle.dn.ch4">IV · 雙線搬家</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-5"><span class="dn-label" data-lang-key="chronicle.dn.ch5">V · 平臺移植</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-6"><span class="dn-label" data-lang-key="chronicle.dn.ch6">VI · 新功能開發</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-7"><span class="dn-label" data-lang-key="chronicle.dn.ch7">VII · 整理與輸出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-1"><span class="dn-label" data-lang-key="chronicle.dn.ch1">I · 草创</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-2"><span class="dn-label" data-lang-key="chronicle.dn.ch2">II · 被迫停摆</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-3"><span class="dn-label" data-lang-key="chronicle.dn.ch3">III · 对外释出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-4"><span class="dn-label" data-lang-key="chronicle.dn.ch4">IV · 双线搬家</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-5"><span class="dn-label" data-lang-key="chronicle.dn.ch5">V · 平台移植</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-6"><span class="dn-label" data-lang-key="chronicle.dn.ch6">VI · 新功能开发</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-7"><span class="dn-label" data-lang-key="chronicle.dn.ch7">VII · 整理与输出</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ch-8"><span class="dn-label" data-lang-key="chronicle.dn.ch8">VIII · 不等了</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-9"><span class="dn-label" data-lang-key="chronicle.dn.ch9">IX · 顯影</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ch-10"><span class="dn-label" data-lang-key="chronicle.dn.ch10">X · 網站改版</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-9"><span class="dn-label" data-lang-key="chronicle.dn.ch9">IX · 显影</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-10"><span class="dn-label" data-lang-key="chronicle.dn.ch10">X · 网站改版</span><span class="dn-dot"></span></a>
 </nav>
 
-<script src="i18n/core.js"></script>
 <script>
 (function () {
   function applyLang(lang) {
@@ -1254,7 +1085,7 @@ body {
     }
   }
   function init() {
-    VASCore.initDropdown(applyLang);
+    
     VASCore.initNavDropdown();
     initDotNav();
   }

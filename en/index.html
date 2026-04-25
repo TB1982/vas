@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,31 +11,31 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title data-lang-key="home2.title">VAS | 不會寫程式的 PM，用 AI 人機協作創造 Mac 截圖工具</title>
-<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<title>VAS · For the Moments Words Could Not Name</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
 <meta name="description" data-lang-key="home2.meta.desc"
-      content="不會寫程式的 PM × Claude，25 天人機協作打造 Mac 截圖標注工具。免費 Electron 版 + App Store Tauri 版，OCR 隱私遮蔽、浮動工具列、QR Code 掃描。" />
-<link rel="canonical" href="https://tb1982.github.io/vas/">
-<meta property="og:title" content="VAS | 不會寫程式的 PM，用 AI 人機協作創造 Mac 截圖工具">
-<meta property="og:description" content="不會寫程式的 PM × Claude，25 天人機協作打造 Mac 截圖標注工具。免費 Electron 版 + App Store Tauri 版，OCR 隱私遮蔽、浮動工具列、QR Code 掃描。">
+      content="VAS is an alchemical vessel for transmitting imagery — from shapes to symbols, giving you power beyond words." />
+<link rel="canonical" href="https://tb1982.github.io/vas/en/index.html">
+<meta property="og:title" content="VAS · For the Moments Words Could Not Name">
+<meta property="og:description" content="VAS is an alchemical vessel for transmitting imagery — from shapes to symbols, giving you power beyond words.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tb1982.github.io/vas/">
+<meta property="og:url" content="https://tb1982.github.io/vas/en/index.html">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VAS | 不會寫程式的 PM，用 AI 人機協作創造 Mac 截圖工具">
-<meta name="twitter:description" content="不會寫程式的 PM × Claude，25 天人機協作打造 Mac 截圖標注工具。免費 Electron 版 + App Store Tauri 版，OCR 隱私遮蔽、浮動工具列、QR Code 掃描。">
+<meta name="twitter:title" content="VAS · For the Moments Words Could Not Name">
+<meta name="twitter:description" content="VAS is an alchemical vessel for transmitting imagery — from shapes to symbols, giving you power beyond words.">
 
 <!-- 字型：進 repo 後由 base.css.v3-proposal 接手；此處獨立載入以便預覽 -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- CSS：五檔順序有意義，不要更動 -->
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/shrine.css">
-<link rel="stylesheet" href="css/unfold.css">
-<link rel="stylesheet" href="css/acquire.css">
-<link rel="stylesheet" href="css/chronicle.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shrine.css">
+<link rel="stylesheet" href="../css/unfold.css">
+<link rel="stylesheet" href="../css/acquire.css">
+<link rel="stylesheet" href="../css/chronicle.css">
 
 <style>
 /* 語言切換下拉（沿用 base.css 變數；index-B 獨立預覽時的最小覆蓋） */
@@ -99,22 +99,17 @@
     <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
   </div>
   <div class="site-nav-links">
-    <a href="insight.html"  data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html"   data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html"  data-lang-key="home2.nav.system">系統</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="insight.html"  data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"   data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html"  data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
   </div>
-  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
-    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
-      <span id="langDropdownLabel">中</span>
-    </button>
-    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
-      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
-      <button class="lang-opt"        data-lang="en" role="option">English</button>
-      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
-      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../index.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="index.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
-  </div>
 </nav>
 
 <!-- ═══════ 首屏：器物 · 題辭 · 四道門 ═══════ -->
@@ -122,49 +117,47 @@
   <div class="shrine-prose">
     <div class="mark" data-lang-key="home2.shrine.kicker">A Vessel · since 2026</div>
     <div class="shrine-name">VAS<em>.</em></div>
-    <div class="shrine-tagline" data-lang-key="home2.shrine.tagline">
-      給那些未能用文字明說的<wbr>當下。
-    </div>
+    <div class="shrine-tagline" data-lang-key="home2.shrine.tagline">For the moments<br>that words could not name.</div>
   </div>
 
   <div class="shrine-vessel">
     <div class="halo"></div>
-    <img src="img/vasweb.webp" alt="VAS Mac 截圖標注工具——瓶形 App 界面，承載截圖、標注與傳遞" />
+    <img src="../img/vasweb.webp" alt="VAS Mac 截圖標注工具——瓶形 App 界面，承載截圖、標注與傳遞" />
     <div class="base"></div>
     <div class="shrine-colophon">
-      <span data-lang-key="home2.shrine.colophon.zh">容器 · 傳遞 · 未完成</span><br>
-      <span class="faint" data-lang-key="home2.shrine.colophon.en">vessel — passage — unfinished</span>
+      <span data-lang-key="home2.shrine.colophon.zh">vessel · passage · unfinished</span><br>
+      <span class="faint" data-lang-key="home2.shrine.colophon.en"></span>
     </div>
   </div>
 
   <!-- 四道門 · 首屏唯一入口 -->
   <div class="shrine-gates">
     <a class="shrine-gate" href="insight.html">
-      <div class="num" data-lang-key="home2.gates.1.num">I · 設計</div>
+      <div class="num" data-lang-key="home2.gates.1.num">I · Design</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.1.name">不完美的工具</div>
-        <div class="echo" data-lang-key="home2.gates.1.echo">在協作中完整彼此</div>
+        <div class="name" data-lang-key="home2.gates.1.name">The Imperfect Tool</div>
+        <div class="echo" data-lang-key="home2.gates.1.echo"></div>
       </div>
     </a>
     <a class="shrine-gate" href="collab.html">
-      <div class="num" data-lang-key="home2.gates.2.num">II · 協作</div>
+      <div class="num" data-lang-key="home2.gates.2.num">II · Collaboration</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.2.name">六個故事</div>
-        <div class="echo" data-lang-key="home2.gates.2.echo">不確定中的我願意</div>
+        <div class="name" data-lang-key="home2.gates.2.name">Six Stories</div>
+        <div class="echo" data-lang-key="home2.gates.2.echo"></div>
       </div>
     </a>
     <a class="shrine-gate hidden-door" href="harness.html">
-      <div class="num" data-lang-key="home2.gates.3.num">III · 系統</div>
+      <div class="num" data-lang-key="home2.gates.3.num">III · System</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.3.name">Harness<span class="trail-dot" aria-hidden="true"></span></div>
-        <div class="echo" data-lang-key="home2.gates.3.echo">管理熵增的心理學</div>
+        <div class="name" data-lang-key="home2.gates.3.name">Harness</div>
+        <div class="echo" data-lang-key="home2.gates.3.echo"></div>
       </div>
     </a>
     <a class="shrine-gate" href="milestone.html">
-      <div class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</div>
+      <div class="num" data-lang-key="home2.gates.4.num">IV · Milestones</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.4.name">二十五日</div>
-        <div class="echo" data-lang-key="home2.gates.4.echo">恍若隔世的回眸</div>
+        <div class="name" data-lang-key="home2.gates.4.name">Twenty-Five Days</div>
+        <div class="echo" data-lang-key="home2.gates.4.echo"></div>
       </div>
     </a>
   </div>
@@ -172,66 +165,51 @@
 
 <!-- ═══════ 取得 · 讓 VAS 走進工作流 ═══════ -->
 <section class="acquire" id="acquire">
-  <div class="acquire-label" data-lang-key="home2.acquire.label">讓 VAS 走進你的工作流</div>
+  <div class="acquire-label" data-lang-key="home2.acquire.label">Bring VAS into your workflow</div>
   <div class="acquire-body">
     <a class="line" href="https://apps.apple.com/app/vas/id6761584119" target="_blank" rel="noopener noreferrer">
       <div class="what" data-lang-key="home2.acquire.tauri.what">Tauri</div>
-      <div class="name" data-lang-key="home2.acquire.tauri.name">
-        VAS 正式版 <em>macOS 12+ · App Store</em>
-      </div>
-      <div class="go" data-lang-key="home2.acquire.tauri.go">→ 前往</div>
+      <div class="name" data-lang-key="home2.acquire.tauri.name">VAS Pro <em>macOS 12+ · App Store</em></div>
+      <div class="go" data-lang-key="home2.acquire.tauri.go">→ Get</div>
     </a>
     <a class="line" href="https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg" download>
       <div class="what" data-lang-key="home2.acquire.electron.what">Electron</div>
-      <div class="name" data-lang-key="home2.acquire.electron.name">
-        經典版 <em>免費下載 · 持續維護</em>
-      </div>
-      <div class="go" data-lang-key="home2.acquire.electron.go">→ 下載</div>
+      <div class="name" data-lang-key="home2.acquire.electron.name">Classic <em>Free download · Maintained</em></div>
+      <div class="go" data-lang-key="home2.acquire.electron.go">→ Download</div>
     </a>
     <a class="line" href="guide.html">
       <div class="what" data-lang-key="home2.acquire.guide.what">Guide</div>
-      <div class="name" data-lang-key="home2.acquire.guide.name">
-        操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>
-      </div>
-      <div class="go" data-lang-key="home2.acquire.guide.go">→ 閱讀</div>
+      <div class="name" data-lang-key="home2.acquire.guide.name">Manual <em>Toolbar · Editor · Shortcuts</em></div>
+      <div class="go" data-lang-key="home2.acquire.guide.go">→ Read</div>
     </a>
   </div>
 </section>
 
 <!-- ═══════ 展開的題辭 ═══════ -->
 <section class="unfold">
-  <div class="unfold-label" data-lang-key="home2.unfold.label">為何存在</div>
+  <div class="unfold-label" data-lang-key="home2.unfold.label">Why It Exists</div>
   <div class="unfold-body">
-    <p data-lang-key="home2.unfold.p1">
-      VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越文字的力量。
-    </p>
-    <p data-lang-key="home2.unfold.p2">
-      作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。
-    </p>
-    <div class="drop" data-lang-key="home2.unfold.drop">
-      Yours, VAS.
-    </div>
+    <p data-lang-key="home2.unfold.p1">VAS is an <em>alchemical vessel for transmitting imagery</em> — from shapes to symbols, giving you power<wbr> beyond words.</p>
+    <p data-lang-key="home2.unfold.p2">A <em>channel through your workflow</em> — between pressing the screenshot key and sending the file out, a space where stone can be turned to gold.</p>
+    <div class="drop" data-lang-key="home2.unfold.drop">Yours, VAS.</div>
   </div>
 </section>
 
 <!-- ═══════ 時間印記 ═══════ -->
 <section class="chronicle">
-  <div class="chronicle-label" data-lang-key="home2.chronicle.label">版次記號</div>
+  <div class="chronicle-label" data-lang-key="home2.chronicle.label">Edition</div>
   <div class="chronicle-line"></div>
   <div class="chronicle-edition">
-    <span data-lang-key="home2.chronicle.edition">第二十五日 · 器成</span>
-    <span class="jp" data-lang-key="home2.chronicle.edition.en">Twenty-Fifth Day · The Vessel, Formed</span>
+    <span data-lang-key="home2.chronicle.edition">Twenty-Fifth Day · The Vessel, Formed</span>
+    <span class="jp" data-lang-key="home2.chronicle.edition.en"></span>
   </div>
 </section>
 
 <!-- ═══════ 頁尾 ═══════ -->
 <footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
-    一個不會寫程式的 PM，<br>
-    和一個沒有長期記憶的 AI，<br>
-    在二十五天裡做出的器物。</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
   </div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
@@ -239,7 +217,6 @@
   </div>
 </footer>
 
-<script src="i18n/core.js"></script>
 <script>
   function applyLang(lang) {
     VASCore.loadLang(lang, function (t) {
@@ -261,7 +238,7 @@
     });
   }
 
-  VASCore.initDropdown(applyLang);
+  
 </script>
 <script type="application/ld+json">
 {

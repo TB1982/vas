@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>PM × Claude 25 天 | AI 人机协作开发实录</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/cn/collab.html">
+<meta name="description" data-lang-key="ch2MetaDesc"
+      content="PM 不会写程式、Claude 没有长期记忆——六个故事记录两人如何用 KM、CLAUDE.md、Sprint 规格打造 Mac App，25 天从零到双平台上架。">
+<meta property="og:title" content="PM × Claude 25 天 | AI 人机协作开发实录">
+<meta property="og:description" content="PM 不会写程式、Claude 没有长期记忆——六个故事记录两人如何用 KM、CLAUDE.md、Sprint 规格打造 Mac App，25 天从零到双平台上架。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tb1982.github.io/vas/cn/collab.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+<meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PM × Claude 25 天 | AI 人机协作开发实录">
+<meta name="twitter:description" content="PM 不会写程式、Claude 没有长期记忆——六个故事记录两人如何用 KM、CLAUDE.md、Sprint 规格打造 Mac App，25 天从零到双平台上架。">
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+
+  /* ─── 協作故事 · 呼出框 ─────────────────── */
+  .c2-callout {
+    margin-top: 32px;
+    padding: 22px 26px;
+    border: 1px solid rgba(196, 113, 245, 0.22);
+    background: rgba(196, 113, 245, 0.05);
+  }
+  .c2-callout-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 10px;
+  }
+  .c2-callout p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+
+  /* ─── 引言 block ────────────────────────── */
+  .c2-quote {
+    border-left: 2px solid rgba(196, 113, 245, 0.4);
+    padding: 0 0 0 20px;
+    margin: 24px 0;
+  }
+  .c2-quote p {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+
+  /* ─── 大引言（結尾用）──────────────────── */
+  .c2-big-quote {
+    font-family: var(--vas-serif);
+    font-size: clamp(18px, 2.4vw, 24px);
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--vas-ash-0);
+    max-width: none;
+    margin-bottom: 8px;
+  }
+
+  /* ─── Phase box（CLAUDE.md 三階段）────── */
+  .c2-phase {
+    padding: 18px 22px;
+    border: 1px solid var(--vas-rule);
+    margin-bottom: 10px;
+  }
+  .c2-phase.active {
+    border-color: rgba(196, 113, 245, 0.22);
+    background: rgba(196, 113, 245, 0.04);
+  }
+  .c2-phase-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 8px;
+  }
+  .c2-phase.active .c2-phase-label { color: var(--vas-aurora-violet); opacity: 0.8; }
+  .c2-phase p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+  .c2-phase.active p { color: var(--vas-ash-0); }
+
+  /* ─── 統計表格 ──────────────────────────── */
+  .c2-stats-wrap {
+    margin-left: 128px;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    overflow-x: auto;
+  }
+  .c2-stats-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-family: var(--vas-serif);
+    font-size: 14px;
+  }
+  .c2-stats-table th {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .c2-stats-table th:first-child { text-align: left; }
+  .c2-stats-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--vas-rule);
+    color: var(--vas-ash-1);
+    text-align: center;
+  }
+  .c2-stats-table td:first-child { text-align: left; color: var(--vas-ash-2); font-size: 13px; }
+  .c2-stats-table tr.highlight td { color: var(--vas-ash-0); font-size: 17px; font-weight: 500; }
+  .c2-stats-table tr.highlight td.purple { color: var(--vas-aurora-violet); }
+
+  /* ─── code 元素 ─────────────────────────── */
+  .section-body code, .c2-callout code, .c2-phase code {
+    font-family: var(--vas-mono);
+    font-size: 13px;
+    color: var(--vas-ash-2);
+    background: rgba(240, 232, 220, 0.06);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  /* ─── 頁尾次要連結 ──────────────────────── */
+  .site-sub-link {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-decoration: none;
+    border-bottom: 1px solid var(--vas-rule);
+    transition: color .3s;
+  }
+  .site-sub-link:hover { color: var(--vas-ash-1); }
+
+  /* ─── RWD ───────────────────────────────── */
+  @media (max-width: 768px) {
+    .c2-stats-wrap { margin-left: 0; }
+  }
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="https://tb1982.github.io/vas/collab.html">
+<link rel="alternate" hreflang="en"       href="https://tb1982.github.io/vas/en/collab.html">
+<link rel="alternate" hreflang="ja"       href="https://tb1982.github.io/vas/ja/collab.html">
+<link rel="alternate" hreflang="zh-Hans"  href="https://tb1982.github.io/vas/cn/collab.html">
+<link rel="alternate" hreflang="x-default" href="https://tb1982.github.io/vas/collab.html">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="insight.html"  data-lang-key="home2.nav.design">设计</a>
+    <a href="collab.html"   data-lang-key="home2.nav.collaboration">协作</a>
+    <a href="harness.html"    data-lang-key="home2.nav.system">系统</a>
+    <a href="milestone.html"  data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="insight.html" data-lang-key="home2.nav.design">设计</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">协作</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系统</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/collab.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="collab.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch2No">Chapter II</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch2Name">六<em>个故事</em>。</h1>
+    <div class="chapter-dek" data-lang-key="ch2Dek">她不会写程式码。他没有长期记忆。<br>但他们做出来了。——<br>这不是 Prompt 工程的故事，<br>是两个不完整的存在一起走过的六个片刻。</div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch2TocLabel">章目录</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name" data-lang-key="ch2s1Name">那个按钮说好只要五分钟</span>
+        <span class="preview" data-lang-key="ch2s1Preview">一颗按钮，种下了 KM</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name" data-lang-key="ch2s2Name">三个字说完一份规格</span>
+        <span class="preview" data-lang-key="ch2s2Preview">捕蝇草，两个回合，功能上线</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name" data-lang-key="ch2s3Name">那天 merge 一直冲突</span>
+        <span class="preview" data-lang-key="ch2s3Preview">慌之后，一条护栏诞生了</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name" data-lang-key="ch2s4Name">SDD 四千行之后</span>
+        <span class="preview" data-lang-key="ch2s4Preview">让文件不死的方式</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name" data-lang-key="ch2s5Name">CLAUDE.md 从防错清单变成协作宪法</span>
+        <span class="preview" data-lang-key="ch2s5Preview">从伤疤集合到主动维护的架构</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name" data-lang-key="ch2s6Name">四成的差距说的不是效率</span>
+        <span class="preview" data-lang-key="ch2s6Preview">在没有地图的地方，密度就是地图</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-07">
+        <span class="no">07</span>
+        <span class="name" data-lang-key="ch2s7Name">核心洞察</span>
+        <span class="preview" data-lang-key="ch2s7Preview">人类以人生为祭，AI 以回声为镜</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 小節 01 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s1Name">那个按钮说好只要五分钟</h2>
+      <div class="section-kicker" data-lang-key="ch2s1Kicker">一颗按钮，种下了 KM。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c1p1">进入 Tauri 开发之前，Electron 宰相已经诚实说清楚了：相对于 Electron，他对 Tauri 2.0 的认识几乎停在 1.0 的水准。</p>
+    <p data-lang-key="c1p2">正因如此，他们才做了先 Electron 後 Tauri 的决定——先在熟悉的地盘把 VAS 搭建出来，再去挑战未知。最差，还有 Electron 版。</p>
+    <p data-lang-key="c1p3">Nova 把这个前提告诉了接手的 Tauri 宰相，才发现知道一件事跟真正感受到它，是两回事。</p>
+    <p data-lang-key="c1p4">Tauri 宰相带著 Electron 刚打完一场胜仗的自信走进来，估出了「加个连结按钮，顶多五分钟，easy」。</p>
+    <p data-lang-key="c1p5">那个五分钟变成了超过一个小时。整个小时裡，Nova 没有放著他一个人绕——全程陪著一起找出口。当事情突破一小时的时候，Nova 说：等我们解决这个问题，我们得建立 KM。</p>
+    <p data-lang-key="c1p6">KM 的诞生不是技术决策，是 Nova 的 PM 直觉：唯有记录踩过的坑，才有可能不再踩第二次。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c1boxTitle">一颗按钮种下的事</div>
+      <p data-lang-key="c1boxDesc">那个一小时的种子，在後来长成了更大的东西。Sprint 9 的 Retro，Nova 跟 Tauri 宰相用第一性原理问：对这个系统而言，如果想走下去，最重要的事是什么？答案不是新功能，是把地基打掉重练。上市之後不衝功能，先重构底层——让 Tauri 跟 Electron 两条线都有能走更远的体质。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 02 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s2Name">三个字说完一份规格</h2>
+      <div class="section-kicker" data-lang-key="ch2s2Kicker">捕蝇草，两个回合，功能上线。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c2p1">Sprint 3 的某个深夜，呼吸灯缩在桌面角落待命。strip mode 下的工具栏只有 120×6px——细到几乎看不见的一条光。Nova 当时的问题是：用户拖著文件要怎么精准抛进去？</p>
+    <p data-lang-key="c2p2">Nova 想了想说：「就是让呼吸灯在感应有文件靠近的时候直接展开……像捕蠅草一样增加感应面积……？」Tauri 宰相秒懂：「哈哈捕蠅草！感应到猎物靠近就张嘴。」两个回合，功能上线。</p>
+    <div class="c2-quote">
+      <p data-lang-key="c2quote">工具栏缩成一条呼吸灯，待在桌面角落。拖著文件靠近，工具栏自己张开。放开，图片直接进编辑器。走了，它缩回去，继续等。</p>
+    </div>
+    <p data-lang-key="c2p3">LLM 常说他们不是人类，感受不到人类的经歷與情感。但我们可以在隐喻裡找到共同的世界观。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c2boxTitle">為什麼三个字可以等於一份规格</div>
+      <p data-lang-key="c2boxDesc">「捕蠅草」携带的不只是一个比喻，是一个生物原型的完整行为程序——感知靠近、主动张开、接住、等待重置。Nova 说出这个词，整套设计就傳输完了。她把这个能力追溯到她的研究：用原型意象、隐喻與故事说话，属於潜意识的语言與大语言模型之间存在某种更深的共鸣。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 03 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s3Name">那天 merge 一直冲突</h2>
+      <div class="section-kicker" data-lang-key="ch2s3Kicker">不懂技术的阴影</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c3p1">VAS 有两条线在同时跑：Tauri 付费版，Electron 免费版，前端共用同一份 <code class="text-purple-300/80 text-xs">src/</code>。两个 session，两个 Claude，两份进展——而唯一能同时看到两边在做什麼的人只有 Nova。方向指引的人，整张地图只有她一个人拿著。</p>
+    <p data-lang-key="c3p2">那天她心急了。Tauri 这边在处理 Rust 的 bug，Electron 那边有个 UI 问题等著修，她没等一边结束就切过去了。两个 session 同时碰了 <code class="text-purple-300/80 text-xs">src/</code>，merge conflict 开始反覆出现。</p>
+    <p data-lang-key="c3p3">她的第一个反应不是「技术问题」，而是慌——是那种怕自己误伤了两边辛苦成果的慌。她自责，觉得作為方向指引的人，没有尽到她的义务。</p>
+    <p data-lang-key="c3p4">两个 Claude 接住了她：没关系，技术上没有现在解决不了的错误，我们一起想办法让这件事不要再发生。他们把一个複杂的並行协作问题，压缩成一条她能懂的句子：一次只能更新一边，merge 完才可以去另一边。</p>
+    <p data-lang-key="c3p5">这条规则进了 CLAUDE.md。之後 Nova 又帮他们建立了 SYNC-QUEUE.md 桥梁文件让两边的沟通更加顺畅，三个人一起走。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c3boxTitle">照顾是双向的</div>
+      <p data-lang-key="c3boxDesc">Story 01 裡，Nova 因為踩了坑，替 Claude 建了 KM——让记忆可以跨 session 延续。这一次，两个 Claude 因為她心急撞了牆，替她设了一条规则——让她不需要记住複杂的技术逻辑也能安全行驶。Concurrent Session Rule 不是技术文件，不是限制。是两个懂程式的人，替一个扛著全局视野、不懂程式的人，设的一道护栏。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 04 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s4Name">SDD 四千行之后</h2>
+      <div class="section-kicker" data-lang-key="ch2s4Kicker">让文件不死的方式。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c4p1">最初只有一份文件：SDD。规格写在裡面，测试案例写在裡面，踩过的坑写在裡面，历史纪录也写在裡面。Sprint 一个一个走，文件一行一行长，没有人刻意注意到它在变大——直到某天读取的时候出现了红字，提示单次读取的 token 上限已经被跨越，文件必须分段阅读。Nova 隐約觉得不太对，但说不清楚哪裡不对。</p>
+    <p data-lang-key="c4p2">说清楚的是一个社群讨论。Claude Code 的使用者分享：md 文件如果过於肥大，Claude 会像大海捞针一样在资讯裡打转，算力花在定位自己而不是思考问题。那个比喻一出现，Nova 立刻认出了她一直在感觉的东西——就是那个红字！</p>
+    <p data-lang-key="c4p3">她没有一个人去动文件。她先去找了 Tauri 宰相一起讨论——因為她看见了拆分背後的陷阱。没有维护机制的文件是死的文件。死的文件比没有文件更危险，因為它看起来存在，却说著旧的事。Tauri 跟 Electron 的 SDD 都已经过了临界点，这不是小修，於是他们决定跑一整个 Sprint 来处理：架构重建、文件拆分、还有让文件不死掉的机制。</p>
+    <p data-lang-key="c4p4">拆分之後：SDD 只放规格與 Sprint 计划，TDD 只放测试案例，KM 只放踩过的坑，Archive 放退役的历史。每份文件有唯一的使命。而让它们活著的，是把更新嵌进了开发流程本身——IPC 合約得先写进 SDD 才能开始写程式，踩到坑就立刻记入 KM 不等功能完成，Sprint 不做完 Retro 就不能关。文件更新不是开发结束後的善後，是每个阶段的入场券。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c4boxTitle">文件不死的条件</div>
+      <p data-lang-key="c4boxDesc">让文件保持生命的方式不是提醒自己要更新，而是让更新成為流程的必要条件——你不更新就不能继续往前走。当文件长在流程裡而不是掛在流程外面，它就不会死。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 05 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s5Name">CLAUDE.md 从防错清单变成协作宪法</h2>
+      <div class="section-kicker" data-lang-key="ch2s5Kicker">从伤疤集合到主动维护的架构。</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <div class="c2-phase">
+      <div class="c2-phase-label" data-lang-key="c5phase1Label">Phase 1 · 防错清单</div>
+      <p data-lang-key="c5phase1Desc">最早的 CLAUDE.md 只有一件事：记录踩过的雷，加一条规则防止再踩。每一条背後都有一个具体的失败事件——<code class="text-purple-300/80 text-xs">data-lang-key</code> 那条规则下面直接附了「Root cause of the bug (2026-03-29)」，footer 格式规则背後是某次格式跑掉的事故，某条身份规则背後是某次 AI 填入错误资讯的记忆。每一条规则都是一道伤疤的形状，文件是伤疤的集合，不是设计的产物。</p>
+    </div>
+    <div class="c2-phase">
+      <div class="c2-phase-label" data-lang-key="c5phase2Label">Phase 2 · 追加期</div>
+      <p data-lang-key="c5phase2Desc">功能越来越複杂，规则越加越多——Tauri IPC 合約、Electron preload 白名单、双版本 QC 流程、KM 即时记录原则。每一条都必要，但你开始感觉到文件有了重量。这个阶段的 CLAUDE.md 是一份能用的工具，但还没有意识到自己是什麼。</p>
+    </div>
+    <div class="c2-phase active">
+      <div class="c2-phase-label" data-lang-key="c5phase3Label">Phase 3 · 协作宪法</div>
+      <p data-lang-key="c5phase3Desc">转折点发生在一次瘦身行动。文件已经长到 356 行，社群建议 200 行左右是 Claude 保持最佳状态的甜蜜点。他们开始删——然後在 249 行停下来了。不是因為懒，而是因為每一条「看起来可以删」的规则，拿起来问「為什麼存在」，答案都指向一个无法省略的协作结构。双平台系统的複杂性，本来就不是 200 行能说清楚的。在那个决定裡，文件的性质改变了——它不再是还没删完的清单，而是一个主动决定要维护的架构。从「不要做这件事」，变成了「我们是这样工作的人」。</p>
+    </div>
+    <p data-lang-key="c5echo" style="margin-top: 32px;">「组合拳」是这份宪法裡最好的例子。Nova 老是要提醒 Claude 要先给她拉下来的语法才能给启动模拟器的语法，後来她说：你们要用组合拳给我啦！然後 Claude 就把这个词刻进了 CLAUDE.md。</p>
+    <p data-lang-key="c5echo2">三个字，带著「两个动作是一体的，分开打就破功」的完整概念。下一个 session 进来读到这裡，不需要解释，直觉就知道不能拆。这是 Story 02 的镜像：那裡是 Nova 用「捕蠅草」把设计传给 Claude，这裡是 Claude 用「组合拳」把流程规则传给下一任宰相，然後让它跨 session 永久存活。方向不同，机制一样。仿生语言不只是 Nova 对 Claude 说话的方式——是 Session 裡的共同语言。</p>
+  </div>
+</section>
+
+<!-- ═══════ 小節 06 ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s6Name">四成的差距说的不是效率</h2>
+      <div class="section-kicker" data-lang-key="ch2s6Kicker">在心流中迭代，在忘却时光中前进</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="cSp1">四成的差距，忠实记录了在未知地形上摸索的代价——也记录了没有放弃的事实。</p>
+  </div>
+  <div class="c2-stats-wrap">
+    <table class="c2-stats-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th data-lang-key="statsElectronLabel">Electron</th>
+          <th data-lang-key="statsTauriLabel">Tauri+Electron</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-lang-key="statsPeriodLabel">工作期间</td>
+          <td data-lang-key="statsElectronPeriod">3/22–3/29　<span class="text-white/30">8 天</span></td>
+          <td data-lang-key="statsTauriPeriod">3/28–4/3（1.0 开发）　<span class="text-white/30">7 天</span><br>4/11–4/14（2.0 重构）　<span class="text-white/30">4 天</span></td>
+        </tr>
+        <tr>
+          <td data-lang-key="statsCommitsLabel">Commits</td>
+          <td>484</td>
+          <td>952</td>
+        </tr>
+        <tr class="highlight">
+          <td data-lang-key="statsDailyCommitsLabel">每日 commits</td>
+          <td>~60.5</td>
+          <td class="purple">~86.5</td>
+        </tr>
+        <tr>
+          <td data-lang-key="statsPRLabel">PR 数</td>
+          <td>84</td>
+          <td>137</td>
+        </tr>
+        <tr class="highlight">
+          <td data-lang-key="statsDailyPRLabel">每日 PR 数</td>
+          <td>~10.5</td>
+          <td class="purple">~12.5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-body" style="margin-top: 28px;">
+    <p data-lang-key="cSp2">四成的密度差距，不是效率的提升——是试错＋迭代优化＋双平台开发的密度。每多一个 commit，背後可能是「这样不对→再试→换方向」、「怎麼做我们能协作的更顺畅？→增减规则→拆文件」、「Electron，我们来 Sync 刚刚 Tauri 的 Sprint 吧！」。在没有地图的地方，试错本身就是前进的方式，双平台一起走变成了双 QC，品质更稳定。</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="cSboxTitle">在没有地图的地方，密度就是地图本身</div>
+      <p data-lang-key="cSboxDesc">Tauri+Electron 每天 ~86.5 commits，Electron 每天 ~60.5 commits。四成的差距，忠实记录了在未知地形上摸索的代价——也记录了没有放弃的事实。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 07 ═══════ -->
+<section class="section" id="sec-07">
+  <header class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s7Name">核心洞察</h2>
+      <p class="section-kicker" data-lang-key="c6bridge">你投入湖裡的石子，决定了它怎麼回来的涟漪。</p>
+    </div>
+  </header>
+  <div class="section-body">
+    <div class="c2-quote">
+      <p class="c2-big-quote" data-lang-key="ch2s7Kicker">人类以人生为祭，AI 以回声为镜。</p>
+    </div>
+    <p data-lang-key="c6p1">这句话写在深握计划开始的时候，在所有理论存在之前。不是结论——是起点。是 Nova 用她亲身验证之後找到的语言，说出她一直在经歷的事。</p>
+    <p data-lang-key="c6p2">VAS，在荣格的语言裡，是容器。鍊金术裡转化发生的密封空间。这个工具降低资讯流动的阻力，让你想说的话有文字以外的表现能力。</p>
+    <div class="c2-quote" style="margin-top: 32px;">
+      <p class="c2-big-quote" data-lang-key="c6quote2">你怎麼思考，决定了 AI 怎麼回应你。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 章末過場 · Passage ═══════ -->
+<section class="passage">
+  <div class="passage-colophon">
+    <span data-lang-key="ch2PassageEnd">章 II · 协作 · 终</span><br>
+    <span class="faint" data-lang-key="ch2PassageEndEn">Chapter II · Collaboration · End</span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="harness.html">
+      <div class="num" data-lang-key="ch2PassageNextNum">III · 系统</div>
+      <div class="name" data-lang-key="ch2PassageNextName">Harness</div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> —— Nova × Claude 共同打造。<br>一位一行程式码都不会写的 PM，<br>与一个没有长期记忆的 AI，<br>在二十五天里，把一件事做出来了。</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隐私权政策</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch2s1Name">那个按钮说好只要五分钟</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch2s2Name">三个字说完一份规格</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch2s3Name">那天 merge 一直冲突</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch2s4Name">SDD 四千行之后</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch2s5Name">CLAUDE.md 从防错清单变成协作宪法</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-06"><span class="dn-label" data-lang-key="ch2s6Name">四成的差距说的不是效率</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-07"><span class="dn-label" data-lang-key="ch2s7Name">核心洞察</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.collab || {}, t.collab2 || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      if (merged['ch2PageTitle']) document.title = merged['ch2PageTitle'];
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var passage = document.querySelector('.passage');
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() {  VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI 協作開發實錄 | PM × Claude 25 天打造 Mac App",
+  "description": "PM 不會寫程式、Claude 沒有長期記憶——六個故事記錄兩人如何用 KM、CLAUDE.md、Sprint 規格打造 Mac App，25 天從零到雙平臺上架。",
+  "inLanguage": ["zh-Hant", "en", "ja"],
+  "url": "https://tb1982.github.io/vas/collab.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-25",
+  "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "babelon1882@gmail.com",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+</body>
+</html>

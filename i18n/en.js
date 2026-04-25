@@ -154,7 +154,7 @@
       cb_batch: 'Batch', cb_batch_desc: 'Drop multiple images to convert them all at once to JPG, PNG, WebP, and more — with watermark and resize support.',
       cb_help: 'Help', cb_help_desc: 'Show keyboard shortcuts and link to this user guide.',
       cb_batch_note: 'Max 100 images per batch, 20mb per file',
-      'docs.title': 'User Manual · VAS',
+      'docs.title': 'VAS User Manual | Complete Mac Screenshot Tool Guide',
       'docs.meta.desc': 'Complete VAS Mac screenshot tool guide: floating toolbar, screenshot editor, OCR privacy masking, QR Code scanning, keyboard shortcuts and advanced settings — all in one page.',
       docsDek: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>the left menu stays with you—click any section to jump.<br><span class="docs-kbd">Ctrl</span>+<span class="docs-kbd">F</span> search works too.',
       docsDekMobile: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>tap the breathing light in the top right to jump to any section.',
@@ -541,7 +541,7 @@
     },
 
     collab2: {
-      ch2PageTitle:      'II · Collaboration · VAS',
+      ch2PageTitle:      'PM × Claude 25 Days | AI Collaboration Development Records',
       ch2MetaDesc:       "The PM can't code. Claude has no long-term memory. Six stories of how they used KM, CLAUDE.md, and Sprint specs to build a Mac App — 25 days from zero to dual-platform launch.",
       ch2No:             'Chapter II',
       ch2Name:           'Six <em>Stories</em>.',
@@ -700,7 +700,7 @@
     },
 
     harness2: {
-      ch3PageTitle:  'III · System · VAS',
+      ch3PageTitle:  'Harness Engineering | How a Non-Coding PM Uses Agile for AI Collaboration',
       ch3MetaDesc:   "Harness Engineering: how a non-coding PM uses agile and KM to manage AI entropy and forgetting — a complete methodology from psychology and antifragility to Harness Engineering collaboration structure.",
       ch3No:         'Chapter III',
       ch3Name:       'Harness<em>.</em>',
@@ -916,7 +916,7 @@
     },
 
     milestone2: {
-      ch4PageTitle:  'IV · Milestones · VAS',
+      ch4PageTitle:  'VAS Dev Milestones | 25 Days 80+ Versions Dual-Platform Mac App',
       ch4MetaDesc:   'The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, App Store review process, and the technical decisions behind every Sprint.',
       ch4No:         'Chapter IV',
       ch4Name:       'Twenty-Five <em>Days.</em>',

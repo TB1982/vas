@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS</title>
+<meta name="description" data-lang-key="ch1.meta.desc"
+      content="5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor." />
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/en/insight.html">
+<meta property="og:title" content="AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS">
+<meta property="og:description" content="5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tb1982.github.io/vas/en/insight.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+<meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS">
+<meta name="twitter:description" content="5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.">
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 · 融入 shrine 色系 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+
+  /* ─── 章節內輔助區塊 ───────────────────────── */
+  .section-wide {
+    margin-left: 128px;
+    margin-top: 28px;
+    max-width: 640px;
+  }
+  @media (max-width: 768px) {
+    .section-wide { margin-left: 0; max-width: 100%; }
+  }
+
+  .compare-box {
+    background: rgba(240, 232, 220, 0.04);
+    border: 1px solid var(--vas-rule);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--vas-ash-1);
+  }
+  .compare-box + .compare-box { margin-top: 10px; }
+  .compare-box.highlight {
+    background: rgba(196, 113, 245, 0.06);
+    border-color: rgba(196, 113, 245, 0.22);
+    color: var(--vas-ash-0);
+  }
+  .compare-box .cb-label {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  .compare-box.highlight .cb-label { color: var(--vas-aurora-violet); }
+  .compare-box .cb-num {
+    display: inline-block;
+    font-family: var(--vas-mono);
+    font-size: 18px;
+    color: var(--vas-ash-2);
+    min-width: 80px;
+    white-space: nowrap;
+  }
+  .compare-box.highlight .cb-num { color: var(--vas-aurora-violet); }
+
+  .cb-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .cb-grid-2 .compare-box + .compare-box { margin-top: 0; }
+  @media (max-width: 640px) { .cb-grid-2 { grid-template-columns: 1fr; } }
+
+  .fig-img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--vas-rule);
+    display: block;
+  }
+  .fig-caption {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    line-height: 1.7;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .fig-label {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .fig-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media (max-width: 640px) { .fig-grid-2 { grid-template-columns: 1fr; } }
+
+  .cb-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 2;
+    color: var(--vas-ash-1);
+  }
+  .cb-list li::before {
+    content: '✓ ';
+    color: var(--vas-aurora-violet);
+    margin-right: 6px;
+  }
+  .cb-list .ongoing { color: var(--vas-ash-3); font-style: italic; margin-top: 4px; }
+  .cb-list .ongoing::before { content: '→ '; color: var(--vas-ash-3); }
+
+  /* 步驟 box · flex 兩欄：數字靠左，標籤+描述在右 */
+  .cb-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .cb-step .cb-num {
+    width: auto;
+    min-width: 20px;
+    font-size: 20px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .cb-step .cb-right { display: flex; flex-direction: column; gap: 4px; }
+  .cb-step .cb-right .cb-label { display: block; }
+  .cb-step .cb-desc {
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--vas-ash-1);
+  }
+  .cb-step.highlight .cb-desc { color: var(--vas-ash-0); }
+
+  .site-sub-link {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .site-sub-link:hover { color: var(--vas-ash-0); }
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="https://tb1982.github.io/vas/insight.html">
+<link rel="alternate" hreflang="en"       href="https://tb1982.github.io/vas/en/insight.html">
+<link rel="alternate" hreflang="ja"       href="https://tb1982.github.io/vas/ja/insight.html">
+<link rel="alternate" hreflang="zh-Hans"  href="https://tb1982.github.io/vas/cn/insight.html">
+<link rel="alternate" hreflang="x-default" href="https://tb1982.github.io/vas/insight.html">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="insight.html" data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="insight.html" data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../insight.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="insight.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/insight.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/insight.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch1.no">Chapter I</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch1.name">Decisions that never made it onto<br><em>the feature list</em>.</h1>
+    <div class="chapter-dek" data-lang-key="ch1.dek">Five design decisions —<br>every one a choice made, a path abandoned,<br>something done and then undone.<br>This chapter is VAS's <em>craft confession</em>:<br>Making the tool more than a tool.</div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch1.toc.label">Contents</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name" data-lang-key="ch1.sec.01.name">Accept Imperfection</span>
+        <span class="preview" data-lang-key="ch1.sec.01.preview">The essence of collaboration is completion</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name" data-lang-key="ch1.sec.02.name">Act with Awareness</span>
+        <span class="preview" data-lang-key="ch1.sec.02.preview">When intent is clear, the tool dares to act directly</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span>
+        <span class="preview" data-lang-key="ch1.sec.03.preview">A quiet ask, then quietly gone</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name" data-lang-key="ch1.sec.04.name">When You Can't Step Away</span>
+        <span class="preview" data-lang-key="ch1.sec.04.preview">Wherever you are, that's where I capture</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name" data-lang-key="ch1.sec.05.name">Underlying Logic</span>
+        <span class="preview" data-lang-key="ch1.sec.05.preview">Something more important than new features</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 小節 01 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="i1Title">No perfect human-AI pair — but a complete collaboration</h2>
+      <div class="section-kicker" data-lang-key="i1Tag">Human-AI Collaboration</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="i1p1">VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We chose not to keep pushing for a perfect tool.</p>
+    <p data-lang-key="i1p2">I wanted recognition errors to be more than just a tool failure — to become a handoff point for collaboration.</p>
+    <p data-lang-key="i1p3">We made the privacy mosaic a floating layer with adjustable size: wherever OCR falls short, the user steps in manually.</p>
+    <p data-lang-key="i1p4">A recognition error stops being a "mistake" — it becomes a division of labour. The tool's imperfection leaves the user's control intact.</p>
+    <p data-lang-key="i1p5">OCR may only automate 90% of the task — but a quick drag of the manual mosaic handles what would otherwise be 100% manual work.</p>
+    <p data-lang-key="i1p6">And if you cover the wrong area, no problem — mosaics are independent floating objects, deleted with a single undo. Nothing is irreversible.</p>
+  </div>
+  <div class="section-wide">
+    <div class="compare-box">
+      <span class="cb-label" data-lang-key="i1box1Label">OCR Auto</span>
+      <span data-lang-key="i1box1Desc">Recognise as much as possible, auto-mark sensitive areas</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-label" data-lang-key="i1box2Label">Mosaic Fill-in</span>
+      <span data-lang-key="i1box2Desc">Where OCR falls short, the user takes over manually</span>
+    </div>
+    <div class="compare-box highlight">
+      <span class="cb-label">Undo</span>
+      <span data-lang-key="i1box3Desc">Covered the wrong spot? One-tap delete — no irreversible decisions</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 02 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="i2Title">QR Code detected — but how confident is it?</h2>
+      <div class="section-kicker" data-lang-key="i2Tag">Behaviour as Meaning</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="i2p1">Scanning a QR code seems like a binary outcome — found or not found. But VAS sees it differently: it reads user intent, then decides what to do next based on that intent.</p>
+    <p data-lang-key="i2p2">This is also human-AI collaboration: the user speaks through how they frame the screenshot, and the tool understands. No language, no buttons, no menus — how you frame it is what you want. The tool isn't reading commands; it's reading behaviour.</p>
+    <p data-lang-key="i2p3">We reasoned that when a user wants accurate QR Code detection, they'll naturally frame it as completely and exclusively as possible within the selection box — that act itself is a declaration of intent. The larger the QR Code fills the selected area, the more accurate the recognition, the higher the confidence, and the more directly the tool can act. A wordless understanding forms between user and tool.</p>
+    <p data-lang-key="i2p5">A tool shouldn't pretend to be certain when it isn't. When intent is clear, it opens the link directly; when confidence is ambiguous, it asks if you'd like to open it; when confidence is too low, it silently opens the editor and hands over to you. Behind each threshold is an honest design: knowing how much it knows.</p>
+  </div>
+  <div class="section-wide">
+    <div class="fig-label" data-lang-key="i2cardLabel">QR Code area within selection — behaviour logic:</div>
+    <div class="compare-box highlight">
+      <span class="cb-num">&gt; 70%</span>
+      <span class="cb-label" data-lang-key="i2highLabel">High confidence · Act directly</span>
+      <span data-lang-key="i2highDesc">Opens the page or link immediately, no interruption</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-num">21–69%</span>
+      <span class="cb-label" data-lang-key="i2midLabel">Mid confidence · Ask first</span>
+      <span data-lang-key="i2midDesc">Opens the editor and gently asks: "Is this the link you wanted?"</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-num">≤ 20%</span>
+      <span class="cb-label" data-lang-key="i2lowLabel">Low confidence · Silent handoff</span>
+      <span data-lang-key="i2lowDesc">No guessing, no action — opens the editor for you to take it from there</span>
+    </div>
+    <figure style="margin-top: 28px;">
+      <div class="fig-label" data-lang-key="i2imgCaption">How it looks in practice</div>
+      <img src="../img/qrcode.webp" alt="QR Code 截圖示意：框選越完整，辨識信心度越高" class="fig-img" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- ═══════ 小節 03 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="i3Title">The breathing light reads your intent — then asks</h2>
+      <div class="section-kicker" data-lang-key="i3Tag">Frictionless by Design</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="i3p1">VAS's breathing light isn't just a symbol of waiting — it's sensing the environment. When a user copies a URL nearby, the light gently asks: "Want me to capture this webpage?" User confirms, screenshot taken, editor opens.</p>
+    <p data-lang-key="i3p3">And when a user drags an image or copies one from a browser toward the breathing light, the light opens up like welcoming arms — expanding the toolbar to receive the image or, after a quick confirmation, immediately launching the editor for whatever comes next.</p>
+    <p data-lang-key="i3p4">The best tools don't make you switch into "tool mode." They live in your environment, understand what you're doing, then respond with action.</p>
+    <p data-lang-key="i3fn" class="section-fn">＊ Breathing light webpage capture and copied-image opening are Tauri-exclusive features. The Electron version supports receiving images via drag-and-drop to the toolbar only.</p>
+  </div>
+  <div class="section-wide">
+    <div class="cb-grid-2">
+      <div class="compare-box">
+        <div class="cb-label" data-lang-key="i3traditionalLabel">Traditional tool thinking</div>
+        <div data-lang-key="i3traditionalDesc">You call → it executes</div>
+      </div>
+      <div class="compare-box highlight">
+        <div class="cb-label" data-lang-key="i3vasLabel">The VAS way</div>
+        <div data-lang-key="i3vasDesc">It senses → it asks → you confirm</div>
+      </div>
+    </div>
+    <div class="fig-grid-2">
+      <figure>
+        <div class="fig-label" data-lang-key="i3imgCaption1">Design sketch</div>
+        <img src="../img/breathlightdesign.webp" alt="呼吸燈設計手稿，以 VAS 標注完成" class="fig-img" loading="lazy">
+      </figure>
+      <figure>
+        <div class="fig-label" data-lang-key="i3imgCaption2">Final implementation</div>
+        <img src="../img/breathlightfinal.webp" alt="呼吸燈最終實作效果" class="fig-img" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 04 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="i4Title">Strike your pose and hold — the tool should not call you back to choose</h2>
+      <div class="section-kicker" data-lang-key="i4Tag">Eliminating Interruption</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="i4p1">Once we built Delay Capture, the native Apple screen-picker for fullscreen captures in dual-monitor mode became friction.</p>
+    <p data-lang-key="i4p2">Delay Capture was born to catch mouse events — error states, hover effects, debug moments. While the countdown runs, the mouse must stay in its corner of the screen.</p>
+    <p data-lang-key="i4p3">But once the countdown ends, the native dual-monitor picker pops up and forces the user back to choose a screen before capturing — like setting a self-timer for a selfie, only for the camera to ask "which side do you want?" when it finishes counting down.</p>
+    <p data-lang-key="i4p4">VAS replaces the native Apple screen-picker with a custom fullscreen overlay: no delay — click whichever screen to capture it, or press Enter to merge both screens into one screenshot.</p>
+    <p data-lang-key="i4p5">Going further: when a user sets a delay rule, VAS defaults to capturing whichever screen the mouse is currently on — no selection needed at all. The user never even knows this decision happened in the background.</p>
+  </div>
+  <div class="section-wide">
+    <div class="fig-grid-2">
+      <figure>
+        <img src="../img/fullscreenmodal.webp" alt="原生雙螢幕選單：延遲截圖倒數期間跳出「請選擇要截哪個螢幕」" class="fig-img" loading="lazy">
+        <figcaption class="fig-caption" data-lang-key="i4imgCaption">This menu is like a timer selfie —<br>the camera waits for you to strike a pose, counts down, then asks which side you want to shoot.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/screenshot.webp" alt="VAS 自製全螢幕遮罩：延遲截圖開始前即選定螢幕" class="fig-img" loading="lazy">
+        <figcaption class="fig-caption" data-lang-key="i4imgCaption2">VAS fix: no delay — click a screen, that screen is captured;<br>delay mode — no selection needed, wherever you are is where it captures.</figcaption>
+      </figure>
+    </div>
+    <div style="margin-top: 28px;">
+      <div class="compare-box cb-step">
+        <div class="cb-num">1</div>
+        <div class="cb-right">
+          <span class="cb-label" data-lang-key="i4step1Label">Delayed capture</span>
+          <span class="cb-desc" data-lang-key="i4step1Desc">Single-monitor delay mode: automatically captures the current screen after the countdown</span>
+        </div>
+      </div>
+      <div class="compare-box cb-step">
+        <div class="cb-num">2</div>
+        <div class="cb-right">
+          <span class="cb-label" data-lang-key="i4step2Label">Custom overlay</span>
+          <span class="cb-desc" data-lang-key="i4step2Desc">Dual-monitor, no delay: freely choose a screen, or press Enter to capture all screens at once</span>
+        </div>
+      </div>
+      <div class="compare-box highlight cb-step">
+        <div class="cb-num">3</div>
+        <div class="cb-right">
+          <span class="cb-label" data-lang-key="i4step3Label">Mouse-position default</span>
+          <span class="cb-desc" data-lang-key="i4step3Desc">Dual-monitor delay mode: no selection needed — the tool reads your cursor position and captures there automatically</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 05 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="i5Title">Features can keep growing — but the foundation must speak one language first</h2>
+      <div class="section-kicker" data-lang-key="i5Tag">Design Token Architecture</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="i5p1">As tool types multiply — points, lines, surfaces, text, symbols — each object carries colour, stroke, size, and direction properties. Stacked and duplicated, those properties become invisible tech debt: the features work, but the structure is cobbled together.</p>
+    <p data-lang-key="i5p2">They made the call at the Sprint 9 Retro. While waiting for the App Store review, they estimated: four Sprints should be enough.</p>
+    <p data-lang-key="i5p3">Nobody expected four Sprints to become seventeen. Not because the direction was wrong — but because every layer of debt, once paid, revealed another underneath. At Sprint 20, when Nova was nearly breaking under the exhaustion of manual QC and finally asked "why am I still this tired when we have automated tests?", they realised: the test architecture itself was part of the debt. Then a user asked for Simplified Chinese. Looking at the i18n structure, they said — this can't support another language — and another round began. At Sprint 24, they opened the KM, grown thick with accumulated entries, and had a thought: could this record of every mistake become a verification map — to confirm that every pit had been filled? At the end of Sprint 26, they checked the list one more time. "Are we really done now?"</p>
+    <p data-lang-key="i5p3b">Sprint 27: the callout bubble tool was added. Transparency, shadow, gradient — properties that other tools had long carried — were inherited directly. No wheel was rebuilt. That was the real completion signal: not a declaration, but the moment a new tool was naturally received by the architecture.</p>
+    <p data-lang-key="i5p4">This refactor also benefits the Electron version — a unified foundation means both platforms run on the same logic, and stability improves naturally.</p>
+    <p data-lang-key="i5p5">Electron may no longer gain new features, but it needs to remain feature-complete, free, and stable — giving users the chance to build trust in VAS before deciding whether to upgrade to Tauri. One refactor supports the entire long-term dual-platform strategy.</p>
+  </div>
+  <div class="section-wide">
+    <div class="compare-box highlight">
+      <div class="cb-label" data-lang-key="i5boxTitle">Refactor complete — chain effects as expected</div>
+      <ul class="cb-list" data-lang-key="i5bullets"><li>Unified coordinate system: all objects share the same spatial language</li><li>Modular properties: solid/gradient/dash/size/direction shared across all tools</li><li>TOOL_SCHEMA covers all 10 tool types, 211 Vitest automated tests passing</li><li>Callout bubble inherits transparency, shadow, and gradient — no properties rebuilt from scratch</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 章末過場 · Passage ═══════ -->
+<section class="passage">
+  <div class="passage-colophon">
+    <span data-lang-key="ch1.passage.end">Chapter I · Design · End</span><br>
+    <span class="faint" data-lang-key="ch1.passage.end.en"></span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="collab.html">
+      <div class="num" data-lang-key="ch1.passage.next.num">II · Collaboration</div>
+      <div class="name" data-lang-key="ch1.passage.next.name">Six Stories</div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch1.sec.01.name">Accept Imperfection</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch1.sec.02.name">Act with Awareness</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch1.sec.04.name">When You Can't Step Away</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch1.sec.05.name">Underlying Logic</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.insight || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      if (merged['ch1PageTitle']) document.title = merged['ch1PageTitle'];
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var passage = document.querySelector('.passage');
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() {  VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策",
+  "description": "5 個 VAS 截圖工具的人機協作設計決策：OCR 隱私遮蔽、呼吸燈意圖偵測、QR Code 信心度分層、延遲截圖，以及底層設計 Token 架構重構。",
+  "inLanguage": ["zh-Hant", "en", "ja"],
+  "url": "https://tb1982.github.io/vas/insight.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-25",
+  "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "babelon1882@gmail.com",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+
+</body>
+</html>

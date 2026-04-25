@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,8 +12,8 @@
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
 <title>VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ</title>
-<link rel="icon" href="img/vas.ico" type="image/x-icon">
-<link rel="canonical" href="https://tb1982.github.io/vas/docs-shell.html">
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/ja/guide.html">
 <meta name="description" data-lang-key="docs.meta.desc"
       content="VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。" />
 <meta property="og:title" content="VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ">
@@ -24,9 +24,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/shell.css">
-<link rel="stylesheet" href="css/docs.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+<link rel="stylesheet" href="../css/docs.css">
 
 <style>
   /* ─── 語言切換下拉 ─────────────────────────── */
@@ -72,7 +72,7 @@
   <div class="site-nav-links">
     <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
     <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">システム</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
@@ -88,47 +88,42 @@
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
     <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
     <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
-  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
-    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
-      <span id="langDropdownLabel">中</span>
-    </button>
-    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
-      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
-      <button class="lang-opt"        data-lang="en" role="option">English</button>
-      <button class="lang-opt"        data-lang="ja" role="option">日本語</button>
-      <button class="lang-opt"        data-lang="cn" role="option">简中</button>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../guide.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="guide.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
-  </div>
 </nav>
 
 <div class="docs-layout">
 
   <!-- ═══════ 桌面側邊 TOC ═══════ -->
   <aside class="docs-toc-sticky">
-    <div class="docs-toc-sticky-label" data-lang-key="tocLabel">Table of Contents</div>
+    <div class="docs-toc-sticky-label" data-lang-key="tocLabel">目次</div>
     <ul>
       <li><a href="#welcome">Welcome on Board</a></li>
 
       <li class="group" data-lang-key="tocGroupStart">入門</li>
-      <li><a href="#first-launch" data-lang-key="flH3">第一次打開 VAS</a></li>
-      <li><a href="#permissions" data-lang-key="permH3">授權與隱私</a></li>
-      <li><a href="#first-capture" data-lang-key="fcH3">第一次截圖</a></li>
+      <li><a href="#first-launch" data-lang-key="flH3">VAS を初めて開く</a></li>
+      <li><a href="#permissions" data-lang-key="permH3">アクセス許可とプライバシー</a></li>
+      <li><a href="#first-capture" data-lang-key="fcH3">初めてのスクリーンショット</a></li>
 
-      <li class="group" data-lang-key="tocGroupCore">核心</li>
-      <li><a href="#menubar" data-lang-key="mbH3">系統選單中的瓶子</a></li>
-      <li><a href="#breath" data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</a></li>
-      <li><a href="#toolbar" data-lang-key="s3Title">工具列</a></li>
-      <li><a href="#editor" data-lang-key="s1Title">編輯器</a></li>
-      <li><a href="#export" data-lang-key="exportH3">匯出</a></li>
+      <li class="group" data-lang-key="tocGroupCore">基本</li>
+      <li><a href="#menubar" data-lang-key="mbH3">メニューバーのボトル</a></li>
+      <li><a href="#breath" data-lang-key="blH3">ブリーズライト × ワンクリック召喚</a></li>
+      <li><a href="#toolbar" data-lang-key="s3Title">キャプチャツールバー</a></li>
+      <li><a href="#editor" data-lang-key="s1Title">エディタ画面</a></li>
+      <li><a href="#export" data-lang-key="exportH3">書き出し</a></li>
 
-      <li class="group" data-lang-key="tocGroupAdv">進階</li>
-      <li><a href="#ocr" data-lang-key="ocrH3">OCR 與 QR Code</a></li>
-      <li><a href="#shortcuts" data-lang-key="kbH3">快捷鍵</a></li>
-      <li><a href="#customization" data-lang-key="custH3">自訂設定</a></li>
-      <li><a href="#tips" data-lang-key="tipsH3">疑難與邊界</a></li>
+      <li class="group" data-lang-key="tocGroupAdv">応用</li>
+      <li><a href="#ocr" data-lang-key="ocrH3">OCR と QR コード</a></li>
+      <li><a href="#shortcuts" data-lang-key="kbH3">キーボードショートカット</a></li>
+      <li><a href="#customization" data-lang-key="custH3">カスタム設定</a></li>
+      <li><a href="#tips" data-lang-key="tipsH3">トラブルシューティング</a></li>
     </ul>
   </aside>
 
@@ -138,215 +133,206 @@
     <!-- ═══ Welcome ═══ -->
     <section class="docs-section" id="welcome">
       <h1>Welcome on Board</h1>
-      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">
-        這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
-        往下捲是「入門 → 核心 → 進階」的順序；<br>
-        左側目錄永遠陪著你，點一下就能跳到任何一節。<br>
-        <span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜尋也可以。
-      </div>
-      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">
-        這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
-        往下捲是「入門 → 核心 → 進階」的順序；<br>
-        想跳段落看的話請按右上角的呼吸燈。
-      </div>
+      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>左側のメニューはいつでも表示されており、クリックで任意のセクションへ移動できます。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> での検索も使えます。</div>
+      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>セクションへジャンプするには、右上のブリーズライトをタップしてください。</div>
     </section>
 
     <!-- ═══ 01 · 入門 ═══ -->
     <section class="docs-section" id="getting-started">
-      <div class="docs-section-kicker" data-lang-key="tocKickerStart">入門 · Getting Started</div>
+      <div class="docs-section-kicker" data-lang-key="tocKickerStart">入門</div>
 
       <div class="docs-subsection" id="first-launch">
-        <h3 data-lang-key="flH3">第一次打開 VAS</h3>
-        <p data-lang-key="flP1">從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
+        <h3 data-lang-key="flH3">VAS を初めて開く</h3>
+        <p data-lang-key="flP1">App Store からダウンロードしてインストール後、VAS を開くと、デスクトップに新しいフローティングツールバーが表示されます。デスクトップに固定でき、自由にドラッグして移動できます。</p>
         <figure class="docs-figure">
-          <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列">
+          <img class="js-toolbar-img" src="../img/vastoolbar-jp.webp" alt="VAS Macスクリーンショットツール フローティングツールバー">
         </figure>
-        <p data-lang-key="flP2">如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
+        <p data-lang-key="flP2">ツールバーのスペースが気になる場合——<strong>ブリーズライト</strong>モードはデフォルトで無効です。ツールバーの「ショートカットガイド」から手動で有効にしてください。</p>
         <div class="docs-bl-preview">
-          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
+          <img src="../img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
         </div>
-        <p data-lang-key="flP3">VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
+        <p data-lang-key="flP3">VAS は macOS のメニューバーにも常駐し、画面右上にボトルのアイコンとして表示されます。</p>
         <figure class="docs-figure">
           <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
-            <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
+            <img src="../img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
           </div>
-          <figcaption data-lang-key="flCaption">MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
+          <figcaption data-lang-key="flCaption">MENUBAR · 右上隅、VAS と Claude が並んでスタンバイ。</figcaption>
         </figure>
         <div class="docs-note">
-          <div class="docs-note-label" data-lang-key="flNoteLabel">想讓VAS完全消失？</div>
-          <p data-lang-key="flNoteP1">到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
-          <p data-lang-key="flNoteP2">VAS 依然會在選單列待命。</p>
+          <div class="docs-note-label" data-lang-key="flNoteLabel">VAS を完全に消したい？</div>
+          <p data-lang-key="flNoteP1">右上のメニューバーのボトルを左クリックすると、デスクトップのツールバーを呼び出すか、完全に非表示にするかを切り替えられます。デスクトップをすっきり保ちたい方のために用意した機能です。</p>
+          <p data-lang-key="flNoteP2">VAS はメニューバーで待機し続けます。</p>
         </div>
       </div>
 
       <div class="docs-subsection" id="permissions">
-        <h3 data-lang-key="permH3">授權與隱私</h3>
-        <p data-lang-key="permP1">VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。</p>
-        <p data-lang-key="permP2">所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
+        <h3 data-lang-key="permH3">アクセス許可とプライバシー</h3>
+        <p data-lang-key="permP1">VAS が初めてスクリーンショットを撮る際、macOS の<strong>スクリーン録画権限</strong>をリクエストします。これはすべてのスクリーンショットツールに対する macOS の規定です。許可しなかった場合は、「システム設定 → プライバシーとセキュリティ → スクリーン録画」で VAS にチェックを入れて再起動してください。</p>
+        <p data-lang-key="permP2">キャプチャした画像、OCR で認識したテキスト、QR コードの内容はすべて<strong>デバイス上でのみ処理されます</strong>——アップロード、分析、学習には使用しません。VAS にデータを受け取るサーバーはありません。</p>
       </div>
 
       <div class="docs-subsection" id="first-capture">
-        <h3 data-lang-key="fcH3">第一次截圖</h3>
-        <p data-lang-key="fcP1">按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
-        <p data-lang-key="fcP2">選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把畫面帶進編輯器，讓你繼續編織你無法單用文字描述的意念。</p>
-        <p data-lang-key="fcP3">編輯完，用「拖曳匯出」拖出去給任何視窗或文件。</p>
-        <p data-lang-key="fcP4">三秒內結束。</p>
+        <h3 data-lang-key="fcH3">初めてのスクリーンショット</h3>
+        <p data-lang-key="fcP1">Dock の VAS アイコンをクリックするか、メニューバーのボトルをクリックしてください——VAS がどこにあっても、完全なツールバーが目の前に展開されます。</p>
+        <p data-lang-key="fcP2">スクリーンショットモード（フルスクリーン <span class="docs-kbd">⌘^1</span>、ウィンドウ <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>）を選択し、撮りたい画面をフレームに収めてください——VAS がすぐにエディターへ持ち込み、言葉だけでは伝えられないものを編み続けられます。</p>
+        <p data-lang-key="fcP3">編集が終わったら、「ドラッグ出力」で任意のウィンドウやファイルへドラッグします。</p>
+        <p data-lang-key="fcP4">3秒で完了。</p>
       </div>
     </section>
 
     <!-- ═══ 02 · 核心 ═══ -->
     <section class="docs-section" id="core">
-      <div class="docs-section-kicker" data-lang-key="tocKickerCore">核心 · Core</div>
+      <div class="docs-section-kicker" data-lang-key="tocKickerCore">基本</div>
 
       <div class="docs-subsection" id="menubar">
-        <h3 data-lang-key="mbH3">系統選單中的瓶子</h3>
-        <p data-lang-key="mbIntro">選單列右上角那個瓶子，是 VAS 的「<strong>系統選單</strong>」入口。兩個按法：</p>
+        <h3 data-lang-key="mbH3">メニューバーのボトル</h3>
+        <p data-lang-key="mbIntro">メニューバー右上のボトルは、VAS の「<strong>システムメニュー</strong>」への入口です。2通りの使い方：</p>
         <ul class="docs-list">
-          <li data-lang-key="mbLi1"><strong>左鍵</strong>——快速切換桌面工具列的顯示／隱藏。給桌面潔癖患者一個完全不顯示於桌面的選項。</li>
-          <li data-lang-key="mbLi2"><strong>右鍵</strong>——展開系統選單，可以完整執行所有工具列功能，不用把工具列叫出來。</li>
+          <li data-lang-key="mbLi1"><strong>左クリック</strong>——デスクトップツールバーの表示・非表示を素早く切り替えます。デスクトップに何も表示したくない方のためのオプションです。</li>
+          <li data-lang-key="mbLi2"><strong>右クリック</strong>——システムメニューを展開し、ツールバーを呼び出さずにすべての機能を利用できます。</li>
         </ul>
-        <p data-lang-key="mbP2">如果你完全不想在桌面上看到任何 VAS 的痕跡，左鍵把工具列關掉，右鍵仍可以操作工具列所有功能。</p>
+        <p data-lang-key="mbP2">デスクトップに VAS の痕跡を一切残したくない場合は、左クリックでツールバーを非表示にしても、右クリックですべての機能を操作できます。</p>
       </div>
 
       <div class="docs-subsection" id="breath">
-        <h3 data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</h3>
-        <p data-lang-key="blP1">當你不用 VAS 又希望他能小一點在桌面上待機時，請開啟<strong>呼吸燈</strong>模式。</p>
-        <p data-lang-key="blP2">工具列會縮成一條 120×6px 的光。低調、不擋事，靜靜的等你。</p>
-        <p data-lang-key="blP3">而當你有事要找它時：</p>
+        <h3 data-lang-key="blH3">ブリーズライト × ワンクリック召喚</h3>
+        <p data-lang-key="blP1">VAS を使っていないときも小さくデスクトップで待機させたい場合は、<strong>ブリーズライト</strong>モードをオンにしてください。</p>
+        <p data-lang-key="blP2">ツールバーが 120×6px の光の線に縮小されます。控えめで邪魔にならず、静かに待っています。</p>
+        <p data-lang-key="blP3">必要なときは：</p>
         <ul class="docs-list">
-          <li data-lang-key="blLi1"><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間，圖直接進編輯器；如果你剛剛還在編輯別的東西，它會收納那張、直接展開編輯器繼續。</li>
-          <li data-lang-key="blLi2"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>複製網址靠近</strong>——呼吸燈張開，跳出 toast：「檢測到 ⟨網址⟩—點擊開始截圖」。點一下就開始網頁截圖流程。</li>
-          <li data-lang-key="blLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器。</li>
+          <li data-lang-key="blLi1"><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>画像をドラッグして近づける</strong>——ツールバーがハエトリグサのように開いて、ドラッグした画像を受け取ります。放すと画像は直接エディターへ。別のものを編集中でも、それを収納してエディターを開きます。</li>
+          <li data-lang-key="blLi2"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>URL をコピーして近づける</strong>——ブリーズライトが開き、トースト表示：「⟨URL⟩を検出——クリックしてスクリーンショット開始」。クリックするとウェブキャプチャが始まります。</li>
+          <li data-lang-key="blLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ブラウザから画像をコピー</strong>——「画像を貼り付けますか？」のトーストが表示されます。確認すると直接エディターへ。</li>
         </ul>
         <div class="docs-note">
           <div class="docs-note-label" data-lang-key="blNoteLabel">召喚</div>
-          <p data-lang-key="blNoteP1">如果你把 VAS 放在桌面某個角落後忘了它在哪——我們知道呼吸燈真的很低調——</p>
-          <p data-lang-key="blNoteP2">按 Dock 上的 VAS 圖示，不管它在哪裡，都會展開成工具列狀態等你過去。</p>
+          <p data-lang-key="blNoteP1">VAS をデスクトップの片隅に置いて場所を忘れてしまっても——ブリーズライトは本当に控えめなので——</p>
+          <p data-lang-key="blNoteP2">Dock の VAS アイコンをクリックすれば、どこにあっても呼び出してツールバーとして展開されます。</p>
         </div>
       </div>
 
       <div class="docs-subsection" id="toolbar">
-        <h3 data-lang-key="s3Title">工具列</h3>
-        <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
+        <h3 data-lang-key="s3Title">キャプチャツールバー</h3>
+        <p class="g-section-sub" data-lang-key="s3Sub">デスクトップに常駐するフローティングツールバー</p>
 
-        <img id="guideToolbarImg" src="img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列" class="g-img js-toolbar-img" loading="lazy">
+        <img id="guideToolbarImg" src="../img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列" class="g-img js-toolbar-img" loading="lazy">
 
         <div class="g-toolbar-grid">
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_fullscreen">全螢幕</p>
-            <p class="g-card-desc" data-lang-key="cb_fullscreen_desc">截取整個螢幕畫面，立即進入編輯器，支持多螢幕截圖。</p>
+            <p class="g-card-name" data-lang-key="cb_fullscreen">全画面</p>
+            <p class="g-card-desc" data-lang-key="cb_fullscreen_desc">画面全体をキャプチャしてエディタを直接開きます。</p>
           </div>
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_window">視窗</p>
-            <p class="g-card-desc" data-lang-key="cb_window_desc">點選後再點擊任意視窗，只截取該視窗範圍。</p>
+            <p class="g-card-name" data-lang-key="cb_window">ウィンドウ</p>
+            <p class="g-card-desc" data-lang-key="cb_window_desc">クリックしたウィンドウのみをキャプチャします。</p>
           </div>
           <div class="g-card">
             <p class="g-card-name" data-lang-key="cb_rect">矩形</p>
-            <p class="g-card-desc" data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。直接框住 QR Code 會自動掃描並顯示內容。</p>
+            <p class="g-card-desc" data-lang-key="cb_rect_desc">ドラッグして任意の矩形領域をキャプチャ。QR コードを直接囲むと自動スキャンして内容を表示します。</p>
           </div>
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_delay">延遲</p>
-            <p class="g-card-desc" data-lang-key="cb_delay_desc">設定 1–3 秒延遲，補抓 tooltip、hover、dropdown 等稍縱即逝的狀態。</p>
+            <p class="g-card-name" data-lang-key="cb_delay">遅延</p>
+            <p class="g-card-desc" data-lang-key="cb_delay_desc">1〜3秒の遅延を設定。tooltip・dropdown など一瞬で消えるUI状態を確実に捉えます。</p>
           </div>
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_open">開啟</p>
-            <p class="g-card-desc" data-lang-key="cb_open_desc">從本機開啟現有圖片。</p>
+            <p class="g-card-name" data-lang-key="cb_open">開く</p>
+            <p class="g-card-desc" data-lang-key="cb_open_desc">既存の画像をディスクから開く、またはカスタムサイズの新規キャンバスを作成します。</p>
           </div>
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_whiteboard">白板</p>
-            <p class="g-card-desc" data-lang-key="cb_whiteboard_desc">開啟空白畫布，從零開始建立圖像內容，支持透明圖層。</p>
+            <p class="g-card-name" data-lang-key="cb_whiteboard">ホワイトボード</p>
+            <p class="g-card-desc" data-lang-key="cb_whiteboard_desc">白紙のキャンバスを開き、ゼロからビジュアルを作成します。</p>
           </div>
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_batch">批次轉</p>
-            <p class="g-card-desc" data-lang-key="cb_batch_desc">拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。</p>
-            <p class="g-card-note" data-lang-key="cb_batch_note">單次最大 100 張圖，單檔 20mb</p>
+            <p class="g-card-name" data-lang-key="cb_batch">バッチ</p>
+            <p class="g-card-desc" data-lang-key="cb_batch_desc">複数の画像をドロップして JPG・PNG・WebP などに一括変換。透かしとリサイズにも対応。</p>
+            <p class="g-card-note" data-lang-key="cb_batch_note">1回最大100枚、1ファイル20MBまで</p>
           </div>
           <div class="g-card">
-            <p class="g-card-name" data-lang-key="cb_help">說明</p>
-            <p class="g-card-desc" data-lang-key="cb_help_desc">顯示快捷鍵一覽，並提供操作手冊連結與呼吸燈開關。</p>
+            <p class="g-card-name" data-lang-key="cb_help">ヘルプ</p>
+            <p class="g-card-desc" data-lang-key="cb_help_desc">キーボードショートカット一覧を表示し、このマニュアルへのリンクを提供します。</p>
           </div>
         </div>
       </div>
 
       <div class="docs-subsection" id="editor">
-        <h3 data-lang-key="s1Title">編輯器</h3>
-        <p data-lang-key="editorIntro">截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
+        <h3 data-lang-key="s1Title">エディタ画面</h3>
+        <p data-lang-key="editorIntro">スクリーンショット後に入る 2 番目のメインスペース。エディターは 4 つの操作エリアに分かれています：</p>
         <figure class="docs-figure">
-          <img id="guideEditorImg" class="js-editor-img" src="img/vas-guide-editor-zh.webp" alt="VAS 截圖編輯器介面——標注工具、OCR 隱私遮蔽與匯出功能完整說明">
-          <figcaption data-lang-key="editorCaption">EDITOR · 四個操作區域。</figcaption>
+          <img id="guideEditorImg" class="js-editor-img" src="../img/vas-guide-editor-jp.webp" alt="VAS スクリーンショットエディタ——注釈ツール・OCRプライバシーマスク・書き出し機能">
+          <figcaption data-lang-key="editorCaption">EDITOR · 4 つの操作エリア。</figcaption>
         </figure>
         <ul class="docs-list">
-          <li><strong data-lang-key="zone1Name" style="color:#f87171;">主要功能選單</strong>——<span data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</span></li>
-          <li><strong data-lang-key="zone2Name" style="color:#fb923c;">子屬性調整選單</strong>——<span data-lang-key="zone2Desc">頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</span></li>
-          <li><strong data-lang-key="zone3Name" style="color:#ffffff;">動態匯出按鈕</strong>——<span data-lang-key="zone3Desc">右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。</span></li>
-          <li><strong data-lang-key="zone4Name" style="color:#4ade80;">狀態列與磁吸工具開關</strong>——<span data-lang-key="zone4Desc">左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關，可快速啟用或關閉智慧導線功能。</span></li>
+          <li><strong data-lang-key="zone1Name" style="color:#f87171;">メインツールメニュー</strong>——<span data-lang-key="zone1Desc">左側の縦型ツールバー。ツールを選択するとキャンバスの操作モードが切り替わります。使用中のツールは青くハイライトされます。</span></li>
+          <li><strong data-lang-key="zone2Name" style="color:#fb923c;">サブプロパティパネル</strong>——<span data-lang-key="zone2Desc">上部ツールバー。選択中のツールに応じて動的に内容が変わります。色・線幅・不透明度・線スタイルなどを調整できます。</span></li>
+          <li><strong data-lang-key="zone3Name" style="color:#ffffff;">動的書き出しボタン</strong>——<span data-lang-key="zone3Desc">右下のフローティングボタン。ドラッグして位置を変更でき、左右どちらの手にも対応。完了後、対象アプリにドラッグして書き出します。Tauri は Sharesheet 共有機能も提供します。</span></li>
+          <li><strong data-lang-key="zone4Name" style="color:#4ade80;">ステータスバーとスナップのオン/オフ</strong>——<span data-lang-key="zone4Desc">左下のステータスバー。現在のズーム倍率とキャンバスサイズを表示し、スマートスナップのオン/オフを切り替えられます。</span></li>
         </ul>
 
-        <p class="g-section-sub" style="margin-top: 32px;" data-lang-key="s2Sub">所有標注工具一覽，點擊查看操作方式</p>
+        <p class="g-section-sub" style="margin-top: 32px;" data-lang-key="s2Sub">すべての注釈ツール一覧——括弧内はショートカット</p>
         <div class="g-tools-wrap">
           <div class="g-tools-body">
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpSelect">選取</p>
+              <p class="g-grp-label" data-lang-key="grpSelect">選択</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="select" role="button" tabindex="0"><span class="g-chip-icon">↖</span><span data-lang-key="t_select">選取</span><span class="g-chip-key">V</span></span>
-                <span class="g-chip" data-tool="boxselect" role="button" tabindex="0"><span class="g-chip-icon">⬚</span><span data-lang-key="t_boxselect">框型選取</span><span class="g-chip-key">M</span></span>
+                <span class="g-chip" data-tool="select" role="button" tabindex="0"><span class="g-chip-icon">↖</span><span data-lang-key="t_select">選択</span><span class="g-chip-key">V</span></span>
+                <span class="g-chip" data-tool="boxselect" role="button" tabindex="0"><span class="g-chip-icon">⬚</span><span data-lang-key="t_boxselect">範囲選択</span><span class="g-chip-key">M</span></span>
               </div>
             </div>
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpDraw">繪圖</p>
+              <p class="g-grp-label" data-lang-key="grpDraw">描画</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="pen" role="button" tabindex="0"><span class="g-chip-icon">✒</span><span data-lang-key="t_pen">筆型</span><span class="g-chip-key">P</span></span>
-                <span class="g-chip" data-tool="line" role="button" tabindex="0"><span class="g-chip-icon">╱</span><span data-lang-key="t_line">線條</span><span class="g-chip-key">L</span></span>
-                <span class="g-chip" data-tool="rect" role="button" tabindex="0"><span class="g-chip-icon">▭</span><span data-lang-key="t_rect">矩形框</span><span class="g-chip-key">R</span></span>
-                <span class="g-chip" data-tool="fillrect" role="button" tabindex="0"><span class="g-chip-icon">■</span><span data-lang-key="t_fillrect">色塊</span><span class="g-chip-key">B</span></span>
+                <span class="g-chip" data-tool="pen" role="button" tabindex="0"><span class="g-chip-icon">✒</span><span data-lang-key="t_pen">ペン</span><span class="g-chip-key">P</span></span>
+                <span class="g-chip" data-tool="line" role="button" tabindex="0"><span class="g-chip-icon">╱</span><span data-lang-key="t_line">線条</span><span class="g-chip-key">L</span></span>
+                <span class="g-chip" data-tool="rect" role="button" tabindex="0"><span class="g-chip-icon">▭</span><span data-lang-key="t_rect">矩形</span><span class="g-chip-key">R</span></span>
+                <span class="g-chip" data-tool="fillrect" role="button" tabindex="0"><span class="g-chip-icon">■</span><span data-lang-key="t_fillrect">塗りつぶし</span><span class="g-chip-key">B</span></span>
               </div>
             </div>
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpAnnotate">標注</p>
+              <p class="g-grp-label" data-lang-key="grpAnnotate">注釈</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="text" role="button" tabindex="0"><span class="g-chip-icon">T</span><span data-lang-key="t_text">文字</span><span class="g-chip-key">T</span></span>
-                <span class="g-chip" data-tool="number" role="button" tabindex="0"><span class="g-chip-icon">①</span><span data-lang-key="t_number">編號</span><span class="g-chip-key">N</span></span>
-                <span class="g-chip" data-tool="stamp" role="button" tabindex="0"><span class="g-chip-icon">☺</span><span data-lang-key="t_symbol">符號印章</span><span class="g-chip-key">U</span></span>
-                <span class="g-chip" data-tool="mosaic" role="button" tabindex="0"><span class="g-chip-icon">⬜</span><span data-lang-key="t_mosaic">馬賽克／模糊</span><span class="g-chip-key">X</span></span>
+                <span class="g-chip" data-tool="text" role="button" tabindex="0"><span class="g-chip-icon">T</span><span data-lang-key="t_text">テキスト</span><span class="g-chip-key">T</span></span>
+                <span class="g-chip" data-tool="number" role="button" tabindex="0"><span class="g-chip-icon">①</span><span data-lang-key="t_number">番号</span><span class="g-chip-key">N</span></span>
+                <span class="g-chip" data-tool="stamp" role="button" tabindex="0"><span class="g-chip-icon">☺</span><span data-lang-key="t_symbol">スタンプ</span><span class="g-chip-key">U</span></span>
+                <span class="g-chip" data-tool="mosaic" role="button" tabindex="0"><span class="g-chip-icon">⬜</span><span data-lang-key="t_mosaic">モザイク / ぼかし</span><span class="g-chip-key">X</span></span>
               </div>
             </div>
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpPrivacy">隱私與遮蔽</p>
+              <p class="g-grp-label" data-lang-key="grpPrivacy">プライバシー・遮蔽</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="ocr" role="button" tabindex="0"><span class="g-chip-icon">文</span><span data-lang-key="t_ocr">OCR 文字辨識</span><span class="g-chip-key">G</span></span>
-                <span class="g-chip" data-tool="privacy" role="button" tabindex="0"><span class="g-chip-icon" style="text-decoration:line-through">文</span><span data-lang-key="t_privacy">隱私遮蔽</span><span class="g-chip-key">K</span></span>
+                <span class="g-chip" data-tool="ocr" role="button" tabindex="0"><span class="g-chip-icon">文</span><span data-lang-key="t_ocr">OCR</span><span class="g-chip-key">G</span></span>
+                <span class="g-chip" data-tool="privacy" role="button" tabindex="0"><span class="g-chip-icon" style="text-decoration:line-through">文</span><span data-lang-key="t_privacy">プライバシー遮蔽</span><span class="g-chip-key">K</span></span>
               </div>
             </div>
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpCanvas">畫布操作</p>
+              <p class="g-grp-label" data-lang-key="grpCanvas">キャンバス</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="zoomin" role="button" tabindex="0"><span class="g-chip-icon">⊕</span><span data-lang-key="t_zoomin">放大</span><span class="g-chip-key">⌘=</span></span>
+                <span class="g-chip" data-tool="zoomin" role="button" tabindex="0"><span class="g-chip-icon">⊕</span><span data-lang-key="t_zoomin">拡大</span><span class="g-chip-key">⌘=</span></span>
                 <span class="g-chip" data-tool="zoomout" role="button" tabindex="0"><span class="g-chip-icon">⊖</span><span data-lang-key="t_zoomout">縮小</span><span class="g-chip-key">⌘-</span></span>
-                <span class="g-chip" data-tool="fit" role="button" tabindex="0"><span class="g-chip-icon">⊡</span><span data-lang-key="t_fit">適合視窗</span><span class="g-chip-key">⌘0</span></span>
+                <span class="g-chip" data-tool="fit" role="button" tabindex="0"><span class="g-chip-icon">⊡</span><span data-lang-key="t_fit">ウィンドウに合わせる</span><span class="g-chip-key">⌘0</span></span>
               </div>
             </div>
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpLayout">版面功能</p>
+              <p class="g-grp-label" data-lang-key="grpLayout">レイアウト</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="crop" role="button" tabindex="0"><span class="g-chip-icon">✂</span><span data-lang-key="t_crop">裁切</span><span class="g-chip-key">C</span></span>
-                <span class="g-chip" data-tool="resize" role="button" tabindex="0"><span class="g-chip-icon">↔</span><span data-lang-key="t_resize">調整大小</span><span class="g-chip-key">S</span></span>
-                <span class="g-chip" data-tool="extend" role="button" tabindex="0"><span class="g-chip-icon">⊞</span><span data-lang-key="t_extend">延伸畫布</span><span class="g-chip-key">E</span></span>
-                <span class="g-chip" data-tool="overlay" role="button" tabindex="0"><span class="g-chip-icon">⧉</span><span data-lang-key="t_overlay">疊入圖片</span><span class="g-chip-key">O</span></span>
-                <span class="g-chip" data-tool="template" role="button" tabindex="0"><span class="g-chip-icon">◱</span><span data-lang-key="t_open">一鍵套版</span></span>
+                <span class="g-chip" data-tool="crop" role="button" tabindex="0"><span class="g-chip-icon">✂</span><span data-lang-key="t_crop">トリミング</span><span class="g-chip-key">C</span></span>
+                <span class="g-chip" data-tool="resize" role="button" tabindex="0"><span class="g-chip-icon">↔</span><span data-lang-key="t_resize">サイズ変更</span><span class="g-chip-key">S</span></span>
+                <span class="g-chip" data-tool="extend" role="button" tabindex="0"><span class="g-chip-icon">⊞</span><span data-lang-key="t_extend">キャンバス拡張</span><span class="g-chip-key">E</span></span>
+                <span class="g-chip" data-tool="overlay" role="button" tabindex="0"><span class="g-chip-icon">⧉</span><span data-lang-key="t_overlay">画像オーバーレイ</span><span class="g-chip-key">O</span></span>
+                <span class="g-chip" data-tool="template" role="button" tabindex="0"><span class="g-chip-icon">◱</span><span data-lang-key="t_open">ワンクリックテンプレート</span></span>
               </div>
             </div>
 
             <div>
-              <p class="g-grp-label" data-lang-key="grpOther">其他</p>
+              <p class="g-grp-label" data-lang-key="grpOther">その他</p>
               <div class="g-chips">
-                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↩</span><span data-lang-key="t_undo">撤銷</span><span class="g-chip-key">⌘Z</span></span>
-                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↪</span><span data-lang-key="t_redo">重做</span><span class="g-chip-key">⌘⇧Z</span></span>
+                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↩</span><span data-lang-key="t_undo">元に戻す</span><span class="g-chip-key">⌘Z</span></span>
+                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↪</span><span data-lang-key="t_redo">やり直し</span><span class="g-chip-key">⌘⇧Z</span></span>
               </div>
             </div>
 
@@ -355,45 +341,45 @@
       </div>
 
       <div class="docs-subsection" id="export">
-        <h3 data-lang-key="exportH3">匯出</h3>
-        <p data-lang-key="exportIntro">編輯完了，VAS 給你四條出口：</p>
+        <h3 data-lang-key="exportH3">書き出し</h3>
+        <p data-lang-key="exportIntro">編集が完了したら、VAS は 4 つの出口を用意しています：</p>
         <ul class="docs-list">
-          <li data-lang-key="exportLi1"><strong>Drag out</strong>——直接從編輯器拖到桌面、Finder、Slack、任何一個接受圖片的 App。不儲存、不彈視窗、拖過去就傳輸完畢。</li>
-          <li data-lang-key="exportLi2"><strong>複製到剪貼簿</strong>——按 <span class="docs-kbd">⌘C</span>，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
-          <li data-lang-key="exportLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
-          <li data-lang-key="exportLi4"><strong>存檔</strong>——可儲存為 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
+          <li data-lang-key="exportLi1"><strong>ドラッグ出力</strong>——エディターからデスクトップ・Finder・Slack・画像を受け付けるあらゆるアプリへ直接ドラッグ。保存もダイアログも不要。ドラッグするだけで転送完了。</li>
+          <li data-lang-key="exportLi2"><strong>クリップボードにコピー</strong>——<span class="docs-kbd">⌘C</span> で画像をコピーし、別の場所で <span class="docs-kbd">⌘V</span> で貼り付け。</li>
+          <li data-lang-key="exportLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ShareSheet</strong>——macOS ネイティブの共有パネル。AirDrop・メッセージ・メール・SNS へ送信。</li>
+          <li data-lang-key="exportLi4"><strong>保存</strong>——JPG／PNG／WebP／GIF／BMP／TIFF／PDF で保存できます。</li>
         </ul>
       </div>
     </section>
 
     <!-- ═══ 03 · 進階 ═══ -->
     <section class="docs-section" id="advanced">
-      <div class="docs-section-kicker" data-lang-key="tocKickerAdv">進階 · Advanced</div>
+      <div class="docs-section-kicker" data-lang-key="tocKickerAdv">応用</div>
 
       <div class="docs-subsection" id="ocr">
-        <h3 data-lang-key="ocrH3">OCR 與 QR Code</h3>
-        <p data-lang-key="ocrIntro">截圖不一定為了編輯。</p>
+        <h3 data-lang-key="ocrH3">OCR と QR コード</h3>
+        <p data-lang-key="ocrIntro">スクリーンショットは必ずしも編集のためだけではありません。</p>
 
-        <p style="margin-top: 24px;" data-lang-key="ocrLabel"><strong>OCR · 文字辨識</strong></p>
-        <p data-lang-key="ocrP1">辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。</p>
-        <p data-lang-key="ocrP2"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——</p>
-        <p data-lang-key="ocrP3">譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
+        <p style="margin-top: 24px;" data-lang-key="ocrLabel"><strong>OCR · テキスト認識</strong></p>
+        <p data-lang-key="ocrP1">認識したテキストはデフォルトでクリップボードに直接入ります。スクリーンショット後に <span class="docs-kbd">⌘V</span> でどこにでも貼り付けられます。</p>
+        <p data-lang-key="ocrP2"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span>対応言語市場向けに、OCR は<strong>ローカライズされたプライバシーマスキング</strong>を適用します——</p>
+        <p data-lang-key="ocrP3">例えば、現地の身分証番号・クレジットカード番号・電話番号のフォーマットを認識し、適切な処理を行います。</p>
 
-        <p style="margin-top: 32px;" data-lang-key="qrLabel"><strong>QR Code · 掃描</strong></p>
-        <p data-lang-key="qrIntro">VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
+        <p style="margin-top: 32px;" data-lang-key="qrLabel"><strong>QR コード · スキャン</strong></p>
+        <p data-lang-key="qrIntro">VAS は QR コードの画面内の占有率に応じて動作を決定します：</p>
         <ul class="docs-list">
-          <li data-lang-key="qrLi1"><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
-          <li data-lang-key="qrLi2"><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
-          <li data-lang-key="qrLi3"><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
+          <li data-lang-key="qrLi1"><strong>完全にフレーム内</strong>——意図的なスキャンと判断し、リンクへ直接移動。</li>
+          <li data-lang-key="qrLi2"><strong>ゆるくフレーム（一部を含む）</strong>——「移動しますか？」と確認します。</li>
+          <li data-lang-key="qrLi3"><strong>完全に背景要素</strong>——何もせず、そのままエディターへ。</li>
         </ul>
       </div>
 
       <div class="docs-subsection" id="shortcuts">
-        <h3 data-lang-key="kbH3">快捷鍵</h3>
-        <p data-lang-key="kbIntro">編輯器內建快捷鍵一覽，分四組：</p>
+        <h3 data-lang-key="kbH3">キーボードショートカット</h3>
+        <p data-lang-key="kbIntro">エディター内蔵ショートカット一覧。4 つのグループに分かれています：</p>
 
         <details class="docs-accordion">
-          <summary><span class="name" data-lang-key="kbAcc1">工具切換</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc1">ツール切替</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -419,7 +405,7 @@
         </details>
 
         <details class="docs-accordion">
-          <summary><span class="name" data-lang-key="kbAcc2">畫布操作</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc2">キャンバス操作</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -434,7 +420,7 @@
         </details>
 
         <details class="docs-accordion">
-          <summary><span class="name" data-lang-key="kbAcc3">編輯</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc3">編集</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -451,7 +437,7 @@
         </details>
 
         <details class="docs-accordion">
-          <summary><span class="name" data-lang-key="kbAcc4">物件操作</span><span class="mark"></span></summary>
+          <summary><span class="name" data-lang-key="kbAcc4">オブジェクト操作</span><span class="mark"></span></summary>
           <div class="docs-accordion-body">
             <table class="docs-shortcut-table">
               <tbody>
@@ -468,37 +454,37 @@
       </div>
 
       <div class="docs-subsection" id="customization">
-        <h3 data-lang-key="custH3">自訂設定</h3>
-        <p data-lang-key="custIntro">VAS 刻意做得不多設定項，因為我們相信好的工具<strong>預設就是對的</strong>。能調的幾項是：</p>
+        <h3 data-lang-key="custH3">カスタム設定</h3>
+        <p data-lang-key="custIntro">VAS は意図的に設定項目を少なくしています。優れたツールは<strong>デフォルトが正解</strong>だと考えるからです。調整できる項目：</p>
         <ul class="docs-list">
-          <li data-lang-key="custLi1"><strong>桌面工具列顯示／隱藏</strong>——選單列左鍵瓶子即可切換。</li>
-          <li data-lang-key="custLi2"><strong>呼吸燈開關</strong>——出廠預設關閉，工具列的「快捷鍵說明」裡可手動開啟。</li>
-          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>自訂快捷鍵</strong>——付費版可把任一快捷鍵改成你慣用的組合。</li>
+          <li data-lang-key="custLi1"><strong>デスクトップツールバーの表示／非表示</strong>——メニューバーのボトルを左クリックで切り替え。</li>
+          <li data-lang-key="custLi2"><strong>ブリーズライトのオン／オフ</strong>——出荷時は無効。ツールバーの「ショートカットガイド」から手動で有効にできます。</li>
+          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ショートカットのカスタマイズ</strong>——有料版では任意のショートカットを好みの組み合わせに変更できます。</li>
         </ul>
 
         <div class="docs-card" style="margin-top: 28px;">
-          <p class="docs-card-kicker" data-lang-key="custCardKicker">按鍵接受規則</p>
+          <p class="docs-card-kicker" data-lang-key="custCardKicker">キー受付ルール</p>
           <table class="g-acc-table" style="margin-top: 12px;">
             <tbody>
               <tr>
                 <td>F1 … F12</td>
-                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR1">F 鍵不需修飾鍵</span></td>
+                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR1">F キーは修飾キー不要</span></td>
               </tr>
               <tr>
                 <td>⇧F5、⌘⌃A</td>
-                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR2">含修飾鍵的組合</span></td>
+                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR2">修飾キーを含む組み合わせ</span></td>
               </tr>
               <tr>
                 <td>A、1、X</td>
-                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR3">裸字母或數字</span></td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR3">裸の英字や数字</span></td>
               </tr>
               <tr>
                 <td>⌘Q、⌘W、⌘H、⌘,</td>
-                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR4">系統保留快捷鍵</span></td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR4">システム予約ショートカット</span></td>
               </tr>
               <tr>
                 <td>單獨 ⌘ / ⌃ / ⌥</td>
-                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR5">單獨修飾鍵</span></td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR5">修飾キー単体</span></td>
               </tr>
             </tbody>
           </table>
@@ -506,56 +492,46 @@
       </div>
 
       <div class="docs-subsection" id="tips">
-        <h3 data-lang-key="tipsH3">疑難與邊界</h3>
+        <h3 data-lang-key="tipsH3">トラブルシューティング</h3>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ1">權限沒給，VAS 沒反應</span>
+            <span class="name" data-lang-key="tipsQ1">権限が付与されていない——VAS が反応しない</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA1">
-            macOS 會跳出系統提示。照指示到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，之後重新打開 VAS 即可。這是 macOS 的硬性規定，VAS 沒辦法繞過。
-          </div>
+          <div class="docs-accordion-body" data-lang-key="tipsA1">macOS のシステム通知が表示されます。「システム設定 → プライバシーとセキュリティ → スクリーン録画」に進み、VAS にチェックを入れて再起動してください。これは macOS の必須要件であり、VAS では回避できません。</div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ2">把 VAS 放到桌面角落後，我找不到了</span>
+            <span class="name" data-lang-key="tipsQ2">デスクトップの片隅に置いた VAS が見つからない</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA2">
-            呼吸燈只有 120×6px，確實很低調。按 Dock 上的 VAS 圖示，不管它原本在哪，都會被召喚到你眼前展開成工具列。或者乾脆在選單列左鍵瓶子把桌面工具列關掉，之後都用右鍵選單操作。
-          </div>
+          <div class="docs-accordion-body" data-lang-key="tipsA2">ブリーズライトは 120×6px しかなく、確かに見つけにくいです。Dock の VAS アイコンをクリックすれば、どこにあっても呼び出してツールバーに展開されます。または、メニューバーのボトルを左クリックしてデスクトップツールバーを非表示にし、右クリックメニューだけで操作する方法もあります。</div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ3">網頁截圖截到登入頁</span>
+            <span class="name" data-lang-key="tipsQ3">ウェブスクリーンショットがログインページを撮影した</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA3">
-            網頁截圖功能會在背景獨立開一個瀏覽器實例去抓畫面，這個背景瀏覽器沒有你平常使用的登入狀態。如果你要截需要登入才看得到的頁面，目前推薦使用瀏覽器原生外掛諸如 FireShot。
-          </div>
+          <div class="docs-accordion-body" data-lang-key="tipsA3">ウェブスクリーンショット機能はバックグラウンドで独立したブラウザインスタンスを起動して画面をキャプチャします。このブラウザは通常の使用時のログイン状態を保持していません。認証が必要なページのキャプチャには、FireShot などのブラウザ拡張機能をお勧めします。</div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ4">雙螢幕的行為</span>
+            <span class="name" data-lang-key="tipsQ4">デュアルディスプレイの動作</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA4">
-            雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕；延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為，請回報給我們。
-          </div>
+          <div class="docs-accordion-body" data-lang-key="tipsA4">デュアルディスプレイ環境は専用の最適化が施されています。フルスクリーンキャプチャはカーソルが存在するディスプレイを撮影し、遅延キャプチャもカーソル位置を基準に対象ディスプレイを決定します。予期しない動作が発生した場合はご報告ください。</div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ5">可以自訂快捷鍵嗎</span>
+            <span class="name" data-lang-key="tipsQ5">ショートカットキーをカスタマイズできますか</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA5">
-            付費版可以。免費版預設提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三組截圖快捷鍵。
-          </div>
+          <div class="docs-accordion-body" data-lang-key="tipsA5">有料版では可能です。無料版は <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> の 3 つのショートカットを搭載しています。</div>
         </details>
       </div>
     </section>
@@ -580,11 +556,8 @@
 
 <footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
-    一個不會寫程式的 PM，<br>
-    和一個沒有長期記憶的 AI，<br>
-    在二十五天裡做出的器物。</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Nova と Claude の共作。<br>一行もコードを書けない PM と、<br>長期記憶を持たない AI が、<br>二十五日間で作り上げた器。</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">プライバシーポリシー</a>
   </div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
@@ -618,7 +591,6 @@
 </script>
 
 <!-- ═══ i18n · 四語切換 + 工具列/編輯器圖同步 ═══ -->
-<script src="i18n/core.js"></script>
 <script>
 (function () {
   function applyLang(lang) {
@@ -699,7 +671,7 @@
   }
 
   function init() {
-    VASCore.initDropdown(applyLang);
+    
     VASCore.initNavDropdown();
     initDotNav();
   }
@@ -909,18 +881,18 @@
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
   <a class="dot-nav-item" href="#welcome"><span class="dn-label">Welcome</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#first-launch"><span class="dn-label" data-lang-key="flH3">第一次打開 VAS</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#permissions"><span class="dn-label" data-lang-key="permH3">授權與隱私</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#first-capture"><span class="dn-label" data-lang-key="fcH3">第一次截圖</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#menubar"><span class="dn-label" data-lang-key="mbH3">系統選單中的瓶子</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#breath"><span class="dn-label" data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#toolbar"><span class="dn-label" data-lang-key="s3Title">工具列</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#editor"><span class="dn-label" data-lang-key="s1Title">編輯器</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#export"><span class="dn-label" data-lang-key="exportH3">匯出</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#ocr"><span class="dn-label" data-lang-key="ocrH3">OCR 與 QR Code</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#shortcuts"><span class="dn-label" data-lang-key="kbH3">快捷鍵</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#customization"><span class="dn-label" data-lang-key="custH3">自訂設定</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#tips"><span class="dn-label" data-lang-key="tipsH3">疑難與邊界</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#first-launch"><span class="dn-label" data-lang-key="flH3">VAS を初めて開く</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#permissions"><span class="dn-label" data-lang-key="permH3">アクセス許可とプライバシー</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#first-capture"><span class="dn-label" data-lang-key="fcH3">初めてのスクリーンショット</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#menubar"><span class="dn-label" data-lang-key="mbH3">メニューバーのボトル</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#breath"><span class="dn-label" data-lang-key="blH3">ブリーズライト × ワンクリック召喚</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#toolbar"><span class="dn-label" data-lang-key="s3Title">キャプチャツールバー</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#editor"><span class="dn-label" data-lang-key="s1Title">エディタ画面</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#export"><span class="dn-label" data-lang-key="exportH3">書き出し</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ocr"><span class="dn-label" data-lang-key="ocrH3">OCR と QR コード</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#shortcuts"><span class="dn-label" data-lang-key="kbH3">キーボードショートカット</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#customization"><span class="dn-label" data-lang-key="custH3">カスタム設定</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#tips"><span class="dn-label" data-lang-key="tipsH3">トラブルシューティング</span><span class="dn-dot"></span></a>
 </nav>
 
 </body>
