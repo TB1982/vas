@@ -301,7 +301,7 @@
       i4imgCaption2: 'VAS 解法：無延遲狀態你點哪個螢幕我截哪個螢幕；<br>延遲模式不用選，你在哪我就截哪。',
       i5Title: '功能可以一直加，但底層要先說同一種語言',
       i5p1: '當工具種類越來越多——點、線、面、文字、符號——每個物件都有顏色、線條、大小、方向這些屬性。重複疊加的屬性變成隱形技術債，功能可以用，但結構像拼裝車。',
-      i5p2: '他們在 Sprint 9 的 Retro 做了這個決定。等待 Apple Store 審核的空檔，兩人估了一下：四個 Sprint，應該夠了。',
+      i5p2: 'Nova 跟 Claude 在 Sprint 9 的 Retro 做了系統重構這個決定。等待 Apple Store 審核的空檔，兩人估了一下：四個 Sprint，應該夠了。',
       i5p3: '沒有人料到，四個 Sprint 會走成十七個。不是因為方向錯了，而是每一層債還完，下面還有一層。Sprint 20，當 Nova 在人工 QC 的疲憊裡快撐不住、終於問出「為什麼我們有自動化測試、我還是這麼累」的時候，兩人才發現：測試架構本身，也是技術債的一部分。接著，一個使用者提出想要簡體中文。實作時他們看著 i18n 的結構說——這撐不住下一個語系——又一輪重構。Sprint 24，他們翻開那本越來越厚的 KM，突然有個念頭：這本記滿踩坑紀錄的帳本，能不能反過來當作驗收地圖，確認每一個坑都已經有人填過了？Sprint 26 結束，兩人對著清單核了一遍。「真的沒有了齁？」',
       i5p3b: 'Sprint 27，對話氣泡工具加入。透明度、陰影、漸層——那些其他工具早就有的屬性，在這裡直接繼承，不用重造任何一個輪子。這才是真正的完成信號。不是一份宣告，而是一個新工具，被架構自然接住的那一刻。',
       i5p4: '這次重構也連帶讓 Electron 版受惠——底層統一，兩個平台都跑在同一套邏輯上，穩定性自然提升。',
@@ -587,7 +587,7 @@
       s15num: 'S15', s15meta: '04/12　4 工具　QC 100%', s15title: '🏗️ v2.0 Architecture ④ TOOL_SCHEMA Batch 2 — 10/10 全覆蓋',
       s15desc: 'line / polyline / text / symbol 遷入 · showOptionsForAnnot 5 個 if-block 整合為單一 schema dispatch · symbol 漸層 Apple Color Emoji 像素掃描修正',
       s16num: 'S16', s16meta: '04/13　3+ 項　QC 100%', s16title: '🏗️ v2.0 Architecture ⑤ 幾何邏輯集中化',
-      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取（任何工具下點擊物件自動切換）· Vitest 211 pass',
+      s16desc: 'TOOL_GEOMETRY schema（bounds / getHandles / moveAnnot 單行 dispatch）· Figma-style 點擊選取（任何工具下點擊物件自動切換）· Vitest 47 pass', // 歷史資料，勿動
       s17num: 'S17', s17meta: '04/13　4 項　QC 100%', s17title: '🏗️ v2.0 Architecture ⑤ 渲染管線模組化',
       s17desc: 'TOOL_RENDER dispatcher（switch → 對照表）· makeGradient helper（~10 處漸層重複消除）· rect / ellipse shadow pre-pass 補齊 · symbol shadow 參數統一',
       s18num: 'S18', s18meta: '04/13　5 項　QC 100%（3 輪修復）', s18title: '🏗️ v2.0 Architecture ⑥ Undo/Redo 架構升級 + 記憶體衛生',
@@ -599,7 +599,7 @@
       roadmapTag: '下一階段', roadmapH2: '路線圖',
       r1h: 'v1.0　功能驗證原型', r1p: '已上架 App Store（審核中）',
       r2h: 'v2.0　架構重構（Sprint 10–20）', r2p: '已完成（04/11–04/14）',
-      r2items: '<li>✓ 座標系統統一（DPR 全修）</li><li>✓ 漸層引擎統一（六工具）</li><li>✓ 資料模型正規化</li><li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li><li>✓ 幾何 + 渲染管線模組化</li><li>✓ Undo/Redo 架構升級 + 記憶體衛生</li><li>✓ 自動化測試基建（Vitest 211 pass）</li>',
+      r2items: '<li>✓ 座標系統統一（DPR 全修）</li><li>✓ 漸層引擎統一（六工具）</li><li>✓ 資料模型正規化</li><li>✓ 屬性面板框架化（TOOL_SCHEMA 10/10 覆蓋）</li><li>✓ 幾何 + 渲染管線模組化</li><li>✓ Undo/Redo 架構升級 + 記憶體衛生</li><li>✓ 自動化測試基建（Vitest 47 pass）</li>', // 歷史資料，勿動
       r2bh: 'v2.1　品質基建（Sprint 21–24）', r2bp: '已完成（04/18–04/21）',
       r2bitems: '<li>✓ Sprint 21　測試基建補強</li><li>✓ Sprint 22　i18n 架構重整</li><li>✓ Sprint 23　隱私掃描多語特化</li><li>✓ Sprint 24　文件歸檔系統</li>',
       r2ch: 'v2.2　截圖品質修復', r2cp: '規劃中',
