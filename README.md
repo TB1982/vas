@@ -1,6 +1,6 @@
 # VAS — Visual Annotation Studio
 
-**Product site:** [tb1982.github.io/vas](https://tb1982.github.io/vas/)
+**Product site:** [yoursvas.app](https://yoursvas.app/)
 
 A screenshot and visual annotation tool for Mac, built for cross-functional communication.
 Born from a collaboration between a PM who can't write a single line of code, and Claude — iterated together over eighteen days.
@@ -75,7 +75,7 @@ Each language file exports a nested object: `shared` (nav, footer) + per-page na
 
 ## Author
 
-Nova — [babelon1882@gmail.com](mailto:babelon1882@gmail.com)
+Nova — [nova@yoursvas.app](mailto:nova@yoursvas.app)
 Part of the [深握計畫 (Deep Holding Project)](https://tb1982.github.io/pm/)
 
 Built with [Claude Code](https://claude.ai/claude-code)

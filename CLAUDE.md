@@ -42,21 +42,21 @@ The visual logic follows from this, not the other way around.
 | Field | Value |
 |-------|-------|
 | Author display name | Nova |
-| Author email | babelon1882@gmail.com |
+| Author email | nova@yoursvas.app |
 | Project name (ZH) | 深握計畫 |
 | Project name (EN) | Deep Holding Project |
-| Site canonical URL | `https://tb1982.github.io/vas/` |
+| Site canonical URL | `https://yoursvas.app/` |
 | Copyright year | 2026– |
 | GitHub | `https://github.com/tb1982` |
 | LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
 | Instagram | `https://www.instagram.com/liuyingtzu` |
 
-Per-page canonical: `https://tb1982.github.io/vas/<filename>.html`
+Per-page canonical: `https://yoursvas.app/<filename>.html`
 
 ### Footer — canonical format
 ```
-由 GitHub 部署　｜　Claude Code 傾力打造　｜　Nova（babelon1882@gmail.com）最後更新於 2026
-Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by Nova (babelon1882@gmail.com)
+由 GitHub 部署　｜　Claude Code 傾力打造　｜　Nova（nova@yoursvas.app）最後更新於 2026
+Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by Nova (nova@yoursvas.app)
 ```
 
 ### Social / JSON-LD author block
@@ -64,7 +64,7 @@ Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by 
 "author": {
   "@type": "Person",
   "name": "Nova",
-  "email": "babelon1882@gmail.com",
+  "email": "nova@yoursvas.app",
   "sameAs": ["https://github.com/tb1982","https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu"]
 }
 ```
