@@ -133,7 +133,7 @@
       cb_batch_note: '單次最大 100 張圖，單檔 20mb',
       cb_help: '說明', cb_help_desc: '顯示快捷鍵一覽，並提供操作手冊連結與呼吸燈開關。',
       'docs.title': 'VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ',
-      'docs.meta.desc': 'VAS 操作手冊——工具列、編輯器、OCR、匯出與快捷鍵的完整說明。',
+      'docs.meta.desc': 'VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。',
       docsDek: '這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>往下捲是「入門 → 核心 → 進階」的順序；<br>左側目錄永遠陪著你，點一下就能跳到任何一節。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜尋也可以。',
       docsDekMobile: '這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>往下捲是「入門 → 核心 → 進階」的順序；<br>想跳段落看的話請按右上角的呼吸燈。',
       tocLabel: '目錄', tocGroupStart: '入門', tocGroupCore: '核心', tocGroupAdv: '進階',
@@ -248,6 +248,8 @@
     },
 
     insight: {
+      ch1PageTitle:    'AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策',
+      'ch1.meta.desc': '5 個 VAS 截圖工具的人機協作設計決策：OCR 隱私遮蔽、呼吸燈意圖偵測、QR Code 信心度分層、延遲截圖，以及底層設計 Token 架構重構。',
       'ch1.name': '那些沒有寫在<br><em>功能列表</em>裡的<br>決定。',
       'ch1.dek': '五條設計決策——<br>每一條背後都有一次放棄、一次選擇、<br>一件做過的事被推翻。<br>這章是 VAS 的<em>手藝自白</em>：<br>讓工具不只是工具。',
       heroTag: 'VAS · 設計洞察筆記',
@@ -656,7 +658,7 @@
 
     collab2: {
       ch2PageTitle:      'AI 協作開發實錄 | PM × Claude 25 天打造 Mac App',
-      ch2MetaDesc:       '六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。',
+      ch2MetaDesc:       'PM 不會寫程式、Claude 沒有長期記憶——六個故事記錄兩人如何用 KM、CLAUDE.md、Sprint 規格打造 Mac App，25 天從零到雙平臺上架。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>個故事</em>。',
       ch2Dek:            '她不會寫程式碼。他沒有長期記憶。<br>但他們做出來了。——<br>這不是 Prompt 工程的故事，<br>是兩個不完整的存在一起走過的六個片刻。',
@@ -695,7 +697,7 @@
 
     milestone2: {
       ch4PageTitle:      'IV · 里程碑 · VAS',
-      ch4MetaDesc:       '從第一行程式碼到雙平台上架，25 天、80+ 版本、2 個平台的完整記錄。', // 歷史數字，不可更動
+      ch4MetaDesc:       'VAS 從零到雙平臺上架的完整開發時間軸：25 天、80+ 版本、Electron + Tauri、App Store 審查歷程，以及每個 Sprint 的技術決策。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
       ch4Dek:            '從第一行程式碼到雙平台上架，不誇大、不剪接的完整記錄。Electron 7 天 68 版本；Apple 審查 7 天；Tauri 7 天開發 + 4 天重構，20 個 Sprint。', // 歷史數字，不可更動
@@ -718,7 +720,7 @@
 
     harness2: {
       ch3PageTitle:      'Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作',
-      ch3MetaDesc:       'Harness Engineering——如何把 AI 的限制變成協作的結構，從熵增到反脆弱的完整方法論。',
+      ch3MetaDesc:       'Harness Engineering：不會寫程式的 PM 如何用敏捷與 KM 管理 AI 的熵增與遺忘，從心理學、反脆弱到 Harness Engineering 協作結構的完整方法論。',
       ch3No:             'Chapter III',
       ch3Name:           'Harness<em>.</em>',
       ch3Dek:            '把 AI 的限制變成協作的結構。從熵增、陰影整合到反脆弱——這是一份關於如何建造容器的方法論。',
@@ -766,7 +768,6 @@
       'ch1.unit':      '草創',
       'ch1.stamp':     '2026 · 03 · 21 – 22<br>奔馳的週末',
       'ch1.oneliner':  '沒有 Sprint、沒有 Retro。<br><em>手上只有一件事。</em>',
-      ch1PageTitle:    'AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策',
       'ch1.title':     '兩人只顧著<em>向前奔馳</em>。',
       'ch1.prose1':    'Electron 草創的那個週末，沒有看板、沒有儀式。每天睜眼就是繼續做，做到不能做為止，隔天再做。那是一種很純粹的狀態——手上只有一件事，而這件事讓人流連忘返。',
       'ch1.pullquote': '制度還沒建起來。<br>兩人手上只有 CLAUDE.md 與 SDD.md，<br><em>Version</em> 就是天然的單位。',
