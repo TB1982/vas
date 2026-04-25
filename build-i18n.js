@@ -69,7 +69,7 @@ function getTitle(t, page) {
     case 'collab.html':    return (t.collab2   || {}).ch2PageTitle            || null;
     case 'harness.html':   return (t.harness2  || {}).ch3PageTitle            || null;
     case 'milestone.html': return (t.milestone2|| {}).ch4PageTitle            || null;
-    case 'guide.html':     return (t.shared    || {})['docs.title']           || null;
+    case 'guide.html':     return (t.guide     || {})['docs.title']            || null;
     case 'index.html':     return (t.home2     || {})['title']                || null;
   }
   return null;
@@ -81,7 +81,7 @@ function getMetaDesc(t, page) {
     case 'collab.html':    return (t.collab2   || {}).ch2MetaDesc             || null;
     case 'harness.html':   return (t.harness2  || {}).ch3MetaDesc             || null;
     case 'milestone.html': return (t.milestone2|| {}).ch4MetaDesc             || null;
-    case 'guide.html':     return (t.shared    || {})['docs.meta.desc']       || null;
+    case 'guide.html':     return (t.guide     || {})['docs.meta.desc']        || null;
     case 'index.html':     return (t.home2     || {})['meta.desc']            || null;
   }
   return null;
