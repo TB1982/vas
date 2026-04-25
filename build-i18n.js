@@ -10,7 +10,7 @@ const vm   = require('vm');
 const BASE          = __dirname;
 const CANONICAL     = 'https://tb1982.github.io/vas';
 const TARGET_LANGS  = ['en', 'ja', 'cn'];
-const PAGES         = ['index.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html'];
+const PAGES         = ['index.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html', 'privacy.html'];
 
 const LANG_META = {
   en: { htmlLang: 'en',       hreflang: 'en',       label: 'EN',   labelFull: 'English'  },
@@ -52,6 +52,9 @@ function getMerged(t, page) {
     case 'guide.html':
       Object.assign(m, t.shared   || {}, t.guide    || {});
       break;
+    case 'privacy.html':
+      Object.assign(m, t.shared   || {}, t.privacy  || {});
+      break;
   }
   // All pages include home2 with 'home2.' prefix (for nav links, footer, etc.)
   flat(m, t.home2 || {}, 'home2.');
@@ -69,8 +72,9 @@ function getTitle(t, page) {
     case 'collab.html':    return (t.collab2   || {}).ch2PageTitle            || null;
     case 'harness.html':   return (t.harness2  || {}).ch3PageTitle            || null;
     case 'milestone.html': return (t.milestone2|| {}).ch4PageTitle            || null;
-    case 'guide.html':     return (t.shared    || {})['docs.title']           || null;
+    case 'guide.html':     return (t.guide     || {})['docs.title']            || null;
     case 'index.html':     return (t.home2     || {})['title']                || null;
+    case 'privacy.html':   return (t.privacy   || {}).pageTitle                || null;
   }
   return null;
 }
@@ -81,8 +85,9 @@ function getMetaDesc(t, page) {
     case 'collab.html':    return (t.collab2   || {}).ch2MetaDesc             || null;
     case 'harness.html':   return (t.harness2  || {}).ch3MetaDesc             || null;
     case 'milestone.html': return (t.milestone2|| {}).ch4MetaDesc             || null;
-    case 'guide.html':     return (t.shared    || {})['docs.meta.desc']       || null;
+    case 'guide.html':     return (t.guide     || {})['docs.meta.desc']        || null;
     case 'index.html':     return (t.home2     || {})['meta.desc']            || null;
+    case 'privacy.html':   return (t.privacy   || {}).metaDesc                || null;
   }
   return null;
 }
@@ -123,9 +128,8 @@ function fixPaths(html) {
 
 // Fix internal page links in nav / acquire section
 function fixInternalLinks(html, page) {
-  // In generated pages, relative links already resolve within the same dir.
-  // Only privacy.html is not generated → point back to root.
-  return html.replace(/\bhref="privacy\.html"/g, 'href="../privacy.html"');
+  // All pages including privacy.html are generated — relative links resolve within the same dir.
+  return html;
 }
 
 // Update <html lang="...">
@@ -257,6 +261,26 @@ function fixGuideImages(html, lang) {
   return html;
 }
 
+// Fix privacy.html JSON-LD: url, inLanguage, name per language
+function fixPrivacyJsonLd(html, lang, t) {
+  const meta = LANG_META[lang];
+  const url  = `${CANONICAL}/${lang}/privacy.html`;
+  const name = (t.privacy || {}).appName || 'VAS Privacy Policy';
+  html = html.replace(
+    /"url":\s*"https:\/\/tb1982\.github\.io\/vas\/privacy\.html"/,
+    `"url": "${url}"`
+  );
+  html = html.replace(
+    /"inLanguage":\s*\[[^\]]*\]/,
+    `"inLanguage": "${meta.hreflang}"`
+  );
+  html = html.replace(
+    /"name":\s*"VAS Privacy Policy"/,
+    `"name": "${name}"`
+  );
+  return html;
+}
+
 // Escape special chars for use in attribute values
 function esc(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -300,7 +324,8 @@ function buildLang(lang, t) {
     html = removeI18nScripts(html);
     html = fixPaths(html);
     html = fixInternalLinks(html, page);
-    if (page === 'guide.html') html = fixGuideImages(html, lang);
+    if (page === 'guide.html')   html = fixGuideImages(html, lang);
+    if (page === 'privacy.html') html = fixPrivacyJsonLd(html, lang, t);
 
     // Fix og:url placeholder
     html = html.replace(/\/{{LANG}}\/{{PAGE}}/g, `/${lang}/${page}`);

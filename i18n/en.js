@@ -941,7 +941,20 @@
     privacy: {
       pageLabel: 'Legal',
       appName: 'VAS Privacy Policy',
-      updatedDate: 'Last updated: 2026-04-03'
+      updatedDate: 'Last updated: 2026-04-03',
+      pageTitle: 'Privacy Policy · VAS',
+      metaDesc: 'VAS does not collect any personal data. All image processing is performed locally on your device.',
+      intro: 'VAS — Visual Annotation Studio (hereinafter "the App") respects your privacy.',
+      's1.h2': 'Data Collection',
+      's1.p': 'The App does not collect, store, or transmit any personal data. All image processing (including OCR text recognition and privacy masking scans) is performed locally on your device and never sent to any server.',
+      's2.h2': 'System Permissions',
+      's2.p': 'The App requires screen recording permission to perform screenshot capture. This permission is used solely for screenshots and for no other purpose.',
+      's3.h2': 'Network Access',
+      's3.p': 'The App uses a network connection only when checking for updates. No user data is uploaded.',
+      's4.h2': 'Third-Party Services',
+      's4.p': 'The App does not use any third-party analytics, advertising, or tracking services.',
+      's5.h2': 'Contact',
+      's5.p': 'For any privacy-related questions, please contact: <a href="mailto:babelon1882@gmail.com">babelon1882@gmail.com</a>',
     },
 
     home2: {
