@@ -114,6 +114,13 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
   letter-spacing: 0.1em;
 }
 .lang-flat-row  { display: flex; align-items: center; gap: 4px; flex-wrap: nowrap; }
+.lang-flat-row .lang-opt {
+  font-family: var(--vas-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 6px;
+}
 .lang-mobile-dd { display: none; position: relative; }
 
 @media (max-width: 768px) {
