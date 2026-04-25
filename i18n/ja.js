@@ -153,7 +153,7 @@
       cb_help: 'ヘルプ', cb_help_desc: 'キーボードショートカット一覧を表示し、このマニュアルへのリンクを提供します。',
       cb_batch_note: '1回最大100枚、1ファイル20MBまで',
       'docs.title': '操作マニュアル · VAS',
-      'docs.meta.desc': 'VAS 操作マニュアル——ツールバー、エディタ、OCR、書き出し、ショートカットの完全ガイド。',
+      'docs.meta.desc': 'VAS Macスクリーンショットツール完全操作ガイド：浮動ツールバー・スクリーンショットエディタ・OCRプライバシーマスク・QRコードスキャン・ショートカット、一ページで完結。',
       docsDek: 'これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>左側のメニューはいつでも表示されており、クリックで任意のセクションへ移動できます。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> での検索も使えます。',
       docsDekMobile: 'これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>セクションへジャンプするには、右上のブリーズライトをタップしてください。',
       tocLabel: '目次', tocGroupStart: '入門', tocGroupCore: '基本', tocGroupAdv: '応用',
@@ -365,6 +365,7 @@
       }
     },
     insight: {
+      ch1PageTitle:    'AI 人機協作設計記録 | VAS スクリーンショットツールの5つの設計決断',
       heroTag: 'VAS · デザインの洞察',
       i1Tag: '人間とAIの協働',
       i2Tag: '行動が意味を語る',
@@ -440,7 +441,7 @@
       collabTeaser: '設計判断の背景にある物語 · 人とAIの協作ノート',
       collabBtn: '協作ノートを読む →',
       'ch1.title':            'I · 設計 · VAS',
-      'ch1.meta.desc':        'VAS の開発過程で下された設計上の決断の記録——機能リストには載らなかったけれど、製品の質感を決定づけたもの。',
+      'ch1.meta.desc':        'VAS 5つの人機協作設計決断：OCRプライバシーマスク、呼吸ライト意図検出、QRコード信頼度レイヤリング、遅延スクリーンショット、Design Tokenアーキテクチャ再構築。',
       'ch1.no':               'Chapter I',
       'ch1.toc.label':        '目次',
       'ch1.sec.01.name':      '不完全さを受け入れる',
@@ -889,7 +890,7 @@
 
     collab2: {
       ch2PageTitle:      'II · 協作 · VAS',
-      ch2MetaDesc:       '六つの物語——彼女にはコードが書けない。彼には長期記憶がない。それでも二人で作り上げた。',
+      ch2MetaDesc:       'PMはコードが書けない。Claudeには長期記憶がない。KM・CLAUDE.md・Sprint仕様でMac Appを作った六つの物語——25日間でゼロから双プラットフォームリリースまで。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>つの物語</em>。',
       ch2Dek:            '彼女にはコードが書けない。<br>彼には長期記憶がない。<br>それでも二人で作り上げた。——<br>これはプロンプトエンジニアリング<br>の話ではなく、<br>二つの不完全な存在が一緒に歩んだ六つの瞬間。',
@@ -923,7 +924,7 @@
 
     harness2: {
       ch3PageTitle:      'III · システム · VAS',
-      ch3MetaDesc:       'Harness Engineering——AI の制約を協働の構造に変える、エントロピー増大から反脆弱までの完全な方法論。',
+      ch3MetaDesc:       'Harness Engineering：コードを書けないPMが敏捷とKMでAIのエントロピー増大と忘却を管理する方法論——心理学・反脆弱からHarness Engineering協働構造まで。',
       ch3No:             'Chapter III',
       ch3Name:           'Harness<em>.</em>',
       ch3Dek:            'AI の制約を協働の構造に変える。エントロピー増大、陰影の統合、反脆弱まで——容器をどう作るかについての方法論。',
@@ -959,7 +960,7 @@
 
     milestone2: {
       ch4PageTitle:      'IV · 里程碑 · VAS',
-      ch4MetaDesc:       '最初のコード一行から双プラットフォームリリースまで、25 日、80+ バージョン、2 プラットフォームの完全な記録。', // 歷史數字，不可更動
+      ch4MetaDesc:       'ゼロから双プラットフォームリリースまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査と各Sprintの技術的決断。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
       ch4Dek:            '最初のコード一行から双プラットフォームリリースまで、誇張なく、編集もない完全な記録。Electron 7 日 68 バージョン；Apple 審査 7 日；Tauri 7 日開発 + 4 日リファクタリング、20 の Sprint。', // 歷史數字，不可更動

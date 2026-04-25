@@ -131,7 +131,7 @@
       cb_help: '说明', cb_help_desc: '显示快捷键一览，并提供操作手册连结。',
       cb_batch_note: '单次最大 100 张图，单文件 20mb',
       'docs.title': '操作手册 · VAS',
-      'docs.meta.desc': 'VAS 操作手册——工具列、编辑器、OCR、导出与快捷键的完整说明。',
+      'docs.meta.desc': 'VAS Mac 截图工具完整操作指南：浮动工具列、截图编辑器、OCR 隐私遮蔽、QR Code 扫描、快捷键与进阶设置，一页读完。',
       docsDek: '这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>左侧目录永远陪着你，点一下就能跳到任何一节。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜索也可以。',
       docsDekMobile: '这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>想跳转段落，请点右上角的呼吸灯。',
       tocLabel: '目录', tocGroupStart: '入门', tocGroupCore: '核心', tocGroupAdv: '进阶',
@@ -332,6 +332,7 @@ kb_r1: 'F 键不需修饰键', kb_r2: '含修饰键的组合',
       }
     },
     insight: {
+      ch1PageTitle:    'AI 人机协作设计实录 | VAS 截图工具的 5 个设计决策',
       heroTag: 'VAS · 设计洞察笔记',
 heroH1: '那些没有写在<br><span class="gradient-text">功能列表</span>里的决定',
       'ch1.name': '那些没有写在<br><em>功能列表</em>里的<br>决定。',
@@ -406,7 +407,7 @@ i5bullets: '<li>座标系统统一：所有对象共享同一套空间语言</li
 collabTeaser: '设计决策背后的故事 · 人与 AI 的协作记录',
 collabBtn: '阅读协作笔记 →',
       'ch1.title':            'I · 设计 · VAS',
-      'ch1.meta.desc':        'VAS 开发过程中的设计决策记录——那些没有写在功能列表里、却决定了产品质感的选择。',
+      'ch1.meta.desc':        '5 个 VAS 截图工具的人机协作设计决策：OCR 隐私遮蔽、呼吸灯意图检测、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。',
       'ch1.no':               'Chapter I',
       'ch1.toc.label':        '章目录',
       'ch1.sec.01.name':      '接纳不完美',
@@ -774,7 +775,7 @@ harnessBtn: '阅读系统思维 →',
 
     collab2: {
       ch2PageTitle:      'II · 协作 · VAS',
-      ch2MetaDesc:       '六个故事——她不会写程式码，他没有长期记忆，但他们做出来了。',
+      ch2MetaDesc:       'PM 不会写程式、Claude 没有长期记忆——六个故事记录两人如何用 KM、CLAUDE.md、Sprint 规格打造 Mac App，25 天从零到双平台上架。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>个故事</em>。',
       ch2Dek:            '她不会写程式码。他没有长期记忆。<br>但他们做出来了。——<br>这不是 Prompt 工程的故事，<br>是两个不完整的存在一起走过的六个片刻。',
@@ -808,7 +809,7 @@ harnessBtn: '阅读系统思维 →',
 
     harness2: {
       ch3PageTitle:      'III · 系统 · VAS',
-      ch3MetaDesc:       'Harness Engineering——如何把 AI 的限制变成协作的结构，从熵增到反脆弱的完整方法论。',
+      ch3MetaDesc:       'Harness Engineering：不会写程式的 PM 如何用敏捷与 KM 管理 AI 的熵增与遗忘，从心理学、反脆弱到 Harness Engineering 协作结构的完整方法论。',
       ch3No:             'Chapter III',
       ch3Name:           'Harness<em>.</em>',
       ch3Dek:            '把 AI 的限制变成协作的结构。从熵增、阴影整合到反脆弱——这是一份关于如何建造容器的方法论。',
@@ -844,7 +845,7 @@ harnessBtn: '阅读系统思维 →',
 
     milestone2: {
       ch4PageTitle:      'IV · 里程碑 · VAS',
-      ch4MetaDesc:       '从第一行程式码到双平台上架，25 天、80+ 版本、2 个平台的完整记录。', // 歷史數字，不可更動
+      ch4MetaDesc:       'VAS 从零到双平台上架的完整开发时间轴：25 天、80+ 版本、Electron + Tauri、App Store 审核历程，以及每个 Sprint 的技术决策。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',
       ch4Dek:            '从第一行程式码到双平台上架，不夸大、不剪接的完整记录。Electron 7 天 68 版本；Apple 审查 7 天；Tauri 7 天开发 + 4 天重构，20 个 Sprint。', // 歷史數字，不可更動

@@ -155,7 +155,7 @@
       cb_help: 'Help', cb_help_desc: 'Show keyboard shortcuts and link to this user guide.',
       cb_batch_note: 'Max 100 images per batch, 20mb per file',
       'docs.title': 'User Manual · VAS',
-      'docs.meta.desc': 'VAS user manual — complete documentation for the toolbar, editor, OCR, export, and keyboard shortcuts.',
+      'docs.meta.desc': 'Complete VAS Mac screenshot tool guide: floating toolbar, screenshot editor, OCR privacy masking, QR Code scanning, keyboard shortcuts and advanced settings — all in one page.',
       docsDek: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>the left menu stays with you—click any section to jump.<br><span class="docs-kbd">Ctrl</span>+<span class="docs-kbd">F</span> search works too.',
       docsDekMobile: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>tap the breathing light in the top right to jump to any section.',
       tocLabel: 'Contents', tocGroupStart: 'Getting Started', tocGroupCore: 'Core', tocGroupAdv: 'Advanced',
@@ -368,6 +368,7 @@
     },
 
     insight: {
+      ch1PageTitle:    'AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS',
       heroTag: 'VAS · Design Insights',
       heroH1: 'Decisions that never made it onto<br>the <span class="gradient-text">feature list</span>',
       'ch1.name': "Decisions that never made it onto<br><em>the feature list</em>.",
@@ -443,7 +444,7 @@
       collabTeaser: 'The stories behind design decisions · Human-AI collaboration notes',
       collabBtn: 'Read Collab Notes →',
       'ch1.title':            'I · Design · VAS',
-      'ch1.meta.desc':        'A record of design decisions made during VAS development — choices that never appeared in the feature list, yet shaped the feel of the product.',
+      'ch1.meta.desc':        '5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.',
       'ch1.no':               'Chapter I',
       'ch1.toc.label':        'Contents',
       'ch1.sec.01.name':      'Accept Imperfection',
@@ -541,7 +542,7 @@
 
     collab2: {
       ch2PageTitle:      'II · Collaboration · VAS',
-      ch2MetaDesc:       "Six Stories — She can't write code. He has no long-term memory. Together they built it.",
+      ch2MetaDesc:       "The PM can't code. Claude has no long-term memory. Six stories of how they used KM, CLAUDE.md, and Sprint specs to build a Mac App — 25 days from zero to dual-platform launch.",
       ch2No:             'Chapter II',
       ch2Name:           'Six <em>Stories</em>.',
       ch2Dek:            "She can't write code.<br>He has no long-term memory.<br>Together they built it. ——<br>This isn't a story about<br>Prompt Engineering,<br>it's six moments walked by two incomplete beings.",
@@ -700,7 +701,7 @@
 
     harness2: {
       ch3PageTitle:  'III · System · VAS',
-      ch3MetaDesc:   "Harness Engineering — how to turn AI's limitations into collaboration structure, a complete methodology from entropy to antifragility.",
+      ch3MetaDesc:   "Harness Engineering: how a non-coding PM uses agile and KM to manage AI entropy and forgetting — a complete methodology from psychology and antifragility to Harness Engineering collaboration structure.",
       ch3No:         'Chapter III',
       ch3Name:       'Harness<em>.</em>',
       ch3Dek:        "Turning AI's limitations into collaboration structure. From entropy, shadow integration to antifragility — a complete methodology on how to build the container.",
@@ -916,7 +917,7 @@
 
     milestone2: {
       ch4PageTitle:  'IV · Milestones · VAS',
-      ch4MetaDesc:   'From the first line of code to dual-platform launch — 25 days, 80+ versions, 2 platforms.', // 歷史數字，不可更動
+      ch4MetaDesc:   'The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, App Store review process, and the technical decisions behind every Sprint.',
       ch4No:         'Chapter IV',
       ch4Name:       'Twenty-Five <em>Days.</em>',
       ch4Dek:        'From the first line of code to dual-platform launch — a complete record, no exaggeration, no cuts. Electron: 7 days, 68 versions. Apple review: 7 days. Tauri: 7 days dev + 4 days refactor, 20 Sprints.', // 歷史數字，不可更動
