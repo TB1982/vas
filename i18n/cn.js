@@ -130,7 +130,7 @@
       cb_batch: '批次转', cb_batch_desc: '拖入多张图片，一次转换为 JPG、PNG、WebP 等格式，支持浮水印与尺寸调整。',
       cb_help: '说明', cb_help_desc: '显示快捷键一览，并提供操作手册连结。',
       cb_batch_note: '单次最大 100 张图，单文件 20mb',
-      'docs.title': '操作手册 · VAS',
+      'docs.title': 'VAS 操作手册 | Mac 截图工具完整使用指南',
       'docs.meta.desc': 'VAS Mac 截图工具完整操作指南：浮动工具列、截图编辑器、OCR 隐私遮蔽、QR Code 扫描、快捷键与进阶设置，一页读完。',
       docsDek: '这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>左侧目录永远陪着你，点一下就能跳到任何一节。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜索也可以。',
       docsDekMobile: '这是 VAS 的操作手册，也是 VAS 的功能字典。<br>往下滚是「入门 → 核心 → 进阶」的顺序；<br>想跳转段落，请点右上角的呼吸灯。',
@@ -774,7 +774,7 @@ harnessBtn: '阅读系统思维 →',
     },
 
     collab2: {
-      ch2PageTitle:      'II · 协作 · VAS',
+      ch2PageTitle:      'PM × Claude 25 天 | AI 人机协作开发实录',
       ch2MetaDesc:       'PM 不会写程式、Claude 没有长期记忆——六个故事记录两人如何用 KM、CLAUDE.md、Sprint 规格打造 Mac App，25 天从零到双平台上架。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>个故事</em>。',
@@ -808,7 +808,7 @@ harnessBtn: '阅读系统思维 →',
     },
 
     harness2: {
-      ch3PageTitle:      'III · 系统 · VAS',
+      ch3PageTitle:      'Harness Engineering | 不会写程式的 PM 如何用敏捷进行 AI 人机协作',
       ch3MetaDesc:       'Harness Engineering：不会写程式的 PM 如何用敏捷与 KM 管理 AI 的熵增与遗忘，从心理学、反脆弱到 Harness Engineering 协作结构的完整方法论。',
       ch3No:             'Chapter III',
       ch3Name:           'Harness<em>.</em>',
@@ -844,7 +844,7 @@ harnessBtn: '阅读系统思维 →',
     },
 
     milestone2: {
-      ch4PageTitle:      'IV · 里程碑 · VAS',
+      ch4PageTitle:      'VAS 开发里程碑 | 25 天 80+ 版本双平台 App 上架完整记录',
       ch4MetaDesc:       'VAS 从零到双平台上架的完整开发时间轴：25 天、80+ 版本、Electron + Tauri、App Store 审核历程，以及每个 Sprint 的技术决策。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',

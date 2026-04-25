@@ -152,7 +152,7 @@
       cb_batch: 'バッチ', cb_batch_desc: '複数の画像をドロップして JPG・PNG・WebP などに一括変換。透かしとリサイズにも対応。',
       cb_help: 'ヘルプ', cb_help_desc: 'キーボードショートカット一覧を表示し、このマニュアルへのリンクを提供します。',
       cb_batch_note: '1回最大100枚、1ファイル20MBまで',
-      'docs.title': '操作マニュアル · VAS',
+      'docs.title': 'VAS 操作マニュアル | Mac スクリーンショットツール完全ガイド',
       'docs.meta.desc': 'VAS Macスクリーンショットツール完全操作ガイド：浮動ツールバー・スクリーンショットエディタ・OCRプライバシーマスク・QRコードスキャン・ショートカット、一ページで完結。',
       docsDek: 'これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>左側のメニューはいつでも表示されており、クリックで任意のセクションへ移動できます。<br><span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> での検索も使えます。',
       docsDekMobile: 'これは VAS の操作マニュアルであり、機能辞書でもあります。<br>スクロールすると「入門 → 基本 → 応用」の順に進みます。<br>セクションへジャンプするには、右上のブリーズライトをタップしてください。',
@@ -889,7 +889,7 @@
     },
 
     collab2: {
-      ch2PageTitle:      'II · 協作 · VAS',
+      ch2PageTitle:      'PM × Claude 25日間 | AI人機協作開発記録',
       ch2MetaDesc:       'PMはコードが書けない。Claudeには長期記憶がない。KM・CLAUDE.md・Sprint仕様でMac Appを作った六つの物語——25日間でゼロから双プラットフォームリリースまで。',
       ch2No:             'Chapter II',
       ch2Name:           '六<em>つの物語</em>。',
@@ -923,7 +923,7 @@
     },
 
     harness2: {
-      ch3PageTitle:      'III · システム · VAS',
+      ch3PageTitle:      'Harness Engineering | コードを書けないPMのAI協働敏捷方法論',
       ch3MetaDesc:       'Harness Engineering：コードを書けないPMが敏捷とKMでAIのエントロピー増大と忘却を管理する方法論——心理学・反脆弱からHarness Engineering協働構造まで。',
       ch3No:             'Chapter III',
       ch3Name:           'Harness<em>.</em>',
@@ -959,7 +959,7 @@
     },
 
     milestone2: {
-      ch4PageTitle:      'IV · 里程碑 · VAS',
+      ch4PageTitle:      'VAS 開発マイルストーン | 25日間 80以上バージョン 双プラットフォームMac App',
       ch4MetaDesc:       'ゼロから双プラットフォームリリースまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査と各Sprintの技術的決断。',
       ch4No:             'Chapter IV',
       ch4Name:           '二十五<em>日。</em>',

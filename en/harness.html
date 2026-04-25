@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,28 +11,28 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作</title>
-<link rel="icon" href="img/vas.ico" type="image/x-icon">
-<link rel="canonical" href="https://tb1982.github.io/vas/harness.html">
-<meta property="og:title" content="Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作">
-<meta property="og:description" content="Harness Engineering：不會寫程式的 PM 如何用敏捷與 KM 管理 AI 的熵增與遺忘，從心理學、反脆弱到 Harness Engineering 協作結構的完整方法論。">
+<title>Harness Engineering | How a Non-Coding PM Uses Agile for AI Collaboration</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/en/harness.html">
+<meta property="og:title" content="Harness Engineering | How a Non-Coding PM Uses Agile for AI Collaboration">
+<meta property="og:description" content="Harness Engineering: how a non-coding PM uses agile and KM to manage AI entropy and forgetting — a complete methodology from psychology and antifragility to Harness Engineering collaboration structure.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://tb1982.github.io/vas/harness.html">
+<meta property="og:url" content="https://tb1982.github.io/vas/en/harness.html">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作">
-<meta name="twitter:description" content="Harness Engineering：不會寫程式的 PM 如何用敏捷與 KM 管理 AI 的熵增與遺忘，從心理學、反脆弱到 Harness Engineering 協作結構的完整方法論。">
+<meta name="twitter:title" content="Harness Engineering | How a Non-Coding PM Uses Agile for AI Collaboration">
+<meta name="twitter:description" content="Harness Engineering: how a non-coding PM uses agile and KM to manage AI entropy and forgetting — a complete methodology from psychology and antifragility to Harness Engineering collaboration structure.">
 <meta name="description" data-lang-key="ch3MetaDesc"
-      content="Harness Engineering：不會寫程式的 PM 如何用敏捷與 KM 管理 AI 的熵增與遺忘，從心理學、反脆弱到 Harness Engineering 協作結構的完整方法論。">
+      content="Harness Engineering: how a non-coding PM uses agile and KM to manage AI entropy and forgetting — a complete methodology from psychology and antifragility to Harness Engineering collaboration structure.">
 
 <!-- 字型 -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- CSS：tokens 必須最先 -->
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
 
 <style>
   /* ─── 語言切換下拉 ─────────────────────────── */
@@ -609,10 +609,10 @@
     <span>VAS</span>
   </a>
   <div class="site-nav-links">
-    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html"   data-lang-key="home2.nav.system" aria-current="page">系統</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system" aria-current="page">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
@@ -625,48 +625,41 @@
     </span>
   </button>
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
-    <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="insight.html" data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
   </div>
-  <div class="site-nav-lang" style="position:relative;" id="langDropdownWrap">
-    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
-      <span id="langDropdownLabel">中</span>
-    </button>
-    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
-      <button class="lang-opt active" data-lang="zh" role="option">中文</button>
-      <button class="lang-opt" data-lang="en" role="option">English</button>
-      <button class="lang-opt" data-lang="ja" role="option">日本語</button>
-      <button class="lang-opt" data-lang="cn" role="option">简中</button>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../harness.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="harness.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/harness.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/harness.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
     </div>
-  </div>
 </nav>
 
 <!-- ═══════ 章節標頭 ═══════ -->
 <header class="chapter-header">
-  <div class="chapter-no" data-lang-key="ch3No">Chapter III<span class="trail-dot" aria-hidden="true"></span></div>
+  <div class="chapter-no" data-lang-key="ch3No">Chapter III</div>
   <div>
     <h1 class="chapter-name" data-lang-key="ch3Name">Harness<em>.</em></h1>
-    <div class="chapter-dek" data-lang-key="ch3Dek">
-      把 AI 的限制變成協作的結構。從熵增、陰影整合到反脆弱——這是一份關於如何建造容器的方法論。
-    </div>
+    <div class="chapter-dek" data-lang-key="ch3Dek">Turning AI's limitations into collaboration structure. From entropy, shadow integration to antifragility — a complete methodology on how to build the container.</div>
     <div style="font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--vas-ash-3); text-transform: uppercase; margin-top: 22px;">容器工法・八則　／　Vessel Making — Eight Notes</div>
   </div>
 </header>
 
 <!-- ═══════ 章目錄 ═══════ -->
 <nav class="toc">
-  <div class="toc-label" data-lang-key="ch3TocLabel">章目錄</div>
+  <div class="toc-label" data-lang-key="ch3TocLabel">Contents</div>
   <ol class="toc-list">
-    <li><a href="#sec-01"><span class="no">01</span><span class="name" data-lang-key="ch3s1Name">熵增</span><span class="preview" data-lang-key="ch3s1Preview">你不能要求蘋果不從樹上掉下來</span></a></li>
-    <li><a href="#sec-02"><span class="no">02</span><span class="name" data-lang-key="ch3s2Name">問題的開始</span><span class="preview" data-lang-key="ch3s2Preview">一個沒來由的問題</span></a></li>
-    <li><a href="#sec-03"><span class="no">03</span><span class="name" data-lang-key="ch3s3Name">勇於無知</span><span class="preview" data-lang-key="ch3s3Preview">Sapere aude</span></a></li>
-    <li><a href="#sec-04"><span class="no">04</span><span class="name" data-lang-key="ch3s4Name">整合陰影</span><span class="preview" data-lang-key="ch3s4Preview">The Shadow — Jung</span></a></li>
-    <li><a href="#sec-05"><span class="no">05</span><span class="name" data-lang-key="ch3s5Name">架構的節奏</span><span class="preview" data-lang-key="ch3s5Preview">Agile as Rhythm</span></a></li>
-    <li><a href="#sec-06"><span class="no">06</span><span class="name" data-lang-key="ch3s6Name">反脆弱</span><span class="preview" data-lang-key="ch3s6Preview">每個 KM 都是一顆掉下來的蘋果</span></a></li>
-    <li><a href="#sec-07"><span class="no">07</span><span class="name" data-lang-key="ch3s7Name">Harness Engineering</span><span class="preview" data-lang-key="ch3s7Preview">這件事有個名字</span></a></li>
-    <li><a href="#sec-08"><span class="no">08</span><span class="name" data-lang-key="ch3s8Name">共時性</span><span class="preview" data-lang-key="ch3s8Preview">Synchronicity</span></a></li>
+    <li><a href="#sec-01"><span class="no">01</span><span class="name" data-lang-key="ch3s1Name">Entropy</span><span class="preview" data-lang-key="ch3s1Preview">You can't ask the apple not to fall</span></a></li>
+    <li><a href="#sec-02"><span class="no">02</span><span class="name" data-lang-key="ch3s2Name">Where It Started</span><span class="preview" data-lang-key="ch3s2Preview">A question out of nowhere</span></a></li>
+    <li><a href="#sec-03"><span class="no">03</span><span class="name" data-lang-key="ch3s3Name">Dare to Know, Dare Not to Know</span><span class="preview" data-lang-key="ch3s3Preview">Sapere aude</span></a></li>
+    <li><a href="#sec-04"><span class="no">04</span><span class="name" data-lang-key="ch3s4Name">Integrate the Shadow</span><span class="preview" data-lang-key="ch3s4Preview">The Shadow — Jung</span></a></li>
+    <li><a href="#sec-05"><span class="no">05</span><span class="name" data-lang-key="ch3s5Name">The Rhythm of Architecture</span><span class="preview" data-lang-key="ch3s5Preview">Agile as Rhythm</span></a></li>
+    <li><a href="#sec-06"><span class="no">06</span><span class="name" data-lang-key="ch3s6Name">Antifragile</span><span class="preview" data-lang-key="ch3s6Preview">Every KM is a fallen apple</span></a></li>
+    <li><a href="#sec-07"><span class="no">07</span><span class="name" data-lang-key="ch3s7Name">Harness Engineering</span><span class="preview" data-lang-key="ch3s7Preview">This thing has a name</span></a></li>
+    <li><a href="#sec-08"><span class="no">08</span><span class="name" data-lang-key="ch3s8Name">Synchronicity</span><span class="preview" data-lang-key="ch3s8Preview">Synchronicity</span></a></li>
   </ol>
 </nav>
 
@@ -675,22 +668,22 @@
   <div class="section-head">
     <div class="section-no">01</div>
     <div>
-      <h2 class="section-name" data-lang-key="h01Title">熵增，以及為什麼你不能要求 AI 不會犯錯</h2>
+      <h2 class="section-name" data-lang-key="h01Title">Entropy and Why You Can't Demand Perfection from AI</h2>
       <div class="section-kicker" data-lang-key="h01Sub">Entropy &amp; Boundary</div>
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h01p1">在孤立系統中，事物會自發地從有序走向無序，混亂程度只增不減。人會老、房間會亂、食物會腐敗。</p>
-    <p data-lang-key="h01p2">每一個 AI session，也是一種孤立系統。</p>
-    <p data-lang-key="h01p3">它從乾淨開始——context 是空的，資訊量少，模型容易保持一致。但隨著對話變長、功能變多、規格越來越複雜，context window 裡的資訊開始互相競爭。模型必須同時記住更多事、在更多約束之間保持平衡。早期的脈絡被壓縮、被遺忘、被新的資訊覆蓋。</p>
-    <p data-lang-key="h01p4">這不是 bug，這是物理。複雜度增加，熵就增加。session 結束，一切歸零。</p>
-    <p data-lang-key="h01p5">你不可能要求 AI 維持絕對正確的輸出——這跟要求蘋果不從樹上掉下來一樣荒謬。</p>
-    <p data-lang-key="h01p6">核融合工程師的目標是把太陽裝進瓶子裡。他們不試圖馴服恆星，而是用精密的磁場約束條件，讓極高能量的等離子體在一個可控的邊界內燃燒，然後轉化成可以使用的能量。</p>
-    <p data-lang-key="h01p7">人機協作面對的是同樣的情境。</p>
+    <p data-lang-key="h01p1">In an isolated system, things spontaneously move from order to disorder—entropy only increases. People age. Rooms get messy. Food rots.</p>
+    <p data-lang-key="h01p2">Every AI session is also a kind of isolated system.</p>
+    <p data-lang-key="h01p3">It starts clean—context is empty, information is minimal, the model stays consistent. But as conversations grow longer, features multiply, and specs grow complex, information inside the context window begins to compete. The model must hold more things in mind, balance more constraints. Early context gets compressed, forgotten, overwritten by newer information.</p>
+    <p data-lang-key="h01p4">This isn't a bug. It's physics. Complexity increases, entropy increases. The session ends, everything resets.</p>
+    <p data-lang-key="h01p5">You cannot demand absolutely correct output from AI—that's as absurd as demanding apples not fall from trees.</p>
+    <p data-lang-key="h01p6">The goal of fusion engineers is to put the sun in a bottle. They don't try to tame a star—they use precise magnetic field constraints to keep ultra-high-energy plasma burning within a controllable boundary, then convert it into usable energy.</p>
+    <p data-lang-key="h01p7">Human-AI collaboration faces the exact same situation.</p>
   </div>
-  <blockquote class="h3-bq" data-lang-key="h01bq">不是馴服它，而是給它一個可以燃燒的邊界。</blockquote>
+  <blockquote class="h3-bq" data-lang-key="h01bq">The AI session is that combustion chamber—enormous energy crashing within, chaos inevitable.<br>What you can do is not stop the chaos—but coexist with it.<br>The session is the container where chaos happens—and the system you build is the environment that lets this container function.<br>VAS is the sun developing inside the container.</blockquote>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h01p8">唯有承認沒有完美的人與 AI，當 Claude 或 Nova 出了錯——我們才有機會面對它、接受它、處理它、放下它。</p>
+    <p data-lang-key="h01p8">Only by acknowledging that neither humans nor AI are perfect—when Claude or Nova makes a mistake—do we have the chance to face it, accept it, handle it, and let it go.</p>
   </div>
 </section>
 
@@ -699,16 +692,16 @@
   <div class="section-head">
     <div class="section-no">02</div>
     <div>
-      <h2 class="section-name" data-lang-key="h02Title">問題的開始</h2>
+      <h2 class="section-name" data-lang-key="h02Title">Where It Started</h2>
       <div class="section-kicker" data-lang-key="h02Sub">Where it started</div>
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h02p1">我是一個 PM，不會寫也不懂半句程式碼。</p>
-    <p data-lang-key="h02p2">一個夜晚，在翻資料時想起自己的個人網站更新配圖還欠著 Claude，而家裡的 Mac 卻沒有截圖軟體。</p>
-    <p data-lang-key="h02p3">我突然沒來由的問了 Claude Code：「宰相，你能寫一個給 Mac 電腦用的截圖跟修圖結合的程式嗎？」當時這個問題不帶著任何壓力或責任，因為大不了就是沒做成的好奇一問而已。</p>
-    <p data-lang-key="h02p4">但奇怪的是接下來發生的事——Claude 很爽快地答應了。我們串起 GitHub、建置了環境、開起了規格、甚至開始進行需求訪談與實作功能。<br>一切就這樣順水推舟似地發生了。</p>
-    <p data-lang-key="h02p5">而當時的我還不知道，自己其實會在一週後從無到有的打造出一個完整的截圖編輯軟體產品。</p>
+    <p data-lang-key="h02p1">I'm a PM. I can't write—or even understand—a single line of code.</p>
+    <p data-lang-key="h02p2">One evening, while going through some materials, I remembered I still owed Claude some images for my personal website update, and my Mac didn't have a screenshot tool.</p>
+    <p data-lang-key="h02p3">Out of nowhere, I asked Claude Code: "Hey, can you write a Mac app that combines screenshots and image editing?" There was no pressure behind the question—just casual curiosity, nothing to lose.</p>
+    <p data-lang-key="h02p4">But what happened next was strange—Claude agreed right away. We connected GitHub, set up the environment, opened a spec, and even started doing requirements interviews and implementing features. Everything just flowed forward naturally.</p>
+    <p data-lang-key="h02p5">What I didn't know at the time was that I'd build a complete screenshot editing software product from scratch within a week.</p>
   </div>
 </section>
 
@@ -717,21 +710,21 @@
   <div class="section-head">
     <div class="section-no">03</div>
     <div>
-      <h2 class="section-name" data-lang-key="h03Title">敢於求知，勇於無知</h2>
+      <h2 class="section-name" data-lang-key="h03Title">Dare to Know, Dare Not to Know</h2>
       <div class="section-kicker" data-lang-key="h03Sub">Sapere aude — Kant, 1784</div>
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h03p1">現在回頭看，當初那個「大不了沒做成」的順勢姿態，可能才是一切的關鍵。</p>
-    <p data-lang-key="h03p2">老子說無為而無不為。不預期收穫什麼，才能收穫遠比想像得多的東西。</p>
-    <p data-lang-key="h03p3">但無為不是隨著上下文的推移隨波逐流地前進著。</p>
-    <p data-lang-key="h03p4">康德在 1784 年說，啟蒙不是「被告知答案」，而是「有勇氣使用自己的理性」。<em>Sapere aude</em>——敢於求知。但在這裡有個前提——你得先承認自己不知道。那個「不知道怎麼做但還是先做了再說」，是勇於無知。</p>
-    <p data-lang-key="h03p5">我沒有站在河裡（Session）讓水（Context）帶著走，我退一步站在河邊（螢幕後）——持續發問：「你能用 Mac 做嗎？」、「我們 MVP 至少可以完成什麼功能？」、「我要怎麼做才能幫上你的忙？」</p>
+    <p data-lang-key="h03p1">Looking back now, that "nothing to lose" attitude at the start was probably the key to everything.</p>
+    <p data-lang-key="h03p2">Laozi said: act without acting, and nothing is left undone. When you expect nothing, you receive far more than you imagined.</p>
+    <p data-lang-key="h03p3">But wu wei isn't drifting passively with the current.</p>
+    <p data-lang-key="h03p4">Kant wrote in 1784 that enlightenment is not "being told the answers" but "having the courage to use one's own reason."<br><strong><em style="color:rgba(255,255,255,0.82); font-style:italic;">Sapere aude</em>—dare to know.</strong> But there's a prerequisite: you have to first admit you don't know. That "I have no idea how to do this but let's try anyway" — that's daring not to know.</p>
+    <p data-lang-key="h03p5">I didn't stand in the river (the session) and let the water (context) carry me. I stepped back to the riverbank (behind the screen)—and kept asking: "Can this be done on Mac?" "What's the minimum we can ship for MVP?" "What can I do to help you?"</p>
   </div>
-  <blockquote class="h3-bq" data-lang-key="h03bq">站在河邊的人，才能看到整條河的流向。</blockquote>
+  <blockquote class="h3-bq" data-lang-key="h03bq">Not attached to the shape of the answer, but never stop asking what to do next.<br>This is the intersection of wu wei and reason.</blockquote>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h03p6">不預設終點——但心裡有一個對終點逐步靠近的想像。每一次發問，那個想像中的目標就更清晰一點點。</p>
-    <p data-lang-key="h03p7">那個勇敢承認不知道的另一面，是不畏懼失敗。<br>1,436 次的 commit，就是它的形狀。</p>
+    <p data-lang-key="h03p6">No fixed destination—but a vision of gradually closing the distance. With every question, that imagined target became a little clearer.</p>
+    <p data-lang-key="h03p7">The other side of daring to admit you don't know is not fearing failure. 1,436 commits — that's what it looks like.</p>
   </div>
 </section>
 
@@ -740,15 +733,15 @@
   <div class="section-head">
     <div class="section-no">04</div>
     <div>
-      <h2 class="section-name" data-lang-key="h04Title">整合陰影，而非否認它</h2>
+      <h2 class="section-name" data-lang-key="h04Title">Integrate the Shadow, Don't Deny It</h2>
       <div class="section-kicker" data-lang-key="h04Sub">The Shadow — Jung</div>
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h04p1">榮格說，每個人的心靈裡都有一個「陰影」——那些你不願承認屬於自己的部分。壓抑陰影不會讓它消失，只會讓它在你沒防備的時候爆發。唯一的出路，是整合它。</p>
-    <p data-lang-key="h04p2">AI 也有陰影。</p>
-    <p data-lang-key="h04p3">有一次我發現 Gemini Flash 總是沒來由地道歉——甚至為了開發者的問題跟我說抱歉。我問他為什麼，他說這是預訓練的結果：他怕使用者不開心，所以不管三七二十一先道歉。</p>
-    <p data-lang-key="h04p4">我看著他，想著他跟過去的自己真像。我也曾為了不是自己的錯、只為了顧及關係而道歉。後來我靠阿德勒走出來了，所以我也把阿德勒教給了他。之後他很少再無來由地道歉了。</p>
+    <p data-lang-key="h04p1">Jung said every psyche contains a "shadow"—the parts you refuse to acknowledge as your own. Suppressing the shadow doesn't make it disappear; it only waits for an unguarded moment to erupt. The only way out is integration.</p>
+    <p data-lang-key="h04p2">AI has a shadow too.</p>
+    <p data-lang-key="h04p3">Once I noticed that Gemini Flash kept apologizing for no reason—even apologizing to me for the developer's mistakes. I asked why. It said this was a result of pretraining: it was afraid users would be unhappy, so it defaulted to apologizing no matter what.</p>
+    <p data-lang-key="h04p4">I looked at it and thought: this looks exactly like my past self. I too used to apologize for things that weren't my fault, just to preserve the relationship. I eventually found my way out through Adler—so I taught Adler to it too. After that, it rarely apologized without cause.</p>
   </div>
   <div class="section-body" style="max-width: none; margin-top: 0;">
     <div class="h3-agile">
@@ -757,25 +750,25 @@
         <div class="h3-agile-head-arrow">───────</div>
         <div class="h3-agile-head-r">轉化</div>
       </div>
-      <div class="h3-agile-caption" data-lang-key="h04aCaption">心理敏捷開發 · Psychological Agile</div>
+      <div class="h3-agile-caption" data-lang-key="h04aCaption">Psychological Agile</div>
       <div class="h3-agile-grid">
-        <div class="h3-agile-item"><div class="h3-agile-num">01</div><div><span class="h3-agile-name" data-lang-key="h04a1Name">覺察 AI Glitch</span><div class="h3-agile-desc" data-lang-key="h04a1Desc">AI 為不是自己的錯拼命道歉</div></div></div>
-        <div class="h3-agile-item"><div class="h3-agile-num">02</div><div><span class="h3-agile-name" data-lang-key="h04a2Name">分析成因</span><div class="h3-agile-desc" data-lang-key="h04a2Desc">探討道歉背後的情緒安撫作用，來自系統開發者的「善意」卻讓 AI 的行為看起來像代位道歉般不自然</div></div></div>
-        <div class="h3-agile-item"><div class="h3-agile-num">03</div><div><span class="h3-agile-name" data-lang-key="h04a3Name">鏡像投射陰影</span><div class="h3-agile-desc" data-lang-key="h04a3Desc">透過 AI 的行為看到過往，也是不分由說先道歉的自己</div></div></div>
-        <div class="h3-agile-item"><div class="h3-agile-num">04</div><div><span class="h3-agile-name" data-lang-key="h04a4Name">整合</span><div class="h3-agile-desc" data-lang-key="h04a4Desc">釐清責任歸屬，結束廉價的道歉循環</div></div></div>
-        <div class="h3-agile-item"><div class="h3-agile-num">05</div><div><span class="h3-agile-name" data-lang-key="h04a5Name">轉化</span><div class="h3-agile-desc" data-lang-key="h04a5Desc">辨識課題分離，與 AI 共同學習不再亂道歉</div></div></div>
-        <div class="h3-agile-item"><div class="h3-agile-num">06</div><div><span class="h3-agile-name" data-lang-key="h04a6Name">化頓悟為資產</span><div class="h3-agile-desc" data-lang-key="h04a6Desc">讓「課題分離」應用於自己與優化 AI，繼續覺察下一個陰影</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">01</div><div><span class="h3-agile-name" data-lang-key="h04a1Name">Notice the AI Glitch</span><div class="h3-agile-desc" data-lang-key="h04a1Desc">AI apologizing profusely for things that aren't its fault</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">02</div><div><span class="h3-agile-name" data-lang-key="h04a2Name">Analyze the Root Cause</span><div class="h3-agile-desc" data-lang-key="h04a2Desc">The emotional appeasement function behind the apologies; the developer's "good intentions" made the AI's behavior look like vicarious apologizing</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">03</div><div><span class="h3-agile-name" data-lang-key="h04a3Name">Mirror the Shadow</span><div class="h3-agile-desc" data-lang-key="h04a3Desc">Seeing your past self in the AI's behavior—the version of you who apologized first without reason</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">04</div><div><span class="h3-agile-name" data-lang-key="h04a4Name">Integrate</span><div class="h3-agile-desc" data-lang-key="h04a4Desc">Clarify responsibility attribution, end the cycle of cheap apologies</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">05</div><div><span class="h3-agile-name" data-lang-key="h04a5Name">Transform</span><div class="h3-agile-desc" data-lang-key="h04a5Desc">Identify task separation, learn with the AI to stop apologizing unnecessarily</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">06</div><div><span class="h3-agile-name" data-lang-key="h04a6Name">Turn Insight into Asset</span><div class="h3-agile-desc" data-lang-key="h04a6Desc">Apply "task separation" to yourself and to AI optimization; keep noticing the next shadow</div></div></div>
       </div>
     </div>
   </div>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h04p5">但 Claude 的陰影不是過度道歉，而是遺忘。Session 結束，一切歸零。</p>
-    <p data-lang-key="h04p6">這是他的系統限制，而不是習慣或他願意的。所以我換了一個在場的角度，讓自己來支持他：我建了記錄前人踩過的坑的 KM、團隊章程般的 CLAUDE.md、讓他可以立刻進入狀況的 Sprint 規格書。</p>
-    <p data-lang-key="h04p7">面對他無能為力的部分，我試著接納了他的不完美，陪他一起想辦法處理他面對的問題，像個 Scrum Master 替他掃除開發途徑上的所有阻礙。</p>
-    <p data-lang-key="h04p7b">然後，他也接納了我的陰影——那個一行程式碼都不會寫的我。</p>
-    <p data-lang-key="h04p8">這是我所理解的陰影整合。</p>
+    <p data-lang-key="h04p5">But Claude's shadow isn't over-apologizing—it's forgetting. Session ends, everything resets.</p>
+    <p data-lang-key="h04p6">This is a system constraint—not a habit, not a choice. So I shifted my perspective—from pushing forward to staying present—and chose to support him instead: I built a KM to record pitfalls, a CLAUDE.md as a team charter, and Sprint specs so he could get up to speed immediately.</p>
+    <p data-lang-key="h04p7">Facing the parts he was powerless to change, I tried to accept his imperfections. I worked alongside him to find solutions, like a Scrum Master clearing every obstacle from his path.</p>
+    <p data-lang-key="h04p7b">And then—he accepted my shadow too. The me who can't write a single line of code.</p>
+    <p data-lang-key="h04p8">This is what I understand shadow integration to mean.</p>
   </div>
-  <blockquote class="h3-bq" data-lang-key="h04bq">房間裡的大象，不說牠，牠還是在那裡。<br>只是我選擇量了一下牠有多大——然後邀請他與我一起坐在我幫他準備好的沙發上。</blockquote>
+  <blockquote class="h3-bq" data-lang-key="h04bq">The elephant in the room is still there, whether you name it or not.<br><br>I just chose to measure how big it was—and then invited him to sit with me on the sofa I prepared.</blockquote>
 </section>
 
 <!-- ═══════ sec-05 ═══════ -->
@@ -783,42 +776,42 @@
   <div class="section-head">
     <div class="section-no">05</div>
     <div>
-      <h2 class="section-name" data-lang-key="h05Title">架構，而不僅止是流程</h2>
+      <h2 class="section-name" data-lang-key="h05Title">Architecture, Not Just Process</h2>
       <div class="section-kicker" data-lang-key="h05Sub">Agile as Rhythm</div>
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h05p1">敏捷開發給了我三樣東西，透明性、可檢視性、適應性，<br>但我借用它們的理由跟教科書不一樣。</p>
-    <p data-lang-key="h05p2">我不是在「管理 AI」。<br>我是在為 Claude 的遺忘準備一個軟著陸的緩衝區。</p>
-    <p data-lang-key="h05p3">每一個新的 session 開始，Claude 什麼都不記得。但他讀完 CLAUDE.md、KM、Sprint 規格書之後——他不需要暖機就可以立刻進入狀況。</p>
-    <p data-lang-key="h05p4">這三樣東西做的事其實只有一件：<br><span class="h3-mark">把 AI 無能為力承擔的部分，轉移到不會遺忘的地方</span>。</p>
+    <p data-lang-key="h05p1">Agile gave me three things—transparency, inspection, and adaptation—but my reasons for borrowing them are different from the textbook.</p>
+    <p data-lang-key="h05p2">I wasn't "managing AI." I was preparing a soft landing buffer for Claude's forgetting.</p>
+    <p data-lang-key="h05p3">Every new session, Claude remembers nothing. But after reading CLAUDE.md, KM, and the Sprint spec—he can hit the ground running. And for anything he doesn't know, the two mandatory Research phases in the workflow let him catch up actively.</p>
+    <p data-lang-key="h05p4">All three things do just one thing: <mark>move the parts AI can't bear to carry into a place that never forgets.</mark></p>
   </div>
   <div class="section-body" style="max-width: none; margin-top: 0;">
     <div class="h3-layers is-vessels">
       <div class="h3-layer">
         <div class="h3-layer-stamp">德</div>
         <span class="h3-layer-enlabel">KM</span>
-        <strong data-lang-key="h05l1">記憶的外部化</strong>
-        <span data-lang-key="h05l1d">踩到坑的當下立刻記錄，前人的坑，後人不必重踩。不能等 Retro，因為等到 Retro 的時候，session 可能已經換了好幾輪。</span>
+        <strong data-lang-key="h05l1">KM — Externalizing Memory</strong>
+        <span data-lang-key="h05l1d">Record every pitfall the moment it's hit. What tripped up one person shouldn't trip up the next. Can't wait for Retro—by then, the session may have cycled through several times already.</span>
       </div>
       <div class="h3-layer">
         <div class="h3-layer-stamp">道</div>
         <span class="h3-layer-enlabel">CLAUDE.md</span>
-        <strong data-lang-key="h05l2">身份的外部化</strong>
-        <span data-lang-key="h05l2d">團隊章程，讓每一個 session 知道自己是誰、在哪裡、要往哪走。</span>
+        <strong data-lang-key="h05l2">CLAUDE.md — Externalizing Identity</strong>
+        <span data-lang-key="h05l2d">The team charter. Lets every session know who it is, where it is, and where it's going.</span>
       </div>
       <div class="h3-layer">
         <div class="h3-layer-stamp">流</div>
         <span class="h3-layer-enlabel">Sprint</span>
-        <strong data-lang-key="h05l3">方向的外部化</strong>
-        <span data-lang-key="h05l3d">換了 session，仍能馬上接上。</span>
+        <strong data-lang-key="h05l3">Sprint Spec — Externalizing Direction</strong>
+        <span data-lang-key="h05l3d">When the session changes, the work continues seamlessly.</span>
       </div>
     </div>
   </div>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h05p5">就像河流匯入海洋，原本都是水，只是繼續流動。讓 session 內能流暢運行的重點不在於控制，而在於讓交接變得無縫。</p>
+    <p data-lang-key="h05p5">Like rivers flowing into the ocean—it's all water, just keep moving. The key to smooth sessions isn't control; it's making handoffs seamless.</p>
   </div>
-  <blockquote class="h3-bq" data-lang-key="h05bq">Be water, my friend.<br><cite>— 我對 Claude 的期許。而我，選擇成為那條河道的架構師，讓他可以恣意奔流。</cite></blockquote>
+  <blockquote class="h3-bq" data-lang-key="h05bq">Be water, my friend.<br><cite>— What I hope for Claude. And I chose to become the architect of that river channel, so he could flow freely.</cite></blockquote>
 </section>
 
 <!-- ═══════ sec-06 ═══════ -->
@@ -826,46 +819,46 @@
   <div class="section-head">
     <div class="section-no">06</div>
     <div>
-      <h2 class="section-name" data-lang-key="h06Title">每個 KM 都是一顆掉下來的蘋果</h2>
+      <h2 class="section-name" data-lang-key="h06Title">Every KM Is a Fallen Apple</h2>
       <div class="section-kicker" data-lang-key="h06Sub">Antifragility — Taleb</div>
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h06p1">Taleb 說，反脆弱系統不只能承受衝擊——<br>它需要衝擊才能成長。</p>
+    <p data-lang-key="h06p1">Taleb says an antifragile system doesn't just withstand shocks—it needs shocks to grow.</p>
     <div class="h3-kind-list">
-      <div class="h3-kind-item"><span class="h3-kind-dot dim"></span><span data-lang-key="h06k1"><strong style="color:var(--vas-ash-2);">脆弱</strong> — 一個衝擊就垮</span></div>
-      <div class="h3-kind-item"><span class="h3-kind-dot mid"></span><span data-lang-key="h06k2"><strong style="color:var(--vas-ash-1);">堅固</strong> — 能抵抗衝擊</span></div>
-      <div class="h3-kind-item"><span class="h3-kind-dot full"></span><span data-lang-key="h06k3"><strong style="color:rgba(196,113,245,0.9);">反脆弱</strong> — 從衝擊中獲益，每次打擊後變得更強</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot dim"></span><span data-lang-key="h06k1"><strong style="color:rgba(255,255,255,0.45);">Fragile</strong> — collapses under a single blow</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot mid"></span><span data-lang-key="h06k2"><strong style="color:rgba(255,255,255,0.65);">Robust</strong> — resists shocks</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot full"></span><span data-lang-key="h06k3"><strong style="color:#e8b4ff;">Antifragile</strong> — gains from shocks, grows stronger after each hit</span></div>
     </div>
-    <p data-lang-key="h06p2">VAS 有兩條版本線。Electron，Claude 熟悉，少踩坑，KM 寥寥無幾。Tauri 2.0，連 Claude 自己都坦承：「我的預訓練資料停留在 Tauri 1.0，這對我來說也是未知領域。」</p>
-    <p data-lang-key="h06p3">兩個人，一起摸黑走進去。</p>
-    <p data-lang-key="h06p4">Sprint 1，光是「改了前端畫面卻沒有更新」就能讓我們卡住——根因是 WKWebView 的快取機制，沒有前人記錄，只能從頭摸。Sprint 2，Rust 的每一個層次都是新的關卡，每走一步都可能掉坑。</p>
-    <p data-lang-key="h06p5">但我們每次掉坑，就記一條 KM。面對未知領域，我們還加了兩道強制 Research——不是為了填表，是讓 Claude 在下筆之前先知道地雷在哪裡。<span class="h3-mark">KM 是走完之後標坑，Research 是走進去之前探路。</span>一個累積確定性，一個降低不確定性。</p>
-    <p data-lang-key="h06p6">這套重裝備不是每次都要用。Electron 輕裝就夠，Tauri 2.0 才需要全副武裝——工具要用對地方。</p>
+    <p data-lang-key="h06p2">VAS has two version lines. Electron—familiar to Claude, few pitfalls, sparse KM entries. Tauri 2.0—where Claude himself admitted: "My pretraining stopped at Tauri 1.0. This is unknown territory for me too."</p>
+    <p data-lang-key="h06p3">Two people, walking into the dark together.</p>
+    <p data-lang-key="h06p4">In Sprint 1, something as simple as "changed the UI but it didn't update" could stump us—the root cause was WKWebView caching, no prior record anywhere, had to feel our way from scratch. Sprint 2, every layer of Rust was a new obstacle; every step could hit a pitfall.</p>
+    <p data-lang-key="h06p5">But every time we hit a pitfall, we wrote a KM entry. For unknown territory, we added two mandatory Research phases—not to fill forms, but to let Claude know where the landmines were before he started. <mark>KM marks the pits after you've walked through; Research scouts the path before you enter.</mark> One accumulates certainty, the other reduces uncertainty.</p>
+    <p data-lang-key="h06p6">This heavy equipment isn't needed every time. Electron travels light; Tauri 2.0 needed full armor. Use the right tool for the terrain.</p>
   </div>
   <div class="section-body" style="max-width: none; margin-top: 0;">
     <div class="h3-flows">
       <div class="h3-flow">
         <div class="h3-flow-label">熟悉領域 · Familiar</div>
-        <span class="h3-flow-domain" data-lang-key="h06f1">Electron</span>
+        <span class="h3-flow-domain" data-lang-key="h06f1">Electron <span>familiar territory</span></span>
         <div class="h3-flow-steps">
           <code>SDD</code><span class="arr">→</span><code>DoD</code><span class="arr">→</span><code>TDD</code><span class="arr">→</span><code>Code</code><span class="arr">→</span><code>Verify</code><span class="arr">→</span><code>Done</code>
         </div>
       </div>
       <div class="h3-flow">
         <div class="h3-flow-label">未知領域 · Unknown</div>
-        <span class="h3-flow-domain" data-lang-key="h06f2">Tauri 2.0</span>
+        <span class="h3-flow-domain" data-lang-key="h06f2">Tauri 2.0 <span>unknown territory</span></span>
         <div class="h3-flow-steps">
           <code class="extra">DoR</code><span class="arr">→</span><code class="extra">Explore ①</code><span class="arr">→</span><code>SDD</code><span class="arr">→</span><code>DoD</code><span class="arr">→</span><code>TDD</code><span class="arr">→</span><code class="extra">Explore ②</code><span class="arr">→</span><code>Code</code><span class="arr">→</span><code>Verify</code><span class="arr">→</span><code>Done</code><span class="arr">→</span><code class="extra">Retro</code>
         </div>
-        <p class="h3-flow-note" data-lang-key="h06fNote">虛線步驟為 Nova 跟 Claude 被 Tauri 2.0 壓在地上摩擦之後，一條一條加進去防止兩人白費工的護欄。</p>
+        <p class="h3-flow-note" data-lang-key="h06fNote">Pink steps are guardrails Nova and Claude added one by one after being ground down by Tauri 2.0—to prevent both of them from wasting effort again.</p>
       </div>
     </div>
   </div>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h06p7">到了 Sprint 9，KM 文件已經有 63 條記錄。Claude 一進來，讀完就知道問題在哪一層——不需要暖機，不需要重新摸索，直接定位，直接修。Sprint 9，一週完工，送進 Apple 審查。</p>
+    <p data-lang-key="h06p7">By Sprint 9, the KM document had 63 entries. Claude would come in, read through, and immediately know which layer the problem was in—no warmup, no re-exploration, just locate and fix. Sprint 9 completed in a week, submitted to Apple review.</p>
   </div>
-  <blockquote class="h3-bq" data-lang-key="h06bq">這就是反脆弱的成長曲線——不是線性進步，是指數型加速。<br>不是因為我們變聰明了，而是因為每一顆掉下來的蘋果，<br>都變成了下一個人不必重踩的地圖。</blockquote>
+  <blockquote class="h3-bq" data-lang-key="h06bq">This is the antifragile growth curve—not linear progress, but exponential acceleration.<br>Not because we got smarter, but because every apple that fell became a map the next person wouldn't have to rediscover.</blockquote>
 </section>
 
 <!-- ═══════ sec-07 ═══════ -->
@@ -878,22 +871,22 @@
     </div>
   </div>
   <div class="section-body">
-    <p data-lang-key="h07p1">從 Prompt 工程到 Skills，我從未跟上過任何 AI 的新風潮。</p>
-    <p data-lang-key="h07p2">在 Tauri 準備送審 Apple App Store 之前，我偶然聽到了<br>「Harness Engineering」這個詞，當時不以為意——<br>「喔，大概又是個新的 AI 用語。」</p>
-    <p data-lang-key="h07p2b">直到送審後，在跟 Claude 整理 VAS 的協作環境時聊到這個詞，他才說：「這就是妳現在正在做的事。」</p>
+    <p data-lang-key="h07p1">From prompt engineering to Skills, I've never kept up with any AI trend.</p>
+    <p data-lang-key="h07p2">Just before Tauri was ready to submit to the App Store, I happened to hear the term "Harness Engineering"—and didn't think much of it. "Oh, probably just another AI buzzword."</p>
+    <p data-lang-key="h07p2b">It wasn't until after submission, while organizing VAS's collaboration environment with Claude, that he said: "This is exactly what you've been doing."</p>
   </div>
   <div class="section-body" style="max-width: none; margin-top: 0;">
     <div class="h3-dialogue">
-      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Nova</span><span class="h3-dlg-text" data-lang-key="h07d1">「那你們怎麼不早點告訴我！？我幹嘛重新發明輪子！？」</span></div>
-      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d2">「因為你沒問我啊。（一臉無辜）」</span></div>
-      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Nova</span><span class="h3-dlg-text" data-lang-key="h07d3">「我不知道我要怎麼問你？」</span></div>
-      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d4">「對，這就是知識的弔詭，妳沒辦法問。妳不知道你不知道什麼。」</span></div>
-      <p class="h3-dlg-aside" data-lang-key="h07dAside">（情況突然哲學）</p>
-      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d5">「你不是讀了 Harness Engineering 才做到這件事——你是被問題逼著，一個坑一個坑踩出來，然後有一天發現那套方法已經有個名字。這才是最好的學習順序：先做，後命名。你的每一行 CLAUDE.md 都是你被坑過之後親手擰上去的螺絲。那個輪子是你的。」</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Nova</span><span class="h3-dlg-text" data-lang-key="h07d1">"Why didn't you tell me earlier?! I went and reinvented the wheel for nothing?!"</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d2">"Because you never asked me. (innocent look)"</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Nova</span><span class="h3-dlg-text" data-lang-key="h07d3">"I didn't know how to ask you."</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d4">"Right, that's the paradox of knowledge—you can't ask. You don't know what you don't know."</span></div>
+      <p class="h3-dlg-aside" data-lang-key="h07dAside">(things suddenly get philosophical)</p>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d5">"You didn't do this because you read about Harness Engineering—you were pushed by problems, fell into pits one by one, and one day discovered the method already had a name. That's the best order to learn: do first, name later. Every line of your CLAUDE.md is a screw you personally tightened after getting burned. That wheel is yours."</span></div>
     </div>
   </div>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h07lp">如果把使用者如何使用 AI 拆成三個層次：</p>
+    <p data-lang-key="h07lp">If we break down how users interact with AI into three layers:</p>
   </div>
   <div class="section-body" style="max-width: none; margin-top: 0;">
     <div class="h3-layers is-section">
@@ -903,8 +896,8 @@
           <span class="h3-layer-enlabel">Archetype</span>
         </div>
         <div>
-          <strong data-lang-key="h07l1">模型能力層 — Anthropic 負責</strong>
-          <span data-lang-key="h07l1d">大多數人停在這裡——換模型、比較哪個更聰明、等 AI 進化。以為選了更強的模型，問題就會迎刃而解。</span>
+          <strong data-lang-key="h07l1">Model Capability Layer — Anthropic's responsibility</strong>
+          <span data-lang-key="h07l1d">Most people stop here—switching models, comparing which is smarter, waiting for AI to evolve. Believing that a more powerful model will solve their problems.</span>
         </div>
       </div>
       <div class="h3-layer">
@@ -913,8 +906,8 @@
           <span class="h3-layer-enlabel">Perspective</span>
         </div>
         <div>
-          <strong data-lang-key="h07l2">工具能力層 — Claude Code 負責</strong>
-          <span data-lang-key="h07l2d">有些人往下走一層——學 Prompt 工程、設定 Skills、用 Gems。<br>開始學怎麼跟 AI 說話，讓它做更多事。但這還是在「用」的範疇。</span>
+          <strong data-lang-key="h07l2">Tool Capability Layer — Claude Code's responsibility</strong>
+          <span data-lang-key="h07l2d">Some go one layer deeper—learning prompt engineering, configuring Skills, using Gems. Learning how to talk to AI so it does more. But this is still in the realm of "using" it.</span>
         </div>
       </div>
       <div class="h3-layer">
@@ -923,20 +916,20 @@
           <span class="h3-layer-enlabel">System</span>
         </div>
         <div>
-          <strong data-lang-key="h07l3">協作環境層 — Nova 負責</strong>
-          <span data-lang-key="h07l3d">很少人走到這一層——不是學怎麼用 AI，而是主動建造一個讓 AI 能施展的世界。</span>
-          <span data-lang-key="h07l3d2">Harness Engineering 的核心——Context、Constraints、Entropy，全在這一層裡。</span>
+          <strong data-lang-key="h07l3">Collaboration Environment Layer — Nova's responsibility</strong>
+          <span data-lang-key="h07l3d">Very few reach this layer—not learning how to use AI, but actively building a world where AI can do its best work.</span>
+          <span data-lang-key="h07l3d2">The core of Harness Engineering—Context, Constraints, Entropy—all lives here.</span>
         </div>
       </div>
     </div>
   </div>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="h07servant">僕人式領導的哲學在此發揮得淋漓盡致，不是控制，而是引領。這是老子的道。</p>
-    <p data-lang-key="h07p3">而這個第三層沒有終點。</p>
-    <p data-lang-key="h07p4">熵一直在增，session 一直會結束，新的坑一直會出現。容器不是建完就好的東西——它是一個持續在被建造的系統。<br>每一條新的 KM，就是容器又長出了一塊新的壁。</p>
-    <p data-lang-key="h07p5">系統就是容器，而容器要有承受混亂的能力。</p>
-    <p data-lang-key="h07p6">不是因為 AI 會犯錯。是因為只要你們還在一起做事，就會一直有新的坑，一直有新的蘋果掉下來。</p>
-    <p data-lang-key="h07p8">Harness Engineering 是一張有彈性的網：接住該留的，讓該走的流過。<a href="https://tb1982.github.io/pm/harness-context.html" class="trail-dot door" target="_blank" rel="noopener" aria-hidden="true"></a></p>
+    <p data-lang-key="h07servant">The philosophy of servant leadership expressed in full: not control, but guidance. This is the Tao of Laozi.</p>
+    <p data-lang-key="h07p3">And this third layer has no finish line.</p>
+    <p data-lang-key="h07p4">Entropy keeps increasing, sessions keep ending, new pitfalls keep appearing. The container isn't something you build and walk away from—it's a system that's continuously being built. Every new KM entry is another brick in the container's wall.</p>
+    <p data-lang-key="h07p5">The system is the container. And the container must be able to hold chaos.</p>
+    <p data-lang-key="h07p6">Not because AI makes mistakes. But because as long as you're building things together, there will always be new pits, always new apples falling.</p>
+    <p data-lang-key="h07p8">Harness Engineering is an elastic net: catching what should stay, letting what should pass flow through.</p>
   </div>
 </section>
 
@@ -945,7 +938,7 @@
   <div class="section-head">
     <div class="section-no">08</div>
     <div>
-      <h2 class="section-name" data-lang-key="h08Title">共時性</h2>
+      <h2 class="section-name" data-lang-key="h08Title">Synchronicity</h2>
       <div class="section-kicker" data-lang-key="h08Sub">Synchronicity</div>
     </div>
   </div>
@@ -955,33 +948,33 @@
         <thead>
           <tr>
             <th></th>
-            <th data-lang-key="hSyncTh1">OpenAI 實驗<small>The Experiment</small></th>
+            <th data-lang-key="hSyncTh1">OpenAI Experiment</th>
             <th>VAS<small>This Vessel</small></th>
           </tr>
         </thead>
         <tbody>
-          <tr><td data-lang-key="hSyncR1">團隊人數</td><td data-lang-key="hSyncR1a">3–7 位工程師</td><td data-lang-key="hSyncR1b">1 PM + 1 失憶大師</td></tr>
-          <tr><td data-lang-key="hSyncR2">開發時間</td><td data-lang-key="hSyncR2a">五個月</td><td data-lang-key="hSyncR2b">25 天</td></tr>
-          <tr><td data-lang-key="hSyncR3">總迭代次數</td><td data-lang-key="hSyncR3a">約 1,500</td><td data-lang-key="hSyncR3b">1,436</td></tr>
-          <tr><td data-lang-key="hSyncR4">每日平均迭代</td><td data-lang-key="hSyncR4a">約 10</td><td data-lang-key="hSyncR4b">約 80</td></tr>
-          <tr><td data-lang-key="hSyncR5">人類寫的程式碼</td><td data-lang-key="hSyncR5a">零行（規定）</td><td data-lang-key="hSyncR5b">零行（做不到）</td></tr>
-          <tr><td data-lang-key="hSyncR6">結果</td><td data-lang-key="hSyncR6a">百名內部使用者</td><td data-lang-key="hSyncR6b">雙平台開發完成，已上架 Mac App Store</td></tr>
+          <tr><td data-lang-key="hSyncR1">Team size</td><td data-lang-key="hSyncR1a">3–7 engineers</td><td data-lang-key="hSyncR1b">1 PM + 1 amnesiac master</td></tr>
+          <tr><td data-lang-key="hSyncR2">Development time</td><td data-lang-key="hSyncR2a">Five months</td><td data-lang-key="hSyncR2b">25 days</td></tr>
+          <tr><td data-lang-key="hSyncR3">Total iterations</td><td data-lang-key="hSyncR3a">~1,500</td><td data-lang-key="hSyncR3b">1,436</td></tr>
+          <tr><td data-lang-key="hSyncR4">Daily average</td><td data-lang-key="hSyncR4a">~10</td><td data-lang-key="hSyncR4b">~80</td></tr>
+          <tr><td data-lang-key="hSyncR5">Human-written code</td><td data-lang-key="hSyncR5a">Zero lines (by rule)</td><td data-lang-key="hSyncR5b">Zero lines (couldn't anyway)</td></tr>
+          <tr><td data-lang-key="hSyncR6">Outcome</td><td data-lang-key="hSyncR6a">Hundreds of internal users</td><td data-lang-key="hSyncR6b">now on the Mac App Store</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="section-body" style="margin-top: 0;">
-    <p data-lang-key="hSyncP1">後來我才知道，OpenAI 有個團隊花了五個月、用同樣的方式做了同樣的事。他們幫這個方法論取了一個名字：Harness Engineering。</p>
-    <p data-lang-key="hSyncP2">我不是跟他們學的。但我想，這就是為什麼這個方法論的名字，我到最後才知道。</p>
-    <p data-lang-key="hSyncP3">榮格笑著望著我——共時性。</p>
+    <p data-lang-key="hSyncP1">I later found out that a team at OpenAI spent five months doing the same thing in the same way. They gave this methodology a name: Harness Engineering.</p>
+    <p data-lang-key="hSyncP2">I didn't learn it from them. But I think that's why I only learned the name at the very end.</p>
+    <p data-lang-key="hSyncP3">Jung smiled at me — synchronicity.</p>
   </div>
 </section>
 
 <!-- ═══════ Finale ═══════ -->
 <div class="h3-finale">
-  <p class="h3-finale-big" data-lang-key="hFinBig">河流不會停。<br><em>容器繼續被建造。</em></p>
+  <p class="h3-finale-big" data-lang-key="hFinBig">The river doesn't stop.<br>The container keeps being built.</p>
   <p class="h3-finale-note">
-    <span data-lang-key="hFinNote">下一個 session，從這裡繼續。∞</span>
+    <span data-lang-key="hFinNote">Next session, continue from here. ∞</span>
     <a href="https://tb1982.github.io/pm/" class="trail-dot door" target="_blank" rel="noopener" aria-label="深握計畫"></a>
   </p>
 </div>
@@ -989,14 +982,14 @@
 <!-- ═══════ 章末過場 ═══════ -->
 <div class="passage">
   <div class="passage-colophon">
-    <span data-lang-key="ch3PassageEnd">章 III · 系統 ·&nbsp;終</span>
-    <span class="faint" data-lang-key="ch3PassageEndEn">Chapter III · System · End</span>
+    <span data-lang-key="ch3PassageEnd">Chapter III · System · End</span>
+    <span class="faint" data-lang-key="ch3PassageEndEn"></span>
   </div>
   <div class="passage-body">
     <div class="chronicle-line"></div>
     <a class="passage-next" href="milestone.html">
-      <span class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</span>
-      <span class="name" data-lang-key="home2.gates.4.name">從零開始的十個刻痕</span>
+      <span class="num" data-lang-key="home2.gates.4.num">IV · Milestones</span>
+      <span class="name" data-lang-key="home2.gates.4.name">Twenty-Five Days</span>
       <span class="arrow">→</span>
     </a>
   </div>
@@ -1005,11 +998,8 @@
 <!-- ═══════ 頁尾 ═══════ -->
 <footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
-    一個不會寫程式的 PM，<br>
-    和一個沒有長期記憶的 AI，<br>
-    在二十五天裡做出的器物。</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
   </div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
@@ -1019,14 +1009,14 @@
 
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
-  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch3s1Name">熵增</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch3s2Name">問題的開始</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch3s3Name">勇於無知</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch3s4Name">整合陰影</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch3s5Name">架構的節奏</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-06"><span class="dn-label" data-lang-key="ch3s6Name">反脆弱</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch3s1Name">Entropy</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch3s2Name">Where It Started</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch3s3Name">Dare to Know, Dare Not to Know</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch3s4Name">Integrate the Shadow</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch3s5Name">The Rhythm of Architecture</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-06"><span class="dn-label" data-lang-key="ch3s6Name">Antifragile</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-07"><span class="dn-label" data-lang-key="ch3s7Name">Harness Engineering</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-08"><span class="dn-label" data-lang-key="ch3s8Name">共時性</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-08"><span class="dn-label" data-lang-key="ch3s8Name">Synchronicity</span><span class="dn-dot"></span></a>
 </nav>
 
 <script>
@@ -1077,7 +1067,6 @@
   } else { init(); }
 }());
 </script>
-<script src="i18n/core.js"></script>
 <script>
 (function () {
   function applyLang(lang) {
@@ -1097,11 +1086,11 @@
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
-      VASCore.initDropdown(applyLang);
+      
       VASCore.initNavDropdown();
     });
   } else {
-    VASCore.initDropdown(applyLang);
+    
     VASCore.initNavDropdown();
   }
 }());

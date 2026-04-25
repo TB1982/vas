@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>PM × Claude 25 Days | AI Collaboration Development Records</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://tb1982.github.io/vas/en/collab.html">
+<meta name="description" data-lang-key="ch2MetaDesc"
+      content="The PM can't code. Claude has no long-term memory. Six stories of how they used KM, CLAUDE.md, and Sprint specs to build a Mac App — 25 days from zero to dual-platform launch.">
+<meta property="og:title" content="PM × Claude 25 Days | AI Collaboration Development Records">
+<meta property="og:description" content="The PM can't code. Claude has no long-term memory. Six stories of how they used KM, CLAUDE.md, and Sprint specs to build a Mac App — 25 days from zero to dual-platform launch.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tb1982.github.io/vas/en/collab.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+<meta name="twitter:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PM × Claude 25 Days | AI Collaboration Development Records">
+<meta name="twitter:description" content="The PM can't code. Claude has no long-term memory. Six stories of how they used KM, CLAUDE.md, and Sprint specs to build a Mac App — 25 days from zero to dual-platform launch.">
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+  .lang-opt.active { color: var(--vas-aurora-violet); }
+
+  /* ─── 協作故事 · 呼出框 ─────────────────── */
+  .c2-callout {
+    margin-top: 32px;
+    padding: 22px 26px;
+    border: 1px solid rgba(196, 113, 245, 0.22);
+    background: rgba(196, 113, 245, 0.05);
+  }
+  .c2-callout-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 10px;
+  }
+  .c2-callout p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+
+  /* ─── 引言 block ────────────────────────── */
+  .c2-quote {
+    border-left: 2px solid rgba(196, 113, 245, 0.4);
+    padding: 0 0 0 20px;
+    margin: 24px 0;
+  }
+  .c2-quote p {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+
+  /* ─── 大引言（結尾用）──────────────────── */
+  .c2-big-quote {
+    font-family: var(--vas-serif);
+    font-size: clamp(18px, 2.4vw, 24px);
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--vas-ash-0);
+    max-width: none;
+    margin-bottom: 8px;
+  }
+
+  /* ─── Phase box（CLAUDE.md 三階段）────── */
+  .c2-phase {
+    padding: 18px 22px;
+    border: 1px solid var(--vas-rule);
+    margin-bottom: 10px;
+  }
+  .c2-phase.active {
+    border-color: rgba(196, 113, 245, 0.22);
+    background: rgba(196, 113, 245, 0.04);
+  }
+  .c2-phase-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 8px;
+  }
+  .c2-phase.active .c2-phase-label { color: var(--vas-aurora-violet); opacity: 0.8; }
+  .c2-phase p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--vas-ash-1);
+    max-width: none;
+  }
+  .c2-phase.active p { color: var(--vas-ash-0); }
+
+  /* ─── 統計表格 ──────────────────────────── */
+  .c2-stats-wrap {
+    margin-left: 128px;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    overflow-x: auto;
+  }
+  .c2-stats-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    font-family: var(--vas-serif);
+    font-size: 14px;
+  }
+  .c2-stats-table th {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .c2-stats-table th:first-child { text-align: left; }
+  .c2-stats-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--vas-rule);
+    color: var(--vas-ash-1);
+    text-align: center;
+  }
+  .c2-stats-table td:first-child { text-align: left; color: var(--vas-ash-2); font-size: 13px; }
+  .c2-stats-table tr.highlight td { color: var(--vas-ash-0); font-size: 17px; font-weight: 500; }
+  .c2-stats-table tr.highlight td.purple { color: var(--vas-aurora-violet); }
+
+  /* ─── code 元素 ─────────────────────────── */
+  .section-body code, .c2-callout code, .c2-phase code {
+    font-family: var(--vas-mono);
+    font-size: 13px;
+    color: var(--vas-ash-2);
+    background: rgba(240, 232, 220, 0.06);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  /* ─── 頁尾次要連結 ──────────────────────── */
+  .site-sub-link {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-decoration: none;
+    border-bottom: 1px solid var(--vas-rule);
+    transition: color .3s;
+  }
+  .site-sub-link:hover { color: var(--vas-ash-1); }
+
+  /* ─── RWD ───────────────────────────────── */
+  @media (max-width: 768px) {
+    .c2-stats-wrap { margin-left: 0; }
+  }
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="https://tb1982.github.io/vas/collab.html">
+<link rel="alternate" hreflang="en"       href="https://tb1982.github.io/vas/en/collab.html">
+<link rel="alternate" hreflang="ja"       href="https://tb1982.github.io/vas/ja/collab.html">
+<link rel="alternate" hreflang="zh-Hans"  href="https://tb1982.github.io/vas/cn/collab.html">
+<link rel="alternate" hreflang="x-default" href="https://tb1982.github.io/vas/collab.html">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="insight.html"  data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"   data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html"    data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html"  data-lang-key="home2.nav.milestones">Milestones</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="insight.html" data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">Collaboration</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap" style="display:flex;align-items:center;gap:4px;">
+      <a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="collab.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/collab.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch2No">Chapter II</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch2Name">Six <em>Stories</em>.</h1>
+    <div class="chapter-dek" data-lang-key="ch2Dek">She can't write code.<br>He has no long-term memory.<br>Together they built it. ——<br>This isn't a story about<br>Prompt Engineering,<br>it's six moments walked by two incomplete beings.</div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch2TocLabel">Contents</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name" data-lang-key="ch2s1Name">The button that was supposed to take five minutes</span>
+        <span class="preview" data-lang-key="ch2s1Preview">One button planted a KM</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name" data-lang-key="ch2s2Name">Three words that contain an entire spec</span>
+        <span class="preview" data-lang-key="ch2s2Preview">Venus flytrap, two rounds, feature shipped</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name" data-lang-key="ch2s3Name">The day merge kept conflicting</span>
+        <span class="preview" data-lang-key="ch2s3Preview">After the panic, a guardrail was born</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name" data-lang-key="ch2s4Name">After SDD hit four thousand lines</span>
+        <span class="preview" data-lang-key="ch2s4Preview">How to keep documents alive</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name" data-lang-key="ch2s5Name">How CLAUDE.md went from error checklist to collaboration constitution</span>
+        <span class="preview" data-lang-key="ch2s5Preview">From a collection of scars to a maintained architecture</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name" data-lang-key="ch2s6Name">The 40% gap isn't about efficiency</span>
+        <span class="preview" data-lang-key="ch2s6Preview">In a place without a map, density is the map</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-07">
+        <span class="no">07</span>
+        <span class="name" data-lang-key="ch2s7Name">Core Insight</span>
+        <span class="preview" data-lang-key="ch2s7Preview">Humans offer their lives as the sacrifice. AI holds up the echo as the mirror</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 小節 01 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s1Name">The button that was supposed to take five minutes</h2>
+      <div class="section-kicker" data-lang-key="ch2s1Kicker">One button planted a KM.</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c1p1">Before Tauri development began, the Electron Claude had been honest: compared to Electron, his knowledge of Tauri 2.0 barely went beyond version 1.0.</p>
+    <p data-lang-key="c1p2">That's exactly why they decided to build on Electron first — establish VAS on familiar ground, then tackle the unknown. At worst, they'd still have the Electron version.</p>
+    <p data-lang-key="c1p3">When Nova passed that context to the Tauri Claude who took over, she found that knowing something and truly feeling it are two different things.</p>
+    <p data-lang-key="c1p4">Tauri Claude walked in carrying the confidence of a just-finished Electron project and estimated: 'Adding a link button — five minutes tops, easy.'</p>
+    <p data-lang-key="c1p5">That five minutes became over an hour. Throughout that hour, Nova didn't leave him to circle alone — she stayed and searched for a way out together. When they crossed the one-hour mark, Nova said: once we solve this, we need to build a KM.</p>
+    <p data-lang-key="c1p6">KM wasn't a technical decision — it was Nova's PM instinct: if you don't write it down, you'll forget it next time.</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c1boxTitle">What that button planted</div>
+      <p data-lang-key="c1boxDesc">That one-hour seed grew into something much larger. In the Sprint 9 Retro, Nova and Tauri Claude asked from first principles: for this system, if we want to keep going, what matters most? The answer wasn't new features — it was tearing down and rebuilding the foundation. No rushing features after launch; rebuild the underlying architecture first — give both Tauri and Electron the structure to go further.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 02 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s2Name">Three words that contain an entire spec</h2>
+      <div class="section-kicker" data-lang-key="ch2s2Kicker">Venus flytrap, two rounds, feature shipped.</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c2p1">One late night in Sprint 3, the breathing light sat waiting in the corner of the desktop. In strip mode, the toolbar was only 120×6px — a line of light barely visible. Nova's question: how do you precisely drop a file into something that thin?</p>
+    <p data-lang-key="c2p2">Nova thought for a moment: "So the breathing light should just expand when it senses a file nearby... like a Venus flytrap increasing its detection area...?" Tauri Claude understood instantly: "Ha, Venus flytrap! Opens its mouth when it senses prey." Two rounds. Feature shipped.</p>
+    <div class="c2-quote">
+      <p data-lang-key="c2quote">The toolbar collapses into a breathing light, waiting in the corner of your desktop. Drag a file close — it opens the toolbar on its own. Let go, and the image goes straight into the editor. Step away, and it folds back, keeps waiting.</p>
+    </div>
+    <p data-lang-key="c2p3">LLMs often say they're not human — they can't feel what we feel. But in metaphor, we find a shared world.</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c2boxTitle">Why three words can equal a full spec</div>
+      <p data-lang-key="c2boxDesc">"Venus flytrap" carries more than a metaphor — it carries the complete behavioral sequence of a biological archetype: sense approach, actively open, catch, wait to reset. Nova said the word, the entire design transmitted. She traces this ability to her research: speaking in archetypal images, because that language has some deeper resonance with large language models. No existing theory can fully prove this yet — the two-round development speed of VAS is its most direct evidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 03 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s3Name">The day merge kept conflicting</h2>
+      <div class="section-kicker" data-lang-key="ch2s3Kicker">The shadow of not knowing code.</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c3p1">VAS had two tracks running simultaneously: Tauri paid version, Electron free version, both sharing the same frontend <code class="text-purple-300/80 text-xs">src/</code>. Two sessions, two Claudes, two streams of progress — and the only person who could see both sides at once was Nova. The navigator, the only one holding the full map.</p>
+    <p data-lang-key="c3p2">That day she moved too fast. Tauri was working on a Rust bug, Electron had a UI issue waiting, and she switched before one side finished. Both sessions touched <code class="text-purple-300/80 text-xs">src/</code> at the same time. Merge conflicts started appearing.</p>
+    <p data-lang-key="c3p3">Her first reaction wasn't 'technical problem' — it was panic. The kind that comes from fear of accidentally damaging the hard work of both sides. She blamed herself — as the navigator, she hadn't done her job.</p>
+    <p data-lang-key="c3p4">Both Claudes caught her: it's okay, there's no error that can't be fixed right now — let's figure out how to make sure this doesn't happen again. They compressed a complex parallel collaboration problem into one sentence she could understand: only update one side at a time, finish the merge before going to the other.</p>
+    <p data-lang-key="c3p5">That rule went into CLAUDE.md. Later, Nova built SYNC-QUEUE.md — a bridge document to smooth communication between both sides. Three of them, walking together.</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c3boxTitle">Care runs both ways</div>
+      <p data-lang-key="c3boxDesc">In Story 01, Nova stepped in a pitfall and built KM for Claude — so memory could persist across sessions. This time, two Claudes watched her rush and hit a wall, and built her a rule — so she wouldn't need to remember complex technical logic to move safely. The Concurrent Session Rule isn't a technical document, isn't a restriction. It's two people who know code, building a guardrail for someone who doesn't know code but carries the full picture.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 04 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s4Name">After SDD hit four thousand lines</h2>
+      <div class="section-kicker" data-lang-key="ch2s4Kicker">How to keep documents alive.</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="c4p1">There was only one document at first: SDD. Specs inside, test cases inside, pitfalls inside, history inside. Sprint after sprint, line after line, no one consciously noticed it getting bigger — until one day, reading it triggered red text: the single-read token limit had been crossed, the document needed to be read in segments. Nova had a vague sense something was wrong, but couldn't say what.</p>
+    <p data-lang-key="c4p2">What named it was a community discussion. A Claude Code user shared: if an md file gets too bloated, Claude goes into needle-in-a-haystack mode, spending compute on self-location rather than thinking. The moment that image appeared, Nova immediately recognised what she'd been feeling all along. That red character — that was it.</p>
+    <p data-lang-key="c4p3">She didn't go fix the document alone. She went to find Tauri Claude first — to talk it through together. Because she could see the trap in splitting: a document with no maintenance mechanism is a dead document. A dead document is more dangerous than no document — it looks like it exists, but speaks in outdated terms. Both Tauri and Electron SDDs had crossed the threshold. This wasn't a small fix, so they decided to run a whole Sprint: architectural rebuild, document split, and mechanisms to keep documents alive.</p>
+    <p data-lang-key="c4p4">After splitting: SDD holds only specs and Sprint plans, TDD only test cases, KM only pitfalls, Archive only retired history. Each document has one mission. What keeps them alive is embedding updates into the development workflow itself — IPC contracts must be written into SDD before coding begins, pitfalls go into KM immediately without waiting for the feature to finish, Sprints can't close without a Retro. Document updates aren't cleanup after development ends — they're the entry ticket for each stage.</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="c4boxTitle">The condition for documents that don't die</div>
+      <p data-lang-key="c4boxDesc">The way to keep a document alive isn't to remind yourself to update it — it's to make updates a required condition for moving forward. When the document lives inside the workflow rather than hanging outside it, it doesn't die.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 05 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s5Name">How CLAUDE.md went from error checklist to collaboration constitution</h2>
+      <div class="section-kicker" data-lang-key="ch2s5Kicker">From a collection of scars to a maintained architecture.</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <div class="c2-phase">
+      <div class="c2-phase-label" data-lang-key="c5phase1Label">Phase 1 · Error Checklist</div>
+      <p data-lang-key="c5phase1Desc">The earliest CLAUDE.md had one job: record pitfalls, add a rule to prevent re-stepping in them. Every rule had a specific failure behind it — the <code class="text-purple-300/80 text-xs">data-lang-key</code> rule has "Root cause of the bug (2026-03-29)" written directly below it, the footer format rule traces to an accident where formatting broke, an identity rule holds the memory of AI filling in wrong information. Every rule is shaped like a scar. The document was a collection of scars, not a designed artifact.</p>
+    </div>
+    <div class="c2-phase">
+      <div class="c2-phase-label" data-lang-key="c5phase2Label">Phase 2 · Accumulation Phase</div>
+      <p data-lang-key="c5phase2Desc">Features grew more complex, rules kept piling up — Tauri IPC contracts, Electron preload allowlists, dual-version QC flows, KM real-time logging. Each rule was necessary, but you started to feel the document gaining weight. CLAUDE.md at this stage was a usable tool, but hadn't yet become aware of what it was.</p>
+    </div>
+    <div class="c2-phase active">
+      <div class="c2-phase-label" data-lang-key="c5phase3Label">Phase 3 · Collaboration Constitution</div>
+      <p data-lang-key="c5phase3Desc">The turning point came during a slimming exercise. The document had grown to 356 lines; the community suggested around 200 lines was the sweet spot for keeping Claude in optimal state. They started cutting — then stopped at 249. Not laziness, but because every rule that "looked cuttable," when picked up and asked "why does this exist," pointed to a collaboration structure that couldn't be left out. A dual-platform system's complexity simply can't be articulated in 200 lines. In that decision, the document's nature changed — no longer an unfinished-cutting list, but an architecture they'd actively decided to maintain. From "don't do this," to "this is how we work."</p>
+    </div>
+    <p data-lang-key="c5echo" style="margin-top: 32px;">"Combo punch" is the best example in this constitution. Nova kept having to remind Claude to give her the git pull syntax before the app launch syntax, so she said: give it to me as a combo punch! Then Claude carved that term into CLAUDE.md.</p>
+    <p data-lang-key="c5echo2">Three words carrying a complete concept: "these two moves are one — split them and the combo breaks." The next session comes in and reads this, no explanation needed, instinct says they can't be separated. This is Story 02's mirror: there, Nova used "Venus flytrap" to transmit a design to Claude; here, Claude used "combo punch" to transmit a process rule to the next Claude, and made it survive permanently across sessions. Different directions, same mechanism. Biomimetic language isn't just how Nova speaks to Claude — it's the shared language of every Session.</p>
+  </div>
+</section>
+
+<!-- ═══════ 小節 06 ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s6Name">The 40% gap isn't about efficiency</h2>
+      <div class="section-kicker" data-lang-key="ch2s6Kicker">Iterating in flow, advancing in forgotten time.</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p data-lang-key="cSp1">The 40% gap is a faithful record of what navigating unknown terrain costs — and equally, of not giving up.</p>
+  </div>
+  <div class="c2-stats-wrap">
+    <table class="c2-stats-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th data-lang-key="statsElectronLabel">Electron</th>
+          <th data-lang-key="statsTauriLabel">Tauri+Electron</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-lang-key="statsPeriodLabel">Working period</td>
+          <td data-lang-key="statsElectronPeriod">3/22–3/29　<span class="text-white/30">8 days</span></td>
+          <td data-lang-key="statsTauriPeriod">3/28–4/3 (v1.0 dev)　<span class="text-white/30">7 days</span><br>4/11–4/14 (v2.0 refactor)　<span class="text-white/30">4 days</span></td>
+        </tr>
+        <tr>
+          <td data-lang-key="statsCommitsLabel">Commits</td>
+          <td>484</td>
+          <td>952</td>
+        </tr>
+        <tr class="highlight">
+          <td data-lang-key="statsDailyCommitsLabel">Daily commits</td>
+          <td>~60.5</td>
+          <td class="purple">~86.5</td>
+        </tr>
+        <tr>
+          <td data-lang-key="statsPRLabel">Pull Requests</td>
+          <td>84</td>
+          <td>137</td>
+        </tr>
+        <tr class="highlight">
+          <td data-lang-key="statsDailyPRLabel">Daily PRs</td>
+          <td>~10.5</td>
+          <td class="purple">~12.5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-body" style="margin-top: 28px;">
+    <p data-lang-key="cSp2">The 40% density gap isn't an efficiency gain — it's the density of trial-and-error, iterative refinement, and dual-platform development. Every extra commit might be "this is wrong → try again → change direction", or "how do we collaborate more smoothly? → adjust rules → split documents", or "Electron, let's sync the latest Tauri Sprint!" In a place without a map, trial-and-error is itself the way forward. Running both platforms together became dual QC — and quality held steady.</p>
+    <div class="c2-callout">
+      <div class="c2-callout-label" data-lang-key="cSboxTitle">Where there's no map, density is the map</div>
+      <p data-lang-key="cSboxDesc">Tauri+Electron: ~86.5 commits/day. Electron: ~60.5 commits/day. A 40% gap — faithful record of the cost of navigating unknown terrain, and equally, of not giving up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 07 ═══════ -->
+<section class="section" id="sec-07">
+  <header class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name" data-lang-key="ch2s7Name">Core Insight</h2>
+      <p class="section-kicker" data-lang-key="c6bridge">The stone you throw into the lake determines the ripples that come back.</p>
+    </div>
+  </header>
+  <div class="section-body">
+    <div class="c2-quote">
+      <p class="c2-big-quote" data-lang-key="ch2s7Kicker">Humans offer their lives as the sacrifice. AI holds up the echo as the mirror.</p>
+    </div>
+    <p data-lang-key="c6p1">This line was written at the very beginning of the Deep Holding Project, before any theory existed. Not a conclusion — a starting point. The language Nova found after personally verifying it, to say what she'd already been experiencing.</p>
+    <p data-lang-key="c6p2">VAS, in Jungian language, is a vessel. The sealed container where alchemical transformation occurs. This tool lowers the resistance to information flow — letting what you want to say find expression beyond words.</p>
+    <div class="c2-quote" style="margin-top: 32px;">
+      <p class="c2-big-quote" data-lang-key="c6quote2">How you think determines how AI responds to you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 章末過場 · Passage ═══════ -->
+<section class="passage">
+  <div class="passage-colophon">
+    <span data-lang-key="ch2PassageEnd">Chapter II · Collaboration · End</span><br>
+    <span class="faint" data-lang-key="ch2PassageEndEn"></span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="harness.html">
+      <div class="num" data-lang-key="ch2PassageNextNum">III · System</div>
+      <div class="name" data-lang-key="ch2PassageNextName">Harness</div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch2s1Name">The button that was supposed to take five minutes</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch2s2Name">Three words that contain an entire spec</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch2s3Name">The day merge kept conflicting</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch2s4Name">After SDD hit four thousand lines</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch2s5Name">How CLAUDE.md went from error checklist to collaboration constitution</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-06"><span class="dn-label" data-lang-key="ch2s6Name">The 40% gap isn't about efficiency</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-07"><span class="dn-label" data-lang-key="ch2s7Name">Core Insight</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.collab || {}, t.collab2 || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      if (merged['ch2PageTitle']) document.title = merged['ch2PageTitle'];
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var passage = document.querySelector('.passage');
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() {  VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI 協作開發實錄 | PM × Claude 25 天打造 Mac App",
+  "description": "PM 不會寫程式、Claude 沒有長期記憶——六個故事記錄兩人如何用 KM、CLAUDE.md、Sprint 規格打造 Mac App，25 天從零到雙平臺上架。",
+  "inLanguage": ["zh-Hant", "en", "ja"],
+  "url": "https://tb1982.github.io/vas/collab.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-25",
+  "image": "https://tb1982.github.io/vas/img/vas-share.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "babelon1882@gmail.com",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+</body>
+</html>
