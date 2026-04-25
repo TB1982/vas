@@ -8,7 +8,7 @@ const path = require('path');
 const vm   = require('vm');
 
 const BASE          = __dirname;
-const CANONICAL     = 'https://tb1982.github.io/vas';
+const CANONICAL     = 'https://yoursvas.app';
 const TARGET_LANGS  = ['en', 'ja', 'cn'];
 const PAGES         = ['index.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html', 'privacy.html'];
 
