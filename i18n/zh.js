@@ -185,6 +185,7 @@
       recipesR3: '框線 × 虛線 + 粗細 → 審稿紅圈',
       recipesR4: '線條 × 直角 + 虛線 → 流程連接',
       recipesR5: '色塊 × 漸層 + 低不透明 → 漸隱遮罩',
+      recipesR6: '氣泡對話框 × 馬賽克 → 漫畫風迷因 <span class="g-badge-a" style="margin-left:8px;font-size:11px;font-family:var(--font-mono,monospace);">App Store 審查中</span>',
       recipesClosing: '你組合出來的配方，是屬於你的表達語彙。',
       recipesInside: '→ 也是屬於你跟 VAS 的 Inside Language',
       ocrH3: 'OCR 與 QR Code',
