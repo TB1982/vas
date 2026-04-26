@@ -73,7 +73,6 @@
     transition: background .15s, color .15s;
   }
   .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
-  .lang-opt.active { color: var(--vas-aurora-violet); }
 
   /* ─── 協作故事 · 呼出框 ─────────────────── */
   .c2-callout {
@@ -229,7 +228,7 @@
   </a>
   <div class="site-nav-links">
     <a href="insight.html"  data-lang-key="home2.nav.design">设计</a>
-    <a href="collab.html"   data-lang-key="home2.nav.collaboration">协作</a>
+    <a href="collab.html" class="active"  data-lang-key="home2.nav.collaboration">协作</a>
     <a href="harness.html"    data-lang-key="home2.nav.system">系统</a>
     <a href="milestone.html"  data-lang-key="home2.nav.milestones">里程碑</a>
   </div>
@@ -251,10 +250,7 @@
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
   <div class="lang-flat-row">
-    <a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-    <a href="../en/collab.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a>
-    <a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-    <a href="collab.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">简中</a>
+<a href="../collab.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/collab.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/collab.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="collab.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap;font-weight:600">简中</a>
   </div>
   <div class="lang-mobile-dd">
     <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>简</span></button>

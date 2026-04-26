@@ -62,7 +62,6 @@
     transition: background .15s, color .15s;
   }
   .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
-  .lang-opt.active { color: var(--vas-aurora-violet); }
 
   /* ─── Privacy 內容 ─────────────────────────── */
   .priv-wrap {
@@ -176,10 +175,7 @@
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
   <div class="lang-flat-row">
-    <a href="../privacy.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
-    <a href="privacy.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;color:#fff;font-weight:700">English</a>
-    <a href="../ja/privacy.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a>
-    <a href="../cn/privacy.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+<a href="../privacy.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="privacy.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;font-weight:600">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/privacy.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/privacy.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
   </div>
   <div class="lang-mobile-dd">
     <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>EN</span></button>
