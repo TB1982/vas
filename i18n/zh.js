@@ -675,7 +675,7 @@
       'unfold.label':             '為何存在',
       'unfold.p1':                'VAS 是一只<em>傳遞意象的煉金容器</em>——從形狀到符號，給你超越<wbr>文字的力量。',
       'unfold.p2':                '作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。',
-      'unfold.drop':              'Yours, VAS.',
+      'unfold.drop':              'Yours, VAS',
       'chronicle.label':          '版次記號',
       'chronicle.edition':        '第二十五日 · 器成',
       'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed',

@@ -907,7 +907,7 @@
       'unfold.label':             '存在する理由',
       'unfold.p1':                'VAS は<em>意象を伝えるための錬金術の器</em>——形から記号へ、<wbr>文字を超える力をあなたに。',
       'unfold.p2':                '<em>ワークフローの川筋</em>として——スクリーンショットを押す瞬間と、ファイルを送り出す瞬間のあいだに、石を金に変える余白を残しておく。',
-      'unfold.drop':              'Yours, VAS.',
+      'unfold.drop':              'Yours, VAS',
       'chronicle.label':          '版記',
       'chronicle.edition':        '第二十五日 · 器、成る',
       'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed',
