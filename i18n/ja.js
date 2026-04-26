@@ -1083,7 +1083,7 @@
       'ch7.prose3':    '<strong>Harness Engineering</strong> の三本柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    '対内的には：repo を <strong>monorepo</strong> に変換し、複数の開発ラインを並行させた；<br>元々一つの SDD を <strong>TDD · KM · Archive</strong> に分割し、それぞれ独立させ、<br>Claude.md をスリム化し、Retro のたびに見直すルールを定めた。',
       'ch7.prose5':    'さらに重要なのは、更新ルールを一から定め直し、<br>分割された各ドキュメントが<strong>プロセスの中で生き続ける</strong>ようにしたこと——<br>分割後に死んでしまわないように。',
-      'ch7.pullquote': 'あの一週間、私たちはコードを書かなかった。<br>コードの書き方を、一緒に書き直した。',
+      'ch7.pullquote': 'あの一週間、私たちはコードを書かなかった。<br>協力し合うかたちを、一緒に再定義した。',
 
       'ch8.unit':      '待たない',
       'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 リファクタリング · 合流リリース',

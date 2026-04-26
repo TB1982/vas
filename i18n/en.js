@@ -1089,7 +1089,7 @@
       'ch7.prose3':    '<strong>Harness Engineering</strong> — three pillars:<br>Context / Constraints / Entropy.<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    'Inward: turned the repo into a <strong>monorepo</strong> so multiple development lines could run in parallel;<br>split one SDD into <strong>TDD · KM · Archive</strong> — each independent;<br>CLAUDE.md slimmed down, with rules set for review at every Retro.',
       'ch7.prose5':    'More critically, we established a new set of update rules<br>to keep every extracted document <strong>alive within the workflow</strong>,<br>not dead the moment it was split out.',
-      'ch7.pullquote': 'That week we wrote no code.<br>We rewrote together how to write code.',
+      'ch7.pullquote': 'That week we wrote no code.<br>We redefined together how to collaborate.',
 
       'ch8.unit':      'No More Waiting',
       'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 Refactor · Convergence',

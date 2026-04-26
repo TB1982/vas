@@ -856,7 +856,7 @@
       'ch7.prose3':    '<strong>Harness Engineering</strong> 的三支柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    '對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；<br>把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自獨立，<br>Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。',
       'ch7.prose5':    '更關鍵的是，我們重新制定了一套更新規則，<br>讓每份被拆出來的文件<strong>活在流程裡</strong>，<br>而不是拆出來之後就死掉。',
-      'ch7.pullquote': '那一週我們不寫 code。<br>我們一起重寫了怎麼寫 code。',
+      'ch7.pullquote': '那一週我們不寫 code。<br>我們一起重新定義了如何協作。',
 
       'ch8.unit':      '不等了',
       'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 重構 · 匯流上線',
