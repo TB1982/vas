@@ -186,6 +186,7 @@
       recipesR6: '气泡对话框 × 马赛克 → 漫画风迷因 <span class="g-badge-a" style="margin-left:8px;font-size:11px;font-family:var(--font-mono,monospace);">App Store 审查中</span>',
       recipesClosing: '你组合出来的配方，是属于你的表达语汇。',
       recipesInside: '→ 也是属于你跟 VAS 的 Inside Language',
+      recipesWish: '✦ 许愿新元素',
       ocrH3: 'OCR 与 QR Code',
       ocrIntro: '截图不一定为了编辑。',
       ocrLabel: '<strong>OCR · 文字识别</strong>',
