@@ -210,6 +210,7 @@
       recipesR6: 'Bubble × Mosaic → Comic-style meme <span class="g-badge-a" style="margin-left:8px;font-size:11px;font-family:var(--font-mono,monospace);">Under App Store Review</span>',
       recipesClosing: 'The combinations you invent are your own vocabulary.',
       recipesInside: '→ Your Inside Language with VAS',
+      recipesWish: '✦ Request new element',
       ocrH3: 'OCR & QR Code',
       ocrIntro: 'A screenshot doesn\'t always mean you\'re editing.',
       ocrLabel: '<strong>OCR · Text recognition</strong>',

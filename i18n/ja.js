@@ -208,6 +208,7 @@
       recipesR6: '吹き出し × モザイク → コミック風ミーム <span class="g-badge-a" style="margin-left:8px;font-size:11px;font-family:var(--font-mono,monospace);">App Store 審査中</span>',
       recipesClosing: 'あなたが組み合わせたレシピは、あなただけの表現語彙になる。',
       recipesInside: '→ あなたと VAS だけの Inside Language',
+      recipesWish: '✦ 新しい素材をリクエスト',
       ocrH3: 'OCR と QR コード',
       ocrIntro: 'スクリーンショットは必ずしも編集のためだけではありません。',
       ocrLabel: '<strong>OCR · テキスト認識</strong>',
