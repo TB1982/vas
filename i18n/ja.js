@@ -878,6 +878,7 @@
       'nav.collaboration':        '協作',
       'nav.system':               'システム',
       'nav.milestones':           '里程碑',
+      'nav.guide':                'ガイド',
       'shrine.kicker':            'A Vessel · since 2026',
       'shrine.tagline':           '言葉に<wbr>ならなかった<br>その瞬間へ。',
       'shrine.colophon.zh':       '器 · 伝達 · 未完成',
