@@ -565,6 +565,7 @@ body.is-guide .dot-nav-trigger { display: none; }
 }
 .g-badge-t { background: rgba(196,113,245,0.12); color: var(--vas-aurora-violet); border: 1px solid rgba(196,113,245,0.25); }
 .g-badge-a { background: rgba(240,232,220,0.06); color: var(--vas-ash-2); border: 1px solid var(--vas-rule); }
+a.g-badge-a:hover { color: var(--vas-ash-0); border-color: var(--vas-rule-strong); }
 
 /* ─── Editor zones grid ───────────────── */
 .g-zones-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
