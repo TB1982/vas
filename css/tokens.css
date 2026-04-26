@@ -121,6 +121,14 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
 .site-nav-links a.active::after { transform: scaleX(1); }
 .lang-opt.active { color: var(--vas-ash-0); }
 .lang-sep { color: var(--vas-ash-4); font-family: var(--vas-mono); font-size: 11px; }
+.chapter-sign {
+  text-align: center;
+  font-family: var(--vas-serif);
+  font-size: 15px;
+  color: var(--vas-ash-2);
+  letter-spacing: 0.06em;
+  padding: 56px 24px 48px;
+}
 .site-nav-lang {
   font-family: var(--vas-mono);
   font-size: 11px;
