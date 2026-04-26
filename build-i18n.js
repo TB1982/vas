@@ -223,9 +223,9 @@ function replaceLangDropdown(html, newContent) {
 function buildLangSwitcherHtml(links, mobileLabel, activeLang) {
   const flatLinks = links.map(l => {
     const isActive = l.code === activeLang;
-    const activeStyle = isActive ? ';color:#fff;font-weight:700' : '';
-    return `    <a href="${l.href}" class="lang-opt${isActive ? ' active' : ''}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap${activeStyle}">${l.label}</a>`;
-  }).join('\n');
+    const activeStyle = isActive ? ';font-weight:600' : '';
+    return `<a href="${l.href}" class="lang-opt${isActive ? ' active' : ''}" hreflang="${l.hreflang}" style="text-decoration:none;white-space:nowrap${activeStyle}">${l.label}</a>`;
+  }).join('<span class="lang-sep" aria-hidden="true">/</span>');
   const ddLinks = links.map(l => {
     const active = l.code === activeLang ? ' active' : '';
     return `      <a href="${l.href}" class="lang-opt${active}" hreflang="${l.hreflang}" style="text-decoration:none">${l.label}</a>`;
@@ -325,7 +325,6 @@ function patchSourceLangSwitcher() {
   PAGES.forEach(page => {
     const fpath = path.join(BASE, page);
     let html = fs.readFileSync(fpath, 'utf8');
-    if (html.includes('lang-flat-row')) return; // already two-section
     const links = [
       { code: 'zh', hreflang: 'zh-Hant', label: '中文',    href: page },
       { code: 'en', hreflang: 'en',       label: 'English', href: `en/${page}` },
