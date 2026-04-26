@@ -149,6 +149,7 @@
       flNoteP2: 'VAS 依然會在選單列待命。',
       permH3: '授權與隱私',
       permP1: 'VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。',
+      permP3: '<span class="g-badge-t" style="margin:0 8px 0 0">Tauri 專屬</span>如果你是從 Electron 版升級過來的，macOS 會把 Tauri 版視為全新的應用程式，舊的授權不會沿用。建議先到「系統設定 → 隱私權與安全性 → 螢幕錄製」移除舊的 VAS 授權，再用 Tauri 版執行一次截圖，macOS 才會跳出重新授權的提示。',
       permP2: '所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。',
       fcH3: '第一次截圖',
       fcP1: '按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。',

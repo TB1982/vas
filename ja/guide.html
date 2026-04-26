@@ -180,6 +180,7 @@
       <div class="docs-subsection" id="permissions">
         <h3 data-lang-key="permH3">アクセス許可とプライバシー</h3>
         <p data-lang-key="permP1">VAS が初めてスクリーンショットを撮る際、macOS の<strong>スクリーン録画権限</strong>をリクエストします。これはすべてのスクリーンショットツールに対する macOS の規定です。許可しなかった場合は、「システム設定 → プライバシーとセキュリティ → スクリーン録画」で VAS にチェックを入れて再起動してください。</p>
+        <p data-lang-key="permP3" style="margin-top: 16px;"><span class="g-badge-t" style="margin:0 8px 0 0">Tauri 専用</span>Electron 版からアップグレードした場合、macOS は Tauri 版を新しいアプリとして認識するため、以前の画面収録の許可は引き継がれません。「システム設定 → プライバシーとセキュリティ → 画面収録」で古い VAS の許可を削除してから、Tauri 版でスクリーンショットを撮ると、macOS が再度許可を求めるプロンプトを表示します。</p>
         <p data-lang-key="permP2">キャプチャした画像、OCR で認識したテキスト、QR コードの内容はすべて<strong>デバイス上でのみ処理されます</strong>——アップロード、分析、学習には使用しません。VAS にデータを受け取るサーバーはありません。</p>
       </div>
 

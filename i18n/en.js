@@ -171,6 +171,7 @@
       flNoteP2: 'VAS remains on standby in your menu bar.',
       permH3: 'Permissions & privacy',
       permP1: 'When VAS takes its first screenshot, macOS will request <strong>screen recording permission</strong>—this is required of all screenshot tools on macOS. If you declined, go to System Settings → Privacy & Security → Screen Recording, enable VAS, then reopen it.',
+      permP3: '<span class="g-badge-t" style="margin:0 8px 0 0">Tauri only</span>Upgrading from the Electron version? macOS treats Tauri as a brand-new app — your previous screen recording permission won\'t carry over. Go to System Settings → Privacy & Security → Screen Recording, remove the old VAS entry, then take a screenshot with the Tauri version. macOS will prompt you to grant permission again.',
       permP2: 'Every screenshot, every OCR-recognized word, every QR code—processed entirely on your machine. <strong>Nothing uploaded, analyzed, or learned from.</strong> VAS has no server.',
       fcH3: 'Taking your first screenshot',
       fcP1: 'Press the VAS icon in the Dock or click the bottle in your menu bar—wherever VAS is, it appears before you, toolbar fully extended.',
