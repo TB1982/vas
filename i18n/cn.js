@@ -968,7 +968,7 @@ harnessBtn: '阅读系统思维 →',
       'ch7.prose3':    '<strong>Harness Engineering</strong> 的三支柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    '对内：把 repo 改成 <strong>monorepo</strong>，让多条开发线并行；<br>把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自独立，<br>Claude.md 瘦身，制定了每次 Retro 重新检视的规则。',
       'ch7.prose5':    '更关键的是，我们重新制定了一套更新规则，<br>让每份被拆出来的文件<strong>活在流程里</strong>，<br>而不是拆出来之后就死掉。',
-      'ch7.pullquote': '那一周我们不写 code。<br>我们一起重写了怎么写 code。',
+      'ch7.pullquote': '那一周我们不写 code。<br>我们一起重新定义了如何协作。',
 
       'ch8.unit':      '不等了',
       'ch8.stamp':     '2026 · 04 · 11 - 04 · 14<br>2.0 重构 · 汇流上线',
