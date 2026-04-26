@@ -650,6 +650,7 @@
       'nav.collaboration':        '協作',
       'nav.system':               '系統',
       'nav.milestones':           '里程碑',
+      'nav.guide':                '手冊',
       'shrine.kicker':            'A Vessel · since 2026',
       'shrine.tagline':           '給那些未能用文字<br>明說的當下。',
       'shrine.colophon.zh':       '容器 · 傳遞 · 未完成',

@@ -977,6 +977,7 @@
       'nav.collaboration':        'Collaboration',
       'nav.system':               'System',
       'nav.milestones':           'Milestones',
+      'nav.guide':                'Guide',
       'shrine.kicker':            'A Vessel · since 2026',
       'shrine.tagline':           'For the moments<br>that words could not name.',
       'shrine.colophon.zh':       'vessel · passage · unfinished',
