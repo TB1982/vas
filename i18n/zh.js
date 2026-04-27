@@ -264,7 +264,7 @@
       ch1PageTitle:    'AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策',
       'ch1.meta.desc': '5 個 VAS 截圖工具的人機協作設計決策：OCR 隱私遮蔽、呼吸燈意圖偵測、QR Code 信心度分層、延遲截圖，以及底層設計 Token 架構重構。',
       'ch1.name': '那些沒有寫在<br><em>功能列表</em>裡的<br>決定。',
-      'ch1.dek': '五條設計決策——<br>每一條背後都有一次放棄、一次選擇、<br>一件做過的事被推翻。<br>這章是 VAS 的<em>手藝自白</em>：<br>讓工具不只是工具。',
+      'ch1.dek': '五條設計決策——每一條背後都有一次放棄、<br>一次選擇、一件做過的事被推翻。<br>這章是 VAS 的<em>手藝自白</em>：<br>讓工具不只是工具。',
       heroTag: 'VAS · 設計洞察筆記',
       heroH1: '那些沒有寫在<br><span class="gradient-text">功能列表</span>裡的決定',
       i1Tag: '人機協作 · Human-AI Collaboration',
