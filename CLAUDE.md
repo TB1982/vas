@@ -95,9 +95,19 @@ The visual logic follows from this, not the other way around.
 Per-page canonical: `https://yoursvas.app/<filename>.html`
 
 ### Footer — canonical format
+Left side (serif, data-lang-key="home2.footer.credit"):
 ```
-由 GitHub 部署　｜　Claude Code 傾力打造　｜　Nova（nova@yoursvas.app）最後更新於 2026
-Deployed via GitHub　｜　Built with Claude Code　｜　Last updated 2026 by Nova (nova@yoursvas.app)
+VAS——由 Nova × Claude 共同完成。
+一個不會寫程式的 PM，
+和一個沒有長期記憶的 AI，
+在二十五天裡做出的器物。
+```
+Followed by: `<a href="privacy.html" class="site-sub-link">隱私權政策</a>`
+
+Right side (mono, 11px, ash-2):
+```
+vas.wiki
+© 2026 · MIT License
 ```
 
 ### Social / JSON-LD author block
