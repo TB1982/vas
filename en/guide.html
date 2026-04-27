@@ -54,6 +54,20 @@
     border-radius: 8px; cursor: pointer; transition: background .15s, color .15s;
   }
   .lang-opt:hover { background: rgba(240,232,220,0.06); color: var(--vas-ash-0); }
+
+  /* ─── scroll fade-up ───────────────────── */
+  .docs-subsection {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .docs-subsection.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .docs-subsection { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 <link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide.html">
 <link rel="alternate" hreflang="en"       href="https://yoursvas.app/en/guide.html">
@@ -932,5 +946,20 @@
 </nav>
 
 <script src="../js/analytics.js"></script>
+<script>
+(function () {
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.docs-subsection').forEach(function (el) {
+    obs.observe(el);
+  });
+}());
+</script>
 </body>
 </html>
