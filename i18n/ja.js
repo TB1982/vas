@@ -206,7 +206,7 @@
       recipesR3: '罫線 × 破線 + 太さ → 校正の赤丸',
       recipesR4: '線 × 直角 + 破線 → フロー線',
       recipesR5: '図形 × グラデーション + 低不透明度 → フェードマスク',
-      recipesR6: '吹き出し × モザイク → コミック風ミーム <span class="g-badge-a" style="margin-left:8px;font-size:11px;font-family:var(--font-mono,monospace);">App Store 審査中</span>',
+      recipesR6: '吹き出し × モザイク → コミック風ミーム',
       recipesClosing: 'あなたが組み合わせたレシピは、あなただけの表現語彙になる。',
       recipesInside: '→ あなたと VAS だけの Inside Language',
       recipesWish: '✦ 新しい素材をリクエスト',
