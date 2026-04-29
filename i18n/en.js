@@ -971,8 +971,8 @@
     },
 
     home2: {
-      'title':                    'VAS · For the Moments Words Could Not Name',
-      'meta.desc':                'A non-coder PM × Claude built a Mac screenshot annotation tool in 25 days. Free Electron download + Tauri Pro on the App Store. OCR privacy masking, floating toolbar, QR Code scanner.',
+      'title':                    'VAS | Your Multimodal Human-AI Toolbox',
+      'meta.desc':                'OCR text recognition, privacy masking, multi-display screenshot, web capture, clipboard image editing, QR Code scanning, image collage, batch export, watermark, custom shortcuts — Mac screenshot & image workflow tool. Free download.',
       'nav.design':               'Design',
       'nav.collaboration':        'Collaboration',
       'nav.system':               'System',
