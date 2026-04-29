@@ -119,7 +119,7 @@
       grpPrivacy: '隱私與遮蔽', grpCanvas: '畫布操作', grpLayout: '版面功能', grpOther: '其他',
       t_select: '選取', t_boxselect: '框型選取', t_pen: '筆型', t_line: '線條',
       t_rect: '矩形框', t_fillrect: '色塊', t_text: '文字', t_number: '編號',
-      t_symbol: '符號印章', t_ocr: 'OCR 文字辨識', t_mosaic: '馬賽克／模糊',
+      t_symbol: '符號印章', t_ocr: 'OCR 文字辨識', t_mosaic: '馬賽克／模糊', t_magnify: '放大鏡', t_callout: '對話氣泡',
       t_privacy: '隱私遮蔽', t_zoomin: '放大', t_zoomout: '縮小', t_fit: '適合視窗',
       t_crop: '裁切', t_resize: '調整大小', t_extend: '延伸畫布',
       t_overlay: '疊入圖片', t_open: '一鍵套版', t_undo: '撤銷', t_redo: '重做',

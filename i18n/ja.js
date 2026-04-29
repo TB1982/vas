@@ -137,7 +137,7 @@
       grpOther: 'その他',
       t_select: '選択', t_boxselect: '範囲選択', t_pen: 'ペン', t_line: '線条',
       t_rect: '矩形', t_fillrect: '塗りつぶし', t_text: 'テキスト', t_number: '番号',
-      t_symbol: 'スタンプ', t_ocr: 'OCR', t_mosaic: 'モザイク / ぼかし',
+      t_symbol: 'スタンプ', t_ocr: 'OCR', t_mosaic: 'モザイク / ぼかし', t_magnify: '拡大鏡', t_callout: '吹き出し',
       t_privacy: 'プライバシー遮蔽', t_zoomin: '拡大', t_zoomout: '縮小', t_fit: 'ウィンドウに合わせる',
       t_crop: 'トリミング', t_resize: 'サイズ変更', t_extend: 'キャンバス拡張',
       t_overlay: '画像オーバーレイ', t_open: 'ワンクリックテンプレート', t_undo: '元に戻す', t_redo: 'やり直し',

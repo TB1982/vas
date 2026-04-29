@@ -139,7 +139,7 @@
       grpOther: 'Other',
       t_select: 'Select', t_boxselect: 'Box Select', t_pen: 'Pen', t_line: 'Line',
       t_rect: 'Rectangle', t_fillrect: 'Fill', t_text: 'Text', t_number: 'Number',
-      t_symbol: 'Stamp', t_ocr: 'OCR', t_mosaic: 'Mosaic / Blur',
+      t_symbol: 'Stamp', t_ocr: 'OCR', t_mosaic: 'Mosaic / Blur', t_magnify: 'Magnify', t_callout: 'Callout',
       t_privacy: 'Privacy Mask', t_zoomin: 'Zoom In', t_zoomout: 'Zoom Out', t_fit: 'Fit to Window',
       t_crop: 'Crop', t_resize: 'Resize', t_extend: 'Extend Canvas',
       t_overlay: 'Overlay Image', t_open: 'One-click Template', t_undo: 'Undo', t_redo: 'Redo',

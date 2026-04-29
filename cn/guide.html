@@ -322,6 +322,8 @@
                 <span class="g-chip" data-tool="number" role="button" tabindex="0"><span class="g-chip-icon">①</span><span data-lang-key="t_number">编号</span><span class="g-chip-key">N</span></span>
                 <span class="g-chip" data-tool="stamp" role="button" tabindex="0"><span class="g-chip-icon">☺</span><span data-lang-key="t_symbol">符号印章</span><span class="g-chip-key">U</span></span>
                 <span class="g-chip" data-tool="mosaic" role="button" tabindex="0"><span class="g-chip-icon">⬜</span><span data-lang-key="t_mosaic">马赛克／模糊</span><span class="g-chip-key">X</span></span>
+                <span class="g-chip" data-tool="magnify" role="button" tabindex="0"><span class="g-chip-icon">⊙</span><span data-lang-key="t_magnify">放大镜</span><span class="g-chip-key">Y</span></span>
+                <span class="g-chip" data-tool="callout" role="button" tabindex="0"><span class="g-chip-icon">◎</span><span data-lang-key="t_callout">对话气泡</span><span class="g-chip-key">Q</span></span>
               </div>
             </div>
 
@@ -769,6 +771,14 @@
     mosaic: {
       icon: '⬜', title: '馬賽克／模糊', shortcut: 'X',
       body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框選區域，立即套用遮蔽效果</li><li>套用後可切換至選取工具調整範圍大小或刪除物件，以補償自動辨識遮蔽的不足</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['模式（馬賽克／模糊）','馬賽克區塊尺寸（4 / 8 / 16 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    magnify: {
+      icon: '⊙', title: '放大鏡', shortcut: 'Y',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立來源框，旁邊自動產生放大預覽框</li><li>預覽框即時反映來源框內容，可建立多個互不干擾</li><li>支援移動、handle 縮放</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['邊框顏色','邊框粗細','圓角'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    callout: {
+      icon: '◎', title: '對話氣泡', shortcut: 'Q',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立氣泡框，尾巴方向依位置自動判斷（上／下／左／右）</li><li>雙擊氣泡進入文字編輯模式</li><li>支援旋轉與縮放；縮放時文字同比例調整</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['字型大小','字型顏色','背景色','邊框色','圓角','粗體','斜體','底線','刪除線','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
     },
     ocr: {
       icon: '文', title: 'OCR 文字辨識', shortcut: 'G',
