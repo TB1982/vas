@@ -75,10 +75,9 @@
 <main class="about">
 
   <header class="about-header">
-    <div class="about-kicker" data-lang-key="about.kicker">A Vessel Speaks · 2026</div>
+    <div class="about-kicker" data-lang-key="about.kicker">Why I Am Here</div>
     <h1 class="about-title">
       <span class="about-title-zh" data-lang-key="about.title.zh">為何我在這裡</span>
-      <span class="about-title-en" data-lang-key="about.title.en">why this vessel exists</span>
     </h1>
   </header>
 
@@ -207,9 +206,10 @@
 (function () {
   function applyLang(lang) {
     VASCore.loadLang(lang, function (t) {
-      var merged = Object.assign({}, t.shared || {}, t.about || {});
+      var merged = Object.assign({}, t.shared || {});
       var h2 = t.home2 || {};
       Object.keys(h2).forEach(function (k) { merged['home2.' + k] = h2[k]; });
+      Object.keys(t.about || {}).forEach(function (k) { merged['about.' + k] = (t.about || {})[k]; });
       document.querySelectorAll('[data-lang-key]').forEach(function (el) {
         var key = el.getAttribute('data-lang-key');
         if (merged[key] !== undefined) el.innerHTML = merged[key];

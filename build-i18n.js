@@ -53,7 +53,8 @@ function getMerged(t, page) {
       Object.assign(m, t.shared   || {}, t.guide    || {});
       break;
     case 'about.html':
-      Object.assign(m, t.shared   || {}, t.about    || {});
+      Object.assign(m, t.shared   || {});
+      flat(m, t.about || {}, 'about.');
       break;
     case 'privacy.html':
       Object.assign(m, t.shared   || {}, t.privacy  || {});
