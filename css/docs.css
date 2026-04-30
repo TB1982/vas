@@ -25,8 +25,10 @@
   align-self: start;
   max-height: calc(100vh - 96px);
   overflow-y: auto;
+  scrollbar-width: none;
   padding-right: 8px;
 }
+.docs-toc-sticky::-webkit-scrollbar { display: none; }
 .docs-toc-sticky-label {
   font-family: var(--vas-mono);
   font-size: 10px;
