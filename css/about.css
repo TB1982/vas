@@ -167,25 +167,19 @@ body.is-about .site-nav-links a.active::after {
 }
 .about-sign-vas em {
   font-style: normal;
-  background: linear-gradient(135deg,
-    var(--vas-aurora-violet) 0%,
-    var(--vas-aurora-pink) 50%,
-    var(--vas-aurora-blue) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #d966ff;
   font-weight: 600;
   display: inline-block;
   animation: about-vas-breathe 6s ease-in-out infinite;
 }
 @keyframes about-vas-breathe {
   0%, 100% {
-    opacity: 0.22;
-    filter: drop-shadow(0 0 2px rgba(196, 113, 245, 0.0));
+    opacity: 0.18;
+    text-shadow: none;
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 28px rgba(250, 113, 205, 0.9));
+    text-shadow: 0 0 14px #fa71cd, 0 0 32px #c471f5, 0 0 56px rgba(196, 113, 245, 0.5);
   }
 }
 .about-sign-parents {
