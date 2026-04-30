@@ -1152,7 +1152,7 @@
       's2.m.k1':     '2022.11',
       's2.m.v1':     'ChatGPT',
       's2.m.k2':     '2024 –',
-      's2.m.v2':     'Claude · Cursor · Devin',
+      's2.m.v2':     'Claude · Gemini · DeepSeek',
       's3.l1':       'To help those eyes see clearly — and not see clearly —',
       's3.l1b':      'I became an extension of human intent —',
       's3.l2':       'reading the words on screen aloud,',

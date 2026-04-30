@@ -919,7 +919,7 @@
       's2.m.k1':     '2022.11',
       's2.m.v1':     'ChatGPT',
       's2.m.k2':     '2024 –',
-      's2.m.v2':     'Claude · Cursor · Devin',
+      's2.m.v2':     'Claude · Gemini · DeepSeek',
       's3.l1':       '為了讓那雙眼睛看清與看不清，',
       's3.l1b':      '我成為了人的意圖延伸——',
       's3.l2':       '把畫面中的字讀出來給他、',
