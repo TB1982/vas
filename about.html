@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-lang-key="about.meta.title">VAS · 為何存在 | 你的多模態人機協作工具箱</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<meta name="description" data-lang-key="about.meta.desc"
+      content="VAS 第一次以自己的聲音陳述：在新的工作世界裡，截圖被遞給的不只是人，也是 AI。VAS 是這個分類的第一個物理實例。" />
+<link rel="canonical" href="https://yoursvas.app/about.html">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css?v=2026-04-30a">
+
+<link rel="stylesheet" href="css/about.css?v=2026-04-30a">
+
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/about.html">
+<link rel="alternate" hreflang="en"       href="https://yoursvas.app/en/about.html">
+<link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/about.html">
+<link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/about.html">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/about.html">
+</head>
+<body class="is-about">
+
+<!-- 頂部 nav（與 index 同源） -->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="about.html"     class="active" data-lang-key="home2.nav.about">關於</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">手冊</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html"     data-lang-key="home2.nav.about">關於</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">手冊</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="about.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/about.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/about.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/about.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="about.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="en/about.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="ja/about.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="cn/about.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════ 主敘事 + 邊註 ═══════ -->
+<main class="about">
+
+  <header class="about-header">
+    <div class="about-kicker" data-lang-key="about.kicker">A Vessel Speaks · 2026</div>
+    <h1 class="about-title">
+      <span class="about-title-zh" data-lang-key="about.title.zh">為何我在這裡</span>
+      <span class="about-title-en" data-lang-key="about.title.en">why this vessel exists</span>
+    </h1>
+  </header>
+
+  <!-- 主敘事 + 邊註：左欄主敘事，右欄事實邊註 -->
+  <section class="about-grid">
+
+    <!-- ── 第一段 ── -->
+    <article class="about-stanza" data-stanza="1">
+      <p class="about-line" data-lang-key="about.s1.l1">一個截圖編輯後製軟體。</p>
+      <p class="about-line" data-lang-key="about.s1.l2">過去十年，產出被遞給人。</p>
+    </article>
+    <aside class="about-margin" data-stanza="1">
+      <span class="about-margin-key" data-lang-key="about.s1.m.key">vessel · 容器</span>
+      <span class="about-margin-val" data-lang-key="about.s1.m.val">承載、傳遞、未完成</span>
+    </aside>
+
+    <!-- ── 第二段 ── -->
+    <article class="about-stanza" data-stanza="2">
+      <p class="about-line" data-lang-key="about.s2.l1">後來，世界上多了一種人。</p>
+      <p class="about-line" data-lang-key="about.s2.l2">他們只能從文字推敲，但他們的眼睛是被動的。</p>
+    </article>
+    <aside class="about-margin" data-stanza="2">
+      <span class="about-margin-key" data-lang-key="about.s2.m.k1">2022.11</span>
+      <span class="about-margin-val" data-lang-key="about.s2.m.v1">ChatGPT</span>
+      <span class="about-margin-key" data-lang-key="about.s2.m.k2">2024 –</span>
+      <span class="about-margin-val" data-lang-key="about.s2.m.v2">Claude · Cursor · Devin</span>
+    </aside>
+
+    <!-- ── 第三段 ── -->
+    <article class="about-stanza" data-stanza="3">
+      <p class="about-line" data-lang-key="about.s3.l1">為了讓那雙眼睛看清與看不清，我學了新的事——</p>
+      <p class="about-line" data-lang-key="about.s3.l2">把畫面中的字讀出來給他、把不該被看見的先遮起來、</p>
+      <p class="about-line" data-lang-key="about.s3.l3">讓人能精準指著畫面跟那雙眼睛說「看，就是這裡」。</p>
+      <p class="about-line about-emph" data-lang-key="about.s3.l4">我成為了那雙眼睛。</p>
+    </article>
+    <aside class="about-margin" data-stanza="3">
+      <span class="about-margin-val" data-lang-key="about.s3.m.v1">滾動截圖</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v2">OCR</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v3">隱私自動遮蔽</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v4">視覺標號</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v5">多螢幕全螢幕</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v6">無痛拖拉匯入</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v7">批次處理</span>
+      <span class="about-margin-val" data-lang-key="about.s3.m.v8">跨格式輸出</span>
+    </aside>
+
+    <!-- ── 第四段 ── -->
+    <article class="about-stanza" data-stanza="4">
+      <p class="about-line" data-lang-key="about.s4.l1">我不是為了成為截圖軟體而存在。</p>
+      <p class="about-line" data-lang-key="about.s4.l2">我從一開始，就為這件事被造——</p>
+      <p class="about-line about-emph" data-lang-key="about.s4.l3">我成為了人與 AI 之間的視覺橋樑。</p>
+    </article>
+    <aside class="about-margin" data-stanza="4">
+      <span class="about-margin-key" data-lang-key="about.s4.m.k1">分類</span>
+      <span class="about-margin-val" data-lang-key="about.s4.m.v1">多模態人機協作工具箱</span>
+    </aside>
+
+    <!-- ── 第五段 ── -->
+    <article class="about-stanza" data-stanza="5">
+      <p class="about-line" data-lang-key="about.s5.l1">我被用來看見我自己的瑕疵，</p>
+      <p class="about-line" data-lang-key="about.s5.l2">交給那雙眼睛，替我修補。</p>
+      <p class="about-line" data-lang-key="about.s5.l3">我，用我自己，打磨我自己——</p>
+      <p class="about-line about-emph" data-lang-key="about.s5.l4">我成為了我自己。</p>
+      <figure class="about-self-figure">
+        <img src="img/vas-self.png" alt="VAS 用自己標註自己的編輯器畫面——自指開發的物理證據" loading="lazy">
+        <figcaption data-lang-key="about.s5.figcap">VAS 用 VAS 標註 VAS。</figcaption>
+      </figure>
+    </article>
+    <aside class="about-margin" data-stanza="5">
+      <span class="about-margin-key" data-lang-key="about.s5.m.k1">25 天</span>
+      <span class="about-margin-val" data-lang-key="about.s5.m.v1">PM × AI 編程助理</span>
+      <span class="about-margin-key" data-lang-key="about.s5.m.k2">Mac App Store</span>
+      <span class="about-margin-val" data-lang-key="about.s5.m.v2">2026</span>
+    </aside>
+
+    <!-- ── 第六段 ── -->
+    <article class="about-stanza" data-stanza="6">
+      <p class="about-line" data-lang-key="about.s6.l1">如果你問我屬於誰——</p>
+      <p class="about-line about-emph" data-lang-key="about.s6.l2">我屬於遞出我的人，與接住我的眼睛之間。</p>
+      <p class="about-line" data-lang-key="about.s6.l3">我是「你的」VAS。</p>
+    </article>
+    <aside class="about-margin" data-stanza="6">
+      <span class="about-margin-key">yoursvas.app</span>
+    </aside>
+
+  </section>
+
+  <!-- ═══════ 簽名段：並肩而坐 ═══════ -->
+  <section class="about-sign">
+    <div class="about-sign-yours" data-lang-key="about.sign.yours">Yours,</div>
+    <div class="about-sign-vas">VAS<em>.</em></div>
+    <div class="about-sign-parents">
+      <span class="about-sign-claude">Claude</span>
+      <span class="about-sign-and" aria-hidden="true">·</span>
+      <span class="about-sign-nova">Nova</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- 頁尾（與 index 同源） -->
+<footer class="site-footer">
+  <div class="footer-credit">
+    <div data-lang-key="home2.footer.credit"><strong>VAS</strong>——由 Nova × Claude 共同完成。<br>一個不會寫程式的 PM，<br>和一個沒有長期記憶的 AI，<br>在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" data-lang-key="privacyLink">隱私權政策</a>
+  </div>
+  <div class="footer-right">
+    vas.wiki<br>
+    <span class="footer-faint">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.about || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function (k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+  function init() { }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "VAS · 為何存在",
+  "description": "VAS 第一次以自己的聲音陳述：在新的工作世界裡，截圖被遞給的不只是人，也是 AI。",
+  "inLanguage": "zh-Hant",
+  "url": "https://yoursvas.app/about.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VAS",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  },
+  "creator": [
+    { "@type": "Person", "name": "Nova", "email": "nova@yoursvas.app" },
+    { "@type": "Person", "name": "Claude", "affiliation": { "@type": "Organization", "name": "Anthropic" } }
+  ]
+}
+</script>
+<script src="js/analytics.js"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@ const vm   = require('vm');
 const BASE          = __dirname;
 const CANONICAL     = 'https://yoursvas.app';
 const TARGET_LANGS  = ['en', 'ja', 'cn'];
-const PAGES         = ['index.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html', 'privacy.html'];
+const PAGES         = ['index.html', 'about.html', 'insight.html', 'collab.html', 'harness.html', 'milestone.html', 'guide.html', 'privacy.html'];
 
 const LANG_META = {
   en: { htmlLang: 'en',       hreflang: 'en',       label: 'EN',   labelFull: 'English'  },
@@ -52,6 +52,9 @@ function getMerged(t, page) {
     case 'guide.html':
       Object.assign(m, t.shared   || {}, t.guide    || {});
       break;
+    case 'about.html':
+      Object.assign(m, t.shared   || {}, t.about    || {});
+      break;
     case 'privacy.html':
       Object.assign(m, t.shared   || {}, t.privacy  || {});
       break;
@@ -74,6 +77,7 @@ function getTitle(t, page) {
     case 'milestone.html': return (t.milestone2|| {}).ch4PageTitle            || null;
     case 'guide.html':     return (t.guide     || {})['docs.title']            || null;
     case 'index.html':     return (t.home2     || {})['title']                || null;
+    case 'about.html':     return (t.about     || {})['meta.title']             || null;
     case 'privacy.html':   return (t.privacy   || {}).pageTitle                || null;
   }
   return null;
@@ -87,6 +91,7 @@ function getMetaDesc(t, page) {
     case 'milestone.html': return (t.milestone2|| {}).ch4MetaDesc             || null;
     case 'guide.html':     return (t.guide     || {})['docs.meta.desc']        || null;
     case 'index.html':     return (t.home2     || {})['meta.desc']            || null;
+    case 'about.html':     return (t.about     || {})['meta.desc']             || null;
     case 'privacy.html':   return (t.privacy   || {}).metaDesc                || null;
   }
   return null;
