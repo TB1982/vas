@@ -262,12 +262,15 @@ function replaceStaticLangSwitcher(html, lang, page) {
 }
 
 // Disable i18n re-rendering on generated static pages
+const HAMBURGER_INLINE = `(function(){var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('navMobileMenu'),chevron=document.getElementById('navMobileChevron');if(!btn||!menu)return;var open=false;function close(){open=false;menu.style.display='none';if(chevron)chevron.style.transform='';btn.setAttribute('aria-expanded','false');}function toggle(e){e.stopPropagation();if(open){close();return;}open=true;menu.style.display='flex';if(chevron)chevron.style.transform='rotate(180deg)';btn.setAttribute('aria-expanded','true');}btn.addEventListener('click',toggle);menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('click',close);})();`;
+
 function removeI18nScripts(html) {
   // Remove <script src="...core.js"></script> (specific tag, no content span risk)
   html = html.replace(/<script[^>]*src="[^"]*i18n\/core\.js"[^>]*><\/script>[ \t]*\n?/g, '');
-  // Neutralize VASCore calls so initDotNav() isn't blocked by ReferenceError
+  // Neutralize JS-driven lang switching (VASCore not available on static builds)
   html = html.replace(/\bVASCore\.initDropdown\s*\([^)]*\)\s*;?/g, '');
-  html = html.replace(/\bVASCore\.initNavDropdown\s*\(\s*\)\s*;?/g, '');
+  // Replace initNavDropdown with inline hamburger so static builds still work
+  html = html.replace(/\bVASCore\.initNavDropdown\s*\(\s*\)\s*;?/g, HAMBURGER_INLINE);
   return html;
 }
 
