@@ -152,10 +152,73 @@
 }
 .shrine-vessel .shrine-colophon .faint { color: var(--vas-ash-4); }
 
+/* ─── Chapter 0 · 序章門 ─────────────────── */
+.shrine-preface {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 24px 36px;
+  margin-top: 40px;
+  border-top: 1px solid var(--vas-rule);
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  transition: background .4s;
+}
+.shrine-preface::before {
+  content: '';
+  position: absolute; left: 50%; top: -1px;
+  transform: translateX(-50%);
+  width: 0; height: 1px;
+  background: var(--vas-aurora-violet);
+  transition: width .6s cubic-bezier(.2, .8, .2, 1);
+}
+.shrine-preface:hover::before { width: 50%; }
+.shrine-preface:hover { background: rgba(240, 232, 220, 0.015); }
+
+.shrine-preface-num {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vas-ash-3);
+  padding: 5px 16px;
+  border: 1px solid var(--vas-rule);
+  border-radius: 999px;
+  background: rgba(14, 11, 26, 0.5);
+  transition: color .3s, border-color .3s;
+}
+.shrine-preface:hover .shrine-preface-num {
+  color: var(--vas-aurora-violet);
+  border-color: rgba(196, 113, 245, 0.4);
+}
+.shrine-preface-name {
+  font-family: var(--vas-serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  color: var(--vas-ash-0);
+  letter-spacing: 0.02em;
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+.shrine-preface:hover .shrine-preface-name { transform: translateY(-2px); }
+.shrine-preface-echo {
+  font-family: var(--vas-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vas-ash-4);
+  transition: color .3s;
+}
+.shrine-preface:hover .shrine-preface-echo { color: var(--vas-ash-2); }
+
 /* ─── 底部：四道門 · 縫隙不是按鈕 ────────── */
 .shrine-gates {
   grid-column: 1 / -1;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   margin-top: 40px;
   padding-top: 32px;
   border-top: 1px solid var(--vas-rule);
@@ -253,7 +316,9 @@
     justify-content: flex-end;
   }
   .shrine-vessel img { width: 58%; }
-  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 3; }
+  .shrine-preface { grid-row: 3; margin-top: 24px; padding: 28px 24px; gap: 12px; }
+  .shrine-preface-name { font-size: clamp(20px, 5vw, 26px); }
+  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 4; }
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
   .shrine-gate:nth-last-child(-n+2) { border-bottom: none; }
