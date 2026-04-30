@@ -15,9 +15,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="zh_TW">
-  <link rel="icon" href="img/vas.ico">
+  <link rel="icon" href="../img/vas.ico">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="../base.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     .gradient-bg {
@@ -218,7 +218,7 @@
     <nav class="flex items-center gap-2 flex-1 min-w-0" aria-label="VAS 子頁面">
       <a href="index.html" aria-label="返回 VAS 首頁" class="shrink-0" style="color:rgba(255,255,255,0.4); font-size:1.1rem; line-height:1; text-decoration:none; transition:color 0.2s; padding:4px 2px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">‹</a>
       <a href="index.html" aria-label="VAS 首頁" class="shrink-0">
-        <img src="img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-md opacity-55 hover:opacity-90 transition-opacity">
+        <img src="../img/vasweb.webp" alt="VAS" width="22" height="22" class="rounded-md opacity-55 hover:opacity-90 transition-opacity">
       </a>
       <!-- Desktop pills (sm+) -->
       <div class="nav-pill-group min-w-0 hidden sm:flex">
@@ -276,7 +276,7 @@
       </div>
 
       <div class="flex justify-center mb-6">
-        <img id="toolbarImg" src="img/vastoolbar.webp" alt="VAS 浮動工作列" class="capturebar-img" loading="lazy">
+        <img id="toolbarImg" src="../img/vastoolbar.webp" alt="VAS 浮動工作列" class="capturebar-img" loading="lazy">
       </div>
 
       <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -321,7 +321,7 @@
           <span class="badge-all" data-lang-key="allVersions">全版本</span>
         </div>
         <div class="flex gap-4 items-start">
-          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈" class="rounded-lg shrink-0" style="width:72px;height:72px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);" loading="lazy">
+          <img src="../img/brethlightsmall.webp" alt="VAS 呼吸燈" class="rounded-lg shrink-0" style="width:72px;height:72px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);" loading="lazy">
           <p class="text-white/45 text-xs leading-relaxed"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.2em;height:1.2em;border:1px solid rgba(255,255,255,0.35);border-radius:50%;font-size:0.7em;color:rgba(255,255,255,0.5);vertical-align:middle;margin-right:4px;line-height:1;">?</span><span data-lang-key="bl_desc">可設定將工具列縮小成為呼吸燈，在桌面角落靜默待機，不佔空間。</span></p>
         </div>
         <ul class="space-y-2 text-white/45 text-xs leading-relaxed mt-3">
@@ -340,7 +340,7 @@
         <h2 class="text-xl font-semibold" data-lang-key="s1Title">編輯器介面</h2>
         <p class="text-white/45 text-sm mt-1" data-lang-key="s1Sub">三個主要操作區域</p>
       </div>
-      <img id="editorImg" src="img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="guide-img" loading="lazy">
+      <img id="editorImg" src="../img/vas-guide-editor-zh.webp" alt="VAS 編輯器介面說明圖" class="guide-img" loading="lazy">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
         <div class="glass-card rounded-xl p-4">
           <div class="text-sm font-semibold text-purple-300 mb-1" data-lang-key="zone1Name">主要功能選單</div>
@@ -373,7 +373,7 @@
 
       <div class="flex gap-4 items-start" style="display:flex;flex-direction:row;gap:1rem;align-items:flex-start;">
         <div class="flex-shrink-0">
-          <img src="img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示" class="sidebar-img" loading="lazy">
+          <img src="../img/vas-guide-sidebar.webp" alt="VAS 左側工具列圖示" class="sidebar-img" loading="lazy">
         </div>
         <div class="flex-1 space-y-6">
 
@@ -665,20 +665,20 @@
         });
         var editorImg = document.getElementById('editorImg');
         if (editorImg) {
-          editorImg.src = lang === 'ja' ? 'img/vas-guide-editor-jp.webp'
-            : lang === 'en' ? 'img/vas-guide-editor-en.webp'
-            : lang === 'cn' ? 'img/vas-guide-editor-zh-CN.png'
-            : 'img/vas-guide-editor-zh.webp';
+          editorImg.src = lang === 'ja' ? '../img/vas-guide-editor-jp.webp'
+            : lang === 'en' ? '../img/vas-guide-editor-en.webp'
+            : lang === 'cn' ? '../img/vas-guide-editor-zh-CN.png'
+            : '../img/vas-guide-editor-zh.webp';
           editorImg.alt = lang === 'ja' ? 'VAS エディタ画面の説明図'
             : lang === 'en' ? 'VAS editor interface diagram'
             : 'VAS 编辑器界面说明图';
         }
         var toolbarImg = document.getElementById('toolbarImg');
         if (toolbarImg) {
-          toolbarImg.src = lang === 'ja' ? 'img/vastoolbar-jp.webp'
-            : lang === 'en' ? 'img/vastoolbar-en.webp'
-            : lang === 'cn' ? 'img/vastoolbar-zh-CN.png'
-            : 'img/vastoolbar.webp';
+          toolbarImg.src = lang === 'ja' ? '../img/vastoolbar-jp.webp'
+            : lang === 'en' ? '../img/vastoolbar-en.webp'
+            : lang === 'cn' ? '../img/vastoolbar-zh-CN.png'
+            : '../img/vastoolbar.webp';
           toolbarImg.alt = lang === 'ja' ? 'VAS キャプチャツールバー'
             : lang === 'en' ? 'VAS capture toolbar'
             : 'VAS 浮動工作列';
