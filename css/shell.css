@@ -16,15 +16,7 @@
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 48px;
-  position: relative;
-}
-.chapter-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100vw; height: 1px;
-  background: var(--vas-rule);
+  border-bottom: 1px solid var(--vas-rule);
 }
 .chapter-no {
   font-family: var(--vas-mono);
@@ -83,15 +75,7 @@
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 48px;
-  position: relative;
-}
-.toc::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100vw; height: 1px;
-  background: var(--vas-rule);
+  border-bottom: 1px solid var(--vas-rule);
 }
 .toc-label {
   font-family: var(--vas-mono);
@@ -150,16 +134,8 @@
   padding: 80px 48px;
   max-width: 1040px;
   margin: 0 auto;
+  border-bottom: 1px solid var(--vas-rule);
   scroll-margin-top: 40px;
-  position: relative;
-}
-.section::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100vw; height: 1px;
-  background: var(--vas-rule);
 }
 .section-head {
   display: grid;
@@ -216,15 +192,7 @@
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 48px;
-  position: relative;
-}
-.passage::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100vw; height: 1px;
-  background: var(--vas-rule);
+  border-top: 1px solid var(--vas-rule);
 }
 .passage-colophon {
   font-family: var(--vas-mono);
