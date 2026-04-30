@@ -154,6 +154,44 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
   padding: 4px 6px;
 }
 .lang-mobile-dd { display: none; position: relative; }
+.lang-dropdown-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(240, 232, 220, 0.06);
+  border: 1px solid var(--vas-rule);
+  color: var(--vas-ash-2);
+  font-family: var(--vas-mono);
+  font-size: 11px; letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+.lang-dropdown-menu {
+  position: absolute; right: 0; top: calc(100% + 6px);
+  min-width: 110px;
+  background: var(--vas-void-up);
+  border: 1px solid var(--vas-rule-strong, var(--vas-rule));
+  border-radius: 12px;
+  padding: 4px;
+  display: none;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.lang-dropdown-menu.open { display: block; }
+.lang-dropdown-menu .lang-opt {
+  display: block; width: 100%; text-align: left;
+  padding: 8px 14px;
+  background: transparent; border: none;
+  color: var(--vas-ash-2);
+  font-family: var(--vas-serif);
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.lang-dropdown-menu .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
 
 @media (max-width: 768px) {
   .site-nav { padding: 20px 24px; }
