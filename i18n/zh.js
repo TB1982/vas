@@ -646,6 +646,7 @@
     home2: {
       'title':                    'VAS | 你的多模態人機協作工具箱',
       'meta.desc':                'OCR 文字辨識、隱私遮蔽、多螢幕截圖、網頁截圖、複製圖片編輯、QR Code 掃描、圖片拼貼排版、批次轉檔、浮水印、自訂快捷鍵——Mac 截圖與圖片處理工具，免費下載。',
+      'nav.about':                '關於',
       'nav.design':               '設計',
       'nav.collaboration':        '協作',
       'nav.system':               '系統',

@@ -759,6 +759,7 @@ harnessBtn: '阅读系统思维 →',
     home2: {
       'title':                    'VAS | 你的多模态人机协作工具箱',
       'meta.desc':                'OCR文字识别、隐私遮蔽、多屏截图、网页截图、复制图片编辑、QR Code扫描、图片拼贴排版、批次转档、浮水印、自订快捷键——Mac截图与图片处理工具，免费下载。',
+      'nav.about':                '关于',
       'nav.design':               '设计',
       'nav.collaboration':        '协作',
       'nav.system':               '系统',
