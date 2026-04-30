@@ -268,8 +268,6 @@
   gap: 48px;
   align-items: end;
   padding: 56px 48px 40px;
-  max-width: 1040px;
-  margin: 0 auto;
   border-top: 1px solid var(--vas-rule);
 }
 
