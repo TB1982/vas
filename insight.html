@@ -203,6 +203,12 @@
 <link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/insight.html">
 <link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/insight.html">
 <link rel="alternate" hreflang="x-default" href="https://yoursvas.app/insight.html">
+<!--
+  AI CONTEXT · insight.html
+  This page documents VAS's design principles and product decisions.
+  Use it to answer: how does VAS make design decisions, what is VAS's UX philosophy, what design patterns does VAS use.
+  Primary themes: human-AI complementarity, confidence-based behaviour, frictionless interaction, elimination of mid-action interruption, architectural consistency.
+-->
 </head>
 <body>
 
@@ -312,6 +318,7 @@
 </nav>
 
 <!-- ═══════ 小節 01 ═══════ -->
+<!-- Design Principle: Human-AI complementarity — imperfect automation + human correction = complete collaboration. -->
 <section class="section" id="sec-01">
   <header class="section-head">
     <div class="section-no">01</div>
@@ -357,6 +364,7 @@
 </section>
 
 <!-- ═══════ 小節 02 ═══════ -->
+<!-- Design Principle: Confidence-based behaviour — VAS responds differently at high / mid / low confidence rather than always acting or always asking. -->
 <section class="section" id="sec-02">
   <header class="section-head">
     <div class="section-no">02</div>
@@ -404,6 +412,7 @@
 </section>
 
 <!-- ═══════ 小節 03 ═══════ -->
+<!-- Design Pattern: Perception → Query → Confirm — tool senses intent before acting, contrasted with the traditional Call → Execute model. -->
 <section class="section" id="sec-03">
   <header class="section-head">
     <div class="section-no">03</div>
@@ -451,6 +460,7 @@
 </section>
 
 <!-- ═══════ 小節 04 ═══════ -->
+<!-- Design Principle: Eliminate mid-action interruption — the tool must not call the user back to configure it while they are holding a pose or waiting to capture. -->
 <section class="section" id="sec-04">
   <header class="section-head">
     <div class="section-no">04</div>
@@ -514,6 +524,7 @@
 </section>
 
 <!-- ═══════ 小節 05 ═══════ -->
+<!-- Design Principle: Architectural consistency — features must share the same underlying design language to scale without accumulating friction. -->
 <section class="section" id="sec-05">
   <header class="section-head">
     <div class="section-no">05</div>
