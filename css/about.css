@@ -176,12 +176,12 @@ body.is-about .site-nav-links a.active::after {
 }
 @keyframes about-vas-breathe {
   0%, 100% {
-    opacity: 0.62;
-    filter: drop-shadow(0 0 4px rgba(196, 113, 245, 0.1));
+    opacity: 0.22;
+    filter: drop-shadow(0 0 2px rgba(196, 113, 245, 0.0));
   }
   50% {
     opacity: 1;
-    filter: drop-shadow(0 0 20px rgba(250, 113, 205, 0.6));
+    filter: drop-shadow(0 0 28px rgba(250, 113, 205, 0.9));
   }
 }
 .about-sign-parents {
