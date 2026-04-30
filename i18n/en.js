@@ -1143,7 +1143,7 @@
       'meta.desc':   'VAS speaks in its own voice for the first time: in the new world of work, screenshots are handed not just to humans, but to AI. VAS is the first physical instance of this category.',
       kicker:        '',
       'title.zh':    'Why I Am Here',
-      's1.l1':       'A screenshot editing and post-processing tool.',
+      's1.l1':       'Screenshot editing and post-processing software.',
       's1.l2':       'For the past decade, its output was handed to people.',
       's1.m.key':    'vessel',
       's1.m.val':    'to hold, transmit, remain unfinished',
