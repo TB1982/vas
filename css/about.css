@@ -256,6 +256,7 @@ body.is-about .site-nav-links a.active::after {
     margin-bottom: 16px;
   }
   .about-margin .about-margin-key + .about-margin-val { margin-bottom: 0; }
+  .about-margin-spacer { width: 100%; height: 0; }
   .about-header { padding: 80px 24px 56px; }
   .about-sign { padding: 64px 24px 96px; }
   .about-sign-parents { gap: 28px; font-size: 11px; letter-spacing: 0.24em; }
