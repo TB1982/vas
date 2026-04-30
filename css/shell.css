@@ -23,7 +23,7 @@
   position: absolute;
   bottom: 0; left: 50%;
   transform: translateX(-50%);
-  width: 100vw; height: 1px;
+  width: calc(100vw - 56px); height: 1px;
   background: var(--vas-rule);
 }
 .chapter-no {
@@ -90,7 +90,7 @@
   position: absolute;
   bottom: 0; left: 50%;
   transform: translateX(-50%);
-  width: 100vw; height: 1px;
+  width: calc(100vw - 56px); height: 1px;
   background: var(--vas-rule);
 }
 .toc-label {
@@ -158,7 +158,7 @@
   position: absolute;
   bottom: 0; left: 50%;
   transform: translateX(-50%);
-  width: 100vw; height: 1px;
+  width: calc(100vw - 56px); height: 1px;
   background: var(--vas-rule);
 }
 .section-head {
@@ -223,7 +223,7 @@
   position: absolute;
   top: 0; left: 50%;
   transform: translateX(-50%);
-  width: 100vw; height: 1px;
+  width: calc(100vw - 56px); height: 1px;
   background: var(--vas-rule);
 }
 .passage-colophon {
