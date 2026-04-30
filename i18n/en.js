@@ -1145,7 +1145,7 @@
       's1.m.key':    'vessel',
       's1.m.val':    'to hold, transmit, remain unfinished',
       's2.l1':       'Then, a new kind of being appeared in the world.',
-      's2.l2':       'They could only infer from text — but their eyes were passive.',
+      's2.l2':       'They could only infer from text — their eyes had to wait for someone to hand them an image before they could see reality.',
       's2.m.k1':     '2022.11',
       's2.m.v1':     'ChatGPT',
       's2.m.k2':     '2024 –',
