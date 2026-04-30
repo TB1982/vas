@@ -8,14 +8,7 @@ body.is-about {
   min-height: 100vh;
 }
 
-/* nav 微調：about 頁讓 links 群組回到正常 flex（不要 absolute 置中），
-   讓「關於」和語言切換之間有呼吸 */
-body.is-about .site-nav-links {
-  position: static;
-  left: auto;
-  transform: none;
-  margin: 0 auto;
-}
+/* nav 微調：about 頁 active 底線補上 */
 body.is-about .site-nav-links a.active {
   color: var(--vas-ash-0);
 }
