@@ -156,7 +156,7 @@
       cb_help: 'Help', cb_help_desc: 'Show keyboard shortcuts and link to this user guide.',
       cb_batch_note: 'Max 100 images per batch, 20mb per file',
       'docs.title': 'VAS User Manual | Complete Mac Screenshot Tool Guide',
-      'docs.meta.desc': 'Complete VAS Mac screenshot tool guide: floating toolbar, screenshot editor, OCR privacy masking, QR Code scanning, keyboard shortcuts and advanced settings — all in one page.',
+      'docs.meta.desc': 'The AI-ready VAS Mac screenshot tool — complete guide: floating toolbar, screenshot editor, OCR privacy masking, QR Code scanning, keyboard shortcuts and advanced settings — all in one page.',
       docsDek: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>the left menu stays with you—click any section to jump.<br><span class="docs-kbd">Ctrl</span>+<span class="docs-kbd">F</span> search works too.',
       docsDekMobile: 'This is VAS\'s operating manual and feature dictionary.<br>Scroll down through "Getting Started → Core → Advanced";<br>tap the breathing light in the top right to jump to any section.',
       tocLabel: 'Contents', tocGroupStart: 'Getting Started', tocGroupCore: 'Core', tocGroupAdv: 'Advanced',
@@ -972,7 +972,7 @@
 
     home2: {
       'title':                    'VAS | Your Multimodal Human-AI Toolbox',
-      'meta.desc':                'OCR text recognition, privacy masking, multi-display screenshot, web capture, clipboard image editing, QR Code scanning, image collage, batch export, watermark, custom shortcuts — Mac screenshot & image workflow tool. Free download.',
+      'meta.desc':                'The AI-ready Mac screenshot tool — OCR text recognition, privacy masking, multi-display screenshot, web capture, clipboard image editing, QR Code scanning, image collage, batch export, watermark, custom shortcuts. Free download.',
       'nav.about':                'About',
       'nav.design':               'Design',
       'nav.collaboration':        'Collaboration',
