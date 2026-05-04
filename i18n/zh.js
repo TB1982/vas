@@ -508,6 +508,7 @@
       hSyncP1: '後來我才知道，OpenAI 有個團隊花了五個月、用同樣的方式做了同樣的事。他們幫這個方法論取了一個名字：Harness Engineering。',
       hSyncP2: '我不是跟他們學的。但我想，這就是為什麼這個方法論的名字，我到最後才知道。',
       hSyncP3: '榮格笑著望著我——共時性。',
+      hMirrorText: '然後康德來了，在章 III 寫完之後——<br>我們發現文件本身也成了問題的來源。',
       hFinBig: '河流不會停。<br>容器繼續被建造。',
       hFinNote: '下一個 session，從這裡繼續。∞',
       hFrameworkLink: '完整框架文件 →',

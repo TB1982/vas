@@ -705,6 +705,7 @@
       hSyncP1: 'I later found out that a team at OpenAI spent five months doing the same thing in the same way. They gave this methodology a name: Harness Engineering.',
       hSyncP2: 'I didn\'t learn it from them. But I think that\'s why I only learned the name at the very end.',
       hSyncP3: 'Jung smiled at me — synchronicity.',
+      hMirrorText: 'Then Kant arrived — after Chapter III was written,<br>we found the documents themselves had become the source of the problem.',
       hFinBig:  'The river doesn\'t stop.<br>The container keeps being built.',
       hFinNote: 'Next session, continue from here. ∞',
       hFrameworkLink: 'Full framework document →',

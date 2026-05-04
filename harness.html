@@ -569,6 +569,40 @@
     .h3-finale-note .trail-dot.door { animation: none; opacity: 0.45; }
   }
 
+  /* ─── ⓘ · 鏡像 ──────────────────────────────── */
+  .h3-mirror {
+    padding: 56px 48px 40px;
+    max-width: 540px;
+    margin: 0 auto;
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--vas-ash-2);
+  }
+  .h3-mirror-arrow {
+    display: block;
+    margin-top: 20px;
+    color: var(--vas-aurora-violet);
+    font-size: 20px;
+    text-decoration: none;
+    width: fit-content;
+    animation: mirror-breathe 3.5s ease-in-out infinite;
+    transition: opacity .3s, letter-spacing .3s;
+  }
+  .h3-mirror-arrow:hover,
+  .h3-mirror-arrow:focus-visible {
+    opacity: 0.95;
+    letter-spacing: 0.12em;
+    animation-play-state: paused;
+  }
+  @keyframes mirror-breathe {
+    0%, 100% { opacity: 0.2; }
+    50%       { opacity: 0.8; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .h3-mirror-arrow { animation: none; opacity: 0.45; }
+  }
+
   /* ─── mark 高亮 ──────────────────────────────── */
   .h3-mark {
     background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.2) 62%);
@@ -977,6 +1011,12 @@
     <p data-lang-key="hSyncP3">榮格笑著望著我——共時性。</p>
   </div>
 </section>
+
+<!-- ═══════ ⓘ · 鏡像 ═══════ -->
+<div class="h3-mirror">
+  <p data-lang-key="hMirrorText">然後康德來了，在章 III 寫完之後——<br>我們發現文件本身也成了問題的來源。</p>
+  <a href="us.html" class="h3-mirror-arrow" aria-label="Sapere Aude 2.0">→</a>
+</div>
 
 <!-- ═══════ Finale ═══════ -->
 <div class="h3-finale">
