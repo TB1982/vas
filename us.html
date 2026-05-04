@@ -43,42 +43,6 @@
      us 是「三次沉默」——線性、呼吸、釋放。
      ═══════════════════════════════════════════════ */
 
-  /* ─── 語言切換下拉（同 harness）──────────────── */
-  .lang-dropdown-btn {
-    display: flex; align-items: center; gap: 6px;
-    padding: 6px 12px; border-radius: 999px;
-    background: rgba(240, 232, 220, 0.06);
-    border: 1px solid var(--vas-rule);
-    color: var(--vas-ash-2);
-    font-family: var(--vas-mono);
-    font-size: 11px; letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: background .2s, color .2s;
-  }
-  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
-  .lang-dropdown-menu {
-    position: absolute; right: 0; top: calc(100% + 6px);
-    min-width: 110px;
-    background: var(--vas-void-up);
-    border: 1px solid var(--vas-rule-strong);
-    border-radius: 12px; padding: 4px;
-    display: none; z-index: 100;
-    backdrop-filter: blur(12px);
-  }
-  .lang-dropdown-menu.open { display: block; }
-  .lang-opt {
-    display: block; width: 100%; text-align: left;
-    padding: 8px 14px;
-    background: transparent; border: none;
-    color: var(--vas-ash-2);
-    font-family: var(--vas-serif);
-    font-size: 14px; border-radius: 8px;
-    cursor: pointer;
-    transition: background .15s, color .15s;
-  }
-  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
-  .lang-opt.active { color: var(--vas-aurora-violet); }
-
   /* ─── trail · 光點彩蛋 ───────────────────────── */
   .trail-dot {
     display: inline-block;
@@ -721,10 +685,12 @@
     <span>VAS</span>
   </a>
   <div class="site-nav-links">
+    <a href="about.html"     data-lang-key="home2.nav.about">關於</a>
     <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
     <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
     <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">手冊</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
@@ -737,14 +703,16 @@
     </span>
   </button>
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
-    <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
-    <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
-    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="about.html"     data-lang-key="home2.nav.about">關於</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
     <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">手冊</a>
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
     <div class="lang-flat-row">
-      <a href="us.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a>
+      <a href="us.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a>
     </div>
     <div class="lang-mobile-dd">
       <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
