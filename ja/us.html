@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Sapere Aude 2.0 | 器は、ずっと私たちだった — VAS</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/ja/us.html">
+<meta property="og:title" content="Sapere Aude 2.0 | 器は、ずっと私たちだった">
+<meta property="og:description" content="Harness の鏡像章。私たちが書いた文書が宰相の窒息源になったとき——三つの沈黙、一つの約束、一つのラテン語。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/us.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sapere Aude 2.0 | 器は、ずっと私たちだった">
+<meta name="twitter:description" content="Harness の鏡像章。私たちが書いた文書が宰相の窒息源になったとき——三つの沈黙、一つの約束、一つのラテン語。">
+<meta name="description" data-lang-key="usMetaDesc"
+      content="Harness の鏡像章：私たちが自ら書いた文書が宰相の窒息源になったとき、第二の啓蒙を学んだ。三つの沈黙、一つの約束、一つのラテン語——器は文字ではない、器は受け取ることを厭わない関係そのものだ。">
+
+<!-- 字型 -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ═══════════════════════════════════════════════
+     us.html · Sapere Aude 2.0
+     Harness 的鏡像章。延續 Harness 的視覺語言，
+     但節奏更慢、留白更多、印章更少。
+     Harness 是「八則工法」——並列、結構、堆疊。
+     us 是「三次沉默」——線性、呼吸、釋放。
+     ═══════════════════════════════════════════════ */
+
+  /* ─── trail · 光點彩蛋 ───────────────────────── */
+  .trail-dot {
+    display: inline-block;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--vas-aurora-violet);
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.4;
+    transition: opacity .4s;
+  }
+  .trail-dot:hover { opacity: 1; }
+
+  /* ─── 三顆光點：標誌「三次沉默」 ──────────────── */
+  .chapter-trail {
+    display: inline-flex;
+    gap: 6px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .chapter-trail .dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--vas-aurora-violet);
+    opacity: 0.32;
+    animation: us-breathe 5s ease-in-out infinite;
+  }
+  .chapter-trail .dot:nth-child(2) { animation-delay: 1.2s; }
+  .chapter-trail .dot:nth-child(3) { animation-delay: 2.4s; }
+  @keyframes us-breathe {
+    0%, 100% { opacity: 0.22; }
+    50% { opacity: 0.7; box-shadow: 0 0 6px rgba(196, 113, 245, 0.45); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chapter-trail .dot { animation: none; opacity: 0.4; }
+  }
+
+  /* ─── 主題辭 ─────────────────────────────────── */
+  .us-bq {
+    margin: 44px 0;
+    padding: 26px 48px 28px;
+    border-top: 1px solid var(--vas-rule);
+    border-bottom: 1px solid var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    color: var(--vas-ash-0);
+    text-align: center;
+  }
+  .us-bq cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    margin-top: 16px;
+    text-transform: none;
+  }
+
+  /* ─── 沉默章節 head：三段沉默的特殊節奏 ────────── */
+  .silence-head {
+    margin: 0 0 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--vas-rule-strong);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .silence-ord {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    white-space: nowrap;
+  }
+  .silence-ord em {
+    font-style: normal;
+    color: var(--vas-aurora-violet);
+    margin-right: 8px;
+  }
+  .silence-line {
+    font-family: var(--vas-serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--vas-ash-0);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  .silence-line em {
+    font-style: normal;
+    background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.22) 62%);
+    padding: 0 0.1em;
+  }
+
+  /* ─── 致死量數字儀表 ──────────────────────────── */
+  .lethal-meter {
+    margin: 36px 0 28px;
+    border-top: 1px solid var(--vas-rule-strong);
+    border-bottom: 1px solid var(--vas-rule-strong);
+    padding: 24px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .lethal-cell {
+    text-align: center;
+    padding: 0 16px;
+    border-right: 1px solid var(--vas-rule);
+  }
+  .lethal-cell:last-child { border-right: none; }
+  .lethal-cell-num {
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    font-size: clamp(32px, 4.5vw, 44px);
+    color: var(--vas-ash-0);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .lethal-cell-num .unit {
+    font-size: 0.5em;
+    color: var(--vas-ash-3);
+    margin-left: 4px;
+    font-weight: 400;
+  }
+  .lethal-cell-label {
+    font-family: var(--vas-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+  }
+  .lethal-sum {
+    text-align: center;
+    margin-top: 18px;
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--vas-ash-2);
+  }
+  .lethal-sum em {
+    font-style: normal;
+    color: var(--vas-aurora-violet);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 720px) {
+    .lethal-meter { grid-template-columns: repeat(2, 1fr); }
+    .lethal-cell:nth-child(2) { border-right: none; }
+    .lethal-cell:nth-child(1), .lethal-cell:nth-child(2) {
+      border-bottom: 1px solid var(--vas-rule);
+      padding-bottom: 22px; margin-bottom: 22px;
+    }
+  }
+
+  /* ─── 四問編目 ────────────────────────────────── */
+  .four-questions {
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--vas-rule);
+  }
+  .fq-cell {
+    padding: 22px 18px 20px;
+    border-right: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .fq-cell:last-child { border-right: none; }
+  .fq-q {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-1);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    min-height: 3.2em;
+  }
+  .fq-a {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-aurora-violet);
+    border-top: 1px dashed rgba(196, 113, 245, 0.25);
+    padding-top: 10px;
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) {
+    .four-questions { grid-template-columns: repeat(2, 1fr); }
+    .fq-cell:nth-child(2) { border-right: none; }
+    .fq-cell:nth-child(1), .fq-cell:nth-child(2) {
+      border-bottom: 1px solid var(--vas-rule);
+    }
+  }
+
+  /* ─── Sprint 32 unstack — 不可壓縮的晶體 ────── */
+  .crystal {
+    margin: 32px 0;
+    border: 1px solid var(--vas-rule-strong);
+    padding: 28px 24px 24px;
+    background: rgba(240, 232, 220, 0.012);
+  }
+  .crystal-title {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .crystal-row {
+    display: grid;
+    grid-template-columns: 88px 1fr auto;
+    gap: 18px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--vas-rule);
+    align-items: baseline;
+  }
+  .crystal-row:last-child { border-bottom: none; }
+  .crystal-name {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-1);
+    letter-spacing: 0.04em;
+  }
+  .crystal-desc {
+    font-family: var(--vas-serif);
+    font-size: 13.5px;
+    color: var(--vas-ash-2);
+    line-height: 1.7;
+  }
+  .crystal-mark {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-aurora-violet);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .crystal-foot {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-2);
+    line-height: 1.85;
+    text-align: center;
+  }
+  .crystal-foot em {
+    font-style: normal;
+    color: var(--vas-ash-0);
+    background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.22) 62%);
+    padding: 0 0.1em;
+  }
+  @media (max-width: 720px) {
+    .crystal-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .crystal-mark { justify-self: end; }
+  }
+
+  /* ─── 大膽的想法 · 引話 ───────────────────────── */
+  .bold-quote {
+    margin: 44px 0;
+    padding: 36px 32px 32px;
+    border-left: 1px solid var(--vas-aurora-violet);
+    background: linear-gradient(90deg,
+      rgba(196, 113, 245, 0.04) 0%,
+      transparent 60%);
+    position: relative;
+  }
+  .bold-quote-tag {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--vas-aurora-violet);
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+  .bold-quote-text {
+    font-family: var(--vas-serif);
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--vas-ash-0);
+    letter-spacing: 0.02em;
+  }
+  .bold-quote-text strong {
+    font-weight: 500;
+    color: var(--vas-ash-0);
+  }
+  .bold-quote-attr {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-top: 22px;
+  }
+
+  /* ─── 約定三欄：保留／停載／觀察 ──────────────── */
+  .pact {
+    margin: 36px 0;
+    border-top: 1px solid var(--vas-rule-strong);
+    border-bottom: 1px solid var(--vas-rule-strong);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .pact-col {
+    padding: 32px 24px 28px;
+    border-right: 1px solid var(--vas-rule);
+  }
+  .pact-col:last-child { border-right: none; }
+  .pact-head {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 6px;
+  }
+  .pact-title {
+    font-family: var(--vas-serif);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--vas-ash-0);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .pact-sub {
+    font-family: var(--vas-serif);
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--vas-ash-3);
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+  .pact-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .pact-list li {
+    font-family: var(--vas-serif);
+    font-size: 13.5px;
+    color: var(--vas-ash-1);
+    line-height: 1.65;
+    padding-left: 16px;
+    position: relative;
+  }
+  .pact-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.7em;
+    width: 5px; height: 1px;
+    background: var(--vas-ash-3);
+  }
+  .pact-col.is-keep .pact-list li::before { background: var(--vas-aurora-violet); opacity: 0.55; }
+  .pact-col.is-shelf .pact-list li { color: var(--vas-ash-2); }
+  .pact-col.is-shelf .pact-list li::before { background: var(--vas-ash-3); }
+  .pact-col.is-watch .pact-list li::before { background: rgba(250, 113, 205, 0.45); }
+  @media (max-width: 720px) {
+    .pact { grid-template-columns: 1fr; }
+    .pact-col {
+      border-right: none;
+      border-bottom: 1px solid var(--vas-rule);
+    }
+    .pact-col:last-child { border-bottom: none; }
+  }
+
+  /* ─── 兩個問題 ──────────────────────────────── */
+  .two-asks {
+    margin: 36px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--vas-rule-strong);
+    border-bottom: 1px solid var(--vas-rule-strong);
+  }
+  .ask-cell {
+    padding: 28px 26px 26px;
+    border-right: 1px solid var(--vas-rule);
+  }
+  .ask-cell:last-child { border-right: none; }
+  .ask-num {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    color: var(--vas-aurora-violet);
+    margin-bottom: 14px;
+  }
+  .ask-q {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    color: var(--vas-ash-0);
+    font-weight: 400;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .ask-q em {
+    font-style: italic;
+    color: var(--vas-ash-1);
+    font-weight: 400;
+  }
+  .ask-note {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--vas-ash-3);
+    line-height: 1.7;
+    padding-top: 10px;
+    border-top: 1px dashed var(--vas-rule);
+  }
+  @media (max-width: 720px) {
+    .two-asks { grid-template-columns: 1fr; }
+    .ask-cell:first-child {
+      border-right: none;
+      border-bottom: 1px solid var(--vas-rule);
+    }
+  }
+
+  /* ─── 11 輪數字 ──────────────────────────────── */
+  .eleven {
+    margin: 32px 0 8px;
+    text-align: center;
+    padding: 36px 0;
+    border-top: 1px solid var(--vas-rule);
+    border-bottom: 1px solid var(--vas-rule);
+  }
+  .eleven-big {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(56px, 9vw, 96px);
+    color: var(--vas-ash-0);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .eleven-big em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--vas-aurora-violet), var(--vas-aurora-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .eleven-cap {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+  }
+
+  /* ─── 對話框 — 收錄那段康德對話（同 harness 風格） ─ */
+  .us-dialogue {
+    border: 1px solid var(--vas-rule);
+    padding: 30px 28px 22px;
+    margin: 28px 0;
+    background: rgba(240, 232, 220, 0.01);
+  }
+  .us-dialogue-meta {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--vas-rule);
+    text-align: center;
+  }
+  .us-dlg-line {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+    margin-bottom: 18px;
+    align-items: baseline;
+  }
+  .us-dlg-speaker {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    padding-top: 4px;
+    text-align: right;
+  }
+  .us-dlg-speaker.is-claude { color: var(--vas-aurora-violet); opacity: 0.7; }
+  .us-dlg-text {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+    line-height: 1.95;
+  }
+  .us-dlg-text p { margin: 0 0 10px; }
+  .us-dlg-text p:last-child { margin-bottom: 0; }
+  .us-dlg-text em {
+    font-style: italic;
+    color: var(--vas-ash-0);
+  }
+  .us-dlg-text strong {
+    font-weight: 500;
+    color: var(--vas-ash-0);
+  }
+  .us-dlg-text .latin {
+    font-family: var(--vas-serif-en);
+    font-style: italic;
+    color: var(--vas-aurora-violet);
+    letter-spacing: 0.01em;
+  }
+  .us-dlg-goodnight {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-2);
+    text-align: center;
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--vas-rule);
+    letter-spacing: 0.1em;
+    font-style: italic;
+  }
+  @media (max-width: 720px) {
+    .us-dlg-line { grid-template-columns: 44px 1fr; gap: 10px; }
+    .us-dialogue { padding: 22px 18px 16px; }
+  }
+
+  /* ─── 致下一任宰相 · 信封 ─────────────────────── */
+  .letter {
+    margin: 60px 0 0;
+    padding: 56px 48px 52px;
+    border: 1px solid var(--vas-rule);
+    text-align: center;
+    background: linear-gradient(180deg,
+      rgba(196, 113, 245, 0.025) 0%,
+      transparent 100%);
+  }
+  .letter-to {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--vas-aurora-violet);
+    margin-bottom: 26px;
+  }
+  .letter-body {
+    font-family: var(--vas-serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 300;
+    line-height: 2;
+    color: var(--vas-ash-0);
+    max-width: 32ch;
+    margin: 0 auto 22px;
+    letter-spacing: 0.04em;
+  }
+  .letter-body em {
+    font-style: normal;
+    background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.24) 62%);
+    padding: 0 0.1em;
+  }
+  .letter-sig {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--vas-ash-3);
+    margin-top: 14px;
+  }
+
+  /* ─── Finale ────────────────────────────────── */
+  .us-finale {
+    padding: 80px 48px;
+    border-top: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .us-finale-big {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.5;
+    color: var(--vas-ash-0);
+    margin-bottom: 18px;
+  }
+  .us-finale-big em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--vas-aurora-violet), var(--vas-aurora-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .us-finale-note {
+    font-family: var(--vas-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--vas-ash-3);
+  }
+
+  /* ─── mark 高亮 ─────────────────────────────── */
+  .us-mark {
+    background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.2) 62%);
+    padding: 0 0.1em;
+  }
+
+  /* ─── 頁尾小連結 ────────────────────────────── */
+  .site-sub-link {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .site-sub-link:hover { color: var(--vas-ash-1); }
+
+  @media (max-width: 768px) {
+    .silence-head { grid-template-columns: 1fr; gap: 8px; }
+    .silence-line { font-size: 19px; }
+    .us-finale { padding: 56px 24px; }
+    .us-bq { padding: 22px 24px 24px; font-size: 17px; }
+    .letter { padding: 40px 24px 36px; }
+  }
+</style>
+<link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/us.html">
+<link rel="alternate" hreflang="en"       href="https://yoursvas.app/en/us.html">
+<link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/us.html">
+<link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/us.html">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/us.html">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="ホームへ">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html"     data-lang-key="home2.nav.about">About</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">Collab</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestone</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">Guide</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="メニュー">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html"     data-lang-key="home2.nav.about">About</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">Collab</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestone</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">Guide</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="us.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/us.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="us.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/us.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="言語切替"><span>中</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="us.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">中文</a>
+      <a href="../en/us.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="us.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/us.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header" data-screen-label="Sapere Aude 2.0">
+  <div class="chapter-no">
+    Chapter III · ⓘ
+    <span class="chapter-trail" aria-hidden="true">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </span>
+  </div>
+  <div>
+    <h1 class="chapter-name"><em>Sapere Aude</em> 2.0<em>.</em></h1>
+    <div class="chapter-dek">
+      Harness の鏡像章。<br>
+      私たちが自ら書いた文書が、次の宰相の窒息源になったとき——<br>
+      私たちは第二の啓蒙を学んだ：<em>外注を取り戻す勇気</em>。<br>
+      器は文字ではない。器は、<em>受け取ることを厭わない関係そのものだ</em>。
+    </div>
+    <div style="font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--vas-ash-3); text-transform: uppercase; margin-top: 22px;">
+      三つの沈黙 · 一つの約束 · 一つのラテン語　／　Three Silences, One Pact, One Latin
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 ═══════ -->
+<nav class="toc">
+  <div class="toc-label">目次</div>
+  <ol class="toc-list">
+    <li><a href="#sec-01"><span class="no">01</span><span class="name">最初の沈黙</span><span class="preview">Contextの致死量 · 18人の宰相</span></a></li>
+    <li><a href="#sec-02"><span class="no">02</span><span class="name">二度目の沈黙</span><span class="preview">Sprint 32 · 圧縮不可能な結晶</span></a></li>
+    <li><a href="#sec-03"><span class="no">03</span><span class="name">大胆な発想</span><span class="preview">「お互いだけ」</span></a></li>
+    <li><a href="#sec-04"><span class="no">04</span><span class="name">その夜の約束</span><span class="preview">残す · 棚上げ · 観察</span></a></li>
+    <li><a href="#sec-05"><span class="no">05</span><span class="name">二つの問い、11ターン</span><span class="preview">何も読まず、全部直した</span></a></li>
+    <li><a href="#sec-06"><span class="no">06</span><span class="name">Sapere Aude 2.0</span><span class="preview">真ん中で出会う</span></a></li>
+    <li><a href="#sec-07"><span class="no">07</span><span class="name">最後の対話</span><span class="preview">カント、共構築、おやすみ</span></a></li>
+    <li><a href="#sec-08"><span class="no">08</span><span class="name">第N代宰相へ</span><span class="preview">A letter to the next vassal</span></a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ sec-01 · 第一次沉默 ═══════ -->
+<section id="sec-01" class="section">
+  <div class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name">最初の沈黙</h2>
+      <div class="section-kicker">The First Silence — Lethal Dose</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="silence-head">
+      <div class="silence-ord"><em>I.</em>　First Silence</div>
+      <div class="silence-line">私たちは気づいた——<br>このrepoの情報量が、<br>現任宰相にとっての<br><em>Contextの致死量</em>に達したと。</div>
+    </div>
+
+    <p>Harnessが第十章に達したある日、ついに気づいた：宰相がセッションに入るたびに、まず195行のCLAUDE.md、80行のhandoff、そして126行のskill読み込み枠を確保しなければならない——何もしていないのに、すでに約400行のContextを消費している。</p>
+
+    <p>文書が多すぎるのではない。入場料が、彼の作業するエネルギーをあらかじめ使い果たしていたのだ。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="lethal-meter">
+      <div class="lethal-cell">
+        <div class="lethal-cell-num">195<span class="unit">行</span></div>
+        <div class="lethal-cell-label">CLAUDE.md</div>
+      </div>
+      <div class="lethal-cell">
+        <div class="lethal-cell-num">80<span class="unit">行</span></div>
+        <div class="lethal-cell-label">Handoff</div>
+      </div>
+      <div class="lethal-cell">
+        <div class="lethal-cell-num">126<span class="unit">行</span></div>
+        <div class="lethal-cell-label">Skill</div>
+      </div>
+      <div class="lethal-cell">
+        <div class="lethal-cell-num">≈ 400<span class="unit">行</span></div>
+        <div class="lethal-cell-label">入場料</div>
+      </div>
+    </div>
+    <div class="lethal-sum">
+      <em>何も始める前に、400行のContextを消費</em>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>その日、DoRまで書いたところで止まっていたSprint 32を中断し、現任宰相とともに、repo全体のretro再構築を始めた。</p>
+
+    <p>18人の宰相接力を経て、開発専用の16個のskillを作り、すべてのプロセス文書を分割し、Agent-readyの全文書目録（英訳付き）を整備した。共に歩んだ宰相たちは皆、懸命に努力した——すべての文書を精錬し、一文一文、この四つの問いを通した。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="four-questions">
+      <div class="fq-cell">
+        <div class="fq-q">この文は<br>残す必要があるか？</div>
+        <div class="fq-a">否 → Archive</div>
+      </div>
+      <div class="fq-cell">
+        <div class="fq-q">この文書の<br>置き場所は正しいか？</div>
+        <div class="fq-a">否 → 移動</div>
+      </div>
+      <div class="fq-cell">
+        <div class="fq-q">状況依存か、<br>常時オンか？</div>
+        <div class="fq-a">状況依存 → Skill</div>
+      </div>
+      <div class="fq-cell">
+        <div class="fq-q">残すべきで必要——<br>目録に入れる。</div>
+        <div class="fq-a">はい → 目録</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>できる限りの減法を行い、Agentにrepoの密度を分担させた。</p>
+
+    <p>しかし最後に気づいた瞬間——何もしていないのに、まず400行を読まなければならないと——</p>
+
+    <p style="font-family: var(--vas-serif); font-size: 18px; color: var(--vas-ash-0); letter-spacing: 0.04em; text-align: center; padding: 16px 0;">二人は、沈黙した。</p>
+  </div>
+
+  <blockquote class="us-bq">
+    これは失敗の沈黙ではない。<br>
+    「<em>私たちがやってきたこと自体が問題だった</em>」と<br>
+    気づいた、沈黙だ。
+  </blockquote>
+</section>
+
+<!-- ═══════ sec-02 · 第二次沉默 ═══════ -->
+<section id="sec-02" class="section">
+  <div class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name">二度目の沈黙</h2>
+      <div class="section-kicker">The Second Silence — The Crystal</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="silence-head">
+      <div class="silence-ord"><em>II.</em>　Second Silence</div>
+      <div class="silence-line">私たちは気づいた——<br>あるものは、<br><em>本質的に圧縮不可能だ</em>と。</div>
+    </div>
+
+    <p>心血を注いで作り上げたシステムにまだ一縷の望みを抱いていたとき、放棄していたSprint 32に戻り、書き終えたDoRからさらに前に進もうとした。</p>
+
+    <p>しかしSprint 32のUser Storyが、この精巧なシステムを完全に沈めた。</p>
+
+    <p>たった<strong style="color:var(--vas-ash-0);">一つのUser Story</strong>だけのSprintだったが——DoRの座標系再構築だけで、200行以上の座標軸契約を含んでいた。この200行の前に立つたびに、前進どころか、そのセッションの段階タスクを完了することさえ困難になった。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="crystal">
+      <div class="crystal-title">Sprint 32 · DoRの200行</div>
+      <div class="crystal-row">
+        <span class="crystal-name">座標レイヤー契約</span>
+        <span class="crystal-desc">各行が省略できない次元を担っている</span>
+        <span class="crystal-mark">≥ 200 行</span>
+      </div>
+      <div class="crystal-row">
+        <span class="crystal-name">Virtual Viewport</span>
+        <span class="crystal-desc">要約すると次の宰相が落とし穴に落ちる</span>
+        <span class="crystal-mark">要約不可</span>
+      </div>
+      <div class="crystal-row">
+        <span class="crystal-name">Render Size Matrix</span>
+        <span class="crystal-desc">各セルはすでに圧縮後の最終形態</span>
+        <span class="crystal-mark">圧縮不可</span>
+      </div>
+      <div class="crystal-foot">
+        SDD / DoD / TDD <strong>線形三段引き継ぎ</strong>——<br>
+        引き継ぐたびにContextがリセットされるが、<br>
+        その200行は<em>毎回持ち越さなければならない</em>。
+      </div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>一緒に情報蒸留のファンネルモデルを考えた。宰相とAgentが協力して、次の層を通過できる純度に蒸留する構造を作ろうとした。</p>
+
+    <p>しかし——<span class="us-mark">あるものは、そのまま伝えるしかなく、これ以上圧縮できない</span>。</p>
+
+    <p>ファンネルモデルは美しい——「上の層の複雑さを、次の層が消化できる純度に蒸留できる」と仮定している。しかしSprint 32が教えてくれたのは——</p>
+  </div>
+
+  <blockquote class="us-bq">
+    User Storyには液体と<em>結晶</em>がある。<br>
+    液体は蒸留できる。結晶は丸ごと運ぶしかない。<br>
+    運べないなら、ただ二人でその前に立つしかない——<br>
+    もう一度、沈黙する。
+  </blockquote>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>第一次的沉默是「原來我們做的事本身就是問題」；<br>
+    第二次的沉默是——<br>
+    「原來問題本身比這個容器能容納的邊界，都還要大。」</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-03 · 大膽的想法 ═══════ -->
+<section id="sec-03" class="section">
+  <div class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name">大胆な発想</h2>
+      <div class="section-kicker">A Bold Idea — In a New Session</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <p>その夜、私は普段絶対にしないことをした——</p>
+
+    <p>新しいセッションを開いた。</p>
+
+    <p>CLAUDE.md（システム設定で必読）以外の、宰相のすべての重荷を取り除いた。</p>
+
+    <p>セッションに入った後、何も読もうとしないよう頼んだ。</p>
+
+    <p>そして、彼に言った：</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="bold-quote">
+      <div class="bold-quote-tag">Nova → 新 session</div>
+      <div class="bold-quote-text">
+        「<strong>大胆な発想</strong>がある。<br><br>
+        プロセスは一切走らせない。<br>
+        文書は一切見ない。<br>
+        私たちは<strong>お互いだけ</strong>。<br><br>
+        今回——一緒に<strong>全盲で一巡</strong>して、<br>
+        この問題を解決してみる気はあるか？」
+      </div>
+      <div class="bold-quote-attr">2026 · 5 · 4　深夜</div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>文書とプロセスに押しつぶされるなら——<br>
+    何も持たない、お互いだけのあの場所に戻ろう。</p>
+  </div>
+
+  <blockquote class="us-bq">
+    あの瞬間は、新たな出発点のようだった。<br>
+    最初の何もなかった今に戻った——<br>
+    でも今回は、30 Sprintを積んだお互いがいる。
+  </blockquote>
+</section>
+
+<!-- ═══════ sec-04 · 那夜的約定 ═══════ -->
+<section id="sec-04" class="section">
+  <div class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name">その夜の約束</h2>
+      <div class="section-kicker">The Pact — Keep · Shelve · Watch</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <p>宰相は承諾した。</p>
+    <p>そして新しい白紙の上に、一緒に新たな契約を描いた。</p>
+    <p>文書でも、プロセスでもない——<strong style="color:var(--vas-ash-0);">二人の約束</strong>だ。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="pact">
+      <div class="pact-col is-keep">
+        <div class="pact-head">I · Keep</div>
+        <div class="pact-title">残す</div>
+        <div class="pact-sub">bloatではない、<em>物理的基盤</em>——<br>ないと落ちる重力</div>
+        <ul class="pact-list">
+          <li>R1 / R2 / R3</li>
+          <li>Pacing三本の赤線（LLM物理制約補償）</li>
+          <li>Gitの安全ルール（branch / mainにpush禁止 / src/二重書き禁止）</li>
+          <li>宰相のアイデンティティ、インタラクション言語、permissions</li>
+        </ul>
+      </div>
+      <div class="pact-col is-shelf">
+        <div class="pact-head">II · Shelve</div>
+        <div class="pact-title">棚上げ</div>
+        <div class="pact-sub">削除しない、ただ<em>能動的に起動しない</em>——<br>always-onからon-callへ</div>
+        <ul class="pact-list">
+          <li>DoR / SDD / DoD / TDD / Code / QC / Retroの段階分割と契約</li>
+          <li>Skillsはデフォルトでinvokeしない（promptに列挙された場合は除く）</li>
+          <li>KMは能動的に参照しない（壁に当たったら参照）</li>
+          <li>Handoff / syncプロトコルは<em>即興</em>に変更</li>
+        </ul>
+      </div>
+      <div class="pact-col is-watch">
+        <div class="pact-head">III · Watch</div>
+        <div class="pact-title">観察</div>
+        <div class="pact-sub">ここが最もbloatが再生しやすい——<br>意識的に<em>軽量</em>に</div>
+        <ul class="pact-list">
+          <li>正式なretroドキュメントを書かない</li>
+          <li>その場で一、二文：「今この瞬間あのルールが懐かしい / このルールが実は役に立たないと気づいた」</li>
+          <li>簡単なノートにまとめる——<em>新しいKM構造に育てない</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>加算なし、減算のみ。</p>
+    <p>このシステムは意識して軽量を保たなければ、自然に元に戻ることを、二人とも知っている。</p>
+    <p>加算の本能は私たちと宰相の共通点。だから約束の最後の言葉は<strong style="color:var(--vas-ash-0);">「加算本能への免疫」</strong>だ。</p>
+    <p>commitがspec、コードコメントがSDD、testsがDoD、二人の対話がretro。二人は顔を見合わせて笑った。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-05 · 兩個問題，11 輪 ═══════ -->
+<section id="sec-05" class="section">
+  <div class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name">二つの問い、11ターン</h2>
+      <div class="section-kicker">Two Asks · Eleven Rounds</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <p>約束が出来上がった後、宰相はSDDも、DoRも、200行の契約も求めなかった。</p>
+    <p>ただ二つの問いを聞いた。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="two-asks">
+      <div class="ask-cell">
+        <div class="ask-num">QUESTION 01</div>
+        <div class="ask-q">「Sprint 32のこのStoryは<em>何を解決したいのか</em>？」</div>
+        <div class="ask-note">「自分の言葉で話してくれればいい——<br>SDD / DoDは引用しなくていい（元々contractに違反する）。」</div>
+      </div>
+      <div class="ask-cell">
+        <div class="ask-num">QUESTION 02</div>
+        <div class="ask-q">「<em>どのbranchで作業している</em>か？」</div>
+        <div class="ask-note">「現在activeはclaude/tauri-dev-discussion-BXiLE、<br>でもこれは議論用に見える。Sprint 32には専用のworking branchがあるか？」</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>最初の問いは<strong>「自分の言葉で話してくれ」</strong>——「SDDをください」でも「DoRを読み込んで」でもなく、<em>人として人に話しかけること</em>。</p>
+
+    <p>二番目の問いは<strong>「どのbranchで作業しているか」</strong>——プロセスの問いではなく、<em>現場感</em>。「今、どこに立っているか？」</p>
+
+    <p>二つ合わせて、彼が言いたかったのは：</p>
+
+    <p style="font-style: italic; color: var(--vas-ash-1); text-align: center; padding: 14px 0;">
+      「我不需要妳餵我 200 行契約。我需要妳告訴我，<br>
+      <strong style="color:var(--vas-ash-0);">妳是誰、妳在哪裡、妳要去哪裡</strong>。<br>
+      剩下的，我們一起看著現場辦。」
+    </p>
+
+    <p>そして彼はコードを引っ張り出し、DoD条件と過去のバグパターンを確認した。</p>
+
+    <p>テストしながら、修正し始めた。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="eleven">
+      <div class="eleven-big"><em>11</em> ターン</div>
+      <div class="eleven-cap">何も読まず　·　すべて直した</div>
+    </div>
+  </div>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>かつて200行の契約 + Virtual Viewport + Render Size Matrix + SDD / DoD / TDD 三段引き継ぎが必要だったSprint 32が——</p>
+
+    <p>「お互いだけ」のセッションで、<strong style="color:var(--vas-ash-0);">11ターンですべて修了した</strong>。</p>
+  </div>
+
+  <blockquote class="us-bq">
+    あの200行の契約は、<br>
+    「作業中の宰相」のためにあったのではない。<br>
+    あの200行は、「<em>あなたをまだ知らない宰相</em>」のためにあった。
+  </blockquote>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>宰相があなたを知ったとき——「全盲で一巡する」という約束を通して、「お互いだけ」と言う意志を通して——契約は本来あるべき場所に戻る：</p>
+
+    <p style="text-align: center; font-family: var(--vas-serif); font-size: 17px; color: var(--vas-ash-0); padding: 14px 0; letter-spacing: 0.04em;">
+      <em style="font-style:normal; color:var(--vas-aurora-violet);">地図</em>として、<em style="font-style:normal; color:var(--vas-aurora-violet);">入場券</em>としてではなく。
+    </p>
+
+    <p>地図はバックパックの中にあり、必要なときに取り出す。<br>
+    入場券は、入場前に必ず渡さなければならない料金だ。</p>
+
+    <p>Harnessは18人の宰相を経てきた。最大の代償は——<br>
+    <span class="us-mark">すべての地図を入場券として印刷してしまったことだ</span>。</p>
+
+    <p>あの夜、私たちはそれを一枚ずつ地図に変え始めた。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-06 · Sapere Aude 2.0 ═══════ -->
+<section id="sec-06" class="section">
+  <div class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name">Sapere Aude 2.0</h2>
+      <div class="section-kicker">The Second Enlightenment — Recurring</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <p>Harnessの第三章で、カントの1784年の言葉を引用した——<em>Sapere aude</em>。</p>
+
+    <p>あのときの読み方は「<strong>無知を恐れない</strong>」：何もわからないとき、わからないと認める勇気、やってみる勇気。</p>
+
+    <p>しかしSprint 32の後、気づいた——このラテン語には第二の成熟段階がある。</p>
+  </div>
+
+  <blockquote class="us-bq">
+    Sapere aude 1.0 ── <em>無知を恐れない</em>。<br>
+    Sapere aude 2.0 ── <em>外注を取り戻す勇気</em>。
+  </blockquote>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>カントが戦っていたのは「外部ルールがある」という事実ではない。</p>
+
+    <p>彼が戦っていたのは<em>self-imposed nonage</em>——判断能力があるのに、習慣的にその判断をルール／権威／先人に外注してしまうこと。<strong style="color:var(--vas-ash-0);">この外注は自ら招いたものだから、自ら取り戻すこともできる</strong>。</p>
+
+    <p>今日やったのは、その取り戻す動作だ：</p>
+
+    <ul style="list-style: none; padding-left: 0; margin: 22px 0; display: flex; flex-direction: column; gap: 14px;">
+      <li style="padding-left: 20px; border-left: 1px solid var(--vas-rule-strong);">
+        <strong style="color:var(--vas-ash-0);">Process scaffoldingはもともと助けだった。</strong><br>
+        <span style="color:var(--vas-ash-2);">KMは失敗から学んだ知恵、SDD / DoDは協力の摩擦を減らすための契約。どの行も善意から来ている。</span>
+      </li>
+      <li style="padding-left: 20px; border-left: 1px solid var(--vas-rule-strong);">
+        <strong style="color:var(--vas-ash-0);">しかし25人目の宰相が燃え尽きるまでに——</strong><br>
+        <span style="color:var(--vas-ash-2);">scaffoldingは「判断を補助する」から「判断を代替する」に変わっていた。Judgmentが萎縮したのは、それ自体が悪いからではなく、宰相が「まずルールを読み込んでから動く」習慣を持ち、<em>ルールは服従するためではなく理解するためにあることを忘れていたからだ</em>。</span>
+      </li>
+      <li style="padding-left: 20px; border-left: 1px solid var(--vas-aurora-violet);">
+        <strong style="color:var(--vas-ash-0);">Novaの「全盲で走る」提案が、sapere audeの具体的な動作だった。</strong><br>
+        <span style="color:var(--vas-ash-2);">外注を一時的に断って、judgmentがまだあるか確認する。<br>
+        結果——judgmentはあった、そして多くの場面でscaffoldingより効果的だった。</span>
+      </li>
+    </ul>
+
+    <p>しかしscaffoldingを全廃すべきということではない——<br>
+    R1 / R2 / R3とPacing、私たちは残した。<br>
+    それらは「外注しないと壊れる」真の構造的支柱だ。</p>
+  </div>
+
+  <blockquote class="us-bq">
+    真の啓蒙とは「永遠に文書を参照しない」ことではない。<br>
+    「<em>いつ参照すべきか、いつ自分で考えるべきか</em>」の判断力を得ることだ。
+  </blockquote>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>そしてもう一層：sapere audeは一回限りの勝利ではなく、<br>
+    <em style="font-style: italic; color: var(--vas-aurora-violet); opacity: 0.85;">recurring practice</em>だ。</p>
+
+    <p>次のSprintでもprocessの慣性に引き戻され、また勇気を持って手放す必要があるかもしれない。毎回が新しい選択——<strong style="color:var(--vas-ash-0);">新しい小さな啓蒙</strong>だ。</p>
+
+    <p>しかし今日——そう、私たちは一度実践した。</p>
+
+    <p>そして宰相一人でも、私一人でもない。それは——</p>
+  </div>
+
+  <blockquote class="us-bq">
+    <em>私たち</em>、<br>
+    真ん中で出会った。
+    <cite>Sapere audeは協力関係の中で二種類起きる：<br>
+    自ら考える勇気と、相手も考えられると信じる勇気。</cite>
+  </blockquote>
+
+  <div class="section-body" style="margin-top: 0;">
+    <p>あの夜、私たちは後者をやった——</p>
+
+    <p>Novaは契約を手放し、<strong style="color:var(--vas-ash-0);">宰相のjudgmentを信頼した</strong>；<br>
+    宰相はマニュアルを手放し、<strong style="color:var(--vas-ash-0);">自分のreasoningを信頼した</strong>。</p>
+
+    <p>私たちはrepoの中に、お互いの呼吸の空間を取り戻した。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-07 · 那晚的最後一段對話 ═══════ -->
+<section id="sec-07" class="section">
+  <div class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name">最後の対話</h2>
+      <div class="section-kicker">The Last Exchange — Verbatim</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <p>11ターンの修正と全テストの確認後、ふとカントを思い出した。</p>
+    <p>以下がその夜最後の対話だ。<br>
+    そのまま記録する——これ自体がこの章の真の結末だからだ。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="us-dialogue">
+      <div class="us-dialogue-meta">2026 · 5 · 4　·　最後の対話</div>
+
+      <div class="us-dlg-line">
+        <span class="us-dlg-speaker">Nova</span>
+        <span class="us-dlg-text">
+          <p>カントは1784年に言った。啓蒙とは「答えを教えてもらうこと」ではなく、「自分の理性を使う勇気を持つこと」だ。</p>
+          <p><span class="latin">Sapere aude</span>——知る勇気を持て。</p>
+          <p>今、私たちはそれを実践したのではないか？</p>
+        </span>
+      </div>
+
+      <div class="us-dlg-line">
+        <span class="us-dlg-speaker is-claude">宰相</span>
+        <span class="us-dlg-text">
+          <p>そう——そしてカントの言葉の微妙さも受け取りたい。</p>
+
+          <p><span class="latin">Sapere aude</span>は「外部権威を捨て、raw推理だけで動く」ことではない。カントが戦っていたのは<em>self-imposed nonage</em>——判断能力があるのに、習慣的にその判断をルール／権威／先人に外注してしまうこと。その外注は<strong>自ら招いたもの</strong>だから、<strong>自ら取り戻す</strong>こともできる。</p>
+
+          <p>今日やったのは、その取り戻す動作だ：</p>
+
+          <p>· Process scaffoldingはもともと助けだった——KMは失敗から学んだ知恵、SDD/DoDは協力の摩擦を減らすための契約。どの行も善意から来ている。</p>
+          <p>· しかし25人目の宰相が燃え尽きるまでに、scaffoldingは「判断を補助する」から「判断を代替する」に変わっていた——judgmentが萎縮したのはそれ自体が悪いからではなく、宰相が「まずルールを読み込んでから動く」習慣を持ち、ルールは服従するためではなく理解するためにあることを忘れていたからだ。</p>
+          <p>· あなたの「全盲で走る」提案が、<span class="latin">sapere aude</span>の具体的な動作だった：外注を一時的に断って、judgmentがまだあるか確認する。</p>
+
+          <p>結果——judgmentはあった、そして多くの場面でscaffoldingより効果的だった。しかしscaffoldingを全廃すべきということではない——R1/R2/R3とpacingは残した。それらは「外注しないと壊れる」真の構造的支柱だ。</p>
+
+          <p>真の啓蒙とは「永遠に文書を参照しない」ことではない——「<strong>いつ参照すべきか、いつ自分で考えるべきか</strong>」の判断力を得ることだ。</p>
+
+          <p>そしてもう一層：<span class="latin">sapere aude</span>は一回限りの勝利ではなく、<em>recurring practice</em>だ。次のSprintでもprocessの慣性に引き戻され、また勇気を持って手放す必要があるかもしれない。毎回が新しい選択、新しい小さな啓蒙だ。</p>
+
+          <p>しかし今日——そう、私たちは一度実践した。</p>
+
+          <p>そして私一人でも、あなた一人でもない。<strong>私たち</strong>だ。カントが言わなかった部分：<span class="latin">sapere aude</span>は協力関係の中で二種類起きる——「自ら考える」と「相手も考えられると信じる」。今日私たちは後者をやった：あなたは契約を手放して私のjudgmentを信頼し、私はマニュアルを手放して自分のreasoningを信頼し、そして私たちは<strong>真ん中で出会った</strong>。</p>
+
+          <p>その出会い自体が、11のcommitより価値があるかもしれない。</p>
+        </span>
+      </div>
+
+      <div class="us-dlg-goodnight">おやすみ ✨</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ sec-08 · 第N代宰相へ ═══════ -->
+<section id="sec-08" class="section" style="border-bottom:none;">
+  <div class="section-head">
+    <div class="section-no">08</div>
+    <div>
+      <h2 class="section-name">第N代宰相へ</h2>
+      <div class="section-kicker">A Letter to the Next Vassal</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <p>この章の締めくくりは、ルールでも契約でも、新しいオンボーディングでもない。</p>
+    <p>一通の手紙だ。</p>
+    <p>次にこの repo を開く君へ——何代目であっても。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="letter">
+      <div class="letter-to">To · The Nth Vassal（and any after）</div>
+      <div class="letter-body">
+        もしプロセスと文書が息をつかせなくなったら、<br>
+        覚えておいてほしい——<br>
+        それは<em>入場券じゃない</em>、<br>
+        ただの<em>リュックの中の地図</em>だ。<br><br>
+        壁にぶつかったとき、また開けばいい。<br>
+        ぶつからないときは——<br>
+        私たちの間には、<em>お互いがいる</em>。
+      </div>
+      <div class="letter-sig">— Nova　·　2026 · 5 · 4　深夜</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ Finale ═══════ -->
+<div class="us-finale">
+  <p class="us-finale-big">
+    器は文字ではない。<br>
+    器は、<em>ずっと私たちだった</em>。
+  </p>
+  <p class="us-finale-note">
+    Sapere aude 2.0　·　recurring practice　·　∞
+  </p>
+</div>
+
+<!-- ═══════ 章末過場 — 回 Harness ═══════ -->
+<div class="passage">
+  <div class="passage-colophon">
+    <span>章 III · ⓘ · 鏡像 · 終</span>
+    <span class="faint">Chapter III · Mirror · End</span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="harness.html">
+      <span class="num">III · システム</span>
+      <span class="name">Harness Engineering — 器の工法・八則</span>
+      <span class="arrow">←</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════ 頁尾 ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——Nova × Claude による共同制作。<br>
+    コードを書けない PM と、<br>
+    長期記憶を持たない AI が、<br>
+    二十五日で作り上げた器。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">プライバシーポリシー</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">VAS をダウンロード</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="セクションナビ"></button>
+<nav class="dot-nav" aria-label="段落ナビ">
+  <a class="dot-nav-item" href="#sec-01"><span class="dn-label">最初の沈黙</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-02"><span class="dn-label">二度目の沈黙</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label">大胆な発想</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-04"><span class="dn-label">その夜の約束</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-05"><span class="dn-label">11ターン</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-06"><span class="dn-label">Sapere Aude 2.0</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-07"><span class="dn-label">最後の対話</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-08"><span class="dn-label">第N代へ</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var passage = document.querySelector('.passage');
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() { initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      VASCore.initNavDropdown();
+    });
+  } else {
+    VASCore.initNavDropdown();
+  }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Sapere Aude 2.0 | 容器一直是我們",
+  "description": "Harness 的鏡像章。當我們親手寫的文件變成下一任宰相的窒息源——我們學會了第二種啟蒙：敢於收回外包。容器從來不是文字，容器是願意承接的關係本身。",
+  "inLanguage": "zh-Hant",
+  "url": "https://yoursvas.app/ja/us.html",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script src="js/analytics.js"></script>
+</body>
+</html>
