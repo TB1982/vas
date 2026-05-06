@@ -305,7 +305,7 @@
   .shrine-prose .mark { margin-bottom: 20px; }
   .shrine-vessel {
     grid-column: 1; grid-row: 2;
-    min-height: auto;
+    min-height: 50svh;
     margin-top: 15px;
     padding-bottom: 64px;
     align-items: flex-end;
