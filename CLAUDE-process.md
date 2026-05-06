@@ -67,6 +67,14 @@ English headings can echo when layout reflows — e.g., a page-level `<title>` o
 **4. Horizontal nav overflow on mobile**
 English labels are typically 1.5–2× wider than their Chinese equivalents. Any horizontal button row (language switcher, nav links, chip rows) must be mentally tested at 375px with full English text before committing. If total width exceeds ~320px, redesign for wrapping or abbreviation.
 
+**5. VAS 文案掃「但」** <a id="vas-copy-but"></a>
+
+「但」在 Nova 個人書寫中有正確的位置：當前後句構成真正的邏輯對立或轉折時，「但」是精確的連接詞，給讀者一個緩衝，避免前句的重量直接壓在後句上。
+
+VAS 的器物語氣不適用這個邏輯。「謝謝你走進來，但請繼續探索」——這個「但」在替前一句道歉，彷彿感謝的誠意需要被轉折掉。器物不道歉，不替自己的語氣找出口。
+
+掃描原則：若拿掉「但」後句子仍然完整、語氣仍然流動，就應該拿掉。只有在移除後句意思改變（真正的對立：「這樣做有效，但成本很高」），「但」才是必要的。
+
 ---
 
 ## Repository Structure
