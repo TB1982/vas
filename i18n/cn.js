@@ -933,7 +933,7 @@ harnessBtn: '阅读系统思维 →',
       'ch3.prose2':    '但两人对 VAS 的标准从未因准备释出而急就章。',
       'ch3.prose3':    '对外第一版的版号不是 v1.0，是 <strong>v3.43</strong>。<br>这个数字本身就是一个叙事——<br><strong>VAS 在被看见之前，已经跑了很久</strong>。',
 
-      'archive.electron': 'Electron 完整编年 · 83 条',
+      'archive.electron': 'Electron 完整编年 · 84 条',
 
       'era1h.title':   '<em>搬家</em> ——<br>VAS 与官网都长到可以独立存在了。',
       'era1h.sub':     'Electron 因为 Tauri 的商业考量一同进了 private repo；网站因为数据丰满自立门户。',
@@ -1000,7 +1000,7 @@ harnessBtn: '阅读系统思维 →',
       'ch10.pullquote': '这一天，<em>网站终于也成了 Milestone</em> 的一部分。<br>沉默的背景音乐，第一次被列入演奏曲目。',
       'ch10.prose3':    '从今而后，由里到外都是 VAS 的形状。',
 
-      'archive.tauri':  'Tauri 完整编年 · 30 个 Sprint',
+      'archive.tauri':  'Tauri 完整编年 · 33 个 Sprint',
       'archive.web':    'Website 编年 · 三个断点 + 在场',
 
       'colophon.left':  'milestone · N° 01<br>十章 · 记于 2026 · 04 · 24',

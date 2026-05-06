@@ -1054,7 +1054,7 @@
       'ch3.prose2':    'But neither of us ever let the pressure of release lower our standard for VAS.',
       'ch3.prose3':    'The version number of the first public build was not v1.0 — it was <strong>v3.43</strong>.<br>That number is itself a narrative —<br><strong>VAS had been running for a long time before anyone saw it</strong>.',
 
-      'archive.electron': 'Complete Electron Chronicle · 83 entries',
+      'archive.electron': 'Complete Electron Chronicle · 84 entries',
 
       'era1h.title':   '<em>The Migration</em> ——<br>VAS and the site had both grown enough to stand on their own.',
       'era1h.sub':     'Electron moved to a private repo for commercial reasons around Tauri; the site spun out because it had grown too full to share a home.',
@@ -1121,7 +1121,7 @@
       'ch10.pullquote': 'That day, <em>the site finally became part of Milestone</em>.<br>The silent background music, listed on the programme for the first time.',
       'ch10.prose3':    'From now on, inside and out — it is all the shape of VAS.',
 
-      'archive.tauri':  'Complete Tauri Chronicle · 30 Sprints',
+      'archive.tauri':  'Complete Tauri Chronicle · 33 Sprints',
       'archive.web':    'Website Chronicle · Three Breakpoints + Presence',
 
       'colophon.left':  'milestone · N° 01<br>Ten Chapters · Recorded 2026 · 04 · 24',

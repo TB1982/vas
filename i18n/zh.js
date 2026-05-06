@@ -821,7 +821,7 @@
       'ch3.prose2':    '但兩人對 VAS 的標準從未因準備釋出而急就章。',
       'ch3.prose3':    '對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>這個數字本身就是一個敘事——<br><strong>VAS 在被看見之前，已經跑了很久</strong>。',
 
-      'archive.electron': 'Electron 完整編年 · 83 條',
+      'archive.electron': 'Electron 完整編年 · 84 條',
 
       'era1h.title':   '<em>搬家</em> ——<br>VAS 與官網都長到可以獨立存在了。',
       'era1h.sub':     'Electron 因為 Tauri 的商業考量一同進了 private repo；網站因為資料豐滿自立門戶。',
@@ -888,7 +888,7 @@
       'ch10.pullquote': '這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>沉默的背景音樂，第一次被列入演奏曲目。',
       'ch10.prose3':    '從今而後，由裡到外都是 VAS 的形狀。',
 
-      'archive.tauri':  'Tauri 完整編年 · 30 個 Sprint',
+      'archive.tauri':  'Tauri 完整編年 · 33 個 Sprint',
       'archive.web':    'Website 編年 · 三個斷點 + 在場',
 
       'colophon.left':  'milestone · N° 01<br>十章 · 記於 2026 · 04 · 24',
