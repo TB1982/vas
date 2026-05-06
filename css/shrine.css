@@ -313,7 +313,7 @@
   .shrine-vessel img { width: 58%; }
   .shrine-preface { grid-row: 3; margin-top: 24px; padding: 28px 24px; gap: 12px; }
   .shrine-preface-name { font-size: clamp(20px, 5vw, 26px); }
-  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 4; }
+  .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 4; padding-top: 0; }
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
   .shrine-gate:nth-last-child(-n+2) { border-bottom: none; }
