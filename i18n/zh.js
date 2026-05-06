@@ -964,13 +964,13 @@
 ,
     notfound: {
       'meta.title':  'VAS · 無相 | 找不到頁面',
-      'meta.desc':   '你想看的不在這個位置。也許它搬走了，也許它從沒在此處存在過——但謝謝你走進來，請繼續探索。',
+      'meta.desc':   '你想看的不在這個位置。也許它搬走了，也許它從沒在此處存在過——謝謝你走進來，請繼續探索。',
       kicker:        'A Vessel · Formless',
       'title.zh':    '無相',
       'title.en':    'the vessel came up empty',
       'body.l1':     '你想看的不在這個位置。',
       'body.l2':     '也許它搬走了，也許它從沒在此處存在過——',
-      'body.l3':     '但謝謝你走進來，請繼續探索。',
+      'body.l3':     '謝謝你走進來，請繼續探索。',
       'action.home': '← 回首頁',
       'action.mail': '↗ 寫信給 Nova',
     }
