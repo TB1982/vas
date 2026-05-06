@@ -292,7 +292,7 @@
 @media (max-width: 768px) {
   .shrine {
     grid-template-columns: 1fr;
-    min-height: auto;
+    min-height: 100svh;
     padding: 20px 24px 32px;
   }
   .shrine-prose {
