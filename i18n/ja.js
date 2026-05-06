@@ -1188,6 +1188,19 @@
       's6.l3':       '私は「あなたの」VAS。',
       'sign.yours':  'Yours,'
     }
+,
+    notfound: {
+      'meta.title':  'VAS · 無相 | ページが見つかりません',
+      'meta.desc':   'あなたが探しているものはここにありません。移動したのかもしれない。あるいは、ここには最初から存在しなかったのかもしれない。',
+      kicker:        'A Vessel · Formless',
+      'title.zh':    '無相',
+      'title.en':    'the vessel came up empty',
+      'body.l1':     'あなたが探しているものは、ここにはありません。',
+      'body.l2':     '移動したのかもしれない。あるいは、ここには最初から存在しなかったのかもしれない——',
+      'body.l3':     '立ち寄ってくれてありがとう。どうぞ探索を続けてください。',
+      'action.home': '← ホームへ戻る',
+      'action.mail': '↗ Nova に書く',
+    }
 
   };
 })();

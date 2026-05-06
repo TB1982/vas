@@ -1073,6 +1073,19 @@ harnessBtn: '阅读系统思维 →',
       's6.l3':       '我是「你的」VAS。',
       'sign.yours':  'Yours,'
     }
+,
+    notfound: {
+      'meta.title':  'VAS · 无相 | 页面未找到',
+      'meta.desc':   '你想看的不在这个位置。也许它搬走了，也许它从没在此处存在过——但谢谢你走进来，请继续探索。',
+      kicker:        'A Vessel · Formless',
+      'title.zh':    '无相',
+      'title.en':    'the vessel came up empty',
+      'body.l1':     '你想看的不在这个位置。',
+      'body.l2':     '也许它搬走了，也许它从没在此处存在过——',
+      'body.l3':     '但谢谢你走进来，请继续探索。',
+      'action.home': '← 回首页',
+      'action.mail': '↗ 写信给 Nova',
+    }
 
   };
 

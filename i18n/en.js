@@ -1194,6 +1194,19 @@
       's6.l3':       'I am "yours," VAS.',
       'sign.yours':  'Yours,'
     }
+,
+    notfound: {
+      'meta.title':  'VAS · Formless | Page Not Found',
+      'meta.desc':   "What you're looking for isn't here. Perhaps it moved, perhaps it never existed in this form — but thank you for coming in. Please keep exploring.",
+      kicker:        'A Vessel · Formless',
+      'title.zh':    '無相',
+      'title.en':    'the vessel came up empty',
+      'body.l1':     "What you're looking for isn't at this location.",
+      'body.l2':     'Perhaps it moved. Perhaps it never existed here —',
+      'body.l3':     'But thank you for stepping in. Please keep exploring.',
+      'action.home': '← Back to Home',
+      'action.mail': '↗ Write to Nova',
+    }
 
   };
 })();
