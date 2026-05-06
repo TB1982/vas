@@ -172,4 +172,42 @@ img.height = 1080;
 
 ---
 
+## 8. 手機版 shrine 序章推不下視口（2026-05）
+
+**症狀**
+首頁 shrine 區塊在 iPhone 16 上，「0 · 序章」門仍出現在第一屏視口內，達不到設計意圖（序章應沉到捲軸下）。前後三輪才解決。
+
+**根本原因（三輪疊加）**
+
+| 輪次 | 改動 | 為何不夠 |
+|---|---|---|
+| 1 | `.shrine { min-height: 100svh }` | shrine 內容已 ~927px > 100svh (~660px)，下限不再起作用 |
+| 2 | `grid-template-rows: auto 1fr auto auto` | 內容超過視口時沒有「剩餘空間」可分配給 1fr |
+| 3 | `.shrine-vessel { min-height: 50svh }` ✓ | 強制 vessel row 拿到視口固定佔比 |
+
+iPhone 16 視口 100svh ≈ 660px；shrine 內容（題辭 219 + 瓶子 304 + 序章 140 + 四門 212 + padding 52 ≈ 927px）已超過視口 270px。`min-height` 是下限不是上限，`1fr` 分配剩餘空間——兩個前提都失效，必須再加一層強制下限。
+
+**最終解法**
+
+```css
+@media (max-width: 768px) {
+  .shrine {
+    grid-template-rows: auto 1fr auto auto;
+    min-height: 100svh;          /* 視口大時撐底 */
+  }
+  .shrine-vessel {
+    min-height: 50svh;            /* 視口小時強制下限 */
+  }
+}
+```
+
+三層各司其職、互不衝突：100svh 處理大視口（iPad mini 直立 1024px）、1fr 處理有剩餘空間時的分配、50svh 處理視口被內容超過時的下限。前兩輪不是錯解，是 fallback 層——刪了反而會在大視口失效。
+
+**規則**
+- `min-height: 100svh` + `1fr` 的組合假設「內容 ≤ 視口」。若內容會超過視口，1fr 拿不到空間，必須再給強制 `Xsvh` 下限。
+- 手機 row 高度的真實 fallback 是「佔視口比例」（`svh`），不是「佔剩餘比例」（`1fr`）。
+- 修 RWD 時先估算「內容總高 vs 視口高」的差距，再決定要靠 min-height、1fr、還是強制 svh。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*
