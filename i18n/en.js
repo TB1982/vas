@@ -1203,7 +1203,7 @@
       'title.en':    'the vessel came up empty',
       'body.l1':     "What you're looking for isn't at this location.",
       'body.l2':     'Perhaps it moved. Perhaps it never existed here —',
-      'body.l3':     'Thank you for stepping in. Please keep exploring.',
+      'body.l3':     'Feel free to look around.',
       'action.home': '← Back to Home',
       'action.mail': '↗ Write to Nova',
     }
