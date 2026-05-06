@@ -970,7 +970,7 @@
       'title.en':    'the vessel came up empty',
       'body.l1':     '你想看的不在這個位置。',
       'body.l2':     '也許它搬走了，也許它從沒在此處存在過——',
-      'body.l3':     '謝謝你走進來，請繼續探索。',
+      'body.l3':     '謝謝你走進來，請隨意晃晃。',
       'action.home': '← 回首頁',
       'action.mail': '↗ 寫信給 Nova',
     }

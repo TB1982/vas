@@ -1082,7 +1082,7 @@ harnessBtn: '阅读系统思维 →',
       'title.en':    'the vessel came up empty',
       'body.l1':     '你想看的不在这个位置。',
       'body.l2':     '也许它搬走了，也许它从没在此处存在过——',
-      'body.l3':     '谢谢你走进来，请继续探索。',
+      'body.l3':     '谢谢你走进来，请随意晃晃。',
       'action.home': '← 回首页',
       'action.mail': '↗ 写信给 Nova',
     }
