@@ -821,7 +821,7 @@
       'ch3.prose2':    '但兩人對 VAS 的標準從未因準備釋出而急就章。',
       'ch3.prose3':    '對外第一版的版號不是 v1.0，是 <strong>v3.43</strong>。<br>這個數字本身就是一個敘事——<br><strong>VAS 在被看見之前，已經跑了很久</strong>。',
 
-      'archive.electron': 'Electron 完整編年 · 83 條',
+      'archive.electron': 'Electron 完整編年 · 84 條',
 
       'era1h.title':   '<em>搬家</em> ——<br>VAS 與官網都長到可以獨立存在了。',
       'era1h.sub':     'Electron 因為 Tauri 的商業考量一同進了 private repo；網站因為資料豐滿自立門戶。',

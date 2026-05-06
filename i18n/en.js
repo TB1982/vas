@@ -1054,7 +1054,7 @@
       'ch3.prose2':    'But neither of us ever let the pressure of release lower our standard for VAS.',
       'ch3.prose3':    'The version number of the first public build was not v1.0 — it was <strong>v3.43</strong>.<br>That number is itself a narrative —<br><strong>VAS had been running for a long time before anyone saw it</strong>.',
 
-      'archive.electron': 'Complete Electron Chronicle · 83 entries',
+      'archive.electron': 'Complete Electron Chronicle · 84 entries',
 
       'era1h.title':   '<em>The Migration</em> ——<br>VAS and the site had both grown enough to stand on their own.',
       'era1h.sub':     'Electron moved to a private repo for commercial reasons around Tauri; the site spun out because it had grown too full to share a home.',

@@ -1048,7 +1048,7 @@
       'ch3.prose2':    'しかし二人が VAS に求める水準は、リリース前だからといって変わらなかった。',
       'ch3.prose3':    '世に出た最初のバージョン番号は v1.0 ではなく、<strong>v3.43</strong> だった。<br>この数字そのものが一つの語り——<br><strong>VAS は見られる前から、ずっと走り続けていた</strong>。',
 
-      'archive.electron': 'Electron 完全年代記 · 83 件',
+      'archive.electron': 'Electron 完全年代記 · 84 件',
 
       'era1h.title':   '<em>移転</em> ——<br>VAS もサイトも、自立できるほど育っていた。',
       'era1h.sub':     'Electron は Tauri の商業的な理由で private repo へ；サイトはデータが十分に蓄積されて独立した。',

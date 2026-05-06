@@ -933,7 +933,7 @@ harnessBtn: '阅读系统思维 →',
       'ch3.prose2':    '但两人对 VAS 的标准从未因准备释出而急就章。',
       'ch3.prose3':    '对外第一版的版号不是 v1.0，是 <strong>v3.43</strong>。<br>这个数字本身就是一个叙事——<br><strong>VAS 在被看见之前，已经跑了很久</strong>。',
 
-      'archive.electron': 'Electron 完整编年 · 83 条',
+      'archive.electron': 'Electron 完整编年 · 84 条',
 
       'era1h.title':   '<em>搬家</em> ——<br>VAS 与官网都长到可以独立存在了。',
       'era1h.sub':     'Electron 因为 Tauri 的商业考量一同进了 private repo；网站因为数据丰满自立门户。',
