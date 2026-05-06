@@ -317,6 +317,7 @@
   .shrine-gate   { border-bottom: 1px solid var(--vas-rule); }
   .shrine-gate:nth-child(2) { border-right: none; }
   .shrine-gate:nth-last-child(-n+2) { border-bottom: none; }
+  .shrine-gate:nth-child(-n+2) { padding-bottom: 28px; }
   .shrine-vessel .shrine-colophon { left: 0; right: auto; bottom: 8px; }
   .shrine-gate-body { flex-direction: column; gap: 4px; }
   .shrine-gate .echo { text-align: left; white-space: normal; }
