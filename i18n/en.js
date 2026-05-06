@@ -394,7 +394,7 @@
       heroTagline: 'You have to work very hard to make it look effortless.',
       heroDesc: 'A record of design decisions made during VAS development: choices that never appeared in the feature list, yet shaped the feel of the product. Each one is about rebuilding the relationship between people and their tools.',
       i1Title: 'No perfect human-AI pair — but a complete collaboration',
-      i1p1: 'VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We chose not to keep pushing for a perfect tool.',
+      i1p1: 'VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We simply chose not to keep pushing for a perfect tool.',
       i1p2: 'I wanted recognition errors to be more than just a tool failure — to become a handoff point for collaboration.',
       i1p3: 'We made the privacy mosaic a floating layer with adjustable size: wherever OCR falls short, the user steps in manually.',
       i1p4: 'A recognition error stops being a "mistake" — it becomes a division of labour. The tool\'s imperfection leaves the user\'s control intact.',
