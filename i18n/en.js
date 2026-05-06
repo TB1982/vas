@@ -1121,7 +1121,7 @@
       'ch10.pullquote': 'That day, <em>the site finally became part of Milestone</em>.<br>The silent background music, listed on the programme for the first time.',
       'ch10.prose3':    'From now on, inside and out — it is all the shape of VAS.',
 
-      'archive.tauri':  'Complete Tauri Chronicle · 30 Sprints',
+      'archive.tauri':  'Complete Tauri Chronicle · 33 Sprints',
       'archive.web':    'Website Chronicle · Three Breakpoints + Presence',
 
       'colophon.left':  'milestone · N° 01<br>Ten Chapters · Recorded 2026 · 04 · 24',

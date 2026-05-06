@@ -1115,7 +1115,7 @@
       'ch10.pullquote': 'その日、<em>サイトもついに Milestone</em> の一部になった。<br>沈黙のBGMが、初めてセットリストに加えられた。',
       'ch10.prose3':    '今日からは、内側も外側も VAS の形をしている。',
 
-      'archive.tauri':  'Tauri 完全年代記 · 30 Sprint',
+      'archive.tauri':  'Tauri 完全年代記 · 33 Sprint',
       'archive.web':    'Website 年代記 · 三つの断点 + 存在した',
 
       'colophon.left':  'milestone · N° 01<br>十章 · 2026 · 04 · 24 記',

@@ -888,7 +888,7 @@
       'ch10.pullquote': '這一天，<em>網站終於也成了 Milestone</em> 的一部分。<br>沉默的背景音樂，第一次被列入演奏曲目。',
       'ch10.prose3':    '從今而後，由裡到外都是 VAS 的形狀。',
 
-      'archive.tauri':  'Tauri 完整編年 · 30 個 Sprint',
+      'archive.tauri':  'Tauri 完整編年 · 33 個 Sprint',
       'archive.web':    'Website 編年 · 三個斷點 + 在場',
 
       'colophon.left':  'milestone · N° 01<br>十章 · 記於 2026 · 04 · 24',

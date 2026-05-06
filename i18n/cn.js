@@ -1000,7 +1000,7 @@ harnessBtn: '阅读系统思维 →',
       'ch10.pullquote': '这一天，<em>网站终于也成了 Milestone</em> 的一部分。<br>沉默的背景音乐，第一次被列入演奏曲目。',
       'ch10.prose3':    '从今而后，由里到外都是 VAS 的形状。',
 
-      'archive.tauri':  'Tauri 完整编年 · 30 个 Sprint',
+      'archive.tauri':  'Tauri 完整编年 · 33 个 Sprint',
       'archive.web':    'Website 编年 · 三个断点 + 在场',
 
       'colophon.left':  'milestone · N° 01<br>十章 · 记于 2026 · 04 · 24',
