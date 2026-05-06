@@ -38,13 +38,7 @@ The visual decisions on this site follow from the product philosophy in CLAUDE.m
 | The bottle shape | The neck is the point of concentration before emergence — that is VAS's core action |
 | Dark background | The prima materia is not cheerful; it is unformed, pre-verbal |
 
-**Editorial register per page** (Claude Design's vision):
-- `index.html` — Teenage Engineering–style object display: each feature is an independent artifact
-- `insight.html` — Pudding-style long-form feature: each insight is a chapter
-- `collab.html` — Dual-column script: Nova's thinking left, Claude's response right, timeline axis center
-- `harness.html` — Architecture white paper: diagrams, schema, structured comparison
-- `milestone.html` — Exhibition wall text: date-led, serial, short narrative per milestone
-- `guide.html` — Precision reference: three-column (TOC / explanation / figure), high density allowed
+**Per-page editorial register is intentionally not described here.** Each page carries its own form; meet it without preconception. Structural reference lives in § Repository Structure.
 
 **The Japanese editorial sensibility** runs across all pages: 《Brutus》, 《POPEYE》, Naoto Fukasawa's books — "一壺茶一個想法請自己來看". Short sentences. Sentences that end like a signature followed by a single dot.
 
