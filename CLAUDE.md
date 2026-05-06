@@ -133,6 +133,7 @@ vas.wiki
 - **New page:** Always update `README.md` and the Repository Structure in CLAUDE-process.md.
 - **Version update:** Nova states the new version number directly. Update all hardcoded occurrences in HTML and i18n files. Historical narrative versions (e.g. "一週推出 v3.43") carry `<!--歷史版本，不可更動-->` in HTML or `// 歷史版本，不可更動` in JS — never touch these.
 - **KM log:** Append to `km.md` immediately when a bug is resolved. Never wait until retro.
+- **VAS 文案掃「但」：** 若前後句不構成真正邏輯對立，刪掉連接詞。器物不替前一句道歉。 → [CLAUDE-process.md § Design Language](#vas-copy-but)
 
 ---
 
