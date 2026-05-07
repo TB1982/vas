@@ -12,10 +12,12 @@ Born from a collaboration between a PM who can't write a single line of code, an
 | File | URL | Description |
 |------|-----|-------------|
 | `index.html` | `/` | Product page — download, features, roadmap |
+| `about.html` | `/about.html` | Origin statement — why VAS exists, in its own voice |
 | `guide.html` | `/guide.html` | User guide — screenshots and walkthrough |
 | `insight.html` | `/insight.html` | Design insights — the thinking behind VAS |
 | `collab.html` | `/collab.html` | Collab notes — how Nova & Claude built it |
 | `harness.html` | `/harness.html` | Harness Engineering — methodology essay, 8 chapters |
+| `us.html` | `/us.html` | Sapere Aude 2.0 — mirror chapter to harness, hidden by design |
 | `milestone.html` | `/milestone.html` | Version history & roadmap |
 | `privacy.html` | `/privacy.html` | Privacy policy |
 
