@@ -3,7 +3,7 @@
 **Product site:** [yoursvas.app](https://yoursvas.app/)
 
 A screenshot and visual annotation tool for Mac, built for cross-functional communication.
-Born from a collaboration between a PM who can't write a single line of code, and Claude — iterated together over eighteen days.
+Born from a collaboration between a PM who can't write a single line of code, and Claude — iterated together over twenty-five days, ending at the App Store milestone.
 
 ---
 
