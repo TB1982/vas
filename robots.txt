@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /archive/
 
-Sitemap: https://tb1982.github.io/vas/sitemap.xml
+Sitemap: https://yoursvas.app/sitemap.xml
