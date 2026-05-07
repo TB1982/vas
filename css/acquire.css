@@ -13,7 +13,7 @@
 }
 .acquire-label {
   font-family: var(--vas-mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--vas-ash-3);
@@ -21,7 +21,7 @@
 }
 .hero-polish {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.75rem;
+  font-size: 10px;
   letter-spacing: 0.04em;
   color: var(--vas-ash-3);
   margin-top: 0.5rem;
