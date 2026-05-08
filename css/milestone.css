@@ -148,7 +148,7 @@ body {
   font-weight: 300;
   font-style: italic;
   font-size: 14px;
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-3-soft);
   letter-spacing: 0.06em;
   margin-bottom: 18px;
 }
@@ -167,7 +167,7 @@ body {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-3-soft);
   margin-top: 20px;
   margin-bottom: 6px;
 }
@@ -375,7 +375,7 @@ body {
   border-bottom-color: var(--vas-rule);
   color: var(--vas-ash-1);
 }
-.archive-body .arc-date { color: var(--vas-ash-3); }
+.archive-body .arc-date { color: var(--vas-ash-3-soft); }
 .archive-body .arc-ver { color: var(--vas-aurora-violet); }
 .archive-body .arc-ver br { display: none; }
 /* 行內紫色圓點連結 */
