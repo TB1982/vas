@@ -51,13 +51,13 @@ Each language file exports a nested object: `shared` (nav, footer) + per-page na
 
 | File | Used by |
 |------|---------|
-| `css/tokens.css` | index, chapter shells, docs shell |
-| `css/shrine.css` | index — hero section |
-| `css/unfold.css` | index — colophon |
-| `css/acquire.css` | index — download lines |
-| `css/chronicle.css` | index — edition mark |
-| `css/shell.css` | Inner page chapter shells |
-| `css/docs.css` | Guide / docs shell |
+| `css/tokens.css` | All pages (design tokens + reset + nav primitives) |
+| `css/home.css` | `index.html` — merged home shell (hero / acquire / unfold / chronicle) |
+| `css/shell.css` | `collab.html` / `harness.html` / `insight.html` / `us.html` / `privacy.html` / `guide.html` |
+| `css/milestone.css` | `milestone.html` |
+| `css/docs.css` | `guide.html` (docs-specific layout, in addition to `shell.css`) |
+| `css/about.css` | `about.html` |
+| `css/404.css` | `404.html` |
 
 ---
 
