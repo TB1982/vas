@@ -194,7 +194,7 @@ body.is-about .site-nav-links a.active::after {
   color: var(--vas-ash-2);
 }
 .about-sign-and {
-  color: var(--vas-ash-4);
+  color: var(--vas-ash-3);
   letter-spacing: 0;
 }
 .about-sign-claude,
@@ -235,7 +235,7 @@ body.is-about .site-nav-links a.active::after {
   text-align: right;
   line-height: 2;
 }
-.footer-right .footer-faint { color: var(--vas-ash-4); }
+.footer-right .footer-faint { color: var(--vas-ash-3); }
 
 /* ── 響應式 ──────────────────────────────────── */
 @media (max-width: 880px) {
