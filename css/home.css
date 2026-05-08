@@ -167,7 +167,7 @@
   line-height: 1.9;
   z-index: 5;
 }
-.shrine-vessel .shrine-colophon .faint { color: var(--vas-ash-4); }
+.shrine-vessel .shrine-colophon .faint { color: var(--vas-ash-3); }
 
 /* ─── Chapter 0 · 序章門 ─────────────────── */
 .shrine-preface {
@@ -222,10 +222,10 @@
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--vas-ash-4);
+  color: var(--vas-ash-3);
   transition: color .3s;
 }
-.shrine-preface:hover .shrine-preface-echo { color: var(--vas-ash-2); }
+.shrine-preface:hover .shrine-preface-echo { color: var(--vas-ash-1); }
 
 /* ─── 底部：四道門 · 縫隙不是按鈕 ────────── */
 .shrine-gates {
@@ -283,13 +283,13 @@
   font-family: var(--vas-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--vas-ash-4);
+  color: var(--vas-ash-3);
   text-align: right;
   white-space: nowrap;
   flex-shrink: 0;
   transition: color .3s;
 }
-.shrine-gate:hover .echo { color: var(--vas-ash-2); }
+.shrine-gate:hover .echo { color: var(--vas-ash-1); }
 
 /* ─── 第三道門 · 隱晦光點 · III 系統 ────── */
 .shrine-gate.hidden-door .name::after {
@@ -432,7 +432,6 @@
   letter-spacing: 0.04em;
   color: var(--vas-ash-3);
   margin-top: 0.5rem;
-  opacity: 0.7;
 }
 .acquire-body {
   font-family: var(--vas-serif);

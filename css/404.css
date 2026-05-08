@@ -168,7 +168,7 @@ body.is-notfound {
   text-align: right;
   line-height: 2;
 }
-.footer-right .footer-faint { color: var(--vas-ash-4); }
+.footer-right .footer-faint { color: var(--vas-ash-3); }
 
 @media (max-width: 768px) {
   .site-footer {

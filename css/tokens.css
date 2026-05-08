@@ -19,8 +19,8 @@
   --vas-ash-0: rgba(240, 232, 220, 0.94);  /* 主文 / 標題 */
   --vas-ash-1: rgba(240, 232, 220, 0.78);  /* 一般敘述 */
   --vas-ash-2: rgba(240, 232, 220, 0.60);  /* 次要描述 / mono 標籤 */
-  --vas-ash-3: rgba(240, 232, 220, 0.42);  /* 微標籤 */
-  --vas-ash-4: rgba(240, 232, 220, 0.24);  /* 版權頁微微字 */
+  --vas-ash-3: rgba(240, 232, 220, 0.55);  /* 微標籤 · WCAG AA 一般文字底線 5.3:1 */
+  --vas-ash-4: rgba(240, 232, 220, 0.24);  /* 純裝飾 only · 不放文字（aria-hidden 或 SVG 圖形） */
 
   /* ─── 分隔線 ──────────────────────────────── */
   --vas-rule:        rgba(240, 232, 220, 0.08);
@@ -126,7 +126,7 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
   font-size: 9px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--vas-ash-4);
+  color: var(--vas-ash-3);
   text-decoration: none;
   transition: color .2s;
 }
