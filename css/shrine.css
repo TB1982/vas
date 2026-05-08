@@ -117,12 +117,16 @@
   0%, 100% { opacity: 0.8; transform: scale(1); }
   50%      { opacity: 1;   transform: scale(1.08); }
 }
-.shrine-vessel picture { display: contents; }
-.shrine-vessel img {
+.shrine-vessel picture {
   position: relative;
   z-index: 2;
+  display: block;
   width: 58%;
   max-width: 400px;
+}
+.shrine-vessel img {
+  width: 100%;
+  display: block;
   filter: drop-shadow(0 30px 60px rgba(196, 113, 245, 0.4));
 }
 
@@ -311,7 +315,6 @@
     align-items: flex-end;
     justify-content: flex-end;
   }
-  .shrine-vessel img { width: 58%; }
   .shrine-preface { grid-row: 3; margin-top: 24px; padding: 28px 24px; gap: 12px; }
   .shrine-preface-name { font-size: clamp(20px, 5vw, 26px); }
   .shrine-gates  { grid-template-columns: 1fr 1fr; grid-row: 4; padding-top: 0; }
