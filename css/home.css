@@ -222,7 +222,7 @@
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--vas-ash-3-soft);
+  color: var(--vas-ash-4);
   transition: color .3s;
 }
 .shrine-preface:hover .shrine-preface-echo { color: var(--vas-ash-1); }
@@ -283,7 +283,7 @@
   font-family: var(--vas-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
-  color: var(--vas-ash-3-soft);
+  color: var(--vas-ash-4);
   text-align: right;
   white-space: nowrap;
   flex-shrink: 0;
