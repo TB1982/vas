@@ -259,3 +259,49 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
 
 /* Sticky nav offset for all anchor targets */
 [id] { scroll-margin-top: 96px; }
+
+
+/* ═══════════════════════════════════════════════
+   全站基礎延伸（自 base.css 收尾遷入 · 2026-05-08）
+   ═══════════════════════════════════════════════ */
+
+/* ── 段落孤兒防護 ─────────────────────────────────────────
+ * text-wrap: pretty 讓瀏覽器避免最後一行只剩單一字詞（孤兒），
+ * 對日文尤為重要。若特定段落仍出現孤兒，補上 max-width: 54ch。
+ */
+p {
+  text-wrap: pretty;
+}
+
+/* ── 標籤 / 小標 ────────────────────────────────────────
+ * .tag：區塊上方紫色小字 label（用於子頁 hero 與卡片標頭）。
+ */
+.tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(196,113,245,0.8);
+}
+
+/* ── 螢光分隔棒 ──────────────────────────────────────────
+ * .divider：粉紫漸層短橫棒，用於區塊標題前的視覺分隔。
+ * scroll-margin-top 確保錨點捲動時棒棒不被固定 nav 遮住。
+ */
+.divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #c471f5, #fa71cd);
+  border-radius: 2px;
+  scroll-margin-top: 108px;
+}
+
+/* ── 動態減量偏好 ────────────────────────────────────────
+ * 尊重作業系統「降低動態效果」設定。
+ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
