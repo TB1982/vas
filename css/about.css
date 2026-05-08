@@ -126,11 +126,11 @@ body.is-about .site-nav-links a.active::after {
 .about-margin-key {
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--vas-ash-2);
+  color: var(--vas-ash-3);
   font-size: 10px;
 }
 .about-margin-val {
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-3-soft);
   font-size: 11px;
 }
 .about-margin .about-margin-key + .about-margin-val {

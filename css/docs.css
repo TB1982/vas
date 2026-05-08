@@ -191,7 +191,7 @@
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-3-soft);
 }
 .docs-block-name {
   font-family: var(--vas-serif);
@@ -245,7 +245,7 @@
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-3-soft);
   margin-bottom: 12px;
   transition: color .2s;
 }
@@ -269,7 +269,7 @@
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--vas-ash-3);
+  color: var(--vas-ash-3-soft);
 }
 
 /* ─── Accordion · 手風琴 ──────────────── */
