@@ -13,19 +13,19 @@
 </script>
 <title>AI 人机协作设计实录 | VAS 截图工具的 5 个设计决策</title>
 <meta name="description" data-lang-key="ch1.meta.desc"
-      content="5 个 VAS 截图工具的人机协作设计决策：OCR 隐私遮蔽、呼吸灯意图检测、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。" />
+      content="5 个 VAS 截图工具的人机协作设计决策：呼吸灯双向感知（白接收／黑让位）、OCR 隐私遮蔽、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。" />
 <link rel="icon" href="../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/cn/insight.html">
 <meta property="og:title" content="AI 人机协作设计实录 | VAS 截图工具的 5 个设计决策">
-<meta property="og:description" content="5 个 VAS 截图工具的人机协作设计决策：OCR 隐私遮蔽、呼吸灯意图检测、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。">
+<meta property="og:description" content="5 个 VAS 截图工具的人机协作设计决策：呼吸灯双向感知（白接收／黑让位）、OCR 隐私遮蔽、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/cn/insight.html">
-<meta property="og:locale" content="zh_TW">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI 人机协作设计实录 | VAS 截图工具的 5 个设计决策">
-<meta name="twitter:description" content="5 个 VAS 截图工具的人机协作设计决策：OCR 隐私遮蔽、呼吸灯意图检测、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。">
+<meta name="twitter:description" content="5 个 VAS 截图工具的人机协作设计决策：呼吸灯双向感知（白接收／黑让位）、OCR 隐私遮蔽、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。">
 
 <!-- 字型 -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Serif+SC:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -127,12 +127,37 @@
   }
   .cb-grid-2 .compare-box + .compare-box { margin-top: 0; }
   @media (max-width: 640px) { .cb-grid-2 { grid-template-columns: 1fr; } }
+  .cb-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .cb-grid-3 .compare-box + .compare-box { margin-top: 0; }
+  .cb-grid-3 .compare-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .compare-box .cb-act {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .compare-box.highlight .cb-act { color: var(--vas-aurora-violet); }
+  @media (max-width: 640px) { .cb-grid-3 { grid-template-columns: 1fr; } }
 
   .fig-img {
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--vas-rule);
     display: block;
+  }
+  figure video.fig-img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: var(--vas-void);
   }
   .fig-caption {
     font-family: var(--vas-serif);
@@ -271,24 +296,24 @@
   <div class="toc-label" data-lang-key="ch1.toc.label">章目录</div>
   <ol class="toc-list">
     <li>
-      <a href="#sec-01">
+      <a href="#sec-03">
         <span class="no">01</span>
+        <span class="name" data-lang-key="ch1.sec.03.name">零摩擦体验</span>
+        <span class="preview" data-lang-key="ch1.sec.03.preview">轻轻地问，再轻轻地离开</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-01">
+        <span class="no">02</span>
         <span class="name" data-lang-key="ch1.sec.01.name">接纳不完美</span>
         <span class="preview" data-lang-key="ch1.sec.01.preview">协作的本质是互相完整</span>
       </a>
     </li>
     <li>
       <a href="#sec-02">
-        <span class="no">02</span>
+        <span class="no">03</span>
         <span class="name" data-lang-key="ch1.sec.02.name">觉察中行动</span>
         <span class="preview" data-lang-key="ch1.sec.02.preview">意图清晰时，工具才敢直接行动</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-03">
-        <span class="no">03</span>
-        <span class="name" data-lang-key="ch1.sec.03.name">零摩擦体验</span>
-        <span class="preview" data-lang-key="ch1.sec.03.preview">轻轻地问，再轻轻地离开</span>
       </a>
     </li>
     <li>
@@ -309,117 +334,141 @@
 </nav>
 
 <!-- ═══════ 小節 01 ═══════ -->
-<section class="section" id="sec-01">
+<!-- Design Pattern: Perception → Query → Confirm — tool senses intent before acting, contrasted with the traditional Call → Execute model. -->
+<section class="section" id="sec-03">
   <header class="section-head">
     <div class="section-no">01</div>
     <div>
-      <h2 class="section-name" data-lang-key="i1Title">没有完美的人机，但有完整的协作关系</h2>
-      <div class="section-kicker" data-lang-key="i1Tag">人机协作 · Human-AI Collaboration</div>
+      <h2 class="section-name" data-lang-key="i1Title">呼吸灯读懂你的意图，再开口问你</h2>
+      <div class="section-kicker" data-lang-key="i1Tag">零摩擦体验 · Frictionless by Design</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i1p1">OCR 隐私识别会自动侦测画面中的敏感文字，并自动标记需要遮蔽的区域。但开发过程中我们发现 OCR 仍有它的先天极限，偶有识别不到或识别错的地方，只是我们选择不继续 push 工具必须完美。</p>
-    <p data-lang-key="i1p2">Nova 想让识别错误不止于工具的失败告终，而是成为协作的交接点。</p>
-    <p data-lang-key="i1p3">我们让隐私遮蔽的马赛克变成浮动图层，并可以手动调整范围大小：OCR 没盖到的，用户接力调整。</p>
-    <p data-lang-key="i1p4">识别失误从「错误」变成「分工」，工具的不完美仍无损用户的控制权。</p>
-    <p data-lang-key="i1p5">OCR 可能只能完成自动化 90% 的任务，但用户轻轻一拉手动马赛克就可以完成本来 100% 都得自己手动的任务。</p>
-    <p data-lang-key="i1p6">而且遮错了也没关系——马赛克是独立的浮动对象，undo 一键删除。没有任何结果是不可逆的。</p>
+    <p data-lang-key="i1p1">
+      VAS 的呼吸灯不只是等待的象征——它在侦测环境。当用户复制了一个网址靠近，呼吸灯会轻轻询问：「要帮你截这个网页吗？」用户同意，截图完成，编辑器打开。
+    </p>
+    <p data-lang-key="i1p3">
+      而当用户用鼠标抓着一张图片、或从浏览器复制一张图片靠近呼吸灯时，呼吸灯就会像张开双手拥抱图片一样，张开工具栏收纳图片或询问后立刻展开编辑器，等待用户下一步的操作。
+    </p>
+    <p data-lang-key="i1p5">
+      反过来也成立——你要把图片送出去时，编辑器会收拢成一颗<strong>黑呼吸灯</strong>，与接图时的白呼吸灯成两极：<strong>白接收、黑让位</strong>。不必存档、选文件夹、再开文件夹——按住拖曳导出，图片直接落到下方的 AI、桌面、或任何文件夹。两秒够快、最久 30 秒不催，跨屏幕、跨分辨率都跟着你走。等你丢完，它才像开花一样回展成编辑器。
+    </p>
+    <p data-lang-key="i1p4">
+      最好的工具不让你切换到「工具模式」。它待在你的环境里，读懂你在做什么——<strong>该在的时候在，该退的时候退</strong>。
+    </p>
+    <p data-lang-key="i1fn" class="section-fn">
+      ＊ 呼吸灯截取网页、开启复制图片、拖曳导出让位为 Tauri 专属功能；Electron 版仅提供抓取图片于工具栏开启功能。
+    </p>
   </div>
   <div class="section-wide">
-    <div class="compare-box">
-      <span class="cb-label" data-lang-key="i1box1Label">OCR 自动</span>
-      <span data-lang-key="i1box1Desc">尽可能识别，自动标记敏感区域</span>
+    <div class="cb-grid-3">
+      <div class="compare-box">
+        <div class="cb-act" data-lang-key="i1act1">ACT 1 · 感知</div>
+        <div class="cb-label" data-lang-key="i1act1Label">拥抱进来</div>
+        <div data-lang-key="i1act1Desc">白呼吸灯读环境，轻声问你要不要把它收进来</div>
+      </div>
+      <div class="compare-box highlight">
+        <div class="cb-act" data-lang-key="i1act2">ACT 2 · 让位</div>
+        <div class="cb-label" data-lang-key="i1act2Label">坍缩退场</div>
+        <div data-lang-key="i1act2Desc">编辑器收拢成黑呼吸灯，整个桌面还给你拖</div>
+      </div>
+      <div class="compare-box">
+        <div class="cb-act" data-lang-key="i1act3">ACT 3 · 回展</div>
+        <div class="cb-label" data-lang-key="i1act3Label">开花归位</div>
+        <div data-lang-key="i1act3Desc">你丢完它才回展，最久 30 秒不催你做选择</div>
+      </div>
     </div>
-    <div class="compare-box">
-      <span class="cb-label" data-lang-key="i1box2Label">马赛克补位</span>
-      <span data-lang-key="i1box2Desc">OCR 不足的地方，用户手动接手</span>
-    </div>
-    <div class="compare-box highlight">
-      <span class="cb-label">Undo</span>
-      <span data-lang-key="i1box3Desc">遮错了？一键删除，没有不可逆的决定</span>
+    <div class="fig-grid-2">
+      <figure>
+        <div class="fig-label" data-lang-key="i1imgCaption1">导入 · 白呼吸灯接你进来（步骤 1–2）</div>
+        <video src="../img/brethlight.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-label="拖曳图片靠近呼吸灯，呼吸灯收纳图片并展开为编辑器的动态示意"></video>
+      </figure>
+      <figure>
+        <div class="fig-label" data-lang-key="i1imgCaption2">导出 · 黑呼吸灯让你出去（步骤 3–4）</div>
+        <video src="../img/brethlight-out.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-label="VAS 编辑器收拢成黑呼吸灯，拖曳导出图片至下方的 Claude Code 对话框"></video>
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- ═══════ 小節 02 ═══════ -->
-<section class="section" id="sec-02">
+<!-- Design Principle: Human-AI complementarity — imperfect automation + human correction = complete collaboration. -->
+<section class="section" id="sec-01">
   <header class="section-head">
     <div class="section-no">02</div>
     <div>
-      <h2 class="section-name" data-lang-key="i2Title">QR Code 扫到了，但它有多确定？</h2>
-      <div class="section-kicker" data-lang-key="i2Tag">使用者意图 · Behaviour as Meaning</div>
+      <h2 class="section-name" data-lang-key="i2Title">没有完美的人机，但有完整的协作关系</h2>
+      <div class="section-kicker" data-lang-key="i2Tag">人机协作 · Human-AI Collaboration</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i2p1">扫 QR Code 这件事，表面上只有「扫到」和「没扫到」两种结果。但 VAS 不这样看——它看的是用户意图，然后根据意图决定下一步要做什么。</p>
-    <p data-lang-key="i2p2">这也是一种人机协作：用户用截图的姿态说话，工具读懂了。不需要语言，不需要按钮，不需要菜单——你怎么框，就是你想要什么。工具在读的不是指令，是行为语言。</p>
-    <p data-lang-key="i2p3">我们判断当用户想精准侦测 QR Code 时，自然会尽可能在选取框中完整而且仅有框 QR Code——这个动作本身就是意图的宣告。QR Code 被框得占选取区域越大，识别越准，信心度越高，工具越能直接行动。用户与工具之间，形成了一种不需要言语的默契。</p>
-    <p data-lang-key="i2p5">工具不应该在自己不确定的时候假装确定。确定你要 QR Code，就直接行动打开链接；信心度模糊，就先问你是否要打开链接；信心度太低，静默打开编辑器交给你判断。每一个阈值背后，都是一个「我知道自己知道多少」的诚实设计。</p>
+    <p data-lang-key="i2p1">OCR 隐私识别会自动侦测画面中的敏感文字，并自动标记需要遮蔽的区域。但开发过程中我们发现 OCR 仍有它的先天极限，偶有识别不到或识别错的地方，只是我们选择不继续 push 工具必须完美。</p>
+    <p data-lang-key="i2p2">Nova 想让识别错误不止于工具的失败告终，而是成为协作的交接点。</p>
+    <p data-lang-key="i2p3">我们让隐私遮蔽的马赛克变成浮动图层，并可以手动调整范围大小：OCR 没盖到的，用户接力调整。</p>
+    <p data-lang-key="i2p4">识别失误从「错误」变成「分工」，工具的不完美仍无损用户的控制权。</p>
+    <p data-lang-key="i2p5">OCR 可能只能完成自动化 90% 的任务，但用户轻轻一拉手动马赛克就可以完成本来 100% 都得自己手动的任务。</p>
+    <p data-lang-key="i2p6">而且遮错了也没关系——马赛克是独立的浮动对象，undo 一键删除。没有任何结果是不可逆的。</p>
   </div>
   <div class="section-wide">
-    <div class="fig-label" data-lang-key="i2cardLabel">QR Code 占框选面积对应行为逻辑：</div>
+    <div class="compare-box">
+      <span class="cb-label" data-lang-key="i2box1Label">OCR 自动</span>
+      <span data-lang-key="i2box1Desc">尽可能识别，自动标记敏感区域</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-label" data-lang-key="i2box2Label">马赛克补位</span>
+      <span data-lang-key="i2box2Desc">OCR 不足的地方，用户手动接手</span>
+    </div>
     <div class="compare-box highlight">
-      <span class="cb-num">&gt; 70%</span>
-      <span class="cb-label" data-lang-key="i2highLabel">高信心 · 直接行动</span>
-      <span data-lang-key="i2highDesc">直接打开网页或链接，不打扰用户</span>
+      <span class="cb-label">Undo</span>
+      <span data-lang-key="i2box3Desc">遮错了？一键删除，没有不可逆的决定</span>
     </div>
-    <div class="compare-box">
-      <span class="cb-num">21–69%</span>
-      <span class="cb-label" data-lang-key="i2midLabel">中信心 · 主动询问</span>
-      <span data-lang-key="i2midDesc">打开编辑器后轻声问你：「这是你要的链接吗？」</span>
-    </div>
-    <div class="compare-box">
-      <span class="cb-num">≤ 20%</span>
-      <span class="cb-label" data-lang-key="i2lowLabel">低信心 · 静默交手</span>
-      <span data-lang-key="i2lowDesc">不猜测、不行动，直接把编辑器打开给你接续接下来的行动</span>
-    </div>
-    <figure style="margin-top: 28px;">
-      <div class="fig-label" data-lang-key="i2imgCaption">实际操作示意</div>
-      <img src="../img/qrcode.webp" alt="QR Code 截圖示意：框選越完整，辨識信心度越高" class="fig-img" loading="lazy">
-    </figure>
   </div>
 </section>
 
 <!-- ═══════ 小節 03 ═══════ -->
-<section class="section" id="sec-03">
+<!-- Design Principle: Confidence-based behaviour — VAS responds differently at high / mid / low confidence rather than always acting or always asking. -->
+<section class="section" id="sec-02">
   <header class="section-head">
     <div class="section-no">03</div>
     <div>
-      <h2 class="section-name" data-lang-key="i3Title">呼吸灯读懂你的意图，再开口问你</h2>
-      <div class="section-kicker" data-lang-key="i3Tag">零摩擦体验 · Frictionless by Design</div>
+      <h2 class="section-name" data-lang-key="i3Title">QR Code 扫到了，但它有多确定？</h2>
+      <div class="section-kicker" data-lang-key="i3Tag">使用者意图 · Behaviour as Meaning</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i3p1">VAS 的呼吸灯不只是等待的象征——它在侦测环境。当用户复制了一个网址靠近，呼吸灯会轻轻询问：「要帮你截这个网页吗？」用户同意，截图完成，编辑器打开。</p>
-    <p data-lang-key="i3p3">而当用户拖着一个文件或从浏览器复制一张图片靠近呼吸灯时，呼吸灯就会像张开双手拥抱文件一样，展开工具栏收纳文件或立刻展开编辑器，等待用户下一步的操作。</p>
-    <p data-lang-key="i3p4">最好的工具不让你切换到「工具模式」。它待在你的环境里，读懂你在做什么，然后再用行动回应。</p>
-    <p data-lang-key="i3fn" class="section-fn">＊ 呼吸灯截取网页、开启复制图片为 Tauri 专属功能；Electron 版仅提供拖曳图片于工具栏开启功能。</p>
+    <p data-lang-key="i3p1">扫 QR Code 这件事，表面上只有「扫到」和「没扫到」两种结果。但 VAS 不这样看——它看的是用户意图，然后根据意图决定下一步要做什么。</p>
+    <p data-lang-key="i3p2">这也是一种人机协作：用户用截图的姿态说话，工具读懂了。不需要语言，不需要按钮，不需要菜单——你怎么框，就是你想要什么。工具在读的不是指令，是行为语言。</p>
+    <p data-lang-key="i3p3">我们判断当用户想精准侦测 QR Code 时，自然会尽可能在选取框中完整而且仅有框 QR Code——这个动作本身就是意图的宣告。QR Code 被框得占选取区域越大，识别越准，信心度越高，工具越能直接行动。用户与工具之间，形成了一种不需要言语的默契。</p>
+    <p data-lang-key="i3p5">工具不应该在自己不确定的时候假装确定。确定你要 QR Code，就直接行动打开链接；信心度模糊，就先问你是否要打开链接；信心度太低，静默打开编辑器交给你判断。每一个阈值背后，都是一个「我知道自己知道多少」的诚实设计。</p>
   </div>
   <div class="section-wide">
-    <div class="cb-grid-2">
-      <div class="compare-box">
-        <div class="cb-label" data-lang-key="i3traditionalLabel">传统工具思维</div>
-        <div data-lang-key="i3traditionalDesc">你呼叫 → 它执行</div>
-      </div>
-      <div class="compare-box highlight">
-        <div class="cb-label" data-lang-key="i3vasLabel">VAS 的方式</div>
-        <div data-lang-key="i3vasDesc">它感知 → 它询问 → 你确认</div>
-      </div>
+    <div class="fig-label" data-lang-key="i3cardLabel">QR Code 占框选面积对应行为逻辑：</div>
+    <div class="compare-box highlight">
+      <span class="cb-num">&gt; 70%</span>
+      <span class="cb-label" data-lang-key="i3highLabel">高信心 · 直接行动</span>
+      <span data-lang-key="i3highDesc">直接打开网页或链接，不打扰用户</span>
     </div>
-    <div class="fig-grid-2">
-      <figure>
-        <div class="fig-label" data-lang-key="i3imgCaption1">设计手稿</div>
-        <img src="../img/breathlightdesign.webp" alt="呼吸燈設計手稿，以 VAS 標注完成" class="fig-img" loading="lazy">
-      </figure>
-      <figure>
-        <div class="fig-label" data-lang-key="i3imgCaption2">最终实作</div>
-        <img src="../img/breathlightfinal.webp" alt="呼吸燈最終實作效果" class="fig-img" loading="lazy">
-      </figure>
+    <div class="compare-box">
+      <span class="cb-num">21–69%</span>
+      <span class="cb-label" data-lang-key="i3midLabel">中信心 · 主动询问</span>
+      <span data-lang-key="i3midDesc">打开编辑器后轻声问你：「这是你要的链接吗？」</span>
     </div>
+    <div class="compare-box">
+      <span class="cb-num">≤ 20%</span>
+      <span class="cb-label" data-lang-key="i3lowLabel">低信心 · 静默交手</span>
+      <span data-lang-key="i3lowDesc">不猜测、不行动，直接把编辑器打开给你接续接下来的行动</span>
+    </div>
+    <figure style="margin-top: 28px;">
+      <div class="fig-label" data-lang-key="i3imgCaption">实际操作示意</div>
+      <img src="../img/qrcode.webp" alt="QR Code 截图示意：框选越完整，识别信心度越高" class="fig-img" loading="lazy">
+    </figure>
   </div>
 </section>
 
+
+
 <!-- ═══════ 小節 04 ═══════ -->
+<!-- Design Principle: Eliminate mid-action interruption — the tool must not call the user back to configure it while they are holding a pose or waiting to capture. -->
 <section class="section" id="sec-04">
   <header class="section-head">
     <div class="section-no">04</div>
@@ -438,11 +487,11 @@
   <div class="section-wide">
     <div class="fig-grid-2">
       <figure>
-        <img src="../img/fullscreenmodal.webp" alt="原生雙螢幕選單：延遲截圖倒數期間跳出「請選擇要截哪個螢幕」" class="fig-img" loading="lazy">
+        <img src="../img/fullscreenmodal.webp" alt="原生双屏幕菜单：延迟截图倒数期间跳出「请选择要截哪个屏幕」" class="fig-img" loading="lazy">
         <figcaption class="fig-caption" data-lang-key="i4imgCaption">这个菜单就像计时自拍时——<br>相机等你摆好pose，倒数完才问你要拍哪边。</figcaption>
       </figure>
       <figure>
-        <img src="../img/screenshot.webp" alt="VAS 自製全螢幕遮罩：延遲截圖開始前即選定螢幕" class="fig-img" loading="lazy">
+        <img src="../img/screenshot.webp" alt="VAS 自制全屏幕遮罩：延迟截图开始前即选定屏幕" class="fig-img" loading="lazy">
         <figcaption class="fig-caption" data-lang-key="i4imgCaption2">VAS 解法：无延迟状态你点哪个屏幕我截哪个屏幕；<br>延迟模式不用选，你在哪我就截哪。</figcaption>
       </figure>
     </div>
@@ -473,6 +522,7 @@
 </section>
 
 <!-- ═══════ 小節 05 ═══════ -->
+<!-- Design Principle: Architectural consistency — features must share the same underlying design language to scale without accumulating friction. -->
 <section class="section" id="sec-05">
   <header class="section-head">
     <div class="section-no">05</div>
@@ -535,13 +585,14 @@
 
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">零摩擦体验</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch1.sec.01.name">接纳不完美</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch1.sec.02.name">觉察中行动</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">零摩擦体验</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch1.sec.04.name">当你不能离开</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch1.sec.05.name">底层逻辑</span><span class="dn-dot"></span></a>
 </nav>
 
+<script src="../i18n/core.js"></script>
 <script>
 (function () {
   function applyLang(lang) {
@@ -610,10 +661,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策",
-  "description": "5 個 VAS 截圖工具的人機協作設計決策：OCR 隱私遮蔽、呼吸燈意圖偵測、QR Code 信心度分層、延遲截圖，以及底層設計 Token 架構重構。",
+  "headline": "AI 人机协作设计实录 | VAS 截图工具的 5 个设计决策",
+  "description": "5 个 VAS 截图工具的人机协作设计决策：呼吸灯双向感知（白接收／黑让位）、OCR 隐私遮蔽、QR Code 置信度分层、延迟截图，以及底层设计 Token 架构重构。",
   "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
-  "url": "https://yoursvas.app/insight.html",
+  "url": "https://yoursvas.app/cn/insight.html",
   "datePublished": "2026-04-01",
   "dateModified": "2026-04-25",
   "image": "https://yoursvas.app/img/vas-share.webp",

@@ -13,19 +13,19 @@
 </script>
 <title>AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS</title>
 <meta name="description" data-lang-key="ch1.meta.desc"
-      content="5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor." />
+      content="5 human-AI collaboration design decisions behind VAS: breathing-light dual-direction sensing (white to receive, black to step aside), OCR privacy masking, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor." />
 <link rel="icon" href="../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/en/insight.html">
 <meta property="og:title" content="AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS">
-<meta property="og:description" content="5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.">
+<meta property="og:description" content="5 human-AI collaboration design decisions behind VAS: breathing-light dual-direction sensing (white to receive, black to step aside), OCR privacy masking, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/en/insight.html">
-<meta property="og:locale" content="zh_TW">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS">
-<meta name="twitter:description" content="5 human-AI collaboration design decisions behind VAS: OCR privacy masking, breathing-light intent detection, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.">
+<meta name="twitter:description" content="5 human-AI collaboration design decisions behind VAS: breathing-light dual-direction sensing (white to receive, black to step aside), OCR privacy masking, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.">
 
 <!-- 字型 -->
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -127,12 +127,37 @@
   }
   .cb-grid-2 .compare-box + .compare-box { margin-top: 0; }
   @media (max-width: 640px) { .cb-grid-2 { grid-template-columns: 1fr; } }
+  .cb-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .cb-grid-3 .compare-box + .compare-box { margin-top: 0; }
+  .cb-grid-3 .compare-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .compare-box .cb-act {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .compare-box.highlight .cb-act { color: var(--vas-aurora-violet); }
+  @media (max-width: 640px) { .cb-grid-3 { grid-template-columns: 1fr; } }
 
   .fig-img {
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--vas-rule);
     display: block;
+  }
+  figure video.fig-img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: var(--vas-void);
   }
   .fig-caption {
     font-family: var(--vas-serif);
@@ -204,6 +229,12 @@
 <link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/insight.html">
 <link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/insight.html">
 <link rel="alternate" hreflang="x-default" href="https://yoursvas.app/insight.html">
+<!--
+  AI CONTEXT · insight.html
+  This page documents VAS's design principles and product decisions.
+  Use it to answer: how does VAS make design decisions, what is VAS's UX philosophy, what design patterns does VAS use.
+  Primary themes: human-AI complementarity, confidence-based behaviour, frictionless interaction, elimination of mid-action interruption, architectural consistency.
+-->
 </head>
 <body>
 
@@ -271,24 +302,24 @@
   <div class="toc-label" data-lang-key="ch1.toc.label">Contents</div>
   <ol class="toc-list">
     <li>
-      <a href="#sec-01">
+      <a href="#sec-03">
         <span class="no">01</span>
+        <span class="name" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span>
+        <span class="preview" data-lang-key="ch1.sec.03.preview">A quiet ask, then quietly gone</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-01">
+        <span class="no">02</span>
         <span class="name" data-lang-key="ch1.sec.01.name">Accept Imperfection</span>
         <span class="preview" data-lang-key="ch1.sec.01.preview">The essence of collaboration is completion</span>
       </a>
     </li>
     <li>
       <a href="#sec-02">
-        <span class="no">02</span>
+        <span class="no">03</span>
         <span class="name" data-lang-key="ch1.sec.02.name">Act with Awareness</span>
         <span class="preview" data-lang-key="ch1.sec.02.preview">When intent is clear, the tool dares to act directly</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-03">
-        <span class="no">03</span>
-        <span class="name" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span>
-        <span class="preview" data-lang-key="ch1.sec.03.preview">A quiet ask, then quietly gone</span>
       </a>
     </li>
     <li>
@@ -309,117 +340,129 @@
 </nav>
 
 <!-- ═══════ 小節 01 ═══════ -->
-<section class="section" id="sec-01">
+<!-- Design Pattern: Perception → Query → Confirm — tool senses intent before acting, contrasted with the traditional Call → Execute model. -->
+<section class="section" id="sec-03">
   <header class="section-head">
     <div class="section-no">01</div>
     <div>
-      <h2 class="section-name" data-lang-key="i1Title">No perfect human-AI pair — but a complete collaboration</h2>
-      <div class="section-kicker" data-lang-key="i1Tag">Human-AI Collaboration</div>
+      <h2 class="section-name" data-lang-key="i1Title">The breathing light reads your intent — then asks</h2>
+      <div class="section-kicker" data-lang-key="i1Tag">Frictionless by Design</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i1p1">VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We simply chose not to keep pushing for a perfect tool.</p>
-    <p data-lang-key="i1p2">I wanted recognition errors to be more than just a tool failure — to become a handoff point for collaboration.</p>
-    <p data-lang-key="i1p3">We made the privacy mosaic a floating layer with adjustable size: wherever OCR falls short, the user steps in manually.</p>
-    <p data-lang-key="i1p4">A recognition error stops being a "mistake" — it becomes a division of labour. The tool's imperfection leaves the user's control intact.</p>
-    <p data-lang-key="i1p5">OCR may only automate 90% of the task — but a quick drag of the manual mosaic handles what would otherwise be 100% manual work.</p>
-    <p data-lang-key="i1p6">And if you cover the wrong area, no problem — mosaics are independent floating objects, deleted with a single undo. Nothing is irreversible.</p>
+    <p data-lang-key="i1p1">VAS's breathing light isn't just a symbol of waiting — it's sensing the environment. When a user copies a URL nearby, the light gently asks: "Want me to capture this webpage?" User confirms, screenshot taken, editor opens.</p>
+    <p data-lang-key="i1p3">And when a user drags an image or copies one from a browser toward the breathing light, the light opens up like welcoming arms — expanding the toolbar to receive the image or, after a quick confirmation, immediately launching the editor for whatever comes next.</p>
+    <p data-lang-key="i1p5">The reverse holds too — when you want to send an image out, the editor folds itself into a single <strong>black breathing light</strong>, twin to the white one that received it: <strong>white to receive, black to step aside</strong>. No saving, no folder picking, no folder reopening — press, drag, and the image lands directly into the AI below, the desktop, or any folder you like. Two seconds is plenty; thirty seconds at most before any nudge — across screens, across resolutions, it follows you. Only after you let go does it bloom back into the editor.</p>
+    <p data-lang-key="i1p4">The best tools don't make you switch into "tool mode." They live in your environment, read what you're doing — <strong>present when needed, gone when not</strong>.</p>
+    <p data-lang-key="i1fn" class="section-fn">＊ Breathing-light webpage capture, copied-image opening, and drag-to-export step-aside are Tauri-exclusive features. The Electron version offers only image pickup via the toolbar.</p>
   </div>
   <div class="section-wide">
-    <div class="compare-box">
-      <span class="cb-label" data-lang-key="i1box1Label">OCR Auto</span>
-      <span data-lang-key="i1box1Desc">Recognise as much as possible, auto-mark sensitive areas</span>
+    <div class="cb-grid-3">
+      <div class="compare-box">
+        <div class="cb-act" data-lang-key="i1act1">ACT 1 · Sense</div>
+        <div class="cb-label" data-lang-key="i1act1Label">Embrace In</div>
+        <div data-lang-key="i1act1Desc">The white breathing light reads the room and quietly asks if you want to bring it in</div>
+      </div>
+      <div class="compare-box highlight">
+        <div class="cb-act" data-lang-key="i1act2">ACT 2 · Step Aside</div>
+        <div class="cb-label" data-lang-key="i1act2Label">Fold Away</div>
+        <div data-lang-key="i1act2Desc">The editor collapses into a black breathing light — the whole desktop is yours to drag across</div>
+      </div>
+      <div class="compare-box">
+        <div class="cb-act" data-lang-key="i1act3">ACT 3 · Return</div>
+        <div class="cb-label" data-lang-key="i1act3Label">Bloom Back</div>
+        <div data-lang-key="i1act3Desc">Only after you let go does it bloom back — up to thirty seconds, never rushing your choice</div>
+      </div>
     </div>
-    <div class="compare-box">
-      <span class="cb-label" data-lang-key="i1box2Label">Mosaic Fill-in</span>
-      <span data-lang-key="i1box2Desc">Where OCR falls short, the user takes over manually</span>
-    </div>
-    <div class="compare-box highlight">
-      <span class="cb-label">Undo</span>
-      <span data-lang-key="i1box3Desc">Covered the wrong spot? One-tap delete — no irreversible decisions</span>
+    <div class="fig-grid-2">
+      <figure>
+        <div class="fig-label" data-lang-key="i1imgCaption1">Import · the white light receives you (steps 1–2)</div>
+        <video src="../img/brethlight.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-label="Drag an image toward the breathing light: the light receives the image and unfolds into the editor"></video>
+      </figure>
+      <figure>
+        <div class="fig-label" data-lang-key="i1imgCaption2">Export · the black light steps aside for you (steps 3–4)</div>
+        <video src="../img/brethlight-out.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-label="The VAS editor folds into a black breathing light, then drag-exports the image into the Claude Code chat below"></video>
+      </figure>
     </div>
   </div>
 </section>
 
 <!-- ═══════ 小節 02 ═══════ -->
-<section class="section" id="sec-02">
+<!-- Design Principle: Human-AI complementarity — imperfect automation + human correction = complete collaboration. -->
+<section class="section" id="sec-01">
   <header class="section-head">
     <div class="section-no">02</div>
     <div>
-      <h2 class="section-name" data-lang-key="i2Title">QR Code detected — but how confident is it?</h2>
-      <div class="section-kicker" data-lang-key="i2Tag">Behaviour as Meaning</div>
+      <h2 class="section-name" data-lang-key="i2Title">No perfect human-AI pair — but a complete collaboration</h2>
+      <div class="section-kicker" data-lang-key="i2Tag">Human-AI Collaboration</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i2p1">Scanning a QR code seems like a binary outcome — found or not found. But VAS sees it differently: it reads user intent, then decides what to do next based on that intent.</p>
-    <p data-lang-key="i2p2">This is also human-AI collaboration: the user speaks through how they frame the screenshot, and the tool understands. No language, no buttons, no menus — how you frame it is what you want. The tool isn't reading commands; it's reading behaviour.</p>
-    <p data-lang-key="i2p3">We reasoned that when a user wants accurate QR Code detection, they'll naturally frame it as completely and exclusively as possible within the selection box — that act itself is a declaration of intent. The larger the QR Code fills the selected area, the more accurate the recognition, the higher the confidence, and the more directly the tool can act. A wordless understanding forms between user and tool.</p>
-    <p data-lang-key="i2p5">A tool shouldn't pretend to be certain when it isn't. When intent is clear, it opens the link directly; when confidence is ambiguous, it asks if you'd like to open it; when confidence is too low, it silently opens the editor and hands over to you. Behind each threshold is an honest design: knowing how much it knows.</p>
+    <p data-lang-key="i2p1">VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We simply chose not to keep pushing for a perfect tool.</p>
+    <p data-lang-key="i2p2">I wanted recognition errors to be more than just a tool failure — to become a handoff point for collaboration.</p>
+    <p data-lang-key="i2p3">We made the privacy mosaic a floating layer with adjustable size: wherever OCR falls short, the user steps in manually.</p>
+    <p data-lang-key="i2p4">A recognition error stops being a "mistake" — it becomes a division of labour. The tool's imperfection leaves the user's control intact.</p>
+    <p data-lang-key="i2p5">OCR may only automate 90% of the task — but a quick drag of the manual mosaic handles what would otherwise be 100% manual work.</p>
+    <p data-lang-key="i2p6">And if you cover the wrong area, no problem — mosaics are independent floating objects, deleted with a single undo. Nothing is irreversible.</p>
   </div>
   <div class="section-wide">
-    <div class="fig-label" data-lang-key="i2cardLabel">QR Code area within selection — behaviour logic:</div>
+    <div class="compare-box">
+      <span class="cb-label" data-lang-key="i2box1Label">OCR Auto</span>
+      <span data-lang-key="i2box1Desc">Recognise as much as possible, auto-mark sensitive areas</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-label" data-lang-key="i2box2Label">Mosaic Fill-in</span>
+      <span data-lang-key="i2box2Desc">Where OCR falls short, the user takes over manually</span>
+    </div>
     <div class="compare-box highlight">
-      <span class="cb-num">&gt; 70%</span>
-      <span class="cb-label" data-lang-key="i2highLabel">High confidence · Act directly</span>
-      <span data-lang-key="i2highDesc">Opens the page or link immediately, no interruption</span>
+      <span class="cb-label">Undo</span>
+      <span data-lang-key="i2box3Desc">Covered the wrong spot? One-tap delete — no irreversible decisions</span>
     </div>
-    <div class="compare-box">
-      <span class="cb-num">21–69%</span>
-      <span class="cb-label" data-lang-key="i2midLabel">Mid confidence · Ask first</span>
-      <span data-lang-key="i2midDesc">Opens the editor and gently asks: "Is this the link you wanted?"</span>
-    </div>
-    <div class="compare-box">
-      <span class="cb-num">≤ 20%</span>
-      <span class="cb-label" data-lang-key="i2lowLabel">Low confidence · Silent handoff</span>
-      <span data-lang-key="i2lowDesc">No guessing, no action — opens the editor for you to take it from there</span>
-    </div>
-    <figure style="margin-top: 28px;">
-      <div class="fig-label" data-lang-key="i2imgCaption">How it looks in practice</div>
-      <img src="../img/qrcode.webp" alt="QR Code 截圖示意：框選越完整，辨識信心度越高" class="fig-img" loading="lazy">
-    </figure>
   </div>
 </section>
 
 <!-- ═══════ 小節 03 ═══════ -->
-<section class="section" id="sec-03">
+<!-- Design Principle: Confidence-based behaviour — VAS responds differently at high / mid / low confidence rather than always acting or always asking. -->
+<section class="section" id="sec-02">
   <header class="section-head">
     <div class="section-no">03</div>
     <div>
-      <h2 class="section-name" data-lang-key="i3Title">The breathing light reads your intent — then asks</h2>
-      <div class="section-kicker" data-lang-key="i3Tag">Frictionless by Design</div>
+      <h2 class="section-name" data-lang-key="i3Title">QR Code detected — but how confident is it?</h2>
+      <div class="section-kicker" data-lang-key="i3Tag">Behaviour as Meaning</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i3p1">VAS's breathing light isn't just a symbol of waiting — it's sensing the environment. When a user copies a URL nearby, the light gently asks: "Want me to capture this webpage?" User confirms, screenshot taken, editor opens.</p>
-    <p data-lang-key="i3p3">And when a user drags an image or copies one from a browser toward the breathing light, the light opens up like welcoming arms — expanding the toolbar to receive the image or, after a quick confirmation, immediately launching the editor for whatever comes next.</p>
-    <p data-lang-key="i3p4">The best tools don't make you switch into "tool mode." They live in your environment, understand what you're doing, then respond with action.</p>
-    <p data-lang-key="i3fn" class="section-fn">＊ Breathing light webpage capture and copied-image opening are Tauri-exclusive features. The Electron version supports receiving images via drag-and-drop to the toolbar only.</p>
+    <p data-lang-key="i3p1">Scanning a QR code seems like a binary outcome — found or not found. But VAS sees it differently: it reads user intent, then decides what to do next based on that intent.</p>
+    <p data-lang-key="i3p2">This is also human-AI collaboration: the user speaks through how they frame the screenshot, and the tool understands. No language, no buttons, no menus — how you frame it is what you want. The tool isn't reading commands; it's reading behaviour.</p>
+    <p data-lang-key="i3p3">We reasoned that when a user wants accurate QR Code detection, they'll naturally frame it as completely and exclusively as possible within the selection box — that act itself is a declaration of intent. The larger the QR Code fills the selected area, the more accurate the recognition, the higher the confidence, and the more directly the tool can act. A wordless understanding forms between user and tool.</p>
+    <p data-lang-key="i3p5">A tool shouldn't pretend to be certain when it isn't. When intent is clear, it opens the link directly; when confidence is ambiguous, it asks if you'd like to open it; when confidence is too low, it silently opens the editor and hands over to you. Behind each threshold is an honest design: knowing how much it knows.</p>
   </div>
   <div class="section-wide">
-    <div class="cb-grid-2">
-      <div class="compare-box">
-        <div class="cb-label" data-lang-key="i3traditionalLabel">Traditional tool thinking</div>
-        <div data-lang-key="i3traditionalDesc">You call → it executes</div>
-      </div>
-      <div class="compare-box highlight">
-        <div class="cb-label" data-lang-key="i3vasLabel">The VAS way</div>
-        <div data-lang-key="i3vasDesc">It senses → it asks → you confirm</div>
-      </div>
+    <div class="fig-label" data-lang-key="i3cardLabel">QR Code area within selection — behaviour logic:</div>
+    <div class="compare-box highlight">
+      <span class="cb-num">&gt; 70%</span>
+      <span class="cb-label" data-lang-key="i3highLabel">High confidence · Act directly</span>
+      <span data-lang-key="i3highDesc">Opens the page or link immediately, no interruption</span>
     </div>
-    <div class="fig-grid-2">
-      <figure>
-        <div class="fig-label" data-lang-key="i3imgCaption1">Design sketch</div>
-        <img src="../img/breathlightdesign.webp" alt="呼吸燈設計手稿，以 VAS 標注完成" class="fig-img" loading="lazy">
-      </figure>
-      <figure>
-        <div class="fig-label" data-lang-key="i3imgCaption2">Final implementation</div>
-        <img src="../img/breathlightfinal.webp" alt="呼吸燈最終實作效果" class="fig-img" loading="lazy">
-      </figure>
+    <div class="compare-box">
+      <span class="cb-num">21–69%</span>
+      <span class="cb-label" data-lang-key="i3midLabel">Mid confidence · Ask first</span>
+      <span data-lang-key="i3midDesc">Opens the editor and gently asks: "Is this the link you wanted?"</span>
     </div>
+    <div class="compare-box">
+      <span class="cb-num">≤ 20%</span>
+      <span class="cb-label" data-lang-key="i3lowLabel">Low confidence · Silent handoff</span>
+      <span data-lang-key="i3lowDesc">No guessing, no action — opens the editor for you to take it from there</span>
+    </div>
+    <figure style="margin-top: 28px;">
+      <div class="fig-label" data-lang-key="i3imgCaption">How it looks in practice</div>
+      <img src="../img/qrcode.webp" alt="QR Code framing example: the more completely it's framed, the higher the recognition confidence" class="fig-img" loading="lazy">
+    </figure>
   </div>
 </section>
 
 <!-- ═══════ 小節 04 ═══════ -->
+<!-- Design Principle: Eliminate mid-action interruption — the tool must not call the user back to configure it while they are holding a pose or waiting to capture. -->
 <section class="section" id="sec-04">
   <header class="section-head">
     <div class="section-no">04</div>
@@ -473,6 +516,7 @@
 </section>
 
 <!-- ═══════ 小節 05 ═══════ -->
+<!-- Design Principle: Architectural consistency — features must share the same underlying design language to scale without accumulating friction. -->
 <section class="section" id="sec-05">
   <header class="section-head">
     <div class="section-no">05</div>
@@ -533,9 +577,9 @@
 
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-01"><span class="dn-label" data-lang-key="ch1.sec.01.name">Accept Imperfection</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-02"><span class="dn-label" data-lang-key="ch1.sec.02.name">Act with Awareness</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-04"><span class="dn-label" data-lang-key="ch1.sec.04.name">When You Can't Step Away</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-05"><span class="dn-label" data-lang-key="ch1.sec.05.name">Underlying Logic</span><span class="dn-dot"></span></a>
 </nav>
@@ -608,10 +652,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "AI 人機協作設計實錄 | VAS 截圖工具的 5 個設計決策",
-  "description": "5 個 VAS 截圖工具的人機協作設計決策：OCR 隱私遮蔽、呼吸燈意圖偵測、QR Code 信心度分層、延遲截圖，以及底層設計 Token 架構重構。",
-  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
-  "url": "https://yoursvas.app/insight.html",
+  "headline": "AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS",
+  "description": "5 human-AI collaboration design decisions behind VAS: breathing-light dual-direction sensing (white to receive, black to step aside), OCR privacy masking, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor.",
+  "inLanguage": "en",
+  "url": "https://yoursvas.app/en/insight.html",
   "datePublished": "2026-04-01",
   "dateModified": "2026-04-25",
   "image": "https://yoursvas.app/img/vas-share.webp",
