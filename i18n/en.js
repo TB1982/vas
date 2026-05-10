@@ -188,6 +188,7 @@
       blP2: 'The toolbar collapses into a single 120×6px glimmer. Quiet. Unobtrusive. Waiting.',
       blP3: 'When you need it:',
       blLi1: '<span class="g-badge-a" style="margin:0 6px 0 0">All</span><strong>Drag an image near</strong>—the toolbar opens like a Venus flytrap, catches what you\'re dragging. Release, and the image goes straight into the editor. If you were editing something else, it tucks that away and continues.',
+      blLi1b: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>Drag an image out</strong>—the editor collapses like a black hole, freeing your full desktop and view to save or hand off. One-click drag to any window / dialog / folder. Release, and the editor unfolds to continue.',
       blLi2: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>Copy a URL nearby</strong>—the light unfolds, toast appears: "Found ⟨URL⟩—click to capture." One click. Screenshot begins.',
       blLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>Copy an image from your browser</strong>—toast asks "paste image?" You confirm. Straight to the editor.',
       blNoteLabel: 'Summon',
