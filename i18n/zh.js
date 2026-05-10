@@ -166,6 +166,7 @@
       blP2: '工具列會縮成一條 120×6px 的光。低調、不擋事，靜靜的等你。',
       blP3: '而當你有事要找它時：',
       blLi1: '<span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間，圖直接進編輯器；如果你剛剛還在編輯別的東西，它會收納那張、直接展開編輯器繼續。',
+      blLi1b: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>拖曳圖片匯出</strong>——編輯器像黑洞一樣坍縮，給你最大的桌面空間與視野進行存檔或傳遞操作。單鍵拖曳至視窗 / 對話框 / 資料夾隨心所欲。放開的瞬間，直接展開回編輯器繼續。',
       blLi2: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>複製網址靠近</strong>——呼吸燈張開，跳出 toast：「檢測到 ⟨網址⟩—點擊開始截圖」。點一下就開始網頁截圖流程。',
       blLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器。',
       blNoteLabel: '召喚',
