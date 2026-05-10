@@ -197,7 +197,7 @@
       exportH3: '書き出し',
       exportIntro: '編集が完了したら、VAS は 4 つの出口を用意しています：',
       exportLi1: '<strong>ドラッグ出力</strong>——エディターからデスクトップ・Finder・Slack・画像を受け付けるあらゆるアプリへ直接ドラッグ。保存もダイアログも不要。ドラッグするだけで転送完了。',
-      exportLi2: '<strong>クリップボードにコピー</strong>——<span class="docs-kbd">⌘C</span> で画像をコピーし、別の場所で <span class="docs-kbd">⌘V</span> で貼り付け。',
+      exportLi2: '<strong>クリップボードにコピー</strong>——「コピー」ボタンを押すと画像がクリップボードに入り、別の場所で <span class="docs-kbd">⌘V</span> で貼り付け。',
       exportLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ShareSheet</strong>——macOS ネイティブの共有パネル。AirDrop・メッセージ・メール・SNS へ送信。',
       exportLi4: '<strong>保存</strong>——JPG／PNG／WebP／GIF／BMP／TIFF／PDF で保存できます。',
       recipesH3: '錬金の仕上げ',

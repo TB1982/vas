@@ -175,7 +175,7 @@
       exportH3: '导出',
       exportIntro: '编辑完了，VAS 给你四条出口：',
       exportLi1: '<strong>Drag out</strong>——直接从编辑器拖到桌面、Finder、Slack、任何一个接受图片的应用。不储存、不弹窗口、拖过去就传输完毕。',
-      exportLi2: '<strong>复制到剪贴板</strong>——按 <span class="docs-kbd">⌘C</span>，图片进剪贴板，到别的地方按 <span class="docs-kbd">⌘V</span> 粘贴。',
+      exportLi2: '<strong>复制到剪贴板</strong>——按「复制」按钮，图片进剪贴板，到别的地方按 <span class="docs-kbd">⌘V</span> 粘贴。',
       exportLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 专属</span><strong>ShareSheet</strong>——macOS 原生分享面板，转给 AirDrop、信息、邮件或你的社交媒体。',
       exportLi4: '<strong>存档</strong>——可保存为 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。',
       recipesH3: '炼金配方',
