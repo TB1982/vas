@@ -221,7 +221,7 @@
       tipsQ4: 'VAS 可以自定义截图快捷键吗？',
       tipsA4: '<p>VAS Pro（Tauri · App Store · 9.99 美元）提供四组自定义快捷键——全屏截图、窗口截图、矩形截图、粘贴图片——给从其他截图软件迁移过来的你最熟悉的手感。VAS Classic（Electron · 免费）内建固定三组（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）。</p>',
       tipsQ5: 'VAS 是否支持多屏幕工作模式？',
-      tipsA5: '<p>是。VAS 全面支持多屏幕工作流，并把选择权交给你：</p><ul class="docs-list"><li><strong>按 Enter</strong>——同时抓取所有屏幕，输出一张合并图</li><li><strong>点选任一屏幕</strong>——只截那一块，分别输出</li><li><strong>延迟截图模式</strong>——适合需要先切换窗口，VAS 会自动定位你在哪里并截图</li></ul><p>针对混合分辨率（Retina 与一般分辨率并用）也做了特别处理，不会出现尺寸对不上的问题。</p><p>这个坚持有它的来历：VAS 本身就是在双屏环境里做出来的——设计者自己是长期双屏用户，所以从第一天起，多屏幕就不是「补丁」，而是默认场景。</p>',
+      tipsA5: '<p>是。VAS 全面支持多屏幕工作流，并把选择权交给你：</p><ul class="docs-list"><li><strong>按 Enter</strong>——同时抓取所有屏幕，输出一张合并图</li><li><strong>点选任一屏幕</strong>——只截那一块，分别输出</li><li><strong>延迟截图模式</strong>——适合需要等待截图的情境（如抓取 hover 效果），VAS 会自动定位你在哪里并截图</li></ul><p>针对混合分辨率（Retina 与一般分辨率并用）也做了特别处理，不会出现尺寸对不上的问题。</p><p>这个坚持有它的来历：VAS 本身就是在双屏环境里做出来的——设计者自己是长期双屏用户，所以从第一天起，多屏幕就不是「补丁」，而是默认场景。</p>',
       tipsQ6: 'VAS 跟其他 Mac 截图工具差在哪？我什么时候该用 VAS？',
       tipsA6: '<p>截一张要分享的图、单纯标注——macOS 内建已经够用。要录像、要连续快照、要做使用手册——Snagit / CleanShot X 是成熟选择。</p><p>VAS 解决的是不一样的问题。当你需要把画面交给 AI 读懂、把不希望被 AI 拿去训练的隐私先遮起来、整个过程还要像行云流水一样轻快——这是 VAS 从第一天就在优化的场景。</p><p>你不会用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。</p>',
       allVersions: '全版本',
