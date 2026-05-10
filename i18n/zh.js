@@ -221,7 +221,7 @@
       tipsQ3: 'VAS 提供網頁截圖嗎？',
       tipsA3: '<p>VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示詢問是否要截網頁；確認後，VAS 在背景開啟瀏覽器完成整頁截圖，直接送進編輯器等你下一步處理。</p><p>但若你想截的是需要登入才看得到的頁面，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。</p>',
       tipsQ4: 'VAS 可以自訂截圖快捷鍵嗎？',
-      tipsA4: '<p>VAS Pro（Tauri · App Store · 9.99 美元）提供四組自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、剪貼簿貼入——給從其他截圖軟體移民的你最熟悉的手感。VAS Classic（Electron · 免費）內建固定三組（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）。</p>',
+      tipsA4: '<p>VAS Pro（Tauri · App Store · 9.99 美元）提供四組自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、貼入圖片——給從其他截圖軟體移民的你最熟悉的手感。VAS Classic（Electron · 免費）內建固定三組（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）。</p>',
       tipsQ5: 'VAS 是否支援多螢幕工作模式？',
       tipsA5: '<p>是。VAS 全面支援多螢幕工作流，並把選擇權交給你：</p><ul class="docs-list"><li><strong>按 Enter</strong>——同時擷取所有螢幕，輸出一張合併圖</li><li><strong>點選任一螢幕</strong>——只截那一塊，分別輸出</li><li><strong>延遲截圖模式</strong>——適合需要先切換視窗，VAS 會自動定位你在哪裡並截圖</li></ul><p>針對混合解析度（Retina 與一般解析度並用）也做了特別處理，不會出現尺寸對不上的問題。</p><p>這個堅持有它的來歷：VAS 本身就是在雙螢幕環境裡做出來的——設計者自己是長期雙螢幕使用者，所以從第一天起，多螢幕就不是「補丁」，而是預設情境。</p>',
       tipsQ6: 'VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？',
