@@ -513,7 +513,7 @@
         <ul class="docs-list">
           <li data-lang-key="custLi1"><strong>桌面工具列显示／隐藏</strong>——菜单列左键瓶子即可切换。</li>
           <li data-lang-key="custLi2"><strong>呼吸灯开关</strong>——出厂预设关闭，工具列的「快捷键说明」里可手动开启。</li>
-          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 专属</span><strong>自定快捷键</strong>——付费版可把任一快捷键改成你习惯用的组合。</li>
+          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 专属</span><strong>自定快捷键</strong>——付费版可把全屏截图、窗口截图、矩形截图、粘贴图片等快捷键改成你习惯用的组合。</li>
         </ul>
 
         <div class="docs-card" style="margin-top: 28px;">
@@ -550,42 +550,81 @@
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ1">权限未开，VAS 没有反应</span>
+            <span class="name" data-lang-key="tipsQ1">VAS 是一款怎样的截图软件？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA1">macOS 会跳出系统提示。照指示到「系统设置 → 隐私权与安全性 → 屏幕录制」勾选 VAS，之后重新打开 VAS 即可。这是 macOS 的硬性规定，VAS 没办法绕过。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA1">
+            <p>VAS 是一款 macOS 截图与图片处理工具，整合 OCR 文字识别、隐私遮蔽、QR Code 扫描、点线面标注、裁切图片、智能导线排版、批量转档、水印，支持多屏幕操作。VAS Pro（Tauri · App Store · 9.99 美元）+ VAS Classic（Electron · 免费）两种选择。</p>
+            <p>它与其他截图工具不同的地方：VAS 是「用 VAS 自己开发出来的 VAS」——专为人机协作设计，截下的图标注后能直接交给 AI 读懂，不希望被 AI 拿去训练的隐私信息也可一键遮蔽。</p>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ2">把 VAS 放到桌面角落后，找不到了</span>
+            <span class="name" data-lang-key="tipsQ2">升级到 VAS Pro 后，VAS 一直跳权限请求怎么办？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA2">呼吸灯只有 120×6px，确实很低调。按 Dock 上的 VAS 图标，不管它原本在哪，都会被召唤到你眼前展开成工具列。或者干脆在菜单列左键瓶子把桌面工具列关掉，之后都用右键菜单操作。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA2">
+            <p>如果你是从 VAS Classic（Electron）转移到 VAS Pro（Tauri）：</p>
+            <ol class="docs-list">
+              <li>先关掉所有 VAS（包含 Electron 版与 Tauri 版），并移除免费版。</li>
+              <li>打开「系统设置 → 隐私权与安全性 → 屏幕与系统录音」。</li>
+              <li>找到 VAS，按下方的「−」移除旧权限。</li>
+              <li>重新打开 VAS Pro，按「全屏截图」触发系统授权。</li>
+              <li>系统会把 VAS 重新加回列表，默认关闭状态。</li>
+              <li>手动把开关打开，依提示结束 VAS 再重启一次，即可获得完整权限。</li>
+            </ol>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ3">网页截图截到了登录页</span>
+            <span class="name" data-lang-key="tipsQ3">VAS 提供网页截图吗？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA3">网页截图功能会在背景独立开一个浏览器实例去抓画面，这个背景浏览器没有你平常使用的登录状态。如果你要截需要登录才看得到的页面，目前推荐使用浏览器原生插件诸如 FireShot。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA3">
+            <p>VAS Pro（Tauri · App Store · 9.99 美元）支持网页截图。复制网址后拖到呼吸灯或工具列，VAS 会跳出提示询问是否要截网页；确认后，VAS 在后台打开浏览器完成整页截图，直接送进编辑器等你下一步处理。</p>
+            <p>但若你想截的是需要登录才看得到的页面，目前推荐使用浏览器原生插件（如 FireShot）截下来后，再拋进 VAS 后期处理。</p>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ4">双屏的行为</span>
+            <span class="name" data-lang-key="tipsQ4">VAS 可以自定义截图快捷键吗？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA4">双屏情境已经特化调整过。全屏截图会截目前鼠标所在的屏幕；延迟截图也是以鼠标位置决定目标屏幕。如果你遇到不符预期的行为，请回报给我们。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA4">
+            <p>VAS Pro（Tauri · App Store · 9.99 美元）提供四组自定义快捷键——全屏截图、窗口截图、矩形截图、粘贴图片——给从其他截图软件迁移过来的你最熟悉的手感。VAS Classic（Electron · 免费）内建固定三组（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）。</p>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ5">可以自定义快捷键吗</span>
+            <span class="name" data-lang-key="tipsQ5">VAS 是否支持多屏幕工作模式？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA5">付费版可以。免费版预设提供 <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> 三组截图快捷键。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA5">
+            <p>是。VAS 全面支持多屏幕工作流，并把选择权交给你：</p>
+            <ul class="docs-list">
+              <li><strong>按 Enter</strong>——同时抓取所有屏幕，输出一张合并图</li>
+              <li><strong>点选任一屏幕</strong>——只截那一块，分别输出</li>
+              <li><strong>延迟截图模式</strong>——适合需要先切换窗口，VAS 会自动定位你在哪里并截图</li>
+            </ul>
+            <p>针对混合分辨率（Retina 与一般分辨率并用）也做了特别处理，不会出现尺寸对不上的问题。</p>
+            <p>这个坚持有它的来历：VAS 本身就是在双屏环境里做出来的——设计者自己是长期双屏用户，所以从第一天起，多屏幕就不是「补丁」，而是默认场景。</p>
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name" data-lang-key="tipsQ6">VAS 跟其他 Mac 截图工具差在哪？我什么时候该用 VAS？</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body" data-lang-key="tipsA6">
+            <p>截一张要分享的图、单纯标注——macOS 内建已经够用。要录像、要连续快照、要做使用手册——Snagit / CleanShot X 是成熟选择。</p>
+            <p>VAS 解决的是不一样的问题。当你需要把画面交给 AI 读懂、把不希望被 AI 拿去训练的隐私先遮起来、整个过程还要像行云流水一样轻快——这是 VAS 从第一天就在优化的场景。</p>
+            <p>你不会用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。</p>
+          </div>
         </details>
       </div>
     </section>
@@ -877,42 +916,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "權限沒給,VAS 沒反應怎麼辦?",
+      "name": "VAS 是一款怎样的截图软件？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "macOS 會跳出系統提示。照指示到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS,之後重新打開 VAS 即可。這是 macOS 的硬性規定,VAS 沒辦法繞過。"
+        "text": "VAS 是一款 macOS 截图与图片处理工具，整合 OCR 文字识别、隐私遮蔽、QR Code 扫描、点线面标注、裁切图片、智能导线排版、批量转档、水印，支持多屏幕操作。VAS Pro（Tauri · App Store · 9.99 美元）+ VAS Classic（Electron · 免费）两种选择。它与其他截图工具不同的地方：VAS 是「用 VAS 自己开发出来的 VAS」——专为人机协作设计，截下的图标注后能直接交给 AI 读懂，不希望被 AI 拿去训练的隐私信息也可一键遮蔽。"
       }
     },
     {
       "@type": "Question",
-      "name": "把 VAS 放到桌面角落後找不到了怎麼辦?",
+      "name": "升级到 VAS Pro 后，VAS 一直跳权限请求怎么办？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "呼吸燈只有 120×6px,確實很低調。按 Dock 上的 VAS 圖示,不管它原本在哪,都會被召喚到你眼前展開成工具列。或者乾脆在選單列左鍵瓶子把桌面工具列關掉,之後都用右鍵選單操作。"
+        "text": "如果你是从 VAS Classic（Electron）转移到 VAS Pro（Tauri）：1. 先关掉所有 VAS（包含 Electron 版与 Tauri 版），并移除免费版。 2. 打开「系统设置 → 隐私权与安全性 → 屏幕与系统录音」。 3. 找到 VAS，按下方的「−」移除旧权限。 4. 重新打开 VAS Pro，按「全屏截图」触发系统授权。 5. 系统会把 VAS 重新加回列表，默认关闭状态。 6. 手动把开关打开，依提示结束 VAS 再重启一次，即可获得完整权限。"
       }
     },
     {
       "@type": "Question",
-      "name": "VAS 網頁截圖為什麼截到登入頁?",
+      "name": "VAS 提供网页截图吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "網頁截圖功能會在背景獨立開一個瀏覽器實例去抓畫面,這個背景瀏覽器沒有你平常使用的登入狀態。如果你要截需要登入才看得到的頁面,目前推薦使用瀏覽器原生外掛諸如 FireShot。"
+        "text": "VAS Pro（Tauri · App Store · 9.99 美元）支持网页截图。复制网址后拖到呼吸灯或工具列，VAS 会跳出提示询问是否要截网页；确认后，VAS 在后台打开浏览器完成整页截图，直接送进编辑器等你下一步处理。但若你想截的是需要登录才看得到的页面，目前推荐使用浏览器原生插件（如 FireShot）截下来后，再拋进 VAS 后期处理。"
       }
     },
     {
       "@type": "Question",
-      "name": "VAS 在雙螢幕下的行為?",
+      "name": "VAS 可以自定义截图快捷键吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕;延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為,請回報給我們。"
+        "text": "VAS Pro（Tauri · App Store · 9.99 美元）提供四组自定义快捷键——全屏截图、窗口截图、矩形截图、粘贴图片——给从其他截图软件迁移过来的你最熟悉的手感。VAS Classic（Electron · 免费）内建固定三组（⌘^1 / ⌘^2 / ⌘^X）。"
       }
     },
     {
       "@type": "Question",
-      "name": "VAS 可以自訂快捷鍵嗎?",
+      "name": "VAS 是否支持多屏幕工作模式？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "付費版可以自訂任一快捷鍵。免費版預設提供 ⌘^1 / ⌘^2 / ⌘^X 三組截圖快捷鍵,且出廠預設關閉——需要到工具列「快捷鍵說明」手動開啟。"
+        "text": "是。VAS 全面支持多屏幕工作流，并把选择权交给你：按 Enter——同时抓取所有屏幕，输出一张合并图；点选任一屏幕——只截那一块，分别输出；延迟截图模式——适合需要先切换窗口，VAS 会自动定位你在哪里并截图。针对混合分辨率（Retina 与一般分辨率并用）也做了特别处理，不会出现尺寸对不上的问题。这个坚持有它的来历：VAS 本身就是在双屏环境里做出来的——设计者自己是长期双屏用户，所以从第一天起，多屏幕就不是「补丁」，而是默认场景。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 跟其他 Mac 截图工具差在哪？我什么时候该用 VAS？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "截一张要分享的图、单纯标注——macOS 内建已经够用。要录像、要连续快照、要做使用手册——Snagit / CleanShot X 是成熟选择。VAS 解决的是不一样的问题。当你需要把画面交给 AI 读懂、把不希望被 AI 拿去训练的隐私先遮起来、整个过程还要像行云流水一样轻快——这是 VAS 从第一天就在优化的场景。你不会用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。"
       }
     }
   ]

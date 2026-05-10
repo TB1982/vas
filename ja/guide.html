@@ -513,7 +513,7 @@
         <ul class="docs-list">
           <li data-lang-key="custLi1"><strong>デスクトップツールバーの表示／非表示</strong>——メニューバーのボトルを左クリックで切り替え。</li>
           <li data-lang-key="custLi2"><strong>ブリーズライトのオン／オフ</strong>——出荷時は無効。ツールバーの「ショートカットガイド」から手動で有効にできます。</li>
-          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ショートカットのカスタマイズ</strong>——有料版では任意のショートカットを好みの組み合わせに変更できます。</li>
+          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ショートカットのカスタマイズ</strong>——有料版では全画面キャプチャ、ウィンドウキャプチャ、矩形キャプチャ、画像をペーストの 4 つのショートカットを好みの組み合わせに変更できます。</li>
         </ul>
 
         <div class="docs-card" style="margin-top: 28px;">
@@ -550,42 +550,81 @@
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ1">権限が付与されていない——VAS が反応しない</span>
+            <span class="name" data-lang-key="tipsQ1">VAS はどんなスクリーンショットアプリ？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA1">macOS のシステム通知が表示されます。「システム設定 → プライバシーとセキュリティ → スクリーン録画」に進み、VAS にチェックを入れて再起動してください。これは macOS の必須要件であり、VAS では回避できません。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA1">
+            <p>VAS は macOS 向けのスクリーンショット & 画像処理ツールです。OCR テキスト認識、プライバシー遮蔽、QR Code スキャン、点・線・面のアノテーション、画像トリミング、スマートガイド整列、一括変換、ウォーターマーク、マルチディスプレイ対応をひとつにまとめています。VAS Pro（Tauri · App Store · 9.99 ドル）と VAS Classic（Electron · 無料）の 2 つから選べます。</p>
+            <p>ほかのスクリーンショットツールと違うのは、VAS が「VAS 自身を使って開発された VAS」だということ——人と AI の協働のために設計されているので、撮ってアノテーションした画像はそのまま AI に読ませられますし、AI に学習させたくないプライバシー情報はワンクリックで遮蔽できます。</p>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ2">デスクトップの片隅に置いた VAS が見つからない</span>
+            <span class="name" data-lang-key="tipsQ2">VAS Pro にアップグレードしたら、VAS が権限要求を出し続けるのですが？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA2">ブリーズライトは 120×6px しかなく、確かに見つけにくいです。Dock の VAS アイコンをクリックすれば、どこにあっても呼び出してツールバーに展開されます。または、メニューバーのボトルを左クリックしてデスクトップツールバーを非表示にし、右クリックメニューだけで操作する方法もあります。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA2">
+            <p>VAS Classic（Electron）から VAS Pro（Tauri）に乗り換えた場合：</p>
+            <ol class="docs-list">
+              <li>まず VAS をすべて終了し（Electron 版・Tauri 版どちらも）、無料版をアンインストールします。</li>
+              <li>「システム設定 → プライバシーとセキュリティ → 画面とシステムオーディオ録音」を開きます。</li>
+              <li>VAS を見つけ、下の「−」ボタンで古い権限を削除します。</li>
+              <li>VAS Pro を起動し直し、「全画面キャプチャ」を押してシステム認可を呼び出します。</li>
+              <li>システムが VAS をリストに再追加します（デフォルトは無効状態）。</li>
+              <li>スイッチを手動でオンにし、案内に従って VAS を一度終了して再起動すれば、完全な権限が得られます。</li>
+            </ol>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ3">ウェブスクリーンショットがログインページを撮影した</span>
+            <span class="name" data-lang-key="tipsQ3">VAS にウェブスクリーンショット機能はありますか？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA3">ウェブスクリーンショット機能はバックグラウンドで独立したブラウザインスタンスを起動して画面をキャプチャします。このブラウザは通常の使用時のログイン状態を保持していません。認証が必要なページのキャプチャには、FireShot などのブラウザ拡張機能をお勧めします。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA3">
+            <p>VAS Pro（Tauri · App Store · 9.99 ドル）はウェブスクリーンショットに対応しています。URL をコピーしてブリーズライトかツールバーにドラッグすると、VAS が「ウェブページをキャプチャしますか？」と確認してくれます。OK を押すと、VAS がバックグラウンドでブラウザを開いてページ全体をキャプチャし、そのままエディターに送り込みます。</p>
+            <p>ただし、撮りたいのがログインしないと見られないページの場合は、いまのところブラウザの拡張機能（FireShot など）でキャプチャしてから、VAS に投げ込んで仕上げる方法をおすすめします。</p>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ4">デュアルディスプレイの動作</span>
+            <span class="name" data-lang-key="tipsQ4">VAS のショートカットキーはカスタマイズできますか？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA4">デュアルディスプレイ環境は専用の最適化が施されています。フルスクリーンキャプチャはカーソルが存在するディスプレイを撮影し、遅延キャプチャもカーソル位置を基準に対象ディスプレイを決定します。予期しない動作が発生した場合はご報告ください。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA4">
+            <p>VAS Pro（Tauri · App Store · 9.99 ドル）は 4 つのカスタムショートカット——全画面キャプチャ、ウィンドウキャプチャ、矩形キャプチャ、画像をペースト——を提供しているので、ほかのスクリーンショットアプリから移ってきた人にもなじみのある手触りで使えます。VAS Classic（Electron · 無料）は固定の 3 つ（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）を搭載しています。</p>
+          </div>
         </details>
 
         <details class="docs-accordion">
           <summary>
-            <span class="name" data-lang-key="tipsQ5">ショートカットキーをカスタマイズできますか</span>
+            <span class="name" data-lang-key="tipsQ5">VAS はマルチディスプレイのワークフローに対応していますか？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA5">有料版では可能です。無料版は <span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span> の 3 つのショートカットを搭載しています。</div>
+          <div class="docs-accordion-body" data-lang-key="tipsA5">
+            <p>はい。VAS はマルチディスプレイのワークフローに完全対応しており、選択肢はあなたに委ねています：</p>
+            <ul class="docs-list">
+              <li><strong>Enter を押す</strong>——すべてのディスプレイを同時にキャプチャし、1 枚に結合して書き出します</li>
+              <li><strong>任意のディスプレイをクリック</strong>——そのディスプレイだけをキャプチャし、個別に書き出します</li>
+              <li><strong>遅延キャプチャモード</strong>——先にウィンドウを切り替えたいときに便利。VAS が自動的にあなたのいる位置を検知してキャプチャします</li>
+            </ul>
+            <p>解像度が混在する環境（Retina と通常解像度の併用）にも特別な処理を施しているので、サイズが合わないといった問題は起こりません。</p>
+            <p>このこだわりには来歴があります：VAS 自体がデュアルディスプレイ環境のなかで作られたものだからです——設計者自身が長年のデュアルディスプレイユーザーで、だからこそ初日から、マルチディスプレイは「あとからの継ぎ足し」ではなくデフォルトの前提でした。</p>
+          </div>
+        </details>
+
+        <details class="docs-accordion">
+          <summary>
+            <span class="name" data-lang-key="tipsQ6">VAS はほかの Mac 用スクリーンショットツールと何が違うの？いつ VAS を使えばいい？</span>
+            <span class="mark"></span>
+          </summary>
+          <div class="docs-accordion-body" data-lang-key="tipsA6">
+            <p>共有用に 1 枚撮ってちょっと書き込む——それだけなら macOS 標準で十分です。録画したい、連続スナップショットを撮りたい、マニュアルを作りたい——その用途なら Snagit / CleanShot X が成熟した選択肢です。</p>
+            <p>VAS が解こうとしているのは別の問題です。画面を AI に読ませたい、AI に学習させたくないプライバシーを先に隠したい、その一連の流れを水が流れるように軽やかに済ませたい——これは VAS が初日から磨き込んできた場面です。</p>
+            <p>VAS で Snagit を置き換えることはありません。Snagit で VAS を置き換えられないのと同じように。</p>
+          </div>
         </details>
       </div>
     </section>
@@ -877,42 +916,50 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "權限沒給,VAS 沒反應怎麼辦?",
+      "name": "VAS はどんなスクリーンショットアプリ？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "macOS 會跳出系統提示。照指示到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS,之後重新打開 VAS 即可。這是 macOS 的硬性規定,VAS 沒辦法繞過。"
+        "text": "VAS は macOS 向けのスクリーンショット & 画像処理ツールです。OCR テキスト認識、プライバシー遮蔽、QR Code スキャン、点・線・面のアノテーション、画像トリミング、スマートガイド整列、一括変換、ウォーターマーク、マルチディスプレイ対応をひとつにまとめています。VAS Pro（Tauri · App Store · 9.99 ドル）と VAS Classic（Electron · 無料）の 2 つから選べます。ほかのスクリーンショットツールと違うのは、VAS が「VAS 自身を使って開発された VAS」だということ——人と AI の協働のために設計されているので、撮ってアノテーションした画像はそのまま AI に読ませられますし、AI に学習させたくないプライバシー情報はワンクリックで遮蔽できます。"
       }
     },
     {
       "@type": "Question",
-      "name": "把 VAS 放到桌面角落後找不到了怎麼辦?",
+      "name": "VAS Pro にアップグレードしたら、VAS が権限要求を出し続けるのですが？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "呼吸燈只有 120×6px,確實很低調。按 Dock 上的 VAS 圖示,不管它原本在哪,都會被召喚到你眼前展開成工具列。或者乾脆在選單列左鍵瓶子把桌面工具列關掉,之後都用右鍵選單操作。"
+        "text": "VAS Classic（Electron）から VAS Pro（Tauri）に乗り換えた場合：1. まず VAS をすべて終了し（Electron 版・Tauri 版どちらも）、無料版をアンインストールします。 2. 「システム設定 → プライバシーとセキュリティ → 画面とシステムオーディオ録音」を開きます。 3. VAS を見つけ、下の「−」ボタンで古い権限を削除します。 4. VAS Pro を起動し直し、「全画面キャプチャ」を押してシステム認可を呼び出します。 5. システムが VAS をリストに再追加します（デフォルトは無効状態）。 6. スイッチを手動でオンにし、案内に従って VAS を一度終了して再起動すれば、完全な権限が得られます。"
       }
     },
     {
       "@type": "Question",
-      "name": "VAS 網頁截圖為什麼截到登入頁?",
+      "name": "VAS にウェブスクリーンショット機能はありますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "網頁截圖功能會在背景獨立開一個瀏覽器實例去抓畫面,這個背景瀏覽器沒有你平常使用的登入狀態。如果你要截需要登入才看得到的頁面,目前推薦使用瀏覽器原生外掛諸如 FireShot。"
+        "text": "VAS Pro（Tauri · App Store · 9.99 ドル）はウェブスクリーンショットに対応しています。URL をコピーしてブリーズライトかツールバーにドラッグすると、VAS が「ウェブページをキャプチャしますか？」と確認してくれます。OK を押すと、VAS がバックグラウンドでブラウザを開いてページ全体をキャプチャし、そのままエディターに送り込みます。ただし、撮りたいのがログインしないと見られないページの場合は、いまのところブラウザの拡張機能（FireShot など）でキャプチャしてから、VAS に投げ込んで仕上げる方法をおすすめします。"
       }
     },
     {
       "@type": "Question",
-      "name": "VAS 在雙螢幕下的行為?",
+      "name": "VAS のショートカットキーはカスタマイズできますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "雙螢幕情境已經特化調整過。全螢幕截圖會截目前滑鼠所在的螢幕;延遲截圖也是以滑鼠位置決定目標螢幕。如果你遇到不合預期的行為,請回報給我們。"
+        "text": "VAS Pro（Tauri · App Store · 9.99 ドル）は 4 つのカスタムショートカット——全画面キャプチャ、ウィンドウキャプチャ、矩形キャプチャ、画像をペースト——を提供しているので、ほかのスクリーンショットアプリから移ってきた人にもなじみのある手触りで使えます。VAS Classic（Electron · 無料）は固定の 3 つ（⌘^1 / ⌘^2 / ⌘^X）を搭載しています。"
       }
     },
     {
       "@type": "Question",
-      "name": "VAS 可以自訂快捷鍵嗎?",
+      "name": "VAS はマルチディスプレイのワークフローに対応していますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "付費版可以自訂任一快捷鍵。免費版預設提供 ⌘^1 / ⌘^2 / ⌘^X 三組截圖快捷鍵,且出廠預設關閉——需要到工具列「快捷鍵說明」手動開啟。"
+        "text": "はい。VAS はマルチディスプレイのワークフローに完全対応しており、選択肢はあなたに委ねています：Enter を押す——すべてのディスプレイを同時にキャプチャし、1 枚に結合して書き出します；任意のディスプレイをクリック——そのディスプレイだけをキャプチャし、個別に書き出します；遅延キャプチャモード——先にウィンドウを切り替えたいときに便利。VAS が自動的にあなたのいる位置を検知してキャプチャします。解像度が混在する環境（Retina と通常解像度の併用）にも特別な処理を施しているので、サイズが合わないといった問題は起こりません。このこだわりには来歴があります：VAS 自体がデュアルディスプレイ環境のなかで作られたものだからです——設計者自身が長年のデュアルディスプレイユーザーで、だからこそ初日から、マルチディスプレイは「あとからの継ぎ足し」ではなくデフォルトの前提でした。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS はほかの Mac 用スクリーンショットツールと何が違うの？いつ VAS を使えばいい？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "共有用に 1 枚撮ってちょっと書き込む——それだけなら macOS 標準で十分です。録画したい、連続スナップショットを撮りたい、マニュアルを作りたい——その用途なら Snagit / CleanShot X が成熟した選択肢です。VAS が解こうとしているのは別の問題です。画面を AI に読ませたい、AI に学習させたくないプライバシーを先に隠したい、その一連の流れを水が流れるように軽やかに済ませたい——これは VAS が初日から磨き込んできた場面です。VAS で Snagit を置き換えることはありません。Snagit で VAS を置き換えられないのと同じように。"
       }
     }
   ]
