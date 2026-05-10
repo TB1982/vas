@@ -412,6 +412,32 @@ html[lang="en"] .docs-toc-sticky a {
 }
 .docs-main ul.docs-list > li strong { color: var(--vas-ash-0); font-weight: 500; }
 
+.docs-main ol.docs-list {
+  list-style: none;
+  padding: 0; margin: 0 0 20px;
+  max-width: 56ch;
+  counter-reset: docs-step;
+}
+.docs-main ol.docs-list > li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  font-family: var(--vas-serif);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--vas-ash-1);
+  border-bottom: 1px solid var(--vas-rule);
+  counter-increment: docs-step;
+}
+.docs-main ol.docs-list > li:last-child { border-bottom: none; }
+.docs-main ol.docs-list > li::before {
+  content: counter(docs-step) ".";
+  position: absolute; left: 4px; top: 11px;
+  color: var(--vas-aurora-violet); opacity: .65;
+  font-family: var(--vas-mono);
+  font-size: 13px;
+}
+.docs-main ol.docs-list > li strong { color: var(--vas-ash-0); font-weight: 500; }
+
 /* ─── Note box ────────────────────────── */
 .docs-note {
   margin: 24px 0; padding: 18px 22px;
