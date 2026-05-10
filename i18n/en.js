@@ -199,7 +199,7 @@
       exportH3: 'Export',
       exportIntro: 'When you\'re done editing, VAS gives you four exits:',
       exportLi1: '<strong>Drag out</strong>—pull the image straight from the editor to your desktop, Finder, Slack, anywhere that accepts images. No saving, no dialogs. Drag and it\'s gone.',
-      exportLi2: '<strong>Copy to clipboard</strong>—press <span class="docs-kbd">⌘C</span>, image goes to your clipboard, <span class="docs-kbd">⌘V</span> it anywhere.',
+      exportLi2: '<strong>Copy to clipboard</strong>—press the <strong>Copy</strong> button, the image goes to your clipboard, then <span class="docs-kbd">⌘V</span> it anywhere.',
       exportLi3: '<span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>ShareSheet</strong>—macOS native share panel. AirDrop, Messages, Mail, social media.',
       exportLi4: '<strong>Save</strong>—JPG / PNG / WebP / GIF / BMP / TIFF / PDF.',
       recipesH3: 'Recipes',
