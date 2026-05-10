@@ -217,7 +217,7 @@
       tipsQ2: '升级到 VAS Pro 后，VAS 一直跳权限请求怎么办？',
       tipsA2: '<p>如果你是从 VAS Classic（Electron）转移到 VAS Pro（Tauri）：</p><ol class="docs-list"><li>先关掉所有 VAS（包含 Electron 版与 Tauri 版），并移除免费版。</li><li>打开「系统设置 → 隐私权与安全性 → 屏幕与系统录音」。</li><li>找到 VAS，按下方的「−」移除旧权限。</li><li>重新打开 VAS Pro，按「全屏截图」触发系统授权。</li><li>系统会把 VAS 重新加回列表，默认关闭状态。</li><li>手动把开关打开，依提示结束 VAS 再重启一次，即可获得完整权限。</li></ol>',
       tipsQ3: 'VAS 提供网页截图吗？',
-      tipsA3: '<p>VAS Pro（Tauri · App Store · 9.99 美元）支持网页截图。复制网址后拖到呼吸灯或工具列，VAS 会跳出提示询问是否要截网页；确认后，VAS 在后台打开浏览器完成整页截图，直接送进编辑器等你下一步处理。</p><p>但若你想截的是需要登录才看得到的页面，目前推荐使用浏览器原生插件（如 FireShot）截下来后，再拋进 VAS 后期处理。</p>',
+      tipsA3: '<p>VAS Pro（Tauri · App Store · 9.99 美元）支持网页截图。复制网址后拖到呼吸灯或工具列，VAS 会跳出提示询问是否要截网页；确认后，VAS 在后台打开浏览器完成整页截图，直接送进编辑器等你下一步处理。</p><p>但若你想截的是需要登录才看得到的页面，目前推荐使用浏览器原生插件（如 FireShot）截下来后，再抛进 VAS 后期处理。</p>',
       tipsQ4: 'VAS 可以自定义截图快捷键吗？',
       tipsA4: '<p>VAS Pro（Tauri · App Store · 9.99 美元）提供四组自定义快捷键——全屏截图、窗口截图、矩形截图、粘贴图片——给从其他截图软件迁移过来的你最熟悉的手感。VAS Classic（Electron · 免费）内建固定三组（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）。</p>',
       tipsQ5: 'VAS 是否支持多屏幕工作模式？',
