@@ -40,6 +40,18 @@
 <link rel="stylesheet" href="../css/home.css">
 
 <style>
+/* SEO 補殼：h1/h2/h3 純語意，不動視覺 —— 由 class 樣式接手 */
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
 /* 語言切換下拉（沿用 base.css 變數；index-B 獨立預覽時的最小覆蓋） */
 .lang-dropdown-btn {
   background: transparent;
@@ -130,8 +142,8 @@
 <section class="shrine">
   <div class="shrine-prose">
     <div class="mark" data-lang-key="home2.shrine.kicker">A Vessel · since 2026</div>
-    <div class="shrine-name">VAS<em>.</em></div>
-    <div class="shrine-tagline" data-lang-key="home2.shrine.tagline">给那些未能用文字<br>明说的当下。</div>
+    <h1 class="shrine-name">VAS<em>.</em></h1>
+    <h2 class="shrine-tagline" data-lang-key="home2.shrine.tagline">给那些未能用文字<br>明说的当下。</h2>
   </div>
 
   <div class="shrine-vessel">
@@ -150,7 +162,7 @@
   <!-- Chapter 0 · 序章門 · 通往 about.html -->
   <a class="shrine-preface" href="about.html">
     <div class="shrine-preface-num" data-lang-key="home2.preface.num">0 · 序章</div>
-    <div class="shrine-preface-name" data-lang-key="home2.preface.name">为何存在</div>
+    <h3 class="shrine-preface-name" data-lang-key="home2.preface.name">为何存在</h3>
     <div class="shrine-preface-echo" data-lang-key="home2.preface.echo">The Vessel Speaks</div>
   </a>
 
@@ -159,28 +171,28 @@
     <a class="shrine-gate" href="insight.html">
       <div class="num" data-lang-key="home2.gates.1.num">I · 设计</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.1.name">不完美的工具</div>
+        <h3 class="name" data-lang-key="home2.gates.1.name">不完美的工具</h3>
         <div class="echo" data-lang-key="home2.gates.1.echo">在协作中完整彼此</div>
       </div>
     </a>
     <a class="shrine-gate" href="collab.html">
       <div class="num" data-lang-key="home2.gates.2.num">II · 协作</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.2.name">六个故事</div>
+        <h3 class="name" data-lang-key="home2.gates.2.name">六个故事</h3>
         <div class="echo" data-lang-key="home2.gates.2.echo">不确定中的我愿意</div>
       </div>
     </a>
     <a class="shrine-gate hidden-door" href="harness.html">
       <div class="num" data-lang-key="home2.gates.3.num">III · 系统</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.3.name">Harness</div>
+        <h3 class="name" data-lang-key="home2.gates.3.name">Harness</h3>
         <div class="echo" data-lang-key="home2.gates.3.echo">管理熵增的心理学</div>
       </div>
     </a>
     <a class="shrine-gate" href="milestone.html">
       <div class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</div>
       <div class="shrine-gate-body">
-        <div class="name" data-lang-key="home2.gates.4.name">二十五日</div>
+        <h3 class="name" data-lang-key="home2.gates.4.name">二十五日</h3>
         <div class="echo" data-lang-key="home2.gates.4.echo">恍若隔世的回眸</div>
       </div>
     </a>
@@ -190,7 +202,7 @@
 <!-- ═══════ 取得 · 讓 VAS 走進工作流 ═══════ -->
 <section class="acquire" id="acquire">
   <div class="acquire-meta">
-    <div class="acquire-label" data-lang-key="home2.acquire.label">让 VAS 走进你的工作流</div>
+    <h2 class="acquire-label" data-lang-key="home2.acquire.label">让 VAS 走进你的工作流</h2>
     <p class="hero-polish" aria-label="Latest polish date">
       Latest polish · 2026-05-06
     </p>
@@ -198,17 +210,17 @@
   <div class="acquire-body">
     <a class="line" href="https://apps.apple.com/app/vas/id6761584119" target="_blank" rel="noopener noreferrer">
       <div class="what" data-lang-key="home2.acquire.tauri.what">Tauri</div>
-      <div class="name" data-lang-key="home2.acquire.tauri.name">VAS 正式版 <em>macOS 12+ · App Store</em></div>
+      <h3 class="name" data-lang-key="home2.acquire.tauri.name">VAS 正式版 <em>macOS 12+ · App Store</em></h3>
       <div class="go" data-lang-key="home2.acquire.tauri.go">→ 前往</div>
     </a>
     <a class="line" href="https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg" download>
       <div class="what" data-lang-key="home2.acquire.electron.what">Electron</div>
-      <div class="name" data-lang-key="home2.acquire.electron.name">经典版 <em>免费下载 · 持续维护</em></div>
+      <h3 class="name" data-lang-key="home2.acquire.electron.name">经典版 <em>免费下载 · 持续维护</em></h3>
       <div class="go" data-lang-key="home2.acquire.electron.go">→ 下载</div>
     </a>
     <a class="line" href="guide.html">
       <div class="what" data-lang-key="home2.acquire.guide.what">Guide</div>
-      <div class="name" data-lang-key="home2.acquire.guide.name">操作手册 <em>工具列 · 编辑器 · 快捷键</em></div>
+      <h3 class="name" data-lang-key="home2.acquire.guide.name">操作手册 <em>工具列 · 编辑器 · 快捷键</em></h3>
       <div class="go" data-lang-key="home2.acquire.guide.go">→ 阅读</div>
     </a>
   </div>
@@ -216,7 +228,7 @@
 
 <!-- ═══════ 展開的題辭 ═══════ -->
 <section class="unfold">
-  <div class="unfold-label" data-lang-key="home2.unfold.label">为何存在</div>
+  <h2 class="unfold-label" data-lang-key="home2.unfold.label">为何存在</h2>
   <div class="unfold-body">
     <p data-lang-key="home2.unfold.p1">VAS 是一只<em>传递意象的炼金容器</em>——从形状到符号，给你超越<wbr>文字的力量。</p>
     <p data-lang-key="home2.unfold.p2">作为<em>工作流的河道</em>——在按下截图键、和把文件丢出去之间，留给你一段点石成金的空间。</p>
@@ -226,7 +238,7 @@
 
 <!-- ═══════ 時間印記 ═══════ -->
 <section class="chronicle">
-  <div class="chronicle-label" data-lang-key="home2.chronicle.label">版次记号</div>
+  <h2 class="chronicle-label" data-lang-key="home2.chronicle.label">版次记号</h2>
   <div class="chronicle-line"></div>
   <div class="chronicle-edition">
     <span data-lang-key="home2.chronicle.edition">第二十五日 · 器成</span>
