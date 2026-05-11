@@ -213,7 +213,7 @@
       custKbR3: '裸字母或数字', custKbR4: '系统保留快捷键', custKbR5: '单独修饰键',
       tipsH3: '疑难与边界',
       tipsQ1: 'VAS 是一款怎样的截图软件？',
-      tipsA1: '<p>VAS 是一款 macOS 截图与图片处理工具，整合 OCR 文字识别、隐私遮蔽、QR Code 扫描、点线面标注、裁切图片、智能导线排版、批量转档、水印，支持多屏幕操作。VAS Pro（Tauri · App Store · 9.99 美元）+ VAS Classic（Electron · 免费）两种选择。</p><p>它与其他截图工具不同的地方：VAS 是「用 VAS 自己开发出来的 VAS」——专为人机协作设计，截下的图标注后能直接交给 AI 读懂，不希望被 AI 拿去训练的隐私信息也可一键遮蔽。</p>',
+      tipsA1: '<p>VAS 是一款 macOS 截图与图片处理工具，整合 OCR 文字识别、隐私遮蔽、QR Code 扫描、点线面标注、裁切图片、智能导线排版、批量转档、水印，支持多屏幕操作。VAS Pro（Tauri · App Store · 9.99 美元）+ VAS Classic（Electron · 免费）两种选择。</p><p>它与其他截图工具不同的地方：VAS 用 VAS 开发自己——专为人机协作设计，截下的图标注后能直接交给 AI 读懂，不希望被 AI 拿去训练的隐私信息也可一键遮蔽。</p>',
       tipsQ2: '升级到 VAS Pro 后，VAS 一直跳权限请求怎么办？',
       tipsA2: '<p>如果你是从 VAS Classic（Electron）转移到 VAS Pro（Tauri）：</p><ol class="docs-list"><li>先关掉所有 VAS（包含 Electron 版与 Tauri 版），并移除免费版。</li><li>打开「系统设置 → 隐私权与安全性 → 屏幕与系统录音」。</li><li>找到 VAS，按下方的「−」移除旧权限。</li><li>重新打开 VAS Pro，按「全屏截图」触发系统授权。</li><li>系统会把 VAS 重新加回列表，默认关闭状态。</li><li>手动把开关打开，依提示结束 VAS 再重启一次，即可获得完整权限。</li></ol>',
       tipsQ3: 'VAS 提供网页截图吗？',
