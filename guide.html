@@ -576,10 +576,24 @@
 
         <details class="docs-accordion" name="docs-tips">
           <summary>
-            <span class="name" data-lang-key="tipsQ2">升級到 VAS Pro 後，VAS 一直跳權限請求怎麼辦？</span>
+            <span class="name" data-lang-key="tipsQ2">VAS Pro 跟 VAS Classic 差在哪？我該選哪個？</span>
+            <span class="mark"></span></summary>
+          <div class="docs-accordion-body" data-lang-key="tipsA2">
+            <p>兩個版本共用 VAS 的核心：標注、OCR、隱私遮蔽、批次轉檔、智慧導線排版——這些不分版本。差別在獨家功能與底層架構：</p>
+            <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元 · 5.4 MB · 比 VAS Classic 小 20 倍）<br>新功能優先上線。獨家功能依工作流排列：網址截圖、複製圖片匯入、本機 OCR 隱私遮蔽、進階拖曳圖片匯出、ShareSheet 分享、額外存檔格式（BMP / WebP / PDF）、自訂快捷鍵（四組可改）。</p>
+            <p><strong>VAS Classic</strong>（Electron · 開源免費 · 114 MB）<br>功能定型不再新增，但底層共用，會隨 VAS Pro 的重構同步受惠。永久免費、無使用期限。</p>
+            <p>怎麼選：</p>
+            <ul class="docs-list"><li>要把截圖接進完整工作流（網址、剪貼簿、ShareSheet）→ <strong>VAS Pro</strong></li><li>只要核心標注、不需要流水線式流暢銜接 → <strong>VAS Classic</strong></li></ul>
+            <p>從 VAS Classic 升級到 VAS Pro 需要先移除舊版並重新授權——詳見下一題。</p>
+          </div>
+        </details>
+
+        <details class="docs-accordion" name="docs-tips">
+          <summary>
+            <span class="name" data-lang-key="tipsQ3">升級到 VAS Pro 後，VAS 一直跳權限請求怎麼辦？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA2">
+          <div class="docs-accordion-body" data-lang-key="tipsA3">
             <p>如果你是從 VAS Classic（Electron）轉移到 VAS Pro（Tauri）：</p>
             <ol class="docs-list">
               <li>先關掉所有 VAS（包含 Electron 版與 Tauri 版），並移除免費版。</li>
@@ -594,10 +608,10 @@
 
         <details class="docs-accordion" name="docs-tips">
           <summary>
-            <span class="name" data-lang-key="tipsQ3">VAS 提供網頁截圖嗎？</span>
+            <span class="name" data-lang-key="tipsQ4">VAS 提供網頁截圖嗎？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA3">
+          <div class="docs-accordion-body" data-lang-key="tipsA4">
             <p>VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示詢問是否要截網頁；確認後，VAS 在背景開啟瀏覽器完成整頁截圖，直接送進編輯器等你下一步處理。</p>
             <p>但若你想截的是需要登入才看得到的頁面，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。</p>
           </div>
@@ -605,20 +619,20 @@
 
         <details class="docs-accordion" name="docs-tips">
           <summary>
-            <span class="name" data-lang-key="tipsQ4">VAS 可以自訂截圖快捷鍵嗎？</span>
+            <span class="name" data-lang-key="tipsQ5">VAS 可以自訂截圖快捷鍵嗎？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA4">
+          <div class="docs-accordion-body" data-lang-key="tipsA5">
             <p>VAS Pro（Tauri · App Store · 9.99 美元）提供四組自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、貼入圖片——給從其他截圖軟體移民的你最熟悉的手感。VAS Classic（Electron · 免費）內建固定三組（<span class="docs-kbd">⌘^1</span> / <span class="docs-kbd">⌘^2</span> / <span class="docs-kbd">⌘^X</span>）。</p>
           </div>
         </details>
 
         <details class="docs-accordion" name="docs-tips">
           <summary>
-            <span class="name" data-lang-key="tipsQ5">VAS 是否支援多螢幕工作模式？</span>
+            <span class="name" data-lang-key="tipsQ6">VAS 是否支援多螢幕工作模式？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA5">
+          <div class="docs-accordion-body" data-lang-key="tipsA6">
             <p>是。VAS 全面支援多螢幕工作流，並把選擇權交給你：</p>
             <ul class="docs-list">
               <li><strong>按 Enter</strong>——同時擷取所有螢幕，輸出一張合併圖</li>
@@ -632,10 +646,10 @@
 
         <details class="docs-accordion" name="docs-tips">
           <summary>
-            <span class="name" data-lang-key="tipsQ6">VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？</span>
+            <span class="name" data-lang-key="tipsQ7">VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？</span>
             <span class="mark"></span>
           </summary>
-          <div class="docs-accordion-body" data-lang-key="tipsA6">
+          <div class="docs-accordion-body" data-lang-key="tipsA7">
             <p>截一張要分享的圖、單純註記——macOS 內建已經夠用。要錄影、要連續快照、要做使用手冊——Snagit / CleanShot X 是成熟選擇。</p>
             <p>VAS 解決的是不一樣的問題——「人機協作」。當你需要把畫面交給 AI 讀懂、把不希望被 AI 拿去訓練的隱私先遮起來、整個過程還要像行雲流水一樣輕快：這是 VAS 從第一天就在用自己驗證的開發現場。</p>
             <p>你不會用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。</p>
@@ -939,6 +953,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、點線面標注、裁切圖片、智慧導線排版、批次轉檔、浮水印，支援多螢幕操作。VAS Pro（Tauri · App Store · 9.99 美元）+ VAS Classic（Electron · 免費）兩種選擇。它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS Pro 跟 VAS Classic 差在哪？我該選哪個？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "兩個版本共用 VAS 的核心：標注、OCR、隱私遮蔽、批次轉檔、智慧導線排版——這些不分版本。差別在獨家功能與底層架構：VAS Pro（Tauri · App Store · 9.99 美元 · 5.4 MB · 比 VAS Classic 小 20 倍）新功能優先上線。獨家功能依工作流排列：網址截圖、複製圖片匯入、本機 OCR 隱私遮蔽、進階拖曳圖片匯出、ShareSheet 分享、額外存檔格式（BMP / WebP / PDF）、自訂快捷鍵（四組可改）。VAS Classic（Electron · 開源免費 · 114 MB）功能定型不再新增，但底層共用，會隨 VAS Pro 的重構同步受惠。永久免費、無使用期限。怎麼選：要把截圖接進完整工作流（網址、剪貼簿、ShareSheet）→ VAS Pro；只要核心標注、不需要流水線式流暢銜接 → VAS Classic。從 VAS Classic 升級到 VAS Pro 需要先移除舊版並重新授權——詳見下一題。"
       }
     },
     {
