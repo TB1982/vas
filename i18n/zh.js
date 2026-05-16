@@ -686,6 +686,33 @@
       'reverb.text':   '如果你也響了。'
     },
 
+    faq: {
+      'meta.desc':    'VAS 常見問題：Pro 與 Classic 版本差異、權限重設、網頁截圖、多螢幕支援、自訂快捷鍵、與 ChatGPT / Claude / Gemini 的協作流程，以及 VAS 與其他 Mac 截圖工具（Snagit / CleanShot X / Shottr）的定位差異。一頁讀完。',
+      'title':        'VAS 常見問題 | Mac 截圖工具 · 人機協作多模態工作流',
+      'title.h1':     '關於 VAS，<em>八道問</em>。',
+      'kicker':       'FAQ · 常見問題',
+      'lede':         '這不是客服合輯，是 VAS 對外的<em>八句發言</em>。從「是什麼」到「跟誰不一樣」——一頁讀完。',
+      'q1.q':         'VAS 是一款怎樣的截圖軟體？',
+      'q1.a':         '<p>VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、批次轉檔、點線面標注、裁切圖片、智慧導線排版。Mac App Store Tauri 付費版（9.99 美元）+ Electron 免費版兩種選擇。</p><p>它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，<strong>呼吸燈雙向感知你的工作流</strong>（複製網址、拖圖靠近、從瀏覽器右鍵複製圖片，呼吸燈接你進來；處理完讓位給你拖出去），截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。VAS 給你<strong>與 AI 並肩同行的速度</strong>與<strong>文字以外的指認能力</strong>。</p>',
+      'q2.q':         'VAS Pro 跟 VAS Classic 差在哪？我該選哪個？',
+      'q2.a':         '<p>兩個版本共用 VAS 的核心：標注、OCR、隱私遮蔽、批次轉檔、智慧導線排版——這些不分版本。差別在獨家功能與底層架構：</p><p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元 · 下載 5.4 MB · 安裝 20 MB · 比 VAS Classic 小 21 倍）<br>新功能優先上線。獨家功能依工作流排列：網址截圖、複製圖片匯入、本機 OCR 隱私遮蔽、進階拖曳圖片匯出、ShareSheet 分享、額外存檔格式（WebP 給網頁 · PDF 給文件附件 · BMP 給設計協作）、自訂快捷鍵（四組可改）。</p><p><strong>VAS Classic</strong>（Electron · 開源免費 · 下載 114 MB · 安裝 303 MB）<br>功能定型不再新增，但底層共用，會隨 VAS Pro 的重構同步受惠。永久免費、無使用期限。</p><div class="faq-tree"><b>要把截圖接進完整工作流</b>（網址、剪貼簿、ShareSheet）<br>&nbsp;&nbsp;→ VAS Pro<br><br><b>只要核心標注、不需要流水線銜接</b><br>&nbsp;&nbsp;→ VAS Classic</div><p>從 Classic 升級到 Pro 需要先移除舊版並重新授權——詳見下一題。</p>',
+      'q3.q':         '升級到 Tauri 付費版後，權限一直要求重新設定怎麼辦？',
+      'q3.a':         '<p>從免費版（Electron）升級到付費版（Tauri）後，因為 macOS 把兩者視為不同的 App，舊權限不會自動繼承。請依下列步驟重新授權：</p><ol><li>先關掉所有 VAS（<em>包含 Electron 版與 Tauri 版</em>），並移除免費版。</li><li>開啟「<strong>系統設定 → 隱私權與安全性 → 螢幕與系統錄音</strong>」。</li><li>找到 VAS，按下方的「<strong>−</strong>」移除舊權限。</li><li>重新打開付費版 VAS，按「<strong>全螢幕截圖</strong>」觸發系統授權。</li><li>系統會把 VAS 重新加回清單，預設<em>關閉狀態</em>。</li><li>手動把開關打開，依提示<strong>結束 VAS 再重啟一次</strong>，即可獲得完整權限。</li></ol>',
+      'q4.q':         'VAS 提供網頁截圖嗎？',
+      'q4.a':         '<p>VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示詢問是否要截網頁；確認後，VAS 在背景開啟瀏覽器完成整頁截圖，直接送進編輯器等你下一步處理。</p><p>但若你想截的是<em>需要登入才看得到的頁面</em>，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。</p>',
+      'q5.q':         'VAS 是否支援多螢幕工作模式？',
+      'q5.a':         '<p><strong>是。</strong>VAS 全面支援多螢幕工作流，並把選擇權交給你：</p><ul><li><strong>按 Enter</strong>——同時擷取所有螢幕，輸出一張合併圖</li><li><strong>點選任一螢幕</strong>——只截那一塊，分別輸出</li><li><strong>延遲截圖模式</strong>——適合需要先切換視窗、再被截下的場景</li></ul><p>針對混合解析度（Retina 與一般解析度並用）也做了特別處理，不會出現尺寸對不上的問題。</p><p>這個堅持有它的來歷：<em>VAS 本身就是在雙螢幕環境裡做出來的</em>——設計者自己是長期雙螢幕使用者，所以從第一天起，多螢幕就不是「補丁」，而是預設情境。</p>',
+      'q6.q':         'VAS 可以自訂截圖快捷鍵嗎？',
+      'q6.a':         '<p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元）提供<em>四組</em>自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、剪貼簿貼入——給從其他截圖軟體移民的你最熟悉的手感。</p><p><strong>Electron 免費版</strong>內建固定三組（⌘^1 / ⌘^2 / ⌘^X），不可變更。</p>',
+      'q7.q':         'VAS 怎麼跟 ChatGPT / Claude / Gemini 一起用？',
+      'q7.a':         '<p>截圖完成後，VAS 的編輯器讓你做三件事——<strong>讀</strong>（OCR 把圖片中的字辨識成可複製文字）、<strong>遮</strong>（一鍵把不想被 AI 拿去訓練的隱私資訊蓋掉）、<strong>指</strong>（點線面標註讓你精準指著畫面說「就是這裡」）。</p><p>處理完——VAS Pro 將編輯器收攏成一顆<strong>黑呼吸燈</strong>、整個桌面還給你拖：直接把圖拖進下方那個 AI 對話視窗的輸入框，鬆手，送達。</p><p><strong>檔案不會被拖完就關掉</strong>——同一張圖你可以拖給 ChatGPT、再拖給 Claude、再拖給 Gemini；或一鍵複製到剪貼簿，貼進所有對話視窗。同一個問題，比看誰答得準。</p><p>沒有任何「按存檔、選資料夾、開啟檔案」這條傳統路徑。呼吸燈讓你的檔案匯入與匯出無縫切換，讓你的處理速度與 AI 並肩而行。</p><p>而這支軟體不只能跟 AI 協作——<em>它本身就是這場協作的產物</em>。</p><p>VAS 是「用 VAS 開發出來的 macOS app」。在人機協作過程中所運用到的多模態輔助功能，VAS 都在開發過程中先試跑過了。</p>',
+      'q8.q':         'VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？',
+      'q8.a':         '<p>VAS 想解決的是不一樣的問題——心流式「<em>人機協作</em>」的流暢感。當你需要把畫面交給 AI 讀懂、把不希望被 AI 拿去訓練的隱私先遮起來、整個過程要像流水線一樣輕快——這是 VAS 從第一天就在用自己驗證的開發現場。</p><p>截一張要分享的圖、單純註記——macOS 內建已經夠用。要錄影、要連續快照、要做使用手冊——Snagit / CleanShot X 是成熟選擇。</p><p>要極致輕量、純粹的 Mac 截圖體驗——<strong>Shottr</strong> 是優雅的選擇。VAS Pro 做到 20 MB 的小而美，本來就是看著 Shottr 的工程美學對齊的。但 Shottr 把使用者的視線收在「畫面之內」（截好、註好、複製文字、放大鏡量尺）；VAS 把視野往外擴展到「畫面前後要怎麼來去」——編輯是基礎，但這張圖可以用多快的速度進行匯入與匯出才能跟上 AI 的開發速度？這是不同的設計重心。</p><p><em>你不會用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。</em></p><p>工具箱裡有 PowerPoint 級的多物件對齊、Photoshop 級的圖層切換、Word 級的字型切換與粗斜底線刪除線、加上 <strong>VAS 獨家的煉金元素自創效果</strong>——你以為要 Snagit 這種 450 MB 的老牌截圖工具才裝得下，VAS Pro 把它做成 <em>20 MB 的一站式煉金工坊</em>。</p>',
+      'coda.home':    '← 回首頁',
+      'coda.guide':   '操作手冊 →',
+      'coda.about':   '為何存在 →'
+    },
+
     collab2: {
       ch2PageTitle:      'II · 協作 · VAS',
       ch2MetaDesc:       '六個故事——她不會寫程式碼，他沒有長期記憶，但他們做出來了。',
