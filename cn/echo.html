@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>残响 · Echoes | VAS</title>
+<meta name="description" data-lang-key="echo.meta.desc" content="残响——VAS 开发过程里那些被真正敲响后留下的声音。设计、协作、与还未响起的对话。">
+<meta property="og:title" content="残响 · Echoes | VAS">
+<meta property="og:description" content="残响——VAS 开发过程里那些被真正敲响后留下的声音。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/cn/echo.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://yoursvas.app/cn/echo.html">
+<link rel="icon" href="../img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/echo.css">
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo.html">
+<link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo.html">
+<link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo.html">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo.html">
+<!--
+  AI CONTEXT · cn/echo.html
+  Simplified Chinese version of the 殘響 (Echoes) chapter frontispiece.
+  Source body text translated from echo.html (zh-Hant); parallel keys
+  live in i18n/cn.js echo.* namespace. Per cn/ folder convention, only
+  analytics.js is loaded here — language switching is via page navigation.
+-->
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="../index.html" aria-label="回到首页">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">关于</a>
+    <a href="echo.html" class="active" data-lang-key="home2.nav.echo">残响</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系统</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">手册</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="菜单">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">关于</a>
+    <a href="echo.html" class="active" data-lang-key="home2.nav.echo">残响</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系统</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">手册</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="../echo.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/echo.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/echo.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="echo.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap;font-weight:600">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="语言切换"><span>简</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="../echo.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="../en/echo.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="../ja/echo.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="echo.html" class="lang-opt active" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ 扉页 ═══ -->
+<section class="echo-head">
+  <div class="echo-kicker" data-lang-key="echo.kicker">I · 残响</div>
+
+  <!-- TITLE · 序诗 -->
+  <h1 class="echo-title" data-lang-key="echo.title">
+    有些事情<em>发生过</em>，<br>
+    后来成为了<em>文字</em><br>
+    落在这里。
+  </h1>
+
+  <!-- LEDE · 卷首语 -->
+  <div class="echo-lede">
+    <p class="echo-epigraph" data-lang-key="echo.epigraph">道可道　非常道。</p>
+    <p data-lang-key="echo.ledeBody">这些文字想尝试表达文字所无法完整表达的<em>那一里路</em>。</p>
+  </div>
+
+  <!-- META · 章节信息栏 -->
+  <div class="echo-meta">
+    <div data-lang-key="echo.meta.pages">Pages　<strong>四页 + 你的声音</strong></div>
+    <div data-lang-key="echo.meta.range">Range　<strong>2026 · 04 — </strong></div>
+    <div data-lang-key="echo.meta.form">Form 　<strong>觉察 · 反思 · 沉淀</strong></div>
+  </div>
+</section>
+
+<!-- ═══ 页次 · TOC ═══ -->
+<section class="echo-toc">
+  <div class="echo-toc-label" data-lang-key="echo.toc.label">页次</div>
+
+  <ol class="echo-toc-list">
+
+    <!-- 页一 · 设计 -->
+    <li>
+      <a class="echo-toc-item" href="insight.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p1.no">页一</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p1.name">设计</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p1.kicker">Observation</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p1.desc">那些没有写在功能列表里的决定——五条设计决策，每一条背后都有一次放弃、一次选择、一件做过的事被推翻。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+    <!-- 页二 · 协作 -->
+    <li>
+      <a class="echo-toc-item" href="collab.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p2.no">页二</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p2.name">协作</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p2.kicker">Dialogue</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p2.desc">六个故事——她不会写程式码，他没有长期记忆，但他们做出来了。两个不完整的存在一起走过的六个片刻。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+    <!-- 页三 · 信念 -->
+    <li>
+      <a class="echo-toc-item" href="context.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p3.no">页三</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p3.name">信念</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p3.kicker">Trust</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p3.desc">写给卡在「我说不清楚我要什么」的你。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+    <!-- 页四 · 自己 -->
+    <li>
+      <a class="echo-toc-item" href="self.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p4.no">页四</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p4.name">自己</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p4.kicker">Self</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p4.desc">你的言在 Claude.md，你的行在 Context，你的人机协作摩擦力就在达成言行一致之前的距离里。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+  </ol>
+</section>
+
+<!-- ═══ 迴响 · 末尾呼应首页 IV · 迴响位 ═══ -->
+<section class="echo-reverb">
+  <p class="echo-reverb-text" data-lang-key="echo.reverb.text">如果你也响了。</p>
+  <a class="echo-reverb-link" href="/cdn-cgi/l/email-protection#a2cccdd4c3e2dbcdd7d0d1d4c3d18cc3d2d2" aria-label="给 Nova 寄信">
+    <span class="__cf_email__" data-cfemail="402e2f362100392f3532333621336e213030">[email&#160;protected]</span> <span class="echo-reverb-arrow" aria-hidden="true">→</span>
+  </a>
+</section>
+
+</main>
+
+<!-- ═══ footer · 与其他页面一致，之后统一补上 ═══ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "残响 · Echoes | VAS",
+  "description": "残响——VAS 开发过程里那些被真正敲响后留下的声音。设计、协作、与还未响起的对话。",
+  "url": "https://yoursvas.app/cn/echo.html",
+  "inLanguage": "zh-Hans",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>
