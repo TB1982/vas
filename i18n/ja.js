@@ -913,7 +913,7 @@
       'toc.p3.kicker': 'Trust',
       'toc.p3.desc':   '「自分が何を望んでいるのか、言葉にできない」——そこで立ち止まっているあなたへ。',
       'toc.p4.no':     'IV',
-      'toc.p4.name':   '自己',
+      'toc.p4.name':   '自分',
       'toc.p4.kicker': 'Self',
       'toc.p4.desc':   'あなたの言は Claude.md に、あなたの行は Context に——人と AI の協作の摩擦は、言行が一つになる前の、その距離の中にある。',
       'reverb.text':   'もしあなたの中でも、響いたなら。'
