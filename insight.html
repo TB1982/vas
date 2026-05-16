@@ -674,7 +674,7 @@
     var items = document.querySelectorAll('.dot-nav-item');
     if (!items.length) return;
     var sections = Array.from(items).map(function(item) {
-      return document.querySelector(item.getAttribute('href'));
+      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
     }).filter(Boolean);
     var passage = document.querySelector('.passage');
     var maxVisited = -1;
