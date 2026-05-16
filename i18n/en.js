@@ -1009,11 +1009,11 @@
       'toc.p2.desc':   'Six stories — she couldn\'t write code, he had no long-term memory, but they made it. Six moments shared by two incomplete beings.',
       'toc.p3.no':     'III',
       'toc.p3.name':   'Trust',
-      'toc.p3.kicker': 'Trust',
+      'toc.p3.kicker': 'Context',
       'toc.p3.desc':   'For the you stuck on "I can\'t put what I want into words."',
       'toc.p4.no':     'IV',
       'toc.p4.name':   'Self',
-      'toc.p4.kicker': 'Self',
+      'toc.p4.kicker': 'Claude.md',
       'toc.p4.desc':   'Your words live in Claude.md, your deeds in Context — the friction of human-AI collaboration sits in the distance between them, before they meet as one.',
       'reverb.text':   'If it rang in you too.'
     },
