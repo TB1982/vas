@@ -403,7 +403,58 @@
   </div>
 </footer>
 
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="self.html#sec-01"><span class="dn-label">有限的注意力</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-02"><span class="dn-label">可觀測的上限</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-03"><span class="dn-label">摩擦力</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-04"><span class="dn-label">文字場域裡的人</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-05"><span class="dn-label">抄來的規則</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-06"><span class="dn-label">用加法做減法</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-07"><span class="dn-label">Ego 跟 Self</span><span class="dn-dot"></span></a>
+</nav>
+
 <script src="i18n/core.js"></script>
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
 <script src="js/analytics.js"></script>
 </body>
 </html>
