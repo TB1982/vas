@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>残響 | VAS</title>
+<meta name="description" data-lang-key="echo.meta.desc" content="残響——VAS の制作過程で、本当に響いた後に残された声。設計、協作、そしてまだ響いていない対話。">
+<meta property="og:title" content="残響 | VAS">
+<meta property="og:description" content="残響——VAS の制作過程で、本当に響いた後に残された声。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/echo.html">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://yoursvas.app/ja/echo.html">
+<link rel="icon" href="../img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/echo.css">
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo.html">
+<link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo.html">
+<link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo.html">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo.html">
+<!--
+  AI CONTEXT · ja/echo.html
+  Japanese-language version of the 殘響 (Echoes) chapter frontispiece.
+  Source body text translated from echo.html (zh); parallel keys live in
+  i18n/ja.js echo.* namespace. Per ja/ folder convention, only
+  analytics.js is loaded here — language switching is via page navigation.
+-->
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="../index.html" aria-label="ホームへ戻る">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">について</a>
+    <a href="echo.html" class="active" data-lang-key="home2.nav.echo">残響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="メニュー">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">について</a>
+    <a href="echo.html" class="active" data-lang-key="home2.nav.echo">残響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="../echo.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/echo.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="echo.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/echo.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="言語切替"><span>日</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="../echo.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="../en/echo.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="echo.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="../cn/echo.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ Frontispiece ═══ -->
+<section class="echo-head">
+  <div class="echo-kicker" data-lang-key="echo.kicker">I · 残響</div>
+
+  <!-- TITLE · Opening verse -->
+  <h1 class="echo-title" data-lang-key="echo.title">
+    何かが<em>起こった</em>、<br>
+    のちに<em>言葉</em>となって<br>
+    ここに落ちた。
+  </h1>
+
+  <!-- LEDE · Epigraph and opening lines -->
+  <div class="echo-lede">
+    <p class="echo-epigraph" data-lang-key="echo.epigraph">道の道とすべきは、常の道に非ず。</p>
+    <p data-lang-key="echo.ledeBody">これらの言葉は、言葉だけでは届かないところへ届こうとする——<em>あの最後の一里</em>。</p>
+  </div>
+
+  <!-- META · Chapter info -->
+  <div class="echo-meta">
+    <div data-lang-key="echo.meta.pages">Pages　<strong>四ページ + あなたの声</strong></div>
+    <div data-lang-key="echo.meta.range">Range　<strong>2026 · 04 — </strong></div>
+    <div data-lang-key="echo.meta.form">Form 　<strong>気づき · 内省 · 沈澱</strong></div>
+  </div>
+</section>
+
+<!-- ═══ Contents · TOC ═══ -->
+<section class="echo-toc">
+  <div class="echo-toc-label" data-lang-key="echo.toc.label">目次</div>
+
+  <ol class="echo-toc-list">
+
+    <!-- I · 設計 -->
+    <li>
+      <a class="echo-toc-item" href="insight.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p1.no">I</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p1.name">設計</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p1.kicker">Observation</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p1.desc">機能一覧には書かれなかった決断——五つのデザイン判断、それぞれの背後に、一度の手放しと、一度の選択と、一度なされたことの取り消しがある。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+    <!-- II · 協作 -->
+    <li>
+      <a class="echo-toc-item" href="collab.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p2.no">II</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p2.name">協作</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p2.kicker">Dialogue</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p2.desc">六つの物語——彼女にはコードが書けず、彼には長期記憶がなかった。それでも作り上げた。不完全な二つの存在が、共に歩んだ六つの瞬間。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+    <!-- III · 信頼 -->
+    <li>
+      <a class="echo-toc-item" href="context.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p3.no">III</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p3.name">信頼</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p3.kicker">Trust</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p3.desc">「自分が何を望んでいるのか、言葉にできない」——そこで立ち止まっているあなたへ。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+    <!-- IV · 自己 -->
+    <li>
+      <a class="echo-toc-item" href="self.html">
+        <div class="echo-toc-no" data-lang-key="echo.toc.p4.no">IV</div>
+        <div class="echo-toc-body">
+          <div class="echo-toc-head">
+            <h3 class="echo-toc-name" data-lang-key="echo.toc.p4.name">自己</h3>
+            <div class="echo-toc-kicker" data-lang-key="echo.toc.p4.kicker">Self</div>
+          </div>
+          <p class="echo-toc-desc" data-lang-key="echo.toc.p4.desc">あなたの言は Claude.md に、あなたの行は Context に——人と AI の協作の摩擦は、言行が一つになる前の、その距離の中にある。</p>
+        </div>
+        <div class="echo-toc-go" aria-hidden="true">→</div>
+      </a>
+    </li>
+
+  </ol>
+</section>
+
+<!-- ═══ Reverb · Closing echo, mirroring the homepage's IV · Reverb position ═══ -->
+<section class="echo-reverb">
+  <p class="echo-reverb-text" data-lang-key="echo.reverb.text">もしあなたの中でも、響いたなら。</p>
+  <a class="echo-reverb-link" href="/cdn-cgi/l/email-protection#a2cccdd4c3e2dbcdd7d0d1d4c3d18cc3d2d2" aria-label="Nova にメール">
+    <span class="__cf_email__" data-cfemail="402e2f362100392f3532333621336e213030">[email&#160;protected]</span> <span class="echo-reverb-arrow" aria-hidden="true">→</span>
+  </a>
+</section>
+
+</main>
+
+<!-- ═══ footer · matches other pages, to be added consistently later ═══ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "残響 | VAS",
+  "description": "残響——VAS の制作過程で、本当に響いた後に残された声。設計、協作、そしてまだ響いていない対話。",
+  "url": "https://yoursvas.app/ja/echo.html",
+  "inLanguage": "ja",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "babelon1882@gmail.com",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>
