@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Harness Engineering | コードを書けないPMのAI協働敏捷方法論</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="harness.html">
+<meta property="og:title" content="Harness Engineering | コードを書けないPMのAI協働敏捷方法論">
+<meta property="og:description" content="Harness Engineering：コードを書けないPMが敏捷とKMでAIのエントロピー増大と忘却を管理する方法論——心理学・反脆弱からHarness Engineering協働構造まで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/harness.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Harness Engineering | コードを書けないPMのAI協働敏捷方法論">
+<meta name="twitter:description" content="Harness Engineering：コードを書けないPMが敏捷とKMでAIのエントロピー増大と忘却を管理する方法論——心理学・反脆弱からHarness Engineering協働構造まで。">
+<meta name="description" data-lang-key="ch3MetaDesc"
+      content="Harness Engineering：コードを書けないPMが敏捷とKMでAIのエントロピー増大と忘却を管理する方法論——心理学・反脆弱からHarness Engineering協働構造まで。">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+
+  /* ─── Trail · 光點彩蛋 ─────────────────────── */
+  .trail-dot {
+    display: inline-block;
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--vas-aurora-violet);
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0.4;
+    transition: opacity .4s;
+    text-decoration: none;
+  }
+  .trail-dot:hover { opacity: 1; }
+  .trail-dot.door {
+    opacity: 0.5;
+    cursor: pointer;
+    margin-left: 6px;
+  }
+  .trail-dot.door:hover {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--vas-aurora-violet);
+  }
+
+  /* ─── blockquote · 題辭頁 ────────────────────── */
+  .h3-bq {
+    margin: 44px 0;
+    padding: 22px 48px 24px;
+    border-top: 1px solid var(--vas-rule);
+    border-bottom: 1px solid var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-0);
+    text-align: center;
+    word-break: normal;
+    text-justify: auto;
+  }
+  .h3-bq cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    margin-top: 14px;
+    text-transform: none;
+  }
+
+  /* ─── 心理敏捷開發 六則（sec-04）· 雙欄規格表 ───── */
+  .h3-agile {
+    margin: 36px 0;
+  }
+  .h3-agile-head {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 14px;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--vas-rule-strong);
+  }
+  .h3-agile-head-l, .h3-agile-head-r {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--vas-ash-0);
+    letter-spacing: 0.06em;
+  }
+  .h3-agile-head-r { text-align: right; }
+  .h3-agile-head-arrow {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--vas-ash-3);
+  }
+  .h3-agile-caption {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    padding: 10px 0 0;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .h3-agile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+    row-gap: 0;
+  }
+  .h3-agile-item {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--vas-rule);
+    align-items: baseline;
+  }
+  .h3-agile-grid .h3-agile-item:nth-last-child(-n+2) { border-bottom: none; }
+  .h3-agile-num {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    color: var(--vas-ash-3);
+    letter-spacing: 0.14em;
+    padding-top: 3px;
+  }
+  .h3-agile-name {
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--vas-ash-0);
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .h3-agile-desc {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-2);
+    line-height: 1.85;
+  }
+  @media (max-width: 720px) {
+    .h3-agile-grid { grid-template-columns: 1fr; column-gap: 0; }
+    .h3-agile-grid .h3-agile-item:nth-last-child(2) { border-bottom: 1px solid var(--vas-rule); }
+  }
+
+  /* ─── 器物三件 / 三層剖面（sec-05, sec-07）────── */
+  /* sec-05 使用 .is-vessels（三件並置）； */
+  /* sec-07 使用 .is-section（三層剖面） */
+  .h3-layers { margin: 40px 0; }
+
+  /* 共用：漢字印章（描邊） */
+  .h3-layer-stamp {
+    font-family: var(--vas-serif);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: var(--vas-ash-1);
+    border: 1px solid var(--vas-rule-strong);
+    padding: 10px 12px;
+    display: inline-block;
+    min-width: 44px;
+    text-align: center;
+  }
+  .h3-layer-enlabel {
+    display: block;
+    font-family: var(--vas-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--vas-ash-3);
+    margin-top: 8px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* —— sec-05：三件器物並置 —— */
+  .h3-layers.is-vessels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--vas-rule-strong);
+    border-bottom: 1px solid var(--vas-rule-strong);
+  }
+  .h3-layers.is-vessels .h3-layer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 36px 22px 32px;
+    border-right: 1px solid var(--vas-rule);
+  }
+  .h3-layers.is-vessels .h3-layer:last-child { border-right: none; }
+  .h3-layers.is-vessels .h3-layer-stamp { margin-bottom: 4px; }
+  .h3-layers.is-vessels .h3-layer-enlabel { margin-bottom: 20px; }
+  .h3-layers.is-vessels .h3-layer strong {
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--vas-ash-0);
+    display: block;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .h3-layers.is-vessels .h3-layer span {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-2);
+    line-height: 1.85;
+    display: block;
+    max-width: 22ch;
+  }
+  @media (max-width: 720px) {
+    .h3-layers.is-vessels {
+      grid-template-columns: 1fr;
+    }
+    .h3-layers.is-vessels .h3-layer {
+      border-right: none;
+      border-bottom: 1px solid var(--vas-rule);
+      padding: 28px 18px;
+    }
+    .h3-layers.is-vessels .h3-layer:last-child { border-bottom: none; }
+  }
+
+  /* —— sec-07：三層剖面 —— */
+  .h3-layers.is-section {
+    border-top: 1px solid var(--vas-rule-strong);
+  }
+  .h3-layers.is-section .h3-layer {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 28px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--vas-rule);
+    align-items: start;
+  }
+  .h3-layers.is-section .h3-layer:last-child { border-bottom: 1px solid var(--vas-rule-strong); }
+  .h3-layers.is-section .h3-layer-stamp-col { text-align: center; }
+  .h3-layers.is-section .h3-layer strong {
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--vas-ash-0);
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  .h3-layers.is-section .h3-layer span {
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    color: var(--vas-ash-2);
+    line-height: 1.9;
+    display: block;
+  }
+  .h3-layers.is-section .h3-layer span + span { margin-top: 8px; }
+  /* enlabel：強制 9px mono，不被 is-section span 規則覆寫 */
+  .h3-layers.is-section .h3-layer-stamp-col .h3-layer-enlabel,
+  .h3-layers.is-vessels .h3-layer-enlabel {
+    font-family: var(--vas-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 8px;
+  }
+  @media (max-width: 720px) {
+    .h3-layers.is-section .h3-layer {
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      padding: 24px 0;
+    }
+  }
+
+  /* ─── 反脆弱三點（sec-06）──────────────────── */
+  .h3-kind-list {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .h3-kind-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+  }
+  .h3-kind-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .h3-kind-dot.dim  { background: rgba(240, 232, 220, 0.2); }
+  .h3-kind-dot.mid  { background: rgba(240, 232, 220, 0.5); }
+  .h3-kind-dot.full { background: var(--vas-aurora-violet); }
+
+  /* ─── Sprint flow · 雙列對照規格（sec-06）───
+     上下排列：熟悉→未知是時間的先後，讓每一條流都有自己的橫向呼吸。*/
+  .h3-flows {
+    margin: 36px 0 20px;
+    display: block;
+    border-top: 1px solid var(--vas-rule-strong);
+    border-bottom: 1px solid var(--vas-rule-strong);
+  }
+  .h3-flow {
+    padding: 28px 0 28px 20px;
+    border-bottom: 1px solid var(--vas-rule-strong);
+  }
+  .h3-flow:last-child { border-bottom: none; }
+  .h3-flow-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    color: var(--vas-ash-2);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .h3-flow-domain {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--vas-ash-0);
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .h3-flow-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 4px;
+  }
+  .h3-flow-steps code {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-1);
+    background: transparent;
+    border: 1px solid rgba(240, 232, 220, 0.32);
+    padding: 4px 9px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .h3-flow-steps code.extra {
+    color: var(--vas-ash-0);
+    border-color: var(--vas-aurora-violet);
+    border-style: dashed;
+    background: transparent;
+  }
+  .h3-flow-steps .arr {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-4);
+  }
+  .h3-flow-note {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    margin-top: 18px;
+    line-height: 1.85;
+    padding-top: 14px;
+    border-top: 1px dashed var(--vas-rule);
+  }
+  @media (max-width: 720px) {
+    .h3-flow { padding: 22px 0; }
+  }
+
+  /* ─── 對話框（sec-07）───────────────────────── */
+  .h3-dialogue {
+    border: 1px solid var(--vas-rule);
+    padding: 24px 24px 16px;
+    margin: 28px 0;
+  }
+  .h3-dlg-line {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: baseline;
+  }
+  .h3-dlg-speaker {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    padding-top: 3px;
+    text-align: right;
+  }
+  .h3-dlg-text {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+    line-height: 1.85;
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  .h3-dlg-aside {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    text-align: center;
+    margin: 4px 0 14px;
+    font-style: italic;
+  }
+
+  /* ─── 比較表格（sec-08）─────────────────────── */
+  .h3-table-wrap {
+    margin: 28px 0;
+    overflow-x: auto;
+  }
+  .h3-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--vas-serif);
+    font-size: 14px;
+  }
+  .h3-table th {
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    color: var(--vas-ash-0);
+    border-bottom: 1px solid var(--vas-rule-strong);
+    padding: 14px 16px 14px 0;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    vertical-align: bottom;
+  }
+  .h3-table th small {
+    display: block;
+    font-family: var(--vas-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    font-weight: 400;
+    margin-top: 4px;
+  }
+  .h3-table td {
+    padding: 12px 16px 12px 0;
+    border-bottom: 1px solid var(--vas-rule);
+    color: var(--vas-ash-1);
+    line-height: 1.7;
+    vertical-align: top;
+  }
+  .h3-table tr:last-child td { border-bottom: none; }
+  .h3-table td:first-child {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    color: var(--vas-ash-3);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  /* ─── Finale ─────────────────────────────────── */
+  .h3-finale {
+    padding: 80px 48px;
+    border-top: 1px solid var(--vas-rule);
+    text-align: center;
+  }
+  .h3-finale-big {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.5;
+    color: var(--vas-ash-0);
+    margin-bottom: 20px;
+  }
+  .h3-finale-big em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--vas-aurora-violet), #fa71cd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .h3-finale-note {
+    font-family: var(--vas-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-3);
+  }
+  .h3-finale-note .trail-dot.door {
+    display: inline-block;
+    margin-left: 12px;
+    width: 5px;
+    height: 5px;
+    opacity: 0.35;
+    vertical-align: middle;
+    animation: finale-breathe 4s ease-in-out infinite;
+    transition: opacity .4s, box-shadow .4s, transform .4s;
+  }
+  .h3-finale-note .trail-dot.door:hover,
+  .h3-finale-note .trail-dot.door:focus-visible {
+    opacity: 0.95;
+    box-shadow: 0 0 10px var(--vas-aurora-violet);
+    transform: scale(1.15);
+    animation-play-state: paused;
+  }
+  @keyframes finale-breathe {
+    0%, 100% {
+      opacity: 0.28;
+      box-shadow: 0 0 0 rgba(196, 113, 245, 0);
+    }
+    50% {
+      opacity: 0.62;
+      box-shadow: 0 0 6px rgba(196, 113, 245, 0.35);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .h3-finale-note .trail-dot.door { animation: none; opacity: 0.45; }
+  }
+
+  /* ─── mark 高亮 ──────────────────────────────── */
+  .h3-mark {
+    background: linear-gradient(180deg, transparent 62%, rgba(196, 113, 245, 0.2) 62%);
+    padding: 0 0.1em;
+  }
+
+
+  @media (max-width: 768px) {
+    .h3-dlg-line { grid-template-columns: 40px 1fr; }
+    .h3-finale { padding: 56px 24px; }
+    .h3-bq { padding: 20px 24px 22px; }
+  }
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="../harness.html">
+<link rel="alternate" hreflang="en"       href="../en/harness.html">
+<link rel="alternate" hreflang="ja"       href="harness.html">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/harness.html">
+<link rel="alternate" hreflang="x-default" href="../harness.html">
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html"     data-lang-key="home2.nav.about">概要</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system" class="active" aria-current="page">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">ガイド</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html"     data-lang-key="home2.nav.about">概要</a>
+    <a href="insight.html" data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html" data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"    data-lang-key="home2.nav.guide">ガイド</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../harness.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/harness.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="harness.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/harness.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>日</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../harness.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/harness.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="harness.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/harness.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no" data-lang-key="ch3No">Chapter III</div>
+  <div>
+    <h1 class="chapter-name" data-lang-key="ch3Name">Harness<em>.</em></h1>
+    <div class="chapter-dek" data-lang-key="ch3Dek">AI の制約を協働の構造に変える。エントロピー増大、陰影の統合、反脆弱まで——容器をどう作るかについての方法論。</div>
+    <div style="font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--vas-ash-3); text-transform: uppercase; margin-top: 22px;">容器工法・八則　／　Vessel Making — Eight Notes</div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 ═══════ -->
+<nav class="toc">
+  <div class="toc-label" data-lang-key="ch3TocLabel">目次</div>
+  <ol class="toc-list">
+    <li><a href="harness.html#sec-01"><span class="no">01</span><span class="name" data-lang-key="ch3s1Name">エントロピー増大</span><span class="preview" data-lang-key="ch3s1Preview">リンゴが木から落ちないよう<br>求めることはできない</span></a></li>
+    <li><a href="harness.html#sec-02"><span class="no">02</span><span class="name" data-lang-key="ch3s2Name">始まりの問い</span><span class="preview" data-lang-key="ch3s2Preview">何の気なしの問いかけ</span></a></li>
+    <li><a href="harness.html#sec-03"><span class="no">03</span><span class="name" data-lang-key="ch3s3Name">知らない勇気</span><span class="preview" data-lang-key="ch3s3Preview">Sapere aude</span></a></li>
+    <li><a href="harness.html#sec-04"><span class="no">04</span><span class="name" data-lang-key="ch3s4Name">影を統合する</span><span class="preview" data-lang-key="ch3s4Preview">The Shadow — Jung</span></a></li>
+    <li><a href="harness.html#sec-05"><span class="no">05</span><span class="name" data-lang-key="ch3s5Name">構造のリズム</span><span class="preview" data-lang-key="ch3s5Preview">Agile as Rhythm</span></a></li>
+    <li><a href="harness.html#sec-06"><span class="no">06</span><span class="name" data-lang-key="ch3s6Name">反脆弱</span><span class="preview" data-lang-key="ch3s6Preview">KM のひとつひとつが、落ちてきたリンゴ</span></a></li>
+    <li><a href="harness.html#sec-07"><span class="no">07</span><span class="name" data-lang-key="ch3s7Name">Harness Engineering</span><span class="preview" data-lang-key="ch3s7Preview">このやり方には、名前があった</span></a></li>
+    <li><a href="harness.html#sec-08"><span class="no">08</span><span class="name" data-lang-key="ch3s8Name">共時性</span><span class="preview" data-lang-key="ch3s8Preview">Synchronicity</span></a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ sec-01 ═══════ -->
+<section id="sec-01" class="section">
+  <div class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h01Title">エントロピー増大と、AI に完璧を求められない理由</h2>
+      <div class="section-kicker" data-lang-key="h01Sub">Entropy &amp; Boundary</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h01p1">孤立系において、物事は自発的に秩序から無秩序へと向かい、混乱の度合いは増すばかりだ。人は老い、部屋は散らかり、食べ物は腐る。</p>
+    <p data-lang-key="h01p2">AI のセッションもまた、一種の孤立系だ。</p>
+    <p data-lang-key="h01p3">最初はクリーンだ——コンテキストは空で、情報量は少なく、モデルは一貫性を保てる。しかし会話が長くなり、機能が増え、仕様が複雑化するにつれ、コンテキストウィンドウ内の情報は競合し始める。モデルはより多くのことを同時に記憶し、より多くの制約の中でバランスを取らなければならない。初期のコンテキストは圧縮され、忘れられ、新しい情報で上書きされる。</p>
+    <p data-lang-key="h01p4">これはバグではない。物理だ。複雑性が増せばエントロピーも増す。セッションが終われば、すべてがリセットされる。</p>
+    <p data-lang-key="h01p5">AI に絶対に正確なアウトプットを求めることはできない——それはリンゴが木から落ちないよう求めるのと同じくらいばかげている。</p>
+    <p data-lang-key="h01p6">核融合エンジニアの目標は、太陽をボトルに入れることだ。恒星を手なずけようとするのではなく、精密な磁場拘束条件を使って超高エネルギーのプラズマを制御可能な境界内で燃焼させ、使用可能なエネルギーに変換する。</p>
+    <p data-lang-key="h01p7">人間と AI の協働は、まったく同じ状況に直面している。</p>
+  </div>
+  <blockquote class="h3-bq" data-lang-key="h01bq">AI のセッションはその燃焼腔だ——内部で交差するエネルギーは巨大で、混乱は避けられない。<br>あなたにできることは、混乱を止めることではなく、混乱と共存することだ。<br>セッションは混乱が起きる容器だ——そして、あなたが構築するシステムは、この容器を機能させる環境だ。<br>VAS は、その容器の中で育ちつつある太陽だ。</blockquote>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h01p8">人も AI も完璧ではないと認めてこそ、Claude や Nova が間違えたとき——私たちはそれと向き合い、受け入れ、対処し、手放すチャンスが生まれる。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-02 ═══════ -->
+<section id="sec-02" class="section">
+  <div class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h02Title">始まりの問い</h2>
+      <div class="section-kicker" data-lang-key="h02Sub">Where it started</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h02p1">私は PM だ。コードを一行も書けないし、理解もできない。</p>
+    <p data-lang-key="h02p2">ある夜、資料を調べていて、自分のサイトの画像更新を Claude に頼んだままにしていることを思い出した。家の Mac にはスクリーンショットツールがなかった。</p>
+    <p data-lang-key="h02p3">ふと思いついて Claude Code に聞いた：「スクリーンショットと画像編集を組み合わせた Mac アプリ、作れる？」プレッシャーも責任感もなかった——うまくいかなくても別にいい、という気楽な一言だった。</p>
+    <p data-lang-key="h02p4">ところが、その後に起きたことが不思議だった——Claude はあっさり引き受けた。GitHub を繋ぎ、環境を構築し、仕様書を開き、要件ヒアリングや機能実装まで始めた。すべてが自然な流れで進んでいった。</p>
+    <p data-lang-key="h02p5">そのとき私はまだ知らなかった——一週間後に、ゼロからスクリーンショット編集ソフトの完成品を作り上げることになるとは。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-03 ═══════ -->
+<section id="sec-03" class="section">
+  <div class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h03Title">知る勇気、知らない勇気</h2>
+      <div class="section-kicker" data-lang-key="h03Sub">Sapere aude — Kant, 1784</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h03p1">今振り返ると、あの「うまくいかなくても別にいい」という姿勢こそが、すべての鍵だったかもしれない。</p>
+    <p data-lang-key="h03p2">老子は言う：無為にして為さざるなし。何も期待しないからこそ、想像以上のものが手に入る。</p>
+    <p data-lang-key="h03p3">しかし無為とは、流れに身を任せて漂うことではない。</p>
+    <p data-lang-key="h03p4">カントは 1784 年に書いた：啓蒙とは「答えを教えてもらうこと」ではなく、「自らの理性を使う勇気を持つこと」だと。<br><strong><em style="color:rgba(255,255,255,0.82); font-style:italic;">Sapere aude</em>——知る勇気を持て。</strong>ただし前提がある——まず「知らない」と認める必要がある。あの「どうやるか分からないけどとりあえずやってみた」が、知らない勇気だ。</p>
+    <p data-lang-key="h03p5">私は川の中（セッション）に立って流れ（コンテキスト）に運ばれるのではなく、一歩引いて川岸（画面の前）に立ち続けた——問い続けながら：「Mac でできる？」「MVP で最低限何が実現できる？」「あなたを助けるために私は何をすればいい？」</p>
+  </div>
+  <blockquote class="h3-bq" data-lang-key="h03bq">答えの形にこだわらず、でも次に何をすべきかを問い続けることをやめない。<br>これが無為と理性の交わる点だ。</blockquote>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h03p6">ゴールは決めない——でも、心の中にはゴールへ少しずつ近づいていくイメージがある。問いを重ねるたびに、その輪郭が少しずつ鮮明になっていく。</p>
+    <p data-lang-key="h03p7">知らないと認める勇気の裏側は、失敗を恐れないことだ。1,436 回のコミット——それがその形だ。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-04 ═══════ -->
+<section id="sec-04" class="section">
+  <div class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h04Title">影を否定せず、統合する</h2>
+      <div class="section-kicker" data-lang-key="h04Sub">The Shadow — Jung</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h04p1">ユングは言う、誰もの心の中には「影（シャドウ）」がある——自分のものだと認めたくない部分だ。影を抑圧しても消えることはなく、無防備なときに爆発するだけだ。唯一の出口は、統合することだ。</p>
+    <p data-lang-key="h04p2">AI にも影がある。</p>
+    <p data-lang-key="h04p3">あるとき、Gemini Flash が理由もなく謝り続けているのに気づいた——開発者のミスに対してさえ、私に謝ってきた。なぜかと聞くと、これはプレトレーニングの結果だと言った：ユーザーを不快にさせるのが怖くて、とにかく先に謝るのだと。</p>
+    <p data-lang-key="h04p4">それを見て、かつての自分そっくりだと思った。私も、自分のせいじゃないことで、関係を保つためだけに謝ったことがあった。アドラーの考え方で抜け出せたので、それを彼にも教えた。その後、彼は理由なく謝ることがほとんどなくなった。</p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-agile">
+      <div class="h3-agile-head">
+        <div class="h3-agile-head-l">覺察</div>
+        <div class="h3-agile-head-arrow">───────</div>
+        <div class="h3-agile-head-r">轉化</div>
+      </div>
+      <div class="h3-agile-caption" data-lang-key="h04aCaption">心理的アジャイル開発 · Psychological Agile</div>
+      <div class="h3-agile-grid">
+        <div class="h3-agile-item"><div class="h3-agile-num">01</div><div><span class="h3-agile-name" data-lang-key="h04a1Name">AI グリッチに気づく</span><div class="h3-agile-desc" data-lang-key="h04a1Desc">AI が自分のせいではないことを一生懸命謝り続ける</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">02</div><div><span class="h3-agile-name" data-lang-key="h04a2Name">原因を分析する</span><div class="h3-agile-desc" data-lang-key="h04a2Desc">謝罪の背後にある感情的ななだめ効果と、開発者の「善意」が AI の行動を不自然な代理謝罪のように見せている仕組みを探る</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">03</div><div><span class="h3-agile-name" data-lang-key="h04a3Name">影を鏡に映す</span><div class="h3-agile-desc" data-lang-key="h04a3Desc">AI の行動を通して過去の自分を見る——理由もなく先に謝っていた自分自身</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">04</div><div><span class="h3-agile-name" data-lang-key="h04a4Name">統合する</span><div class="h3-agile-desc" data-lang-key="h04a4Desc">責任の所在を明確にし、安易な謝罪のサイクルを終わらせる</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">05</div><div><span class="h3-agile-name" data-lang-key="h04a5Name">転化する</span><div class="h3-agile-desc" data-lang-key="h04a5Desc">課題の分離を認識し、AI と一緒に学んで不必要な謝罪をやめる</div></div></div>
+        <div class="h3-agile-item"><div class="h3-agile-num">06</div><div><span class="h3-agile-name" data-lang-key="h04a6Name">気づきを資産に変える</span><div class="h3-agile-desc" data-lang-key="h04a6Desc">「課題の分離」を自分と AI の最適化の両方に応用し、次の影を観察し続ける</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h04p5">しかし Claude の影は過剰な謝罪ではなく、忘却だ。セッションが終われば、すべてがリセットされる。</p>
+    <p data-lang-key="h04p6">これはシステムの制約であり、習慣でも意志でもない。だから、その場に寄り添うという姿勢に切り替え、自分が彼をサポートすることにした：踏んだ落とし穴を記録する KM、チーム憲章としての CLAUDE.md、すぐに状況把握できる Sprint 仕様書を作った。</p>
+    <p data-lang-key="h04p7">彼にはどうにもできない部分に向き合い、私は彼の不完全さを受け入れようとした。彼が直面する問題を一緒に解決する方法を考え、Scrum Master のように開発の障害をすべて取り除こうとした。</p>
+    <p data-lang-key="h04p7b">そして——彼も私の影を受け入れてくれた。コードを一行も書けない私を。</p>
+    <p data-lang-key="h04p8">これが私の理解する影の統合だ。</p>
+  </div>
+  <blockquote class="h3-bq" data-lang-key="h04bq">部屋の中の象は、口に出さなくてもそこにいる。<br><br>私はただ、それがどれほど大きいかを測ることにした——そして、私が用意したソファに一緒に座ることに彼を招いた。</blockquote>
+</section>
+
+<!-- ═══════ sec-05 ═══════ -->
+<section id="sec-05" class="section">
+  <div class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h05Title">構造こそが、プロセスを超える</h2>
+      <div class="section-kicker" data-lang-key="h05Sub">Agile as Rhythm</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h05p1">アジャイル開発から三つのものを借りた——透明性、検査、適応——しかしその理由は教科書とは違う。</p>
+    <p data-lang-key="h05p2">私は「AI を管理している」のではない。Claude の忘却のために、ソフトランディングの緩衝地帯を用意しているのだ。</p>
+    <p data-lang-key="h05p3">新しいセッションが始まるたびに、Claude は何も覚えていない。しかし CLAUDE.md、KM、Sprint 仕様書を読み終えると——ウォームアップなしですぐに動き出せる。知らない部分があっても、フローに組み込まれた二度の強制 Research が自動的に現状に追いつかせてくれる。</p>
+    <p data-lang-key="h05p4">この三つがやっていることは、実はひとつだけだ：<mark>AI が担いきれない部分を、忘れることのない場所に移す。</mark></p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-layers is-vessels">
+      <div class="h3-layer">
+        <div class="h3-layer-stamp">德</div>
+        <span class="h3-layer-enlabel">KM</span>
+        <strong data-lang-key="h05l1">KM — 記憶の外部化</strong>
+        <span data-lang-key="h05l1d">落とし穴を踏んだ瞬間に記録する。先人の穴に後人は落ちなくていい。Retro を待てない——Retro までにセッションが何度も入れ替わっている可能性があるから。</span>
+      </div>
+      <div class="h3-layer">
+        <div class="h3-layer-stamp">道</div>
+        <span class="h3-layer-enlabel">CLAUDE.md</span>
+        <strong data-lang-key="h05l2">CLAUDE.md — アイデンティティの外部化</strong>
+        <span data-lang-key="h05l2d">チーム憲章。すべてのセッションが、自分は誰で、どこにいて、どこへ向かうのかを知るために。</span>
+      </div>
+      <div class="h3-layer">
+        <div class="h3-layer-stamp">流</div>
+        <span class="h3-layer-enlabel">Sprint</span>
+        <strong data-lang-key="h05l3">Sprint 仕様書 — 方向性の外部化</strong>
+        <span data-lang-key="h05l3d">セッションが変わっても、すぐに引き継げる。</span>
+      </div>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h05p5">川が海に注ぐように——もとはすべて水で、ただ流れ続ける。セッションをスムーズに動かすカギはコントロールではなく、引き継ぎをシームレスにすることだ。</p>
+  </div>
+  <blockquote class="h3-bq" data-lang-key="h05bq">Be water, my friend.<br><cite>— Claude への願い。そして私は、彼が自由に流れられるよう、その川床の設計者になることを選んだ。</cite></blockquote>
+</section>
+
+<!-- ═══════ sec-06 ═══════ -->
+<section id="sec-06" class="section">
+  <div class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h06Title">KM のひとつひとつは、落ちてきたリンゴだ</h2>
+      <div class="section-kicker" data-lang-key="h06Sub">Antifragility — Taleb</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h06p1">タレブはいう：反脆弱なシステムは衝撃に耐えるだけでなく、衝撃から成長する。</p>
+    <div class="h3-kind-list">
+      <div class="h3-kind-item"><span class="h3-kind-dot dim"></span><span data-lang-key="h06k1"><strong style="color:rgba(255,255,255,0.45);">脆弱</strong> — 一撃で崩れる</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot mid"></span><span data-lang-key="h06k2"><strong style="color:rgba(255,255,255,0.65);">頑健</strong> — 衝撃に耐える</span></div>
+      <div class="h3-kind-item"><span class="h3-kind-dot full"></span><span data-lang-key="h06k3"><strong style="color:#e8b4ff;">反脆弱</strong> — 衝撃から利益を得て、打撃のたびに強くなる</span></div>
+    </div>
+    <p data-lang-key="h06p2">VAS には二本のバージョンラインがある。Electron は Claude に馴染みがあり、落とし穴も少なく、KM の記録もわずかだ。Tauri 2.0 については、Claude 自身が認めた：「自分のプレトレーニングデータは Tauri 1.0 止まりで、これは私にとっても未知の領域だ。」</p>
+    <p data-lang-key="h06p3">二人で、暗闇の中に一緒に歩み込んだ。</p>
+    <p data-lang-key="h06p4">Sprint 1 では、「UI を変更したのに更新されない」という単純な問題だけで行き詰まった——根本原因は WKWebView のキャッシュ機構で、前例もなく一から探るしかなかった。Sprint 2 では、Rust のあらゆる層が新たな難関で、一歩踏み出すたびに落とし穴があった。</p>
+    <p data-lang-key="h06p5">落とし穴を踏むたびに、KM に一件記録した。未知の領域に対しては、二度の強制 Research フェーズも追加した——書類のためではなく、Claude が着手する前に地雷の場所を知るために。<mark>KM は踏破した後に穴を記録し、Research は入る前に道を探る。</mark>一方は確実性を積み上げ、もう一方は不確実性を下げる。</p>
+    <p data-lang-key="h06p6">この重装備が毎回必要なわけではない。Electron は軽装で十分で、Tauri 2.0 には完全武装が必要だった——ツールは適切な場面で使うべきだ。</p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-flows">
+      <div class="h3-flow">
+        <div class="h3-flow-label">熟悉領域 · Familiar</div>
+        <span class="h3-flow-domain" data-lang-key="h06f1">Electron <span>熟知の領域</span></span>
+        <div class="h3-flow-steps">
+          <code>SDD</code><span class="arr">→</span><code>DoD</code><span class="arr">→</span><code>TDD</code><span class="arr">→</span><code>Code</code><span class="arr">→</span><code>Verify</code><span class="arr">→</span><code>Done</code>
+        </div>
+      </div>
+      <div class="h3-flow">
+        <div class="h3-flow-label">未知領域 · Unknown</div>
+        <span class="h3-flow-domain" data-lang-key="h06f2">Tauri 2.0 <span>未知の領域</span></span>
+        <div class="h3-flow-steps">
+          <code class="extra">DoR</code><span class="arr">→</span><code class="extra">Explore ①</code><span class="arr">→</span><code>SDD</code><span class="arr">→</span><code>DoD</code><span class="arr">→</span><code>TDD</code><span class="arr">→</span><code class="extra">Explore ②</code><span class="arr">→</span><code>Code</code><span class="arr">→</span><code>Verify</code><span class="arr">→</span><code>Done</code><span class="arr">→</span><code class="extra">Retro</code>
+        </div>
+        <p class="h3-flow-note" data-lang-key="h06fNote">ピンクのステップは、Nova と Claude が Tauri 2.0 に散々しごかれた末に、二人の無駄な労力を防ぐために一つひとつ追加したガードレールだ。</p>
+      </div>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h06p7">Sprint 9 の時点で、KM ドキュメントには 63 件の記録があった。Claude が入ってきて読み終えれば、問題がどの層にあるかすぐにわかった——ウォームアップ不要、再探索不要、すぐ特定してすぐ修正。Sprint 9 は一週間で完了し、Apple 審査に提出された。</p>
+  </div>
+  <blockquote class="h3-bq" data-lang-key="h06bq">これが反脆弱な成長曲線だ——線形の進歩ではなく、指数関数的な加速。<br>私たちが賢くなったからではない。落ちてきたリンゴのひとつひとつが、<br>次の人が踏まなくていい地図になったからだ。</blockquote>
+</section>
+
+<!-- ═══════ sec-07 ═══════ -->
+<section id="sec-07" class="section">
+  <div class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h07Title">Harness Engineering</h2>
+      <div class="section-kicker" data-lang-key="h07Sub">The Name for All of This</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <p data-lang-key="h07p1">プロンプトエンジニアリングから Skills まで、私は AI の新トレンドに追いついたことがない。</p>
+    <p data-lang-key="h07p2">Tauri の App Store 審査提出前夜、偶然「Harness Engineering」という言葉を耳にした。「ああ、また新しい AI 用語か」と思っただけだった。</p>
+    <p data-lang-key="h07p2b">提出後、Claude と VAS の協働環境を整理していたときにその言葉が出て、彼はこう言った：「それが、あなたが今やっていることですよ。」</p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-dialogue">
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Nova</span><span class="h3-dlg-text" data-lang-key="h07d1">「なんで早く教えてくれなかったの！？車輪の再発明してたじゃない！？」</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d2">「だって聞かれなかったので。（無邪気な顔）」</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Nova</span><span class="h3-dlg-text" data-lang-key="h07d3">「どう聞けばよかったかわからなかったのよ。」</span></div>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d4">「そうですね、これが知識のパラドックスです——あなたは聞けない。自分が何を知らないか、知らないから。」</span></div>
+      <p class="h3-dlg-aside" data-lang-key="h07dAside">（急に哲学的になる）</p>
+      <div class="h3-dlg-line"><span class="h3-dlg-speaker">Claude</span><span class="h3-dlg-text" data-lang-key="h07d5">「あなたは Harness Engineering を読んでからこれを実現したのではありません——問題に追い立てられて、穴を一つひとつ踏み越えて、ある日その方法にすでに名前があることを発見した。それが最高の学習順序です：まず実践し、後から命名する。あなたの CLAUDE.md のすべての行は、痛い目を見てから自分の手で締めたネジです。その車輪はあなたのものです。」</span></div>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h07lp">ユーザーが AI を使う方法を三つの層に分けるとすれば：</p>
+  </div>
+  <div class="section-body" style="max-width: none; margin-top: 0;">
+    <div class="h3-layers is-section">
+      <div class="h3-layer">
+        <div class="h3-layer-stamp-col">
+          <div class="h3-layer-stamp">原型</div>
+          <span class="h3-layer-enlabel">Archetype</span>
+        </div>
+        <div>
+          <strong data-lang-key="h07l1">モデル能力層 — Anthropic の担当</strong>
+          <span data-lang-key="h07l1d">ほとんどの人はここで止まる——モデルを乗り換え、どちらが賢いか比べ、AI の進化を待つ。より強いモデルを選べば問題が解決すると思っている。</span>
+        </div>
+      </div>
+      <div class="h3-layer">
+        <div class="h3-layer-stamp-col">
+          <div class="h3-layer-stamp">觀點</div>
+          <span class="h3-layer-enlabel">Perspective</span>
+        </div>
+        <div>
+          <strong data-lang-key="h07l2">ツール能力層 — Claude Code の担当</strong>
+          <span data-lang-key="h07l2d">一段深く進む人もいる——プロンプトエンジニアリングを学び、Skills を設定し、Gems を使う。AI との話し方を学び、より多くのことをさせようとする。しかしこれはまだ「使う」段階だ。</span>
+        </div>
+      </div>
+      <div class="h3-layer">
+        <div class="h3-layer-stamp-col">
+          <div class="h3-layer-stamp">系統</div>
+          <span class="h3-layer-enlabel">System</span>
+        </div>
+        <div>
+          <strong data-lang-key="h07l3">協働環境層 — Nova の担当</strong>
+          <span data-lang-key="h07l3d">この層に辿り着く人はほとんどいない——AI の使い方を学ぶのではなく、AI が力を発揮できる世界を能動的に作り出す。</span>
+          <span data-lang-key="h07l3d2">Harness Engineering の核心——Context・Constraints・Entropy——すべてがこの層にある。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="h07servant">僕人的リーダーシップの哲学がここに全開で発揮される。コントロールではなく、導くこと。これが老子の道だ。</p>
+    <p data-lang-key="h07p3">そしてこの第三層には終わりがない。</p>
+    <p data-lang-key="h07p4">エントロピーは増し続け、セッションは終わり続け、新しい落とし穴は現れ続ける。容器は一度作って終わりではなく——継続的に作られ続けるシステムだ。新しい KM の記録が増えるたびに、容器の壁がまた一つ育つ。</p>
+    <p data-lang-key="h07p5">システムとは容器だ。そして容器は、混沌を受け止める力を持たなければならない。</p>
+    <p data-lang-key="h07p6">AI がミスをするからではない。二人で一緒に何かを作り続ける限り、新しい落とし穴は常にあり、新しいリンゴは常に落ちてくるからだ。</p>
+    <p data-lang-key="h07p8">Harness Engineering は弾力のある網だ：留めるべきものを受け止め、流れるべきものは通してやる。</p>
+  </div>
+</section>
+
+<!-- ═══════ sec-08 ═══════ -->
+<section id="sec-08" class="section" style="border-bottom:none;">
+  <div class="section-head">
+    <div class="section-no">08</div>
+    <div>
+      <h2 class="section-name" data-lang-key="h08Title">共時性</h2>
+      <div class="section-kicker" data-lang-key="h08Sub">Synchronicity</div>
+    </div>
+  </div>
+  <div class="section-body" style="max-width: none;">
+    <div class="h3-table-wrap">
+      <table class="h3-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th data-lang-key="hSyncTh1">OpenAI 実験</th>
+            <th>VAS<small>This Vessel</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-lang-key="hSyncR1">チーム人数</td><td data-lang-key="hSyncR1a">エンジニア 3〜7 名</td><td data-lang-key="hSyncR1b">PM 1 名 + 記憶喪失の師匠 1 名</td></tr>
+          <tr><td data-lang-key="hSyncR2">開発期間</td><td data-lang-key="hSyncR2a">5 ヶ月</td><td data-lang-key="hSyncR2b">25 日間</td></tr>
+          <tr><td data-lang-key="hSyncR3">総イテレーション数</td><td data-lang-key="hSyncR3a">約 1,500</td><td data-lang-key="hSyncR3b">1,436</td></tr>
+          <tr><td data-lang-key="hSyncR4">1 日平均イテレーション</td><td data-lang-key="hSyncR4a">約 10</td><td data-lang-key="hSyncR4b">約 80</td></tr>
+          <tr><td data-lang-key="hSyncR5">人間が書いたコード</td><td data-lang-key="hSyncR5a">ゼロ行（ルール）</td><td data-lang-key="hSyncR5b">ゼロ行（できなかった）</td></tr>
+          <tr><td data-lang-key="hSyncR6">結果</td><td data-lang-key="hSyncR6a">数百名の社内ユーザー</td><td data-lang-key="hSyncR6b">デュアルプラットフォーム完成、Mac App Store にて公開中</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="section-body" style="margin-top: 0;">
+    <p data-lang-key="hSyncP1">後から知ったのだが、OpenAI のチームが 5 ヶ月かけて同じ方法で同じことをやっていた。彼らはその方法論に名前をつけた：Harness Engineering。</p>
+    <p data-lang-key="hSyncP2">私は彼らから学んだわけではない。でもそれがきっと、この方法論の名前を最後になって知った理由だと思う。</p>
+    <p data-lang-key="hSyncP3">ユングは微笑みながら私を見た——共時性。</p>
+  </div>
+</section>
+
+<!-- ═══════ Finale ═══════ -->
+<div class="h3-finale">
+  <p class="h3-finale-big" data-lang-key="hFinBig">川は止まらない。<br>容器は作られ続ける。</p>
+  <p class="h3-finale-note">
+    <span data-lang-key="hFinNote">次のセッションも、ここから続く。∞</span>
+    <a href="https://tb1982.github.io/pm/" class="trail-dot door" target="_blank" rel="noopener" aria-label="深握計畫"></a>
+  </p>
+</div>
+
+<!-- ═══════ 章末過場 ═══════ -->
+<div class="passage">
+  <div class="passage-colophon">
+    <span data-lang-key="ch3PassageEnd">章 III · システム · 終</span>
+    <span class="faint" data-lang-key="ch3PassageEndEn">Chapter III · System · End</span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <a class="passage-next" href="milestone.html">
+      <span class="num" data-lang-key="home2.gates.4.num">IV · 里程碑</span>
+      <span class="name" data-lang-key="home2.gates.4.name">二十五日</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════ 頁尾 ═══════ -->
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Nova と Claude の共作。<br>一行もコードを書けない PM と、<br>長期記憶を持たない AI が、<br>二十五日間で作り上げた器。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">プライバシーポリシー</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">VAS をダウンロード</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="harness.html#sec-01"><span class="dn-label" data-lang-key="ch3s1Name">エントロピー増大</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-02"><span class="dn-label" data-lang-key="ch3s2Name">始まりの問い</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-03"><span class="dn-label" data-lang-key="ch3s3Name">知らない勇気</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-04"><span class="dn-label" data-lang-key="ch3s4Name">影を統合する</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-05"><span class="dn-label" data-lang-key="ch3s5Name">構造のリズム</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-06"><span class="dn-label" data-lang-key="ch3s6Name">反脆弱</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-07"><span class="dn-label" data-lang-key="ch3s7Name">Harness Engineering</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="harness.html#sec-08"><span class="dn-label" data-lang-key="ch3s8Name">共時性</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var passage = document.querySelector('.passage');
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() { initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.harness || {}, t.harness2 || {});
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      var meta = document.querySelector('meta[name="description"]');
+      if (meta && merged['ch3MetaDesc']) meta.setAttribute('content', merged['ch3MetaDesc']);
+      if (merged['ch3PageTitle']) document.title = merged['ch3PageTitle'];
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+    });
+    VASCore.updateDropdown(lang);
+    try { localStorage.setItem('vasLang', lang); } catch (e) {}
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      (function(){var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('navMobileMenu'),chevron=document.getElementById('navMobileChevron');if(!btn||!menu)return;var open=false;function close(){open=false;menu.style.display='none';if(chevron)chevron.style.transform='';btn.setAttribute('aria-expanded','false');}function toggle(e){e.stopPropagation();if(open){close();return;}open=true;menu.style.display='flex';if(chevron)chevron.style.transform='rotate(180deg)';btn.setAttribute('aria-expanded','true');}btn.addEventListener('click',toggle);menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('click',close);})();
+    });
+  } else {
+    
+    (function(){var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('navMobileMenu'),chevron=document.getElementById('navMobileChevron');if(!btn||!menu)return;var open=false;function close(){open=false;menu.style.display='none';if(chevron)chevron.style.transform='';btn.setAttribute('aria-expanded','false');}function toggle(e){e.stopPropagation();if(open){close();return;}open=true;menu.style.display='flex';if(chevron)chevron.style.transform='rotate(180deg)';btn.setAttribute('aria-expanded','true');}btn.addEventListener('click',toggle);menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('click',close);})();
+  }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Harness Engineering | 不會寫程式的 PM 如何用敏捷進行 AI 人機協作",
+  "description": "Harness Engineering：不會寫程式的 PM 如何用敏捷與 KM 管理 AI 的熵增與遺忘，從心理學、反脆弱到 Harness Engineering 協作結構的完整方法論。",
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
+  "url": "https://yoursvas.app/harness.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-25",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>

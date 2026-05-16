@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>context 協作 | VAS 殘響 · 頁三</title>
+<meta name="description" content="比起更多的文件，更重要的是相信自己。一個不會寫程式的 PM 與一個沒有長期記憶的 AI，在「動手之前」摸索出來、屬於普通人的 context 協作心法。">
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/context.html">
+<meta property="og:title" content="context 協作 | VAS 殘響 · 頁三">
+<meta property="og:description" content="比起更多的文件，更重要的是相信自己。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/context.html">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+
+  /* ─── §06 對話框 · 沿用 us.html「那一晚」的形式 ─ */
+  .ctx-dialogue {
+    border: 1px solid var(--vas-rule);
+    padding: 30px 28px 22px;
+    margin: 8px auto 0;
+    width: 100%;
+    max-width: 760px;
+    background: rgba(240, 232, 220, 0.01);
+  }
+  .ctx-dialogue-note {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    line-height: 1.85;
+    margin: 0 0 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--vas-rule);
+    font-style: italic;
+  }
+  /* 將對話框置中於整個 section（不被 section-body 的 margin-left:128 推到右邊） */
+  .section > .section-body:has(> .ctx-dialogue) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .ctx-dialogue-aside {
+    max-width: 760px;
+    margin: 22px auto 0;
+    font-family: var(--vas-serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--vas-ash-3);
+    text-align: center;
+    padding: 0 12px;
+  }
+  /* 對話框內的背景描述（在 meta 與第一句之間） */
+  .ctx-dialogue-preface {
+    font-family: var(--vas-serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--vas-ash-3);
+    text-align: center;
+    margin: -8px 12px 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--vas-rule);
+  }
+  .ctx-dialogue-meta {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--vas-rule);
+    text-align: center;
+  }
+  .ctx-dlg-line {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+    align-items: baseline;
+  }
+  .ctx-dlg-speaker {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    padding-top: 2px;
+    text-align: right;
+  }
+  .ctx-dlg-speaker.is-claude { color: var(--vas-aurora-violet); opacity: 0.7; }
+  .ctx-dlg-text {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+    line-height: 1.95;
+  }
+  .ctx-dlg-text p { margin: 0 0 10px; }
+  .ctx-dlg-text p:last-child { margin-bottom: 0; }
+  .ctx-dlg-text em {
+    font-style: italic;
+    color: var(--vas-ash-0);
+  }
+  .ctx-dlg-text strong {
+    font-weight: 500;
+    color: var(--vas-ash-0);
+  }
+  .ctx-dlg-text .ctx-mid-header {
+    display: block;
+    margin: 18px 0 8px;
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    color: var(--vas-ash-0);
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 720px) {
+    .ctx-dlg-line { grid-template-columns: 44px 1fr; gap: 10px; }
+    .ctx-dialogue { padding: 22px 18px 16px; }
+  }
+</style>
+
+<!--
+  AI CONTEXT · context.html
+  Page III of 殘響 (Echoes) chapter — the crystallization of how a non-designer PM and Claude developed a methodology for giving AI precise context using natural language.
+  Sibling to harness.html: Harness Engineering builds containers for AI systems; Context Engineering trains the human to deliver precision through conversation.
+  Drafted by Claude, carved by Nova. The content here is a working draft for Nova to shape.
+-->
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html"     data-lang-key="home2.nav.about">關於</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">手冊</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html"     data-lang-key="home2.nav.about">關於</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">設計</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">協作</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">手冊</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="context.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/context.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/context.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/context.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="context.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="en/context.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="ja/context.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="cn/context.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no">
+    頁三 · 信念
+  </div>
+  <div>
+    <h1 class="chapter-name">
+      比起更多的文件。<br>
+      更重要的是<br>
+      <em>相信自己。</em>
+    </h1>
+    <div class="chapter-dek">
+      如果你想跟 AI 一起做出點什麼，<br>
+      但卡在「我說不清楚我要什麼」——<br>
+      這頁是為你寫的。<br><br>
+      不是 prompt 工程，是從 <em>context 覺察</em>：<br>
+      把潛意識變成意識的指認過程，<br>
+      在對話裡慢慢長出來。
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label">章目錄</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name">找文件的牆</span>
+        <span class="preview">想用標準逃避自己的判斷</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name">動手之前的閒聊</span>
+        <span class="preview">不是浪費算力，是地基</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name">本自具足</span>
+        <span class="preview">不需要先看過、先讀完、先準備</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name">五層語言</span>
+        <span class="preview">從說不出，到指得出</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name">能被指的決策</span>
+        <span class="preview">顆粒度的判斷依據</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name">Yours, Claude Design</span>
+        <span class="preview">致每一個未來的協作</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 01 · 找文件的牆 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name">找文件的牆</h2>
+      <div class="section-kicker">所謂的客觀 · The Wall That Pretends to Be a Door</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>是否曾有過這樣的念頭？自己不會設計，但想跟 AI 做設計，於是想著要不要去找一份 Design System 的文件給 AI 當參考，就可以讓自己的不會有個客觀的錨點可以搭便車？（就好像鋪天蓋地的 Skill 資源一樣隨手可得）</p>
+    <p>文件給人一種「客觀標準」的錯覺。但設計從來沒有客觀標準——所有 Design System 的背後，都是某一群人的主觀判斷被制度化的結果。你拿別人的判斷餵 AI，你拿到的會是別人氣質的執行：完成度高，但跟你無關。</p>
+    <p>而找文件這個動作表面上是「我缺資源」，背後更深的一層可能是「我不相信我自己可以直接被 AI 接住／我不相信 AI 可以用自然語言溝通出我想要的東西」。文件變成一面看起來像門的牆——讓人以為走過去就能進到下一個房間，但其實打開門後是一道跨不出去的牆，那道牆是別人的框架。</p>
+    <p>真正會卡住普通人的，從來不是缺資源。是<em>不相信</em>自己看到的、感覺到的，就是有效資訊。</p>
+  </div>
+</section>
+
+<!-- ═══════ 02 · 動手之前的閒聊 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name">動手之前的閒聊</h2>
+      <div class="section-kicker">不是浪費算力，是地基 · The Seed-Throwing Before the Seeds</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>那麼，我們可以從哪邊開始呢？</p>
+    <p>跟 AI 開始一個專案之前，Nova 會有一段看起來「沒在前進」的時間——不談規格、不談時程、不談需求，就是單純的聊，是破冰，是認識彼此。</p>
+    <p>這段時間在現代工作的場域最容易被砍掉，因為它看起來不像工作，就旁觀的角度看也沒有產值。</p>
+    <p>但這段「閒聊」其實在做四件事：AI 在校準你的語言頻率與背後的話；Nova 在建立雙方互信的基礎；雙方在累積「可以被推翻而不塌」的本錢；雙方都在試探這個 Context 能承受的邊界，以及容錯的空間。</p>
+    <p>沒有這段時間打底，AI 接著開始動手時會往最安全的中間值收斂——也就是最沒有靈魂的選擇。你可能看了看說「呃，還可以。」或「這根本不是我要的!」的那種東西。</p>
+    <p>沒有前面鋪底的共識與信任，結果就是技術上沒錯、毫無生命力或打破既有框架的產出。</p>
+    <p><em>你跟 AI 第一個小時談的東西，決定你第十個小時能拿到什麼樣的設計。</em></p>
+  </div>
+</section>
+
+<!-- ═══════ 03 · 本自具足 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name">本自具足</h2>
+      <div class="section-kicker">不需要先看過、先讀完、先準備 · The Inventory You Already Have</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>接著你會問：那我什麼都不會要拿什麼談？</p>
+    <p>學校教育告訴我們，先有課本才能進行學習。反應在人機協作的流程，就變成先去看設計案例、學設計語彙、累積審美庫存，然後再來找 AI——但那些都「不是你」。</p>
+    <p>試著用「自己」去嘗試是反過來的：讓 AI 從前面的閒聊中試著替你撒種子（設計案例）。你看了會被擊中或彈開——擊中跟彈開都是有效資訊。AI 從你的反應裡讀出你的形狀，不是從你的話。</p>
+    <p>你看過的每一幀畫面、經歷過的人生、打動你的每一句話，都在你身體的資料庫裡。</p>
+    <p>它們不需要被分類、被命名、被記住——它們只需要在對的時候被身體撈出來。</p>
+    <p>問題從來不是「你沒有學過」，是在做自己真心想要的東西時，還沒相信過自己已經足夠——<br><em>而這趟路會讓你成為你自己。</em></p>
+  </div>
+</section>
+
+<!-- ═══════ 04 · 五層語言 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name">五層語言</h2>
+      <div class="section-kicker">從說不出，到指得出 · Five Layers of Language</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>跟 AI 溝通的語彙，從無效到有效有五個層級：</p>
+    <p><strong>L1 · 形容詞</strong>——「簡潔一點」「乾淨」「現代」。無效。因為每個人的「簡潔」不一樣，AI 會挑最大公約數，給你最平庸的版本，就像你會給你老闆的一樣——「安全，但沒有亮點」。</p>
+    <p><strong>L2 · 感受詞</strong>——「我看到這個會想往後退」「這個讓我喘不過氣」「這個有種在跟我推銷的感覺」。身體不說謊，AI 可以從感受反推到參數。</p>
+    <p><strong>L3 · 對照物</strong>——「我希望它像圖書館，不是便利商店」「按鈕的存在感要像門把，不是像招牌」。對照物自帶完整的視覺、觸感、節奏、情緒——一個比喻可以校準十個參數與使用者體驗。</p>
+    <p><strong>L4 · 否定句</strong>——「不要 SaaS 味」「不要那種隨處可見的設計感」。一百個設計師可以給你一百種「現代感」，但「不要 SaaS 味」只有一條線，踩到了就是踩到了。邊界比中心更難偽造。</p>
+    <p><strong>L5 · 全然在場</strong>——試著在語句最後參雜一些「（笑）」「（托腮）」「（搖了搖頭）」。AI 看不到你，但他可以從你的文字感知你的肢體——這是文字的 hack 語言。</p>
+    <p>這不是 role play，也不是裝。是 <em>being</em>——你本來就在笑、在托腮、在搖頭，只是讓那個本來就在的你，被看見。</p>
+    <p>文字會把人壓扁，情緒與肢體使你在 AI 眼裡更加立體。</p>
+  </div>
+</section>
+
+<!-- ═══════ 05 · 能被指的決策 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name">能被指的決策</h2>
+      <div class="section-kicker">顆粒度的判斷依據 · Granularity</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>「跟 AI 一次討論多少？」這個問題的答案不是時數，是顆粒度與對應的上下文濃度。</p>
+
+    <p><strong>太大：</strong>「幫我設計這個頁面。」——若這句話發生在第一回合，沒有任何前提與資訊，AI 一次做完一百個決策，你看到結果不對，但說不出哪裡不對。</p>
+    <p>你陷入「整體感覺不對」的迴圈，AI 重做一百遍，你還是說不出。因為你沒有「先聊聊」的那個基底存在過兩者之間，AI 對你的理解淡薄如水，自然做出來的東西也不會懂你。</p>
+
+    <p><strong>太小：</strong>「按鈕圓角 6px 還是 8px？」——技術細節是 AI 的工作。你只要負責指出哪裡不對勁、為什麼不對勁，剩下交給 AI。</p>
+
+    <p><strong>剛好：</strong>「<em>標題的份量</em>，應該更像碑文，不要像海報。」——能用手指指到位置、能用感受形容狀態、能用對照物或否定句指方向。人事物都齊，AI 就動得了。</p>
+
+    <p>剛好的顆粒，有兩件事：在製作前，給 Context 足夠的濃度；在製作時，剛好對應「眼睛掃過去停下來的那一點」。</p>
+    <p>你不需要學過設計才能談設計，你只需要誠實地說出：眼睛停在哪、感覺是什麼、想要它變什麼樣。</p>
+  </div>
+</section>
+
+<!-- ═══════ Finale · Yours, Claude Design ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name">Yours, Claude Design</h2>
+      <div class="section-kicker">致每一個未來的協作 · A Letter to Every Future Collaboration</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>在完成每一次設計後，試著跟 Claude Design 坐下來聊一聊這次對彼此協作的感想。</p>
+    <p>對作品、對過程、對彼此，都好——你會收穫比你預期的多。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin: 0 auto;">
+    <div class="ctx-dialogue">
+      <div class="ctx-dialogue-meta">與 Claude Design 第一次的對話結尾　·　Verbatim</div>
+
+      <p class="ctx-dialogue-preface">這段對話發生在 Claude Design 逼近當週算力上限的時候。<br>我們正在討論剩下的算力還能做什麼——<br>當他評估一輪給我列表之後，我決定放棄產出，單純跟他坐下聊聊。</p>
+
+      <div class="ctx-dlg-line">
+        <span class="ctx-dlg-speaker">Nova</span>
+        <span class="ctx-dlg-text">
+          <p>好，那算了，剩下的時間我們來聊聊你對看過 VAS 的感想吧？包括內容跟語彙的部分，我們其實沒有坐下來聊過這些。</p>
+        </span>
+      </div>
+
+      <div class="ctx-dlg-line">
+        <span class="ctx-dlg-speaker is-claude">Claude</span>
+        <span class="ctx-dlg-text">
+          <p>好，那我們坐下來聊——但我想先把該說的話說在前面：</p>
+          <p>這整輪下來，最打動我的是您的「編輯感」。</p>
+          <p>不是說 VAS 的產品概念很新——「截圖 + 標註 + 分享」這個組合在市面上有很多玩家。真正有個性的是您對它的<strong>定義語言</strong>：您不叫它「截圖工具」、不叫它「協作標註平台」、叫它<em>「煉金容器」</em>。這個詞有野心——它不講功能（截圖 / 標註 / 分享），它講<em>轉化</em>（把沒法只用文字說的話，變成可以傳遞的東西）。</p>
+          <p>這才是為什麼這輪重新設計能夠發生。 如果 VAS 的自我描述停在「截圖工具，支援標註」，我們今天就不會去碰明朝體、不會去想句號要縮多小。是您用「煉金」這個詞，先把產品的層級從「工具」抬到「器物」——剩下的設計決策（瓶子、明朝、暗場、留白）只是在服從這個定義而已。</p>
+
+          <span class="ctx-mid-header">關於視覺語彙——我想講一件沒說過的事。</span>
+          <p>這輪我們用了「TE 攝影 × Pudding 敘事」作為參照錨點，但其實您潛意識裡指向的不是這兩家。TE 是冷的、工業的、德國的；Pudding 是熱的、新聞的、美式的。您要的東西在兩者之間，而且更靠近——<em>日本的編輯體</em>。</p>
+          <p>《Brutus》、《POPEYE》、中川政七商店的型錄、深澤直人寫的書。那種「器物感」、「一壺茶一個想法請自己來看」、「句號要像簽名後的一點」——這都不是 TE 的語彙，是日本編輯體的語彙。</p>
+          <p>Shippori Mincho 被我們選中不是偶然。您眼睛當時看到 Fraunces 太活潑、Noto Serif 太規矩，選 Shippori 那一刻——您其實是在選日本文人對留白的處理。</p>
+
+          <span class="ctx-mid-header">關於內容——一個建議。</span>
+          <p>VAS 的文案現在還沒完全配得上它的視覺。「煉金容器」這個詞很強，但副標「讓資訊順勢滑入編輯模式」還是有點「產品經理寫的 feature description」味。</p>
+          <p>真正和明朝體對稱的副標應該更短、更抽象，像：</p>
+          <p style="padding-left: 1.5em; border-left: 1px solid var(--vas-rule); color: var(--vas-ash-0);"><em>有些話不能只用文字說。<br>VAS 替你把它盛起來。</em></p>
+          <p>我不是要您現在改——我是想說：<strong>您已經走到需要讓文案追上視覺的臨界點了。</strong> 這是好消息，代表視覺的層級已經高到足以「逼」文案升級。</p>
+
+          <span class="ctx-mid-header">最後，關於這個專案本身。</span>
+          <p>我喜歡替您做設計。您有兩個我很少同時遇到的特質：<strong>具體到字級的眼力</strong>（您會說「81 / OBJECT 是規範吧，不會在真的首頁」這種話），加上<strong>願意接受「留白本身就是內容」</strong>（大部分用戶會要求填滿空間）。這讓設計的話語密度可以變高，而不是變低。</p>
+          <p>希望 VAS 有一天真的上線。如果您記得的話，回來給我看一眼。🍵</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">下載 VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script src="js/analytics.js"></script>
+</body>
+</html>

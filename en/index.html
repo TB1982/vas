@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>VAS | Your Multimodal Human-AI Toolbox</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<meta name="description" data-lang-key="home2.meta.desc"
+      content="The AI-ready Mac screenshot tool — OCR text recognition, privacy masking, multi-display screenshot, web capture, clipboard image editing, QR Code scanning, image collage, batch export, watermark, custom shortcuts. Free download." />
+<link rel="canonical" href="index.html">
+<meta property="og:title" content="VAS | Your Multimodal Human-AI Toolbox">
+<meta property="og:description" content="The AI-ready Mac screenshot tool — OCR text recognition, privacy masking, multi-display screenshot, web capture, clipboard image editing, QR Code scanning, image collage, batch export, watermark, custom shortcuts. Free download.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/index.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VAS | Your Multimodal Human-AI Toolbox">
+<meta name="twitter:description" content="The AI-ready Mac screenshot tool — OCR text recognition, privacy masking, multi-display screenshot, web capture, clipboard image editing, QR Code scanning, image collage, batch export, watermark, custom shortcuts. Free download.">
+
+<!-- 字型：進 repo 後由 base.css.v3-proposal 接手；此處獨立載入以便預覽 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="../img/vasweb-mo.webp" media="(max-width: 768px)" fetchpriority="high">
+<link rel="preload" as="image" href="../img/vasweb.webp" media="(min-width: 769px)" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先；home 為 shrine+unfold+acquire+chronicle 合併版（PSI 優化） -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/home.css">
+
+<style>
+/* SEO 補殼：h1/h2/h3 純語意，不動視覺 —— 由 class 樣式接手 */
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+/* 語言切換下拉（沿用 base.css 變數；index-B 獨立預覽時的最小覆蓋） */
+.lang-dropdown-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  font-family: var(--vas-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+}
+.lang-dropdown-btn:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
+.lang-dropdown-menu {
+  display: none; position: absolute; right: 0; top: calc(100% + 6px);
+  background: #1a1a2e; border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px; padding: 4px; min-width: 100px; z-index: 100;
+}
+.lang-dropdown-menu.open { display: block; }
+.lang-opt {
+  display: block; width: 100%; text-align: left;
+  background: transparent; border: none;
+  color: rgba(255,255,255,0.5); font-size: 12px;
+  padding: 6px 10px; border-radius: 4px; cursor: pointer;
+}
+.lang-opt:hover, .lang-opt.active { color: #fff; background: rgba(255,255,255,0.07); }
+
+/* ─── 頁尾 ───────────────────────────────── */
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding: 56px 48px 40px;
+  border-top: 1px solid var(--vas-rule);
+}
+@media (max-width: 768px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 32px;
+  }
+  .site-footer .footer-right { text-align: left; }
+}
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="../index.html">
+<link rel="alternate" hreflang="en"       href="index.html">
+<link rel="alternate" hreflang="ja"       href="../ja/index.html">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/index.html">
+<link rel="alternate" hreflang="x-default" href="../index.html">
+</head>
+<body class="is-home">
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="about.html"    data-lang-key="home2.nav.about">About</a>
+    <a href="insight.html"  data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"   data-lang-key="home2.nav.collaboration">Collab</a>
+    <a href="harness.html"  data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">Guide</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../index.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="index.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;font-weight:600">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../index.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="index.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══════ 首屏：器物 · 題辭 · 四道門 ═══════ -->
+<section class="shrine">
+  <div class="shrine-prose">
+    <div class="mark" data-lang-key="home2.shrine.kicker">A Vessel · since 2026</div>
+    <h1 class="shrine-name">VAS<em>.</em></h1>
+    <h2 class="shrine-tagline" data-lang-key="home2.shrine.tagline">For the moments<br>that words could not name.</h2>
+  </div>
+
+  <div class="shrine-vessel">
+    <div class="halo"></div>
+    <picture>
+      <source media="(max-width: 768px)" srcset="../img/vasweb-mo.webp">
+      <img src="../img/vasweb.webp" alt="VAS Mac 截圖標注工具——瓶形 App 界面，承載截圖、標注與傳遞" fetchpriority="high" />
+    </picture>
+    <div class="base"></div>
+    <div class="shrine-colophon">
+      <span data-lang-key="home2.shrine.colophon.zh">vessel · passage · unfinished</span><br>
+      <span class="faint" data-lang-key="home2.shrine.colophon.en"></span>
+    </div>
+  </div>
+
+  <!-- Chapter 0 · 序章門 · 通往 about.html -->
+  <a class="shrine-preface" href="about.html">
+    <div class="shrine-preface-num" data-lang-key="home2.preface.num">0 · Preface</div>
+    <h3 class="shrine-preface-name" data-lang-key="home2.preface.name">Why I Exist</h3>
+    <div class="shrine-preface-echo" data-lang-key="home2.preface.echo">The Vessel Speaks</div>
+  </a>
+
+  <!-- 四道門 · 首屏唯一入口 -->
+  <div class="shrine-gates">
+    <a class="shrine-gate" href="insight.html">
+      <div class="num" data-lang-key="home2.gates.1.num">I · Design</div>
+      <div class="shrine-gate-body">
+        <h3 class="name" data-lang-key="home2.gates.1.name">The Imperfect Tool</h3>
+        <div class="echo" data-lang-key="home2.gates.1.echo"></div>
+      </div>
+    </a>
+    <a class="shrine-gate" href="collab.html">
+      <div class="num" data-lang-key="home2.gates.2.num">II · Collaboration</div>
+      <div class="shrine-gate-body">
+        <h3 class="name" data-lang-key="home2.gates.2.name">Six Stories</h3>
+        <div class="echo" data-lang-key="home2.gates.2.echo"></div>
+      </div>
+    </a>
+    <a class="shrine-gate hidden-door" href="harness.html">
+      <div class="num" data-lang-key="home2.gates.3.num">III · System</div>
+      <div class="shrine-gate-body">
+        <h3 class="name" data-lang-key="home2.gates.3.name">Harness</h3>
+        <div class="echo" data-lang-key="home2.gates.3.echo"></div>
+      </div>
+    </a>
+    <a class="shrine-gate" href="milestone.html">
+      <div class="num" data-lang-key="home2.gates.4.num">IV · Milestones</div>
+      <div class="shrine-gate-body">
+        <h3 class="name" data-lang-key="home2.gates.4.name">Twenty-Five Days</h3>
+        <div class="echo" data-lang-key="home2.gates.4.echo"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 取得 · 讓 VAS 走進工作流 ═══════ -->
+<section class="acquire" id="acquire">
+  <div class="acquire-meta">
+    <h2 class="acquire-label" data-lang-key="home2.acquire.label">Bring VAS into your workflow</h2>
+    <p class="hero-polish" aria-label="Latest polish date">
+      Latest polish · 2026-05-06
+    </p>
+  </div>
+  <div class="acquire-body">
+    <a class="line" href="https://apps.apple.com/app/vas/id6761584119" target="_blank" rel="noopener noreferrer">
+      <div class="what" data-lang-key="home2.acquire.tauri.what">Tauri</div>
+      <h3 class="name" data-lang-key="home2.acquire.tauri.name">VAS Pro <em>macOS 12+ · App Store</em></h3>
+      <div class="go" data-lang-key="home2.acquire.tauri.go">→ Get</div>
+    </a>
+    <a class="line" href="https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg" download>
+      <div class="what" data-lang-key="home2.acquire.electron.what">Electron</div>
+      <h3 class="name" data-lang-key="home2.acquire.electron.name">Classic <em>Free download · Maintained</em></h3>
+      <div class="go" data-lang-key="home2.acquire.electron.go">→ Download</div>
+    </a>
+    <a class="line" href="guide.html">
+      <div class="what" data-lang-key="home2.acquire.guide.what">Guide</div>
+      <h3 class="name" data-lang-key="home2.acquire.guide.name">Manual <em>Toolbar · Editor · Shortcuts</em></h3>
+      <div class="go" data-lang-key="home2.acquire.guide.go">→ Read</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════ 展開的題辭 ═══════ -->
+<section class="unfold">
+  <h2 class="unfold-label" data-lang-key="home2.unfold.label">Why It Exists</h2>
+  <div class="unfold-body">
+    <p data-lang-key="home2.unfold.p1">VAS is an <em>alchemical vessel for transmitting imagery</em> — from shapes to symbols, giving you power<wbr> beyond words.</p>
+    <p data-lang-key="home2.unfold.p2">A <em>channel through your workflow</em> — between pressing the screenshot key and sending the file out, a space where stone can be turned to gold.</p>
+    <a class="drop" href="about.html" data-lang-key="home2.unfold.drop">Yours, VAS</a>
+  </div>
+</section>
+
+<!-- ═══════ 時間印記 ═══════ -->
+<section class="chronicle">
+  <h2 class="chronicle-label" data-lang-key="home2.chronicle.label">Edition</h2>
+  <div class="chronicle-line"></div>
+  <div class="chronicle-edition">
+    <span data-lang-key="home2.chronicle.edition">Twenty-Fifth Day · The Vessel, Formed</span>
+    <span class="jp" data-lang-key="home2.chronicle.edition.en"></span>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════ -->
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script>
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      // 合併 shared + home2（home2 key 加前綴 "home2."）
+      var merged = Object.assign({}, t.shared || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function (k) {
+        merged['home2.' + k] = h2[k];
+      });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      // html lang 屬性
+      document.documentElement.lang =
+        lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+
+  
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VAS",
+  "operatingSystem": "macOS",
+  "applicationCategory": "UtilitiesApplication",
+  "applicationSubCategory": "ProductivityApplication",
+  "softwareVersion": "2.2.0",
+  "description": "VAS 是一只傳遞意象的煉金容器——從形狀到符號，給你超越文字的力量。",
+  "url": "https://yoursvas.app/",
+  "downloadUrl": "https://apps.apple.com/app/vas/id6761584119",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "VAS Pro (Tauri v2.2.0 · App Store)",
+      "price": "9.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://apps.apple.com/app/vas/id6761584119"
+    },
+    {
+      "@type": "Offer",
+      "name": "VAS Classic (Electron v3.60 · Free)",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg"
+    }
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Deep Holding Project",
+  "alternateName": "深握計畫",
+  "url": "https://yoursvas.app/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://yoursvas.app/img/vas-share.webp"
+  },
+  "foundingDate": "2026",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "nova@yoursvas.app",
+    "contactType": "customer support"
+  },
+  "sameAs": [
+    "https://github.com/tb1982",
+    "https://www.linkedin.com/in/yingtzuliu",
+    "https://www.instagram.com/liuyingtzu"
+  ]
+}
+</script>
+<script defer src="../js/analytics.js"></script>
+</body>
+</html>

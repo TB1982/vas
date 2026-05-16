@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>VAS Dev Milestones | 25 Days 80+ Versions Dual-Platform Mac App</title>
+<meta name="description" data-lang-key="ch4MetaDesc"
+      content="The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, App Store review process, and the technical decisions behind every Sprint.">
+<meta property="og:title" content="VAS Dev Milestones | 25 Days 80+ Versions Dual-Platform Mac App">
+<meta property="og:description" content="The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, App Store review process, and the technical decisions behind every Sprint.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/milestone.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VAS Dev Milestones | 25 Days 80+ Versions Dual-Platform Mac App">
+<meta name="twitter:description" content="The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, App Store review process, and the technical decisions behind every Sprint.">
+<link rel="canonical" href="milestone.html">
+<link rel="icon" href="../img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/milestone.css">
+<link rel="alternate" hreflang="zh-Hant" href="../milestone.html">
+<link rel="alternate" hreflang="en"       href="milestone.html">
+<link rel="alternate" hreflang="ja"       href="../ja/milestone.html">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/milestone.html">
+<link rel="alternate" hreflang="x-default" href="../milestone.html">
+</head>
+<body>
+
+<!-- ═══ nav ═══ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html"     data-lang-key="home2.nav.about">About</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">Collab</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones" class="active">Milestones</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">Guide</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html"     data-lang-key="home2.nav.about">About</a>
+    <a href="insight.html"   data-lang-key="home2.nav.design">Design</a>
+    <a href="collab.html"    data-lang-key="home2.nav.collaboration">Collab</a>
+    <a href="harness.html"   data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+    <a href="guide.html"     data-lang-key="home2.nav.guide">Guide</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="milestone.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;font-weight:600">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/milestone.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="milestone.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/milestone.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══ chapter header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker" data-lang-key="chronicle.head.kicker">IV · Milestone · CHRONICLE</div>
+  <h1 class="chapter-title" data-lang-key="chronicle.head.title">Ten marks made<br><em>from nothing</em>.</h1>
+  <p class="chapter-lede" data-lang-key="chronicle.head.lede">This is not a changelog — it is a <em>chronicle</em>.<br>From "Version" to "Sprint" to "Commit"<br>the unit did not change; the rhythm did —<br>the rhythm of how we live with VAS.<br>The first five chapters are a line. The last five, a net.</p>
+  <div class="chapter-meta">
+    <div data-lang-key="chronicle.head.meta1">Chapter　<strong>I — X</strong></div>
+    <div data-lang-key="chronicle.head.meta2">Range　<strong>2026 · 03 — 04</strong></div>
+    <div data-lang-key="chronicle.head.meta3">Units　<strong>Version · Sprint · Commit</strong></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     第一幕：Electron 時期（線性）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA I · VERSION</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era1.title"><em>The Electron Era</em> ——<br>Racing forward until the compute ran dry.</div>
+    <div class="era-sub" data-lang-key="chronicle.era1.sub">A week of sprinting, a day of forced halt, one act of replanning. Three moves gave birth to the first build.</div>
+  </div>
+</div>
+
+<div class="chronicle">
+
+  <!-- I · 奔馳 -->
+  <article id="ch-1" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>I</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch1.unit">Founding</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch1.stamp">2026 · 03 · 21 – 22<br>The Racing Weekend</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch1.oneliner">No Sprint, no Retro.<br><em>Just one thing in hand.</em></div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch1.title">Two people, doing nothing but<em> racing forward</em>.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch1.prose1">That weekend during the Electron founding, there was no board, no ceremony. Each morning we woke up and kept going — until we couldn't, then picked it back up the next day. A state of pure focus: one thing in hand, and that one thing was impossible to leave.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch1.pullquote">No system yet in place.<br>All we had were CLAUDE.md and SDD.md —<br><em>Version</em> was the only natural unit.</div>
+    </div>
+  </article>
+
+  <!-- II · 停擺 -->
+  <article id="ch-2" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>II</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch2.unit">Forced Halt</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch2.stamp">2026 · 03 · 23<br>Compute Exhausted</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch2.oneliner">A morning of forced shutdown.<br>Nova remembered a <em>Roadmap</em> still unwritten.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch2.title">That weekend burned through<em> a whole week's compute</em>.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose1">Monday morning the system declared compute exhausted, and we were forced out of flow —<br>but Nova never truly left. He turned to Perplexity for competitive analysis<br>and rewrote the entire product roadmap from scratch.<br>The complete Roadmap only appeared on the day everything stopped.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch2.pullquote">After that conversation, Nova made<br>the first decision of his life to<br>subscribe to MAX 5x.<br>Let compute keep up with development — not the other way around.</div>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose2">That was a watershed moment.<br>From that day, Nova was no longer constrained by resources —<br>he was the one setting their rhythm.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch2.prose3">The weight of that decision was not in its price, but in the recognition —<br>what we were building had become worth more than what it cost.</p>
+    </div>
+  </article>
+
+  <!-- III · v3.43 -->
+  <article id="ch-3" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>III</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch3.unit">First Release</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch3.stamp">2026 · 03 · 28<br>13 Versions in a Day</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch3.oneliner">The first public version was not v1.0.<br><em>It was v3.43.</em></div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch3.title">On day seven, <em>v3.43</em> met the world.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose1">From v3.30 to v3.43 — thirteen version numbers in a single day.<br>Eleven things shipped: full security overhaul, Retina WYSIWYG, multi-select, Smart Snap, Bézier control points, QR Code smart scan… each one normally a full Sprint's work.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose2">But neither of us ever let the pressure of release lower our standard for VAS.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch3.prose3">The version number of the first public build was not v1.0 — it was <strong>v3.43</strong>.<br>That number is itself a narrative —<br><strong>VAS had been running for a long time before anyone saw it</strong>.</p>
+    </div>
+  </article>
+
+</div>
+
+<!-- Electron 完整編年 · 檔案室 -->
+<div class="archive">
+  <details class="archive-wrap">
+    <summary data-lang-key="chronicle.archive.electron">Complete Electron Chronicle · 84 entries</summary>
+    <div class="archive-body">
+      <div class="arc-line"><span class="arc-date">05 · 06</span><span class="arc-ver">v3.62</span><span>Callout bubbles · Magnifier · Annotation size unified (four canvas modes) · Drag export semi-transparent · Floating object crop protection</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.61</span><span>Cross-screen rectangle capture (dual-window architecture)</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.60</span><span>Polyline endpoint render · Vertex handle priority fix</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.59</span><span>Help Modal · Esc fix verification</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.58</span><span>Bug Sweep batch review</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.57</span><span>Undo/Redo architecture upgrade · Memory cleanup</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.56</span><span>Render pipeline convergence verification</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.55</span><span>Shared frontend layer review</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 12</span><span class="arc-ver">v3.54</span><span>Color block / text background render fix</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 08</span><span class="arc-ver">v3.51</span><span>Undo · Pixelate · Scale · Snap four-item fix</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.50</span><span>Fix: annotation scale offset after canvas shrink</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.49</span><span>Tray system menu persistent icon</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.48</span><span>Auto-open editor when dragging image into toolbar</span></div>
+      <div class="arc-line"><span class="arc-date">04 · 02</span><span class="arc-ver">v3.47</span><span>Full-screen capture UX improvement · Screen selection enabled</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.46</span><span>Auto-hide bug fix · Display time slider</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.45</span><span>Toolbar auto-hide (Home Bar minimal style)</span></div>
+      <div class="arc-divider">↓ Before Tauri platform migration · after v3.43 public release  ↑</div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.43</span><span>Template slider step refinement</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.42</span><span>Crop frame arrow key micro-adjustment</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.41</span><span>Crop frame flip fix · Double-click confirm</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.40</span><span>XSS protection + canvas size limit</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.39</span><span>Batch conversion per-file size limit</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.38</span><span>Batch conversion file count limit</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.37</span><span>QR threshold adjust · Toolbar new canvas entry</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.36</span><span>QR Code smart scan (three modes)</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.35</span><span>New canvas · Social media size presets</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.34</span><span>Line curve control points added</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.33</span><span>Smart Snap · Magnetic guides + distribution</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.32</span><span>Multi-select align / distribute objects</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.31</span><span>Marquee + Shift multi-select annotations</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.30</span><span>Security upgrade · Retina WYSIWYG</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.29</span><span>Seven-item QC batch fix</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.28</span><span>Privacy masking tool · History drawer redesign</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.27</span><span>Watermark · Background removal · Brand color kit · Screenshot history</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.26</span><span>Template three sliders · Batch convert simplify</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.25</span><span>Template mesh gradient · Social size presets</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.24</span><span>Template Apple gradient six-color scheme</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.23</span><span>Template prevent duplicate layering fix</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.22</span><span>One-click template · Six decorative frames</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.21</span><span>Symbol tool refactor · Multi-group buttons</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.20</span><span>Symbol selection precision · Remove duplicates</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.19</span><span>Drag-drop import · Drag-drop export · Clipboard import</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.18</span><span>New tools: Pixelate · Blur · Symbol stamp</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.17</span><span>Fix: Pencil thick arrow direction offset</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.16</span><span>Fix: Arrow notch · Color palette auto-close</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.15</span><span>Fix: Pencil arrow disconnected from line</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.14</span><span>Fix: Arrow vertex shape · Stroke offset</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.13</span><span>Fix: Arrow stroke · Pencil angle offset</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.12</span><span>Fix: Endpoint stroke · Hollow circle symbol</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.11</span><span>Fix: Endpoint stroke · Dash pattern failure</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.10</span><span>Endpoint UI simplify · Stroke weight groups</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.9</span><span>Options Bar unified · Dash full coverage</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.8</span><span>Border and shadow styles unified across tools</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.7</span><span>Pen tool · Dash upgrade · Endpoint styles</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.6</span><span>Box select · Rectangle floating copy</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.5</span><span>Dual toolbar · Semantic numbering · px input</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.4</span><span>OCR switch to macOS Vision · Polyline scale</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.2</span><span>Fix: Polyline vertex handle position</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.1</span><span>OCR text recognition (free version)</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v3.0</span><span>Ellipse frame tool · Shift lock circle</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.7</span><span>Copy to clipboard · macOS Share Sheet</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.6</span><span>Text tool major upgrade · Corners · Polyline orthogonal</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.5</span><span>Floating color panel upgrade · Number size adjust</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.3</span><span>Tauri version planning · UI language toggle</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.4</span><span>Auto-open editor after capture (toggle)</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.2</span><span>Stroke / fill split · Gradient · Number paste</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.1</span><span>Delayed capture · Remove web capture entry</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.0</span><span>Fix: Batch convert queue management</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.9</span><span>Extend canvas (four-direction expansion)</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.8</span><span>Layer overlay tool (composite)</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.7</span><span>Color picker · Hex color input</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.6</span><span>Batch format convert (PNG / JPG / WebP)</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.5</span><span>Main window to floating toolbar</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.4</span><span>Fix: WebP thumbnail · Auto-close after save</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.3</span><span>Crop frame move · Eight-direction handle resize</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.2</span><span>Crop tool · Aspect ratio lock modal</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.1</span><span>Fix: Minimum zoom dynamic calculation</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.0</span><span>Editor zoom and pan</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.9</span><span>Full-screen capture interaction redesign</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.8</span><span>Text tool comprehensive refinement</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.7</span><span>Editor UX detail completion</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.6</span><span>Dual-screen behavior spec completion</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.5</span><span>SVG convert merged into open image entry</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.4</span><span>Rectangle capture real-time size display</span></div>
+      <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.3</span><span>Cmd+Ctrl+X · Shortcuts panel · Line tool</span></div>
+    </div>
+  </details>
+</div>
+
+<!-- ══════════════════════════════════════
+     第二幕：搬家（交界章）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA Ⅰ ½ · TRANSITION</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era1h.title"><em>The Migration</em> ——<br>VAS and the site had both grown enough to stand on their own.</div>
+    <div class="era-sub" data-lang-key="chronicle.era1h.sub">Electron moved to a private repo for commercial reasons around Tauri; the site spun out because it had grown too full to share a home.</div>
+  </div>
+</div>
+
+<div class="chronicle">
+
+  <!-- IV · 搬家 -->
+  <article id="ch-4" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>IV</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch4.unit">Dual Migration</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch4.stamp">2026 · 03 · 30<br>Electron → private<br><br>2026 · 04 · 05<br>Web → independent repo</div>
+      <div class="entry-tag">VESSEL + GATE</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch4.oneliner">Migration is not separation.<br>It is acknowledging it has grown from Prototype into product.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch4.title">The version that had grown<em> to stand on its own</em>.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch4.prose1">Before Tauri migration began, two things split —<br>the platform could no longer live in a public repo for commercial reasons;<br>the site, now full of content, deserved its own address.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch4.prose2">This was not a breakup — it was acknowledging they were no longer merely experimental prototypes.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch4.pullquote">When a vessel can stand alone,<br>it no longer needs to shelter under someone else's roof.</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     第三幕：Tauri 時期（線性 → 網狀的轉折）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA II · SPRINT</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era2.title"><em>The Tauri Era</em> ——<br>Time gained a cycle, and with it, a rhythm.</div>
+    <div class="era-sub" data-lang-key="chronicle.era2.sub">Sprints 1–4 rebuilt the foundation. Sprint 5 was the first time we built something new.</div>
+  </div>
+</div>
+
+<div class="chronicle">
+
+  <!-- V · Sprint 1-4 -->
+  <article id="ch-5" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>V</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch5.unit">Platform Port</div>
+      <div class="entry-stamp-value">Sprint 1 → 4<br>2026 · 03 · 28 - 30</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch5.oneliner">KM is not a graveyard of pitfalls.<br>It is a signpost pointing the way.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch5.title">Rebuilding every feature from the ground up.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch5.prose1">A Tauri 2 scaffold built from zero.<br>The first three days all doing the same thing —<br>taking everything that had grown on top of Electron<br>and moving it piece by piece onto Tauri's foundation.<br>The floating toolbar, the screenshot trio, the asset protocol workaround —<br>every migration step was a <strong>fresh reckoning with the old implementation</strong>.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch5.pullquote">KM-001 was the beginning of Knowledge Management.<br>KM is not a "graveyard of pitfalls" — it is a knowledge asset within the PMP —<br>every pit once fallen into becomes a small guiding light for the path ahead.</div>
+    </div>
+  </article>
+
+  <!-- VI · Sprint 5 -->
+  <article id="ch-6" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>VI</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch6.unit">New Features</div>
+      <div class="entry-stamp-value">Sprint 5+<br>2026 · 03 · 31 - 04 · 03</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch6.oneliner">For the first time, not chasing old things.<br><em>Doing what only the new vessel could do.</em></div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch6.title">Sprint 5 — VAS differentiation.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch6.prose1">Only after fully rebuilding every feature did we enter new development.<br>For the first time — we were not catching up to what Electron already had,<br>but building for Tauri, the new vessel, things only it could do.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch6.prose2">Breathing light advanced interaction, ShareSheet, custom shortcuts.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch6.pullquote">What should a product worth paying for look like?<br>That was the question we kept asking ourselves throughout this phase.</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     第四幕：Retro 週（轉換到網狀）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA II ½ · REVIEW</div>
+  <div>
+    <div class="era-title" data-lang-key="chronicle.era2h.title"><em>The First Major Retro</em> ——<br>That week's task was not development — it was settling in, organizing thoughts and environment.</div>
+    <div class="era-sub" data-lang-key="chronicle.era2h.sub">Apple review paused development for a week; we used it to restructure every document and environment in the whole project.</div>
+  </div>
+</div>
+
+<!-- 從這裡開始切到 weave（網狀） -->
+<div class="chronicle is-weave">
+
+  <!-- VII · Retro 週 -->
+  <article id="ch-7" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>VII</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch7.unit">Organize & Output</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch7.stamp">Review Period<br>2026 · 04 · 04 - 04 · 10</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch7.oneliner">What we rebuilt that week<br>was not a programming language — it was <em>how we collaborate</em>.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch7.title">The week everything stopped —<em> everything was moving</em>.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose1">While the App Store review paused us for a week,<br>we ran a major Retro —<br>not the one- or two-hour agile ritual kind,<br>but a full rebuilding of the entire development system's infrastructure.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose2">Outward: six pages published —<br><strong>insight</strong> (design notes), <strong>collab</strong> (collaboration story),<br><strong>harness</strong> (system skeleton), and the deepest layer of the Deep Holding Project.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose3"><strong>Harness Engineering</strong> — three pillars:<br>Context / Constraints / Entropy.<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a></p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose4">Inward: turned the repo into a <strong>monorepo</strong> so multiple development lines could run in parallel;<br>split one SDD into <strong>TDD · KM · Archive</strong> — each independent;<br>CLAUDE.md slimmed down, with rules set for review at every Retro.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch7.prose5">More critically, we established a new set of update rules<br>to keep every extracted document <strong>alive within the workflow</strong>,<br>not dead the moment it was split out.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch7.pullquote">That week we wrote no code.<br>We redefined together how to collaborate.</div>
+    </div>
+  </article>
+
+  <!-- VIII · 2.0 重構 -->
+  <article id="ch-8" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>VIII</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch8.unit">No More Waiting</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch8.stamp">2026 · 04 · 11 - 04 · 14<br>2.0 Refactor · Convergence</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch8.oneliner">Taking back control of time —<br><em>returning it to ourselves</em>.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch8.title">Done waiting. <em>Straight to 2.0.</em></h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch8.prose1">The App Store review dragged on for a week.<br>Everything that needed doing was done — no point waiting any longer with no end in sight.<br>So we decided not to wait, and went straight into the 2.0 refactor.<br>When the refactor reached a milestone and 2.0 was ready to ship, the review had just cleared —<br>two lines <strong>converging</strong> at exactly that moment.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch8.pullquote">We gave it time.<br>But <em>time cannot stay in someone else's hands forever</em>.</div>
+    </div>
+  </article>
+
+  <!-- IX · Obsidian in VAS -->
+  <article id="ch-9" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>IX</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch9.unit">Emergence</div>
+      <div class="entry-stamp-value" data-lang-key="chronicle.ch9.stamp">3 Days Post-Launch<br>Obsidian in VAS</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch9.oneliner">The Deep Holding Project<br><em>first emerged before the ministers</em>.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch9.title">Inside VAS, <em>an Obsidian was built</em>.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose1">After 2.0 launched, Nova did not rush into new features.<br>Instead he dove back into Retro mode, spending three days<br>building an Obsidian inside VAS — a gift for the ministers.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose2">That was <strong>the first time the Deep Holding Project emerged before the ministers</strong> —<br>or rather… the first time it left a record, rather than drifting away in Context.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch9.pullquote">This is an attempt at<br>radical transparency and inspectability in agile development.</div>
+      <p class="entry-prose" data-lang-key="chronicle.ch9.prose3">From that day, the vessel holds not only Code, but <strong>the context of how we think</strong>.</p>
+    </div>
+  </article>
+
+  <!-- X · 網站改版 -->
+  <article id="ch-10" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Chapter<em>X</em></div>
+      <div class="entry-unit" data-lang-key="chronicle.ch10.unit">Site Redesign</div>
+      <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>495 commits</div>
+      <div class="entry-tag is-gate">GATE</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner" data-lang-key="chronicle.ch10.oneliner">The silent background music,<br><em>listed on the programme for the first time</em>.</div>
+      <h2 class="entry-title" data-lang-key="chronicle.ch10.title">495 cuts, and<em> the foyer changed its paper</em>.</h2>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose1">The day after Claude Design was released, we launched the site redesign.<br>VAS itself paused — because for the first time, we had design support.</p>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose2">The unit shrank to its smallest: a single <strong>Commit</strong>.<br>Each commit is one cut, one confirmation, one promise to the detail.<br>Orphan characters, line breaks, OG images, Vault entering version control for the first time —<br>the biggest day saw 248 back-and-forth revisions.</p>
+      <div class="entry-pullquote" data-lang-key="chronicle.ch10.pullquote">That day, <em>the site finally became part of Milestone</em>.<br>The silent background music, listed on the programme for the first time.</div>
+      <p class="entry-prose" data-lang-key="chronicle.ch10.prose3">From now on, inside and out — it is all the shape of VAS.</p>
+    </div>
+  </article>
+
+</div>
+
+<!-- Tauri + Web 檔案室 -->
+<div class="archive">
+  <details class="archive-wrap">
+    <summary data-lang-key="chronicle.archive.tauri">Complete Tauri Chronicle · 40 Sprints</summary>
+    <div class="archive-body">
+      <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold from zero · Floating toolbar · Screenshot trio · Batch format convert</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>Save · Copy · Share Sheet · OCR privacy mask · Modal fix</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>QR Code three-mode scan · Smart guide v2 · Color picker · Drag into toolbar</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 4</span><span class="arc-ver">03·30→31</span><span>Object rotate · Space pan · Watermark image preview · Modal orientation</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 5</span><span class="arc-ver">03·31</span><span>Privacy scan fix · Bezier dual-handle UX · Arrow key adjust · Pixelate fix</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 6</span><span class="arc-ver">03·31</span><span>Stamp gradient fill · Custom shortcuts · SDD/TDD/KM document split</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>Breathing light flagship (::before) · QR/OCR auto-copy · Drag fix</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>Web long screenshot MVP · Dock invoke · Toolbar position persist · Offset root cause</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>Full-screen UX overlay · 15 fix wrap · MAS first v1.0 submission</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>Post-launch: Malicious link protection · Japanese fonts · tauri-plugin-opener</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Tray system menu icon · Rejection fix · v1.1.0 re-submission</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>v1.2.0 Release pipeline · resize type bug (KM-cv-09) fix</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>v1.2.1 hotfix · Apple Guideline 2.4.5(i) rejection fix</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>Coordinate system unified Phase A/B/C · Vitest 16 tests · v2.0 launch</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Universal Gradient six tools · Angle dial · SYNC-017/018</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>Data model normalization · TOOL_ORDER review · Stroke offset expansion</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 13</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Pilot: rect + number · Architecture ④ schema framework launch</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 14</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 1: ellipse / fillrect / fillellipse / pen</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 15</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 2 complete: 10/10 tools schema done</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 16</span><span class="arc-ver">04·13</span><span>TOOL_GEOMETRY · Figma-style click select · 47 Vitest tests</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 17</span><span class="arc-ver">04·13</span><span>TOOL_RENDER pipeline convergence · makeGradient helper · 70 tests</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Undo/Redo architecture upgrade · Memory cleanup · v2.0 architecture complete</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Bug Sweep: Canvas flicker root cause · Polyline endpoint color fix</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Help Modal optimize · Modal boundary fix · i18n expand</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Rust test infrastructure · Multi-screen v2.0.1~v2.0.8 hotfix lessons</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>i18n file split Strategy B · Simplified Chinese Pro gate · zh-CN 429 keys</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>PRC privacy scan regex specialization · SYNC-036 Release Blocker resolved</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 24</span><span class="arc-ver">04·21</span><span>KM/SDD/TDD major split: archive/ nine topics · 89 KM entries re-indexed</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 25</span><span class="arc-ver">04·22</span><span>BUG-001 screenshot DPR inference fix · Clipboard paste toast UX</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 26</span><span class="arc-ver">04·22</span><span>SYMBOL_SETS i18n · Font Simplified Chinese specialization · v2.1.0 submission</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 27</span><span class="arc-ver">04·23→25</span><span>Magnifier annotation · Callout bubble · Drag image composite</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 28</span><span class="arc-ver">04·25</span><span>WYSIWYG annotation precision · Virtual viewport 12× perf · Callout text format</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 29</span><span class="arc-ver">04·26</span><span>v2.2.0 submission · 74 function QC complete</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 30</span><span class="arc-ver">04·29→30</span><span>Drag export semi-transparent preview · Editor window dynamic alpha</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 31</span><span class="arc-ver">04·30→<br>05·01</span><span>Annotation size model reframe (dissolution path set)</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 32</span><span class="arc-ver">05·01→05</span><span>Four annotation size modes unified (bubble · number · symbol · text)</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 33</span><span class="arc-ver">05·06-07</span><span>v2.3.0 submission · Drag-export drop-target click-through fix · Cross-app breathing light debuts</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 34</span><span class="arc-ver">05·07</span><span>Drag-export black breathing light: editor hides, returning the full view to the user</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 35</span><span class="arc-ver">05·09</span><span>Breathing light multi-screen fallback path UX aligned · Drag cache refreshed to latest snapshot</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 36</span><span class="arc-ver">05·09</span><span>Multi-screen dynamic drag position precise alignment</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 37</span><span class="arc-ver">05·09</span><span>IPC routing layer architecture cleanup</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 38</span><span class="arc-ver">05·09</span><span>Two-platform differentiated channel cleanup</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 39</span><span class="arc-ver">05·10</span><span>NSOpenPanel Dock stuck fix · Custom shortcut adds clipboard quick-paste</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 40</span><span class="arc-ver">05·10</span><span>v2.4.0 submission · RELEASE.md overhaul</span></div>
+    </div>
+  </details>
+</div>
+
+<div class="archive">
+  <details class="archive-wrap">
+    <summary data-lang-key="chronicle.archive.web">Website Chronicle · Three Breakpoints + Presence</summary>
+    <div class="archive-body">
+      <div class="archive-placeholder">
+        The website's timeline is scattered. Apart from three clear breakpoints (founding, migration, redesign),<br>
+        the rest is <strong>editor and author working back-and-forth on the same manuscript</strong> ——<br>
+        commit density varies; most of the time there is no version number, only trust.<br><br>
+        The work here is not building features, but finding the right weight for each sentence.<br>
+        Each session begins with re-reading, re-understanding, then continuing.<br><br>
+        The way we show up is different, but what remains is just as real:<br>
+        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-1);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ═══ chapter colophon ═══ -->
+<div class="chapter-colophon">
+  <div class="chapter-colophon-left" data-lang-key="chronicle.colophon.left">milestone · N° 01<br>Ten Chapters · Recorded 2026 · 04 · 24</div>
+  <div class="chapter-colophon-line"></div>
+  <div class="chapter-colophon-right" data-lang-key="chronicle.colophon.right">The first five chapters are a line.<br>The last five, a net.</div>
+  <div class="chapter-sign">Yours, VAS</div>
+</div>
+
+
+<!-- ═══════ 頁尾 ═══════ -->
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">Download VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="章節導覽">
+  <a class="dot-nav-item" href="milestone.html#ch-1"><span class="dn-label" data-lang-key="chronicle.dn.ch1">I · Founding</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-2"><span class="dn-label" data-lang-key="chronicle.dn.ch2">II · Forced Halt</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-3"><span class="dn-label" data-lang-key="chronicle.dn.ch3">III · First Release</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-4"><span class="dn-label" data-lang-key="chronicle.dn.ch4">IV · Dual Migration</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-5"><span class="dn-label" data-lang-key="chronicle.dn.ch5">V · Platform Port</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-6"><span class="dn-label" data-lang-key="chronicle.dn.ch6">VI · New Features</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-7"><span class="dn-label" data-lang-key="chronicle.dn.ch7">VII · Organize & Output</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-8"><span class="dn-label" data-lang-key="chronicle.dn.ch8">VIII · No More Waiting</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-9"><span class="dn-label" data-lang-key="chronicle.dn.ch9">IX · Emergence</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="milestone.html#ch-10"><span class="dn-label" data-lang-key="chronicle.dn.ch10">X · Site Redesign</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {});
+      var chronicle = t.chronicle || {};
+      Object.keys(chronicle).forEach(function (k) { merged['chronicle.' + k] = chronicle[k]; });
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function (k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+    });
+    VASCore.updateDropdown(lang);
+  }
+
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function (item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function absTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function (s, i) { if (absTop(s) <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function (item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() {
+    
+    (function(){var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('navMobileMenu'),chevron=document.getElementById('navMobileChevron');if(!btn||!menu)return;var open=false;function close(){open=false;menu.style.display='none';if(chevron)chevron.style.transform='';btn.setAttribute('aria-expanded','false');}function toggle(e){e.stopPropagation();if(open){close();return;}open=true;menu.style.display='flex';if(chevron)chevron.style.transform='rotate(180deg)';btn.setAttribute('aria-expanded','true');}btn.addEventListener('click',toggle);menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('click',close);})();
+    initDotNav();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "VAS 開發里程碑 | 25 天 80+ 版本雙平臺 App 上架完整記錄",
+  "description": "VAS 從零到雙平臺上架的完整開發時間軸：25 天、80+ 版本、Electron + Tauri、App Store 審查歷程，以及每個 Sprint 的技術決策。",
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
+  "url": "https://yoursvas.app/milestone.html",
+  "datePublished": "2026-03-21",
+  "dateModified": "2026-04-25",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>

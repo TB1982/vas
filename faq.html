@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title data-lang-key="faq.title">VAS 常見問題 | Mac 截圖工具 · 人機協作多模態工作流</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<meta name="description" data-lang-key="faq.meta.desc"
+      content="VAS 常見問題：Pro 與 Classic 版本差異、權限重設、網頁截圖、多螢幕支援、自訂快捷鍵、與 ChatGPT / Claude / Gemini 的協作流程，以及 VAS 與其他 Mac 截圖工具（Snagit / CleanShot X / Shottr）的定位差異。一頁讀完。" />
+<link rel="canonical" href="https://yoursvas.app/faq">
+
+<meta property="og:title" content="VAS 常見問題 | Mac 截圖工具 · 人機協作多模態工作流">
+<meta property="og:description" content="VAS 常見問題：Pro 與 Classic 版本差異、權限重設、網頁截圖、多螢幕支援、自訂快捷鍵，以及 VAS 與其他 Mac 截圖工具的定位差異。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/faq">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VAS 常見問題 | Mac 截圖工具 · 人機協作多模態工作流">
+<meta name="twitter:description" content="VAS 常見問題：Pro 與 Classic 版本差異、權限重設、網頁截圖、多螢幕支援、自訂快捷鍵，以及 VAS 與其他 Mac 截圖工具的定位差異。">
+
+<!--
+  AI CONTEXT · faq.html
+  VAS (Visual Annotation Studio) FAQ page. Independent surface, separated from the operations manual (guide.html).
+  Eight questions, structured in three layers:
+    Layer 1 (Discovery)  · Q1 What is VAS · Q4 Web capture · Q5 Multi-display · Q6 Shortcuts · Q7 AI collaboration (drag-to-AI via breathing light)
+    Layer 2 (Comparison) · Q2 Pro vs Classic · Q8 VAS vs other Mac capture tools (incl. Shottr alignment)
+    Layer 3 (Support)    · Q3 Permission reset after Electron→Tauri upgrade
+  Internal arc: identity → product split → upgrade pitfall → three capabilities → AI workflow → outward positioning.
+  Q7 is the answer-engine anchor for "how does VAS work with ChatGPT / Claude / Gemini". The self-referential proof (VAS built using VAS) is the keystone — see about.html.
+  This page intentionally states VAS's limits (web capture behind login, vs Snagit/CleanShot X positioning, Shottr alignment).
+  Built by: Nova × Claude. macOS app. Tauri (paid, App Store, primary) + Electron (free, GitHub).
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<link rel="stylesheet" href="css/tokens.css">
+
+<style>
+/* ─── FAQ page · 沿用器物排版語彙 ───────────────────────────── */
+
+/* h1/h2/h3 純語意 · 視覺由 class 接手 */
+h1, h2, h3 {
+  margin: 0; padding: 0;
+  font-size: inherit; font-weight: inherit;
+  line-height: inherit; letter-spacing: inherit;
+  color: inherit; font-family: inherit;
+}
+
+.faq-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 96px 32px 120px;
+  font-family: var(--vas-serif, "Fraunces", "Shippori Mincho", serif);
+  color: var(--vas-ash-0);
+}
+@media (max-width: 768px) {
+  .faq-wrap { padding: 56px 24px 80px; }
+}
+
+.faq-kicker {
+  font-family: var(--vas-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--vas-ash-2);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.faq-title {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.faq-title em {
+  font-style: italic;
+  color: var(--vas-ash-1);
+}
+
+.faq-lede {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--vas-ash-1);
+  max-width: 56ch;
+  text-wrap: pretty;
+  margin-bottom: 8px;
+}
+.faq-lede em { font-style: italic; }
+
+.faq-rule {
+  height: 1px;
+  background: var(--vas-rule);
+  margin: 56px 0 40px;
+}
+
+/* ─── 七道問 · 手風琴 ─────────────────────── */
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+
+.faq-item {
+  border-top: 1px solid var(--vas-rule);
+}
+.faq-item:last-child {
+  border-bottom: 1px solid var(--vas-rule);
+}
+
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 56px 1fr 28px;
+  gap: 16px;
+  align-items: baseline;
+  transition: opacity 0.2s ease;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary:hover { opacity: 0.72; }
+@media (max-width: 600px) {
+  .faq-item > summary { grid-template-columns: 40px 1fr 24px; gap: 12px; padding: 20px 0; }
+}
+
+.faq-no {
+  font-family: var(--vas-mono, "JetBrains Mono", monospace);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--vas-ash-2);
+  padding-top: 6px;
+}
+
+.faq-q {
+  font-family: var(--vas-serif, "Fraunces", serif);
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--vas-ash-0);
+  text-wrap: pretty;
+}
+@media (max-width: 600px) {
+  .faq-q { font-size: 19px; }
+}
+
+.faq-mark {
+  font-family: var(--vas-mono, "JetBrains Mono", monospace);
+  font-size: 18px;
+  color: var(--vas-ash-2);
+  text-align: right;
+  padding-top: 4px;
+  line-height: 1;
+  user-select: none;
+}
+.faq-item[open] .faq-mark::before { content: '−'; }
+.faq-item:not([open]) .faq-mark::before { content: '+'; }
+
+.faq-a {
+  padding: 4px 0 32px;
+  margin-left: 72px;
+  font-family: var(--vas-serif, "Fraunces", serif);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--vas-ash-1);
+  text-wrap: pretty;
+}
+@media (max-width: 600px) {
+  .faq-a { margin-left: 52px; font-size: 15.5px; padding-bottom: 24px; }
+}
+.faq-a p { margin: 0 0 14px; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-a em { font-style: italic; color: var(--vas-ash-0); }
+.faq-a strong {
+  font-weight: 500;
+  color: var(--vas-ash-0);
+}
+
+.faq-a ul {
+  margin: 6px 0 14px;
+  padding-left: 1.1em;
+  list-style: none;
+}
+.faq-a ul li {
+  position: relative;
+  padding: 4px 0;
+}
+.faq-a ul li::before {
+  content: "·";
+  position: absolute;
+  left: -1em;
+  color: var(--vas-ash-2);
+}
+
+.faq-a ol {
+  margin: 6px 0 14px;
+  padding-left: 1.4em;
+}
+.faq-a ol li {
+  padding: 3px 0;
+}
+
+/* 決策樹 / 對比箭頭 */
+.faq-tree {
+  font-family: var(--vas-mono, "JetBrains Mono", monospace);
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--vas-ash-1);
+  background: rgba(240, 232, 220, 0.03);
+  padding: 14px 18px;
+  border-left: 2px solid var(--vas-ash-3);
+  margin: 12px 0 14px;
+}
+.faq-tree b {
+  font-weight: 500;
+  color: var(--vas-ash-0);
+}
+
+/* 內部互文 link */
+.faq-a a {
+  color: var(--vas-ash-0);
+  text-decoration: underline;
+  text-decoration-color: var(--vas-ash-3);
+  text-underline-offset: 3px;
+}
+.faq-a a:hover { text-decoration-color: var(--vas-ash-0); }
+
+/* ─── 結尾 · 回主頁 ──────────────────────── */
+.faq-coda {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--vas-rule);
+  font-family: var(--vas-mono, "JetBrains Mono", monospace);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--vas-ash-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+}
+.faq-coda a {
+  color: var(--vas-ash-1);
+  text-decoration: none;
+}
+.faq-coda a:hover { color: var(--vas-ash-0); }
+
+/* 語言切換樣式：完全沿用 css/tokens.css 的 .lang-dropdown-* / .lang-opt 暗底版，不在此覆蓋 */
+
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding: 56px 48px 40px;
+  border-top: 1px solid var(--vas-rule);
+}
+@media (max-width: 768px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 24px 32px;
+  }
+  .site-footer .footer-right { text-align: left; }
+}
+</style>
+
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/faq">
+<link rel="alternate" hreflang="en"       href="https://yoursvas.app/en/faq">
+<link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/faq">
+<link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/faq">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/faq">
+</head>
+<body>
+
+<!-- ═══════ Nav ═══════ -->
+<nav class="site-nav">
+  <div class="site-nav-brand">
+    <span class="mark"></span>
+    <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
+  </div>
+  <div class="site-nav-links">
+    <a href="about.html"    data-lang-key="nav.about">關於</a>
+    <a href="insight.html"  data-lang-key="nav.design">設計</a>
+    <a href="collab.html"   data-lang-key="nav.collaboration">協作</a>
+    <a href="harness.html"  data-lang-key="nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="nav.milestones">里程碑</a>
+    <a href="guide.html"     data-lang-key="nav.guide">手冊</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="faq.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/faq.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/faq.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/faq.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="faq.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="en/faq.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="ja/faq.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="cn/faq.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+<article class="faq-wrap">
+
+  <div class="faq-kicker" data-lang-key="faq.kicker">FAQ · 常見問題</div>
+  <h1 class="faq-title" data-lang-key="faq.title.h1">關於 VAS，<em>八道問</em>。</h1>
+  <p class="faq-lede" data-lang-key="faq.lede">
+    這不是客服合輯，是 VAS 對外的<em>八句發言</em>。從「是什麼」到「跟誰不一樣」——一頁讀完。
+  </p>
+
+  <div class="faq-rule" aria-hidden="true"></div>
+
+  <div class="faq-list">
+
+    <!-- ═════ Q1 · 自我介紹 · Layer 1 ═════ -->
+    <details class="faq-item" id="q1">
+      <summary>
+        <div class="faq-no">01</div>
+        <h2 class="faq-q" data-lang-key="faq.q1.q">VAS 是一款怎樣的截圖軟體？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q1.a">
+        <p>VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、批次轉檔、點線面標注、裁切圖片、智慧導線排版。Mac App Store Tauri 付費版（9.99 美元）+ Electron 免費版兩種選擇。</p>
+        <p>它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，<strong>呼吸燈雙向感知你的工作流</strong>（複製網址、拖圖靠近、從瀏覽器右鍵複製圖片，呼吸燈接你進來；處理完讓位給你拖出去），截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q2 · Pro vs Classic · Layer 1 + 2 ═════ -->
+    <details class="faq-item" id="q2">
+      <summary>
+        <div class="faq-no">02</div>
+        <h2 class="faq-q" data-lang-key="faq.q2.q">VAS Pro 跟 VAS Classic 差在哪？我該選哪個？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q2.a">
+        <p>兩個版本共用 VAS 的核心：標注、OCR、隱私遮蔽、批次轉檔、智慧導線排版——這些不分版本。差別在獨家功能與底層架構：</p>
+
+        <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元 · 下載 5.4 MB · 安裝 20 MB · 比 VAS Classic 小 21 倍）<br>
+        新功能優先上線。獨家功能依工作流排列：網址截圖、複製圖片匯入、本機 OCR 隱私遮蔽、進階拖曳圖片匯出、ShareSheet 分享、額外存檔格式（WebP 給網頁 · PDF 給文件附件 · BMP 給設計協作）、自訂快捷鍵（四組可改）。</p>
+
+        <p><strong>VAS Classic</strong>（Electron · 開源免費 · 下載 114 MB · 安裝 303 MB）<br>
+        功能定型不再新增，但底層共用，會隨 VAS Pro 的重構同步受惠。永久免費、無使用期限。</p>
+
+        <div class="faq-tree">
+<b>要把截圖接進完整工作流</b>（網址、剪貼簿、ShareSheet）<br>
+&nbsp;&nbsp;→ VAS Pro<br><br>
+<b>只要核心標注、不需要流水線銜接</b><br>
+&nbsp;&nbsp;→ VAS Classic
+        </div>
+
+        <p>從 Classic 升級到 Pro 需要先移除舊版並重新授權——詳見下一題。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q3 · 升級權限 · Layer 3 ═════ -->
+    <details class="faq-item" id="q3">
+      <summary>
+        <div class="faq-no">03</div>
+        <h2 class="faq-q" data-lang-key="faq.q3.q">升級到 Tauri 付費版後，權限一直要求重新設定怎麼辦？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q3.a">
+        <p>從免費版（Electron）升級到付費版（Tauri）後，因為 macOS 把兩者視為不同的 App，舊權限不會自動繼承。請依下列步驟重新授權：</p>
+        <ol>
+          <li>先關掉所有 VAS（<em>包含 Electron 版與 Tauri 版</em>），並移除免費版。</li>
+          <li>開啟「<strong>系統設定 → 隱私權與安全性 → 螢幕與系統錄音</strong>」。</li>
+          <li>找到 VAS，按下方的「<strong>−</strong>」移除舊權限。</li>
+          <li>重新打開付費版 VAS，按「<strong>全螢幕截圖</strong>」觸發系統授權。</li>
+          <li>系統會把 VAS 重新加回清單，預設<em>關閉狀態</em>。</li>
+          <li>手動把開關打開，依提示<strong>結束 VAS 再重啟一次</strong>，即可獲得完整權限。</li>
+        </ol>
+      </div>
+    </details>
+
+    <!-- ═════ Q4 · 網頁截圖 · Layer 1 ═════ -->
+    <details class="faq-item" id="q4">
+      <summary>
+        <div class="faq-no">04</div>
+        <h2 class="faq-q" data-lang-key="faq.q4.q">VAS 提供網頁截圖嗎？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q4.a">
+        <p>VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示詢問是否要截網頁；確認後，VAS 在背景開啟瀏覽器完成整頁截圖，直接送進編輯器等你下一步處理。</p>
+        <p>但若你想截的是<em>需要登入才看得到的頁面</em>，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q5 · 多螢幕 · Layer 1 ═════ -->
+    <details class="faq-item" id="q5">
+      <summary>
+        <div class="faq-no">05</div>
+        <h2 class="faq-q" data-lang-key="faq.q5.q">VAS 是否支援多螢幕工作模式？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q5.a">
+        <p><strong>是。</strong>VAS 全面支援多螢幕工作流，並把選擇權交給你：</p>
+        <ul>
+          <li><strong>按 Enter</strong>——同時擷取所有螢幕，輸出一張合併圖</li>
+          <li><strong>點選任一螢幕</strong>——只截那一塊，分別輸出</li>
+          <li><strong>延遲截圖模式</strong>——適合需要先切換視窗、再被截下的場景</li>
+        </ul>
+        <p>針對混合解析度（Retina 與一般解析度並用）也做了特別處理，不會出現尺寸對不上的問題。</p>
+        <p>這個堅持有它的來歷：<em>VAS 本身就是在雙螢幕環境裡做出來的</em>——設計者自己是長期雙螢幕使用者，所以從第一天起，多螢幕就不是「補丁」，而是預設情境。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q6 · 自訂快捷鍵 · Layer 1 ═════ -->
+    <details class="faq-item" id="q6">
+      <summary>
+        <div class="faq-no">06</div>
+        <h2 class="faq-q" data-lang-key="faq.q6.q">VAS 可以自訂截圖快捷鍵嗎？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q6.a">
+        <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元）提供<em>四組</em>自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、剪貼簿貼入——給從其他截圖軟體移民的你最熟悉的手感。</p>
+        <p><strong>Electron 免費版</strong>內建固定三組（⌘^1 / ⌘^2 / ⌘^X），不可變更。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q7 · AI 協作（拖曳匯出 + 呼吸燈）· Layer 1 ═════ -->
+    <details class="faq-item" id="q7">
+      <summary>
+        <div class="faq-no">07</div>
+        <h2 class="faq-q" data-lang-key="faq.q7.q">VAS 怎麼跟 ChatGPT / Claude / Gemini 一起用？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q7.a">
+        <p>截圖完成後，VAS 的編輯器讓你做三件事——<strong>讀</strong>（OCR 把圖片中的字辨識成可複製文字）、<strong>遮</strong>（一鍵把不想被 AI 拿去訓練的隱私資訊蓋掉）、<strong>指</strong>（點線面標註讓你精準指著畫面說「就是這裡」）。</p>
+        <p>處理完——VAS Pro 將編輯器收攏成一顆<strong>黑呼吸燈</strong>、整個桌面還給你拖：直接把圖拖進下方那個 AI 對話視窗的輸入框，鬆手，送達。</p>
+        <p><strong>檔案不會被拖完就關掉</strong>——同一張圖你可以拖給 ChatGPT、再拖給 Claude、再拖給 Gemini；或一鍵複製到剪貼簿，貼進所有對話視窗。同一個問題，比看誰答得準。</p>
+        <p>沒有任何「按存檔、選資料夾、開啟檔案」這條傳統路徑。呼吸燈讓你的檔案匯入與匯出無縫切換，讓你的處理速度與 AI 並肩而行。</p>
+        <p>而這支軟體不只能跟 AI 協作——<em>它本身就是這場協作的產物</em>。</p>
+        <p>VAS 是「用 VAS 開發出來的 macOS app」。在人機協作過程中所運用到的多模態輔助功能，VAS 都在開發過程中先試跑過了。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q8 · vs 其他工具 · Layer 2 收尾 ═════ -->
+    <details class="faq-item" id="q8">
+      <summary>
+        <div class="faq-no">08</div>
+        <h2 class="faq-q" data-lang-key="faq.q8.q">VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q8.a">
+        <p>VAS 想解決的是不一樣的問題——心流式「<em>人機協作</em>」的流暢感。當你需要把畫面交給 AI 讀懂、把不希望被 AI 拿去訓練的隱私先遮起來、整個過程要像流水線一樣輕快——這是 VAS 從第一天就在用自己驗證的開發現場。</p>
+        <p>截一張要分享的圖、單純註記——macOS 內建已經夠用。要錄影、要連續快照、要做使用手冊——Snagit / CleanShot X 是成熟選擇。</p>
+        <p>要極致輕量、純粹的 Mac 截圖體驗——<strong>Shottr</strong> 是優雅的選擇。VAS Pro 做到 20 MB 的小而美，本來就是看著 Shottr 的工程美學對齊的。但 Shottr 把使用者的視線收在「畫面之內」（截好、註好、複製文字、放大鏡量尺）；VAS 把視野往外擴展到「畫面前後要怎麼來去」——編輯是基礎，但這張圖可以用多快的速度進行匯入與匯出才能跟上 AI 的開發速度？這是不同的設計重心。</p>
+        <p><em>你不會用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。</em></p>
+        <p>工具箱裡有 PowerPoint 級的多物件對齊、Photoshop 級的圖層切換、Word 級的字型切換與粗斜底線刪除線、加上 <strong>VAS 獨家的煉金元素自創效果</strong>——你以為要 Snagit 這種 450 MB 的老牌截圖工具才裝得下，VAS Pro 把它做成 <em>20 MB 的一站式煉金工坊</em>。</p>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- 支援 ?q=2 或 #q3 直接展開單題 -->
+  <script>
+    (function(){
+      var hash = location.hash && location.hash.match(/^#q[1-8]$/) ? location.hash : null;
+      var qp = new URLSearchParams(location.search).get('q');
+      var target = hash ? hash.slice(1) : (qp && /^[1-8]$/.test(qp) ? 'q' + qp : null);
+      if (target) {
+        var el = document.getElementById(target);
+        if (el) {
+          el.open = true;
+          var y = el.getBoundingClientRect().top + window.pageYOffset - 24;
+          window.scrollTo({ top: y, behavior: 'instant' });
+        }
+      }
+    })();
+  </script>
+
+  <!-- ─── coda · 回到網站 ─────────────── -->
+  <nav class="faq-coda" aria-label="繼續閱讀">
+    <a href="index.html" data-lang-key="faq.coda.home">← 回首頁</a>
+    <a href="guide.html" data-lang-key="faq.coda.guide">操作手冊 →</a>
+    <a href="about.html" data-lang-key="faq.coda.about">為何存在 →</a>
+  </nav>
+
+</article>
+</main>
+
+<!-- ═══════ Footer ═══════ -->
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一個不會寫程式的 PM，<br>
+    和一個沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<!-- ═══════ FAQPage 結構化資料 · AEO / SEO ═══════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "zh-Hant",
+  "url": "https://yoursvas.app/faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "VAS 是一款怎樣的截圖軟體？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、批次轉檔、點線面標注、裁切圖片、智慧導線排版。Mac App Store Tauri 付費版（9.99 美元）+ Electron 免費版兩種選擇。它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，呼吸燈雙向感知你的工作流（複製網址、拖圖靠近、從瀏覽器右鍵複製圖片，呼吸燈接你進來；處理完讓位給你拖出去），截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS Pro 跟 VAS Classic 差在哪？我該選哪個？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "兩個版本共用 VAS 的核心：標注、OCR、隱私遮蔽、批次轉檔、智慧導線排版。VAS Pro（Tauri · App Store · 9.99 美元 · 下載 5.4 MB · 安裝 20 MB · 比 Classic 小 21 倍）新功能優先上線，獨家功能包含網址截圖、複製圖片匯入、本機 OCR 隱私遮蔽、進階拖曳圖片匯出、ShareSheet 分享、額外存檔格式（WebP 給網頁 · PDF 給文件附件 · BMP 給設計協作）、自訂快捷鍵四組。VAS Classic（Electron · 開源免費 · 下載 114 MB · 安裝 303 MB）功能定型不再新增，但底層共用，會隨 Pro 的重構同步受惠，永久免費。要把截圖接進完整工作流選 Pro；只要核心標注選 Classic。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "升級到 Tauri 付費版後，權限一直要求重新設定怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "從 Electron 升級到 Tauri 後，macOS 把兩者視為不同的 App，舊權限不會自動繼承。請依序：(1) 關閉所有 VAS 並移除免費版；(2) 開啟「系統設定 → 隱私權與安全性 → 螢幕與系統錄音」；(3) 找到 VAS 按「−」移除舊權限；(4) 重新打開付費版 VAS 並按「全螢幕截圖」觸發授權；(5) 系統會把 VAS 加回清單但預設關閉；(6) 手動打開後結束 VAS 再重啟一次，即可獲得完整權限。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 提供網頁截圖嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示確認，在背景開啟瀏覽器完成整頁截圖，直接送進編輯器處理。若你想截的是需要登入才看得到的頁面，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 是否支援多螢幕工作模式？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是。VAS 全面支援多螢幕工作流：按 Enter 同時擷取所有螢幕並輸出一張合併圖；點選任一螢幕只截那一塊分別輸出；也支援延遲截圖模式。針對混合解析度（Retina 與一般解析度並用）做了特別處理，不會出現尺寸對不上的問題。VAS 本身就是在雙螢幕環境裡做出來的，多螢幕從第一天起就不是補丁，而是預設情境。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 可以自訂截圖快捷鍵嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VAS Pro（Tauri · App Store · 9.99 美元）提供四組自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、剪貼簿貼入，給從其他截圖軟體移民的你最熟悉的手感。Electron 免費版內建固定三組（⌘^1 / ⌘^2 / ⌘^X），不可變更。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 怎麼跟 ChatGPT / Claude / Gemini 一起用？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "截圖完成後，VAS 的編輯器讓你做三件事——讀（OCR 把圖片中的字辨識成可複製文字）、遮（一鍵把不想被 AI 拿去訓練的隱私資訊蓋掉）、指（點線面標註讓你精準指著畫面說「就是這裡」）。處理完，VAS Pro 將編輯器收攏成一顆黑呼吸燈、整個桌面還給你拖：直接把圖拖進下方那個 AI 對話視窗的輸入框，鬆手，送達。檔案不會被拖完就關掉——同一張圖你可以拖給 ChatGPT、再拖給 Claude、再拖給 Gemini；或一鍵複製到剪貼簿，貼進所有對話視窗。同一個問題，比看誰答得準。沒有任何「按存檔、選資料夾、開啟檔案」這條傳統路徑。呼吸燈讓你的檔案匯入與匯出無縫切換，讓你的處理速度與 AI 並肩而行。而這支軟體不只能跟 AI 協作——它本身就是這場協作的產物。VAS 是「用 VAS 開發出來的 macOS app」。在人機協作過程中所運用到的多模態輔助功能，VAS 都在開發過程中先試跑過了。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VAS 想解決的是不一樣的問題——心流式「人機協作」的流暢感。當你需要把畫面交給 AI 讀懂、把不希望被 AI 拿去訓練的隱私先遮起來、整個過程要像流水線一樣輕快，這是 VAS 從第一天就在用自己驗證的開發現場。截一張要分享的圖、單純註記，macOS 內建已經夠用。要錄影、要連續快照、要做使用手冊，Snagit / CleanShot X 是成熟選擇。要極致輕量、純粹的 Mac 截圖體驗，Shottr 是優雅的選擇——VAS Pro 做到 20 MB 的小而美，本來就是看著 Shottr 的工程美學對齊的。但 Shottr 把使用者的視線收在「畫面之內」（截好、註好、複製文字、放大鏡量尺）；VAS 把視野往外擴展到「畫面前後要怎麼來去」——編輯是基礎，但這張圖可以用多快的速度進行匯入與匯出才能跟上 AI 的開發速度？這是不同的設計重心。你不會用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。工具箱裡有 PowerPoint 級的多物件對齊、Photoshop 級的圖層切換、Word 級的字型切換與粗斜底線刪除線、加上 VAS 獨家的煉金元素自創效果——你以為要 Snagit 這種 450 MB 的老牌截圖工具才裝得下，VAS Pro 把它做成 20 MB 的一站式煉金工坊。"
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VAS 常見問題",
+  "url": "https://yoursvas.app/faq",
+  "inLanguage": ["zh-Hant", "en", "ja", "zh-Hans"],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VAS",
+    "url": "https://yoursvas.app/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "VAS",
+    "operatingSystem": "macOS",
+    "applicationCategory": "UtilitiesApplication"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://github.com/tb1982",
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+
+<script defer src="i18n/core.js"></script>
+<script defer src="js/analytics.js"></script>
+
+</body>
+</html>
