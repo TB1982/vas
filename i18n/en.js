@@ -1118,7 +1118,7 @@
       'ch7.title':     'The week everything stopped —<em> everything was moving</em>.',
       'ch7.prose1':    'While the App Store review paused us for a week,<br>we ran a major Retro —<br>not the one- or two-hour agile ritual kind,<br>but a full rebuilding of the entire development system\'s infrastructure.',
       'ch7.prose2':    'Outward: six pages published —<br><strong>insight</strong> (design notes), <strong>collab</strong> (collaboration story),<br><strong>harness</strong> (system skeleton), and the deepest layer of the Deep Holding Project.',
-      'ch7.prose3':    '<strong>Harness Engineering</strong> — three pillars:<br>Context / Constraints / Entropy.<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
+      'ch7.prose3':    '<strong>Harness Engineering</strong> — three pillars:<br>Context / Constraints / Entropy.<a href="#" onclick="return false" class="inline-dot" style="cursor:default" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    'Inward: turned the repo into a <strong>monorepo</strong> so multiple development lines could run in parallel;<br>split one SDD into <strong>TDD · KM · Archive</strong> — each independent;<br>CLAUDE.md slimmed down, with rules set for review at every Retro.',
       'ch7.prose5':    'More critically, we established a new set of update rules<br>to keep every extracted document <strong>alive within the workflow</strong>,<br>not dead the moment it was split out.',
       'ch7.pullquote': 'That week we wrote no code.<br>We rewrote together how to write code.',

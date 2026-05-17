@@ -1112,7 +1112,7 @@
       'ch7.title':     '止まっていたあの一週間に、<em>実はすべてが動いていた</em>。',
       'ch7.prose1':    'Apple Store の審査期間を利用して一週間止まり、<br>大型 Retro を行った——<br>アジャイルの儀式にある一二時間の振り返りではなく、<br>開発システム全体の基盤インフラを再構築したのだ。',
       'ch7.prose2':    '対外的には：六つのウェブページを出力した——<br><strong>insight</strong>（設計ノート）、<strong>collab</strong>（協働の物語）、<br><strong>harness</strong>（システム骨格）、そして深握計画の最も深い層。',
-      'ch7.prose3':    '<strong>Harness Engineering</strong> の三本柱 ——<br>Context / Constraints / Entropy。<a href="https://tb1982.github.io/pm/harness-context.html" target="_blank" class="inline-dot" aria-label="Harness Engineering"></a>',
+      'ch7.prose3':    '<strong>Harness Engineering</strong> の三本柱 ——<br>Context / Constraints / Entropy。<a href="#" onclick="return false" class="inline-dot" style="cursor:default" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    '対内的には：repo を <strong>monorepo</strong> に変換し、複数の開発ラインを並行させた；<br>元々一つの SDD を <strong>TDD · KM · Archive</strong> に分割し、それぞれ独立させ、<br>Claude.md をスリム化し、Retro のたびに見直すルールを定めた。',
       'ch7.prose5':    'さらに重要なのは、更新ルールを一から定め直し、<br>分割された各ドキュメントが<strong>プロセスの中で生き続ける</strong>ようにしたこと——<br>分割後に死んでしまわないように。',
       'ch7.pullquote': 'あの一週間、私たちはコードを書かなかった。<br>コードの書き方を、一緒に書き直した。',
