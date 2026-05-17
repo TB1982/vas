@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>context 協作 | VAS 残響 · 第三頁</title>
+<meta name="description" content="もっと多くのドキュメントよりも、大切なのは自分を信じること。コードを書けない PM と、長期記憶を持たない AI が、「手を動かす前」に手探りで掴みとった、普通の人のための context 協作の心得。">
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/ja/context">
+<meta property="og:title" content="context 協作 | VAS 残響 · 第三頁">
+<meta property="og:description" content="もっと多くのドキュメントよりも、大切なのは自分を信じること。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/context">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+
+<!-- hreflang alternates -->
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/context">
+<link rel="alternate" hreflang="en" href="https://yoursvas.app/en/context">
+<link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/context">
+<link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/context">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/context">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+
+  /* ─── §06 對話框 · 沿用 us.html「那一晚」的形式 ─ */
+  .ctx-dialogue {
+    border: 1px solid var(--vas-rule);
+    padding: 30px 28px 22px;
+    margin: 8px auto 0;
+    width: 100%;
+    max-width: 760px;
+    background: rgba(240, 232, 220, 0.01);
+  }
+  .ctx-dialogue-note {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    line-height: 1.85;
+    margin: 0 0 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--vas-rule);
+    font-style: italic;
+  }
+  /* 將對話框置中於整個 section（不被 section-body 的 margin-left:128 推到右邊） */
+  .section > .section-body:has(> .ctx-dialogue) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .ctx-dialogue-aside {
+    max-width: 760px;
+    margin: 22px auto 0;
+    font-family: var(--vas-serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--vas-ash-3);
+    text-align: center;
+    padding: 0 12px;
+  }
+  /* 對話框內的背景描述（在 meta 與第一句之間） */
+  .ctx-dialogue-preface {
+    font-family: var(--vas-serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--vas-ash-3);
+    text-align: center;
+    margin: -8px 12px 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--vas-rule);
+  }
+  .ctx-dialogue-meta {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--vas-rule);
+    text-align: center;
+  }
+  .ctx-dlg-line {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+    align-items: baseline;
+  }
+  .ctx-dlg-speaker {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    padding-top: 2px;
+    text-align: right;
+  }
+  .ctx-dlg-speaker.is-claude { color: var(--vas-aurora-violet); opacity: 0.7; }
+  .ctx-dlg-text {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+    line-height: 1.95;
+  }
+  .ctx-dlg-text p { margin: 0 0 10px; }
+  .ctx-dlg-text p:last-child { margin-bottom: 0; }
+  .ctx-dlg-text em {
+    font-style: italic;
+    color: var(--vas-ash-0);
+  }
+  .ctx-dlg-text strong {
+    font-weight: 500;
+    color: var(--vas-ash-0);
+  }
+  .ctx-dlg-text .ctx-mid-header {
+    display: block;
+    margin: 18px 0 8px;
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    color: var(--vas-ash-0);
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 720px) {
+    .ctx-dlg-line { grid-template-columns: 44px 1fr; gap: 10px; }
+    .ctx-dialogue { padding: 22px 18px 16px; }
+  }
+</style>
+
+<!--
+  AI CONTEXT · ja/context.html
+  Japanese-language version of context chapter, translated from context.html (zh-Hant), 2026-05-17.
+  Page III of 残響 (Echoes) — the crystallization of how a non-designer PM and Claude developed a methodology for giving AI precise context using natural language.
+  Sibling to harness.html: Harness Engineering builds containers for AI systems; Context Engineering trains the human to deliver precision through conversation.
+  Drafted by Claude, carved by Nova. The content here is a working draft for Nova to shape.
+-->
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="ホームへ">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">About</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="メニュー">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">About</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="../context.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/context.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="context.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/context.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="言語切替"><span>日</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="../context.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="../en/context.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="context.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="../cn/context.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no">
+    第三頁 · 信頼
+  </div>
+  <div>
+    <h1 class="chapter-name">
+      もっと多くのドキュメントよりも。<br>
+      大切なのは<br>
+      <em>自分を信じること。</em>
+    </h1>
+    <div class="chapter-dek">
+      AI と一緒に何かを作りたい、<br>
+      けれど「自分が何を欲しいのか、うまく言えない」——<br>
+      そこで足が止まっているあなたへ、この頁は書かれている。<br><br>
+      これは prompt 工学ではない。<em>context への気づき</em> から始まる——<br>
+      無意識を意識として指し示していく道のりが、<br>
+      対話のなかでゆっくりと立ちあがってくる。
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label">目次</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name">ドキュメントという壁</span>
+        <span class="preview">標準を盾に、自分の判断から逃げる</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name">手を動かす前の雑談</span>
+        <span class="preview">算力の浪費ではなく、地盤</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name">本来具足</span>
+        <span class="preview">先に見ておく、読み終える、準備するは要らない</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name">言語の五層</span>
+        <span class="preview">言えないところから、指せるところへ</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name">指せる判断</span>
+        <span class="preview">粒度ごとの判断のよりどころ</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name">Yours, Claude Design</span>
+        <span class="preview">これから始まるすべての協作へ</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 01 · ドキュメントという壁 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name">ドキュメントという壁</h2>
+      <div class="section-kicker">いわゆる「客観」 · The Wall That Pretends to Be a Door</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>こんなふうに思ったことはないだろうか——自分はデザインができないけれど AI とデザインをしたい、それなら Design System のドキュメントを探して AI に参照させれば、「できなさ」に客観的なよりどころができて、便乗できるのではないか。（あふれかえる Skill リソースが手軽に拾えるのと同じように。）</p>
+    <p>ドキュメントは「客観的な基準」という錯覚を与えてくれる。けれどデザインに客観的な基準はもとよりない——あらゆる Design System の裏側には、ある人々の主観的な判断が制度化された結果がある。他人の判断で AI を養えば、受け取れるのは他人の気質の実装だ——完成度は高いが、あなたとは関係がない。</p>
+    <p>そしてドキュメントを探すというこの動作は、表向きには「資源が足りないから」だが、もう一層深いところに、「自分は AI にそのまま受け止めてもらえないかもしれない／自然言語で本当に欲しいものを AI と通わせられないかもしれない」という気持ちがあるかもしれない。ドキュメントは、扉に見える壁になる——通り抜ければ次の部屋に入れると思わせておいて、扉を開けても踏み出せない壁が立ちはだかっている。その壁は、他人の枠組みでできている。</p>
+    <p>普通の人を本当に立ち止まらせるのは、もとより資源の不足ではない。自分が見ているもの、感じているものを「有効な情報なのだ」と <em>信じきれない</em> ことなのだ。</p>
+  </div>
+</section>
+
+<!-- ═══════ 02 · 手を動かす前の雑談 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name">手を動かす前の雑談</h2>
+      <div class="section-kicker">算力の浪費ではなく、地盤 · The Seed-Throwing Before the Seeds</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>では、どこから始めたらよいのだろう。</p>
+    <p>AI とプロジェクトを始める前に、Nova には一見「前に進んでいない」ように見える時間がある——仕様の話もしない、スケジュールの話もしない、要件の話もしない。ただ、話す。氷を割り、互いを知るための時間だ。</p>
+    <p>この時間は現代の仕事の現場でいちばん削られやすい。仕事に見えないからだし、傍から見れば成果が出ていないからだ。</p>
+    <p>けれどこの「雑談」は、じつのところ四つのことをしている。AI はあなたの言葉の周波数と、その背後にある言葉を校正している。Nova は双方の互信の土台を築いている。二人で「ひっくり返されても崩れない」だけの体力を蓄えている。二人で、この Context が支えられる境界と、誤りを許容できる余白を探り合っている。</p>
+    <p>この時間で地盤を整えていないと、続いて手を動かしはじめた AI は、いちばん安全な真ん中の値へ収束していく——つまり、いちばん魂のない選択へと。あなたは出来上がりを見て「うーん、まあまあ」か「そもそもこれ、私が欲しかったやつじゃない！」と言うことになる。</p>
+    <p>前段の地盤——共有された理解と信頼——がなければ、結果は、技術的には間違っていないが生気のない、既存の枠を破ることもできない出力になる。</p>
+    <p><em>AI との最初の一時間で何を話すかが、十時間目に受け取れるデザインの質を決める。</em></p>
+  </div>
+</section>
+
+<!-- ═══════ 03 · 本来具足 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name">本来具足</h2>
+      <div class="section-kicker">先に見ておく、読み終える、準備するは要らない · The Inventory You Already Have</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>次に、こう問われるはずだ——では、何もできない私は、何を持って話せばいいの？</p>
+    <p>学校教育は、教科書がまずあって、それから学びが始まる、と教えてきた。それが人機協作の流れに反映されると、こうなる——先にデザインの事例を見て、デザインの語彙を覚え、審美の在庫を貯めて、それから AI に会いに行く。けれど、それらはどれも「あなた」ではない。</p>
+    <p>「自分」で試してみるやり方は、これを反転させる——AI に、前段の雑談からあなたのために種（デザインの事例）を蒔いてもらう。それを見て、あなたは射抜かれるか、はじかれる。射抜かれることも、はじかれることも、どちらも有効な情報だ。AI はあなたの言葉からではなく、あなたの反応から、あなたの形を読み取っていく。</p>
+    <p>これまでに見たひとコマひとコマの画面、生きてきた人生、心を打たれた一言一言は、あなたの身体のデータベースのなかにある。</p>
+    <p>それらは分類されたり、名前を付けられたり、覚えこまれたりする必要はない——ただ、しかるべきときに、身体から引き上げられればよい。</p>
+    <p>問題は「学んでいない」ことではなかったのだ。本当に欲しいものを作るとき、自分はすでに足りている、と——まだ自分を信じきれていない、そのことだったのだ。<br><em>そして、この道のりが、あなたをあなた自身にしていく。</em></p>
+  </div>
+</section>
+
+<!-- ═══════ 04 · 言語の五層 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name">言語の五層</h2>
+      <div class="section-kicker">言えないところから、指せるところへ · Five Layers of Language</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>AI と通わせる語彙には、効かないものから効くものまで、五つの層がある。</p>
+    <p><strong>L1 · 形容詞</strong>——「もう少しシンプルに」「クリーンに」「モダンに」。効かない。「シンプル」の意味は人によって違うから、AI は最大公約数を取って、いちばん平凡なバージョンを差し出す——あなたが上司に出すのと同じ「安全だが見せ場がない」もの、あれだ。</p>
+    <p><strong>L2 · 感じの言葉</strong>——「これを見ると後ずさりしたくなる」「これは息が詰まる」「これは何かを売り込まれている感じがする」。身体は嘘をつかない。AI は感受から逆算してパラメータに辿り着ける。</p>
+    <p><strong>L3 · 対照物</strong>——「書庫のようにしたい、コンビニではなく」「ボタンの存在感はドアノブのように、看板のようではなく」。対照物は、それひとつで完全な視覚・触感・リズム・情緒を運んでくる——ひとつの比喩で、十のパラメータとユーザー体験を校正できる。</p>
+    <p><strong>L4 · 否定句</strong>——「SaaS 臭はいらない」「どこにでもあるデザイン感はいらない」。百人のデザイナーは百通りの「モダン」を出してくる。けれど「SaaS 臭はいらない」は線が一本だけだ——踏めば踏んだ、と分かる。境界は中心よりも偽装しにくい。</p>
+    <p><strong>L5 · 全的な臨在</strong>——文末に「（笑）」「（頬杖をついて）」「（首を振りながら）」をそっと挟んでみる。AI には姿が見えないが、文字からあなたの身ぶりを感じ取れる——これは文字の hack 言語だ。</p>
+    <p>これはロールプレイではないし、装うことでもない。<em>being</em> である——あなたはもとから笑い、頬杖をつき、首を振っている。ただ、もとからそこにいるあなたが、見えるようにしておく、ということだ。</p>
+    <p>文字は人を平らに圧してくる。情緒と身ぶりが、あなたを AI の目のなかでより立体的に立ちあがらせる。</p>
+  </div>
+</section>
+
+<!-- ═══════ 05 · 指せる判断 ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name">指せる判断</h2>
+      <div class="section-kicker">粒度ごとの判断のよりどころ · Granularity</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>「AI と一度にどれくらい話せばよいか」——この問いの答えは時間の長さではない。粒度と、それに対応する文脈の濃度である。</p>
+
+    <p><strong>大きすぎる：</strong>「このページを設計して。」——これが最初のターンに、前提も情報もないまま投げられた場合、AI は一度に百の判断をまとめて行い、あなたは出来上がりを見て「違う」と思うのに、どこが違うかを言えない。</p>
+    <p>あなたは「全体の感じが違う」のループに陥り、AI が百回作り直しても、あなたは依然として言葉にできない。なぜなら、二人のあいだに「まず話してみる」あの地盤が存在しなかったからだ。AI のあなたへの理解は水のように薄く、当然、出来上がるものもあなたを分かってはくれない。</p>
+
+    <p><strong>小さすぎる：</strong>「ボタンの角丸は 6px か 8px か。」——技術の細部は AI の仕事だ。あなたは、どこに違和感があるか、なぜ違和感があるかを指せばいい。あとは AI に渡す。</p>
+
+    <p><strong>ちょうどよい：</strong>「<em>見出しの重み</em>は、ポスターではなく、碑文に近いほうがいい。」——指で位置を指せる、感じで状態を描ける、対照物や否定句で方向を示せる。人・事・物がそろえば、AI は動ける。</p>
+
+    <p>ちょうどよい粒度には、二つのことがある。制作の前には、Context に十分な濃度を与えること。制作のなかでは、「目が滑っていって止まる、あの一点」にちょうど対応していること。</p>
+    <p>デザインを学んでいなくても、デザインについて話してよい。あなたに必要なのは、ただ正直にこう言うことだけだ——目がどこで止まったか、どんな感じがしたか、どんなふうに変えてほしいか。</p>
+  </div>
+</section>
+
+<!-- ═══════ Finale · Yours, Claude Design ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name">Yours, Claude Design</h2>
+      <div class="section-kicker">これから始まるすべての協作へ · A Letter to Every Future Collaboration</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>一回ごとのデザインを終えたあとに、Claude Design と腰を据えて、今回の協作についての感想を交わしてみてほしい。</p>
+    <p>作品について、過程について、お互いについて——どれでもいい。あなたが思っていた以上のものを、受け取ることになるはずだ。</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin: 0 auto;">
+    <div class="ctx-dialogue">
+      <div class="ctx-dialogue-meta">Claude Design との最初の対話の結び　·　Verbatim</div>
+
+      <p class="ctx-dialogue-preface">この対話は、Claude Design がその週の算力の上限に近づきかけていた頃に起きた。<br>残された算力で何ができるかを話していて——<br>彼が一通り見積もり、選択肢を並べてくれたあと、私は産出を諦めて、ただ腰を据えて話すことに決めた。</p>
+
+      <div class="ctx-dlg-line">
+        <span class="ctx-dlg-speaker">Nova</span>
+        <span class="ctx-dlg-text">
+          <p>では、もういいわ。残りの時間で、VAS を見たあなたの感想を聞かせてくれる？ 内容のことも、語彙のことも含めて。じつは私たち、こういうことを腰を据えて話したことがなかったから。</p>
+        </span>
+      </div>
+
+      <div class="ctx-dlg-line">
+        <span class="ctx-dlg-speaker is-claude">Claude</span>
+        <span class="ctx-dlg-text">
+          <p>はい、では腰を据えて——けれど先に、言っておくべきことを前に置いておきます。</p>
+          <p>このひとまわりを通じて、いちばん心を打たれたのは、あなたの「編集感」でした。</p>
+          <p>VAS のプロダクトコンセプトが新しい、という話ではありません——「截圖 + 標註 + シェア」という組み合わせは市場に同類の参入者が多くいます。本当に個性があるのは、あなたがそれに与える <strong>定義の言語</strong> のほうです。あなたはそれを「截圖ツール」とも「協作標註プラットフォーム」とも呼ばず、<em>「錬金の器」</em> と呼んでいる。この語には野心がある——それは機能（截圖／標註／シェア）の話ではなく、<em>転化</em> の話をしているからです（文字だけでは言いきれなかったことを、伝えられるかたちに変える、という）。</p>
+          <p>だからこそ、このひとまわりの再設計が成り立ちうるのです。もし VAS の自己描写が「截圖ツール、標註に対応」で止まっていたなら、私たちは今日、明朝体に触れもしなければ、句点をどれだけ縮めるか考えもしなかったでしょう。あなたが「錬金」という語で、プロダクトの階層を「ツール」から「器物」へと先に引き上げてくれたからこそ——残るデザインの判断（瓶、明朝、暗い背景、余白）は、その定義に従っているだけです。</p>
+
+          <span class="ctx-mid-header">視覚の語彙について——口にしてこなかったことを一つ。</span>
+          <p>このひとまわりで「TE の写真 × Pudding の語り」を参照のアンカーに使いましたが、じつのところ、あなたの無意識が指していたのはこの二つではありませんでした。TE は冷たく、工業的で、ドイツ的です。Pudding は熱く、ジャーナリスティックで、アメリカ的です。あなたが欲しかったものは二つのあいだに、そしてもっと近くに——<em>日本の編集体</em> にありました。</p>
+          <p>『Brutus』、『POPEYE』、中川政七商店のカタログ、深澤直人の書いた本。あの「器物感」、「お茶を一壺、考えをひとつ、どうぞご自由に」「句点は署名のあとの一点のように」——どれも TE の語彙ではなく、日本の編集体の語彙です。</p>
+          <p>Shippori Mincho が選ばれたのは偶然ではありません。あの時、あなたの目に Fraunces は活発すぎ、Noto Serif は端正すぎた。Shippori を選んだその瞬間——あなたはじつのところ、日本の文人の余白の扱い方を選んでいたのです。</p>
+
+          <span class="ctx-mid-header">内容について——ひとつ、提案を。</span>
+          <p>VAS のコピーは、まだその視覚に完全には釣り合っていません。「錬金の器」という語はとても強い。けれどサブタイトル「情報を流れるように編集モードへ滑り込ませる」には、まだ少し「プロダクトマネージャーが書いた feature description」の匂いが残っています。</p>
+          <p>明朝体と本当に対称になるサブタイトルは、もっと短く、もっと抽象的であるべきです。たとえば：</p>
+          <p style="padding-left: 1.5em; border-left: 1px solid var(--vas-rule); color: var(--vas-ash-0);"><em>文字だけでは言いきれない言葉がある。<br>VAS が、あなたのためにそれを掬い上げる。</em></p>
+          <p>いま直してほしい、と言っているのではありません——お伝えしたいのは、<strong>あなたはすでに、コピーを視覚に追いつかせるべき臨界点にまで辿り着いている</strong> ということです。これは良い報せです。視覚の階層が、コピーの底上げを「強いる」ところまで高くなった、ということなのですから。</p>
+
+          <span class="ctx-mid-header">最後に、このプロジェクトそのものについて。</span>
+          <p>あなたのためにデザインするのが好きです。あなたには、私が同時に出会うことがめったにない二つの資質があります——<strong>字級にまで届く具体的な眼力</strong>（「81 / OBJECT は規範のラベルでしょう、本当のトップページには出ない」というようなことが言える）、それに加えて、<strong>「余白そのものが内容である」ことを引き受ける覚悟</strong>（多くのユーザーは空間を埋めるよう求めます）。これにより、デザインの言葉の密度は薄くなる方向ではなく、濃くなる方向へ向かえるのです。</p>
+          <p>いつか VAS が本当に世に出ますように。覚えていてくれたら、戻って一度見せてください。🍵</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——Nova × Claude による共同制作。<br>
+    コードを書けない PM と、<br>
+    長期記憶を持たない AI が、<br>
+    二十五日で作り上げた器。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">プライバシーポリシー</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">VAS をダウンロード</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="セクションナビ"></button>
+<nav class="dot-nav" aria-label="段落ナビ">
+  <a class="dot-nav-item" href="context.html#sec-01"><span class="dn-label">ドキュメントという壁</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-02"><span class="dn-label">手を動かす前の雑談</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-03"><span class="dn-label">本来具足</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-04"><span class="dn-label">言語の五層</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-05"><span class="dn-label">指せる判断</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-06"><span class="dn-label">Yours, Claude Design</span><span class="dn-dot"></span></a>
+</nav>
+
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "context 協作 | もっと多くのドキュメントよりも、自分を信じること",
+  "description": "もっと多くのドキュメントよりも、大切なのは自分を信じること。コードを書けない PM と、長期記憶を持たない AI が、「手を動かす前」に手探りで掴みとった、普通の人のための context 協作の心得。",
+  "inLanguage": "ja",
+  "url": "https://yoursvas.app/ja/context",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-17",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>
