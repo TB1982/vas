@@ -5,7 +5,7 @@
   window.VASI18n.zh = {
 
     shared: {
-      footer: '由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最後更新於 2026',
+      footer: '由 Cloudflare 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:nova@yoursvas.app" class="hover:text-white/50 transition-colors">Nova</a> 最後更新於 2026',
       privacyLink: '隱私權政策', pmLink: '深握計畫',
       navGuide: '操作手冊', navGuideShort: '操作',
       navInsight: '設計洞察', navInsightShort: '設計',
