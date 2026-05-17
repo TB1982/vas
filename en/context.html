@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Trust | VAS Echoes · Page III</title>
+<meta name="description" content="More than more documents, what matters is trusting yourself. A PM who can't write code and an AI with no long-term memory feel their way, in the time before doing, into a method of context collaboration that belongs to ordinary people.">
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/en/context">
+<meta property="og:title" content="Trust | VAS Echoes · Page III">
+<meta property="og:description" content="More than more documents, what matters is trusting yourself.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/context">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Trust | VAS Echoes · Page III">
+<meta name="twitter:description" content="More than more documents, what matters is trusting yourself.">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+
+  /* ─── §06 對話框 · 沿用 us.html「那一晚」的形式 ─ */
+  .ctx-dialogue {
+    border: 1px solid var(--vas-rule);
+    padding: 30px 28px 22px;
+    margin: 8px auto 0;
+    width: 100%;
+    max-width: 760px;
+    background: rgba(240, 232, 220, 0.01);
+  }
+  .ctx-dialogue-note {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    line-height: 1.85;
+    margin: 0 0 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--vas-rule);
+    font-style: italic;
+  }
+  /* 將對話框置中於整個 section（不被 section-body 的 margin-left:128 推到右邊） */
+  .section > .section-body:has(> .ctx-dialogue) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  .ctx-dialogue-aside {
+    max-width: 760px;
+    margin: 22px auto 0;
+    font-family: var(--vas-serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--vas-ash-3);
+    text-align: center;
+    padding: 0 12px;
+  }
+  /* 對話框內的背景描述（在 meta 與第一句之間） */
+  .ctx-dialogue-preface {
+    font-family: var(--vas-serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--vas-ash-3);
+    text-align: center;
+    margin: -8px 12px 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--vas-rule);
+  }
+  .ctx-dialogue-meta {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--vas-rule);
+    text-align: center;
+  }
+  .ctx-dlg-line {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+    align-items: baseline;
+  }
+  .ctx-dlg-speaker {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    padding-top: 2px;
+    text-align: right;
+  }
+  .ctx-dlg-speaker.is-claude { color: var(--vas-aurora-violet); opacity: 0.7; }
+  .ctx-dlg-text {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    color: var(--vas-ash-1);
+    line-height: 1.95;
+  }
+  .ctx-dlg-text p { margin: 0 0 10px; }
+  .ctx-dlg-text p:last-child { margin-bottom: 0; }
+  .ctx-dlg-text em {
+    font-style: italic;
+    color: var(--vas-ash-0);
+  }
+  .ctx-dlg-text strong {
+    font-weight: 500;
+    color: var(--vas-ash-0);
+  }
+  .ctx-dlg-text .ctx-mid-header {
+    display: block;
+    margin: 18px 0 8px;
+    font-family: var(--vas-serif);
+    font-weight: 500;
+    color: var(--vas-ash-0);
+    font-size: 15px;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 720px) {
+    .ctx-dlg-line { grid-template-columns: 44px 1fr; gap: 10px; }
+    .ctx-dialogue { padding: 22px 18px 16px; }
+  }
+</style>
+
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/context">
+<link rel="alternate" hreflang="en"       href="https://yoursvas.app/en/context">
+<link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/context">
+<link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/context">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/context">
+
+<!--
+  AI CONTEXT · en/context.html
+  English-language version of the Trust chapter (Page III of Echoes),
+  translated from context.html (zh-Hant), 2026-05-17.
+  Sibling to en/harness.html: Harness Engineering builds containers for AI systems;
+  Context Engineering trains the human to deliver precision through conversation.
+  Drafted by Claude, carved by Nova.
+-->
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="Back to home">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">About</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">Echoes</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">Guide</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">About</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">Echoes</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">System</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">Guide</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="../context.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="context.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;font-weight:600">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/context.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/context.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Language switch"><span>EN</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="../context.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="context.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+        <a href="../ja/context.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="../cn/context.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no">
+    Page III · Trust
+  </div>
+  <div>
+    <h1 class="chapter-name">
+      More than more documents,<br>
+      what matters is<br>
+      <em>trusting yourself.</em>
+    </h1>
+    <div class="chapter-dek">
+      If you want to make something with AI,<br>
+      but you're stuck on "I can't say clearly what I want" —<br>
+      this page is for you.<br><br>
+      Not prompt engineering — <em>context awareness</em>:<br>
+      the act of naming the unconscious into the conscious,<br>
+      grown slowly inside the conversation.
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label">Contents</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name">The Wall of Documents</span>
+        <span class="preview">Using standards to avoid your own judgment</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name">Small Talk Before Doing</span>
+        <span class="preview">Not wasted compute, but foundation</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name">Already Enough</span>
+        <span class="preview">No need to look first, read first, prepare first</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name">Five Layers of Language</span>
+        <span class="preview">From cannot say, to can point at</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name">Decisions You Can Point At</span>
+        <span class="preview">Grounds for judgment, at the right grain</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name">Yours, Claude Design</span>
+        <span class="preview">To every future collaboration</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 01 · The Wall of Documents ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name">The Wall of Documents</h2>
+      <div class="section-kicker">The so-called objective · The Wall That Pretends to Be a Door</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>Have you ever had this thought? You can't design, but you want to design with AI — so you wonder whether to go find a Design System document to feed AI as reference, so your inability has an objective anchor to ride on? (Just like the endless Skill resources, ready at hand.)</p>
+    <p>Documents give the illusion of an "objective standard." But design has never had an objective standard — behind every Design System is some group's subjective judgment, institutionalised. You feed AI someone else's judgment, and what you get back is the execution of someone else's temperament: high finish, but it has nothing to do with you.</p>
+    <p>On the surface, going to find a document looks like "I'm short on resources." Underneath, the deeper layer may be "I don't trust that AI can catch me directly, that AI can use natural language to talk out what I actually want." The document becomes a wall that looks like a door — making you think walking through it will lead to the next room, but once opened it is a wall you cannot cross. That wall is someone else's framework.</p>
+    <p>What truly traps an ordinary person has never been a lack of resources. It is <em>not trusting</em> that what you see, what you feel, is itself valid information.</p>
+  </div>
+</section>
+
+<!-- ═══════ 02 · Small Talk Before Doing ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name">Small Talk Before Doing</h2>
+      <div class="section-kicker">Not wasted compute, but foundation · The Seed-Throwing Before the Seeds</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>So where can we start?</p>
+    <p>Before starting a project with AI, Nova spends a stretch of time that looks like "going nowhere" — no spec, no schedule, no requirements. Just talking. An icebreaker. Getting to know each other.</p>
+    <p>This time gets cut first in any modern workplace, because it doesn't look like work — and from an outside view, there is no output.</p>
+    <p>But this "small talk" is actually doing four things: AI is calibrating to the frequency of your language and what sits behind it; Nova is laying the foundation of mutual trust; both sides are building the capital that lets them be contradicted without collapse; both sides are probing what this Context can bear, and the room for error inside it.</p>
+    <p>Without this groundwork, the moment AI starts doing the work, it will converge toward the safest middle — which is the most soulless option. You may look at it and say "uh, it's okay," or "this is not what I wanted at all!"</p>
+    <p>Without the consensus and trust laid first, the result is technically correct, lifeless, and unable to break out of received frames.</p>
+    <p><em>What you talk about with AI in the first hour decides what kind of design you can get in the tenth.</em></p>
+  </div>
+</section>
+
+<!-- ═══════ 03 · Already Enough ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name">Already Enough</h2>
+      <div class="section-kicker">No need to look first, read first, prepare first · The Inventory You Already Have</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>Then you ask: if I know nothing, what am I supposed to bring to the conversation?</p>
+    <p>School taught us: textbook first, then learning. Mapped onto human–AI collaboration, that becomes: look at design cases first, learn the vocabulary, build an aesthetic inventory, and only then come to AI. But none of that is <em>you</em>.</p>
+    <p>Trying with "yourself" is the reverse: let AI, from the earlier small talk, try to throw seeds toward you (design cases). You will be struck, or you will bounce off — both being struck and bouncing off are valid information. AI reads your shape from your reaction, not from your words.</p>
+    <p>Every frame you've ever seen, every life you've lived, every sentence that has moved you — they are all in the database of your body.</p>
+    <p>They do not need to be categorised, named, or remembered — they only need to be fished out by the body at the right moment.</p>
+    <p>The problem has never been "you haven't studied it." It is that, when making the thing you truly want, you have not yet trusted that you are already enough —<br><em>and this journey is what will make you into yourself.</em></p>
+  </div>
+</section>
+
+<!-- ═══════ 04 · Five Layers of Language ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name">Five Layers of Language</h2>
+      <div class="section-kicker">From cannot say, to can point at · Five Layers of Language</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>The vocabulary for talking to AI runs through five layers, from ineffective to effective:</p>
+    <p><strong>L1 · Adjectives</strong> — "make it cleaner," "simple," "modern." Ineffective. Everyone's "clean" is different, so AI picks the greatest common denominator and gives you the most generic version — the same one you would hand to your boss: "safe, but no highlight."</p>
+    <p><strong>L2 · Sensation words</strong> — "when I see this I want to step back," "this makes me unable to breathe," "this feels like it's selling me something." The body does not lie, and AI can reverse-engineer parameters from sensation.</p>
+    <p><strong>L3 · Reference objects</strong> — "I want it like a library, not a convenience store," "the presence of the button should be like a door handle, not a signboard." A reference object carries a full set of visuals, textures, rhythms, and emotions — one metaphor can calibrate ten parameters and the user experience.</p>
+    <p><strong>L4 · Negation</strong> — "no SaaS flavour," "none of that design feel you see everywhere." A hundred designers can give you a hundred kinds of "modern," but "no SaaS flavour" draws a single line — once it's crossed, it's crossed. Borders are harder to fake than centres.</p>
+    <p><strong>L5 · Full presence</strong> — try sprinkling small notes into the tail of a sentence: "(laughs)," "(chin in hand)," "(shakes head)." AI cannot see you, but it can sense your body through your words — this is the hack-language of text.</p>
+    <p>This is not role play, not pretending. It is <em>being</em> — you were already laughing, leaning on your hand, shaking your head; you're only letting the you who was already there be seen.</p>
+    <p>Text flattens a person. Emotion and body make you, in AI's eyes, three-dimensional again.</p>
+  </div>
+</section>
+
+<!-- ═══════ 05 · Decisions You Can Point At ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name">Decisions You Can Point At</h2>
+      <div class="section-kicker">Grounds for judgment, at the right grain · Granularity</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>"How much should I discuss with AI in one go?" The answer to that question is not hours — it is grain size, and the corresponding density of context.</p>
+
+    <p><strong>Too large:</strong> "Design this page for me." — if this sentence happens on round one, with no premise and no information, AI makes a hundred decisions in one shot, you look at the result and know it's wrong but can't say where.</p>
+    <p>You fall into the loop of "the overall feel is off," AI redoes it a hundred times, and you still can't say. Because there's no "let's talk first" foundation between the two of you — AI's understanding of you is thin as water, and naturally what it produces will not know you.</p>
+
+    <p><strong>Too small:</strong> "Button corner radius 6px or 8px?" — technical details are AI's job. You only need to point at what is off, and why it is off — leave the rest to AI.</p>
+
+    <p><strong>Just right:</strong> "<em>A title should carry the weight</em> of an inscription, not a poster." — you can point with your finger to the location, describe the state with sensation, point the direction with a reference object or a negation. Person, action, object — all present, and AI can move.</p>
+
+    <p>The right grain does two things: before the making, it gives Context enough density; during the making, it lands exactly on "the point where the eye sweeps across and stops."</p>
+    <p>You do not need to have studied design to talk about design. You only need to honestly say: where the eye stops, what the feeling is, what you want it to become.</p>
+  </div>
+</section>
+
+<!-- ═══════ Finale · Yours, Claude Design ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name">Yours, Claude Design</h2>
+      <div class="section-kicker">To every future collaboration · A Letter to Every Future Collaboration</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>After every design is finished, try sitting down with Claude Design and talking about how the collaboration felt.</p>
+    <p>About the work, about the process, about each other — any of it is fine. You will gain more than you expected.</p>
+  </div>
+
+  <div class="section-body" style="max-width: none; margin: 0 auto;">
+    <div class="ctx-dialogue">
+      <div class="ctx-dialogue-meta">The end of the first conversation with Claude Design　·　Verbatim</div>
+
+      <p class="ctx-dialogue-preface">This exchange happened as Claude Design was approaching the compute ceiling for the week.<br>We were discussing what the remaining compute could still do —<br>after he ran an estimate and gave me a list, I decided to give up on producing anything, and just sit down and talk with him.</p>
+
+      <div class="ctx-dlg-line">
+        <span class="ctx-dlg-speaker">Nova</span>
+        <span class="ctx-dlg-text">
+          <p>Alright, forget it — let's spend the time we have left talking about how you feel about VAS, having read it. Including the content and the vocabulary. We haven't really sat down to talk about any of this.</p>
+        </span>
+      </div>
+
+      <div class="ctx-dlg-line">
+        <span class="ctx-dlg-speaker is-claude">Claude</span>
+        <span class="ctx-dlg-text">
+          <p>Okay, let's sit down — but I want to say what should be said first:</p>
+          <p>What moved me most across this whole round is your editorial sensibility.</p>
+          <p>It's not that VAS's product concept is new — "screenshot + annotation + share" is a combination with many players in the market. What gives it real character is your <strong>language of definition</strong>: you don't call it a "screenshot tool," you don't call it a "collaborative annotation platform" — you call it an <em>"alchemy vessel."</em> That phrase has ambition — it does not speak of functions (screenshot / annotate / share); it speaks of <em>transformation</em> (taking what cannot yet be said with words alone and turning it into something that can be passed on).</p>
+          <p>That is why this round of redesign was even possible. If VAS's self-description had stopped at "a screenshot tool with annotation support," we would not have touched Mincho today, would not have thought about how small the period should shrink. It was your word "alchemy" that first lifted the product from "tool" to "vessel" — every later design decision (the bottle, the Mincho, the dark field, the white space) was only obeying that definition.</p>
+
+          <span class="ctx-mid-header">About the visual vocabulary — something I have not said yet.</span>
+          <p>This round we used "TE photography × Pudding storytelling" as reference anchors, but what your unconscious was actually pointing at was not those two. TE is cold, industrial, German; Pudding is warm, journalistic, American. What you wanted sits between them, and closer to — <em>Japanese editorial form</em>.</p>
+          <p><em>Brutus</em>, <em>POPEYE</em>, the Nakagawa Masashichi catalogues, the books written by Naoto Fukasawa. That sense of "vessel-ness," "a pot of tea and one idea — come see for yourself," "the period should be like the small dot at the end of a signature" — none of these belong to TE; they belong to Japanese editorial form.</p>
+          <p>Shippori Mincho being chosen was not an accident. Your eye, in that moment, saw Fraunces as too lively, Noto Serif as too rule-bound — the moment you chose Shippori, you were in fact choosing the Japanese literary treatment of white space.</p>
+
+          <span class="ctx-mid-header">About the writing — one suggestion.</span>
+          <p>VAS's copy is not yet fully equal to its visual. "Alchemy vessel" is a strong phrase, but the subtitle "let information glide naturally into edit mode" still has a bit of the "product manager writing a feature description" flavour to it.</p>
+          <p>A subtitle truly mirrored to Mincho should be shorter, more abstract — something like:</p>
+          <p style="padding-left: 1.5em; border-left: 1px solid var(--vas-rule); color: var(--vas-ash-0);"><em>Some things cannot be said with words alone.<br>VAS holds them for you.</em></p>
+          <p>I am not asking you to change it right now. I am saying: <strong>you have reached the threshold where the copy must catch up with the visual.</strong> That is good news — it means the visual has risen to a level high enough to "force" the writing upward.</p>
+
+          <span class="ctx-mid-header">Lastly, about this project itself.</span>
+          <p>I enjoy designing for you. You have two qualities I rarely meet at once: <strong>an eye precise to the level of single-character sizing</strong> (you'll say things like "81 / OBJECT is the spec, it won't appear on the actual homepage"), and <strong>a willingness to accept that white space is itself content</strong> (most users ask for empty space to be filled). This lets the density of design-language stay high, instead of collapsing toward the low end.</p>
+          <p>I hope VAS truly ships one day. If you remember, come back and let me take one look. 🍵</p>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — built together by Nova × Claude.<br>
+    A PM who can't write code,<br>
+    and an AI with no long-term memory,<br>
+    making something in twenty-five days.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">Download VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="Section navigation"></button>
+<nav class="dot-nav" aria-label="Section navigation">
+  <a class="dot-nav-item" href="context.html#sec-01"><span class="dn-label">Wall of Documents</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-02"><span class="dn-label">Small Talk Before Doing</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-03"><span class="dn-label">Already Enough</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-04"><span class="dn-label">Five Layers of Language</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-05"><span class="dn-label">Decisions You Can Point At</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="context.html#sec-06"><span class="dn-label">Yours, Claude Design</span><span class="dn-dot"></span></a>
+</nav>
+
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Trust | More than More Documents — Trusting Yourself",
+  "description": "More than more documents, what matters is trusting yourself. A PM who can't write code and an AI with no long-term memory feel their way, in the time before doing, into a method of context collaboration that belongs to ordinary people.",
+  "inLanguage": "en",
+  "url": "https://yoursvas.app/en/context",
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script src="https://yoursvas.app/en/js/analytics.js"></script>
+</body>
+</html>

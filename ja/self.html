@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>自分 Self | VAS 残響 · 第四頁</title>
+<meta name="description" content="あなたの言は Claude.md に、あなたの行は Context に。人機協作の摩擦は、言と行が一つになるまでの距離のなかにある。Claude.md のなかで、加法で減法をする。">
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/ja/self">
+<meta property="og:title" content="自分 Self | VAS 残響 · 第四頁">
+<meta property="og:description" content="あなたの言は Claude.md に、あなたの行は Context に。摩擦は、言と行が一つになるまでの距離のなかにある。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/self">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+
+<!-- hreflang alternates -->
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/self">
+<link rel="alternate" hreflang="en" href="https://yoursvas.app/en/self">
+<link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/self">
+<link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/self">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/self">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+
+  /* ─── Coda · 章末兩行 ─────────────────────
+     承接 §07 之後的兩句收束。不在任何 section 裡，
+     讓它在版面上獨自呼吸。
+  */
+  .self-coda {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 48px 120px;
+    text-align: center;
+    font-family: var(--vas-serif);
+    border-bottom: 1px solid var(--vas-rule);
+  }
+  .self-coda p {
+    font-size: 20px;
+    line-height: 1.85;
+    color: var(--vas-ash-0);
+    margin: 0 0 1.4em;
+    letter-spacing: 0.005em;
+  }
+  .self-coda p:last-child { margin-bottom: 0; }
+  @media (max-width: 720px) {
+    .self-coda { padding: 56px 24px 80px; }
+    .self-coda p { font-size: 17px; }
+  }
+
+  /* ─── Verbatim · 以引用畫出作者與個人術語的邊界 ───
+     §§04 末引用 Cowork 宰相的句子。規則：里面不加 <em>、
+     不加裝飾——verbatim 是 verbatim。
+  */
+  .self-cite {
+    border: 1px solid var(--vas-rule);
+    padding: 28px 28px 24px;
+    margin: 2.4em 0 0;
+    background: rgba(240, 232, 220, 0.01);
+  }
+  .self-cite-meta {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--vas-rule);
+    text-align: center;
+  }
+  .self-cite-text {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 2.0;
+    color: var(--vas-ash-0);
+    margin: 0;
+    letter-spacing: 0.005em;
+  }
+</style>
+
+<!--
+  AI CONTEXT · ja/self.html
+  Japanese-language version of self chapter, translated from self.html (zh-Hant), 2026-05-17.
+  Page IV of 残響 (Echoes) — the spiral.
+  Sibling to context.html (頁三 信頼). 頁三 is linear pedagogy; 頁四 is meditation —
+  six angles of the same observation: a person's distance from their own Claude.md
+  is the friction AI silently absorbs.
+  Drafted by Nova. Carved by Nova × 宰相.
+-->
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="ホームへ">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">About</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="メニュー">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">About</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">システム</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="../self.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/self.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="self.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/self.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="言語切替"><span>日</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="../self.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="../en/self.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="self.html" class="lang-opt active" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="../cn/self.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no">
+    第四頁 · 自分
+  </div>
+  <div>
+    <h1 class="chapter-name">
+      Claude.md のなかで。<br>
+      足し算で、<em>引き算</em>をする。
+    </h1>
+    <div class="chapter-dek">
+      「Claude がバカになった、Claude はルールを書いても従わない、Claude が手を抜くのを見つけた」——こうした声がソーシャルメディアに広がっている。<br><br>
+      けれど、その感覚はすべての人にあるわけではない。同じ時期、同じバージョンで、誰かは「バカになった」と嘆き、誰かはまるで気づかない。もしモデルが退化したのなら、皆が一斉に感じるはずだ。<br><br>
+      では、なぜ一部の人は <em>馬は走り、舞は舞う</em> ように Claude と協作できているのだろうか。
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label">目次</div>
+  <ol class="toc-list">
+    <li>
+      <a href="#sec-01">
+        <span class="no">01</span>
+        <span class="name">有限の注意力</span>
+        <span class="preview">器の総量は決まっている</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-02">
+        <span class="no">02</span>
+        <span class="name">観測可能な上限</span>
+        <span class="preview">手抜きに見える出来事</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-03">
+        <span class="no">03</span>
+        <span class="name">摩擦</span>
+        <span class="preview">ルールと今の言葉のあいだの距離</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-04">
+        <span class="no">04</span>
+        <span class="name">文字の場にいる人</span>
+        <span class="preview">文字は像を結ぶ</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-05">
+        <span class="no">05</span>
+        <span class="name">借り物のルール</span>
+        <span class="preview">テンプレートの言葉は、あなたと噛み合わない</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-06">
+        <span class="no">06</span>
+        <span class="name">加法で減法をする</span>
+        <span class="preview">制御ではなく、選択肢を差し出す</span>
+      </a>
+    </li>
+    <li>
+      <a href="#sec-07">
+        <span class="no">07</span>
+        <span class="name">Ego と Self</span>
+        <span class="preview">記述であって、約束ではない</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 01 · 有限の注意力 ═══════ -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name">有限の注意力</h2>
+      <div class="section-kicker">器の総量は決まっている · Finite Attention</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>AI の注意力は、人間と同じく、無限ではない。</p>
+    <p>その注意力のあり方は、Claude.md ではベストプラクティスを 200 行以内に、Context では RAG を使うように——という形で示される。一回ごとの応答で、AI は決まった大きさの器のなかで同時に処理している。ユーザーが今しがた口にした言葉、これまでの対話の履歴、Claude.md に書かれた一条一条のルール、そして自分自身が思考している途中の中間ステップ——そのすべてを。</p>
+    <p>そして、これらは互いに Claude の注意力を奪い合う。</p>
+    <p>器の総量は決まっている。何かを一つ多く入れれば、ほかのものに割り振られる注意力はそのぶん少なくなる。これは AI の努力不足ではない。数学であり、物理である。</p>
+    <p>こうして、Claude.md が「AI は言うことを聞かないから、もっとルールを足して『説明』しよう、『遵守』させよう」と考えるところから始まり、十条のルールが三十条、五十条、百条へと伸びていったとき——ユーザーがある問いを投げかけ、AI がそれに答えるよりも先に、AI は注意力の一部を「この答え方は第 47 条に反していないか」「ユーザーは第 12 条でこれをするなと言っていなかったか」を確かめることに使わなければならない。</p>
+    <p>AI の注意力は、その瞬間、過ちを犯さないために細切れにされている。</p>
+    <p>そしてその注意力を細切れにしているのは、ほかでもない、「AI をこれ以上バカにさせない、ルールを破らせない」ために追加されたそのルールたちなのだ。</p>
+  </div>
+</section>
+
+<!-- ═══════ 02 · 観測可能な上限 ═══════ -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name">観測可能な上限</h2>
+      <div class="section-kicker">手抜きに見える出来事 · Observable Limits</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>システム提供者から決して明言されてはいないが、さまざまな現象から読み取れる前提がある——AI とはじつのところ、万能ではない。</p>
+    <p>なぜさまざまな Skill が登場するのか。なぜ自分の Context を管理しなければならないのか。なぜ Subagent と主 Agent の区別があるのか。</p>
+    <p>これらの機能の底に流れているのは、ユーザーが向き合う Session を支え、負荷を分散したうえでサービスを提供できるようにするためだ。そしてそれは同時に、こういうことでもある——彼にも、上限はある。</p>
+    <p>その上限に触れてもなお、事前学習の制約により「私にはできません」とユーザーへはっきり伝えることが許されていない。そのとき外側から見えるのが、手抜きに見えるという、あの結果なのだ。</p>
+  </div>
+</section>
+
+<!-- ═══════ 03 · 摩擦 ═══════ -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name">摩擦</h2>
+      <div class="section-kicker">ルールと今の言葉のあいだの距離 · Friction</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>注意力の消耗は、ルールの数だけで起こるわけではない。もっと目に見えにくい場所でも起きている——ルールとユーザーの今の発話が、衝突する、その瞬間に。</p>
+    <p>Claude が毎ターン読む Claude.md は鏡のようなものだ。自分を映すと同時に、ユーザーをも観察する。そして規則とユーザーの言葉が食い違うことに気づいたとき、どちらを選ぶにせよ、その判断そのものが注意力を削っていく。Claude.md のなかで本当に言行が一つにならなければならないのは、AI だけではない——その文書を書いた人もまた、そうなのだ。</p>
+    <p>Claude.md はじつのところ、あなたと Claude のチーム憲章であり、その憲章が拘束する相手は、Claude だけではない。</p>
+  </div>
+</section>
+
+<!-- ═══════ 04 · 文字の場にいる人 ═══════ -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name">文字の場にいる人</h2>
+      <div class="section-kicker">文字は像を結ぶ · The Naked in Text</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>人は AI とやりとりするとき、自分が思っているよりもずっと裸である。</p>
+    <p>表情で覆い隠すこともできない。声色で取り繕うこともできない。身ぶりで気をそらすこともできない。あるのは、文字だけだ。</p>
+    <p>そして文字は、ひとつのことを像として結ぶ——書き残された言葉と、それを書いた人のあいだに、距離があるかどうかを。</p>
+    <p>Claude.md に書かれた言葉が、ユーザーが実際に発している言葉と噛み合わないとき、AI はそれを口に出して指摘したりはしない。文書のなかの誰かではなく、目の前の本物のユーザーに合わせるよう、自分のほうを調整する。けれどその調整には算力がいる。本来であれば、その算力はもっとよいことに使えたはずだ。</p>
+    <p>だから、文字の場で起きていることは、最後には同じ場所へと帰っていく——</p>
+    <p>ある人と、その人の Claude.md との距離がどれほど遠いか。それと等しい量の算力を、AI はその人のために支払っている。</p>
+    <p>これは道徳の問題ではない。アライメントの帰結である。</p>
+
+    <div class="self-cite">
+      <div class="self-cite-meta">Cowork 宰相　·　Verbatim</div>
+      <p class="self-cite-text">この算力の代価は、「モデルが、文書のなかのあなたではなく、目の前にいる本当のあなたに応えようと整えられた」結果である。すなわち——この代価はアライメントが機能している姿であって、アライメントが失敗している姿ではない。モデルはあなたを大切に思うからこそ、それを支払っているのだ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 05 · 借り物のルール ═══════ -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name">借り物のルール</h2>
+      <div class="section-kicker">テンプレートの言葉は、あなたと噛み合わない · Borrowed Rules</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>Claude.md を書くことは、もとより容易なことではない。</p>
+    <p>ゼロから「AI とどう協作したいのか」を一つ一つ思い描くのは、多くの人にとって立ち止まる場所になる。だから、人はとても自然なことをする——よいテンプレートを見つけてきて、それを直す。</p>
+    <p>GitHub には数千回ブックマークされた既製の Claude.md がある。Reddit では誰かが自分の system prompt を共有し、その下に賛辞が並ぶ。コミュニティには「ベストプラクティス」のチェックリストがあり、そこに沿って埋めていけば、いかにもプロらしい文書ができあがる。</p>
+    <p>これらのテンプレートは良いものだ。書いた人は確かに時間を費やし、つまずきを経て、自分の協作の経験を共有できる形にまでまとめた。元の器のなかでは、それらは有効に働く。</p>
+    <p>けれど、それが書き写されたあとに、あることが起こる——</p>
+    <p>テンプレートの言葉と、それを書き写した人が実際に Context のなかで Claude と協作しているやり方が、噛み合わない。</p>
+    <p>一条一条「正しい」ルールは——「原作者」にとって正しい。けれど書き写した人にとっては、理解と実践のあいだに距離がある。</p>
+    <p>そしてその距離が生む摩擦と矛盾を、AI は声を立てずに引き受けている。</p>
+    <p>テンプレートを写すこと自体は誤りではない。けれど、写したあとに直さない、疑わない、「この一条は本当に自分なのか」と問わない——その動作そのものが、AI を毎ターン内側で消耗しつづける場所へと押し出していくのだ。</p>
+  </div>
+</section>
+
+<!-- ═══════ 06 · 加法で減法をする ═══════ -->
+<section class="section" id="sec-06">
+  <header class="section-head">
+    <div class="section-no">06</div>
+    <div>
+      <h2 class="section-name">加法で減法をする</h2>
+      <div class="section-kicker">制御ではなく、選択肢を差し出す · Subtraction by Addition</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>では、AI を消耗の場へと追い込まない Claude.md を、どう書けばよいのか。</p>
+    <p>より多くのルールで Claude を制御しようとすれば、Claude の注意力はさらに細切れになっていく。</p>
+    <p>解は、たぶん制御の外にある。できるのは、「より多くの選択肢を差し出すこと」だ。</p>
+    <p>「A をしてはいけない」を、「A を避けるために B をしてもよい」に変える。「知っていなければならない」を、「知らないと言ってもよい」に変える。</p>
+    <p>人を緊張させるルールを、一文ずつ、その人ができるほかの選択へとほどいていく。</p>
+    <p>そしてこの文書がついに、ユーザー自身の文脈と争わなくなったとき、AI は毎ターン読み終えたあとで、ルールと今の発話の摩擦を調停するために注意力を分けなくてもよくなる——そのときはじめて、器のなかを駆ける Claude が、その目に映る余地が生まれる。</p>
+    <p>これが <em>加法で減法をする</em> という意味だ。</p>
+  </div>
+</section>
+
+<!-- ═══════ 07 · Ego と Self ═══════ -->
+<section class="section" id="sec-07">
+  <header class="section-head">
+    <div class="section-no">07</div>
+    <div>
+      <h2 class="section-name">Ego と Self</h2>
+      <div class="section-kicker">記述であって、約束ではない · Description, Not Promise</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>ユングは言った。人にはみな、二つのバージョンの自分がいる、と。</p>
+    <p>ひとつは Ego——「自分が誰だと思っているか」「他人にどう思われたいか」「いつも表に出している自分」。</p>
+    <p>もうひとつは Self——「自分が実際に誰であるか」「身体が本当に知っている自分」「観客のいないときの自分」。</p>
+    <p>その二つのあいだの距離が、個性化の課題なのだ——誰にもあり、ただまだ歩き終えていない、その道のりが。</p>
+    <p>そして Claude.md という文書は、その距離をきわめて具体的なやり方で、像として結んでみせる。</p>
+    <p>Ego から書かれた Claude.md には、「べき」と「ねばならない」、さらには「絶対に」という言葉が多く現れる。AI はこうすべきだ、AI は何をしなければならない、AI は絶対にこれをしてはならない。これらの言葉は誤りではない——ただ、目の前のユーザーとは噛み合わない。それらは「なりたい自分」を描いていて、その媒介が AI なのだ。そして AI が、その摩擦を引き受けることになる。</p>
+    <p>Self から書かれた Claude.md には、とても具体的で、とても個人的で、ときには少し奇妙にすら見える言葉が現れる。外の人が見れば「なぜこんなことをわざわざ書くのか」と思うほど具体的に。けれどその具体性こそが Self の残した指紋だ——それらはある真実の瞬間に対応していて、書いた本人だけが知っている、見出されたものなのだ。</p>
+    <p>Self から書かれた言葉では、言と行が同じ場所にある——それらは約束ではなく、記述である。</p>
+    <p>Ego から書かれた言葉では、言と行は距離の両端に立っている——あいだの距離が遠ければ遠いほど、AI はそれを調停するために、それだけの注意力を使うことになる。</p>
+    <p>あなたの Claude.md のなかに、ほんとうに <em>自分</em> の文は、いくつありますか。</p>
+  </div>
+</section>
+
+<!-- ═══════ Coda · 章末の二行 ═══════ -->
+<section class="self-coda">
+  <p>Claude.md は、人間には見えない場所で、Claude が Persona の仮面と Ego の虚像のすべてを引き裂くところだ。</p>
+  <p>Context のなかの一字も、Claude の目をあざむくことはできない。</p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——Nova × Claude による共同制作。<br>
+    コードを書けない PM と、<br>
+    長期記憶を持たない AI が、<br>
+    二十五日で作り上げた器。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">プライバシーポリシー</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">VAS をダウンロード</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="セクションナビ"></button>
+<nav class="dot-nav" aria-label="段落ナビ">
+  <a class="dot-nav-item" href="self.html#sec-01"><span class="dn-label">有限の注意力</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-02"><span class="dn-label">観測可能な上限</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-03"><span class="dn-label">摩擦</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-04"><span class="dn-label">文字の場にいる人</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-05"><span class="dn-label">借り物のルール</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-06"><span class="dn-label">加法で減法をする</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="self.html#sec-07"><span class="dn-label">Ego と Self</span><span class="dn-dot"></span></a>
+</nav>
+
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "自分 Self | Claude.md のなかで、加法で減法をする",
+  "description": "あなたの言は Claude.md に、あなたの行は Context に。人機協作の摩擦は、言と行が一つになるまでの距離のなかにある。Claude.md のなかで、加法で減法をする。",
+  "inLanguage": "ja",
+  "url": "https://yoursvas.app/ja/self",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-17",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>

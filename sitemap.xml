@@ -319,20 +319,102 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- ═══════ Self (自) — zh-Hant only, lang versions pending ═══════ -->
+  <!-- ═══════ Self (自) · Echoes Page IV ═══════ -->
   <url>
     <loc>https://yoursvas.app/self</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/self"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/self"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/self"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/self"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/self"/>
   </url>
 
-  <!-- ═══════ Context (脈絡) — zh-Hant only, lang versions pending ═══════ -->
+  <url>
+    <loc>https://yoursvas.app/en/self</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/self"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/self"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/self"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/self"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/self"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/ja/self</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/self"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/self"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/self"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/self"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/self"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/cn/self</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/self"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/self"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/self"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/self"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/self"/>
+  </url>
+
+  <!-- ═══════ Context (信念) · Echoes Page III ═══════ -->
   <url>
     <loc>https://yoursvas.app/context</loc>
     <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/context"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/context"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/context"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/context"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/context"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/en/context</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/context"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/context"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/context"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/context"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/context"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/ja/context</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/context"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/context"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/context"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/context"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/context"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/cn/context</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/context"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/context"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/context"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/context"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/context"/>
   </url>
 
   <!-- ═══════ Sapere Aude 2.0 · Us (咱倆) — sitemap-only for machines, hidden from human nav ═══════ -->
