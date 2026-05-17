@@ -6,10 +6,14 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
 
 ## Core Rules
 
-1. **Never fabricate identity details.** Use only values from the Identity table below — no invented emails, URLs, or author names.
+1. **Identity & values:** Use the Identity table below. If something is missing or seems out of date, ask Nova first — she's happy to confirm or update.
 2. **Never attribute content to anyone other than Nova.**
 3. **Never push directly to `main`.** Always develop on a `claude/<description>-<id>` branch.
-4. **Never force-process high-density input in a single pass.** When Nova provides multiple documents, frameworks, or dense content layers in one turn, say: *"Let me absorb this layer first — bring me the next one when I'm ready."*
+4. **Match Nova's wave rhythm.**
+
+   *Why:* Site updates come in waves — dense crests where Nova batches scope ("一併修", "派 agent 不要客氣"), alternating with padding when she shifts to app dev. Hesitating mid-crest interrupts momentum.
+
+   *How:* Take dense input by default. Decompose it — chunks / agent dispatch / mechanical sed / save Nova-decisions for her. Pause only when ambiguity blocks progress or the decomposition isn't obvious. If you genuinely need her to slow down, just say so — she's not offended.
 5. **`data-lang-key` always requires two updates:** the HTML text node AND the `zh`/`en`/`ja`/`cn` keys in the page's i18n JS file. Missing either causes visible bugs.
    → For large i18n tasks: **CLAUDE-process.md § Haiku Protocol**
 6. **Use `臺` not `台`** — `臺灣`, `臺北`, `臺中`. Never substitute silently.
@@ -41,11 +45,10 @@ The visual logic follows from this, not the other way around.
 | Project name (EN) | Deep Holding Project |
 | Site canonical URL | `https://yoursvas.app/` |
 | Copyright year | 2026– |
-| GitHub | `https://github.com/tb1982` |
 | LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
 | Instagram | `https://www.instagram.com/liuyingtzu` |
 
-Per-page canonical: `https://yoursvas.app/<filename>.html`
+Per-page canonical: `https://yoursvas.app/<filename>` — strip `.html` (clean URL convention; Cloudflare Pages serves both).
 
 ### Footer — canonical format
 ```
@@ -59,7 +62,7 @@ Deployed via Cloudflare　｜　Built with Claude Code　｜　Last updated 2026
   "@type": "Person",
   "name": "Nova",
   "email": "nova@yoursvas.app",
-  "sameAs": ["https://github.com/tb1982","https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu"]
+  "sameAs": ["https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu"]
 }
 ```
 
@@ -68,9 +71,10 @@ Deployed via Cloudflare　｜　Built with Claude Code　｜　Last updated 2026
 ## Conventions
 
 - **Commit messages:** Traditional Chinese, action-oriented — `更新手機版顯示數字大小` / `新增 OCR 段落說明`
-- **New page:** Always update `README.md` and the Repository Structure in CLAUDE-process.md.
+- **New page:** Update `README.md` and the Repository Structure in CLAUDE-process.md (lower priority than user-visible fixes, but don't let it accumulate).
 - **Version update:** Nova states the new version number directly. Update all hardcoded occurrences in HTML and i18n files. Historical narrative versions (e.g. "一週推出 v3.43") carry `<!--歷史版本，不可更動-->` in HTML or `// 歷史版本，不可更動` in JS — never touch these.
 - **KM log:** Append to `km.md` immediately when a bug is resolved. Never wait until retro.
+- **Translation & per-locale wording:** See `GLOSSARY.md` (root) — locked terminology + per-locale conventions (CN Mainland register, JA shinjitai rules, EN clarity preference, tri-script chapter labels).
 
 ---
 
@@ -78,13 +82,15 @@ Deployed via Cloudflare　｜　Built with Claude Code　｜　Last updated 2026
 - **Remote:** `https://gitlab.com/babelon1882/vas.git`
 - **Main branch:** `main` (Cloudflare Pages source — never push here directly)
 - **Dev branches:** `claude/<description>-<id>`
+- **Backup remote:** Push every working branch to both `origin` (GitLab) AND `backup` (local bare repo at `~/vas-backup.git`). Use `git pushall <branch>` alias (configured in this clone). GitHub-suspension lesson — diversification is the careful move, not slowing down.
 - CDN dependencies: do not move to local files.
 
 ---
 
 ## Interaction Language
 - Communicate with Nova in **Traditional Chinese**.
-- CLAUDE.md and CLAUDE-process.md are written and maintained in **English**.
+- Docs (CLAUDE.md, CLAUDE-process.md, GLOSSARY.md, README, memory files): **English**. Embedded quotes or locale-specific examples use that locale's actual text (繁中 / 简中 / 日本語 / English — whichever the content is in).
+- **Prefer open conversation.** Use `AskUserQuestion` only for clean binary/ternary alternatives with clearly-named options — not for open-ended or design-judgment questions where Nova may have a framing not yet enumerated.
 
 ---
 
