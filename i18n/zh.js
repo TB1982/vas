@@ -884,7 +884,7 @@
       'ch7.title':     '停擺的那一週，<em>其實什麼都在動</em>。',
       'ch7.prose1':    '趁 Apple Store 送審的審查期停了一週，<br>我們做了一次大型 Retro——<br>不是敏捷儀式上那種一兩小時的回顧，<br>是把整個開發系統的基礎建設重砌了一遍。',
       'ch7.prose2':    '對外：輸出了六個網頁——<br><strong>insight</strong>（設計札記）、<strong>collab</strong>（協作故事）、<br><strong>harness</strong>（系統骨架），以及深握計畫裡最深的那層。',
-      'ch7.prose3':    '<strong>Harness Engineering</strong> 的三支柱 ——<br>Context / Constraints / Entropy。<a href="#" onclick="return false" class="inline-dot" style="cursor:default" aria-label="Harness Engineering"></a>',
+      'ch7.prose3':    '<strong>Harness Engineering</strong> 的三支柱 ——<br>Context / Constraints / Entropy。<a href="https://yoursvas.app/harness/context" target="_blank" rel="noopener" class="inline-dot" aria-label="Harness Engineering"></a>',
       'ch7.prose4':    '對內：把 repo 改成 <strong>monorepo</strong>，讓多條開發線並行；<br>把原本一份 SDD 拆成 <strong>TDD · KM · Archive</strong> · 各自獨立，<br>Claude.md 瘦身，制定了每次 Retro 重新檢視的規則。',
       'ch7.prose5':    '更關鍵的是，我們重新制定了一套更新規則，<br>讓每份被拆出來的文件<strong>活在流程裡</strong>，<br>而不是拆出來之後就死掉。',
       'ch7.pullquote': '那一週我們不寫 code。<br>我們一起重寫了怎麼寫 code。',

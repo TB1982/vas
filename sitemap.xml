@@ -296,6 +296,29 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/harness"/>
   </url>
 
+  <!-- ═══════ Harness Three Pillars — deep layer, dynamic JS i18n (zh/en/ja) ═══════ -->
+  <!-- No hreflang: single URL serves all three languages via in-page switcher -->
+  <url>
+    <loc>https://yoursvas.app/harness/context</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/harness/constraints</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/harness/entropy</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- ═══════ Self (自) — zh-Hant only, lang versions pending ═══════ -->
   <url>
     <loc>https://yoursvas.app/self</loc>
