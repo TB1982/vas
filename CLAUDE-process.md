@@ -73,41 +73,71 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 
 ```
 /
-├── index.html          # VAS product page
-├── guide.html          # User guide
-├── insight.html        # Design Insight — 設計洞察
-├── collab.html         # Collab Notes — 協作筆記
-├── harness.html        # Harness Engineering — 系統建構裏話
-├── milestone.html      # Milestone — 里程碑
-├── privacy.html        # Privacy Policy
-├── base.css            # Shared styles — owned by Claude Design; Nova relays changes
-├── designrule.md       # Visual design rules — read before any HTML/CSS change
-├── km.md               # Known issues & solutions — append only
-├── CLAUDE.md           # Core rules (always loaded)
-├── CLAUDE-process.md   # This file — workflows and protocols
+├── index.html              # Home — 4 chapter gates
+├── about.html              # Chapter 0 · 序章 · PREFACE
+├── echo.html               # Chapter I · 殘響 · ECHOES (cover)
+├── insight.html            # Echo p.1 · 設計
+├── collab.html             # Echo p.2 · 協作
+├── context.html            # Echo p.3 · 信念
+├── self.html               # Echo p.4 · 自己
+├── harness.html            # Chapter II · 系統 · SYSTEM (cover)
+├── us.html                 # Chapter II · ⓘ mirror (Sapere Aude 2.0)
+├── milestone.html          # Chapter III · 里程碑 · CHRONICLE
+├── faq.html                # FAQ — eight questions
+├── guide.html              # User guide
+├── privacy.html            # Privacy policy
+├── 404.html                # Error page
+│
+├── en/                     # English static variants (full page-per-page set)
+├── ja/                     # Japanese static variants
+├── cn/                     # Simplified Chinese (Mainland register) static variants
+│
+├── harness/                # Deep layer — 3 pillars (Mandarin-only, in-page JS lang switch)
+│   ├── context.html        # Pillar I  — Context management
+│   ├── constraints.html    # Pillar II — Constraints as guidance
+│   ├── entropy.html        # Pillar III — Coexisting with entropy
+│   └── fourier.webp        # Shared figure
+│
 ├── i18n/
-│   ├── core.js         # Dynamic loader + dropdown logic — no translations here
-│   ├── zh.js           # Traditional Chinese — all pages
-│   ├── en.js           # English — all pages
-│   ├── ja.js           # Japanese — all pages
-│   └── cn.js           # Simplified Chinese — Tauri-only content
-└── img/                # Screenshots — vas-guide-*.png used in guide.html
+│   ├── core.js             # Dynamic loader + dropdown logic for root pages
+│   ├── zh.js               # zh-Hant translations
+│   ├── en.js               # English
+│   ├── ja.js               # Japanese
+│   └── cn.js               # Simplified Chinese (Mainland register)
+│
+├── css/                    # tokens.css / shell.css / page-specific
+├── js/                     # analytics.js / per-page scripts
+├── img/                    # vas-*.png / vas-*.webp / favicon
+│
+├── sitemap.xml             # 55 URLs with per-locale hreflang
+│
+├── CLAUDE.md               # Core rules (always loaded)
+├── CLAUDE-process.md       # This file — workflows
+├── GLOSSARY.md             # Translation terminology + per-locale conventions
+├── README.md               # Public-facing overview
+├── km.md                   # Known issues log — append only
+└── designrule.md           # Visual design rules
 ```
 
 **File ownership:**
-- Claude Design owns: `base.css`, `design-system.html`, HTML layout structure
-- 宰相 owns: all `i18n-*.js`, `data-lang-key` attributes, content text, `km.md`, `website-context.md`
+- Claude Design owns: `css/tokens.css`, `css/shell.css`, HTML layout structure
+- Nova owns: all `i18n/*.js`, `data-lang-key` attributes, content text, `km.md`, `GLOSSARY.md`
+- Lang static files (`en/`, `ja/`, `cn/`): translation pass owned by Nova + agent; structure mirrors root
 
 ---
 
 ## Tech Stack
 
+**Main site:**
 | Layer | Technology |
 |-------|-----------|
 | Markup | HTML5 |
-| Styling | Tailwind CSS (CDN) + `base.css` |
-| Scripting | Vanilla JavaScript |
-| Fonts | Google Fonts — Noto Sans TC, Inter |
+| Styling | `css/tokens.css` (design tokens) + `css/shell.css` (shared layout) + page-specific CSS |
+| Scripting | Vanilla JavaScript; `i18n/core.js` handles dynamic lang switching on root pages |
+| Fonts | Google Fonts — Shippori Mincho, Fraunces, JetBrains Mono |
+
+**Harness deep-layer pages** (`/harness/{context,constraints,entropy}`):
+Different stack — Tailwind CDN + inline `<style>` + in-page JS dictionary (`translations` object). Intentionally different to mark "deep layer" visually. Design refactor pending; Nova will hand off to Design when ready.
 
 **No build tools. No package manager. No TypeScript. No testing framework.**
 
@@ -115,11 +145,21 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 
 ## Development Workflow
 
-> **Before any HTML or CSS change: read `designrule.md` AND `base.css` first. Mandatory.**
+> **Before any HTML or CSS change: read `designrule.md` AND `css/shell.css` first. Mandatory.**
 
-1. Edit the relevant `.html` or `i18n-*.js` file.
-2. Commit with a Traditional Chinese action message.
-3. Push to dev branch; merge to `main` when Nova approves.
+**Full collaboration loop (7 steps, including 巡水田):**
+
+```
+1. spec     → Nova 口述需求
+2. exec     → Claude edits / agent dispatch / mechanical sed
+3. push     → Dual-remote via `git pushall <branch>` (origin + backup)
+4. merge    → Nova accepts MR (GitLab UI)
+5. deploy   → Cloudflare auto-deploy (~1–2 min after merge)
+6. 巡水田    → Nova goes to live front-end, sacral pass on relevant pages
+7. flag     → Findings from 巡水田 become input for next MR
+```
+
+**Session-end condition:** "Nova 巡完水田沒新發現", NOT "Claude push 完了". See § 巡水田 below.
 
 ```bash
 # Local preview — always use port 8081
@@ -150,14 +190,35 @@ Nova checks:
 
 ---
 
+## 巡水田 — Sacral Quality Pass
+
+**Why it's a phase, not a bug:**
+Nova's design taste operates at granular resolution. Plain-eye review on the deployed site catches things that pre-merge code review can't (real font rendering, real spacing, real readability under actual user agents, the rhythm of em-spans + br-breaks in production). This step is the **quality engine**, not an afterthought.
+
+**Behavior pattern:** After Cloudflare deploys, Nova opens the live front-end and 巡水田 — walks the affected pages, lets her sacral catch anything off. Findings tend to come in clusters of 1–3 per MR.
+
+**Workflow placement:** Step 6 in the 7-step loop above. Findings flow to step 7 (flag → next MR's input).
+
+**Naming this phase explicitly converts what could feel like "scope creep" into a planned ritual.** Two consequences:
+
+- **For Nova:** Stop apologizing for findings. They are the system working as designed. The "I keep adding things" feeling is misread — you are doing exactly the named step.
+- **For Claude:** Do not declare a session "done" at push or even at merge. The session ends when Nova returns from 巡水田 with no new findings.
+
+**Optional optimization:** If a finding is mechanical (sed-able, agent-able, no design judgement), Claude can take it immediately without ceremony. If a finding involves design judgement, ask Nova for the call before executing.
+
+---
+
 ## New Page Checklist
 
-When creating a new page:
-1. Create `<page>.html` and `i18n-<page>.js`
-2. Add the page to `i18n-shared.js` nav entries (all languages)
-3. Update `README.md` — add to page list
-4. Update Repository Structure in this file (CLAUDE-process.md)
-5. Create `website-context.md` entry for the new page
+When creating a new top-level page:
+1. Create `<page>.html` (root, zh-Hant primary)
+2. Add `data-lang-key="home2.nav.<page>"` to all nav entries — root + en/ja/cn lang variants
+3. Add `home2.nav.<page>` key to `i18n/{zh,en,ja,cn}.js`
+4. Create full static variants: `en/<page>.html`, `ja/<page>.html`, `cn/<page>.html`
+5. Add 4 URL entries to `sitemap.xml` (root + 3 lang) with per-locale `<xhtml:link>` hreflang block
+6. Update `README.md` — add to page list
+7. Update Repository Structure in this file (CLAUDE-process.md)
+8. If new terminology introduced: add to `GLOSSARY.md` § appropriate section
 
 ---
 
@@ -222,5 +283,7 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 |------|------|
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
-| `i18n-shared.js` | `initDropdown()` / `updateDropdown()` — shared by all pages |
+| `i18n/core.js` | Loader logic + dropdown for dynamic lang switching on root pages |
+| `sitemap.xml` | 55 URLs, per-locale hreflang. Update on any new page (see § New Page Checklist) |
 | `km.md` | KM log — append immediately when a bug is resolved |
+| `GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
