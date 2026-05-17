@@ -391,6 +391,7 @@
       i1box2Label: 'Mosaic Fill-in',
       i1box2Desc: 'Where OCR falls short, the user takes over manually',
       i1box3Desc: 'Covered the wrong spot? One-tap delete — no irreversible decisions',
+      i1imgCaption2: 'Export · the black light steps aside for you',
       i2Title: 'QR Code detected — but how confident is it?',
       i2p1: 'Scanning a QR code seems like a binary outcome — found or not found. But VAS sees it differently: it reads user intent, then decides what to do next based on that intent.',
       i2p2: 'This is also human-AI collaboration: the user speaks through how they frame the screenshot, and the tool understands. No language, no buttons, no menus — how you frame it is what you want. The tool isn\'t reading commands; it\'s reading behaviour.',
