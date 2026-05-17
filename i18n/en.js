@@ -1004,8 +1004,8 @@
     },
 
     faq: {
-      'meta.desc':    'VAS FAQ: differences between Pro and Classic editions, permission resets, web screenshots, multi-display support, custom shortcuts, workflows with ChatGPT / Claude / Gemini, and how VAS positions itself against other Mac screenshot tools (Snagit / CleanShot X / Shottr). One page, read it through.',
-      'title':        'VAS FAQ | Mac Screenshot Tool · Human-AI Multimodal Workflow',
+      'meta.desc':    'VAS Mac screenshot tool FAQ: Pro vs Classic, permission reset, web screenshots, multi-display, shortcuts, AI workflows, vs Snagit / CleanShot X / Shottr.',
+      'title':        'VAS FAQ | Mac Screenshot + AI Workflow',
       'title.h1':     'About VAS, in <em>eight questions</em>.',
       'kicker':       'FAQ · Common Questions',
       'lede':         'From "what is it" to "what makes it different" — one page, common questions answered.',

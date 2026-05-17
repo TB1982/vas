@@ -697,8 +697,8 @@
     },
 
     faq: {
-      'meta.desc':    'VAS 常見問題：Pro 與 Classic 版本差異、權限重設、網頁截圖、多螢幕支援、自訂快捷鍵、與 ChatGPT / Claude / Gemini 的協作流程，以及 VAS 與其他 Mac 截圖工具（Snagit / CleanShot X / Shottr）的定位差異。一頁讀完。',
-      'title':        'VAS 常見問題 | Mac 截圖工具 · 人機協作多模態工作流',
+      'meta.desc':    'VAS Mac 截圖工具常見問題：Pro 與 Classic 差異、權限重設、網頁截圖、多螢幕、自訂快捷鍵、與 ChatGPT / Claude / Gemini 協作流程，以及與 Snagit / CleanShot X / Shottr 的定位差異。',
+      'title':        'VAS 常見問題 | Mac 截圖 + AI 協作工作流',
       'title.h1':     '關於 VAS，<em>八道問</em>。',
       'kicker':       'FAQ · 常見問題',
       'lede':         '從「是什麼」到「差在哪」，一頁解決常見問題。',
