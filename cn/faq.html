@@ -299,7 +299,7 @@ h1, h2, h3 {
 <article class="faq-wrap">
 
   <div class="faq-kicker" data-lang-key="faq.kicker">FAQ · 常见问题</div>
-  <h1 class="faq-title" data-lang-key="faq.title.h1">关于 VAS，<em>八道问</em>。</h1>
+  <h1 class="faq-title" data-lang-key="faq.title.h1">关于 VAS，<em>九道问</em>。</h1>
   <p class="faq-lede" data-lang-key="faq.lede">
     从「是什么」到「差在哪」，一页解决常见问题。
   </p>
@@ -366,7 +366,7 @@ h1, h2, h3 {
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q4.a">
-        <p>从免费版（Electron）升级到付费版（Tauri）后，因为 macOS 把两者视为不同的 App，旧权限不会自动继承。请依下列步骤重新授权：</p>
+        <p><strong>6 步重设权限即可</strong>——升级到付费版（Tauri）后，macOS 把它视为新 App，旧权限不会自动继承。请依序操作：</p>
         <ol>
           <li>先关掉所有 VAS（<em>包含 Electron 版与 Tauri 版</em>），并移除免费版。</li>
           <li>开启「<strong>系统设置 → 隐私与安全性 → 屏幕与系统录音</strong>」。</li>
@@ -386,7 +386,7 @@ h1, h2, h3 {
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q5.a">
-        <p>VAS Pro（Tauri · App Store · 9.99 美元）支持网页截图。复制网址后拖到呼吸灯或工具栏，VAS 会跳出提示询问是否要截网页；确认后，VAS 在背景开启浏览器完成整页截图，直接送进编辑器等你下一步处理。</p>
+        <p><strong>是，VAS Pro 支持网页截图。</strong>复制网址后拖到呼吸灯或工具栏，VAS 会跳出提示询问是否要截网页；确认后，VAS 在背景打开浏览器完成整页截图，直接送进编辑器等你下一步处理。</p>
         <p>但若你想截的是<em>需要登录才看得到的页面</em>，目前推荐使用浏览器原生扩展（如 FireShot）截下来后，再抛进 VAS 后期处理。</p>
       </div>
     </details>
@@ -418,7 +418,7 @@ h1, h2, h3 {
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q7.a">
-        <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元）提供<em>四组</em>自订快捷键——全屏截图、窗口截图、矩形截图、剪贴板贴入——给从其他截图软件移民的你最熟悉的手感。</p>
+        <p><strong>Pro 可以，Classic 不行。</strong>VAS Pro 提供<em>四组</em>自订快捷键——全屏截图、窗口截图、矩形截图、剪贴板贴入——给从其他截图软件移民的你最熟悉的手感。</p>
         <p><strong>Electron 免费版</strong>内建固定三组（⌘^1 / ⌘^2 / ⌘^X），不可变更。</p>
       </div>
     </details>
@@ -504,7 +504,7 @@ h1, h2, h3 {
   "@type": "FAQPage",
   "inLanguage": "zh-Hans",
   "url": "https://yoursvas.app/cn/faq",
-  "dateModified": "2026-05-17",
+  "dateModified": "2026-05-18",
   "mainEntity": [
     {
       "@type": "Question",
@@ -535,7 +535,7 @@ h1, h2, h3 {
       "name": "升级到 Tauri 付费版后，权限一直要求重新设定怎么办？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "从免费版（Electron）升级到付费版（Tauri）后，因为 macOS 把两者视为不同的 App，旧权限不会自动继承。请依下列步骤重新授权：(1) 先关掉所有 VAS（包含 Electron 版与 Tauri 版），并移除免费版。(2) 开启「系统设置 → 隐私与安全性 → 屏幕与系统录音」。(3) 找到 VAS，按下方的「−」移除旧权限。(4) 重新打开付费版 VAS，按「全屏截图」触发系统授权。(5) 系统会把 VAS 重新加回清单，默认关闭状态。(6) 手动把开关打开，依提示结束 VAS 再重启一次，即可获得完整权限。"
+        "text": "6 步重设权限即可——升级到付费版（Tauri）后，macOS 把它视为新 App，旧权限不会自动继承。请依序操作：(1) 先关掉所有 VAS（包含 Electron 版与 Tauri 版），并移除免费版。(2) 开启「系统设置 → 隐私与安全性 → 屏幕与系统录音」。(3) 找到 VAS，按下方的「−」移除旧权限。(4) 重新打开付费版 VAS，按「全屏截图」触发系统授权。(5) 系统会把 VAS 重新加回清单，默认关闭状态。(6) 手动把开关打开，依提示结束 VAS 再重启一次，即可获得完整权限。"
       }
     },
     {
@@ -543,7 +543,7 @@ h1, h2, h3 {
       "name": "VAS 提供网页截图吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VAS Pro（Tauri · App Store · 9.99 美元）支持网页截图。复制网址后拖到呼吸灯或工具栏，VAS 会跳出提示询问是否要截网页；确认后，VAS 在背景开启浏览器完成整页截图，直接送进编辑器等你下一步处理。但若你想截的是需要登录才看得到的页面，目前推荐使用浏览器原生扩展（如 FireShot）截下来后，再抛进 VAS 后期处理。"
+        "text": "是，VAS Pro 支持网页截图。复制网址后拖到呼吸灯或工具栏，VAS 会跳出提示询问是否要截网页；确认后，VAS 在背景打开浏览器完成整页截图，直接送进编辑器等你下一步处理。但若你想截的是需要登录才看得到的页面，目前推荐使用浏览器原生扩展（如 FireShot）截下来后，再抛进 VAS 后期处理。"
       }
     },
     {
@@ -559,7 +559,7 @@ h1, h2, h3 {
       "name": "VAS 可以自订截图快捷键吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VAS Pro（Tauri · App Store · 9.99 美元）提供四组自订快捷键——全屏截图、窗口截图、矩形截图、剪贴板贴入——给从其他截图软件移民的你最熟悉的手感。Electron 免费版内建固定三组（⌘^1 / ⌘^2 / ⌘^X），不可变更。"
+        "text": "Pro 可以，Classic 不行。VAS Pro 提供四组自订快捷键——全屏截图、窗口截图、矩形截图、剪贴板贴入——给从其他截图软件移民的你最熟悉的手感。Electron 免费版内建固定三组（⌘^1 / ⌘^2 / ⌘^X），不可变更。"
       }
     },
     {
@@ -589,7 +589,7 @@ h1, h2, h3 {
   "name": "VAS 常见问题",
   "url": "https://yoursvas.app/cn/faq",
   "inLanguage": "zh-Hans",
-  "dateModified": "2026-05-17",
+  "dateModified": "2026-05-18",
   "isPartOf": {
     "@type": "WebSite",
     "name": "VAS",
