@@ -1004,11 +1004,11 @@
     },
 
     faq: {
-      'meta.desc':    'VAS FAQ: differences between Pro and Classic editions, permission resets, web screenshots, multi-display support, custom shortcuts, workflows with ChatGPT / Claude / Gemini, and how VAS positions itself against other Mac screenshot tools (Snagit / CleanShot X / Shottr). One page, read it through.',
-      'title':        'VAS FAQ | Mac Screenshot Tool · Human-AI Multimodal Workflow',
+      'meta.desc':    'VAS Mac screenshot tool FAQ: Pro vs Classic, permission reset, web screenshots, multi-display, shortcuts, AI workflows, vs Snagit / CleanShot X / Shottr.',
+      'title':        'VAS FAQ | Mac Screenshot + AI Workflow',
       'title.h1':     'About VAS, in <em>eight questions</em>.',
       'kicker':       'FAQ · Common Questions',
-      'lede':         'Not a support compilation — VAS\'s <em>eight statements</em> to the world. From "what is it" to "how is it different" — one page, read it through.',
+      'lede':         'From "what is it" to "what makes it different" — one page, common questions answered.',
       'q1.q':         'What kind of screenshot tool is VAS?',
       'q1.a':         '<p>VAS is a macOS screenshot and image-editing tool. It rolls OCR text recognition, privacy masking, QR Code scanning, batch conversion, point/line/area annotation, image cropping, and smart-line layout into one place. Two editions: <strong>VAS Pro</strong> on the Mac App Store ($9.99, Tauri) and <strong>VAS Classic</strong> free (Electron).</p><p>What sets it apart: <strong>VAS is "VAS built using VAS"</strong> — designed specifically for human-AI collaboration. The breathing light reads your workflow in both directions: copy a URL or drag a file near, right-click an image from the browser, and it draws you in; once you\'re done editing, it steps aside so you can drag the file out. Annotated screenshots can be handed straight to AI for parsing; anything you don\'t want AI to train on can be masked with one click. <strong>VAS gives you the speed to walk shoulder-to-shoulder with AI — and a way to point at what words alone can\'t reach.</strong></p>',
       'q2.q':         'What\'s the difference between VAS Pro and VAS Classic? Which one should I pick?',

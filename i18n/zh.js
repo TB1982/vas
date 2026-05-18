@@ -697,11 +697,11 @@
     },
 
     faq: {
-      'meta.desc':    'VAS 常見問題：Pro 與 Classic 版本差異、權限重設、網頁截圖、多螢幕支援、自訂快捷鍵、與 ChatGPT / Claude / Gemini 的協作流程，以及 VAS 與其他 Mac 截圖工具（Snagit / CleanShot X / Shottr）的定位差異。一頁讀完。',
-      'title':        'VAS 常見問題 | Mac 截圖工具 · 人機協作多模態工作流',
+      'meta.desc':    'VAS Mac 截圖工具常見問題：Pro 與 Classic 差異、權限重設、網頁截圖、多螢幕、自訂快捷鍵、與 ChatGPT / Claude / Gemini 協作流程，以及與 Snagit / CleanShot X / Shottr 的定位差異。',
+      'title':        'VAS 常見問題 | Mac 截圖 + AI 協作工作流',
       'title.h1':     '關於 VAS，<em>八道問</em>。',
       'kicker':       'FAQ · 常見問題',
-      'lede':         '這不是客服合輯，是 VAS 對外的<em>八句發言</em>。從「是什麼」到「跟誰不一樣」——一頁讀完。',
+      'lede':         '從「是什麼」到「差在哪」，一頁解決常見問題。',
       'q1.q':         'VAS 是一款怎樣的截圖軟體？',
       'q1.a':         '<p>VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、批次轉檔、點線面標注、裁切圖片、智慧導線排版。Mac App Store Tauri 付費版（9.99 美元）+ Electron 免費版兩種選擇。</p><p>它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，<strong>呼吸燈雙向感知你的工作流</strong>（複製網址、拖圖靠近、從瀏覽器右鍵複製圖片，呼吸燈接你進來；處理完讓位給你拖出去），截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。VAS 給你<strong>與 AI 並肩同行的速度</strong>與<strong>文字以外的指認能力</strong>。</p>',
       'q2.q':         'VAS Pro 跟 VAS Classic 差在哪？我該選哪個？',
