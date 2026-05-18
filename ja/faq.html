@@ -321,14 +321,26 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q2 ═════ -->
+    <!-- ═════ Q2 · Privacy / OCR · Layer 1 ═════ -->
     <details class="faq-item" id="q2">
       <summary>
         <div class="faq-no">02</div>
-        <h2 class="faq-q" data-lang-key="faq.q2.q">VAS Pro と VAS Classic はどう違う？どちらを選べばいい？</h2>
+        <h2 class="faq-q" data-lang-key="faq.q2.q">VAS の OCR はクラウド処理ですか、それともローカル処理ですか？スクリーンショットやデータはアップロードされますか？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q2.a">
+        <p><strong>完全にローカル処理、アップロードなし。</strong>VAS は macOS Vision framework を使い、お使いの Mac 上でローカルに OCR 文字認識を行います。スクリーンショットや文字データを一切クラウドサーバーへ送信しません。VAS 自身はあなたのスクリーンショットの中身を送信せず、収集せず、分析しません——画像が VAS に取り込まれてから、あなたが自ら AI へ運び出す瞬間まで、すべてはあなたのデバイス上にとどまります。あなたが ChatGPT / Claude / Gemini へドラッグして渡す場合、それはあなたの能動的な操作であり、VAS が裏で行うデータ転送はありません。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q3 ═════ -->
+    <details class="faq-item" id="q3">
+      <summary>
+        <div class="faq-no">03</div>
+        <h2 class="faq-q" data-lang-key="faq.q3.q">VAS Pro と VAS Classic はどう違う？どちらを選べばいい？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q3.a">
         <p>差はネイティブ実装が生む極端な軽さ——VAS Pro は VAS Classic より <strong>15 倍小さい</strong>（インストール 20.9 MB / 303 MB）。Tauri は macOS のネイティブ要素を直接呼び出すが、Electron は Chromium エンジン全体を抱え込む必要がある。Pro は新機能の最前線——有料 9.99 ドルの買い切り、サブスクなし；Classic は機能が確定しもう増えないが永久無料。両版は VAS の核を共有する：注記、OCR、プライバシー遮蔽、一括変換、スマート整列ガイド、レイヤー切替。</p>
 
         <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 ドル · ダウンロード 5.4 MB · インストール 20.9 MB · VAS Classic より 15 倍小さい）<br>
@@ -346,14 +358,14 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q3 ═════ -->
-    <details class="faq-item" id="q3">
+    <!-- ═════ Q4 ═════ -->
+    <details class="faq-item" id="q4">
       <summary>
-        <div class="faq-no">03</div>
-        <h2 class="faq-q" data-lang-key="faq.q3.q">Tauri 有料版へ上げたあと、権限を何度も求められるのですが？</h2>
+        <div class="faq-no">04</div>
+        <h2 class="faq-q" data-lang-key="faq.q4.q">Tauri 有料版へ上げたあと、権限を何度も求められるのですが？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q3.a">
+      <div class="faq-a" data-lang-key="faq.q4.a">
         <p>無料版（Electron）から有料版（Tauri）へ上げると、macOS は両者を別の App として扱うため、旧版の権限は自動で引き継がれない。次の手順で取り直してほしい:</p>
         <ol>
           <li>まずすべての VAS を終了する（<em>Electron 版と Tauri 版の両方</em>）。そして無料版を削除する。</li>
@@ -366,27 +378,27 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q4 ═════ -->
-    <details class="faq-item" id="q4">
+    <!-- ═════ Q5 ═════ -->
+    <details class="faq-item" id="q5">
       <summary>
-        <div class="faq-no">04</div>
-        <h2 class="faq-q" data-lang-key="faq.q4.q">VAS にウェブページキャプチャはありますか？</h2>
+        <div class="faq-no">05</div>
+        <h2 class="faq-q" data-lang-key="faq.q5.q">VAS にウェブページキャプチャはありますか？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q4.a">
+      <div class="faq-a" data-lang-key="faq.q5.a">
         <p>VAS Pro（Tauri · App Store · 9.99 ドル）はウェブページキャプチャに対応している。URL をコピーしてから呼吸ライトかツールバーへ運ぶと、VAS がウェブをキャプチャするかを尋ねる；確定すれば、VAS は裏でブラウザを開き、ページ全体のキャプチャをエディタへそのまま送り届け、次の処理を待つ。</p>
         <p>ただし<em>ログインしなければ見えないページ</em>をキャプチャしたい場合は、いまのところブラウザの純正拡張（FireShot など）でキャプチャしてから VAS へ放り込み、後処理に回すのを勧める。</p>
       </div>
     </details>
 
-    <!-- ═════ Q5 ═════ -->
-    <details class="faq-item" id="q5">
+    <!-- ═════ Q6 ═════ -->
+    <details class="faq-item" id="q6">
       <summary>
-        <div class="faq-no">05</div>
-        <h2 class="faq-q" data-lang-key="faq.q5.q">VAS はマルチディスプレイの作業モードに対応していますか？</h2>
+        <div class="faq-no">06</div>
+        <h2 class="faq-q" data-lang-key="faq.q6.q">VAS はマルチディスプレイの作業モードに対応していますか？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q5.a">
+      <div class="faq-a" data-lang-key="faq.q6.a">
         <p><strong>はい。</strong>VAS はマルチディスプレイのワークフローに全面対応し、選び方はあなたに委ねている:</p>
         <ul>
           <li><strong>Enter を押す</strong>——すべての画面を同時に取り込み、一枚の合成画像として書き出す</li>
@@ -398,27 +410,27 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q6 ═════ -->
-    <details class="faq-item" id="q6">
+    <!-- ═════ Q7 ═════ -->
+    <details class="faq-item" id="q7">
       <summary>
-        <div class="faq-no">06</div>
-        <h2 class="faq-q" data-lang-key="faq.q6.q">VAS のスクリーンショットショートカットは変更できますか？</h2>
+        <div class="faq-no">07</div>
+        <h2 class="faq-q" data-lang-key="faq.q7.q">VAS のスクリーンショットショートカットは変更できますか？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q6.a">
+      <div class="faq-a" data-lang-key="faq.q7.a">
         <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 ドル）は<em>四組</em>のカスタムショートカットを備える——全画面キャプチャ、ウィンドウキャプチャ、矩形キャプチャ、クリップボード貼り付け——他のスクリーンショットソフトから移ってきたあなたに、最も馴染んだ手触りを。</p>
         <p><strong>Electron 無料版</strong>は固定の三組（⌘^1 / ⌘^2 / ⌘^X）が組み込まれており、変更できない。</p>
       </div>
     </details>
 
-    <!-- ═════ Q7 ═════ -->
-    <details class="faq-item" id="q7">
+    <!-- ═════ Q8 ═════ -->
+    <details class="faq-item" id="q8">
       <summary>
-        <div class="faq-no">07</div>
-        <h2 class="faq-q" data-lang-key="faq.q7.q">VAS は ChatGPT / Claude / Gemini とどう組み合わせる？</h2>
+        <div class="faq-no">08</div>
+        <h2 class="faq-q" data-lang-key="faq.q8.q">VAS は ChatGPT / Claude / Gemini とどう組み合わせる？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q7.a">
+      <div class="faq-a" data-lang-key="faq.q8.a">
         <p>撮り終えた後、VAS のエディタで三つのことをする——<strong>読む</strong>（OCR が画像のなかの字をコピー可能な文字に変える）、<strong>遮る</strong>（AI に学習されたくないプライバシー情報をワンタップで覆う）、<strong>指し示す</strong>（点・線・面の注記で「ここである」と画面を正確に指し示す）。</p>
         <p>処理を終えると——VAS Pro はエディタを一粒の<strong>黒い呼吸ライト</strong>に畳み、デスクトップ全体をあなたに返す:画像をそのまま下の AI 対話ウィンドウの入力欄へドラッグし、手を離せば、届く。</p>
         <p><strong>ファイルは運び出した瞬間に閉じられはしない</strong>——同じ一枚を ChatGPT に運び、続けて Claude に運び、Gemini にも運べる；あるいはワンタップでクリップボードにコピーし、すべての対話ウィンドウへ貼り付けてもよい。同じ問いを、誰がより正しく答えるかで比べる。</p>
@@ -428,14 +440,14 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q8 ═════ -->
-    <details class="faq-item" id="q8">
+    <!-- ═════ Q9 ═════ -->
+    <details class="faq-item" id="q9">
       <summary>
-        <div class="faq-no">08</div>
-        <h2 class="faq-q" data-lang-key="faq.q8.q">VAS は他の Mac スクリーンショットツールとどう違う？いつ VAS を使うべき？</h2>
+        <div class="faq-no">09</div>
+        <h2 class="faq-q" data-lang-key="faq.q9.q">VAS は他の Mac スクリーンショットツールとどう違う？いつ VAS を使うべき？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q8.a">
+      <div class="faq-a" data-lang-key="faq.q9.a">
         <p>VAS が解こうとしているのは別種の問いである——心流のなかでの「<em>人と AI の協働</em>」の滑らかさ。画面を AI に渡して読み取らせ、AI に学習されたくないプライバシーを先に覆い、その全体が流れ作業のように軽やかであってほしい——これは VAS が最初の日から自分自身で試し続けてきた開発の現場である。</p>
         <p>共有する一枚をキャプチャするだけ、ただ印を付けるだけ——macOS の純正で足りる。録画したい、連続スナップを撮りたい、操作手順書を作りたい——Snagit / CleanShot X は熟した選択である。</p>
         <p>極限まで軽く、純粋な Mac のスクリーンショット体験を求めるなら——<strong>Shottr</strong> は優雅な選択である。VAS Pro が 20 MB の小さく美しい姿に至ったのは、もとより Shottr の工学的な美に倣ったから。だが Shottr は使い手の視線を「画面の内」に収める（キャプチャし、印を付け、文字をコピーし、虫眼鏡と物差しを当てる）；VAS は視野を「画面の前後をどう行き来するか」へと押し広げる——編集は土台。だがこの一枚を、どれほどの速さで取り込み運び出せば AI の開発速度に追いつけるか？設計の重心が違う。</p>
@@ -449,9 +461,9 @@ h1, h2, h3 {
   <!-- Support ?q=2 or #q3 to open a specific question -->
   <script>
     (function(){
-      var hash = location.hash && location.hash.match(/^#q[1-8]$/) ? location.hash : null;
+      var hash = location.hash && location.hash.match(/^#q[1-9]$/) ? location.hash : null;
       var qp = new URLSearchParams(location.search).get('q');
-      var target = hash ? hash.slice(1) : (qp && /^[1-8]$/.test(qp) ? 'q' + qp : null);
+      var target = hash ? hash.slice(1) : (qp && /^[1-9]$/.test(qp) ? 'q' + qp : null);
       if (target) {
         var el = document.getElementById(target);
         if (el) {
@@ -500,6 +512,14 @@ h1, h2, h3 {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "VAS は macOS 向けのスクリーンショット・画像処理ツール。OCR 文字認識、プライバシー遮蔽、QR コードスキャン、一括変換、点・線・面の注記、画像の切り抜き、スマートな整列ガイドを一つに束ねている。Mac App Store の Tauri 有料版（9.99 ドル）と Electron 無料版、二つの選択肢。他のスクリーンショットツールと違うところ：VAS は「VAS で作られた VAS」——人と AI の協働のために設計され、呼吸ライトがあなたの作業の流れを双方向に感知する（URL をコピーしたとき、画像を近づけたとき、ブラウザから右クリックで画像をコピーしたとき、呼吸ライトはあなたを迎え入れる；処理が終われば、場を譲ってあなたが外へ運び出せるようにする）。撮った画像は注記したまま AI に渡してそのまま読み取らせることができ、AI に学習されたくないプライバシー情報はワンタップで遮蔽できる。VAS が差し出すのは AI と肩を並べて歩む速度と文字以外で指し示す力である。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS の OCR はクラウド処理ですか、それともローカル処理ですか？スクリーンショットやデータはアップロードされますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完全にローカル処理、アップロードなし。VAS は macOS Vision framework を使い、お使いの Mac 上でローカルに OCR 文字認識を行います。スクリーンショットや文字データを一切クラウドサーバーへ送信しません。VAS 自身はあなたのスクリーンショットの中身を送信せず、収集せず、分析しません——画像が VAS に取り込まれてから、あなたが自ら AI へ運び出す瞬間まで、すべてはあなたのデバイス上にとどまります。あなたが ChatGPT / Claude / Gemini へドラッグして渡す場合、それはあなたの能動的な操作であり、VAS が裏で行うデータ転送はありません。"
       }
     },
     {

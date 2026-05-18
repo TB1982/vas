@@ -337,14 +337,26 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q2 · Pro vs Classic · Layer 1 + 2 ═════ -->
+    <!-- ═════ Q2 · Privacy / OCR · Layer 1 ═════ -->
     <details class="faq-item" id="q2">
       <summary>
         <div class="faq-no">02</div>
-        <h2 class="faq-q" data-lang-key="faq.q2.q">VAS Pro 跟 VAS Classic 差在哪？我該選哪個？</h2>
+        <h2 class="faq-q" data-lang-key="faq.q2.q">VAS 的 OCR 是雲端還是本機處理？我的截圖跟資料會被上傳嗎？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q2.a">
+        <p><strong>完全本機處理，不上傳。</strong>VAS 使用 macOS Vision framework 在您的 Mac 本機進行 OCR 文字辨識，不發送任何截圖或文字到任何雲端伺服器。VAS 本身不傳送、不收集、不分析您的截圖內容——一張圖從進入 VAS 到您主動拖出去給 AI，全程只在您的設備上。如果您把圖拖給 ChatGPT / Claude / Gemini，那是您主動的動作；VAS 在背景不做任何資料傳輸。</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q3 · Pro vs Classic · Layer 1 + 2 ═════ -->
+    <details class="faq-item" id="q3">
+      <summary>
+        <div class="faq-no">03</div>
+        <h2 class="faq-q" data-lang-key="faq.q3.q">VAS Pro 跟 VAS Classic 差在哪？我該選哪個？</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q3.a">
         <p>差在原生支援帶來的極致輕巧——VAS Pro 比 VAS Classic 小 15 倍（安裝 20.9 MB vs 303 MB）。Tauri 直接調用 macOS 內建元件，不像 Electron 得自帶整個 Chromium 引擎。Pro 是新功能首站、付費 9.99 美元，一次買斷無訂閱；Classic 功能定型不再新增、但永久免費。兩版共用 VAS 的核心：標注、OCR、隱私遮蔽、批次轉檔、智慧導線排版、圖層切換。</p>
 
         <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元 · 下載 5.4 MB · 安裝 20.9 MB · 比 VAS Classic 小 15 倍）<br>
@@ -362,14 +374,14 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q3 · 升級權限 · Layer 3 ═════ -->
-    <details class="faq-item" id="q3">
+    <!-- ═════ Q4 · 升級權限 · Layer 3 ═════ -->
+    <details class="faq-item" id="q4">
       <summary>
-        <div class="faq-no">03</div>
-        <h2 class="faq-q" data-lang-key="faq.q3.q">升級到 Tauri 付費版後，權限一直要求重新設定怎麼辦？</h2>
+        <div class="faq-no">04</div>
+        <h2 class="faq-q" data-lang-key="faq.q4.q">升級到 Tauri 付費版後，權限一直要求重新設定怎麼辦？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q3.a">
+      <div class="faq-a" data-lang-key="faq.q4.a">
         <p>從免費版（Electron）升級到付費版（Tauri）後，因為 macOS 把兩者視為不同的 App，舊權限不會自動繼承。請依下列步驟重新授權：</p>
         <ol>
           <li>先關掉所有 VAS（<em>包含 Electron 版與 Tauri 版</em>），並移除免費版。</li>
@@ -382,27 +394,27 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q4 · 網頁截圖 · Layer 1 ═════ -->
-    <details class="faq-item" id="q4">
+    <!-- ═════ Q5 · 網頁截圖 · Layer 1 ═════ -->
+    <details class="faq-item" id="q5">
       <summary>
-        <div class="faq-no">04</div>
-        <h2 class="faq-q" data-lang-key="faq.q4.q">VAS 提供網頁截圖嗎？</h2>
+        <div class="faq-no">05</div>
+        <h2 class="faq-q" data-lang-key="faq.q5.q">VAS 提供網頁截圖嗎？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q4.a">
+      <div class="faq-a" data-lang-key="faq.q5.a">
         <p>VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示詢問是否要截網頁；確認後，VAS 在背景開啟瀏覽器完成整頁截圖，直接送進編輯器等你下一步處理。</p>
         <p>但若你想截的是<em>需要登入才看得到的頁面</em>，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。</p>
       </div>
     </details>
 
-    <!-- ═════ Q5 · 多螢幕 · Layer 1 ═════ -->
-    <details class="faq-item" id="q5">
+    <!-- ═════ Q6 · 多螢幕 · Layer 1 ═════ -->
+    <details class="faq-item" id="q6">
       <summary>
-        <div class="faq-no">05</div>
-        <h2 class="faq-q" data-lang-key="faq.q5.q">VAS 是否支援多螢幕工作模式？</h2>
+        <div class="faq-no">06</div>
+        <h2 class="faq-q" data-lang-key="faq.q6.q">VAS 是否支援多螢幕工作模式？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q5.a">
+      <div class="faq-a" data-lang-key="faq.q6.a">
         <p><strong>是。</strong>VAS 全面支援多螢幕工作流，並把選擇權交給你：</p>
         <ul>
           <li><strong>按 Enter</strong>——同時擷取所有螢幕，輸出一張合併圖</li>
@@ -414,27 +426,27 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q6 · 自訂快捷鍵 · Layer 1 ═════ -->
-    <details class="faq-item" id="q6">
+    <!-- ═════ Q7 · 自訂快捷鍵 · Layer 1 ═════ -->
+    <details class="faq-item" id="q7">
       <summary>
-        <div class="faq-no">06</div>
-        <h2 class="faq-q" data-lang-key="faq.q6.q">VAS 可以自訂截圖快捷鍵嗎？</h2>
+        <div class="faq-no">07</div>
+        <h2 class="faq-q" data-lang-key="faq.q7.q">VAS 可以自訂截圖快捷鍵嗎？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q6.a">
+      <div class="faq-a" data-lang-key="faq.q7.a">
         <p><strong>VAS Pro</strong>（Tauri · App Store · 9.99 美元）提供<em>四組</em>自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、剪貼簿貼入——給從其他截圖軟體移民的你最熟悉的手感。</p>
         <p><strong>Electron 免費版</strong>內建固定三組（⌘^1 / ⌘^2 / ⌘^X），不可變更。</p>
       </div>
     </details>
 
-    <!-- ═════ Q7 · AI 協作（拖曳匯出 + 呼吸燈）· Layer 1 ═════ -->
-    <details class="faq-item" id="q7">
+    <!-- ═════ Q8 · AI 協作（拖曳匯出 + 呼吸燈）· Layer 1 ═════ -->
+    <details class="faq-item" id="q8">
       <summary>
-        <div class="faq-no">07</div>
-        <h2 class="faq-q" data-lang-key="faq.q7.q">VAS 怎麼跟 ChatGPT / Claude / Gemini 一起用？</h2>
+        <div class="faq-no">08</div>
+        <h2 class="faq-q" data-lang-key="faq.q8.q">VAS 怎麼跟 ChatGPT / Claude / Gemini 一起用？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q7.a">
+      <div class="faq-a" data-lang-key="faq.q8.a">
         <p>截圖完成後，VAS 的編輯器讓你做三件事——<strong>讀</strong>（OCR 把圖片中的字辨識成可複製文字）、<strong>遮</strong>（一鍵把不想被 AI 拿去訓練的隱私資訊蓋掉）、<strong>指</strong>（點線面標註讓你精準指著畫面說「就是這裡」）。</p>
         <p>處理完——VAS Pro 將編輯器收攏成一顆<strong>黑呼吸燈</strong>、整個桌面還給你拖：直接把圖拖進下方那個 AI 對話視窗的輸入框，鬆手，送達。</p>
         <p><strong>檔案不會被拖完就關掉</strong>——同一張圖你可以拖給 ChatGPT、再拖給 Claude、再拖給 Gemini；或一鍵複製到剪貼簿，貼進所有對話視窗。同一個問題，比看誰答得準。</p>
@@ -444,14 +456,14 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q8 · vs 其他工具 · Layer 2 收尾 ═════ -->
-    <details class="faq-item" id="q8">
+    <!-- ═════ Q9 · vs 其他工具 · Layer 2 收尾 ═════ -->
+    <details class="faq-item" id="q9">
       <summary>
-        <div class="faq-no">08</div>
-        <h2 class="faq-q" data-lang-key="faq.q8.q">VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？</h2>
+        <div class="faq-no">09</div>
+        <h2 class="faq-q" data-lang-key="faq.q9.q">VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q8.a">
+      <div class="faq-a" data-lang-key="faq.q9.a">
         <p>VAS 想解決的是不一樣的問題——心流式「<em>人機協作</em>」的流暢感。當你需要把畫面交給 AI 讀懂、把不希望被 AI 拿去訓練的隱私先遮起來、整個過程要像流水線一樣輕快——這是 VAS 從第一天就在用自己驗證的開發現場。</p>
         <p>截一張要分享的圖、單純註記——macOS 內建已經夠用。要錄影、要連續快照、要做使用手冊——Snagit / CleanShot X 是成熟選擇。</p>
         <p>要極致輕量、純粹的 Mac 截圖體驗——<strong>Shottr</strong> 是優雅的選擇。VAS Pro 做到 20 MB 的小而美，本來就是看著 Shottr 的工程美學對齊的。但 Shottr 把使用者的視線收在「畫面之內」（截好、註好、複製文字、放大鏡量尺）；VAS 把視野往外擴展到「畫面前後要怎麼來去」——編輯是基礎，但這張圖可以用多快的速度進行匯入與匯出才能跟上 AI 的開發速度？這是不同的設計重心。</p>
@@ -465,9 +477,9 @@ h1, h2, h3 {
   <!-- 支援 ?q=2 或 #q3 直接展開單題 -->
   <script>
     (function(){
-      var hash = location.hash && location.hash.match(/^#q[1-8]$/) ? location.hash : null;
+      var hash = location.hash && location.hash.match(/^#q[1-9]$/) ? location.hash : null;
       var qp = new URLSearchParams(location.search).get('q');
-      var target = hash ? hash.slice(1) : (qp && /^[1-8]$/.test(qp) ? 'q' + qp : null);
+      var target = hash ? hash.slice(1) : (qp && /^[1-9]$/.test(qp) ? 'q' + qp : null);
       if (target) {
         var el = document.getElementById(target);
         if (el) {
@@ -519,6 +531,14 @@ h1, h2, h3 {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、批次轉檔、點線面標注、裁切圖片、智慧導線排版。Mac App Store Tauri 付費版（9.99 美元）+ Electron 免費版兩種選擇。它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，呼吸燈雙向感知你的工作流（複製網址、拖圖靠近、從瀏覽器右鍵複製圖片，呼吸燈接你進來；處理完讓位給你拖出去），截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。VAS 給你與 AI 並肩同行的速度與文字以外的指認能力。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "VAS 的 OCR 是雲端還是本機處理？我的截圖跟資料會被上傳嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "完全本機處理，不上傳。VAS 使用 macOS Vision framework 在您的 Mac 本機進行 OCR 文字辨識，不發送任何截圖或文字到任何雲端伺服器。VAS 本身不傳送、不收集、不分析您的截圖內容——一張圖從進入 VAS 到您主動拖出去給 AI，全程只在您的設備上。如果您把圖拖給 ChatGPT / Claude / Gemini，那是您主動的動作；VAS 在背景不做任何資料傳輸。"
       }
     },
     {

@@ -327,14 +327,26 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q2 · Pro vs Classic · Layer 1 + 2 ═════ -->
+    <!-- ═════ Q2 · Privacy / OCR · Layer 1 ═════ -->
     <details class="faq-item" id="q2">
       <summary>
         <div class="faq-no">02</div>
-        <h2 class="faq-q" data-lang-key="faq.q2.q">What's the difference between VAS Pro and VAS Classic? Which one should I pick?</h2>
+        <h2 class="faq-q" data-lang-key="faq.q2.q">Does VAS use cloud OCR or on-device? Are screenshots or text uploaded?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q2.a">
+        <p><strong>Fully on-device, nothing uploaded.</strong> VAS uses macOS Vision framework for OCR locally on your Mac, never sending screenshots or text to any cloud server. VAS itself does not transmit, collect, or analyze your screenshot contents — from the moment an image enters VAS until you actively drag it out to AI, everything stays on your device. If you drag an image to ChatGPT / Claude / Gemini, that's your active action; VAS performs no background data transfer.</p>
+      </div>
+    </details>
+
+    <!-- ═════ Q3 · Pro vs Classic · Layer 1 + 2 ═════ -->
+    <details class="faq-item" id="q3">
+      <summary>
+        <div class="faq-no">03</div>
+        <h2 class="faq-q" data-lang-key="faq.q3.q">What's the difference between VAS Pro and VAS Classic? Which one should I pick?</h2>
+        <span class="faq-mark" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a" data-lang-key="faq.q3.a">
         <p>The difference is Tauri's native architecture and the radical lightness it brings: VAS Pro is <strong>15× smaller</strong> than VAS Classic (20.9 MB vs 303 MB installed). Tauri calls macOS native components directly; Electron has to ship its own Chromium engine. Pro is the launchpad for new features — paid · $9.99 one-time, no subscription; Classic is feature-frozen but permanently free. Both share VAS's core: annotation, OCR, privacy masking, batch conversion, smart alignment guides, layer switching.</p>
 
         <p><strong>VAS Pro</strong> (Tauri · App Store · $9.99 · 5.4 MB download · 20.9 MB installed · 15× smaller than VAS Classic)<br>
@@ -352,14 +364,14 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q3 · Permissions · Layer 3 ═════ -->
-    <details class="faq-item" id="q3">
+    <!-- ═════ Q4 · Permissions · Layer 3 ═════ -->
+    <details class="faq-item" id="q4">
       <summary>
-        <div class="faq-no">03</div>
-        <h2 class="faq-q" data-lang-key="faq.q3.q">After upgrading to the paid Tauri edition, permissions keep asking to be reset. What do I do?</h2>
+        <div class="faq-no">04</div>
+        <h2 class="faq-q" data-lang-key="faq.q4.q">After upgrading to the paid Tauri edition, permissions keep asking to be reset. What do I do?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q3.a">
+      <div class="faq-a" data-lang-key="faq.q4.a">
         <p>When you upgrade from the free edition (Electron) to the paid edition (Tauri), macOS treats them as different apps, so old permissions don't carry over. Reauthorize like this:</p>
         <ol>
           <li>Quit every VAS (<em>both the Electron and Tauri versions</em>) and remove the free version.</li>
@@ -372,27 +384,27 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q4 · Web Capture · Layer 1 ═════ -->
-    <details class="faq-item" id="q4">
+    <!-- ═════ Q5 · Web Capture · Layer 1 ═════ -->
+    <details class="faq-item" id="q5">
       <summary>
-        <div class="faq-no">04</div>
-        <h2 class="faq-q" data-lang-key="faq.q4.q">Does VAS do web screenshots?</h2>
+        <div class="faq-no">05</div>
+        <h2 class="faq-q" data-lang-key="faq.q5.q">Does VAS do web screenshots?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q4.a">
+      <div class="faq-a" data-lang-key="faq.q5.a">
         <p>VAS Pro (Tauri · App Store · $9.99) supports web screenshots. Copy a URL, drag it onto the breathing light or the toolbar, and VAS asks whether you want to capture the page; confirm, and VAS opens the browser in the background, captures the full page, and drops it straight into the editor for whatever comes next.</p>
         <p>But if the page you want <em>requires a login to view</em>, the current recommendation is to use a native browser extension (like FireShot) to grab it, then toss it into VAS for post-processing.</p>
       </div>
     </details>
 
-    <!-- ═════ Q5 · Multi-Display · Layer 1 ═════ -->
-    <details class="faq-item" id="q5">
+    <!-- ═════ Q6 · Multi-Display · Layer 1 ═════ -->
+    <details class="faq-item" id="q6">
       <summary>
-        <div class="faq-no">05</div>
-        <h2 class="faq-q" data-lang-key="faq.q5.q">Does VAS support multi-display setups?</h2>
+        <div class="faq-no">06</div>
+        <h2 class="faq-q" data-lang-key="faq.q6.q">Does VAS support multi-display setups?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q5.a">
+      <div class="faq-a" data-lang-key="faq.q6.a">
         <p><strong>Yes.</strong> VAS supports multi-display workflows end to end, and hands you the choice:</p>
         <ul>
           <li><strong>Press Enter</strong> — capture every display at once, output as one merged image</li>
@@ -404,27 +416,27 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q6 · Custom Shortcuts · Layer 1 ═════ -->
-    <details class="faq-item" id="q6">
+    <!-- ═════ Q7 · Custom Shortcuts · Layer 1 ═════ -->
+    <details class="faq-item" id="q7">
       <summary>
-        <div class="faq-no">06</div>
-        <h2 class="faq-q" data-lang-key="faq.q6.q">Can I customize VAS's screenshot shortcuts?</h2>
+        <div class="faq-no">07</div>
+        <h2 class="faq-q" data-lang-key="faq.q7.q">Can I customize VAS's screenshot shortcuts?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q6.a">
+      <div class="faq-a" data-lang-key="faq.q7.a">
         <p><strong>VAS Pro</strong> (Tauri · App Store · $9.99) offers <em>four</em> custom shortcuts — full-screen capture, window capture, rectangular capture, paste from clipboard — giving you the most familiar feel if you're migrating from another screenshot tool.</p>
         <p>The <strong>Electron free edition</strong> ships with three fixed bindings (⌘^1 / ⌘^2 / ⌘^X), not reassignable.</p>
       </div>
     </details>
 
-    <!-- ═════ Q7 · AI Collaboration · Layer 1 ═════ -->
-    <details class="faq-item" id="q7">
+    <!-- ═════ Q8 · AI Collaboration · Layer 1 ═════ -->
+    <details class="faq-item" id="q8">
       <summary>
-        <div class="faq-no">07</div>
-        <h2 class="faq-q" data-lang-key="faq.q7.q">How do I use VAS with ChatGPT / Claude / Gemini?</h2>
+        <div class="faq-no">08</div>
+        <h2 class="faq-q" data-lang-key="faq.q8.q">How do I use VAS with ChatGPT / Claude / Gemini?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q7.a">
+      <div class="faq-a" data-lang-key="faq.q8.a">
         <p>Once the capture is done, VAS's editor lets you do three things — <strong>read</strong> (OCR turns the text inside the image into copyable text), <strong>mask</strong> (one click to cover up anything private you don't want AI training on), and <strong>point</strong> (point/line/area annotation lets you precisely point at the screen and say "right here").</p>
         <p>When you're done — VAS Pro folds the editor back into a single <strong>black breathing light</strong>, hands the desktop back for dragging: drag the image straight into that AI chat window's input box below, let go, delivered.</p>
         <p><strong>The file doesn't close after the drag</strong> — the same image can be dragged to ChatGPT, then Claude, then Gemini; or copied to the clipboard with one click and pasted into every chat window. Same question, see who answers best.</p>
@@ -434,14 +446,14 @@ h1, h2, h3 {
       </div>
     </details>
 
-    <!-- ═════ Q8 · vs Other Tools · Layer 2 ═════ -->
-    <details class="faq-item" id="q8">
+    <!-- ═════ Q9 · vs Other Tools · Layer 2 ═════ -->
+    <details class="faq-item" id="q9">
       <summary>
-        <div class="faq-no">08</div>
-        <h2 class="faq-q" data-lang-key="faq.q8.q">How is VAS different from other Mac screenshot tools? When should I reach for VAS?</h2>
+        <div class="faq-no">09</div>
+        <h2 class="faq-q" data-lang-key="faq.q9.q">How is VAS different from other Mac screenshot tools? When should I reach for VAS?</h2>
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
-      <div class="faq-a" data-lang-key="faq.q8.a">
+      <div class="faq-a" data-lang-key="faq.q9.a">
         <p>VAS is trying to solve a different problem — the flow-state smoothness of <em>human-AI collaboration</em>. When you need to hand a screen to AI to read, mask the private bits you don't want AI training on, and have the whole thing run like a clean pipeline — this is the development floor VAS has been using to verify itself from day one.</p>
         <p>One screenshot to share, simple markup — macOS built-ins are plenty. Video recording, burst captures, building user manuals — Snagit / CleanShot X are mature picks.</p>
         <p>For maximum lightness, the pure Mac screenshot experience — <strong>Shottr</strong> is the elegant pick. VAS Pro's 20 MB small-and-beautiful was aligned against Shottr's engineering aesthetic from the start. But Shottr keeps the user's gaze "inside the frame" (capture, annotate, copy text, magnifier ruler); VAS pushes the field of view outward to "how the image gets in and out before and after the frame" — editing is the baseline, but how fast can this image be imported and exported to keep up with AI development speed? Different centers of design gravity.</p>
@@ -455,9 +467,9 @@ h1, h2, h3 {
   <!-- Support ?q=2 or #q3 to open a specific question -->
   <script>
     (function(){
-      var hash = location.hash && location.hash.match(/^#q[1-8]$/) ? location.hash : null;
+      var hash = location.hash && location.hash.match(/^#q[1-9]$/) ? location.hash : null;
       var qp = new URLSearchParams(location.search).get('q');
-      var target = hash ? hash.slice(1) : (qp && /^[1-8]$/.test(qp) ? 'q' + qp : null);
+      var target = hash ? hash.slice(1) : (qp && /^[1-9]$/.test(qp) ? 'q' + qp : null);
       if (target) {
         var el = document.getElementById(target);
         if (el) {
@@ -506,6 +518,14 @@ h1, h2, h3 {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "VAS is a macOS screenshot and image-editing tool. It rolls OCR text recognition, privacy masking, QR Code scanning, batch conversion, point/line/area annotation, image cropping, and smart-line layout into one place. Two editions: VAS Pro on the Mac App Store ($9.99, Tauri) and VAS Classic free (Electron). What sets it apart: VAS is \"VAS built using VAS\" — designed specifically for human-AI collaboration. The breathing light reads your workflow in both directions: copy a URL or drag a file near, right-click an image from the browser, and it draws you in; once you're done editing, it steps aside so you can drag the file out. Annotated screenshots can be handed straight to AI for parsing; anything you don't want AI to train on can be masked with one click. VAS gives you the speed to walk shoulder-to-shoulder with AI — and a way to point at what words alone can't reach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does VAS use cloud OCR or on-device? Are screenshots or text uploaded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fully on-device, nothing uploaded. VAS uses macOS Vision framework for OCR locally on your Mac, never sending screenshots or text to any cloud server. VAS itself does not transmit, collect, or analyze your screenshot contents — from the moment an image enters VAS until you actively drag it out to AI, everything stays on your device. If you drag an image to ChatGPT / Claude / Gemini, that's your active action; VAS performs no background data transfer."
       }
     },
     {
