@@ -335,22 +335,20 @@ h1, h2, h3 {
         <span class="faq-mark" aria-hidden="true"></span>
       </summary>
       <div class="faq-a" data-lang-key="faq.q2.a">
-        <p>Both editions share the VAS core: annotation, OCR, privacy masking, batch conversion, smart-line layout — these don't vary by edition. The differences are in exclusive features and the underlying architecture:</p>
+        <p>The difference is Tauri's native architecture and the radical lightness it brings: VAS Pro is <strong>15× smaller</strong> than VAS Classic (20.9 MB vs 303 MB installed). Tauri calls macOS native components directly; Electron has to ship its own Chromium engine. Pro is the launchpad for new features — paid · $9.99 one-time, no subscription; Classic is feature-frozen but permanently free. Both share VAS's core: annotation, OCR, privacy masking, batch conversion, smart alignment guides, layer switching.</p>
 
-        <p><strong>VAS Pro</strong> (Tauri · App Store · $9.99 · 5.4 MB download · 20 MB installed · 21× smaller than VAS Classic)<br>
-        New features land here first. Exclusive features, ordered by workflow: URL screenshots, paste-image import, on-device OCR privacy masking, advanced drag-out export, ShareSheet sharing, extra file formats (WebP for web · PDF for document attachments · BMP for design handoff), custom shortcuts (four reassignable).</p>
+        <p><strong>VAS Pro</strong> (Tauri · App Store · $9.99 · 5.4 MB download · 20.9 MB installed · 15× smaller than VAS Classic)<br>
+        Exclusive features in workflow order: URL capture, copied-image import, on-device OCR privacy masking, advanced drag-to-export, ShareSheet, extra save formats (WebP for web · PDF for attachments · BMP for design handoff), customizable shortcuts (4 slots).</p>
 
-        <p><strong>VAS Classic</strong> (Electron · open source, free · 114 MB download · 303 MB installed)<br>
-        Feature set is frozen — no new additions — but the shared underlying code means it still benefits when VAS Pro gets refactored. Free forever, no expiry.</p>
+        <p><strong>VAS Classic</strong> (Electron · open-source · 114 MB download · 303 MB installed)<br>
+        Shares the same foundation as Pro — benefits from every refactor on the Pro side.</p>
 
         <div class="faq-tree">
-<b>You want screenshots wired into the full workflow</b> (URLs, clipboard, ShareSheet)<br>
+<b>To wire screenshots into a full workflow</b> (URLs, clipboard, ShareSheet)<br>
 &nbsp;&nbsp;→ VAS Pro<br><br>
-<b>You only need the core annotation, no pipeline plumbing</b><br>
+<b>Just want the core annotation, no pipeline</b><br>
 &nbsp;&nbsp;→ VAS Classic
         </div>
-
-        <p>Upgrading from Classic to Pro means uninstalling the old version and reauthorizing — see the next question.</p>
       </div>
     </details>
 
@@ -515,7 +513,7 @@ h1, h2, h3 {
       "name": "What's the difference between VAS Pro and VAS Classic? Which one should I pick?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Both editions share the VAS core: annotation, OCR, privacy masking, batch conversion, smart-line layout — these don't vary by edition. The differences are in exclusive features and the underlying architecture: VAS Pro (Tauri · App Store · $9.99 · 5.4 MB download · 20 MB installed · 21× smaller than VAS Classic) New features land here first. Exclusive features, ordered by workflow: URL screenshots, paste-image import, on-device OCR privacy masking, advanced drag-out export, ShareSheet sharing, extra file formats (WebP for web · PDF for document attachments · BMP for design handoff), custom shortcuts (four reassignable). VAS Classic (Electron · open source, free · 114 MB download · 303 MB installed) Feature set is frozen — no new additions — but the shared underlying code means it still benefits when VAS Pro gets refactored. Free forever, no expiry. You want screenshots wired into the full workflow (URLs, clipboard, ShareSheet) → VAS Pro; You only need the core annotation, no pipeline plumbing → VAS Classic. Upgrading from Classic to Pro means uninstalling the old version and reauthorizing — see the next question."
+        "text": "The difference is Tauri's native architecture and the radical lightness it brings: VAS Pro is 15× smaller than VAS Classic (20.9 MB vs 303 MB installed). Tauri calls macOS native components directly; Electron has to ship its own Chromium engine. Pro is the launchpad for new features — paid · $9.99 one-time, no subscription; Classic is feature-frozen but permanently free. Both share VAS's core: annotation, OCR, privacy masking, batch conversion, smart alignment guides, layer switching. VAS Pro (Tauri · App Store · $9.99 · 5.4 MB download · 20.9 MB installed · 15× smaller than VAS Classic) Exclusive features in workflow order: URL capture, copied-image import, on-device OCR privacy masking, advanced drag-to-export, ShareSheet, extra save formats (WebP for web · PDF for attachments · BMP for design handoff), customizable shortcuts (4 slots). VAS Classic (Electron · open-source · 114 MB download · 303 MB installed) Shares the same foundation as Pro — benefits from every refactor on the Pro side. To wire screenshots into a full workflow (URLs, clipboard, ShareSheet) → VAS Pro; Just want the core annotation, no pipeline → VAS Classic"
       }
     },
     {
