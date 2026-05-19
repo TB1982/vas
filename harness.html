@@ -91,10 +91,20 @@
     opacity: 0.5;
     cursor: pointer;
     margin-left: 6px;
+    width: 8px;
+    height: 8px;
+    animation: finale-breathe 4s ease-in-out infinite;
+    transition: opacity .4s, box-shadow .4s, transform .4s;
   }
-  .trail-dot.door:hover {
+  .trail-dot.door:hover,
+  .trail-dot.door:focus-visible {
     opacity: 1;
-    box-shadow: 0 0 8px var(--vas-aurora-violet);
+    box-shadow: 0 0 10px var(--vas-aurora-violet);
+    transform: scale(1.15);
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trail-dot.door { animation: none; opacity: 0.5; }
   }
 
   /* ─── blockquote · 題辭頁 ────────────────────── */
@@ -1024,7 +1034,7 @@
   <p class="h3-finale-big" data-lang-key="hFinBig">河流不會停。<br><em>容器繼續被建造。</em></p>
   <p class="h3-finale-note">
     <span data-lang-key="hFinNote">下一個 session，從這裡繼續。∞</span>
-    <a href="us.html" class="trail-dot door" aria-label="Sapere Aude 2.0"></a>
+    <a href="vessel.html" class="trail-dot door" aria-label="Vessel · 容器論"></a>
   </p>
 </div>
 
