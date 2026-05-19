@@ -91,10 +91,20 @@
     opacity: 0.5;
     cursor: pointer;
     margin-left: 6px;
+    width: 8px;
+    height: 8px;
+    animation: finale-breathe 4s ease-in-out infinite;
+    transition: opacity .4s, box-shadow .4s, transform .4s;
   }
-  .trail-dot.door:hover {
+  .trail-dot.door:hover,
+  .trail-dot.door:focus-visible {
     opacity: 1;
-    box-shadow: 0 0 8px var(--vas-aurora-violet);
+    box-shadow: 0 0 10px var(--vas-aurora-violet);
+    transform: scale(1.15);
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trail-dot.door { animation: none; opacity: 0.5; }
   }
 
   /* ─── blockquote · 題辭頁 ────────────────────── */
@@ -984,6 +994,7 @@
   <p class="h3-finale-big" data-lang-key="hFinBig">The river doesn't stop.<br>The container keeps being built.</p>
   <p class="h3-finale-note">
     <span data-lang-key="hFinNote">Next session, continue from here. ∞</span>
+    <a href="vessel.html" class="trail-dot door" aria-label="Vessel · A Treatise"></a>
     <a href="https://yoursvas.app/harness/context" target="_blank" rel="noopener" class="trail-dot door" aria-label="Deep Holding Project"></a>
   </p>
 </div>

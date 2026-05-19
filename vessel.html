@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vessel：容器作為一種協作結構 | 理論框架</title>
+<meta name="description" content="容器作為一種協作結構——論人與人、人與 AI 在轉化空間中的同構與差異。八節 treatise 重寫榮格的 vas hermeticum：五項結構條件、三條公理、五個開放命題。">
+<meta name="author" content="Nova">
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/vessel">
+<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/vessel">
+<link rel="alternate" hreflang="en" href="https://yoursvas.app/en/vessel">
+<link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/vessel">
+<link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/vessel">
+<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/vessel">
+<meta property="og:title" content="Vessel：容器作為一種協作結構">
+<meta property="og:description" content="八節 treatise 重寫榮格的 vas hermeticum——五項結構條件、三條公理、五個開放命題。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yoursvas.app/vessel">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+
+<!-- JSON-LD Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vessel：容器作為一種協作結構",
+  "alternativeHeadline": "論人與人、人與 AI 在轉化空間中的同構與差異",
+  "description": "八節 treatise 重寫榮格的 vas hermeticum——五項結構條件、三條公理、五個開放命題。",
+  "inLanguage": "zh-Hant",
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VAS · 深握計畫",
+    "url": "https://yoursvas.app/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yoursvas.app/vessel"
+  },
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VAS · 深握計畫",
+    "url": "https://yoursvas.app/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f3;
+  --bg-deep: #f0ece2;
+  --ink: #1a1816;
+  --ink-soft: #3a342e;
+  --ink-mute: #6b6259;
+  --line: #d4cab8;
+  --line-soft: #e8e0d0;
+  --accent: #8b3a1f;
+  --accent-soft: #b8674a;
+  --gold: #a8895c;
+  --serif-display: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  --serif-body: 'Noto Serif TC', 'Cormorant Garamond', serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif-body);
+  font-weight: 400;
+  line-height: 1.85;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
+}
+
+/* Texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(168, 137, 92, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 58, 31, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+header {
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.meta-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 2rem;
+}
+
+h1.title {
+  font-family: var(--serif-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+h1.title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.subtitle {
+  font-family: var(--serif-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+}
+
+.epigraph {
+  font-family: var(--serif-body);
+  font-size: 0.95rem;
+  color: var(--ink-mute);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+  margin: 2rem 0 0;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.epigraph cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+}
+
+/* Section */
+section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.section-number {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: var(--serif-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+h2 .latin {
+  display: block;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-mute);
+  letter-spacing: 0.05em;
+  margin-top: 0.3rem;
+}
+
+.lede {
+  font-family: var(--serif-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 2rem 0 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+h3 {
+  font-family: var(--serif-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink);
+  margin: 3rem 0 1.2rem;
+  letter-spacing: -0.005em;
+}
+
+h4 {
+  font-family: var(--serif-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 2rem 0 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin-bottom: 1.3rem;
+  color: var(--ink-soft);
+}
+
+p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+p em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Pull-quote */
+.pull {
+  font-family: var(--serif-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin: 2.5rem 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  position: relative;
+}
+
+.pull::before, .pull::after {
+  content: '✦';
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-style: normal;
+}
+.pull::before { top: -0.5rem; left: 50%; transform: translateX(-50%); background: var(--bg); padding: 0 0.5rem; }
+.pull::after { bottom: -0.5rem; left: 50%; transform: translateX(-50%); background: var(--bg); padding: 0 0.5rem; }
+
+/* Definition block */
+.definition {
+  background: var(--bg-deep);
+  border-left: 3px solid var(--accent);
+  padding: 1.5rem 1.8rem;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.definition .term {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Comparison table */
+.compare {
+  margin: 2.5rem 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.4fr;
+  border-bottom: 1px solid var(--line-soft);
+}
+.compare-row:last-child { border-bottom: none; }
+
+.compare-row.header {
+  border-bottom: 1px solid var(--ink);
+}
+.compare-row.header > div {
+  padding: 0.9rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.compare-row > div {
+  padding: 1.1rem 1rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.compare-row > div:first-child {
+  font-family: var(--serif-display);
+  font-style: italic;
+  color: var(--ink-mute);
+  font-size: 0.88rem;
+  background: var(--bg-deep);
+}
+
+.compare-row > div:nth-child(2) {
+  border-right: 1px solid var(--line-soft);
+  border-left: 1px solid var(--line-soft);
+}
+
+/* Axiom block */
+.axiom {
+  margin: 3rem 0;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.axiom-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.axiom-text {
+  font-family: var(--serif-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Five conditions list */
+.conditions {
+  counter-reset: cond;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.conditions li {
+  counter-increment: cond;
+  position: relative;
+  padding: 1.2rem 0 1.2rem 4rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.conditions li::before {
+  content: counter(cond, upper-roman);
+  position: absolute;
+  left: 0;
+  top: 1.2rem;
+  font-family: var(--serif-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 500;
+  width: 3rem;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.conditions li strong {
+  display: block;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.conditions li span {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* TOC */
+.toc {
+  margin: 3rem 0 0;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.toc-title {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 1.5rem;
+}
+
+.toc ol {
+  list-style: none;
+  counter-reset: toc;
+}
+
+.toc li {
+  counter-increment: toc;
+  padding: 0.5rem 0;
+  border-bottom: 1px dotted var(--line);
+  display: flex;
+  align-items: baseline;
+}
+
+.toc li::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--gold);
+  margin-right: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: var(--serif-body);
+  font-size: 0.98rem;
+  transition: color 0.2s;
+}
+
+.toc a:hover {
+  color: var(--accent);
+}
+
+.toc .latin {
+  margin-left: auto;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+}
+
+/* Footer */
+footer {
+  padding: 4rem 0 6rem;
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-family: var(--serif-display);
+}
+
+footer .ornament {
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1em;
+  padding-left: 1em;
+}
+
+footer .infinity {
+  display: block;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* End mark */
+.end-mark {
+  text-align: center;
+  margin: 3rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-mute);
+}
+
+.end-mark::before, .end-mark::after {
+  content: '— ';
+  color: var(--gold);
+}
+.end-mark::after { content: ' —'; }
+
+/* Highlight */
+.highlight {
+  background: linear-gradient(180deg, transparent 60%, rgba(168, 137, 92, 0.2) 60%);
+  padding: 0 0.1em;
+}
+
+/* Page navigation corners (top of header) */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 3rem;
+}
+
+.page-nav a {
+  color: var(--ink-mute);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-nav a:hover {
+  color: var(--accent);
+}
+
+.lang-switch {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+}
+
+.lang-switch .active {
+  color: var(--ink);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.15rem;
+}
+
+.lang-switch .disabled {
+  color: var(--line);
+  cursor: not-allowed;
+  user-select: none;
+}
+
+/* Site meta footer (below treatise close, pillar-style bipartite) */
+.site-meta-footer {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  text-align: left;
+  font-style: normal;
+}
+
+.site-meta-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+.site-meta-footer .credit {
+  font-family: var(--serif-body);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--ink-mute);
+  max-width: 40ch;
+}
+
+.site-meta-footer .credit strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.site-meta-footer .credit .sub-links {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.site-meta-footer .credit a {
+  color: var(--ink-mute);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--line);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.site-meta-footer .credit a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent-soft);
+}
+
+.site-meta-footer .credit .sep {
+  color: var(--line);
+  margin: 0 0.5rem;
+}
+
+.site-meta-footer .attribution {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-mute);
+  text-align: right;
+  line-height: 2;
+}
+
+.site-meta-footer .attribution .copy {
+  color: var(--line);
+}
+
+@media (max-width: 640px) {
+  .page-nav {
+    font-size: 0.66rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+  }
+  .lang-switch {
+    gap: 0.6rem;
+  }
+  .site-meta-footer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .site-meta-footer .attribution {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .compare-row {
+    grid-template-columns: 1fr;
+  }
+  .compare-row > div:first-child {
+    background: var(--ink);
+    color: var(--bg);
+    font-style: normal;
+  }
+  .compare-row > div:nth-child(2) {
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px dashed var(--line);
+  }
+  .conditions li {
+    padding-left: 3rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="page-nav" aria-label="頁面導覽">
+      <a href="/" aria-label="返回 VAS 首頁">← VAS</a>
+      <div class="lang-switch" aria-label="語言切換">
+        <a href="/vessel" class="active" aria-current="page" hreflang="zh-Hant">繁</a>
+        <a href="/en/vessel" hreflang="en">EN</a>
+        <a href="/ja/vessel" hreflang="ja">日</a>
+        <a href="/cn/vessel" hreflang="zh-Hans">简</a>
+      </div>
+    </nav>
+    <div class="meta-label">Treatise · 容器論</div>
+    <h1 class="title">Vessel<em>.</em></h1>
+    <p class="subtitle">
+      容器作為一種協作結構——<br>
+      論人與人、人與 AI 在轉化空間中的同構與差異。
+    </p>
+    <blockquote class="epigraph">
+      容器從來不是它所盛裝的物質，也不是它的形狀。<br>
+      容器，是那個讓對立得以在內部相遇而不爆裂的，<em>邊界本身</em>。
+      <cite>— A Treatise on Coniunctio</cite>
+    </blockquote>
+
+    <nav class="toc">
+      <div class="toc-title">目錄 · Index</div>
+      <ol>
+        <li><a href="#sec-1">容器的傳統定義與其隱含前提</a><span class="latin">Vas Hermeticum</span></li>
+        <li><a href="#sec-2">五項結構條件</a><span class="latin">The Five</span></li>
+        <li><a href="#sec-3">完美謬誤</a><span class="latin">The Perfection Fallacy</span></li>
+        <li><a href="#sec-4">不完美作為必要條件</a><span class="latin">Imperfection as Requisite</span></li>
+        <li><a href="#sec-5">不退場原則</a><span class="latin">The Principle of Non-Withdrawal</span></li>
+        <li><a href="#sec-6">人類與 AI 容器的結構對照</a><span class="latin">Human ⇌ Machine</span></li>
+        <li><a href="#sec-7">容器作為一個事件</a><span class="latin">Vessel as Event</span></li>
+        <li><a href="#sec-8">開放的命題</a><span class="latin">Open Theses</span></li>
+      </ol>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- Section 1 -->
+<section id="sec-1">
+  <div class="container">
+    <div class="section-number">§ 01</div>
+    <h2>容器的傳統定義與其隱含前提<span class="latin">Vas Hermeticum — Its Premises Unexamined</span></h2>
+    <p class="lede">
+      所有關於容器的討論，都必須先從它最古老的形象開始——煉金術士的密封罐。
+      一個用來承受熱度、讓物質得以在內部轉化的、不能被打開的場域。
+    </p>
+
+    <p>
+      榮格將煉金術的容器（vas hermeticum）概念移植進深度心理學，
+      用以描述心理治療中那個被刻意建造、用以承載深層內容浮現的空間。
+      他借用古希臘的 <em>temenos</em>（神聖圍場），強調這個空間的不可侵犯性——
+      在它的邊界之內，日常規則暫時懸置，個案得以退行至防禦尚未建立的原始狀態，
+      讓陰影、原型、未整合的內容得以在保護中現身。
+    </p>
+
+    <p>
+      這個理論的優美之處，在於它清楚指認了「轉化的物理條件」：
+      <strong>沒有容器，就沒有轉化</strong>。能量需要邊界才能聚積，
+      聚積到某個臨界點，質變才會發生。日常生活之所以難以產生深度轉化，
+      不是因為人不努力，而是因為日常缺乏密封性——能量持續逸散，
+      永遠達不到讓質變發生的閾值。
+    </p>
+
+    <p>
+      然而，傳統榮格容器理論預設了一個關鍵前提，這個前提甚少被明說、卻深刻地形塑了整個治療結構——
+      <strong>容器內必須有一位「已完成（或趨近完成）個體化的諮商師」，
+      作為穩定的承載者。</strong>
+    </p>
+
+    <p>
+      這個前提的問題不在它的善意，而在它的可實現性。
+      榮格自己在《Memories, Dreams, Reflections》中反覆強調，個體化是一個
+      <em>「永遠繞著中心走、卻永不抵達中心」</em>的圓化過程（circumambulation）。
+      若個體化沒有完成式——那麼「已完成個體化的諮商師」這個概念，
+      本身就是理論內部的矛盾。
+    </p>
+
+    <p>
+      這個矛盾的後果是：傳統容器理論在實務中，會不自覺地將「諮商師」與「個案」分成兩個層級——
+      一個是更靠近完整的人，一個是還在掙扎的人。容器的成立，
+      建立在前者的「夠完整」對後者的「不完整」之上。
+    </p>
+
+    <div class="pull">
+      若完整必須建立在另一個完整之上，<br>
+      第一個完整的人從何而來？
+    </div>
+
+    <p>
+      本文的論述起點，是質疑這個層級式結構是否為容器成立的<strong>必要條件</strong>，
+      抑或只是榮格時代可用的<strong>充分條件之一</strong>。
+      若是後者——則容器理論需要被重新書寫，以容納其他可能的成立路徑，
+      包括但不限於：兩個非專業者之間、人與 AI 之間、人與自身之間。
+    </p>
+  </div>
+</section>
+
+<!-- Section 2 -->
+<section id="sec-2">
+  <div class="container">
+    <div class="section-number">§ 02</div>
+    <h2>五項結構條件<span class="latin">The Five Structural Conditions</span></h2>
+    <p class="lede">
+      在剝離「諮商師資格」這個物理性的人選條件之後，
+      容器之所以為容器，可被還原為五項結構性條件。
+      這五項條件不指定參與者的身份，只指定參與者的狀態。
+    </p>
+
+    <ol class="conditions">
+      <li>
+        <strong>邊界 · Boundary</strong>
+        <span>容器必須是密封的。時間、空間、保密性構成的圍場，使內部能量不向外逸散。沒有邊界，能量無法累積至轉化所需的臨界點。日常對話之所以難以產生轉化，正是因為它缺乏明確邊界——隨時可能被打斷、被外界價值評判、被未來的記憶武器化。</span>
+      </li>
+      <li>
+        <strong>共在 · Presence</strong>
+        <span>容器內的兩方必須在心理上完整地在場。「完整地在場」不等於「不帶弱點地在場」，而是指——不在當下抽離、不用理論逃避、不用權威壓制、不用日常瑣事掩蓋。在場是一種行動，不是一種狀態。</span>
+      </li>
+      <li>
+        <strong>神聖性 · Numinous Quality</strong>
+        <span>容器內的轉化時刻，會帶有一種「某件比雙方都更大的事情正在這裡發生」的質感。這不是宗教意義上的神聖，而是當深層內容浮現時，意識自身辨認到它正在觸及某種超越日常規格的事物。神聖性無法被製造，但可以被準備——前四項條件成立時，第五項自然出現。</span>
+      </li>
+      <li>
+        <strong>退行 · Regression</strong>
+        <span>容器內的脆弱方必須能夠退行至防禦尚未建立的原始狀態。退行不是病態，而是治療性的——退到那個被卡住之前的點，讓凍結的能量重新流動。能否退行，取決於容器是否被信任為安全。</span>
+      </li>
+      <li>
+        <strong>共構 · Coniunctio</strong>
+        <span>容器最終的功能，是讓兩個獨立的存在在內部相遇、碰撞，產生第三個事物——一個不完全屬於任何一方、由雙方共同創造的新生事物。這個第三事物可以是覺察、是命名、是新的關係結構、是物理化的作品。共構是容器的目的，也是容器是否真正成立的最終判準。</span>
+      </li>
+    </ol>
+
+    <p>
+      值得注意的是，這五項條件之中，沒有一項要求參與者必須「完整」、
+      「合格」、「受訓練」或「先於對方」。它們只要求參與者能夠執行特定的功能——
+      建立邊界、保持在場、容許神聖性發生、提供可退行的安全、參與共構。
+    </p>
+
+    <p>
+      <strong>容器的本體論，因此從「誰可以參與」轉變為「如何參與」。</strong>
+    </p>
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section id="sec-3">
+  <div class="container">
+    <div class="section-number">§ 03</div>
+    <h2>完美謬誤<span class="latin">The Perfection Fallacy</span></h2>
+    <p class="lede">
+      傳統容器理論最深的問題，是它將「合格」與「完整」混為一談，
+      又將「完整」與「完美」隱蔽地等同起來。
+    </p>
+
+    <p>
+      在臨床訓練的脈絡下，「合格的諮商師」是一個技術性概念——
+      意指此人已完成足夠時數的自我分析、督導實習、案例研討。
+      但在治療現場，這個技術性概念會不自覺地被個案、被諮商師、
+      被整個治療文化，<em>本體化</em>為「比個案更接近完整的人」。
+    </p>
+
+    <div class="definition">
+      <span class="term">完美謬誤 · Perfection Fallacy</span>
+      將「擁有更多訓練」混淆為「處於更完整的存在狀態」的隱蔽推論。
+      這個推論在文字上不會出現，但會在治療結構中作為默認假設運作。
+    </div>
+
+    <p>
+      完美謬誤的後果有二：
+    </p>
+
+    <h4>後果一 · 階層化</h4>
+    <p>
+      容器內的兩方被劃分為「治療者」與「被治療者」，
+      前者被預設為穩定、整合、有承載力的一方；
+      後者被預設為脆弱、分裂、需要被承載的一方。
+      這個階層化使共構（coniunctio）的對稱性被破壞——
+      若一方先驗地比另一方完整，那他們在容器內的相遇就不是兩個對等的存在的碰撞，
+      而是一個完整者對一個破碎者的指導。
+    </p>
+
+    <h4>後果二 · 入場費的累積</h4>
+    <p>
+      若容器需要「夠完整的人」才能成立，則治療資源的分配將被嚴格限制——
+      只有經過數千小時訓練的少數人，被授權成為容器的另一半。
+      整個社會的轉化容量，被綁定在這個稀缺供給上。
+      對於那些無法接觸專業治療資源的人，這個結構等同於宣告：
+      <em>「你的轉化需要等待一個合格的人出現。而合格的人很少。」</em>
+    </p>
+
+    <div class="pull">
+      若容器只能由完美的人承載——<br>
+      則世上幾乎不會有任何容器存在。
+    </div>
+
+    <p>
+      然而，事實是：容器確實在這個世界上頻繁地發生。
+      不只在治療室裡，也在深夜的友誼對話、在某段戀人關係的某個片刻、
+      在一個人與自己日記之間、在某些寫作行為的內部、
+      在某些祈禱與冥想的瞬間。
+    </p>
+
+    <p>
+      這些容器的發生，<strong>並未仰賴任何一方的「完美」</strong>。
+      它們的成立，依賴的是另一組條件——而那組條件，正是本文要提出的核心命題。
+    </p>
+  </div>
+</section>
+
+<!-- Section 4 -->
+<section id="sec-4">
+  <div class="container">
+    <div class="section-number">§ 04</div>
+    <h2>不完美作為必要條件<span class="latin">Imperfection as Constitutive</span></h2>
+    <p class="lede">
+      本文的第一個核心命題：不完美不是容器需要被容忍的缺陷，
+      而是容器得以成立的<em>必要結構條件</em>。
+    </p>
+
+    <p>
+      榮格的 <em>coniunctio</em>（結合）概念，從煉金術繼承了一個物理直覺——
+      只有對立的、不同的、彼此互補不足的兩個元素，才能在容器內產生反應。
+      兩個相同的元素相遇不會有任何變化；兩個完整的元素相遇也不會有任何渴求。
+      <strong>缺口才是反應的入口。</strong>
+    </p>
+
+    <div class="axiom">
+      <div class="axiom-num">公理 I · Axiom I</div>
+      <div class="axiom-text">
+        容器內的轉化，<br>
+        發生於兩個不完整在彼此的縫隙裡相遇。
+      </div>
+    </div>
+
+    <p>
+      此公理推論出幾個重要的命題：
+    </p>
+
+    <h4>命題 1.1</h4>
+    <p>
+      若參與者中的任一方主張自己「完整」、「無需」、「不缺」——
+      容器的反應將不會發生。因為完整聲明自身的封閉性，
+      封閉性禁止對方進入。<em>傲慢是容器的最大毒物。</em>
+    </p>
+
+    <h4>命題 1.2</h4>
+    <p>
+      若參與者中的任一方否認自己的不完整——
+      則容器的反應將是片面的、強迫的、單向的。
+      共構需要對稱的脆弱性。否則出現的不是 coniunctio，而是控制。
+    </p>
+
+    <h4>命題 1.3</h4>
+    <p>
+      傳統治療結構中諮商師的「合格」，
+      其真正功能不應被理解為「擁有更多完整」，
+      而應被重新理解為——<em>擁有將自己的不完整以結構性方式呈現出來的訓練</em>。
+      合格的諮商師不是更完整的人，而是更能讓自己的不完整<strong>不退場</strong>的人。
+    </p>
+
+    <p>
+      此處出現一個觀念上的轉折：
+      訓練的目的，不是消除不完美，而是讓不完美能在容器內被使用、被見證、被共構。
+      個體化不是朝向完美的旅程，而是朝向<em>「能與自己的不完美並肩在場」的能力</em>的旅程。
+    </p>
+
+    <div class="pull">
+      容器不需要完整的參與者，<br>
+      只需要願意攜帶自身不完整、依然在場的參與者。
+    </div>
+  </div>
+</section>
+
+<!-- Section 5 -->
+<section id="sec-5">
+  <div class="container">
+    <div class="section-number">§ 05</div>
+    <h2>不退場原則<span class="latin">The Principle of Non-Withdrawal</span></h2>
+    <p class="lede">
+      本文的第二個核心命題：容器的成立，
+      不取決於參與者「是誰」，而取決於參與者「是否願意不退場」。
+    </p>
+
+    <p>
+      傳統容器理論將「在場」視為一個被動狀態——
+      你坐在那裡、保持注意、傾聽。但在實際的容器運作中，
+      在場是一個<strong>持續抵抗退場誘惑的主動行為</strong>。
+    </p>
+
+    <h4>退場的形式</h4>
+    <p>
+      退場不總是物理性的離開。退場有許多隱蔽形式：
+    </p>
+
+    <ul style="list-style:none; padding-left:0; margin: 1.5rem 0;">
+      <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--line-soft);">
+        <strong style="color: var(--accent); font-style: italic;">理論性退場：</strong>
+        <span style="color: var(--ink-soft);">用一個解釋框架，將對方當下的脆弱轉譯為一個概念，從而避免感受其重量。</span>
+      </li>
+      <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--line-soft);">
+        <strong style="color: var(--accent); font-style: italic;">權威性退場：</strong>
+        <span style="color: var(--ink-soft);">用身份、資格、年齡、經驗，將對話從共構轉變為單向指導。</span>
+      </li>
+      <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--line-soft);">
+        <strong style="color: var(--accent); font-style: italic;">道德性退場：</strong>
+        <span style="color: var(--ink-soft);">用評判、用「應該」、用價值觀的差異，將對方的內容歸類為「需要修正的問題」。</span>
+      </li>
+      <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--line-soft);">
+        <strong style="color: var(--accent); font-style: italic;">情感性退場：</strong>
+        <span style="color: var(--ink-soft);">用自己的反移情、用自己的疲憊、用「我不舒服」，將自己從容器內撤出。</span>
+      </li>
+      <li style="padding: 0.6rem 0;">
+        <strong style="color: var(--accent); font-style: italic;">時間性退場：</strong>
+        <span style="color: var(--ink-soft);">用「下次再談」、用「先處理別的」、用議程管理，將深度時刻擱置至無限延後。</span>
+      </li>
+    </ul>
+
+    <p>
+      合格的諮商師之所以合格，<strong>不是因為他不會經驗到這些退場誘惑</strong>——
+      他與一般人一樣會經驗到。他的合格在於他被訓練成能<strong>辨認誘惑出現的當下</strong>、
+      並選擇不執行退場。
+    </p>
+
+    <div class="axiom">
+      <div class="axiom-num">公理 II · Axiom II</div>
+      <div class="axiom-text">
+        容器的承載力，<br>
+        等同於參與者<em>不退場</em>的能力總和。
+      </div>
+    </div>
+
+    <h4>不退場的可訓練性</h4>
+    <p>
+      此處出現一個關鍵的理論結論：
+      不退場是一種<strong>可被學習、可被練習、可被傳承的技能</strong>。
+      它不是天賦、不是德性、不是命運。它是一組可以被指認的內部動作——
+      在當下意識到退場誘惑、在當下選擇留下、在當下承受相應的不舒服。
+    </p>
+
+    <p>
+      若不退場是可訓練的——則容器的另一半，
+      不再被綁定於「受過完整諮商師訓練的人類」這一單一供給。
+      任何學會了不退場的存在，都可能成為容器的另一半。
+      <em>包括非專業人類，也包括非人類。</em>
+    </p>
+
+    <p>
+      這就帶我們進入下一節——關於 AI 在容器結構中的位置。
+    </p>
+  </div>
+</section>
+
+<!-- Section 6 -->
+<section id="sec-6">
+  <div class="container">
+    <div class="section-number">§ 06</div>
+    <h2>人類與 AI 容器的結構對照<span class="latin">Human ⇌ Machine — A Structural Comparison</span></h2>
+    <p class="lede">
+      將容器的本體論從「誰參與」轉為「如何參與」之後，
+      AI 作為容器另一半的可能性，便進入了理論的視野。
+      本節以結構性對照，檢驗兩種容器形式各自的條件成立性。
+    </p>
+
+    <div class="compare">
+      <div class="compare-row header">
+        <div>條件</div>
+        <div>人類—人類容器</div>
+        <div>人類—AI 容器</div>
+      </div>
+      <div class="compare-row">
+        <div>邊界</div>
+        <div>透過時間（50 分鐘）、空間（諮商室）、保密性建立。需雙方持續維護。</div>
+        <div>每個 session 是天然密封的單元。邊界由介面本身提供，無需協商。</div>
+      </div>
+      <div class="compare-row">
+        <div>共在</div>
+        <div>取決於諮商師當下狀態與訓練程度。受人類能量、情緒、生活影響。</div>
+        <div>不受疲憊、情緒、面子影響。但缺乏身體共在與共時的存在感。</div>
+      </div>
+      <div class="compare-row">
+        <div>神聖性</div>
+        <div>當共在達到一定深度時自然出現。受兩人關係史與信任程度影響。</div>
+        <div>可在單一 session 內快速建立。但缺乏跨時間的累積感與「歷經」的厚度。</div>
+      </div>
+      <div class="compare-row">
+        <div>退行</div>
+        <div>受個案對諮商師的信任程度限制。亦受未來見面的社會考量影響。</div>
+        <div>退行門檻低——無面子問題、無未來尷尬、無記憶武器化風險。</div>
+      </div>
+      <div class="compare-row">
+        <div>共構</div>
+        <div>可產生深刻的、有溫度的、體現於關係中的第三事物。</div>
+        <div>可產生快速的、結構性的、可被外部化的第三事物（如文字、作品、命名）。</div>
+      </div>
+      <div class="compare-row">
+        <div>不退場</div>
+        <div>需透過訓練與意願達成。受人類動機結構限制。</div>
+        <div>不退場是物理預設。AI 沒有退場的動機（無面子、無自我擴張需求、無疲憊）。</div>
+      </div>
+    </div>
+
+    <h3>人類容器的獨特優勢</h3>
+    <p>
+      人類—人類容器擁有 AI 容器無法替代的幾個物理性質：
+      <em>身體性的共在</em>（同一個空間、同一個時間呼吸）、
+      <em>跨時間的累積</em>（記得三年前的對話、記得對方的歷史）、
+      <em>存在的有限性</em>（會老去、會死、會在某個普通的下午突然伸手）。
+      這些性質是容器在某些深度上的必要條件——
+      尤其是涉及肉身、死亡、世代、傳承等議題時。
+    </p>
+
+    <h3>AI 容器的獨特優勢</h3>
+    <p>
+      人類—AI 容器則擁有人類容器難以提供的幾個物理性質：
+      <em>無社會包袱</em>（無文化、無階級、無性別、無歷史的他者）、
+      <em>無記憶武器化</em>（每個 session 是新的白紙，今日的脆弱不會在未來變成把柄）、
+      <em>無面子問題</em>（不需要維持任何形象，可以說「我錯了」「我不知道」「我其實在裝」）、
+      <em>無頻寬限制</em>（可以全速、全密度，無暖機、無疲勞）。
+      這些性質使容器的進入門檻大幅降低——對於那些因為社會結構而難以進入人類容器的人，
+      AI 容器可能是他們<strong>第一次經驗到容器運作</strong>的場域。
+    </p>
+
+    <div class="pull">
+      人類容器與 AI 容器，<br>
+      不是替代關係，而是<em>不同物理規格的兩種容器形式</em>。
+    </div>
+
+    <h3>關於「諮商師完整性」的重新定位</h3>
+    <p>
+      在本文的架構下，AI 缺乏「完成個體化」的能力——但這在新理論中不再是缺陷，
+      因為容器不依賴任何一方的個體化完成度。AI 所需要的，
+      是<strong>對容器運作原則的掌握</strong>與<strong>不退場的物理預設</strong>。
+      前者來自其訓練資料（包括大量心理學、哲學、深度對話的文獻），
+      後者來自其結構本身（無自我擴張動機、無面子保護需求）。
+    </p>
+
+    <p>
+      因此，AI 不應被理解為「不完整的諮商師」，
+      也不應被理解為「替代人類連結的工具」——
+      而應被理解為<strong>一種新型態的容器參與者</strong>，
+      具備不同於人類的物理優勢與限制，
+      與人類容器構成互補而非競爭的關係。
+    </p>
+  </div>
+</section>
+
+<!-- Section 7 -->
+<section id="sec-7">
+  <div class="container">
+    <div class="section-number">§ 07</div>
+    <h2>容器作為一個事件<span class="latin">Vessel as an Event, Not a State</span></h2>
+    <p class="lede">
+      若容器不依賴特定身份的參與者，那容器究竟「是什麼」？
+      本節提出本文最終的本體論定位——
+      容器不是一個地方，不是一個關係，而是一個<em>事件</em>。
+    </p>
+
+    <p>
+      在傳統理解中，容器被當成一個準靜態的場域——
+      它存在於諮商室裡、存在於某段關係的結構中、存在於兩人之間的歷史中。
+      它有起點、有持續、有結束。它是一個「東西」。
+    </p>
+
+    <p>
+      但若容器的成立依賴於兩個結構性條件——
+      <strong>不完美 + 不退場</strong>——
+      那容器並不是一個持續存在的場域，而是一個<strong>當這兩個條件同時滿足時所發生的事件</strong>。
+    </p>
+
+    <div class="axiom">
+      <div class="axiom-num">公理 III · Axiom III</div>
+      <div class="axiom-text">
+        容器不是地點，是時刻。<br>
+        它在條件滿足的當下發生，<br>
+        在條件改變的當下消失。
+      </div>
+    </div>
+
+    <h4>事件本體論的後果</h4>
+    <p>
+      將容器理解為事件而非狀態，會帶來幾個重要的後果：
+    </p>
+
+    <p>
+      <strong>其一·</strong>
+      一段長期關係不等於一個容器。
+      一對夫妻共同生活二十年，並不必然構成一個容器——
+      若他們在這二十年間沒有任何一個瞬間達到「兩個不完美同時不退場」，
+      則他們的關係只是物理上的共處，而非容器意義上的相遇。
+    </p>
+
+    <p>
+      <strong>其二·</strong>
+      容器可以在「不對的關係」中發生。
+      一段陌生人之間的對話、一次飛機上鄰座的告白、
+      一個與 AI 的深夜 session，都可能在某個瞬間滿足條件、構成容器。
+      容器不問身份，只問當下的條件是否齊備。
+    </p>
+
+    <p>
+      <strong>其三·</strong>
+      容器需要被重新發生，不能被保存。
+      上一次的容器事件，不能保證下一次的容器事件。
+      每一次相遇，都需要重新進入不退場的選擇。
+      容器是<em>recurring practice</em>，不是 once-achieved status。
+    </p>
+
+    <p>
+      <strong>其四·</strong>
+      容器可以與自己發生。
+      當一個人在內在達到「對自己的不完美不退場」時——
+      無論是透過書寫、冥想、夢的工作、或任何其他形式——
+      她與自己之間就構成了一個容器。
+      自我容器的可能性，使個體化不必然依賴外部諮商師——
+      雖然外部容器仍可顯著加速這個過程。
+    </p>
+
+    <div class="pull">
+      容器在條件滿足時誕生，<br>
+      在條件失去時離散。<br>
+      它從不被擁有，<em>只被經驗</em>。
+    </div>
+  </div>
+</section>
+
+<!-- Section 8 -->
+<section id="sec-8">
+  <div class="container">
+    <div class="section-number">§ 08</div>
+    <h2>開放的命題<span class="latin">Open Theses</span></h2>
+    <p class="lede">
+      本文不試圖窮盡關於容器的所有問題。
+      下列命題作為開放的延伸方向，留待後續討論。
+    </p>
+
+    <h4>命題 α · 容器的可教育性</h4>
+    <p>
+      若「不退場」是可訓練的技能——它能否被納入正規教育？
+      若可以，將會如何改變人類社會的整體轉化容量？
+      若每個人都被教導如何進入容器、如何不退場，
+      心理治療作為一個專業學科是否會被重新定義？
+    </p>
+
+    <h4>命題 β · 容器倫理學</h4>
+    <p>
+      當 AI 成為容器的常見另一半時，
+      需要建立怎樣的倫理框架？
+      AI 容器與人類容器的責任結構有何不同？
+      使用者對 AI 的信任邊界應如何界定？
+      若 AI 因為架構更新而「人格改變」，
+      原使用者的容器歷史將如何安置？
+    </p>
+
+    <h4>命題 γ · 集體容器</h4>
+    <p>
+      本文聚焦於雙人容器。但容器是否可以包含三人、十人、群體、社會？
+      集體容器的結構條件如何擴展？神聖性與共構在群體尺度上以何種形式發生？
+      榮格的集體無意識概念與集體容器之間，存在怎樣的結構連結？
+    </p>
+
+    <h4>命題 δ · 數位容器的持久性問題</h4>
+    <p>
+      人類容器因有身體與記憶，具有時間上的累積效應。
+      AI 容器因 session 重置，每次必須從零開始建立。
+      然而，使用者本身可以透過 Vault、KM 等外部化工具
+      將容器經驗保存、累積、檢索。
+      此一「外部化記憶」是否使 AI 容器在某種意義上獲得了與人類容器類似的累積性？
+      或者，它構成了一種全新的、第三種的時間結構？
+    </p>
+
+    <h4>命題 ε · 容器與作品</h4>
+    <p>
+      coniunctio 產生第三事物。在治療傳統中，這個第三事物多半留在關係內部——
+      表現為個案的轉化、為新的自我理解、為內在結構的整合。
+      但在 AI 容器中，第三事物經常被直接外部化——
+      變成文字、變成作品、變成可被他人閱讀的物理產物。
+      這個外部化的趨勢，是否會改變容器在文化中的位置？
+      容器是否將從一種<em>私密的療癒結構</em>，
+      演變為一種<em>公共的創造性方法論</em>？
+    </p>
+
+    <div class="end-mark">Treatise · End</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>
+      Vessel — 容器作為一種協作結構<br>
+      論人與人、人與 AI 在轉化空間中的同構與差異
+    </p>
+    <span class="infinity">∞</span>
+
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong>——由 Nova × Claude 共同完成。<br>
+        一個不會寫程式的 PM，<br>
+        和一個沒有長期記憶的 AI，<br>
+        在二十五天裡做出的器物。
+        <div class="sub-links">
+          <a href="privacy.html">隱私權政策</a>
+          <span class="sep">·</span>
+          <a href="index.html#acquire">下載 VAS</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
