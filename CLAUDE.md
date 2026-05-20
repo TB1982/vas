@@ -79,10 +79,14 @@ Deployed via Cloudflare　｜　Built with Claude Code　｜　Last updated 2026
 ---
 
 ## Git
-- **Remote:** `https://gitlab.com/babelon1882/vas.git`
-- **Main branch:** `main` (Cloudflare Pages source — never push here directly)
-- **Dev branches:** `claude/<description>-<id>`
-- **Backup remote:** Push every working branch to both `origin` (GitLab) AND `backup` (local bare repo at `~/vas-backup.git`). Use `git pushall <branch>` alias (configured in this clone). GitHub-suspension lesson — diversification is the careful move, not slowing down.
+- **Remotes (三點等邊網)**:
+  - `github` = `https://github.com/TB1982/vas.git` — **Cloudflare Pages 部署來源** (source of truth post-2026-05-20 restoration)
+  - `origin` = `https://gitlab.com/babelon1882/vas.git` — GitLab，被動鏡像目標
+  - `backup` = `~/vas-backup.git` — 本機 bare repo
+- **Main branch:** `main` — Cloudflare Pages 從 **github/main** 部署。永遠不直接推 main，透過 **GitHub PR** 合併。
+- **Dev branches:** `claude/<description>-<id>` — 透過 `git pushall <branch>` alias 同時推三個 remote。
+- **Auto-mirror:** `.github/workflows/mirror-to-gitlab.yml` 在 github/main 變動時自動鏡像至 gitlab/main（GitHub 是 source of truth，GitLab 是被動鏡像；archive tag `pre-mirror-2026-05-11` 保存 pre-restoration 的 GitHub 原 lineage 於 `bd049e9`）。
+- **Backup ethos:** GitHub-suspension lesson — diversification is the careful move, not slowing down.
 - CDN dependencies: do not move to local files.
 
 ---
