@@ -319,6 +319,55 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ═══════ Vessel (容器論) · Treatise · 藏在 harness 呼吸燈下方 ═══════ -->
+  <url>
+    <loc>https://yoursvas.app/vessel</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/vessel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/vessel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/vessel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/vessel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/vessel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/en/vessel</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/vessel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/vessel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/vessel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/vessel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/vessel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/ja/vessel</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/vessel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/vessel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/vessel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/vessel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/vessel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/cn/vessel</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/vessel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/vessel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/vessel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/vessel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/vessel"/>
+  </url>
+
   <!-- ═══════ Self (自) · Echoes Page IV ═══════ -->
   <url>
     <loc>https://yoursvas.app/self</loc>
