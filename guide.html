@@ -848,64 +848,6 @@
 }());
 </script>
 
-<!-- ── FAQPage 結構化資料（AEO / SEO）── -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "dateModified": "2026-05-17",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "VAS 是一款怎樣的截圖軟體？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "VAS 是一款 macOS 截圖與圖片處理工具，整合 OCR 文字辨識、隱私遮蔽、QR Code 掃描、點線面標注、裁切圖片、智慧導線排版、批次轉檔、浮水印，支援多螢幕操作。VAS Pro（Tauri · App Store · 9.99 美元）+ VAS Classic（Electron · 免費）兩種選擇。它與其他截圖工具不同的地方：VAS 是「用 VAS 開發出來的 VAS」——專為人機協作設計，截下的圖標注後能直接交給 AI 讀懂，不希望被 AI 拿去訓練的隱私資訊也可一鍵遮蔽。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "升級到 VAS Pro 後，VAS 一直跳權限請求怎麼辦？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "如果你是從 VAS Classic（Electron）轉移到 VAS Pro（Tauri）：1. 先關掉所有 VAS（包含 Electron 版與 Tauri 版），並移除免費版。 2. 開啟「系統設定 → 隱私權與安全性 → 螢幕與系統錄音」。 3. 找到 VAS，按下方的「−」移除舊權限。 4. 重新打開 VAS Pro，按「全螢幕截圖」觸發系統授權。 5. 系統會把 VAS 重新加回清單，預設關閉狀態。 6. 手動把開關打開，依提示結束 VAS 再重啟一次，即可獲得完整權限。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "VAS 提供網頁截圖嗎？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "VAS Pro（Tauri · App Store · 9.99 美元）支援網頁截圖。複製網址後拖到呼吸燈或工具列，VAS 會跳出提示詢問是否要截網頁；確認後，VAS 在背景開啟瀏覽器完成整頁截圖，直接送進編輯器等你下一步處理。但若你想截的是需要登入才看得到的頁面，目前推薦使用瀏覽器原生外掛（如 FireShot）截下來後，再拋進 VAS 後製處理。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "VAS 可以自訂截圖快捷鍵嗎？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "VAS Pro（Tauri · App Store · 9.99 美元）提供四組自訂快捷鍵——全螢幕截圖、視窗截圖、矩形截圖、貼入圖片——給從其他截圖軟體移民的你最熟悉的手感。VAS Classic（Electron · 免費）內建固定三組（⌘^1 / ⌘^2 / ⌘^X）。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "VAS 是否支援多螢幕工作模式？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "是。VAS 全面支援多螢幕工作流，並把選擇權交給你：按 Enter——同時擷取所有螢幕，輸出一張合併圖；點選任一螢幕——只截那一塊，分別輸出；延遲截圖模式——適合需要等待截圖的情境（如抓取 hover 效果），VAS 會自動定位你在哪裡並截圖。針對混合解析度（Retina 與一般解析度並用）也做了特別處理，不會出現尺寸對不上的問題。這個堅持有它的來歷：VAS 本身就是在雙螢幕環境裡做出來的——設計者自己是長期雙螢幕使用者，所以從第一天起，多螢幕就不是「補丁」，而是預設情境。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "VAS 跟其他 Mac 截圖工具差在哪？我什麼時候該用 VAS？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "截一張要分享的圖、單純註記——macOS 內建已經夠用。要錄影、要連續快照、要做使用手冊——Snagit / CleanShot X 是成熟選擇。VAS 解決的是不一樣的問題——「人機協作」。當你需要把畫面交給 AI 讀懂、把不希望被 AI 拿去訓練的隱私先遮起來、整個過程還要像行雲流水一樣輕快：這是 VAS 從第一天就在用自己驗證的開發現場。你不會用 VAS 取代 Snagit，就像 Snagit 也取代不了 VAS。"
-      }
-    }
-  ]
-}
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
