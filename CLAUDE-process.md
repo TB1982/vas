@@ -82,6 +82,7 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 ├── self.html               # Echo p.4 · 自己
 ├── harness.html            # Chapter II · 系統 · SYSTEM (cover)
 ├── us.html                 # Chapter II · ⓘ mirror (Sapere Aude 2.0)
+├── vessel.html             # Vessel · 容器論 · Treatise (hidden under harness 呼吸燈)
 ├── milestone.html          # Chapter III · 里程碑 · CHRONICLE
 ├── faq.html                # FAQ — eight questions
 ├── guide.html              # User guide
@@ -109,7 +110,7 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 ├── js/                     # analytics.js / per-page scripts
 ├── img/                    # vas-*.png / vas-*.webp / favicon
 │
-├── sitemap.xml             # 55 URLs with per-locale hreflang
+├── sitemap.xml             # 59 URLs with per-locale hreflang
 │
 ├── CLAUDE.md               # Core rules (always loaded)
 ├── CLAUDE-process.md       # This file — workflows
@@ -284,6 +285,6 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n/core.js` | Loader logic + dropdown for dynamic lang switching on root pages |
-| `sitemap.xml` | 55 URLs, per-locale hreflang. Update on any new page (see § New Page Checklist) |
+| `sitemap.xml` | 59 URLs, per-locale hreflang. Update on any new page (see § New Page Checklist) |
 | `km.md` | KM log — append immediately when a bug is resolved |
 | `GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
