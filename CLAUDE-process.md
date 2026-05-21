@@ -153,11 +153,11 @@ Different stack — Tailwind CDN + inline `<style>` + in-page JS dictionary (`tr
 ```
 1. spec     → Nova 口述需求
 2. exec     → Claude edits / agent dispatch / mechanical sed
-3. push     → Dual-remote via `git pushall <branch>` (origin + backup)
-4. merge    → Nova accepts MR (GitLab UI)
+3. push     → Tri-remote via `git pushall <branch>` (origin + backup + github)
+4. merge    → Nova accepts PR (GitHub UI)
 5. deploy   → Cloudflare auto-deploy (~1–2 min after merge)
 6. 巡水田    → Nova goes to live front-end, sacral pass on relevant pages
-7. flag     → Findings from 巡水田 become input for next MR
+7. flag     → Findings from 巡水田 become input for next PR
 ```
 
 **Session-end condition:** "Nova 巡完水田沒新發現", NOT "Claude push 完了". See § 巡水田 below.
@@ -171,7 +171,7 @@ python3 -m http.server 8081
 After any user-visible change, provide this command and ask Nova to verify:
 
 ```bash
-git pull origin <branch-name> && python3 -m http.server 8081
+git pull github <branch-name> && python3 -m http.server 8081
 ```
 
 開啟：`http://localhost:8081/<filename>.html`
@@ -196,9 +196,9 @@ Nova checks:
 **Why it's a phase, not a bug:**
 Nova's design taste operates at granular resolution. Plain-eye review on the deployed site catches things that pre-merge code review can't (real font rendering, real spacing, real readability under actual user agents, the rhythm of em-spans + br-breaks in production). This step is the **quality engine**, not an afterthought.
 
-**Behavior pattern:** After Cloudflare deploys, Nova opens the live front-end and 巡水田 — walks the affected pages, lets her sacral catch anything off. Findings tend to come in clusters of 1–3 per MR.
+**Behavior pattern:** After Cloudflare deploys, Nova opens the live front-end and 巡水田 — walks the affected pages, lets her sacral catch anything off. Findings tend to come in clusters of 1–3 per PR.
 
-**Workflow placement:** Step 6 in the 7-step loop above. Findings flow to step 7 (flag → next MR's input).
+**Workflow placement:** Step 6 in the 7-step loop above. Findings flow to step 7 (flag → next PR's input).
 
 **Naming this phase explicitly converts what could feel like "scope creep" into a planned ritual.** Two consequences:
 
