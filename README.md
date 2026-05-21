@@ -26,6 +26,7 @@ This is a vanilla-JS static site, deployed via Cloudflare Pages from this GitLab
 | ↳ Pillar II | `/harness/constraints` | Constraints as guidance (deep layer) |
 | ↳ Pillar III | `/harness/entropy` | Coexisting with entropy (deep layer) |
 | Us (mirror) | `/us` | Chapter II · ⓘ — Sapere Aude 2.0 (sitemap-only, deliberately not in main nav) |
+| Vessel | `/vessel` | 容器論 · Treatise — the vas hermeticum, hidden under harness 呼吸燈 |
 | Milestones | `/milestone` | Chapter III · 里程碑 · CHRONICLE — 25 days, 80+ versions |
 | FAQ | `/faq` | Eight Questions |
 | Guide | `/guide` | User manual |
