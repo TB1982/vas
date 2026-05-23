@@ -23,9 +23,10 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
 ## Product Philosophy
 **VAS takes its name from Jung's alchemical *vas*** — the vessel that holds prima materia and transforms it into lapis. This is not a metaphor; it is the product's actual definition.
 
-The product's core action: taking what cannot yet be expressed in words, making it visible through annotation, and enabling it to be transmitted to another person.
+Homepage tagline — the working definition of VAS:
+> 給那些未能用文字明說的當下。
 
-The visual logic follows from this, not the other way around.
+Visual logic and copy follow from this line, not the other way around.
 → Extended design language reference: **CLAUDE-process.md § Design Language**
 
 ---
