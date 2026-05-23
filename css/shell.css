@@ -417,3 +417,37 @@
   }
   .dot-nav-item.is-current .dn-label { color: var(--vas-aurora-violet); }
 }
+
+/* ─── Vessel Door · 通往容器論的呼吸燈 ─────
+   跨頁共用元件。任何頁面要開一條通往 vessel.html
+   （或其他深層內容）的「找到才看得到」入口，
+   只需 <a href="..." class="trail-dot door" aria-label="..."></a>。
+   harness.html 內另有 .h3-finale-note 的 scoped variant，
+   保留在該檔內聯，因為與該章節的版型耦合。
+*/
+.trail-dot.door {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--vas-aurora-violet);
+  margin-left: 6px;
+  vertical-align: middle;
+  opacity: 0.5;
+  cursor: pointer;
+  text-decoration: none;
+  animation: finale-breathe 4s ease-in-out infinite;
+  transition: opacity .4s, box-shadow .4s, transform .4s;
+}
+.trail-dot.door:hover,
+.trail-dot.door:focus-visible {
+  opacity: 1;
+  box-shadow: 0 0 10px var(--vas-aurora-violet);
+  transform: scale(1.15);
+  animation-play-state: paused;
+}
+@keyframes finale-breathe {
+  0%, 100% { opacity: 0.28; box-shadow: 0 0 0 rgba(196, 113, 245, 0); }
+  50% { opacity: 0.62; box-shadow: 0 0 6px rgba(196, 113, 245, 0.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trail-dot.door { animation: none; opacity: 0.5; }
+}

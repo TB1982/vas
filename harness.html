@@ -92,25 +92,7 @@
     text-decoration: none;
   }
   .trail-dot:hover { opacity: 1; }
-  .trail-dot.door {
-    opacity: 0.5;
-    cursor: pointer;
-    margin-left: 6px;
-    width: 8px;
-    height: 8px;
-    animation: finale-breathe 4s ease-in-out infinite;
-    transition: opacity .4s, box-shadow .4s, transform .4s;
-  }
-  .trail-dot.door:hover,
-  .trail-dot.door:focus-visible {
-    opacity: 1;
-    box-shadow: 0 0 10px var(--vas-aurora-violet);
-    transform: scale(1.15);
-    animation-play-state: paused;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .trail-dot.door { animation: none; opacity: 0.5; }
-  }
+  /* .trail-dot.door + @keyframes finale-breathe 已升至 css/shell.css 共用 */
 
   /* ─── blockquote · 題辭頁 ────────────────────── */
   .h3-bq {
@@ -577,16 +559,7 @@
     transform: scale(1.15);
     animation-play-state: paused;
   }
-  @keyframes finale-breathe {
-    0%, 100% {
-      opacity: 0.28;
-      box-shadow: 0 0 0 rgba(196, 113, 245, 0);
-    }
-    50% {
-      opacity: 0.62;
-      box-shadow: 0 0 6px rgba(196, 113, 245, 0.35);
-    }
-  }
+  /* @keyframes finale-breathe 已升至 css/shell.css 共用 */
   @media (prefers-reduced-motion: reduce) {
     .h3-finale-note .trail-dot.door { animation: none; opacity: 0.45; }
   }
