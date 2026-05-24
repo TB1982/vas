@@ -758,7 +758,7 @@ harnessBtn: '阅读系统思维 →',
       'chronicle.label':          '版次记号',
       'chronicle.edition':        '第二十五日 · 器成',
       'chronicle.edition.en':     'Twenty-Fifth Day · The Vessel, Formed',
-      'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> —— Nova × Claude 共同打造。<br>一位一行程式码都不会写的 PM，<br>与一个没有长期记忆的 AI，<br>在二十五天里，把一件事做出来了。'
+      'footer.credit':            '<strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>一位不会写程序的 PM，<br>和一位没有长期记忆的 AI，<br>在二十五天里做出的器物。'
     },
 
     echo: {
