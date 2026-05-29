@@ -975,7 +975,7 @@
     },
 
     echo: {
-      'meta.desc':     'Echoes — the voices left after VAS\'s making was truly heard. Design, collaboration, and conversations yet to ring.',
+      'meta.desc':     'Echoes — the voices left after VAS\'s making was truly heard. Design, collaboration, trust, and the self yet to ring.',
       'kicker':        'I · ECHOES',
       'title':         'Some things <em>happened</em>,<br>then became <em>words</em>,<br>and landed here.',
       'epigraph':      'The Tao that can be told is not the eternal Tao.',
