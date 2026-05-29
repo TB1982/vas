@@ -114,6 +114,7 @@
       zone3Name: '動態匯出按鈕', zone3Desc: '右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。',
       zone4Name: '狀態列與磁吸工具開關', zone4Desc: '左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關，可快速啟用或關閉智慧導線功能。',
       s2Label: 'Section 03', s2Title: '左側工具列', s2Sub: '所有標注工具一覽，點擊查看操作方式',
+      s2DictLabel: '標注工具字典 · Tools', s2DictSub: '二十四種工具，點任一個看操作方式與屬性。',
       grpSelect: '選取', grpDraw: '繪圖', grpAnnotate: '標注',
       grpPrivacy: '隱私與遮蔽', grpCanvas: '畫布操作', grpLayout: '版面功能', grpOther: '其他',
       t_select: '選取', t_boxselect: '框型選取', t_pen: '筆型', t_line: '線條',
