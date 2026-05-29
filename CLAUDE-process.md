@@ -288,3 +288,20 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `sitemap.xml` | 59 URLs, per-locale hreflang. Update on any new page (see § New Page Checklist) |
 | `km.md` | KM log — append immediately when a bug is resolved |
 | `GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
+
+---
+
+## SEO & Structured Data
+
+### JSON-LD `author` block (canonical)
+
+Used in every page's structured-data block. Values are canonical — see **README § Author / Project Identity**.
+
+```json
+"author": {
+  "@type": "Person",
+  "name": "Nova",
+  "email": "nova@yoursvas.app",
+  "sameAs": ["https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu"]
+}
+```

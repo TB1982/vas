@@ -53,8 +53,21 @@ This is a vanilla-JS static site, deployed via Cloudflare Pages from this GitLab
 
 ---
 
-## Author
+## Author / Project Identity
 
-**Nova** — nova@yoursvas.app
+Canonical values for author attribution and site metadata. Never invent alternatives.
 
-Site deployed via **Cloudflare Pages** from this **GitLab** repository. Built with **Claude Code**.
+| Field | Value |
+|-------|-------|
+| Author display name | Nova |
+| Author email | nova@yoursvas.app |
+| Project name (ZH) | 深握計畫 |
+| Project name (EN) | Deep Holding Project |
+| Site canonical URL | `https://yoursvas.app/` |
+| Copyright year | 2026– |
+| LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
+| Instagram | `https://www.instagram.com/liuyingtzu` |
+
+**Per-page canonical**: `https://yoursvas.app/<filename>` — strip `.html` (clean URL convention; Cloudflare Pages serves both).
+
+Site deployed via **Cloudflare Pages** from the **GitHub** repository (source of truth; mirrored to GitLab). Built with **Claude Code**.
