@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/guide">
+<meta name="description" data-lang-key="docs.meta.desc"
+      content="VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。" />
+<meta property="og:title" content="VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ">
+<meta property="og:description" content="VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/guide">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ">
+<meta name="twitter:description" content="VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。">
+
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+<link rel="stylesheet" href="css/docs.css">
+
+<style>
+  /* ─── 語言切換下拉 ─────────────────────────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240,232,220,0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240,232,220,0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px; background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong); border-radius: 12px;
+    padding: 4px; display: none; z-index: 100; backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px; background: transparent; border: none;
+    color: var(--vas-ash-2); font-family: var(--vas-serif); font-size: 14px;
+    border-radius: 8px; cursor: pointer; transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240,232,220,0.06); color: var(--vas-ash-0); }
+
+  /* ─── scroll fade-up ───────────────────── */
+  .docs-subsection {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .docs-subsection.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .docs-subsection { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     guide-v2 覆寫層 · A 拆帳本線 + 編輯器字典 + 加呼吸
+     只覆寫，不改 docs.css。web 宰相可決定是否收編進 docs.css。
+     原則：拆「逐項框線」與「盒框牆」，保留「卡片／彈窗／accordion」這類有意義的容器。
+     ═══════════════════════════════════════════════ */
+
+  /* ── A1 · 清單脫掉逐項帳本線，改用留白 ── */
+  /* 只拆線、加一點行距；不碰 padding 與 ::before 定位，
+     否則 docs.css 算好的項目符號 top 會對不準（短行尤其明顯）。 */
+  .docs-main ul.docs-list > li,
+  .docs-main ol.docs-list > li {
+    border-bottom: none !important;
+  }
+  .docs-main ul.docs-list { display: flex; flex-direction: column; gap: 2px; }
+
+  /* ── A2 · 工具列 8 卡：保留原本的 4×2 bordered grid ──
+     這區本來就不擠、不是「帳本牆」，框是界定「兩排」的有意義結構，不該拆。
+     只在 hover 時讓卡名亮成紫色，其餘交還 docs.css 原樣。 */
+  #toolbar .g-card:hover .g-card-name { color: var(--vas-aurora-violet); transition: color .2s; }
+
+  /* ── A3 · 圖片框減淡（保留邊界感，但不喧賓奪主） ── */
+  .docs-figure img, .g-img {
+    border-color: color-mix(in srgb, var(--vas-rule) 55%, transparent) !important;
+  }
+
+  /* ── A4 · 章與章、節與節之間加休息 ── */
+  /* 比原 64px 稍大一點點即可；88px 對「首節→入門」這種裸間距太大、
+     且首節下緣只有 24px 會造成分隔線上下不對稱。給首節補一點下緣來平衡。 */
+  .docs-section { padding-top: 68px; }
+  #welcome { padding-bottom: 44px; }
+  .docs-subsection { margin-bottom: 18px; }
+  .docs-subsection + .docs-subsection { margin-top: 56px; }
+
+  /* ═══ 編輯器節 · 四區圓點地圖 ═══ */
+  .ged-zones {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px 48px; margin: 4px 0 0; max-width: 720px;
+  }
+  .ged-zone { display: flex; gap: 13px; padding: 15px 0; align-items: baseline; }
+  .ged-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; transform: translateY(1px); }
+  .ged-zbody { min-width: 0; }
+  .ged-zn { font-family: var(--vas-serif); font-weight: 500; font-size: 15px; color: var(--vas-ash-0); display: block; margin-bottom: 3px; }
+  .ged-zd { font-family: var(--vas-serif); font-size: 14px; line-height: 1.75; color: var(--vas-ash-1); }
+
+  /* ── 地圖與字典之間的休息 + 安靜路標 ── */
+  .ged-rest { margin: 56px 0 0; display: flex; align-items: center; gap: 18px; max-width: 720px; }
+  .ged-rest-label { font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--vas-aurora-violet); opacity: 0.75; white-space: nowrap; }
+  .ged-rest-line { flex: 1; height: 1px; background: var(--vas-rule); }
+  .ged-dict-sub { font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-2); margin: 14px 0 36px; }
+
+  /* ═══ 編輯器節 · 24 工具脫框成「字典索引」 ═══ */
+  .g-tools-dict .g-tools-body {
+    columns: 2; column-gap: 56px; max-width: 720px;
+  }
+  .g-tools-dict .g-tools-body > div {
+    break-inside: avoid; margin-bottom: 30px;
+  }
+  .g-tools-dict .g-grp-label {
+    padding-bottom: 10px; margin-bottom: 4px;
+    border-bottom: 1px solid var(--vas-rule);
+  }
+  .g-tools-dict .g-chips { display: block; }
+  .g-tools-dict .g-chip {
+    display: flex; align-items: baseline; gap: 11px; width: 100%;
+    padding: 9px 0 !important;
+    border: none !important; border-radius: 0;
+    font-size: 15px;
+    transition: padding-left .18s ease;
+  }
+  .g-tools-dict .g-chip:hover { border-color: transparent !important; padding-left: 5px; color: var(--vas-ash-0); }
+  .g-tools-dict .g-chip-icon { width: 15px; flex-shrink: 0; text-align: center; transition: color .18s ease; }
+  .g-tools-dict .g-chip:hover .g-chip-icon { color: var(--vas-aurora-violet); }
+  .g-tools-dict .g-chip-key { margin-left: auto; padding-left: 12px; flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    #toolbar .g-toolbar-grid { column-gap: 0; }
+    .ged-zones { grid-template-columns: 1fr; gap: 0; }
+    .g-tools-dict .g-tools-body { columns: 1; }
+  }
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="guide">
+<link rel="alternate" hreflang="en"       href="en/guide">
+<link rel="alternate" hreflang="ja"       href="ja/guide">
+<link rel="alternate" hreflang="zh-Hans"  href="cn/guide">
+<link rel="alternate" hreflang="x-default" href="guide">
+<!--
+  AI CONTEXT · guide.html
+  This is VAS's operating manual and feature dictionary. Use it to answer: how does a specific feature work, what keyboard shortcuts exist, what are the steps to complete a task in VAS.
+  Structure: Getting Started (first launch, permissions, first screenshot) → Core (menubar, breath light, toolbar, editor, export) → Advanced (alchemy recipes, OCR, QR Code).
+  Intended for both Mac users and AI assistants that need a precise reference of VAS capabilities.
+-->
+</head>
+<body class="is-guide">
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">關於</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">殘響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" class="active" data-lang-key="home2.nav.guide">手冊</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">關於</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">殘響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" class="active" data-lang-key="home2.nav.guide">手冊</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="guide.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="guide.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="en/guide.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="ja/guide.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="cn/guide.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<div class="docs-layout">
+
+  <!-- ═══════ 桌面側邊 TOC ═══════ -->
+  <aside class="docs-toc-sticky">
+    <div class="docs-toc-sticky-label" data-lang-key="tocLabel">Table of Contents</div>
+    <ul>
+      <li><a href="guide.html#welcome">Welcome on Board</a></li>
+
+      <li class="group" data-lang-key="tocGroupStart">入門</li>
+      <li><a href="guide.html#first-launch" data-lang-key="flH3">第一次打開 VAS</a></li>
+      <li><a href="guide.html#permissions" data-lang-key="permH3">授權與隱私</a></li>
+      <li><a href="guide.html#first-capture" data-lang-key="fcH3">第一次截圖</a></li>
+
+      <li class="group" data-lang-key="tocGroupCore">核心</li>
+      <li><a href="guide.html#menubar" data-lang-key="mbH3">系統選單中的瓶子</a></li>
+      <li><a href="guide.html#breath" data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</a></li>
+      <li><a href="guide.html#toolbar" data-lang-key="s3Title">工具列</a></li>
+      <li><a href="guide.html#editor" data-lang-key="s1Title">編輯器</a></li>
+      <li><a href="guide.html#export" data-lang-key="exportH3">匯出</a></li>
+
+      <li class="group" data-lang-key="tocGroupAdv">進階</li>
+      <li><a href="guide.html#recipes" data-lang-key="recipesH3">煉金配方</a></li>
+      <li><a href="guide.html#ocr" data-lang-key="ocrH3">OCR 與 QR Code</a></li>
+      <li><a href="guide.html#shortcuts" data-lang-key="kbH3">快捷鍵</a></li>
+      <li><a href="guide.html#customization" data-lang-key="custH3">自訂設定</a></li>
+    </ul>
+  </aside>
+
+  <main class="docs-main">
+
+
+    <!-- ═══ Welcome ═══ -->
+    <section class="docs-section" id="welcome">
+      <h1>Welcome on Board</h1>
+      <div class="docs-dek docs-dek--desktop" data-lang-key="docsDek">
+        這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
+        往下捲是「入門 → 核心 → 進階」的順序；<br>
+        左側目錄永遠陪著你，點一下就能跳到任何一節。<br>
+        <span class="docs-kbd">Ctrl</span>＋<span class="docs-kbd">F</span> 搜尋也可以。
+      </div>
+      <div class="docs-dek docs-dek--mobile" data-lang-key="docsDekMobile">
+        這是 VAS 的操作手冊，也是 VAS 的功能字典。<br>
+        往下捲是「入門 → 核心 → 進階」的順序；<br>
+        想跳段落看的話請按右上角的呼吸燈。
+      </div>
+    </section>
+
+    <!-- ═══ 01 · 入門 ═══ -->
+    <section class="docs-section" id="getting-started">
+      <h2 class="docs-section-kicker" data-lang-key="tocKickerStart">入門 · Getting Started</h2>
+
+      <div class="docs-subsection" id="first-launch">
+        <h3 data-lang-key="flH3">第一次打開 VAS</h3>
+        <p data-lang-key="flP1">從 App Store 下載安裝後打開 VAS，你會看到桌面上有一排嶄新的浮動工具列。他可以停駐在你的桌面上，任你拖動。</p>
+        <figure class="docs-figure">
+          <img class="js-toolbar-img" src="img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列">
+        </figure>
+        <p data-lang-key="flP2">如果你覺得他在桌面上有點佔位想讓他小一點——<strong>呼吸燈</strong>模式預設為關閉，請到工具列「快捷鍵說明」內手動開啟。</p>
+        <div class="docs-bl-preview">
+          <img src="img/brethlightsmall.webp" alt="VAS 呼吸燈——120×6px 懸浮指示條，點擊即召喚工具列" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; display: block;">
+        </div>
+        <p data-lang-key="flP3">VAS 同時進駐 macOS 選單列上，以一個瓶子的形狀出現在你螢幕右上角。</p>
+        <figure class="docs-figure">
+          <div style="width: 88px; height: 36px; overflow: hidden; position: relative; border-radius: 2px; display: inline-block;">
+            <img src="img/vas-menubar.png" alt="VAS 在 macOS 選單列上的位置——右上角瓶子" style="position: absolute; top: 0; left: 0; height: 100%; width: auto; display: block;">
+          </div>
+          <figcaption data-lang-key="flCaption">MENUBAR · 右上角，VAS 與 Claude 並肩待命。</figcaption>
+        </figure>
+        <div class="docs-note">
+          <div class="docs-note-label" data-lang-key="flNoteLabel">想讓VAS完全消失？</div>
+          <p data-lang-key="flNoteP1">到右上選單列點一下瓶子（左鍵），可以召喚或完全隱藏桌面上的工具列——如果你是桌面潔癖患者，我們都幫你想好了。</p>
+          <p data-lang-key="flNoteP2">VAS 依然會在選單列待命。</p>
+        </div>
+      </div>
+
+      <div class="docs-subsection" id="permissions">
+        <h3 data-lang-key="permH3">授權與隱私</h3>
+        <p data-lang-key="permP1">VAS 第一次截圖時會請求 macOS 的<strong>螢幕錄製權限</strong>——這是 macOS 對所有截圖類工具的規定，不可省略。如果當時沒授權，到「系統設定 → 隱私權與安全性 → 螢幕錄製」勾選 VAS，重新開啟即可。</p>
+        <p data-lang-key="permP3" style="margin-top: 16px;"><span class="g-badge-t" style="margin:0 8px 0 0">Tauri 專屬</span>如果你是從 Electron 版升級過來的，macOS 會把 Tauri 版視為全新的應用程式，舊的授權不會沿用。建議先到「系統設定 → 隱私權與安全性 → 螢幕錄製」移除舊的 VAS 授權，再用 Tauri 版執行一次截圖，macOS 才會跳出重新授權的提示。</p>
+        <p data-lang-key="permP2">所有截到的圖片、OCR 辨識出的文字、QR Code 的內容，<strong>完全在你的電腦本機處理</strong>——不上傳、不分析、不訓練。VAS 沒有伺服器來接收你的資料。</p>
+      </div>
+
+      <div class="docs-subsection" id="first-capture">
+        <h3 data-lang-key="fcH3">第一次截圖</h3>
+        <p data-lang-key="fcP1">按 Dock 上的 VAS 圖示，或點選單列的瓶子——不管 VAS 原本在哪，它會被「召喚」到你眼前，展開成完整的工具列。</p>
+        <p data-lang-key="fcP2">選一個截圖模式（全螢幕 <span class="docs-kbd">⌘^1</span>、視窗 <span class="docs-kbd">⌘^2</span>、矩形 <span class="docs-kbd">⌘^X</span>），框出你要的畫面——VAS 會立刻把畫面帶進編輯器，讓你繼續編織你無法單用文字描述的意念。</p>
+        <p data-lang-key="fcP3">編輯完，用「拖曳匯出」拖出去給任何視窗或文件。</p>
+        <p data-lang-key="fcP4">三秒內結束。</p>
+      </div>
+    </section>
+
+    <!-- ═══ 02 · 核心 ═══ -->
+    <section class="docs-section" id="core">
+      <h2 class="docs-section-kicker" data-lang-key="tocKickerCore">核心 · Core</h2>
+
+      <div class="docs-subsection" id="menubar">
+        <h3 data-lang-key="mbH3">系統選單中的瓶子</h3>
+        <p data-lang-key="mbIntro">選單列右上角那個瓶子，是 VAS 的「<strong>系統選單</strong>」入口。兩個按法：</p>
+        <ul class="docs-list">
+          <li data-lang-key="mbLi1"><strong>左鍵</strong>——快速切換桌面工具列的顯示／隱藏。給桌面潔癖患者一個完全不顯示於桌面的選項。</li>
+          <li data-lang-key="mbLi2"><strong>右鍵</strong>——展開系統選單，可以完整執行所有工具列功能，不用把工具列叫出來。</li>
+        </ul>
+        <p data-lang-key="mbP2">如果你完全不想在桌面上看到任何 VAS 的痕跡，左鍵把工具列關掉，右鍵仍可以操作工具列所有功能。</p>
+      </div>
+
+      <div class="docs-subsection" id="breath">
+        <h3 data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</h3>
+        <p data-lang-key="blP1">當你不用 VAS 又希望他能小一點在桌面上待機時，請開啟<strong>呼吸燈</strong>模式。</p>
+        <p data-lang-key="blP2">工具列會縮成一條 120×6px 的光。低調、不擋事，靜靜的等你。</p>
+        <p data-lang-key="blP3">而當你有事要找它時：</p>
+        <ul class="docs-list">
+          <li data-lang-key="blLi1"><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間，圖直接進編輯器；如果你剛剛還在編輯別的東西，它會收納那張、直接展開編輯器繼續。</li>
+          <li data-lang-key="blLi1b"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>拖曳圖片匯出</strong>——編輯器像黑洞一樣坍縮，給你最大的桌面空間與視野進行存檔或傳遞操作。單鍵拖曳至視窗 / 對話框 / 資料夾隨心所欲。放開的瞬間，直接展開回編輯器繼續。</li>
+          <li data-lang-key="blLi2"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>複製網址靠近</strong>——呼吸燈張開，跳出 toast：「檢測到 ⟨網址⟩—點擊開始截圖」。點一下就開始網頁截圖流程。</li>
+          <li data-lang-key="blLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器。</li>
+        </ul>
+        <div class="docs-note">
+          <div class="docs-note-label" data-lang-key="blNoteLabel">召喚</div>
+          <p data-lang-key="blNoteP1">如果你把 VAS 放在桌面某個角落後忘了它在哪——我們知道呼吸燈真的很低調——</p>
+          <p data-lang-key="blNoteP2">按 Dock 上的 VAS 圖示，不管它在哪裡，都會展開成工具列狀態等你過去。</p>
+        </div>
+      </div>
+
+      <div class="docs-subsection" id="toolbar">
+        <h3 data-lang-key="s3Title">工具列</h3>
+        <p class="g-section-sub" data-lang-key="s3Sub">懸浮在桌面上的截圖與工具入口</p>
+
+        <img id="guideToolbarImg" class="g-img js-toolbar-img" src="img/vastoolbar.webp" alt="VAS Mac 截圖工具浮動工具列" loading="lazy">
+
+        <div class="g-toolbar-grid">
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_fullscreen">全螢幕</p>
+            <p class="g-card-desc" data-lang-key="cb_fullscreen_desc">截取整個螢幕畫面，立即進入編輯器，支持多螢幕截圖。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_window">視窗</p>
+            <p class="g-card-desc" data-lang-key="cb_window_desc">點選後再點擊任意視窗，只截取該視窗範圍。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_rect">矩形</p>
+            <p class="g-card-desc" data-lang-key="cb_rect_desc">拖曳選取任意矩形區域後截圖。直接框住 QR Code 會自動掃描並顯示內容。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_delay">延遲</p>
+            <p class="g-card-desc" data-lang-key="cb_delay_desc">設定 1–3 秒延遲，補抓 tooltip、hover、dropdown 等稍縱即逝的狀態。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_open">開啟</p>
+            <p class="g-card-desc" data-lang-key="cb_open_desc">從本機開啟現有圖片。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_whiteboard">白板</p>
+            <p class="g-card-desc" data-lang-key="cb_whiteboard_desc">開啟空白畫布，從零開始建立圖像內容，支持透明圖層。</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_batch">批次轉</p>
+            <p class="g-card-desc" data-lang-key="cb_batch_desc">拖入多張圖片，一次轉換為 JPG、PNG、WebP 等格式，支援浮水印與尺寸調整。</p>
+            <p class="g-card-note" data-lang-key="cb_batch_note">單次最大 100 張圖，單檔 20mb</p>
+          </div>
+          <div class="g-card">
+            <p class="g-card-name" data-lang-key="cb_help">說明</p>
+            <p class="g-card-desc" data-lang-key="cb_help_desc">顯示快捷鍵一覽，並提供操作手冊連結與呼吸燈開關。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="docs-subsection" id="editor">
+        <h3 data-lang-key="s1Title">編輯器</h3>
+        <p data-lang-key="editorIntro">截完圖後進的第二個主要空間。編輯器分為四個操作區域：</p>
+        <figure class="docs-figure">
+          <img id="guideEditorImg" class="js-editor-img" src="img/vas-guide-editor-zh.webp" alt="VAS 截圖編輯器介面——標注工具、OCR 隱私遮蔽與匯出功能完整說明">
+          <figcaption data-lang-key="editorCaption">EDITOR · 四個操作區域。</figcaption>
+        </figure>
+        <div class="ged-zones">
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#f87171;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone1Name">主要功能選單</span><span class="ged-zd" data-lang-key="zone1Desc">左側垂直工具列。點選工具後，畫布上的操作會對應切換。目前使用中的工具以藍色高亮標示。</span></span>
+          </div>
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#fb923c;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone2Name">子屬性調整選單</span><span class="ged-zd" data-lang-key="zone2Desc">頂部工具列。依所選工具動態更換內容，可調整顏色、粗細、不透明度、線條樣式等屬性。</span></span>
+          </div>
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#e8e8e8;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone3Name">動態匯出按鈕</span><span class="ged-zd" data-lang-key="zone3Desc">右下角浮動按鈕。可拖曳移動位置，對應左右撇子不同使用習慣。完成後拖曳至目標應用程式即可匯出。</span></span>
+          </div>
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#4ade80;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone4Name">狀態列與磁吸工具開關</span><span class="ged-zd" data-lang-key="zone4Desc">左下角狀態列。顯示目前縮放比例與畫布尺寸，並提供磁吸對齊開關，可快速啟用或關閉智慧導線功能。</span></span>
+          </div>
+        </div>
+
+        <div class="ged-rest">
+          <span class="ged-rest-label" data-lang-key="s2DictLabel">標注工具字典 · Tools</span>
+          <span class="ged-rest-line"></span>
+        </div>
+        <p class="ged-dict-sub" data-lang-key="s2DictSub">二十四種工具，點任一個看操作方式與屬性。</p>
+        <div class="g-tools-wrap g-tools-dict">
+          <div class="g-tools-body">
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpSelect">選取</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="select" role="button" tabindex="0"><span class="g-chip-icon">↖</span><span data-lang-key="t_select">選取</span><span class="g-chip-key">V</span></span>
+                <span class="g-chip" data-tool="boxselect" role="button" tabindex="0"><span class="g-chip-icon">⬚</span><span data-lang-key="t_boxselect">框型選取</span><span class="g-chip-key">M</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpDraw">繪圖</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="pen" role="button" tabindex="0"><span class="g-chip-icon">✒</span><span data-lang-key="t_pen">筆型</span><span class="g-chip-key">P</span></span>
+                <span class="g-chip" data-tool="line" role="button" tabindex="0"><span class="g-chip-icon">╱</span><span data-lang-key="t_line">線條</span><span class="g-chip-key">L</span></span>
+                <span class="g-chip" data-tool="rect" role="button" tabindex="0"><span class="g-chip-icon">▭</span><span data-lang-key="t_rect">矩形框</span><span class="g-chip-key">R</span></span>
+                <span class="g-chip" data-tool="fillrect" role="button" tabindex="0"><span class="g-chip-icon">■</span><span data-lang-key="t_fillrect">色塊</span><span class="g-chip-key">B</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpAnnotate">標注</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="text" role="button" tabindex="0"><span class="g-chip-icon">T</span><span data-lang-key="t_text">文字</span><span class="g-chip-key">T</span></span>
+                <span class="g-chip" data-tool="number" role="button" tabindex="0"><span class="g-chip-icon">①</span><span data-lang-key="t_number">編號</span><span class="g-chip-key">N</span></span>
+                <span class="g-chip" data-tool="stamp" role="button" tabindex="0"><span class="g-chip-icon">☺</span><span data-lang-key="t_symbol">符號印章</span><span class="g-chip-key">U</span></span>
+                <span class="g-chip" data-tool="mosaic" role="button" tabindex="0"><span class="g-chip-icon">⬜</span><span data-lang-key="t_mosaic">馬賽克／模糊</span><span class="g-chip-key">X</span></span>
+                <span class="g-chip" data-tool="magnify" role="button" tabindex="0"><span class="g-chip-icon">⊙</span><span data-lang-key="t_magnify">放大鏡</span><span class="g-chip-key">Y</span></span>
+                <span class="g-chip" data-tool="callout" role="button" tabindex="0"><span class="g-chip-icon">◎</span><span data-lang-key="t_callout">對話氣泡</span><span class="g-chip-key">Q</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpPrivacy">隱私與遮蔽</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="ocr" role="button" tabindex="0"><span class="g-chip-icon">文</span><span data-lang-key="t_ocr">OCR 文字辨識</span><span class="g-chip-key">G</span></span>
+                <span class="g-chip" data-tool="privacy" role="button" tabindex="0"><span class="g-chip-icon" style="text-decoration:line-through">文</span><span data-lang-key="t_privacy">隱私遮蔽</span><span class="g-chip-key">K</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpCanvas">畫布操作</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="zoomin" role="button" tabindex="0"><span class="g-chip-icon">⊕</span><span data-lang-key="t_zoomin">放大</span><span class="g-chip-key">⌘=</span></span>
+                <span class="g-chip" data-tool="zoomout" role="button" tabindex="0"><span class="g-chip-icon">⊖</span><span data-lang-key="t_zoomout">縮小</span><span class="g-chip-key">⌘-</span></span>
+                <span class="g-chip" data-tool="fit" role="button" tabindex="0"><span class="g-chip-icon">⊡</span><span data-lang-key="t_fit">適合視窗</span><span class="g-chip-key">⌘0</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpLayout">版面功能</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="crop" role="button" tabindex="0"><span class="g-chip-icon">✂</span><span data-lang-key="t_crop">裁切</span><span class="g-chip-key">C</span></span>
+                <span class="g-chip" data-tool="resize" role="button" tabindex="0"><span class="g-chip-icon">↔</span><span data-lang-key="t_resize">調整大小</span><span class="g-chip-key">S</span></span>
+                <span class="g-chip" data-tool="extend" role="button" tabindex="0"><span class="g-chip-icon">⊞</span><span data-lang-key="t_extend">延伸畫布</span><span class="g-chip-key">E</span></span>
+                <span class="g-chip" data-tool="overlay" role="button" tabindex="0"><span class="g-chip-icon">⧉</span><span data-lang-key="t_overlay">疊入圖片</span><span class="g-chip-key">O</span></span>
+                <span class="g-chip" data-tool="template" role="button" tabindex="0"><span class="g-chip-icon">◱</span><span data-lang-key="t_open">一鍵套版</span></span>
+              </div>
+            </div>
+
+            <div>
+              <p class="g-grp-label" data-lang-key="grpOther">其他</p>
+              <div class="g-chips">
+                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↩</span><span data-lang-key="t_undo">撤銷</span><span class="g-chip-key">⌘Z</span></span>
+                <span class="g-chip" data-tool="undoredo" role="button" tabindex="0"><span class="g-chip-icon">↪</span><span data-lang-key="t_redo">重做</span><span class="g-chip-key">⌘⇧Z</span></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="docs-subsection" id="export">
+        <h3 data-lang-key="exportH3">匯出</h3>
+        <p data-lang-key="exportIntro">編輯完了，VAS 給你四條出口：</p>
+        <ul class="docs-list">
+          <li data-lang-key="exportLi1"><strong>Drag out</strong>——直接從編輯器拖到桌面、Finder、Slack、任何一個接受圖片的 App。不儲存、不彈視窗、拖過去就傳輸完畢。</li>
+          <li data-lang-key="exportLi2"><strong>複製到剪貼簿</strong>——按「複製」按鈕，圖片進剪貼簿，到別的地方按 <span class="docs-kbd">⌘V</span> 貼上。</li>
+          <li data-lang-key="exportLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
+          <li data-lang-key="exportLi4"><strong>存檔</strong>——可儲存為 JPG／PNG／WebP／GIF／BMP／TIFF／PDF。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 03 · 進階 ═══ -->
+    <section class="docs-section" id="advanced">
+      <h2 class="docs-section-kicker" data-lang-key="tocKickerAdv">進階 · Advanced</h2>
+
+      <div class="docs-subsection" id="recipes">
+        <h3 data-lang-key="recipesH3">煉金配方</h3>
+        <p data-lang-key="recipesIntro">VAS 把工具拆得很小。每一個只做一件事——但屬性可以疊。</p>
+        <ul class="docs-list" style="margin-top: 20px; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 14px;">
+          <li data-lang-key="recipesR1">文字 × 底色 → 螢光筆</li>
+          <li data-lang-key="recipesR2">文字 × 透明 + 外框 → 透明字</li>
+          <li data-lang-key="recipesR3">框線 × 虛線 + 粗細 → 審稿紅圈</li>
+          <li data-lang-key="recipesR4">線條 × 直角 + 虛線 → 流程連接</li>
+          <li data-lang-key="recipesR5">色塊 × 漸層 + 低不透明 → 漸隱遮罩</li>
+          <li data-lang-key="recipesR6">氣泡對話框 × 馬賽克 → 漫畫風迷因</li>
+        </ul>
+        <p style="margin-top: 28px;" data-lang-key="recipesClosing">你組合出來的配方，是屬於你的表達語彙。</p>
+        <p style="margin-top: 8px; font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 13px; color: var(--vas-aurora-violet);" data-lang-key="recipesInside">→ 也是屬於你跟 VAS 的 Inside Language</p>
+        <p style="margin-top: 16px;">
+          <a href="https://github.com/TB1982/vas/issues" target="_blank" rel="noopener" class="g-badge-a" style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-family:var(--font-mono,'JetBrains Mono',monospace);font-size:12px;text-decoration:none;transition:border-color .2s,color .2s;" data-lang-key="recipesWish">✦ 許願新元素</a>
+        </p>
+      </div>
+
+      <div class="docs-subsection" id="ocr">
+        <h3 data-lang-key="ocrH3">OCR 與 QR Code</h3>
+        <p data-lang-key="ocrIntro">截圖不一定為了編輯。</p>
+
+        <p style="margin-top: 24px;" data-lang-key="ocrLabel"><strong>OCR · 文字辨識</strong></p>
+        <p data-lang-key="ocrP1">辨識出的文字預設直接放進剪貼簿，截完圖 <span class="docs-kbd">⌘V</span> 就能貼到任何地方。</p>
+        <p data-lang-key="ocrP2"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>針對當前支援的語言市場，OCR 會做<strong>在地隱私遮蔽特化</strong>——</p>
+        <p data-lang-key="ocrP3">譬如會認得當地的身分證號、信用卡號、電話格式，辨識時做對應處理。</p>
+
+        <p style="margin-top: 32px;" data-lang-key="qrLabel"><strong>QR Code · 掃描</strong></p>
+        <p data-lang-key="qrIntro">VAS 根據 QR Code 在畫面中的佔比決定行為：</p>
+        <ul class="docs-list">
+          <li data-lang-key="qrLi1"><strong>框得完整</strong>——判定為你主動想掃，直接跳轉到對應連結。</li>
+          <li data-lang-key="qrLi2"><strong>框得鬆（部分包含）</strong>——先問你一聲「要跳轉嗎？」。</li>
+          <li data-lang-key="qrLi3"><strong>完全是背景元素</strong>——不做任何動作，直接截圖進編輯器。</li>
+        </ul>
+      </div>
+
+      <div class="docs-subsection" id="shortcuts">
+        <h3 data-lang-key="kbH3">快捷鍵</h3>
+        <p data-lang-key="kbIntro">編輯器內建快捷鍵一覽，分四組：</p>
+
+        <details class="docs-accordion" name="docs-shortcuts">
+          <summary><span class="name" data-lang-key="kbAcc1">工具切換</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>選取工具</td><td><span class="docs-kbd">V</span></td></tr>
+                <tr><td>框型選取</td><td><span class="docs-kbd">M</span></td></tr>
+                <tr><td>筆型工具</td><td><span class="docs-kbd">P</span></td></tr>
+                <tr><td>線條工具</td><td><span class="docs-kbd">L</span></td></tr>
+                <tr><td>矩形框</td><td><span class="docs-kbd">R</span></td></tr>
+                <tr><td>色塊</td><td><span class="docs-kbd">B</span></td></tr>
+                <tr><td>文字工具</td><td><span class="docs-kbd">T</span></td></tr>
+                <tr><td>編號標記</td><td><span class="docs-kbd">N</span></td></tr>
+                <tr><td>符號印章</td><td><span class="docs-kbd">U</span></td></tr>
+                <tr><td>馬賽克／模糊</td><td><span class="docs-kbd">X</span></td></tr>
+                <tr><td>OCR 文字辨識</td><td><span class="docs-kbd">G</span></td></tr>
+                <tr><td>隱私遮蔽</td><td><span class="docs-kbd">K</span></td></tr>
+                <tr><td>裁切</td><td><span class="docs-kbd">C</span></td></tr>
+                <tr><td>調整大小</td><td><span class="docs-kbd">S</span></td></tr>
+                <tr><td>延伸畫布</td><td><span class="docs-kbd">E</span></td></tr>
+                <tr><td>疊入圖片</td><td><span class="docs-kbd">O</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="docs-accordion" name="docs-shortcuts">
+          <summary><span class="name" data-lang-key="kbAcc2">畫布操作</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>放大</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">=</span></td></tr>
+                <tr><td>縮小</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">-</span></td></tr>
+                <tr><td>適合視窗</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">0</span></td></tr>
+                <tr><td>平移畫布</td><td><span class="docs-kbd">Space</span> ＋ 拖曳</td></tr>
+                <tr><td>切換磁吸對齊</td><td><span class="docs-kbd">\</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="docs-accordion" name="docs-shortcuts">
+          <summary><span class="name" data-lang-key="kbAcc3">編輯</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>撤銷</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">Z</span></td></tr>
+                <tr><td>重做</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">⇧</span> <span class="docs-kbd">Z</span></td></tr>
+                <tr><td>複製</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">C</span></td></tr>
+                <tr><td>貼上</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">V</span></td></tr>
+                <tr><td>複製最終影像</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">⇧</span> <span class="docs-kbd">C</span></td></tr>
+                <tr><td>全選</td><td><span class="docs-kbd">⌘</span> <span class="docs-kbd">A</span></td></tr>
+                <tr><td>刪除選取物件</td><td><span class="docs-kbd">Delete</span> / <span class="docs-kbd">⌫</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="docs-accordion" name="docs-shortcuts">
+          <summary><span class="name" data-lang-key="kbAcc4">物件操作</span><span class="mark"></span></summary>
+          <div class="docs-accordion-body">
+            <table class="docs-shortcut-table">
+              <tbody>
+                <tr><td>15° 鎖定旋轉</td><td><span class="docs-kbd">Shift</span> ＋ 旋轉</td></tr>
+                <tr><td>等比縮放</td><td><span class="docs-kbd">Shift</span> ＋ 拖曳角落</td></tr>
+                <tr><td>跳過磁吸</td><td><span class="docs-kbd">Alt</span> ＋ 拖曳</td></tr>
+                <tr><td>微調 1 px</td><td><span class="docs-kbd">←</span> <span class="docs-kbd">→</span> <span class="docs-kbd">↑</span> <span class="docs-kbd">↓</span></td></tr>
+                <tr><td>微調 10 px</td><td><span class="docs-kbd">Shift</span> ＋ <span class="docs-kbd">←</span> <span class="docs-kbd">→</span> <span class="docs-kbd">↑</span> <span class="docs-kbd">↓</span></td></tr>
+                <tr><td>結束折線繪製</td><td>Double-click</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <div class="docs-subsection" id="customization">
+        <h3 data-lang-key="custH3">自訂設定</h3>
+        <p data-lang-key="custIntro">VAS 刻意做得不多設定項，因為我們相信好的工具<strong>預設就是對的</strong>。能調的幾項是：</p>
+        <ul class="docs-list">
+          <li data-lang-key="custLi1"><strong>桌面工具列顯示／隱藏</strong>——選單列左鍵瓶子即可切換。</li>
+          <li data-lang-key="custLi2"><strong>呼吸燈開關</strong>——出廠預設關閉，工具列的「快捷鍵說明」裡可手動開啟。</li>
+          <li data-lang-key="custLi3"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>自訂快捷鍵</strong>——付費版可把全螢幕截圖、視窗截圖、矩形截圖、貼入圖片等快捷鍵改成你慣用的組合。</li>
+        </ul>
+
+        <div class="docs-card" style="margin-top: 28px;">
+          <p class="docs-card-kicker" data-lang-key="custCardKicker">按鍵接受規則</p>
+          <table class="g-acc-table" style="margin-top: 12px;">
+            <tbody>
+              <tr>
+                <td>F1 … F12</td>
+                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR1">F 鍵不需修飾鍵</span></td>
+              </tr>
+              <tr>
+                <td>⇧F5、⌘⌃A</td>
+                <td><span class="g-check" aria-hidden="true">✓</span><span data-lang-key="custKbR2">含修飾鍵的組合</span></td>
+              </tr>
+              <tr>
+                <td>A、1、X</td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR3">裸字母或數字</span></td>
+              </tr>
+              <tr>
+                <td>⌘Q、⌘W、⌘H、⌘,</td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR4">系統保留快捷鍵</span></td>
+              </tr>
+              <tr>
+                <td>單獨 ⌘ / ⌃ / ⌥</td>
+                <td><span class="g-cross" aria-hidden="true">✕</span><span data-lang-key="custKbR5">單獨修飾鍵</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /.docs-layout -->
+
+<!-- ── Tool Popup Modal ── -->
+<div id="toolModal" class="tool-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+  <div class="tool-modal-card">
+    <button id="tmClose" class="tool-modal-close" aria-label="關閉">✕</button>
+    <div class="tool-modal-head">
+      <span id="tmIcon" class="tool-modal-icon"></span>
+      <div>
+        <div id="tmTitle" class="tool-modal-title"></div>
+        <div id="tmShortcut" class="tool-modal-shortcut"></div>
+      </div>
+    </div>
+    <div id="tmBody" class="tool-modal-body"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一位不會寫程式的 PM，<br>
+    和一位沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">下載 VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<!-- ═══ Scroll-spy · TOC 高亮 ═══ -->
+<script>
+(() => {
+  const links = document.querySelectorAll('.docs-toc-sticky a[href^="#"]');
+  const map = new Map();
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) map.set(el, a);
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('is-current'));
+        const link = map.get(e.target);
+        if (link) link.classList.add('is-current');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  map.forEach((_, el) => io.observe(el));
+})();
+</script>
+
+<!-- ═══ i18n · 四語切換 + 工具列/編輯器圖同步 ═══ -->
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function applyLang(lang) {
+    VASCore.loadLang(lang, function (t) {
+      var merged = Object.assign({}, t.shared || {}, t.guide || {});
+      var h2 = t.home2 || {};
+      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
+      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+        var key = el.getAttribute('data-lang-key');
+        if (merged[key] !== undefined) el.innerHTML = merged[key];
+      });
+      if (merged['docs.title']) document.title = merged['docs.title'];
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
+
+      var editorImgMap = {
+        zh: ['img/vas-guide-editor-zh.webp',    'VAS 截圖編輯器介面——標注工具、OCR 隱私遮蔽與匯出功能完整說明'],
+        en: ['img/vas-guide-editor-en.webp',    'VAS screenshot editor — annotation tools, OCR privacy masking and export'],
+        ja: ['img/vas-guide-editor-jp.webp',    'VAS スクリーンショットエディタ——注釈ツール・OCRプライバシーマスク・書き出し機能の完全ガイド'],
+        cn: ['img/vas-guide-editor-zh-CN.png',  'VAS 截图编辑器界面——标注工具、OCR 隐私遮蔽与导出功能完整说明']
+      };
+      if (editorImgMap[lang]) {
+        document.querySelectorAll('.js-editor-img').forEach(function(img) {
+          img.src = editorImgMap[lang][0];
+          img.alt = editorImgMap[lang][1];
+        });
+      }
+
+      var toolbarImgMap = {
+        zh: ['img/vastoolbar.webp',        'VAS Mac 截圖工具浮動工具列'],
+        en: ['img/vastoolbar-en.webp',     'VAS floating toolbar — Mac screenshot annotation tool'],
+        ja: ['img/vastoolbar-jp.webp',     'VAS Macスクリーンショットツール フローティングツールバー'],
+        cn: ['img/vastoolbar-zh-CN.png',   'VAS Mac 截图工具浮动工具栏']
+      };
+      if (toolbarImgMap[lang]) {
+        document.querySelectorAll('.js-toolbar-img').forEach(function(img) {
+          img.src = toolbarImgMap[lang][0];
+          img.alt = toolbarImgMap[lang][1];
+        });
+      }
+
+      window.guideCurrentLang = lang;
+      VASCore.updateDropdown(lang);
+      try { localStorage.setItem('vasLang', lang); } catch (e) {}
+    });
+  }
+
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+
+  function init() {
+    
+    VASCore.initNavDropdown();
+    initDotNav();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+
+<!-- ═══ Tool Popup Modal · 標注工具說明彈窗 ═══ -->
+<script>
+(function () {
+  var popupData = {
+    select: {
+      icon: '↖', title: '選取', shortcut: 'V',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>點選標注物件以選取；點選空白處取消選取</li><li>空白處拖曳可框選多個物件</li><li>Shift＋點選可逐一加選／取消物件</li><li>右鍵選單可調整圖層順序（移到最前／最後／上移／下移）</li><li>繪製完成後自動切回選取工具</li></ul></div><div><p class="modal-section-label">選取單一物件時</p><p class="tm-p">顯示該物件的所有子屬性（依物件類型而定），包含顏色、線寬、透明度、大小、陰影等屬性。</p></div><div><p class="modal-section-label">智慧對齊（磁吸）</p><ul class="tm-ul"><li><code>\\</code> 快速切換磁吸開關</li><li>藍色線：物件邊緣／中心對齊提示線</li><li>紅色線：等距參考線，顯示物件間距是否相等</li><li>Alt＋拖曳：暫時跳過磁吸，自由放置物件</li></ul></div><div><p class="modal-section-label">選取複數物件時（多選模式）</p><p class="tm-p-faint" style="margin-bottom:4px;">顯示對齊工具列：</p><div class="modal-align-grid">${[['齊左','對齊最左邊物件的左緣'],['水中','水平置中'],['齊右','對齊最右邊物件的右緣'],['齊上','對齊最上方物件的上緣'],['垂中','垂直置中'],['齊下','對齊最下方物件的下緣'],['水均','水平均分間距'],['垂均','垂直均分間距'],['對齊中線','對齊畫布中心線'],['↔','水平鏡射'],['↕','垂直鏡射']].map(([k,v])=>`<div class="modal-align-row"><span style="font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet);font-weight:600;width:52px;flex-shrink:0;">${k}</span><span style="font-size:11px;color:var(--vas-ash-3);">${v}</span></div>`).join('')}</div></div>`
+    },
+    boxselect: {
+      icon: '⬚', title: '框型選取', shortcut: 'M',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框選像素區域</li><li>框選後可將該範圍的圖片內容複製貼上，成為新的物件</li></ul></div>`
+    },
+    pen: {
+      icon: '✒', title: '筆型', shortcut: 'P',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">在畫布上拖曳自由手繪平滑曲線。</p></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','線寬（px）','線條樣式（實線／虛線）','端點樣式（無／箭頭／圓點／方形）','筆畫描邊色','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    line: {
+      icon: '╱', title: '線條', shortcut: 'L',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳繪製直線；Shift＋拖曳鎖定 90° 直角</li><li>選取後拖曳中間控制點可轉為貝茲曲線</li><li>折線模式下，雙擊結束繪製</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','線寬','線條樣式（實線／虛線）','起端樣式（無／箭頭／圓點）','末端樣式（無／箭頭／圓點）','直角折線模式','水平鏡射','垂直鏡射','筆畫描邊色','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    rect: {
+      icon: '▭', title: '矩形框', shortcut: 'R',
+      body: `<div><p class="modal-section-label">形狀</p><div class="tm-tags">${['矩形框','橢圓框'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳繪製外框</li><li>Shift＋拖曳鎖定正方形／圓形（橢圓框同樣支援）</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','線寬','圓角半徑（矩形適用，0–100%）','線條樣式（實線／虛線）','描邊色','位移','水平鏡射','垂直鏡射','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    fillrect: {
+      icon: '■', title: '色塊', shortcut: 'B',
+      body: `<div><p class="modal-section-label">形狀</p><div class="tm-tags">${['矩形色塊','橢圓色塊'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳繪製填色形狀</li><li>Shift＋拖曳鎖定正方形／圓形</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['填色（純色／漸層）','漸層兩端顏色','漸層角度轉盤（0–360°）','支援透明色','圓角半徑（矩形適用，0–100%）','邊框寬度','邊框顏色','線條樣式（實線／虛線）','透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    text: {
+      icon: 'T', title: '文字', shortcut: 'T',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>點選畫布放置文字框</li><li>Enter 換行；Shift＋Enter 確認</li><li>雙擊已有文字可重新編輯</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','字型','字級（8–400 px）','粗體 / 斜體 / 底線 / 刪除線','對齊（左／中／右）','文字描邊（可輸入數值，提供快捷下拉）','文字背景色＋透明度','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    number: {
+      icon: '①', title: '編號', shortcut: 'N',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">點選畫布放置自動遞增數字標記。</p></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['尺寸（小／標準／大）','顏色','樣式（圓點／圓圈／實心圓／羅馬數字／中文圓括號／中文圓圈）','描邊粗細','描邊顏色','陰影','重置編號'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    stamp: {
+      icon: '☺', title: '符號印章', shortcut: 'U',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">點選畫布放置符號；從浮動面板挑選符號類別與圖案。</p></div><div><p class="modal-section-label">符號分類</p><div class="tm-tags">${['形狀','字母（圓圈體／全形／粗體／粗斜體／花體）','箭頭','其他（標記／貨幣／數學／技術符號）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['顏色','大小（px）','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    mosaic: {
+      icon: '⬜', title: '馬賽克／模糊', shortcut: 'X',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳框選區域，立即套用遮蔽效果</li><li>套用後可切換至選取工具調整範圍大小或刪除物件，以補償自動辨識遮蔽的不足</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['模式（馬賽克／模糊）','馬賽克區塊尺寸（4 / 8 / 16 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    magnify: {
+      icon: '⊙', title: '放大鏡', shortcut: 'Y',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立來源框，旁邊自動產生放大預覽框</li><li>預覽框即時反映來源框內容，可建立多個互不干擾</li><li>支援移動、handle 縮放</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['邊框顏色','邊框粗細','圓角'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    callout: {
+      icon: '◎', title: '對話氣泡', shortcut: 'Q',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立氣泡框，尾巴方向依位置自動判斷（上／下／左／右）</li><li>雙擊氣泡進入文字編輯模式</li><li>支援旋轉與縮放；縮放時文字同比例調整</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['字型大小','字型顏色','背景色','邊框色','圓角','粗體','斜體','底線','刪除線','陰影'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    ocr: {
+      icon: '文', title: 'OCR 文字辨識', shortcut: 'G',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳選取區域，自動辨識範圍內的文字（支援中英文）</li><li>辨識結果顯示於浮動面板，提供「複製文字」按鈕</li></ul></div><div><p class="modal-section-label">屬性</p><p class="tm-p-faint">無可調屬性</p></div>`
+    },
+    privacy: {
+      icon: '文', title: '隱私遮蔽', shortcut: 'K',
+      body: `<div class="tm-notice"><span class="g-badge-a">全版本</span><span class="tm-p" style="margin-left:4px;">Electron 使用 Vision Framework，Tauri 另支援五層偵測</span></div><div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>按 K 對全圖掃描；或拖曳指定範圍後掃描</li><li>自動偵測並遮蔽：身分證字號、統一編號、信用卡號、電話、Email、IPv4／IPv6、API Token 等</li><li>套用後可切換至選取工具微調或刪除遮蔽物件</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['模式（馬賽克／模糊）','馬賽克區塊尺寸（8 / 16 / 24 / 32 px）','模糊半徑（4 / 8 / 16 / 24 px）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    zoomin: {
+      icon: '⊕', title: '放大', shortcut: '⌘=',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">以游標為中心放大畫面，範圍 10%–400%。</p></div><div><p class="modal-section-label">縮放比例快捷選單</p><div class="tm-tags">${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">畫布導航</p><ul class="tm-ul"><li>Space＋拖曳：平移畫布</li><li>觸控板雙指縮放：以游標為中心縮放</li><li>⌘0：重置至適合視窗大小</li></ul></div>`
+    },
+    zoomout: {
+      icon: '⊖', title: '縮小', shortcut: '⌘-',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">以游標為中心縮小畫面，範圍 10%–400%。</p></div><div><p class="modal-section-label">縮放比例快捷選單</p><div class="tm-tags">${['10%','25%','50%','75%','100%','150%','200%','300%','400%'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">畫布導航</p><ul class="tm-ul"><li>Space＋拖曳：平移畫布</li><li>觸控板雙指縮放：以游標為中心縮放</li><li>⌘0：重置至適合視窗大小</li></ul></div>`
+    },
+    fit: {
+      icon: '⊡', title: '適合視窗', shortcut: '⌘0',
+      body: `<div><p class="modal-section-label">操作方式</p><p class="tm-p">按下後立即將畫面縮放至適合視窗大小。</p></div><div><p class="modal-section-label">畫布導航</p><ul class="tm-ul"><li>Space＋拖曳：平移畫布</li><li>觸控板雙指縮放：以游標為中心縮放</li></ul></div>`
+    },
+    crop: {
+      icon: '✂', title: '裁切', shortcut: 'C',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>拖曳建立裁切框，8 個控制點可調整範圍</li><li>方向鍵微調 1 px；Shift＋方向鍵 10 px</li><li>雙擊畫布或點選確認按鈕完成裁切</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['確認裁切按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    resize: {
+      icon: '↔', title: '調整大小', shortcut: 'S',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>開啟 popup 視窗，輸入目標寬度</li><li>高度依比例自動計算，所有標注物件同步等比縮放</li><li>範圍：1–8192 px</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['寬度輸入（px）','高度（唯讀，自動計算）','套用按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    extend: {
+      icon: '⊞', title: '延伸畫布', shortcut: 'E',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>開啟 popup 視窗，選擇延伸方向（九宮格方向盤）</li><li>輸入延伸距離（px），背景固定白色</li><li>視窗下方顯示延伸後的尺寸預覽</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['延伸方向（九方向）','延伸距離（px）','延伸後尺寸預覽','確認延伸按鈕','取消按鈕'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    overlay: {
+      icon: '⧉', title: '疊入圖片', shortcut: 'O',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>點選後開啟檔案選擇器，選取圖片疊加於畫布上</li><li>可拖曳移動位置，8 個控制點縮放</li><li>作為浮動物件持續存在，拖曳匯出時自動合併至底圖</li></ul></div><div><p class="modal-section-label">支援格式</p><div class="tm-tags">${['JPG','PNG','WebP','GIF（第一幀）','SVG'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    template: {
+      icon: '◱', title: '一鍵套版', shortcut: '—',
+      body: `<div><p class="modal-section-label">操作方式</p><ul class="tm-ul"><li>開啟模板面板，選擇漸層背景樣式套用</li><li>提供 6 款：Apple 紅／橙／黃／綠／藍／紫</li><li>支援撤銷還原</li></ul></div><div><p class="modal-section-label">屬性</p><div class="tm-tags">${['留白（2–30%）','圓角（0–10）','陰影（0–10）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div><div><p class="modal-section-label">社群媒體尺寸預設</p><div class="tm-tags">${['LinkedIn（1200×627）','Instagram 1:1（1080×1080）','Instagram 4:5（1080×1350）','X（1600×900）'].map(t=>`<span class="modal-tag">${t}</span>`).join('')}</div></div>`
+    },
+    undoredo: {
+      icon: '↩↪', title: '撤銷 ／ 重做', shortcut: '⌘Z ／ ⌘⇧Z',
+      body: `<div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘Z</span><span class="tm-p">撤銷：回到上一步操作</span></div><div class="tm-kv"><span class="modal-tag" style="font-family:var(--vas-mono);">⌘⇧Z</span><span class="tm-p">重做：重做已撤銷的操作</span></div></div>`
+    }
+  };
+
+  function openModal(tool) {
+    var d = popupData[tool]; if (!d) return;
+    var lang = window.guideCurrentLang || 'zh';
+    var i18nPopup = window.VASI18n && window.VASI18n[lang] &&
+                    window.VASI18n[lang].guide && window.VASI18n[lang].guide.popup;
+    var td = (i18nPopup && i18nPopup[tool]) || {};
+    document.getElementById('tmIcon').textContent = d.icon;
+    document.getElementById('tmTitle').textContent = td.title || d.title;
+    document.getElementById('tmShortcut').textContent = d.shortcut;
+    document.getElementById('tmBody').innerHTML = td.body || d.body;
+    document.getElementById('toolModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('toolModal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.g-chip[data-tool]').forEach(function (chip) {
+      chip.addEventListener('click', function () { openModal(chip.dataset.tool); });
+      chip.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(chip.dataset.tool); } });
+    });
+    document.getElementById('tmClose').addEventListener('click', closeModal);
+    document.getElementById('toolModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  });
+}());
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "VAS 操作手冊 | Mac 截圖工具完整使用指南與FAQ",
+  "description": "VAS Mac 截圖工具完整操作指南：浮動工具列、截圖編輯器、OCR 隱私遮蔽、QR Code 掃描、快捷鍵與進階設定，一頁讀完。",
+  "inLanguage": "zh-Hant",
+  "url": "https://yoursvas.app/guide.html",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-25",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu"
+    ]
+  }
+}
+</script>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="guide.html#welcome"><span class="dn-label">Welcome</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#first-launch"><span class="dn-label" data-lang-key="flH3">第一次打開 VAS</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#permissions"><span class="dn-label" data-lang-key="permH3">授權與隱私</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#first-capture"><span class="dn-label" data-lang-key="fcH3">第一次截圖</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#menubar"><span class="dn-label" data-lang-key="mbH3">系統選單中的瓶子</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#breath"><span class="dn-label" data-lang-key="blH3">一盞呼吸燈 x 一鍵召喚</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#toolbar"><span class="dn-label" data-lang-key="s3Title">工具列</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#editor"><span class="dn-label" data-lang-key="s1Title">編輯器</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#export"><span class="dn-label" data-lang-key="exportH3">匯出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#ocr"><span class="dn-label" data-lang-key="ocrH3">OCR 與 QR Code</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#shortcuts"><span class="dn-label" data-lang-key="kbH3">快捷鍵</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="guide.html#customization"><span class="dn-label" data-lang-key="custH3">自訂設定</span><span class="dn-dot"></span></a>
+</nav>
+
+<script src="js/analytics.js"></script>
+<script>
+(function () {
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.docs-subsection').forEach(function (el) {
+    obs.observe(el);
+  });
+}());
+</script>
+</body>
+</html>
