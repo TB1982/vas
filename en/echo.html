@@ -235,6 +235,15 @@
   }
 }
 </script>
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
 <script src="../js/analytics.js"></script>
 </body>
 </html>
