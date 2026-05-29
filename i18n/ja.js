@@ -437,9 +437,9 @@
       'ch1.sec.04.preview':   'あなたがいるその場所で、そのまま撮る',
       'ch1.sec.05.name':      '土台のロジック',
       'ch1.sec.05.preview':   '新機能よりも大切なこと',
-      'ch1.passage.end':      '章 I · 設計 ·&nbsp;終',
-      'ch1.passage.end.en':   'Chapter I · Design · End',
-      'ch1.passage.next.num': 'II · 協作',
+      'ch1.passage.end':      '頁一 · 設計 ·&nbsp;終',
+      'ch1.passage.end.en':   'Page I · Design · End',
+      'ch1.passage.next.num': '頁二',
       'ch1.passage.next.name':'六つの物語'
     },
     collab: {
@@ -961,10 +961,10 @@
       ch2s7Name:    'コアインサイト',
       ch2s7Kicker:  '人間は人生を供物として、AI はその反響を鏡とする。',
       ch2s7Preview: '人間は人生を供物として、<br>AI はその反響を鏡とする',
-      ch2PassageEnd:      '章 II · 協作 · 終',
-      ch2PassageEndEn:    'Chapter II · Collaboration · End',
-      ch2PassageNextNum:  'III · システム',
-      ch2PassageNextName: 'Harness'
+      ch2PassageEnd:      '頁二 · 協作 · 終',
+      ch2PassageEndEn:    'Page II · Collaboration · End',
+      ch2PassageNextNum:  '頁三',
+      ch2PassageNextName: '信頼'
     },
 
     harness2: {
