@@ -52,6 +52,252 @@
     cursor: pointer; transition: background .2s, color .2s;
   }
 
+  /* ═══════════════════════════════════════════════
+     §04 五層語言 · 梯（不是表）
+     往下讀＝往上爬。字級↑ 明度↑ 節點 灰→紫↑。
+     ═══════════════════════════════════════════════ */
+  .ladder { max-width: 760px; margin: 4px 0 0; }
+  .ladder-rungs {
+    position: relative;
+    padding-left: 96px;
+  }
+  .ladder-rungs::before {
+    content: '';
+    position: absolute;
+    left: 40px; top: 28px; bottom: 28px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      var(--vas-ash-4) 0%, var(--vas-ash-3) 45%, var(--vas-aurora-violet) 100%);
+    opacity: 0.55;
+  }
+  .rung {
+    position: relative;
+    padding: 30px 0;
+    border-top: 1px solid var(--vas-rule);
+  }
+  .rung:first-child { border-top: none; }
+  .rung::before {
+    content: '';
+    position: absolute;
+    left: -60px; top: 38px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--vas-void);
+    border: 1px solid var(--vas-ash-3);
+  }
+  .rung .lv {
+    position: absolute;
+    left: -96px; top: 32px;
+    width: 40px;
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-2);
+  }
+  .rung-name {
+    font-family: var(--vas-serif);
+    font-weight: 400;
+    color: var(--vas-ash-2);
+    letter-spacing: 0.01em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .rung-verdict {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .rung-body {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.0;
+    color: var(--vas-ash-1);
+    max-width: 40em;
+    text-wrap: pretty;
+  }
+  .rung-body .ex { color: var(--vas-ash-0); font-style: normal; }
+  .rung.lv1 .rung-name { font-size: 19px; color: var(--vas-ash-3); }
+  .rung.lv2 .rung-name { font-size: 22px; color: var(--vas-ash-2); }
+  .rung.lv3 .rung-name { font-size: 26px; color: var(--vas-ash-1); }
+  .rung.lv4 .rung-name { font-size: 30px; color: var(--vas-ash-0); }
+  .rung.lv5 .rung-name { font-size: 36px; color: var(--vas-ash-0); font-weight: 500; }
+  .rung.lv1::before { border-color: var(--vas-ash-4); }
+  .rung.lv2::before { border-color: var(--vas-ash-3); }
+  .rung.lv3::before { border-color: rgba(196,113,245,0.5); background: rgba(196,113,245,0.14); }
+  .rung.lv4::before { border-color: rgba(196,113,245,0.8); background: rgba(196,113,245,0.4); box-shadow: 0 0 5px rgba(196,113,245,0.3); }
+  .rung.lv5::before {
+    background: radial-gradient(circle, var(--vas-aurora-violet), var(--vas-aurora-pink) 60%, transparent 100%);
+    border-color: var(--vas-aurora-violet);
+    box-shadow: 0 0 8px rgba(196,113,245,0.5);
+  }
+  .rung.lv4 .lv, .rung.lv5 .lv { color: var(--vas-ash-1); }
+  .ladder-coda {
+    margin: 40px 0 0;
+    padding-left: 96px;
+    max-width: 36em;
+  }
+  .ladder-coda p {
+    font-family: var(--vas-serif);
+    font-size: 16px; line-height: 1.95;
+    color: var(--vas-ash-1); margin: 0 0 1em;
+  }
+  .ladder-coda em { font-style: normal; font-weight: 500; color: var(--vas-ash-0); }
+
+  /* ═══════════════════════════════════════════════
+     §05 能被指的決策 · 尺（不是表）
+     太大／太小是偏離的兩端（灰·失準），剛好在校準的中點（紫·發光）。
+     和梯共用節點語彙，但語意相反——梯往上爬，尺找中心。
+     ═══════════════════════════════════════════════ */
+  .gauge { max-width: 760px; margin: 4px 0 0; }
+  .gauge-band {
+    position: relative;
+    padding-left: 96px;
+  }
+  .gauge-band::before {
+    content: '';
+    position: absolute;
+    left: 40px; top: 36px; bottom: 36px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      var(--vas-ash-4) 0%,
+      var(--vas-aurora-violet) 50%,
+      var(--vas-ash-4) 100%);
+    opacity: 0.5;
+  }
+  .grade {
+    position: relative;
+    padding: 26px 0;
+  }
+  .grade::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--vas-void);
+    border: 1px solid var(--vas-ash-4);
+    top: 30px;
+  }
+  .grade .tick {
+    position: absolute;
+    left: -96px; top: 24px;
+    width: 44px;
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .grade-name {
+    font-family: var(--vas-serif);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .grade-label { color: var(--vas-ash-2); line-height: 1.5; }
+  .grade-verdict {
+    display: block;
+    font-family: var(--vas-mono);
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--vas-ash-2);
+    white-space: nowrap;
+    margin-bottom: 10px;
+  }
+  .grade-body {
+    font-family: var(--vas-serif);
+    font-size: 15px; line-height: 2.0;
+    color: var(--vas-ash-1); max-width: 40em;
+    text-wrap: pretty;
+  }
+  .grade-body .ex { color: var(--vas-ash-0); }
+  .grade.too-big .grade-label { font-size: 23px; color: var(--vas-ash-3); }
+  .grade.too-small .grade-label { font-size: 15px; color: var(--vas-ash-1); }
+  .grade.too-big .grade-label {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    color: var(--vas-ash-0);
+    display: inline-block;
+    padding: 11px 16px;
+    border: 1px solid var(--vas-ash-3-soft);
+    border-radius: 7px;
+    background: rgba(240, 232, 220, 0.025);
+    letter-spacing: 0;
+    line-height: 1.4;
+    min-height: 1.4em;
+    min-width: 60px;
+  }
+  .grade.too-big .grade-label::after {
+    content: '';
+    display: inline-block;
+    width: 1.5px; height: 1.05em;
+    margin-left: 1px;
+    background: var(--vas-ash-0);
+    transform: translateY(0.2em);
+    animation: bigCaret 1.05s step-end infinite;
+  }
+  @keyframes bigCaret { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+
+  .radius-demo { display: flex; gap: 16px; align-items: center; margin: 4px 0 18px; flex-wrap: wrap; }
+  .radius-chip {
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.12em;
+    color: var(--vas-ash-2);
+    border: 1px solid var(--vas-ash-3-soft);
+    padding: 12px 22px;
+    background: rgba(240, 232, 220, 0.025);
+  }
+  .radius-chip.r6 { border-radius: 6px; }
+  .radius-chip.r8 { border-radius: 8px; }
+  .radius-demo-note {
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.02em;
+    color: var(--vas-ash-1);
+    white-space: nowrap;
+  }
+  .grade.too-big::before, .grade.too-small::before { border-color: var(--vas-ash-4); }
+  .grade.just .grade-label { font-size: 21px; color: var(--vas-ash-0); }
+  .grade.just::before {
+    background: radial-gradient(circle, var(--vas-aurora-violet), var(--vas-aurora-pink) 60%, transparent 100%);
+    border-color: var(--vas-aurora-violet);
+    box-shadow: 0 0 8px rgba(196,113,245,0.5);
+  }
+  .grade.just .tick { color: var(--vas-ash-1); }
+  .grade.just .grade-verdict { color: var(--vas-aurora-violet); opacity: 0.8; }
+  .gauge-specimen {
+    margin: 8px 0 0;
+    font-family: var(--vas-serif);
+    font-size: clamp(20px, 2.6vw, 27px);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--vas-ash-0);
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  .gauge-specimen em { font-style: normal; font-weight: 500; }
+  .gauge-coda {
+    margin: 44px 0 0;
+    padding-left: 96px;
+    max-width: 38em;
+  }
+  .gauge-coda p {
+    font-family: var(--vas-serif);
+    font-size: 16px; line-height: 1.95;
+    color: var(--vas-ash-1); margin: 0 0 1em;
+  }
+  .gauge-coda em { font-style: normal; font-weight: 500; color: var(--vas-ash-0); }
+
+  @media (max-width: 768px) {
+    .ladder-rungs, .gauge-band { padding-left: 40px; }
+    .ladder-rungs::before, .gauge-band::before { left: 7px; }
+    .rung::before, .grade::before { left: -37px; }
+    .rung .lv, .grade .tick { position: static; width: auto; display: block; margin-bottom: 10px; }
+    .ladder-coda, .gauge-coda { padding-left: 40px; }
+    .rung.lv5 .rung-name { font-size: 30px; }
+  }
+
   /* ─── §06 對話框 · 沿用 us.html「那一晚」的形式 ─ */
   .ctx-dialogue {
     border: 1px solid var(--vas-rule);
