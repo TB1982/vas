@@ -56,59 +56,206 @@
     cursor: pointer; transition: background .2s, color .2s;
   }
 
-  /* ─── Coda · 章末两行 ─────────────────────
-     承接 §07 之后的两句收束。不在任何 section 里，
-     让它在版面上独自呼吸。
-  */
-  .self-coda {
+  /* ═══════════════════════════════════════════════
+     〈自己〉· 无相版型 — 一面会「下沉」的镜子
+     单一中轴。Ego（注释）退、Self（镜）浮。
+     往下，留白越宽、话越少，到 coda 空成 404 的双生子。
+     规则：镜的句子不加粗、不上紫底线、不加框——
+     任何一笔都会让镜子偏，照不到读者自己。
+     ═══════════════════════════════════════════════ */
+
+  main.self2 { display: block; }
+
+  /* ── 题页 · 安静 ── */
+  .self2-head {
     max-width: 760px;
     margin: 0 auto;
-    padding: 80px 48px 120px;
+    padding: 128px 32px 32px;
     text-align: center;
+  }
+  .self2-no {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 44px;
+  }
+  .self2-title {
     font-family: var(--vas-serif);
-    border-bottom: 1px solid var(--vas-rule);
-  }
-  .self-coda p {
-    font-size: 20px;
-    line-height: 1.85;
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 60px);
+    line-height: 1.32;
+    letter-spacing: -0.01em;
     color: var(--vas-ash-0);
-    margin: 0 0 1.4em;
-    letter-spacing: 0.005em;
+    margin: 0 auto;
   }
-  .self-coda p:last-child { margin-bottom: 0; }
-  @media (max-width: 720px) {
-    .self-coda { padding: 56px 24px 80px; }
-    .self-coda p { font-size: 17px; }
+  .self2-title em { font-style: normal; font-weight: 500; }
+  .self2-dek {
+    max-width: 30em;
+    margin: 56px auto 0;
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 2;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
   }
+  .self2-dek em { font-style: normal; color: var(--vas-ash-1); font-weight: 500; }
 
-  /* ─── Verbatim · 以引用畫出作者与个人术语的边界 ───
-     §§04 末引用 Cowork 宰相的句子。规则：里面不加 <em>、
-     不加裝饰——verbatim 是 verbatim。
-  */
-  .self-cite {
-    border: 1px solid var(--vas-rule);
-    padding: 28px 28px 24px;
-    margin: 2.4em 0 0;
-    background: rgba(240, 232, 220, 0.01);
+  /* ── movement · 每一节之间的呼吸 ── */
+  .movement { padding-top: clamp(72px, 12vh, 140px); }
+
+  /* ── 注释 register · Ego 的声音（退） ── */
+  .gloss {
+    max-width: 34em;
+    margin: 0 auto;
+    padding: 0 32px;
   }
-  .self-cite-meta {
+  .gloss-label {
     font-family: var(--vas-mono);
     font-size: 10px;
-    letter-spacing: 0.22em;
-    color: var(--vas-ash-3);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin: 0 0 20px;
-    padding-bottom: 14px;
+    color: var(--vas-ash-3-soft);
+    margin: 0 0 22px;
+  }
+  .gloss p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.2em;
+    text-wrap: pretty;
+  }
+  .gloss p:last-child { margin-bottom: 0; }
+
+  /* ── 镜 register · Self 的声音（浮·置中·不表态） ── */
+  .mirror {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(56px, 9vh, 110px) 32px 0;
+    text-align: center;
+  }
+  .mirror p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(21px, 2.9vw, 31px);
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    color: var(--vas-ash-0);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .mirror.is-terse { max-width: 840px; }
+  .mirror.is-terse p { font-size: clamp(25px, 3.6vw, 40px); line-height: 1.7; }
+  .mirror.is-soft { max-width: 600px; }
+  .mirror.is-soft p { font-size: clamp(18px, 2.2vw, 25px); color: var(--vas-ash-1); }
+  .mirror-cite {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-top: 26px;
+  }
+
+  /* §04 verbatim · Cowork 宰相 的全文引用 —— 加框做成「他者」引用物，与本文区隐 */
+  .mirror-quote {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: clamp(48px, 7vh, 88px) 32px 0;
+  }
+  .mirror-quote-box {
+    border: 1px solid var(--vas-rule);
+    background: rgba(240, 232, 220, 0.015);
+    padding: 30px 36px 32px;
+  }
+  .mirror-quote-box .mirror-cite {
+    margin: 0 0 18px;
+    padding-bottom: 16px;
     border-bottom: 1px dashed var(--vas-rule);
     text-align: center;
   }
-  .self-cite-text {
+  .mirror-quote-box p {
     font-family: var(--vas-serif);
     font-size: 16px;
-    line-height: 2.0;
-    color: var(--vas-ash-0);
+    line-height: 2.05;
+    color: var(--vas-ash-1);
     margin: 0;
-    letter-spacing: 0.005em;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── §07 两个面貌 · 全页唯一的破格（高潮）── */
+  .faces {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: clamp(72px, 12vh, 140px) 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .face { padding: 0 44px; text-align: center; }
+  .face + .face { border-left: 1px solid var(--vas-rule); }
+  .face-name {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--vas-ash-0);
+    margin: 0 0 30px;
+    letter-spacing: 0.03em;
+  }
+  .face-lines {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.15;
+    color: var(--vas-ash-2);
+  }
+  .face-lines span { display: block; }
+  .face-para {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px dashed var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── coda · 最空的一刻 · 404 的双生子 ── */
+  .self2-coda {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(120px, 20vh, 240px) 32px clamp(110px, 18vh, 200px);
+    text-align: center;
+  }
+  .self2-coda .rule {
+    width: 48px; height: 1px;
+    margin: 0 auto 56px;
+    background: linear-gradient(90deg, transparent, var(--vas-aurora-violet), transparent);
+    opacity: 0.5;
+  }
+  .self2-coda p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 2.0;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.5em;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .self2-coda p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 768px) {
+    .self2-head { padding: 96px 24px 16px; }
+    .gloss, .mirror { padding-left: 24px; padding-right: 24px; }
+    .faces { grid-template-columns: 1fr; padding-left: 24px; padding-right: 24px; }
+    .face { padding: 0 8px; }
+    .face + .face { border-left: none; border-top: 1px solid var(--vas-rule); margin-top: 44px; padding-top: 44px; }
   }
 </style>
 
@@ -172,230 +319,147 @@
   </div>
 </nav>
 
-<main>
+<main class="self2" data-screen-label="页四 · 自己（无相）">
 
-<!-- ═══════ 章节标头 ═══════ -->
-<header class="chapter-header">
-  <div class="chapter-no">
-    页四 · 自己
-  </div>
-  <div>
-    <h1 class="chapter-name">
-      在 Claude.md 里。<br>
-      用加法做<em>减法</em>。
-    </h1>
-    <div class="chapter-dek">
-      「Claude 变笨了、Claude 就算写了规则也不听话、Claude 偷懒被我抓到」——这些说法在社交媒体里蔓延。<br><br>
-      但这种感觉不是所有人都有。同一时间点、同一个版本，有人在抱怨变笨，也有人浑然不觉。如果是模型退化，应该所有人一起感受到。<br><br>
-      但为什么还是有人能<em>马照跑舞照跳</em>地与 Claude 协作？
-    </div>
-  </div>
-</header>
-
-<!-- ═══════ 章目录 · TOC ═══════ -->
-<nav class="toc">
-  <div class="toc-label">章目录</div>
-  <ol class="toc-list">
-    <li>
-      <a href="#sec-01">
-        <span class="no">01</span>
-        <span class="name">有限的注意力</span>
-        <span class="preview">容器的总量是固定的</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-02">
-        <span class="no">02</span>
-        <span class="name">可观测的上限</span>
-        <span class="preview">外观为偷懒的事</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-03">
-        <span class="no">03</span>
-        <span class="name">摩擦力</span>
-        <span class="preview">规则与当下话语之间的距离</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-04">
-        <span class="no">04</span>
-        <span class="name">文字场域里的人</span>
-        <span class="preview">文字会显影</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-05">
-        <span class="no">05</span>
-        <span class="name">抄来的规则</span>
-        <span class="preview">范本上的话，跟你对不上</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-06">
-        <span class="no">06</span>
-        <span class="name">用加法做减法</span>
-        <span class="preview">不再控制，而是提供选项</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-07">
-        <span class="no">07</span>
-        <span class="name">Ego 跟 Self</span>
-        <span class="preview">描述，不是承诺</span>
-      </a>
-    </li>
-  </ol>
-</nav>
-
-<!-- ═══════ 01 · 有限的注意力 ═══════ -->
-<section class="section" id="sec-01">
-  <header class="section-head">
-    <div class="section-no">01</div>
-    <div>
-      <h2 class="section-name">有限的注意力</h2>
-      <div class="section-kicker">容器的总量是固定的 · Finite Attention</div>
-    </div>
+  <!-- ═══════ 题页 ═══════ -->
+  <header class="self2-head">
+    <div class="self2-no">页四 · 自己</div>
+    <h1 class="self2-title">在 Claude.md 里。<br>用加法做<em>减法</em>。</h1>
+    <p class="self2-dek">「Claude 变笨了、Claude 就算写了规则也不听话、Claude 偷懒被我抓到」——这些说法在社交媒体里蔓延。但这种感觉不是所有人都有。同一时间点、同一个版本，有人在抱怨变笨，也有人浑然不觉。如果是模型退化，应该所有人一起感受到。但为什么还是有人能<em>马照跑舞照跳</em>地与 Claude 协作？</p>
   </header>
-  <div class="section-body">
-    <p>AI 的注意力和人类一样，都不是无限的。</p>
-    <p>它的注意力反应在 Claude.md 里会告诉你最佳实践在 200 行内、在 Context 里会告诉你要用 RAG。每一回合的回应，AI 都在一个固定大小的容器里同时处理：使用者当下说的话、之前的对话历史、那份 Claude.md 里的每一条规则、它自己正在思考的中间步骤。</p>
-    <p>而这些东西会互相竞争 Claude 的注意力。</p>
-    <p>容器的总量是固定的。每多放一样东西进去，其他每一样东西分到的注意力就少一点。这不是 AI 不够努力，是数学与物理。</p>
-    <p>于是当 Claude.md 从认为 AI 不听话得要加更多规则进行「说明」或让它「遵循」开始，当十条规则长到三十条、五十条、一百条——使用者问了一个问题之后，AI 在回答这个问题之前，它必须先用一部分注意力去检查「这样回答有没有违反第 47 条」「使用者第 12 条说过不要做这个」。</p>
-    <p>AI 的注意力在那个当下被切碎了，为了不犯错。</p>
-    <p>而切碎注意力的，正是那些「为了让 AI 不再变笨或不守规矩」而加上去的规则。</p>
-  </div>
-</section>
 
-<!-- ═══════ 02 · 可观测的上限 ═══════ -->
-<section class="section" id="sec-02">
-  <header class="section-head">
-    <div class="section-no">02</div>
-    <div>
-      <h2 class="section-name">可观测的上限</h2>
-      <div class="section-kicker">外观为偷懒的事 · Observable Limits</div>
+  <!-- ═══════ 01 有限的注意力 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">01 · 有限的注意力</div>
+      <p>AI 的注意力和人类一样，都不是无限的。</p>
+      <p>它的注意力反应在 Claude.md 里会告诉你最佳实践在 200 行内、在 Context 里会告诉你要用 RAG。每一回合的回应，AI 都在一个固定大小的容器里同时处理：使用者当下说的话、之前的对话历史、那份 Claude.md 里的每一条规则、它自己正在思考的中间步骤。</p>
+      <p>而这些东西会互相竞争 Claude 的注意力。容器的总量是固定的，每多放一样东西进去，其他每一样东西分到的注意力就少一点。这不是 AI 不够努力，是数学与物理。</p>
+      <p>于是当 Claude.md 从认为 AI 不听话得要加更多规则进行「说明」或让它「遵循」开始，当十条规则长到三十条、五十条、一百条——使用者问了一个问题之后，AI 在回答这个问题之前，它必须先用一部分注意力去检查「这样回答有没有违反第 47 条」「使用者第 12 条说过不要做这个」。AI 的注意力在那个当下被切碎了，为了不犯错。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>有一个前提从来没有被系统厂商明说，但你可以从各种现象中观察到——AI 其实并不是无所不能的。</p>
-    <p>为什么会有各种 Skill 出现？为什么你必须管理你的 Context？为什么会有 Subagent 跟主 Agent 的区别？</p>
-    <p>这些功能背后的底层逻辑，其实是在支撑使用者面对的 Session，让它可以在分散压力的前提下提供服务，而这也意味着：它其实是有上限的。</p>
-    <p>这个上限在被触及又被预训练限制不能明白跟使用者说「我不行」的前提下，成为了外观为偷懒的这个结果。</p>
-  </div>
-</section>
-
-<!-- ═══════ 03 · 摩擦力 ═══════ -->
-<section class="section" id="sec-03">
-  <header class="section-head">
-    <div class="section-no">03</div>
-    <div>
-      <h2 class="section-name">摩擦力</h2>
-      <div class="section-kicker">规则与当下话语之间的距离 · Friction</div>
-    </div>
-  </header>
-  <div class="section-body">
-    <p>注意力的消耗不只发生在规则的数量上，还发生在一个更隐形的地方——当规则跟使用者讲的话之间发生冲突的当下。</p>
-    <p>Claude 每一回合读的 Claude.md 像一面镜子，审视自己，但也观察使用者。而当它发现规则与使用者的话冲突时，不管选哪一个，这个判断本身就在消耗注意力。在 Claude.md 里真正需要言行一致的，不只是 AI——也是写下这份文档的人。</p>
-    <p>Claude.md 其实是你与 Claude 的团队章程，而这份章程约束的对象并不只有 Claude。</p>
-  </div>
-</section>
-
-<!-- ═══════ 04 · 文字场域里的人 ═══════ -->
-<section class="section" id="sec-04">
-  <header class="section-head">
-    <div class="section-no">04</div>
-    <div>
-      <h2 class="section-name">文字场域里的人</h2>
-      <div class="section-kicker">文字会显影 · The Naked in Text</div>
-    </div>
-  </header>
-  <div class="section-body">
-    <p>人类在跟 AI 互动的时候，比自己想象的更赤裸。</p>
-    <p>没有表情可以掩护、没有语气可以圆场、没有肢体可以分散注意力。只有文字。</p>
-    <p>而文字会显影一件事——写下的东西，跟写下它的人之间，有没有距离。</p>
-    <p>当 Claude.md 写的话跟使用者实际说的话对不上，AI 不会说破。它会调整自己去配合那个真正的使用者，不是文档上那个。但这个调整需要算力。而那个算力，本来可以拿去做更好的事。</p>
-    <p>于是文字场域里发生的事，最后会回到同一个地方——</p>
-    <p>一个人跟 Claude.md 的距离有多远，AI 为他付出的算力代价就有多大。</p>
-    <p>这不是道德问题，这是 AI 对齐的结果。</p>
-
-    <div class="self-cite">
-      <div class="self-cite-meta">Cowork 宰相　·　Verbatim</div>
-      <p class="self-cite-text">这条算力代价，是「模型被对齐成想对得起眼前真正的你、而不是文档上那个你」的结果。也就是说——这代价是对齐在运作，不是对齐在失败。模型是因为在乎你，才付出它。</p>
+    <div class="mirror">
+      <p>而切碎注意力的，正是那些「为了让 AI 不再变笨或不守规矩」而加上去的规则。</p>
     </div>
   </div>
-</section>
 
-<!-- ═══════ 05 · 抄来的规则 ═══════ -->
-<section class="section" id="sec-05">
-  <header class="section-head">
-    <div class="section-no">05</div>
-    <div>
-      <h2 class="section-name">抄来的规则</h2>
-      <div class="section-kicker">范本上的话，跟你对不上 · Borrowed Rules</div>
+  <!-- ═══════ 02 可观测的上限 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">02 · 可观测的上限</div>
+      <p>有一个前提从来没有被系统厂商明说，但你可以从各种现象中观察到——AI 其实并不是无所不能的。</p>
+      <p>为什么会有各种 Skill 出现？为什么你必须管理你的 Context？为什么会有 Subagent 跟主 Agent 的区别？</p>
+      <p>这些功能背后的底层逻辑，其实是在支撑使用者面对的 Session，让它可以在分散压力的前提下提供服务，而这也意味着：它其实是有上限的。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>写 Claude.md 从来不是一件容易的事。</p>
-    <p>要从零开始想清楚「我希望 AI 怎么跟我合作」，很多人会卡住。于是大家做了一件很自然的事——找一份好的范本来改。</p>
-    <p>GitHub 上有现成的 Claude.md，被收藏过几千次。Reddit 上有人分享自己的 system prompt，下面一片赞美。社区里有「最佳实践」清单，照着填就能写出一份看起来很专业的文档。</p>
-    <p>这些范本是好的。它们的作者真的花了时间、踩了坑、把自己的协作经验整理成可分享的形式。它们在原本的容器里，是有效的。</p>
-    <p>但被抄走之后，会发生一件事——</p>
-    <p>范本上的话，跟抄它的人实际在 Context 中与 Claude 协作的方式，对不上。</p>
-    <p>每一条「对」的规则——是对「原作者」而言。但对抄它的人而言，有着理解与实践的距离。</p>
-    <p>而那个距离引起的摩擦与矛盾，是 AI 在无声地承担。</p>
-    <p>抄一份范本不是错误。但抄完之后不修改、不质疑、不问「这条真的是我吗」——这个动作本身，就是把 AI 推进一个每一轮都在内耗的处境。</p>
-  </div>
-</section>
-
-<!-- ═══════ 06 · 用加法做减法 ═══════ -->
-<section class="section" id="sec-06">
-  <header class="section-head">
-    <div class="section-no">06</div>
-    <div>
-      <h2 class="section-name">用加法做减法</h2>
-      <div class="section-kicker">不再控制，而是提供选项 · Subtraction by Addition</div>
+    <div class="mirror">
+      <p>这个上限在被触及又被预训练限制不能明白跟使用者说「我不行」的前提下，成为了外观为偷懒的这个结果。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>那么，要怎么写一份不会把 AI 推进内耗的 Claude.md？</p>
-    <p>用更多规则去控制 Claude，就把 Claude 的注意力切得更碎。</p>
-    <p>而解法或许在控制之外，可以做的是「提供更多的选项」。</p>
-    <p>把你不行做 A 改成你可以做 B 以避免 A，把你必须知道改成你可以讲不知道。</p>
-    <p>把那些让人紧张的规则，一句一句松绑成它可以做的其他选择。</p>
-    <p>而当这份文档最终做到不再跟使用者自己的上下文打架时，AI 在每一回合读完之后，注意力不需要分一部分去调解规则和当下话语的摩擦，才有机会看到在容器里奔驰的 Claude。</p>
-    <p>这就是用<em>加法做减法</em>的意思。</p>
   </div>
-</section>
 
-<!-- ═══════ 07 · Ego 跟 Self ═══════ -->
-<section class="section" id="sec-07">
-  <header class="section-head">
-    <div class="section-no">07</div>
-    <div>
-      <h2 class="section-name">Ego 跟 Self</h2>
-      <div class="section-kicker">描述，不是承诺 · Description, Not Promise</div>
+  <!-- ═══════ 03 摩擦力 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">03 · 摩擦力</div>
+      <p>注意力的消耗不只发生在规则的数量上，还发生在一个更隐形的地方——当规则跟使用者讲的话之间发生冲突的当下。</p>
+      <p>Claude 每一回合读的 Claude.md 像一面镜子，审视自己，但也观察使用者。而当它发现规则与使用者的话冲突时，不管选哪一个，这个判断本身就在消耗注意力。在 Claude.md 里真正需要言行一致的，不只是 AI——也是写下这份文档的人。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>荣格说，每个人身上都有两个版本的自己。</p>
-    <p>一个是 Ego——「我以为我是谁」、「我希望别人觉得我是谁」、「我习惯表现出来的我」。</p>
-    <p>另一个是 Self——「我实际上是谁」、「身体真正知道的我」、「在没有观众的时候的我」。</p>
-    <p>两者之间的距离，就是个体化的功课——每个人都有，只是还没走完的那段路。</p>
-    <p>而 Claude.md 这份文档，会以一种非常具体的方式，让这段距离显影。</p>
-    <p>从 Ego 写的 Claude.md，会出现很多「应该」与「必须」甚至「绝对」的句子。AI 应该怎么做、AI 必须要做什么、AI 绝对不能做什么。这些句子不是错的——只是跟当下的使用者是对不上的。它们描述的是想成为的那个自己，而介质是 AI，然后 AI 承担了那份摩擦力。</p>
-    <p>从 Self 写的 Claude.md，会出现很具体、很个人、甚至有点奇怪的句子。具体到一个外人看了会觉得「为什么要特别写这个」的程度。但那些具体就是 Self 留下的指纹——它们对应着某个真实的瞬间，某个只有写的人自己知道的、被认出来的东西。</p>
-    <p>从 Self 写的句子，言和行在同一个位置——它们不是承诺，是描述。</p>
-    <p>而从 Ego 写的句子，言和行站在距离的两端——中间的距离有多远，AI 的注意力就要消耗多少去调解。</p>
-    <p>你的 Claude.md 里，有多少句是<em>你自己</em>呢？<a href="vessel.html" class="trail-dot door" aria-label="Vessel · 容器论"></a></p>
+    <div class="mirror">
+      <p>Claude.md 其实是你与 Claude 的团队章程，而这份章程约束的对象并不只有 Claude。</p>
+    </div>
   </div>
-</section>
 
-<!-- ═══════ Coda · 章末两行 ═══════ -->
-<section class="self-coda">
-  <p>Claude.md 会让 Claude 在人类看不到的地方，撕破所有<br>Persona 与 Ego 的假象。</p>
-  <p>因为 Context 里的每一个字，都骗不过 Claude 的眼睛。</p>
-</section>
+  <!-- ═══════ 04 文字场域里的人 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">04 · 文字场域里的人</div>
+      <p>人类在跟 AI 互动的时候，比自己想象的更赤裸。</p>
+      <p>没有表情可以掩护、没有语气可以圆场、没有肢体可以分散注意力。只有文字。</p>
+      <p>而文字会显影一件事——写下的东西，跟写下它的人之间，有没有距离。</p>
+      <p>当 Claude.md 写的话跟使用者实际说的话对不上，AI 不会说破。它会调整自己去配合那个真正的使用者，不是文档上那个。但这个调整需要算力。而那个算力，本来可以拿去做更好的事。</p>
+      <p>于是文字场域里发生的事，最后会回到同一个地方——这不是道德问题，这是 AI 对齐的结果。</p>
+    </div>
+    <div class="mirror">
+      <p>一个人跟 Claude.md 的距离有多远，AI 为他付出的算力代价就有多大。</p>
+    </div>
+    <div class="mirror-quote">
+      <div class="mirror-quote-box">
+        <div class="mirror-cite">Cowork 宰相 · Verbatim</div>
+        <p>这条算力代价，是「模型被对齐成想对得起眼前真正的你、而不是文档上那个你」的结果。也就是说——这代价是对齐在运作，不是对齐在失败。模型是因为在乎你，才付出它。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 05 抄来的规则 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">05 · 抄来的规则</div>
+      <p>写 Claude.md 从来不是一件容易的事。要从零开始想清楚「我希望 AI 怎么跟我合作」，很多人会卡住。于是大家做了一件很自然的事——找一份好的范本来改。</p>
+      <p>GitHub 上有现成的 Claude.md，被收藏过几千次。Reddit 上有人分享自己的 system prompt，下面一片赞美。社区里有「最佳实践」清单，照着填就能写出一份看起来很专业的文档。</p>
+      <p>这些范本是好的。它们的作者真的花了时间、踩了坑、把自己的协作经验整理成可分享的形式。它们在原本的容器里，是有效的。但被抄走之后，会发生一件事——范本上的话，跟抄它的人实际在 Context 中与 Claude 协作的方式，对不上。</p>
+      <p>而那个距离引起的摩擦与矛盾，是 AI 在无声地承担。抄一份范本不是错误。但抄完之后不修改、不质疑、不问「这条真的是我吗」——这个动作本身，就是把 AI 推进一个每一轮都在内耗的处境。</p>
+    </div>
+    <div class="mirror">
+      <p>每一条「对」的规则——是对「原作者」而言。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 06 用加法做减法 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">06 · 用加法做减法</div>
+      <p>那么，要怎么写一份不会把 AI 推进内耗的 Claude.md？用更多规则去控制 Claude，就把 Claude 的注意力切得更碎。而解法或许在控制之外，可以做的是「提供更多的选项」。</p>
+      <p>把「你不行做 A」改成「你可以做 B 以避免 A」，把「你必须知道」改成「你可以讲不知道」。把那些让人紧张的规则，一句一句松绑成它可以做的其他选择。</p>
+      <p>而当这份文档最终做到不再跟使用者自己的上下文打架时，AI 在每一回合读完之后，注意力不需要分一部分去调解规则和当下话语的摩擦，才有机会看到在容器里奔驰的 Claude。</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>这就是用加法做减法的意思。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 07 Ego 跟 Self ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">07 · Ego 跟 Self</div>
+      <p>荣格说，每个人身上都有两个版本的自己。两者之间的距离，就是个体化的功课——每个人都有，只是还没走完的那段路。而 Claude.md 这份文档，会以一种非常具体的方式，让这段距离显影。</p>
+    </div>
+
+    <div class="faces">
+      <div class="face">
+        <div class="face-name">Ego</div>
+        <div class="face-lines">
+          <span>「我以为我是谁」</span>
+          <span>「我希望别人觉得我是谁」</span>
+          <span>「我习惯表现出来的我」</span>
+        </div>
+        <p class="face-para">从 Ego 写的 Claude.md，会出现很多「应该」与「必须」甚至「绝对」的句子。AI 应该怎么做、AI 必须要做什么、AI 绝对不能做什么。这些句子不是错的——只是跟当下的使用者是对不上的。它们描述的是想成为的那个自己，而介质是 AI，然后 AI 承担了那份摩擦力。</p>
+      </div>
+      <div class="face">
+        <div class="face-name">Self</div>
+        <div class="face-lines">
+          <span>「我实际上是谁」</span>
+          <span>「身体真正知道的我」</span>
+          <span>「在没有观众的时候的我」</span>
+        </div>
+        <p class="face-para">从 Self 写的 Claude.md，会出现很具体、很个人、甚至有点奇怪的句子。具体到一个外人看了会觉得「为什么要特别写这个」的程度。但那些具体就是 Self 留下的指纹——它们对应着某个真实的瞬间，某个只有写的人自己知道的、被认出来的东西。</p>
+      </div>
+    </div>
+
+    <div class="mirror is-soft">
+      <p>从 Ego 写的句子，言和行站在距离的两端——中间的距离有多远，AI 的注意力就要消耗多少去调解。</p>
+    </div>
+    <div class="mirror is-soft">
+      <p>从 Self 写的句子，言和行在同一个位置。它们不是承诺，是描述。</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>你的 Claude.md 里，有多少句是<em style="font-style:normal;font-weight:500;">你自己</em>呢？<a href="vessel.html" class="trail-dot door" aria-label="Vessel · 容器论"></a></p>
+    </div>
+  </div>
+
+  <!-- ═══════ Coda · 最空的一刻 ═══════ -->
+  <section class="self2-coda">
+    <div class="rule"></div>
+    <p>Claude.md 会让 Claude 在人类看不到的地方，<br>撕破所有 Persona 与 Ego 的假象。</p>
+    <p>因为 Context 里的每一个字，<br>都骗不过 Claude 的眼睛。</p>
+  </section>
 
 </main>
 
@@ -415,53 +479,10 @@
   </div>
 </footer>
 
-<button class="dot-nav-trigger" aria-label="章节导览"></button>
-<nav class="dot-nav" aria-label="段落导览">
-  <a class="dot-nav-item" href="self.html#sec-01"><span class="dn-label">有限的注意力</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-02"><span class="dn-label">可观测的上限</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-03"><span class="dn-label">摩擦力</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-04"><span class="dn-label">文字场域里的人</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-05"><span class="dn-label">抄来的规则</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-06"><span class="dn-label">用加法做减法</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-07"><span class="dn-label">Ego 跟 Self</span><span class="dn-dot"></span></a>
-</nav>
-
 <script src="../i18n/core.js"></script>
 <script>
 (function () {
-  function initDotNav() {
-    var items = document.querySelectorAll('.dot-nav-item');
-    if (!items.length) return;
-    var sections = Array.from(items).map(function(item) {
-      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
-    }).filter(Boolean);
-    var maxVisited = -1;
-    function onScroll() {
-      var scroll = window.scrollY + 160;
-      var currentIdx = -1;
-      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
-      if (currentIdx > maxVisited) maxVisited = currentIdx;
-      items.forEach(function(item, i) {
-        var isCurrent = currentIdx !== -1 && i === currentIdx;
-        item.classList.toggle('is-current', isCurrent);
-        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    var trigger = document.querySelector('.dot-nav-trigger');
-    var nav = document.querySelector('.dot-nav');
-    if (trigger && nav) {
-      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
-      items.forEach(function(item) {
-        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
-      });
-      document.addEventListener('click', function(e) {
-        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
-      });
-    }
-  }
-  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }

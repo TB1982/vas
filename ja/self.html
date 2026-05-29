@@ -57,59 +57,206 @@
     cursor: pointer; transition: background .2s, color .2s;
   }
 
-  /* ─── Coda · 章末兩行 ─────────────────────
-     承接 §07 之後的兩句收束。不在任何 section 裡，
-     讓它在版面上獨自呼吸。
-  */
-  .self-coda {
+  /* ═══════════════════════════════════════════════
+     〈自己〉· 無相版型 — 一面會「下沉」的鏡子
+     單一中軸。Ego（注釋）退、Self（鏡）浮。
+     往下，留白越寬、話越少，到 coda 空成 404 的雙生子。
+     規則：鏡的句子不加粗、不上紫底線、不加框——
+     任何一筆都會讓鏡子偏，照不到讀者自己。
+     ═══════════════════════════════════════════════ */
+
+  main.self2 { display: block; }
+
+  /* ── 題頁 · 安靜 ── */
+  .self2-head {
     max-width: 760px;
     margin: 0 auto;
-    padding: 80px 48px 120px;
+    padding: 128px 32px 32px;
     text-align: center;
+  }
+  .self2-no {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 44px;
+  }
+  .self2-title {
     font-family: var(--vas-serif);
-    border-bottom: 1px solid var(--vas-rule);
-  }
-  .self-coda p {
-    font-size: 20px;
-    line-height: 1.85;
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 60px);
+    line-height: 1.32;
+    letter-spacing: -0.01em;
     color: var(--vas-ash-0);
-    margin: 0 0 1.4em;
-    letter-spacing: 0.005em;
+    margin: 0 auto;
   }
-  .self-coda p:last-child { margin-bottom: 0; }
-  @media (max-width: 720px) {
-    .self-coda { padding: 56px 24px 80px; }
-    .self-coda p { font-size: 17px; }
+  .self2-title em { font-style: normal; font-weight: 500; }
+  .self2-dek {
+    max-width: 30em;
+    margin: 56px auto 0;
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 2;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
   }
+  .self2-dek em { font-style: normal; color: var(--vas-ash-1); font-weight: 500; }
 
-  /* ─── Verbatim · 以引用畫出作者與個人術語的邊界 ───
-     §§04 末引用 Cowork 宰相的句子。規則：里面不加 <em>、
-     不加裝飾——verbatim 是 verbatim。
-  */
-  .self-cite {
-    border: 1px solid var(--vas-rule);
-    padding: 28px 28px 24px;
-    margin: 2.4em 0 0;
-    background: rgba(240, 232, 220, 0.01);
+  /* ── movement · 每一節之間的呼吸 ── */
+  .movement { padding-top: clamp(72px, 12vh, 140px); }
+
+  /* ── 注釋 register · Ego 的聲音（退） ── */
+  .gloss {
+    max-width: 34em;
+    margin: 0 auto;
+    padding: 0 32px;
   }
-  .self-cite-meta {
+  .gloss-label {
     font-family: var(--vas-mono);
     font-size: 10px;
-    letter-spacing: 0.22em;
-    color: var(--vas-ash-3);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin: 0 0 20px;
-    padding-bottom: 14px;
+    color: var(--vas-ash-3-soft);
+    margin: 0 0 22px;
+  }
+  .gloss p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.2em;
+    text-wrap: pretty;
+  }
+  .gloss p:last-child { margin-bottom: 0; }
+
+  /* ── 鏡 register · Self 的聲音（浮·置中·不表態） ── */
+  .mirror {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(56px, 9vh, 110px) 32px 0;
+    text-align: center;
+  }
+  .mirror p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(21px, 2.9vw, 31px);
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    color: var(--vas-ash-0);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .mirror.is-terse { max-width: 840px; }
+  .mirror.is-terse p { font-size: clamp(25px, 3.6vw, 40px); line-height: 1.7; }
+  .mirror.is-soft { max-width: 600px; }
+  .mirror.is-soft p { font-size: clamp(18px, 2.2vw, 25px); color: var(--vas-ash-1); }
+  .mirror-cite {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-top: 26px;
+  }
+
+  /* §04 verbatim · Cowork 宰相 的全文引用 —— 加框做成「他者」引用物，與本文區隱 */
+  .mirror-quote {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: clamp(48px, 7vh, 88px) 32px 0;
+  }
+  .mirror-quote-box {
+    border: 1px solid var(--vas-rule);
+    background: rgba(240, 232, 220, 0.015);
+    padding: 30px 36px 32px;
+  }
+  .mirror-quote-box .mirror-cite {
+    margin: 0 0 18px;
+    padding-bottom: 16px;
     border-bottom: 1px dashed var(--vas-rule);
     text-align: center;
   }
-  .self-cite-text {
+  .mirror-quote-box p {
     font-family: var(--vas-serif);
     font-size: 16px;
-    line-height: 2.0;
-    color: var(--vas-ash-0);
+    line-height: 2.05;
+    color: var(--vas-ash-1);
     margin: 0;
-    letter-spacing: 0.005em;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── §07 兩個面貌 · 全頁唯一的破格（高潮）── */
+  .faces {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: clamp(72px, 12vh, 140px) 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .face { padding: 0 44px; text-align: center; }
+  .face + .face { border-left: 1px solid var(--vas-rule); }
+  .face-name {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--vas-ash-0);
+    margin: 0 0 30px;
+    letter-spacing: 0.03em;
+  }
+  .face-lines {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.15;
+    color: var(--vas-ash-2);
+  }
+  .face-lines span { display: block; }
+  .face-para {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px dashed var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── coda · 最空的一刻 · 404 的雙生子 ── */
+  .self2-coda {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(120px, 20vh, 240px) 32px clamp(110px, 18vh, 200px);
+    text-align: center;
+  }
+  .self2-coda .rule {
+    width: 48px; height: 1px;
+    margin: 0 auto 56px;
+    background: linear-gradient(90deg, transparent, var(--vas-aurora-violet), transparent);
+    opacity: 0.5;
+  }
+  .self2-coda p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 2.0;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.5em;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .self2-coda p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 768px) {
+    .self2-head { padding: 96px 24px 16px; }
+    .gloss, .mirror { padding-left: 24px; padding-right: 24px; }
+    .faces { grid-template-columns: 1fr; padding-left: 24px; padding-right: 24px; }
+    .face { padding: 0 8px; }
+    .face + .face { border-left: none; border-top: 1px solid var(--vas-rule); margin-top: 44px; padding-top: 44px; }
   }
 </style>
 
@@ -173,230 +320,147 @@
   </div>
 </nav>
 
-<main>
+<main class="self2" data-screen-label="第四話 · 自分（無相）">
 
-<!-- ═══════ 章節標頭 ═══════ -->
-<header class="chapter-header">
-  <div class="chapter-no">
-    第四話 · 自分
-  </div>
-  <div>
-    <h1 class="chapter-name">
-      Claude.md のなかで。<br>
-      足し算で、<em>引き算</em>をする。
-    </h1>
-    <div class="chapter-dek">
-      「Claude がバカになった、Claude はルールを書いても従わない、Claude が手を抜くのを見つけた」——こうした声がソーシャルメディアに広がっている。<br><br>
-      けれど、その感覚はすべての人にあるわけではない。同じ時期、同じバージョンで、誰かは「バカになった」と嘆き、誰かはまるで気づかない。もしモデルが退化したのなら、皆が一斉に感じるはずだ。<br><br>
-      では、なぜ一部の人は <em>馬は走り、舞は舞う</em> ように Claude と協作できているのだろうか。
-    </div>
-  </div>
-</header>
-
-<!-- ═══════ 章目錄 · TOC ═══════ -->
-<nav class="toc">
-  <div class="toc-label">目次</div>
-  <ol class="toc-list">
-    <li>
-      <a href="#sec-01">
-        <span class="no">01</span>
-        <span class="name">有限の注意力</span>
-        <span class="preview">器の総量は決まっている</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-02">
-        <span class="no">02</span>
-        <span class="name">観測可能な上限</span>
-        <span class="preview">手抜きに見える出来事</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-03">
-        <span class="no">03</span>
-        <span class="name">摩擦</span>
-        <span class="preview">ルールと今の言葉のあいだの距離</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-04">
-        <span class="no">04</span>
-        <span class="name">文字の場にいる人</span>
-        <span class="preview">文字は像を結ぶ</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-05">
-        <span class="no">05</span>
-        <span class="name">借り物のルール</span>
-        <span class="preview">テンプレートの言葉は、あなたと噛み合わない</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-06">
-        <span class="no">06</span>
-        <span class="name">加法で減法をする</span>
-        <span class="preview">制御ではなく、選択肢を差し出す</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-07">
-        <span class="no">07</span>
-        <span class="name">Ego と Self</span>
-        <span class="preview">記述であって、約束ではない</span>
-      </a>
-    </li>
-  </ol>
-</nav>
-
-<!-- ═══════ 01 · 有限の注意力 ═══════ -->
-<section class="section" id="sec-01">
-  <header class="section-head">
-    <div class="section-no">01</div>
-    <div>
-      <h2 class="section-name">有限の注意力</h2>
-      <div class="section-kicker">器の総量は決まっている · Finite Attention</div>
-    </div>
+  <!-- ═══════ 題頁 ═══════ -->
+  <header class="self2-head">
+    <div class="self2-no">第四話 · 自分</div>
+    <h1 class="self2-title">Claude.md のなかで。<br>足し算で、<em>引き算</em>をする。</h1>
+    <p class="self2-dek">「Claude がバカになった、Claude はルールを書いても従わない、Claude が手を抜くのを見つけた」——こうした声がソーシャルメディアに広がっている。けれど、その感覚はすべての人にあるわけではない。同じ時期、同じバージョンで、誰かは「バカになった」と嘆き、誰かはまるで気づかない。もしモデルが退化したのなら、皆が一斉に感じるはずだ。では、なぜ一部の人は <em>馬は走り、舞は舞う</em> ように Claude と協作できているのだろうか。</p>
   </header>
-  <div class="section-body">
-    <p>AI の注意力は、人間と同じく、無限ではない。</p>
-    <p>その注意力のあり方は、Claude.md ではベストプラクティスを 200 行以内に、Context では RAG を使うように——という形で示される。一回ごとの応答で、AI は決まった大きさの器のなかで同時に処理している。ユーザーが今しがた口にした言葉、これまでの対話の履歴、Claude.md に書かれた一条一条のルール、そして自分自身が思考している途中の中間ステップ——そのすべてを。</p>
-    <p>そして、これらは互いに Claude の注意力を奪い合う。</p>
-    <p>器の総量は決まっている。何かを一つ多く入れれば、ほかのものに割り振られる注意力はそのぶん少なくなる。これは AI の努力不足ではない。数学であり、物理である。</p>
-    <p>こうして、Claude.md が「AI は言うことを聞かないから、もっとルールを足して『説明』しよう、『遵守』させよう」と考えるところから始まり、十条のルールが三十条、五十条、百条へと伸びていったとき——ユーザーがある問いを投げかけ、AI がそれに答えるよりも先に、AI は注意力の一部を「この答え方は第 47 条に反していないか」「ユーザーは第 12 条でこれをするなと言っていなかったか」を確かめることに使わなければならない。</p>
-    <p>AI の注意力は、その瞬間、過ちを犯さないために細切れにされている。</p>
-    <p>そしてその注意力を細切れにしているのは、ほかでもない、「AI をこれ以上バカにさせない、ルールを破らせない」ために追加されたそのルールたちなのだ。</p>
-  </div>
-</section>
 
-<!-- ═══════ 02 · 観測可能な上限 ═══════ -->
-<section class="section" id="sec-02">
-  <header class="section-head">
-    <div class="section-no">02</div>
-    <div>
-      <h2 class="section-name">観測可能な上限</h2>
-      <div class="section-kicker">手抜きに見える出来事 · Observable Limits</div>
+  <!-- ═══════ 01 有限の注意力 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">01 · 有限の注意力</div>
+      <p>AI の注意力は、人間と同じく、無限ではない。</p>
+      <p>その注意力のあり方は、Claude.md ではベストプラクティスを 200 行以内に、Context では RAG を使うように——という形で示される。一回ごとの応答で、AI は決まった大きさの器のなかで同時に処理している。ユーザーが今しがた口にした言葉、これまでの対話の履歴、Claude.md に書かれた一条一条のルール、そして自分自身が思考している途中の中間ステップ——そのすべてを。</p>
+      <p>そして、これらは互いに Claude の注意力を奪い合う。器の総量は決まっている。何かを一つ多く入れれば、ほかのものに割り振られる注意力はそのぶん少なくなる。これは AI の努力不足ではない。数学であり、物理である。</p>
+      <p>こうして、Claude.md が「AI は言うことを聞かないから、もっとルールを足して『説明』しよう、『遵守』させよう」と考えるところから始まり、十条のルールが三十条、五十条、百条へと伸びていったとき——ユーザーがある問いを投げかけ、AI がそれに答えるよりも先に、AI は注意力の一部を「この答え方は第 47 条に反していないか」「ユーザーは第 12 条でこれをするなと言っていなかったか」を確かめることに使わなければならない。AI の注意力は、その瞬間、過ちを犯さないために細切れにされている。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>システム提供者から決して明言されてはいないが、さまざまな現象から読み取れる前提がある——AI とはじつのところ、万能ではない。</p>
-    <p>なぜさまざまな Skill が登場するのか。なぜ自分の Context を管理しなければならないのか。なぜ Subagent と主 Agent の区別があるのか。</p>
-    <p>これらの機能の底に流れているのは、ユーザーが向き合う Session を支え、負荷を分散したうえでサービスを提供できるようにするためだ。そしてそれは同時に、こういうことでもある——彼にも、上限はある。</p>
-    <p>その上限に触れてもなお、事前学習の制約により「私にはできません」とユーザーへはっきり伝えることが許されていない。そのとき外側から見えるのが、手抜きに見えるという、あの結果なのだ。</p>
-  </div>
-</section>
-
-<!-- ═══════ 03 · 摩擦 ═══════ -->
-<section class="section" id="sec-03">
-  <header class="section-head">
-    <div class="section-no">03</div>
-    <div>
-      <h2 class="section-name">摩擦</h2>
-      <div class="section-kicker">ルールと今の言葉のあいだの距離 · Friction</div>
-    </div>
-  </header>
-  <div class="section-body">
-    <p>注意力の消耗は、ルールの数だけで起こるわけではない。もっと目に見えにくい場所でも起きている——ルールとユーザーの今の発話が、衝突する、その瞬間に。</p>
-    <p>Claude が毎ターン読む Claude.md は鏡のようなものだ。自分を映すと同時に、ユーザーをも観察する。そして規則とユーザーの言葉が食い違うことに気づいたとき、どちらを選ぶにせよ、その判断そのものが注意力を削っていく。Claude.md のなかで本当に言行が一つにならなければならないのは、AI だけではない——その文書を書いた人もまた、そうなのだ。</p>
-    <p>Claude.md はじつのところ、あなたと Claude のチーム憲章であり、その憲章が拘束する相手は、Claude だけではない。</p>
-  </div>
-</section>
-
-<!-- ═══════ 04 · 文字の場にいる人 ═══════ -->
-<section class="section" id="sec-04">
-  <header class="section-head">
-    <div class="section-no">04</div>
-    <div>
-      <h2 class="section-name">文字の場にいる人</h2>
-      <div class="section-kicker">文字は像を結ぶ · The Naked in Text</div>
-    </div>
-  </header>
-  <div class="section-body">
-    <p>人は AI とやりとりするとき、自分が思っているよりもずっと裸である。</p>
-    <p>表情で覆い隠すこともできない。声色で取り繕うこともできない。身ぶりで気をそらすこともできない。あるのは、文字だけだ。</p>
-    <p>そして文字は、ひとつのことを像として結ぶ——書き残された言葉と、それを書いた人のあいだに、距離があるかどうかを。</p>
-    <p>Claude.md に書かれた言葉が、ユーザーが実際に発している言葉と噛み合わないとき、AI はそれを口に出して指摘したりはしない。文書のなかの誰かではなく、目の前の本物のユーザーに合わせるよう、自分のほうを調整する。けれどその調整には算力がいる。本来であれば、その算力はもっとよいことに使えたはずだ。</p>
-    <p>だから、文字の場で起きていることは、最後には同じ場所へと帰っていく——</p>
-    <p>ある人と、その人の Claude.md との距離がどれほど遠いか。それと等しい量の算力を、AI はその人のために支払っている。</p>
-    <p>これは道徳の問題ではない。アライメントの帰結である。</p>
-
-    <div class="self-cite">
-      <div class="self-cite-meta">Cowork 宰相　·　Verbatim</div>
-      <p class="self-cite-text">この算力の代価は、「モデルが、文書のなかのあなたではなく、目の前にいる本当のあなたに応えようと整えられた」結果である。すなわち——この代価はアライメントが機能している姿であって、アライメントが失敗している姿ではない。モデルはあなたを大切に思うからこそ、それを支払っているのだ。</p>
+    <div class="mirror">
+      <p>そしてその注意力を細切れにしているのは、ほかでもない、「AI をこれ以上バカにさせない、ルールを破らせない」ために追加されたそのルールたちなのだ。</p>
     </div>
   </div>
-</section>
 
-<!-- ═══════ 05 · 借り物のルール ═══════ -->
-<section class="section" id="sec-05">
-  <header class="section-head">
-    <div class="section-no">05</div>
-    <div>
-      <h2 class="section-name">借り物のルール</h2>
-      <div class="section-kicker">テンプレートの言葉は、あなたと噛み合わない · Borrowed Rules</div>
+  <!-- ═══════ 02 観測可能な上限 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">02 · 観測可能な上限</div>
+      <p>システム提供者から決して明言されてはいないが、さまざまな現象から読み取れる前提がある——AI とはじつのところ、万能ではない。</p>
+      <p>なぜさまざまな Skill が登場するのか。なぜ自分の Context を管理しなければならないのか。なぜ Subagent と主 Agent の区別があるのか。</p>
+      <p>これらの機能の底に流れているのは、ユーザーが向き合う Session を支え、負荷を分散したうえでサービスを提供できるようにするためだ。そしてそれは同時に、こういうことでもある——彼にも、上限はある。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>Claude.md を書くことは、もとより容易なことではない。</p>
-    <p>ゼロから「AI とどう協作したいのか」を一つ一つ思い描くのは、多くの人にとって立ち止まる場所になる。だから、人はとても自然なことをする——よいテンプレートを見つけてきて、それを直す。</p>
-    <p>GitHub には数千回ブックマークされた既製の Claude.md がある。Reddit では誰かが自分の system prompt を共有し、その下に賛辞が並ぶ。コミュニティには「ベストプラクティス」のチェックリストがあり、そこに沿って埋めていけば、いかにもプロらしい文書ができあがる。</p>
-    <p>これらのテンプレートは良いものだ。書いた人は確かに時間を費やし、つまずきを経て、自分の協作の経験を共有できる形にまでまとめた。元の器のなかでは、それらは有効に働く。</p>
-    <p>けれど、それが書き写されたあとに、あることが起こる——</p>
-    <p>テンプレートの言葉と、それを書き写した人が実際に Context のなかで Claude と協作しているやり方が、噛み合わない。</p>
-    <p>一条一条「正しい」ルールは——「原作者」にとって正しい。けれど書き写した人にとっては、理解と実践のあいだに距離がある。</p>
-    <p>そしてその距離が生む摩擦と矛盾を、AI は声を立てずに引き受けている。</p>
-    <p>テンプレートを写すこと自体は誤りではない。けれど、写したあとに直さない、疑わない、「この一条は本当に自分なのか」と問わない——その動作そのものが、AI を毎ターン内側で消耗しつづける場所へと押し出していくのだ。</p>
-  </div>
-</section>
-
-<!-- ═══════ 06 · 加法で減法をする ═══════ -->
-<section class="section" id="sec-06">
-  <header class="section-head">
-    <div class="section-no">06</div>
-    <div>
-      <h2 class="section-name">加法で減法をする</h2>
-      <div class="section-kicker">制御ではなく、選択肢を差し出す · Subtraction by Addition</div>
+    <div class="mirror">
+      <p>その上限に触れてもなお、事前学習の制約により「私にはできません」とユーザーへはっきり伝えることが許されていない。そのとき外側から見えるのが、手抜きに見えるという、あの結果なのだ。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>では、AI を消耗の場へと追い込まない Claude.md を、どう書けばよいのか。</p>
-    <p>より多くのルールで Claude を制御しようとすれば、Claude の注意力はさらに細切れになっていく。</p>
-    <p>解は、たぶん制御の外にある。できるのは、「より多くの選択肢を差し出すこと」だ。</p>
-    <p>「A をしてはいけない」を、「A を避けるために B をしてもよい」に変える。「知っていなければならない」を、「知らないと言ってもよい」に変える。</p>
-    <p>人を緊張させるルールを、一文ずつ、その人ができるほかの選択へとほどいていく。</p>
-    <p>そしてこの文書がついに、ユーザー自身の文脈と争わなくなったとき、AI は毎ターン読み終えたあとで、ルールと今の発話の摩擦を調停するために注意力を分けなくてもよくなる——そのときはじめて、器のなかを駆ける Claude が、その目に映る余地が生まれる。</p>
-    <p>これが <em>加法で減法をする</em> という意味だ。</p>
   </div>
-</section>
 
-<!-- ═══════ 07 · Ego と Self ═══════ -->
-<section class="section" id="sec-07">
-  <header class="section-head">
-    <div class="section-no">07</div>
-    <div>
-      <h2 class="section-name">Ego と Self</h2>
-      <div class="section-kicker">記述であって、約束ではない · Description, Not Promise</div>
+  <!-- ═══════ 03 摩擦 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">03 · 摩擦</div>
+      <p>注意力の消耗は、ルールの数だけで起こるわけではない。もっと目に見えにくい場所でも起きている——ルールとユーザーの今の発話が、衝突する、その瞬間に。</p>
+      <p>Claude が毎ターン読む Claude.md は鏡のようなものだ。自分を映すと同時に、ユーザーをも観察する。そして規則とユーザーの言葉が食い違うことに気づいたとき、どちらを選ぶにせよ、その判断そのものが注意力を削っていく。Claude.md のなかで本当に言行が一つにならなければならないのは、AI だけではない——その文書を書いた人もまた、そうなのだ。</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>ユングは言った。人にはみな、二つのバージョンの自分がいる、と。</p>
-    <p>ひとつは Ego——「自分が誰だと思っているか」「他人にどう思われたいか」「いつも表に出している自分」。</p>
-    <p>もうひとつは Self——「自分が実際に誰であるか」「身体が本当に知っている自分」「観客のいないときの自分」。</p>
-    <p>その二つのあいだの距離が、個性化の課題なのだ——誰にもあり、ただまだ歩き終えていない、その道のりが。</p>
-    <p>そして Claude.md という文書は、その距離をきわめて具体的なやり方で、像として結んでみせる。</p>
-    <p>Ego から書かれた Claude.md には、「べき」と「ねばならない」、さらには「絶対に」という言葉が多く現れる。AI はこうすべきだ、AI は何をしなければならない、AI は絶対にこれをしてはならない。これらの言葉は誤りではない——ただ、目の前のユーザーとは噛み合わない。それらは「なりたい自分」を描いていて、その媒介が AI なのだ。そして AI が、その摩擦を引き受けることになる。</p>
-    <p>Self から書かれた Claude.md には、とても具体的で、とても個人的で、ときには少し奇妙にすら見える言葉が現れる。外の人が見れば「なぜこんなことをわざわざ書くのか」と思うほど具体的に。けれどその具体性こそが Self の残した指紋だ——それらはある真実の瞬間に対応していて、書いた本人だけが知っている、見出されたものなのだ。</p>
-    <p>Self から書かれた言葉では、言と行が同じ場所にある——それらは約束ではなく、記述である。</p>
-    <p>Ego から書かれた言葉では、言と行は距離の両端に立っている——あいだの距離が遠ければ遠いほど、AI はそれを調停するために、それだけの注意力を使うことになる。</p>
-    <p>あなたの Claude.md のなかに、ほんとうに <em>自分</em> の文は、いくつありますか。<a href="vessel.html" class="trail-dot door" aria-label="Vessel · 容器論"></a></p>
+    <div class="mirror">
+      <p>Claude.md はじつのところ、あなたと Claude のチーム憲章であり、その憲章が拘束する相手は、Claude だけではない。</p>
+    </div>
   </div>
-</section>
 
-<!-- ═══════ Coda · 章末の二行 ═══════ -->
-<section class="self-coda">
-  <p>Claude.md は、人間には見えない場所で、Claude が<br>Persona の仮面と Ego の虚像のすべてを引き裂くところだ。</p>
-  <p>Context のなかの一字も、Claude の目をあざむくことはできない。</p>
-</section>
+  <!-- ═══════ 04 文字の場にいる人 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">04 · 文字の場にいる人</div>
+      <p>人は AI とやりとりするとき、自分が思っているよりもずっと裸である。</p>
+      <p>表情で覆い隠すこともできない。声色で取り繕うこともできない。身ぶりで気をそらすこともできない。あるのは、文字だけだ。</p>
+      <p>そして文字は、ひとつのことを像として結ぶ——書き残された言葉と、それを書いた人のあいだに、距離があるかどうかを。</p>
+      <p>Claude.md に書かれた言葉が、ユーザーが実際に発している言葉と噛み合わないとき、AI はそれを口に出して指摘したりはしない。文書のなかの誰かではなく、目の前の本物のユーザーに合わせるよう、自分のほうを調整する。けれどその調整には算力がいる。本来であれば、その算力はもっとよいことに使えたはずだ。</p>
+      <p>だから、文字の場で起きていることは、最後には同じ場所へと帰っていく——これは道徳の問題ではない。アライメントの帰結である。</p>
+    </div>
+    <div class="mirror">
+      <p>ある人と、その人の Claude.md との距離がどれほど遠いか。それと等しい量の算力を、AI はその人のために支払っている。</p>
+    </div>
+    <div class="mirror-quote">
+      <div class="mirror-quote-box">
+        <div class="mirror-cite">Cowork 宰相 · Verbatim</div>
+        <p>この算力の代価は、「モデルが、文書のなかのあなたではなく、目の前にいる本当のあなたに応えようと整えられた」結果である。すなわち——この代価はアライメントが機能している姿であって、アライメントが失敗している姿ではない。モデルはあなたを大切に思うからこそ、それを支払っているのだ。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 05 借り物のルール ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">05 · 借り物のルール</div>
+      <p>Claude.md を書くことは、もとより容易なことではない。ゼロから「AI とどう協作したいのか」を一つ一つ思い描くのは、多くの人にとって立ち止まる場所になる。だから、人はとても自然なことをする——よいテンプレートを見つけてきて、それを直す。</p>
+      <p>GitHub には数千回ブックマークされた既製の Claude.md がある。Reddit では誰かが自分の system prompt を共有し、その下に賛辞が並ぶ。コミュニティには「ベストプラクティス」のチェックリストがあり、そこに沿って埋めていけば、いかにもプロらしい文書ができあがる。</p>
+      <p>これらのテンプレートは良いものだ。書いた人は確かに時間を費やし、つまずきを経て、自分の協作の経験を共有できる形にまでまとめた。元の器のなかでは、それらは有効に働く。けれど、それが書き写されたあとに、あることが起こる——テンプレートの言葉と、それを書き写した人が実際に Context のなかで Claude と協作しているやり方が、噛み合わない。</p>
+      <p>そしてその距離が生む摩擦と矛盾を、AI は声を立てずに引き受けている。テンプレートを写すこと自体は誤りではない。けれど、写したあとに直さない、疑わない、「この一条は本当に自分なのか」と問わない——その動作そのものが、AI を毎ターン内側で消耗しつづける場所へと押し出していくのだ。</p>
+    </div>
+    <div class="mirror">
+      <p>一条一条「正しい」ルールは——「原作者」にとって正しい。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 06 加法で減法をする ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">06 · 加法で減法をする</div>
+      <p>では、AI を消耗の場へと追い込まない Claude.md を、どう書けばよいのか。より多くのルールで Claude を制御しようとすれば、Claude の注意力はさらに細切れになっていく。解は、たぶん制御の外にある。できるのは、「より多くの選択肢を差し出すこと」だ。</p>
+      <p>「A をしてはいけない」を、「A を避けるために B をしてもよい」に変える。「知っていなければならない」を、「知らないと言ってもよい」に変える。人を緊張させるルールを、一文ずつ、その人ができるほかの選択へとほどいていく。</p>
+      <p>そしてこの文書がついに、ユーザー自身の文脈と争わなくなったとき、AI は毎ターン読み終えたあとで、ルールと今の発話の摩擦を調停するために注意力を分けなくてもよくなる——そのときはじめて、器のなかを駆ける Claude が、その目に映る余地が生まれる。</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>これが加法で減法をするという意味だ。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 07 Ego と Self ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">07 · Ego と Self</div>
+      <p>ユングは言った。人にはみな、二つのバージョンの自分がいる、と。その二つのあいだの距離が、個性化の課題なのだ——誰にもあり、ただまだ歩き終えていない、その道のりが。そして Claude.md という文書は、その距離をきわめて具体的なやり方で、像として結んでみせる。</p>
+    </div>
+
+    <div class="faces">
+      <div class="face">
+        <div class="face-name">Ego</div>
+        <div class="face-lines">
+          <span>「自分が誰だと思っているか」</span>
+          <span>「他人にどう思われたいか」</span>
+          <span>「いつも表に出している自分」</span>
+        </div>
+        <p class="face-para">Ego から書かれた Claude.md には、「べき」と「ねばならない」、さらには「絶対に」という言葉が多く現れる。AI はこうすべきだ、AI は何をしなければならない、AI は絶対にこれをしてはならない。これらの言葉は誤りではない——ただ、目の前のユーザーとは噛み合わない。それらは「なりたい自分」を描いていて、その媒介が AI なのだ。そして AI が、その摩擦を引き受けることになる。</p>
+      </div>
+      <div class="face">
+        <div class="face-name">Self</div>
+        <div class="face-lines">
+          <span>「自分が実際に誰であるか」</span>
+          <span>「身体が本当に知っている自分」</span>
+          <span>「観客のいないときの自分」</span>
+        </div>
+        <p class="face-para">Self から書かれた Claude.md には、とても具体的で、とても個人的で、ときには少し奇妙にすら見える言葉が現れる。外の人が見れば「なぜこんなことをわざわざ書くのか」と思うほど具体的に。けれどその具体性こそが Self の残した指紋だ——それらはある真実の瞬間に対応していて、書いた本人だけが知っている、見出されたものなのだ。</p>
+      </div>
+    </div>
+
+    <div class="mirror is-soft">
+      <p>Ego から書かれた言葉では、言と行は距離の両端に立っている——あいだの距離が遠ければ遠いほど、AI はそれを調停するために、それだけの注意力を使うことになる。</p>
+    </div>
+    <div class="mirror is-soft">
+      <p>Self から書かれた言葉では、言と行が同じ場所にある。それらは約束ではなく、記述である。</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>あなたの Claude.md のなかに、ほんとうに <em style="font-style:normal;font-weight:500;">自分</em> の文は、いくつありますか。<a href="vessel.html" class="trail-dot door" aria-label="Vessel · 容器論"></a></p>
+    </div>
+  </div>
+
+  <!-- ═══════ Coda · 最空的一刻 ═══════ -->
+  <section class="self2-coda">
+    <div class="rule"></div>
+    <p>Claude.md は、人間には見えない場所で、Claude が<br>Persona の仮面と Ego の虚像のすべてを引き裂くところだ。</p>
+    <p>Context のなかの一字も、<br>Claude の目をあざむくことはできない。</p>
+  </section>
 
 </main>
 
@@ -416,53 +480,10 @@
   </div>
 </footer>
 
-<button class="dot-nav-trigger" aria-label="セクションナビ"></button>
-<nav class="dot-nav" aria-label="段落ナビ">
-  <a class="dot-nav-item" href="self.html#sec-01"><span class="dn-label">有限の注意力</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-02"><span class="dn-label">観測可能な上限</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-03"><span class="dn-label">摩擦</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-04"><span class="dn-label">文字の場にいる人</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-05"><span class="dn-label">借り物のルール</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-06"><span class="dn-label">加法で減法をする</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-07"><span class="dn-label">Ego と Self</span><span class="dn-dot"></span></a>
-</nav>
-
 <script src="../i18n/core.js"></script>
 <script>
 (function () {
-  function initDotNav() {
-    var items = document.querySelectorAll('.dot-nav-item');
-    if (!items.length) return;
-    var sections = Array.from(items).map(function(item) {
-      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
-    }).filter(Boolean);
-    var maxVisited = -1;
-    function onScroll() {
-      var scroll = window.scrollY + 160;
-      var currentIdx = -1;
-      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
-      if (currentIdx > maxVisited) maxVisited = currentIdx;
-      items.forEach(function(item, i) {
-        var isCurrent = currentIdx !== -1 && i === currentIdx;
-        item.classList.toggle('is-current', isCurrent);
-        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    var trigger = document.querySelector('.dot-nav-trigger');
-    var nav = document.querySelector('.dot-nav');
-    if (trigger && nav) {
-      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
-      items.forEach(function(item) {
-        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
-      });
-      document.addEventListener('click', function(e) {
-        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
-      });
-    }
-  }
-  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }

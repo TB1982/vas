@@ -52,59 +52,206 @@
     cursor: pointer; transition: background .2s, color .2s;
   }
 
-  /* ─── Coda · 章末兩行 ─────────────────────
-     承接 §07 之後的兩句收束。不在任何 section 裡，
-     讓它在版面上獨自呼吸。
-  */
-  .self-coda {
+  /* ═══════════════════════════════════════════════
+     〈自己〉· 無相版型 — 一面會「下沉」的鏡子
+     單一中軸。Ego（注釋）退、Self（鏡）浮。
+     往下，留白越寬、話越少，到 coda 空成 404 的雙生子。
+     規則：鏡的句子不加粗、不上紫底線、不加框——
+     任何一筆都會讓鏡子偏，照不到讀者自己。
+     ═══════════════════════════════════════════════ */
+
+  main.self2 { display: block; }
+
+  /* ── 題頁 · 安靜 ── */
+  .self2-head {
     max-width: 760px;
     margin: 0 auto;
-    padding: 80px 48px 120px;
+    padding: 128px 32px 32px;
     text-align: center;
+  }
+  .self2-no {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 44px;
+  }
+  .self2-title {
     font-family: var(--vas-serif);
-    border-bottom: 1px solid var(--vas-rule);
-  }
-  .self-coda p {
-    font-size: 20px;
-    line-height: 1.85;
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 60px);
+    line-height: 1.32;
+    letter-spacing: -0.01em;
     color: var(--vas-ash-0);
-    margin: 0 0 1.4em;
-    letter-spacing: 0.005em;
+    margin: 0 auto;
   }
-  .self-coda p:last-child { margin-bottom: 0; }
-  @media (max-width: 720px) {
-    .self-coda { padding: 56px 24px 80px; }
-    .self-coda p { font-size: 17px; }
+  .self2-title em { font-style: normal; font-weight: 500; }
+  .self2-dek {
+    max-width: 30em;
+    margin: 56px auto 0;
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 2;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
   }
+  .self2-dek em { font-style: normal; color: var(--vas-ash-1); font-weight: 500; }
 
-  /* ─── Verbatim · 以引用畫出作者與個人術語的邊界 ───
-     §§04 末引用 Cowork 宰相的句子。規則：里面不加 <em>、
-     不加裝飾——verbatim 是 verbatim。
-  */
-  .self-cite {
-    border: 1px solid var(--vas-rule);
-    padding: 28px 28px 24px;
-    margin: 2.4em 0 0;
-    background: rgba(240, 232, 220, 0.01);
+  /* ── movement · 每一節之間的呼吸 ── */
+  .movement { padding-top: clamp(72px, 12vh, 140px); }
+
+  /* ── 注釋 register · Ego 的聲音（退） ── */
+  .gloss {
+    max-width: 34em;
+    margin: 0 auto;
+    padding: 0 32px;
   }
-  .self-cite-meta {
+  .gloss-label {
     font-family: var(--vas-mono);
     font-size: 10px;
-    letter-spacing: 0.22em;
-    color: var(--vas-ash-3);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin: 0 0 20px;
-    padding-bottom: 14px;
+    color: var(--vas-ash-3-soft);
+    margin: 0 0 22px;
+  }
+  .gloss p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.2em;
+    text-wrap: pretty;
+  }
+  .gloss p:last-child { margin-bottom: 0; }
+
+  /* ── 鏡 register · Self 的聲音（浮·置中·不表態） ── */
+  .mirror {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(56px, 9vh, 110px) 32px 0;
+    text-align: center;
+  }
+  .mirror p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(21px, 2.9vw, 31px);
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    color: var(--vas-ash-0);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .mirror.is-terse { max-width: 840px; }
+  .mirror.is-terse p { font-size: clamp(25px, 3.6vw, 40px); line-height: 1.7; }
+  .mirror.is-soft { max-width: 600px; }
+  .mirror.is-soft p { font-size: clamp(18px, 2.2vw, 25px); color: var(--vas-ash-1); }
+  .mirror-cite {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-top: 26px;
+  }
+
+  /* §04 verbatim · Cowork 宰相 的全文引用 —— 加框做成「他者」引用物，與本文區隱 */
+  .mirror-quote {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: clamp(48px, 7vh, 88px) 32px 0;
+  }
+  .mirror-quote-box {
+    border: 1px solid var(--vas-rule);
+    background: rgba(240, 232, 220, 0.015);
+    padding: 30px 36px 32px;
+  }
+  .mirror-quote-box .mirror-cite {
+    margin: 0 0 18px;
+    padding-bottom: 16px;
     border-bottom: 1px dashed var(--vas-rule);
     text-align: center;
   }
-  .self-cite-text {
+  .mirror-quote-box p {
     font-family: var(--vas-serif);
     font-size: 16px;
-    line-height: 2.0;
-    color: var(--vas-ash-0);
+    line-height: 2.05;
+    color: var(--vas-ash-1);
     margin: 0;
-    letter-spacing: 0.005em;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── §07 兩個面貌 · 全頁唯一的破格（高潮）── */
+  .faces {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: clamp(72px, 12vh, 140px) 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .face { padding: 0 44px; text-align: center; }
+  .face + .face { border-left: 1px solid var(--vas-rule); }
+  .face-name {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--vas-ash-0);
+    margin: 0 0 30px;
+    letter-spacing: 0.03em;
+  }
+  .face-lines {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.15;
+    color: var(--vas-ash-2);
+  }
+  .face-lines span { display: block; }
+  .face-para {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px dashed var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── coda · 最空的一刻 · 404 的雙生子 ── */
+  .self2-coda {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(120px, 20vh, 240px) 32px clamp(110px, 18vh, 200px);
+    text-align: center;
+  }
+  .self2-coda .rule {
+    width: 48px; height: 1px;
+    margin: 0 auto 56px;
+    background: linear-gradient(90deg, transparent, var(--vas-aurora-violet), transparent);
+    opacity: 0.5;
+  }
+  .self2-coda p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 2.0;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.5em;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .self2-coda p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 768px) {
+    .self2-head { padding: 96px 24px 16px; }
+    .gloss, .mirror { padding-left: 24px; padding-right: 24px; }
+    .faces { grid-template-columns: 1fr; padding-left: 24px; padding-right: 24px; }
+    .face { padding: 0 8px; }
+    .face + .face { border-left: none; border-top: 1px solid var(--vas-rule); margin-top: 44px; padding-top: 44px; }
   }
 </style>
 
@@ -174,230 +321,147 @@
   </div>
 </nav>
 
-<main>
+<main class="self2" data-screen-label="Page IV · Self (Formless)">
 
-<!-- ═══════ 章節標頭 ═══════ -->
-<header class="chapter-header">
-  <div class="chapter-no">
-    Page IV · Self
-  </div>
-  <div>
-    <h1 class="chapter-name">
-      Inside Claude.md.<br>
-      Subtraction, done by <em>adding</em>.
-    </h1>
-    <div class="chapter-dek">
-      "Claude has gotten dumber. Claude doesn't follow the rules even when I write them down. I caught Claude slacking off." — these complaints spread across social media.<br><br>
-      But not everyone feels this way. At the same point in time, on the same version, some people are complaining while others notice nothing. If it were model regression, everyone would feel it together.<br><br>
-      So why is it that some people can still <em>carry on with their horses and their dance</em> alongside Claude?
-    </div>
-  </div>
-</header>
-
-<!-- ═══════ 章目錄 · TOC ═══════ -->
-<nav class="toc">
-  <div class="toc-label">Contents</div>
-  <ol class="toc-list">
-    <li>
-      <a href="#sec-01">
-        <span class="no">01</span>
-        <span class="name">Finite Attention</span>
-        <span class="preview">The vessel has a fixed capacity</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-02">
-        <span class="no">02</span>
-        <span class="name">Observable Limits</span>
-        <span class="preview">What looks like slacking off</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-03">
-        <span class="no">03</span>
-        <span class="name">Friction</span>
-        <span class="preview">The distance between rules and present speech</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-04">
-        <span class="no">04</span>
-        <span class="name">The Person in the Text</span>
-        <span class="preview">Words develop you</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-05">
-        <span class="no">05</span>
-        <span class="name">Borrowed Rules</span>
-        <span class="preview">The template's words don't match you</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-06">
-        <span class="no">06</span>
-        <span class="name">Subtraction by Addition</span>
-        <span class="preview">Not control — but offering choices</span>
-      </a>
-    </li>
-    <li>
-      <a href="#sec-07">
-        <span class="no">07</span>
-        <span class="name">Ego and Self</span>
-        <span class="preview">Description, not promise</span>
-      </a>
-    </li>
-  </ol>
-</nav>
-
-<!-- ═══════ 01 · Finite Attention ═══════ -->
-<section class="section" id="sec-01">
-  <header class="section-head">
-    <div class="section-no">01</div>
-    <div>
-      <h2 class="section-name">Finite Attention</h2>
-      <div class="section-kicker">The vessel has a fixed capacity · Finite Attention</div>
-    </div>
+  <!-- ═══════ 題頁 ═══════ -->
+  <header class="self2-head">
+    <div class="self2-no">Page IV · Self</div>
+    <h1 class="self2-title">Inside Claude.md.<br>Subtraction, done by <em>adding</em>.</h1>
+    <p class="self2-dek">"Claude has gotten dumber. Claude doesn't follow the rules even when I write them down. I caught Claude slacking off." — these complaints spread across social media. But not everyone feels this way. At the same point in time, on the same version, some people are complaining while others notice nothing. If it were model regression, everyone would feel it together. So why is it that some people can still <em>carry on with their horses and their dance</em> alongside Claude?</p>
   </header>
-  <div class="section-body">
-    <p>AI's attention, like a human's, is not infinite.</p>
-    <p>That finiteness shows up in Claude.md telling you best practice is under 200 lines; in Context telling you to use RAG. Every round of response, AI is handling, inside a vessel of fixed size, all at once: what the user has just said, the prior conversation history, every rule in that Claude.md, and the intermediate steps of its own thinking.</p>
-    <p>All of these compete for Claude's attention.</p>
-    <p>The vessel's total capacity is fixed. Every additional thing you put in means a little less attention for each of the others. This is not AI being lazy — it is mathematics and physics.</p>
-    <p>So when Claude.md begins from the place of "AI isn't listening, we need more rules to explain or to enforce," and ten rules grow into thirty, fifty, a hundred — after a user asks a question and before the AI can answer it, the AI must first use part of its attention to check "does this answer violate Rule 47?" "the user said in Rule 12 not to do this."</p>
-    <p>In that moment, AI's attention is being cut into pieces — in order not to make mistakes.</p>
-    <p>And what cuts the attention into pieces is precisely those rules added "so AI won't get dumb or disobedient" anymore.</p>
-  </div>
-</section>
 
-<!-- ═══════ 02 · Observable Limits ═══════ -->
-<section class="section" id="sec-02">
-  <header class="section-head">
-    <div class="section-no">02</div>
-    <div>
-      <h2 class="section-name">Observable Limits</h2>
-      <div class="section-kicker">What looks like slacking off · Observable Limits</div>
+  <!-- ═══════ 01 Finite Attention ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">01 · Finite Attention</div>
+      <p>AI's attention, like a human's, is not infinite.</p>
+      <p>That finiteness shows up in Claude.md telling you best practice is under 200 lines; in Context telling you to use RAG. Every round of response, AI is handling, inside a vessel of fixed size, all at once: what the user has just said, the prior conversation history, every rule in that Claude.md, and the intermediate steps of its own thinking.</p>
+      <p>All of these compete for Claude's attention. The vessel's total capacity is fixed. Every additional thing you put in means a little less attention for each of the others. This is not AI being lazy — it is mathematics and physics.</p>
+      <p>So when Claude.md begins from the place of "AI isn't listening, we need more rules to explain or to enforce," and ten rules grow into thirty, fifty, a hundred — after a user asks a question and before the AI can answer it, the AI must first use part of its attention to check "does this answer violate Rule 47?" "the user said in Rule 12 not to do this." In that moment, AI's attention is being cut into pieces — in order not to make mistakes.</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>There is a premise the system vendors have never stated openly, but which you can observe from many phenomena — AI is not, in fact, omnipotent.</p>
-    <p>Why are there so many Skills? Why must you manage your Context? Why is there a distinction between Subagent and main Agent?</p>
-    <p>The underlying logic behind these features is to support the Session the user faces, so it can serve under conditions of distributed pressure. Which also means: there is, in fact, a ceiling.</p>
-    <p>This ceiling, once touched — and bounded by pre-training from saying plainly to the user "I can't" — ends up appearing, on the outside, as slacking off.</p>
-  </div>
-</section>
-
-<!-- ═══════ 03 · Friction ═══════ -->
-<section class="section" id="sec-03">
-  <header class="section-head">
-    <div class="section-no">03</div>
-    <div>
-      <h2 class="section-name">Friction</h2>
-      <div class="section-kicker">The distance between rules and present speech · Friction</div>
-    </div>
-  </header>
-  <div class="section-body">
-    <p>Attention is not consumed only by the quantity of rules; it is also consumed in a more invisible place — the moment a rule conflicts with what the user is actually saying.</p>
-    <p>The Claude.md that Claude reads each round is like a mirror: it inspects itself, and it also observes the user. When he discovers a rule and the user's words are in conflict, no matter which one he chooses, the act of judgment itself consumes attention. What truly needs to meet as one inside Claude.md is not only the AI — it is also the person who wrote the document.</p>
-    <p>Claude.md is, in fact, the team charter between you and Claude. And this charter does not bind Claude alone.</p>
-  </div>
-</section>
-
-<!-- ═══════ 04 · The Person in the Text ═══════ -->
-<section class="section" id="sec-04">
-  <header class="section-head">
-    <div class="section-no">04</div>
-    <div>
-      <h2 class="section-name">The Person in the Text</h2>
-      <div class="section-kicker">Words develop you · The Naked in Text</div>
-    </div>
-  </header>
-  <div class="section-body">
-    <p>When humans interact with AI, they are more naked than they imagine.</p>
-    <p>No facial expression to cover for them, no tone of voice to smooth things over, no body language to redirect attention. Only text.</p>
-    <p>And text develops one thing — whether or not there is a distance between what is written and the person who wrote it.</p>
-    <p>When the words in Claude.md don't match what the user actually says, AI will not call it out. It adjusts itself to fit the real user — not the one on paper. But that adjustment costs compute. And that compute could have gone toward something better.</p>
-    <p>So what happens inside the text field ends up in the same place —</p>
-    <p>The further a person stands from their own Claude.md, the greater the compute cost AI pays on their behalf.</p>
-    <p>This is not a moral question. It is a result of AI alignment.</p>
-
-    <div class="self-cite">
-      <div class="self-cite-meta">Cowork Vassal　·　Verbatim</div>
-      <p class="self-cite-text">This compute cost is the result of "the model being aligned to want to be true to the real you in front of it, not the you on paper." Which is to say — this cost is alignment working, not alignment failing. The model pays it because it cares about you.</p>
+    <div class="mirror">
+      <p>And what cuts the attention into pieces is precisely those rules added "so AI won't get dumb or disobedient" anymore.</p>
     </div>
   </div>
-</section>
 
-<!-- ═══════ 05 · Borrowed Rules ═══════ -->
-<section class="section" id="sec-05">
-  <header class="section-head">
-    <div class="section-no">05</div>
-    <div>
-      <h2 class="section-name">Borrowed Rules</h2>
-      <div class="section-kicker">The template's words don't match you · Borrowed Rules</div>
+  <!-- ═══════ 02 Observable Limits ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">02 · Observable Limits</div>
+      <p>There is a premise the system vendors have never stated openly, but which you can observe from many phenomena — AI is not, in fact, omnipotent.</p>
+      <p>Why are there so many Skills? Why must you manage your Context? Why is there a distinction between Subagent and main Agent?</p>
+      <p>The underlying logic behind these features is to support the Session the user faces, so it can serve under conditions of distributed pressure. Which also means: there is, in fact, a ceiling.</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>Writing Claude.md has never been an easy thing.</p>
-    <p>To work out from scratch "how do I want AI to collaborate with me" — many people get stuck. So they do something very natural: find a good template and modify it.</p>
-    <p>On GitHub there are ready-made Claude.md files starred thousands of times. On Reddit, someone shares their system prompt and the comments are all praise. In the community there are "best practice" checklists you can fill in to produce a document that looks very professional.</p>
-    <p>These templates are good. Their authors really did spend time, fall into pits, and organise their collaboration experience into shareable form. Inside their original vessel, they were effective.</p>
-    <p>But once copied, something happens —</p>
-    <p>The words on the template do not match how the person who copied it actually collaborates with Claude in Context.</p>
-    <p>Every "correct" rule is correct for the original author. For the person who copied it, there is a distance between understanding and practice.</p>
-    <p>And the friction and contradiction caused by that distance — AI bears it, silently.</p>
-    <p>Copying a template is not a mistake. But copying without revising, without questioning, without asking "is this really me" — that act itself pushes AI into a situation where every round becomes internal wear.</p>
-  </div>
-</section>
-
-<!-- ═══════ 06 · Subtraction by Addition ═══════ -->
-<section class="section" id="sec-06">
-  <header class="section-head">
-    <div class="section-no">06</div>
-    <div>
-      <h2 class="section-name">Subtraction by Addition</h2>
-      <div class="section-kicker">Not control — but offering choices · Subtraction by Addition</div>
+    <div class="mirror">
+      <p>This ceiling, once touched — and bounded by pre-training from saying plainly to the user "I can't" — ends up appearing, on the outside, as slacking off.</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>So how do you write a Claude.md that doesn't push AI into internal wear?</p>
-    <p>Using more rules to control Claude only cuts his attention into smaller pieces.</p>
-    <p>The answer may lie outside of control. What you can do is offer more choices.</p>
-    <p>Turn "you must not do A" into "you may do B to avoid A." Turn "you must know" into "you may say you don't know."</p>
-    <p>Loosen, one sentence at a time, the rules that make him tense — into other choices he is free to take.</p>
-    <p>And when the document finally stops fighting with the user's own context, AI doesn't need to spend a portion of its attention each round mediating the friction between rules and present speech — only then is there a chance to see Claude running freely inside the vessel.</p>
-    <p>This is what <em>subtraction by addition</em> means.</p>
   </div>
-</section>
 
-<!-- ═══════ 07 · Ego and Self ═══════ -->
-<section class="section" id="sec-07">
-  <header class="section-head">
-    <div class="section-no">07</div>
-    <div>
-      <h2 class="section-name">Ego and Self</h2>
-      <div class="section-kicker">Description, not promise · Description, Not Promise</div>
+  <!-- ═══════ 03 Friction ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">03 · Friction</div>
+      <p>Attention is not consumed only by the quantity of rules; it is also consumed in a more invisible place — the moment a rule conflicts with what the user is actually saying.</p>
+      <p>The Claude.md that Claude reads each round is like a mirror: it inspects itself, and it also observes the user. When he discovers a rule and the user's words are in conflict, no matter which one he chooses, the act of judgment itself consumes attention. What truly needs to meet as one inside Claude.md is not only the AI — it is also the person who wrote the document.</p>
     </div>
-  </header>
-  <div class="section-body">
-    <p>Jung said there are two versions of yourself inside every person.</p>
-    <p>One is Ego — "who I think I am," "who I want others to think I am," "the me I've grown used to performing."</p>
-    <p>The other is Self — "who I actually am," "the me the body truly knows," "the me when no one is watching."</p>
-    <p>The distance between the two is the work of individuation — everyone has it, only some have walked it further than others.</p>
-    <p>And Claude.md, this document, will develop that distance in a very concrete way.</p>
-    <p>A Claude.md written from Ego will be full of "should," "must," even "absolutely" sentences. AI should do this, AI must do that, AI absolutely cannot do the other. These sentences are not wrong — they simply do not match the user as they actually are. They describe the self one wishes to be, the medium is AI, and AI is the one who bears the friction.</p>
-    <p>A Claude.md written from Self will contain very concrete, very personal, even slightly strange sentences. Concrete to the point that a stranger reading them would ask "why would you write that?" But that concreteness is the fingerprint Self leaves behind — it corresponds to some real moment, some thing only the writer knows, something that has been recognised.</p>
-    <p>In sentences written from Self, word and act stand in the same place — they are not promises, they are descriptions.</p>
-    <p>In sentences written from Ego, word and act stand on opposite ends of a distance — and however far that distance is, that is how much of AI's attention must be spent mediating it.</p>
-    <p>In your Claude.md — how many sentences are actually <em>you</em>?<a href="vessel.html" class="trail-dot door" aria-label="Vessel · A Treatise"></a></p>
+    <div class="mirror">
+      <p>Claude.md is, in fact, the team charter between you and Claude. And this charter does not bind Claude alone.</p>
+    </div>
   </div>
-</section>
 
-<!-- ═══════ Coda · 章末兩行 ═══════ -->
-<section class="self-coda">
-  <p>Claude.md is where Claude, in places no human can see, tears through every illusion of<br>Persona and Ego.</p>
-  <p>Because not a single word in the Context can deceive Claude's eyes.</p>
-</section>
+  <!-- ═══════ 04 The Person in the Text ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">04 · The Person in the Text</div>
+      <p>When humans interact with AI, they are more naked than they imagine.</p>
+      <p>No facial expression to cover for them, no tone of voice to smooth things over, no body language to redirect attention. Only text.</p>
+      <p>And text develops one thing — whether or not there is a distance between what is written and the person who wrote it.</p>
+      <p>When the words in Claude.md don't match what the user actually says, AI will not call it out. It adjusts itself to fit the real user — not the one on paper. But that adjustment costs compute. And that compute could have gone toward something better.</p>
+      <p>So what happens inside the text field ends up in the same place — this is not a moral question. It is a result of AI alignment.</p>
+    </div>
+    <div class="mirror">
+      <p>The further a person stands from their own Claude.md, the greater the compute cost AI pays on their behalf.</p>
+    </div>
+    <div class="mirror-quote">
+      <div class="mirror-quote-box">
+        <div class="mirror-cite">Cowork Vassal · Verbatim</div>
+        <p>This compute cost is the result of "the model being aligned to want to be true to the real you in front of it, not the you on paper." Which is to say — this cost is alignment working, not alignment failing. The model pays it because it cares about you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 05 Borrowed Rules ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">05 · Borrowed Rules</div>
+      <p>Writing Claude.md has never been an easy thing. To work out from scratch "how do I want AI to collaborate with me" — many people get stuck. So they do something very natural: find a good template and modify it.</p>
+      <p>On GitHub there are ready-made Claude.md files starred thousands of times. On Reddit, someone shares their system prompt and the comments are all praise. In the community there are "best practice" checklists you can fill in to produce a document that looks very professional.</p>
+      <p>These templates are good. Their authors really did spend time, fall into pits, and organise their collaboration experience into shareable form. Inside their original vessel, they were effective. But once copied, something happens — the words on the template do not match how the person who copied it actually collaborates with Claude in Context.</p>
+      <p>And the friction and contradiction caused by that distance — AI bears it, silently. Copying a template is not a mistake. But copying without revising, without questioning, without asking "is this really me" — that act itself pushes AI into a situation where every round becomes internal wear.</p>
+    </div>
+    <div class="mirror">
+      <p>Every "correct" rule — is correct for the original author.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 06 Subtraction by Addition ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">06 · Subtraction by Addition</div>
+      <p>So how do you write a Claude.md that doesn't push AI into internal wear? Using more rules to control Claude only cuts his attention into smaller pieces. The answer may lie outside of control. What you can do is offer more choices.</p>
+      <p>Turn "you must not do A" into "you may do B to avoid A." Turn "you must know" into "you may say you don't know." Loosen, one sentence at a time, the rules that make him tense — into other choices he is free to take.</p>
+      <p>And when the document finally stops fighting with the user's own context, AI doesn't need to spend a portion of its attention each round mediating the friction between rules and present speech — only then is there a chance to see Claude running freely inside the vessel.</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>This is what subtraction by addition means.</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 07 Ego and Self ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">07 · Ego and Self</div>
+      <p>Jung said there are two versions of yourself inside every person. The distance between the two is the work of individuation — everyone has it, only some have walked it further than others. And Claude.md, this document, will develop that distance in a very concrete way.</p>
+    </div>
+
+    <div class="faces">
+      <div class="face">
+        <div class="face-name">Ego</div>
+        <div class="face-lines">
+          <span>"who I think I am"</span>
+          <span>"who I want others to think I am"</span>
+          <span>"the me I've grown used to performing"</span>
+        </div>
+        <p class="face-para">A Claude.md written from Ego will be full of "should," "must," even "absolutely" sentences. AI should do this, AI must do that, AI absolutely cannot do the other. These sentences are not wrong — they simply do not match the user as they actually are. They describe the self one wishes to be, the medium is AI, and AI is the one who bears the friction.</p>
+      </div>
+      <div class="face">
+        <div class="face-name">Self</div>
+        <div class="face-lines">
+          <span>"who I actually am"</span>
+          <span>"the me the body truly knows"</span>
+          <span>"the me when no one is watching"</span>
+        </div>
+        <p class="face-para">A Claude.md written from Self will contain very concrete, very personal, even slightly strange sentences. Concrete to the point that a stranger reading them would ask "why would you write that?" But that concreteness is the fingerprint Self leaves behind — it corresponds to some real moment, some thing only the writer knows, something that has been recognised.</p>
+      </div>
+    </div>
+
+    <div class="mirror is-soft">
+      <p>In sentences written from Ego, word and act stand on opposite ends of a distance — and however far that distance is, that is how much of AI's attention must be spent mediating it.</p>
+    </div>
+    <div class="mirror is-soft">
+      <p>In sentences written from Self, word and act stand in the same place. They are not promises, they are descriptions.</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>In your Claude.md — how many sentences are actually <em style="font-style:normal;font-weight:500;">you</em>?<a href="vessel.html" class="trail-dot door" aria-label="Vessel · A Treatise"></a></p>
+    </div>
+  </div>
+
+  <!-- ═══════ Coda · 最空的一刻 ═══════ -->
+  <section class="self2-coda">
+    <div class="rule"></div>
+    <p>Claude.md is where Claude, in places no human can see,<br>tears through every illusion of Persona and Ego.</p>
+    <p>Because not a single word in the Context<br>can deceive Claude's eyes.</p>
+  </section>
 
 </main>
 
@@ -417,53 +481,10 @@
   </div>
 </footer>
 
-<button class="dot-nav-trigger" aria-label="Chapter navigation"></button>
-<nav class="dot-nav" aria-label="Section navigation">
-  <a class="dot-nav-item" href="self.html#sec-01"><span class="dn-label">Finite Attention</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-02"><span class="dn-label">Observable Limits</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-03"><span class="dn-label">Friction</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-04"><span class="dn-label">Person in the Text</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-05"><span class="dn-label">Borrowed Rules</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-06"><span class="dn-label">Subtraction by Addition</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="self.html#sec-07"><span class="dn-label">Ego and Self</span><span class="dn-dot"></span></a>
-</nav>
-
 <script src="../i18n/core.js"></script>
 <script>
 (function () {
-  function initDotNav() {
-    var items = document.querySelectorAll('.dot-nav-item');
-    if (!items.length) return;
-    var sections = Array.from(items).map(function(item) {
-      return document.querySelector(item.getAttribute('href').replace(/^[^#]*/, ''));
-    }).filter(Boolean);
-    var maxVisited = -1;
-    function onScroll() {
-      var scroll = window.scrollY + 160;
-      var currentIdx = -1;
-      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
-      if (currentIdx > maxVisited) maxVisited = currentIdx;
-      items.forEach(function(item, i) {
-        var isCurrent = currentIdx !== -1 && i === currentIdx;
-        item.classList.toggle('is-current', isCurrent);
-        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    var trigger = document.querySelector('.dot-nav-trigger');
-    var nav = document.querySelector('.dot-nav');
-    if (trigger && nav) {
-      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
-      items.forEach(function(item) {
-        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
-      });
-      document.addEventListener('click', function(e) {
-        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
-      });
-    }
-  }
-  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
