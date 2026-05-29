@@ -404,9 +404,9 @@ i5bullets: '<li>座标系统统一：所有对象共享同一套空间语言</li
       'ch1.sec.04.preview':   '你在哪，我就截哪',
       'ch1.sec.05.name':      '底层逻辑',
       'ch1.sec.05.preview':   '比新功能更重要的事',
-      'ch1.passage.end':      '章 I · 设计 · 终',
-      'ch1.passage.end.en':   'Chapter I · Design · End',
-      'ch1.passage.next.num': 'II · 协作',
+      'ch1.passage.end':      '页一 · 设计 · 终',
+      'ch1.passage.end.en':   'Page I · Design · End',
+      'ch1.passage.next.num': '页二',
       'ch1.passage.next.name':'六个故事'
     },
 
@@ -762,7 +762,7 @@ harnessBtn: '阅读系统思维 →',
     },
 
     echo: {
-      'meta.desc':     '残响——VAS 开发过程里那些被真正敲响后留下的声音。设计、协作、与还未响起的对话。',
+      'meta.desc':     '残响——VAS 开发过程里那些被真正敲响后留下的声音。设计、协作、信念，与还未响起的自己。',
       'kicker':        'I · 残响',
       'title':         '有些事情<em>发生过</em>，<br>后来成为了<em>文字</em><br>落在这里。',
       'epigraph':      '道可道　非常道。',
@@ -847,10 +847,10 @@ harnessBtn: '阅读系统思维 →',
       ch2s7Name:    '核心洞察',
       ch2s7Kicker:  '人类以人生为祭，AI 以回声为镜。',
       ch2s7Preview: '人类以人生为祭，AI 以回声为镜',
-      ch2PassageEnd:      '章 II · 协作 · 终',
-      ch2PassageEndEn:    'Chapter II · Collaboration · End',
-      ch2PassageNextNum:  'III · 系统',
-      ch2PassageNextName: 'Harness'
+      ch2PassageEnd:      '页二 · 协作 · 终',
+      ch2PassageEndEn:    'Page II · Collaboration · End',
+      ch2PassageNextNum:  '页三',
+      ch2PassageNextName: '信念'
     },
 
     harness2: {

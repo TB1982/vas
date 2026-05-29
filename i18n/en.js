@@ -440,9 +440,9 @@
       'ch1.sec.04.preview':   'Wherever you are, that\'s where I capture',
       'ch1.sec.05.name':      'Underlying Logic',
       'ch1.sec.05.preview':   'Something more important than new features',
-      'ch1.passage.end':      'Chapter I · Design · End',
+      'ch1.passage.end':      'Page I · Design · End',
       'ch1.passage.end.en':   '',
-      'ch1.passage.next.num': 'II · Collaboration',
+      'ch1.passage.next.num': 'Page II',
       'ch1.passage.next.name':'Six Stories'
     },
 
@@ -551,10 +551,10 @@
       ch2s7Name:    'Core Insight',
       ch2s7Kicker:  'Humans offer their lives as the sacrifice. AI holds up the echo as the mirror.',
       ch2s7Preview: 'Humans offer their lives as the sacrifice. AI holds up the echo as the mirror',
-      ch2PassageEnd:      'Chapter II · Collaboration · End',
+      ch2PassageEnd:      'Page II · Collaboration · End',
       ch2PassageEndEn:    '',
-      ch2PassageNextNum:  'III · System',
-      ch2PassageNextName: 'Harness'
+      ch2PassageNextNum:  'Page III',
+      ch2PassageNextName: 'Trust'
     },
 
     harness: {
@@ -975,7 +975,7 @@
     },
 
     echo: {
-      'meta.desc':     'Echoes — the voices left after VAS\'s making was truly heard. Design, collaboration, and conversations yet to ring.',
+      'meta.desc':     'Echoes — the voices left after VAS\'s making was truly heard. Design, collaboration, trust, and the self yet to ring.',
       'kicker':        'I · ECHOES',
       'title':         'Some things <em>happened</em>,<br>then became <em>words</em>,<br>and landed here.',
       'epigraph':      'The Tao that can be told is not the eternal Tao.',

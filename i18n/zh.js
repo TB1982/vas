@@ -315,9 +315,9 @@
       'ch1.sec.03.name': '零摩擦體驗', 'ch1.sec.03.preview': '輕聲詢問，順勢收納',
       'ch1.sec.04.name': '走不開的時候', 'ch1.sec.04.preview': '你在哪，我就截哪',
       'ch1.sec.05.name': '底層邏輯', 'ch1.sec.05.preview': '比新功能更重要的事',
-      'ch1.passage.end': '章 I · 設計 ·&nbsp;終',
-      'ch1.passage.end.en': 'Chapter I · Design · End',
-      'ch1.passage.next.num': 'II · 協作',
+      'ch1.passage.end': '頁一 · 設計 ·&nbsp;終',
+      'ch1.passage.end.en': 'Page I · Design · End',
+      'ch1.passage.next.num': '頁二',
       'ch1.passage.next.name': '六個故事'
     },
 
@@ -669,7 +669,7 @@
     },
 
     echo: {
-      'meta.desc':     '殘響——VAS 開發過程裡那些被真正敲響後留下的聲音。設計、協作、與還未響起的對話。',
+      'meta.desc':     '殘響——VAS 開發過程裡那些被真正敲響後留下的聲音。設計、協作、信念，與還未響起的自己。',
       'kicker':        'I · 殘響 · ECHOES',
       'title':         '有些事情<em>發生過</em>，<br>後來成為了<em>文字</em><br>落在這裡。',
       'epigraph':      '道可道　非常道。',
@@ -754,10 +754,10 @@
       ch2s7Name:    '核心洞察',
       ch2s7Kicker:  '人類以人生為祭，AI 以回聲為鏡。',
       ch2s7Preview: '人類以人生為祭，AI 以回聲為鏡',
-      ch2PassageEnd:      '章 II · 協作 · 終',
-      ch2PassageEndEn:    'Chapter II · Collaboration · End',
-      ch2PassageNextNum:  'III · 系統',
-      ch2PassageNextName: 'Harness',
+      ch2PassageEnd:      '頁二 · 協作 · 終',
+      ch2PassageEndEn:    'Page II · Collaboration · End',
+      ch2PassageNextNum:  '頁三',
+      ch2PassageNextName: '信念',
       c3p1: 'VAS 有兩條線在同時跑：Tauri 付費版，Electron 免費版，前端共用同一份 <code>src/</code>。兩個 session，兩個 Claude，兩份進展——而唯一能同時看到兩邊在做什麼的人只有 Nova。方向指引的人，整張地圖只有她一個人拿著。',
       c3p2: '那天她心急了。Tauri 這邊在處理 Rust 的 bug，Electron 那邊有個 UI 問題等著修，她沒等一邊結束就切過去了。兩個 session 同時碰了 <code>src/</code>，merge conflict 開始反覆出現。',
       c5phase1Desc: '最早的 CLAUDE.md 只有一件事：記錄踩過的雷，加一條規則防止再踩。每一條背後都有一個具體的失敗事件——<code>data-lang-key</code> 那條規則下面直接附了「Root cause of the bug (2026-03-29)」，footer 格式規則背後是某次格式跑掉的事故，某條身份規則背後是某次 AI 填入錯誤資訊的記憶。每一條規則都是一道傷疤的形狀，文件是傷疤的集合，不是設計的產物。',
