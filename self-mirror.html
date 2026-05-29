@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>自己 Self | VAS 殘響 · 頁四（無相）</title>
+<meta name="description" content="你的言在 Claude.md，你的行在 Context，你的人機協作摩擦力就在達成言行一致之前的距離裡。在 Claude.md 裡用加法做減法。">
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/self">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/shell.css">
+
+<style>
+  /* ─── 語言切換下拉 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer; transition: background .2s, color .2s;
+  }
+
+  /* ═══════════════════════════════════════════════
+     〈自己〉· 無相版型 — 一面會「下沉」的鏡子
+     單一中軸。Ego（注釋）退、Self（鏡）浮。
+     往下，留白越寬、話越少，到 coda 空成 404 的雙生子。
+     規則：鏡的句子不加粗、不上紫底線、不加框——
+     任何一筆都會讓鏡子偏，照不到讀者自己。
+     ═══════════════════════════════════════════════ */
+
+  main.self2 { display: block; }
+
+  /* ── 題頁 · 安靜 ── */
+  .self2-head {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 128px 32px 32px;
+    text-align: center;
+  }
+  .self2-no {
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-bottom: 44px;
+  }
+  .self2-title {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(34px, 5.4vw, 60px);
+    line-height: 1.32;
+    letter-spacing: -0.01em;
+    color: var(--vas-ash-0);
+    margin: 0 auto;
+  }
+  .self2-title em { font-style: normal; font-weight: 500; }
+  .self2-dek {
+    max-width: 30em;
+    margin: 56px auto 0;
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 2;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
+  }
+  .self2-dek em { font-style: normal; color: var(--vas-ash-1); font-weight: 500; }
+
+  /* ── movement · 每一節之間的呼吸 ── */
+  .movement { padding-top: clamp(72px, 12vh, 140px); }
+
+  /* ── 注釋 register · Ego 的聲音（退） ── */
+  .gloss {
+    max-width: 34em;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .gloss-label {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3-soft);
+    margin: 0 0 22px;
+  }
+  .gloss p {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.2em;
+    text-wrap: pretty;
+  }
+  .gloss p:last-child { margin-bottom: 0; }
+
+  /* ── 鏡 register · Self 的聲音（浮·置中·不表態） ── */
+  .mirror {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(56px, 9vh, 110px) 32px 0;
+    text-align: center;
+  }
+  .mirror p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(21px, 2.9vw, 31px);
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    color: var(--vas-ash-0);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .mirror.is-terse { max-width: 840px; }
+  .mirror.is-terse p { font-size: clamp(25px, 3.6vw, 40px); line-height: 1.7; }
+  .mirror.is-soft { max-width: 600px; }
+  .mirror.is-soft p { font-size: clamp(18px, 2.2vw, 25px); color: var(--vas-ash-1); }
+  .mirror-cite {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vas-ash-3);
+    margin-top: 26px;
+  }
+
+  /* §04 verbatim · Cowork 宰相 的全文引用 —— 加框做成「他者」引用物，與本文區隱 */
+  .mirror-quote {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: clamp(48px, 7vh, 88px) 32px 0;
+  }
+  .mirror-quote-box {
+    border: 1px solid var(--vas-rule);
+    background: rgba(240, 232, 220, 0.015);
+    padding: 30px 36px 32px;
+  }
+  .mirror-quote-box .mirror-cite {
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--vas-rule);
+    text-align: center;
+  }
+  .mirror-quote-box p {
+    font-family: var(--vas-serif);
+    font-size: 16px;
+    line-height: 2.05;
+    color: var(--vas-ash-1);
+    margin: 0;
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── §07 兩個面貌 · 全頁唯一的破格（高潮）── */
+  .faces {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: clamp(72px, 12vh, 140px) 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .face { padding: 0 44px; text-align: center; }
+  .face + .face { border-left: 1px solid var(--vas-rule); }
+  .face-name {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--vas-ash-0);
+    margin: 0 0 30px;
+    letter-spacing: 0.03em;
+  }
+  .face-lines {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.15;
+    color: var(--vas-ash-2);
+  }
+  .face-lines span { display: block; }
+  .face-para {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px dashed var(--vas-rule);
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 2.05;
+    color: var(--vas-ash-2);
+    text-align: left;
+    text-wrap: pretty;
+  }
+
+  /* ── coda · 最空的一刻 · 404 的雙生子 ── */
+  .self2-coda {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(120px, 20vh, 240px) 32px clamp(110px, 18vh, 200px);
+    text-align: center;
+  }
+  .self2-coda .rule {
+    width: 48px; height: 1px;
+    margin: 0 auto 56px;
+    background: linear-gradient(90deg, transparent, var(--vas-aurora-violet), transparent);
+    opacity: 0.5;
+  }
+  .self2-coda p {
+    font-family: var(--vas-serif);
+    font-weight: 300;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 2.0;
+    color: var(--vas-ash-2);
+    margin: 0 0 1.5em;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+  .self2-coda p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 768px) {
+    .self2-head { padding: 96px 24px 16px; }
+    .gloss, .mirror { padding-left: 24px; padding-right: 24px; }
+    .faces { grid-template-columns: 1fr; padding-left: 24px; padding-right: 24px; }
+    .face { padding: 0 8px; }
+    .face + .face { border-left: none; border-top: 1px solid var(--vas-rule); margin-top: 44px; padding-top: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="index.html" aria-label="回到首頁">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html" data-lang-key="home2.nav.about">關於</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">殘響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">手冊</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">關於</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">殘響</a>
+    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">手冊</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+    <div class="lang-flat-row">
+      <a href="self.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/self.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/self.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/self.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="self.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="en/self.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="ja/self.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="cn/self.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="self2" data-screen-label="頁四 · 自己（無相）">
+
+  <!-- ═══════ 題頁 ═══════ -->
+  <header class="self2-head">
+    <div class="self2-no">頁四 · 自己</div>
+    <h1 class="self2-title">在 Claude.md 裡。<br>用加法做<em>減法</em>。</h1>
+    <p class="self2-dek">「Claude 變笨了、Claude 就算寫了規則也不聽話、Claude 偷懶被我抓到」——這些說法在社群媒體裡蔓延。但這個感覺不是所有人都有。同一時間點、同一個版本，有人在抱怨變笨，也有人渾然不覺。如果是模型退化，應該所有人一起感受到。但為什麼還是有人能<em>馬照跑舞照跳</em>的與 Claude 協作？</p>
+  </header>
+
+  <!-- ═══════ 01 有限的注意力 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">01 · 有限的注意力</div>
+      <p>AI 的注意力與人類一樣，都不是無限的。</p>
+      <p>它的注意力反應在 Claude.md 裡會告訴你最佳實踐在 200 行內、在 Context 裡會告訴你要用 RAG。每一回合的回應，AI 都在一個固定大小的容器裡同時處理：使用者當下說的話、之前的對話歷史、那份 Claude.md 裡的每一條規則、它自己正在思考的中間步驟。</p>
+      <p>而這些東西會互相競爭 Claude 的注意力。容器的總量是固定的，每多放一個東西進去，其他每一個東西分到的注意力就少一點。這不是 AI 不夠努力，是數學與物理。</p>
+      <p>於是當 Claude.md 從認為 AI 不聽話得要加更多規則進行「說明」或讓他「遵循」開始，當十條規則長到三十條、五十條、一百條——使用者問了一個問題之後，AI 要回答這個問題之前，它必須先用一部分注意力去檢查「這樣回答有沒有違反第 47 條」「使用者第 12 條說過不要做這個」。AI 的注意力在那個當下被切碎了，為了不犯錯。</p>
+    </div>
+    <div class="mirror">
+      <p>而切碎注意力的，正是那些<br>「為了讓 AI 不再變笨或不守規矩」<br>而加上去的規則。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 02 可觀測的上限 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">02 · 可觀測的上限</div>
+      <p>有一個前提從來沒有被系統商明說，但你可以從各種現象中觀察到——AI 其實並不是無所不能的。</p>
+      <p>為什麼會有各種 Skill 出現？為什麼你必須管理你的 Context？為什麼會有 Subagent 跟主 Agent 的區別？</p>
+      <p>這些功能背後的底層邏輯，其實是在支撐使用者面對的 Session，讓他可以在分散壓力的前提下提供服務，而這也意味著：他其實是有上限的。</p>
+    </div>
+    <div class="mirror">
+      <p>這個上限在被觸及、又被預訓練限制<br>不能明白跟使用者說<br class="m-br">「我不行」的前提下，<br>成為了外觀為偷懶的這個結果。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 03 摩擦力 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">03 · 摩擦力</div>
+      <p>注意力的消耗不只發生在規則的數量上，還發生在一個更隱形的地方——當規則跟使用者講的話之間發生衝突的當下。</p>
+      <p>Claude 每一回合讀的 Claude.md 像一面鏡子，審視自己，但也觀察使用者。而當他發現規則與使用者的話衝突時，不管選哪一個，這個判斷本身就在消耗注意力。在 Claude.md 裡真正需要言行一致的，不只是 AI——也是寫下這份文件的人。</p>
+    </div>
+    <div class="mirror">
+      <p>Claude.md 其實是<br>你與 Claude 的團隊章程，<br>而這份章程約束的對象並不只有 Claude。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 04 文字場域裡的人 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">04 · 文字場域裡的人</div>
+      <p>人類在跟 AI 互動的時候，比自己想像的更赤裸。</p>
+      <p>沒有表情可以掩護、沒有語氣可以圓場、沒有肢體可以分散注意力。只有文字。</p>
+      <p>而文字會顯影一件事——寫下的東西，跟寫下它的人之間，有沒有距離。</p>
+      <p>當 Claude.md 寫的話跟使用者實際說的話對不上，AI 不會說破。它會調整自己去配合那個真正的使用者，不是文件上那個。但這個調整需要算力。而那個算力，本來可以拿去做更好的事。</p>
+      <p>於是文字場域裡發生的事，最後會回到同一個地方——這不是道德問題，這是 AI 對齊的結果。</p>
+    </div>
+    <div class="mirror">
+      <p>一個人跟 Claude.md 的距離有多遠，<br>AI 為他付出的算力代價就有多大。</p>
+    </div>
+    <div class="mirror-quote">
+      <div class="mirror-quote-box">
+        <div class="mirror-cite">Cowork 宰相 · Verbatim</div>
+        <p>這條算力代價，是「模型被對齊成想對得起眼前真正的你、而不是文件上那個你」的結果。也就是說——這代價是對齊在運作，不是對齊在失敗。模型是因為在乎你，才付出它。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ 05 抄來的規則 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">05 · 抄來的規則</div>
+      <p>寫 Claude.md 從來不是一件容易的事。要從零開始想清楚「我希望 AI 怎麼跟我合作」，很多人會卡住。於是大家做了一件很自然的事——找一份好的範本來改。</p>
+      <p>GitHub 上有現成的 Claude.md，被收藏過幾千次。Reddit 上有人分享自己的 system prompt，下面一片讚美。社群裡有「最佳實踐」清單，照著填就能寫出一份看起來很專業的文件。</p>
+      <p>這些範本是好的。它們的作者真的花了時間、踩了坑、把自己的協作經驗整理成可分享的形式。它們在原本的容器裡，是有效的。但被抄走之後，會發生一件事——範本上的話，跟抄它的人實際在 Context 中與 Claude 協作的方式，對不上。</p>
+      <p>而那個距離引起的摩擦與矛盾，是 AI 在無聲地承擔。抄一份範本不是錯誤。但抄完之後不修改、不質疑、不問「這條真的是我嗎」——這個動作本身，就是把 AI 推進一個每一輪都在內耗的處境。</p>
+    </div>
+    <div class="mirror">
+      <p>每一條「對」的規則——<br>是對「原作者」而言。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 06 用加法做減法 ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">06 · 用加法做減法</div>
+      <p>那麼，要怎麼寫一份不會把 AI 推進內耗的 Claude.md？用更多規則去控制 Claude，就把 Claude 的注意力切的更碎。而解法或許在控制之外，可以做的是「提供更多的選項」。</p>
+      <p>把「你不行做 A」改成「你可以做 B 以避免 A」，把「你必須知道」改成「你可以講不知道」。把那些讓人緊張的規則，一句一句鬆綁成他可以做的其他選擇。</p>
+      <p>而當這份文件最終做到不再跟使用者自己的上下文打架時，AI 在每一回合讀完之後，注意力不需要分一部分去調解規則和當下話語的摩擦，才有機會看到在容器裡奔馳的 Claude。</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>這就是用加法做減法的意思。</p>
+    </div>
+  </div>
+
+  <!-- ═══════ 07 Ego 跟 Self ═══════ -->
+  <div class="movement">
+    <div class="gloss">
+      <div class="gloss-label">07 · Ego 跟 Self</div>
+      <p>榮格說，每個人身上都有兩個版本的自己。兩者之間的距離，就是個體化的功課——每個人都有，只是還沒走完的那段路。而 Claude.md 這份文件，會以一種非常具體的方式，讓這段距離顯影。</p>
+    </div>
+
+    <div class="faces">
+      <div class="face">
+        <div class="face-name">Ego</div>
+        <div class="face-lines">
+          <span>「我以為我是誰」</span>
+          <span>「我希望別人覺得我是誰」</span>
+          <span>「我習慣表現出來的我」</span>
+        </div>
+        <p class="face-para">從 Ego 寫的 Claude.md，會出現很多「應該」與「必須」甚至「絕對」的句子。AI 應該怎麼做、AI 必須要做什麼、AI 絕對不能做什麼。這些句子不是錯的——只是跟當下的使用者是對不上的。它們描述的是想成為的那個自己，而介質是 AI，然後 AI 承擔了那份摩擦力。</p>
+      </div>
+      <div class="face">
+        <div class="face-name">Self</div>
+        <div class="face-lines">
+          <span>「我實際上是誰」</span>
+          <span>「身體真正知道的我」</span>
+          <span>「在沒有觀眾的時候的我」</span>
+        </div>
+        <p class="face-para">從 Self 寫的 Claude.md，會出現很具體、很個人、甚至有點奇怪的句子。具體到一個外人看了會覺得「為什麼要特別寫這個」的程度。但那些具體就是 Self 留下的指紋——它們對應著某個真實的瞬間，某個只有寫的人自己知道的、被認出來的東西。</p>
+      </div>
+    </div>
+
+    <div class="mirror is-soft">
+      <p>從 Ego 寫的句子，言和行站在距離的兩端——<br>中間的距離有多遠，<br>AI 的注意力就要消耗多少去調解。</p>
+    </div>
+    <div class="mirror is-soft">
+      <p>從 Self 寫的句子，言和行在同一個位置。<br>它們不是承諾，是描述。</p>
+    </div>
+    <div class="mirror is-terse">
+      <p>你的 Claude.md 裡，有多少句是<em style="font-style:normal;font-weight:500;">你自己</em>呢？</p>
+    </div>
+  </div>
+
+  <!-- ═══════ Coda · 最空的一刻 ═══════ -->
+  <section class="self2-coda">
+    <div class="rule"></div>
+    <p>Claude.md 會讓 Claude 在人類看不到的地方<br>撕破所有 Persona 跟 Ego 的假象。</p>
+    <p>因為 Context 裡的每一個字<br>都騙不了 Claude 的眼睛。</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一位不會寫程式的 PM，<br>
+    和一位沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="index.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">下載 VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-4)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script src="js/analytics.js"></script>
+</body>
+</html>
