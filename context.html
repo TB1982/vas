@@ -50,6 +50,257 @@
     cursor: pointer; transition: background .2s, color .2s;
   }
 
+  /* ═══════════════════════════════════════════════
+     §04 五層語言 · 梯（不是表）
+     往下讀＝往上爬。字級↑ 明度↑ 節點 灰→紫↑。
+     ═══════════════════════════════════════════════ */
+  .ladder { max-width: 760px; margin: 4px 0 0; }
+  .ladder-rungs {
+    position: relative;
+    padding-left: 96px;
+  }
+  .ladder-rungs::before {
+    content: '';
+    position: absolute;
+    left: 40px; top: 28px; bottom: 28px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      var(--vas-ash-4) 0%, var(--vas-ash-3) 45%, var(--vas-aurora-violet) 100%);
+    opacity: 0.55;
+  }
+  .rung {
+    position: relative;
+    padding: 30px 0;
+    border-top: 1px solid var(--vas-rule);
+  }
+  .rung:first-child { border-top: none; }
+  .rung::before {
+    content: '';
+    position: absolute;
+    left: -60px; top: 38px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--vas-void);
+    border: 1px solid var(--vas-ash-3);
+  }
+  .rung .lv {
+    position: absolute;
+    left: -96px; top: 32px;
+    width: 40px;
+    font-family: var(--vas-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--vas-ash-2);
+  }
+  .rung-name {
+    font-family: var(--vas-serif);
+    font-weight: 400;
+    color: var(--vas-ash-2);
+    letter-spacing: 0.01em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .rung-verdict {
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .rung-body {
+    font-family: var(--vas-serif);
+    font-size: 15px;
+    line-height: 2.0;
+    color: var(--vas-ash-1);
+    max-width: 40em;
+    text-wrap: pretty;
+  }
+  .rung-body .ex { color: var(--vas-ash-0); font-style: normal; }
+  .rung.lv1 .rung-name { font-size: 19px; color: var(--vas-ash-3); }
+  .rung.lv2 .rung-name { font-size: 22px; color: var(--vas-ash-2); }
+  .rung.lv3 .rung-name { font-size: 26px; color: var(--vas-ash-1); }
+  .rung.lv4 .rung-name { font-size: 30px; color: var(--vas-ash-0); }
+  .rung.lv5 .rung-name { font-size: 36px; color: var(--vas-ash-0); font-weight: 500; }
+  .rung.lv1::before { border-color: var(--vas-ash-4); }
+  .rung.lv2::before { border-color: var(--vas-ash-3); }
+  .rung.lv3::before { border-color: rgba(196,113,245,0.5); background: rgba(196,113,245,0.14); }
+  .rung.lv4::before { border-color: rgba(196,113,245,0.8); background: rgba(196,113,245,0.4); box-shadow: 0 0 5px rgba(196,113,245,0.3); }
+  .rung.lv5::before {
+    background: radial-gradient(circle, var(--vas-aurora-violet), var(--vas-aurora-pink) 60%, transparent 100%);
+    border-color: var(--vas-aurora-violet);
+    box-shadow: 0 0 8px rgba(196,113,245,0.5);
+  }
+  .rung.lv4 .lv, .rung.lv5 .lv { color: var(--vas-ash-1); }
+  .ladder-coda {
+    margin: 40px 0 0;
+    padding-left: 96px;
+    max-width: 36em;
+  }
+  .ladder-coda p {
+    font-family: var(--vas-serif);
+    font-size: 16px; line-height: 1.95;
+    color: var(--vas-ash-1); margin: 0 0 1em;
+  }
+  .ladder-coda em { font-style: normal; font-weight: 500; color: var(--vas-ash-0); }
+
+  /* ═══════════════════════════════════════════════
+     §05 能被指的決策 · 尺（不是表）
+     太大／太小是偏離的兩端（灰·失準），剛好在校準的中點（紫·發光）。
+     和梯共用節點語彙，但語意相反——梯往上爬，尺找中心。
+     ═══════════════════════════════════════════════ */
+  .gauge { max-width: 760px; margin: 4px 0 0; }
+  .gauge-band {
+    position: relative;
+    padding-left: 96px;
+  }
+  .gauge-band::before {
+    content: '';
+    position: absolute;
+    left: 40px; top: 36px; bottom: 36px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      var(--vas-ash-4) 0%,
+      var(--vas-aurora-violet) 50%,
+      var(--vas-ash-4) 100%);
+    opacity: 0.5;
+  }
+  .grade {
+    position: relative;
+    padding: 26px 0;
+  }
+  .grade::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--vas-void);
+    border: 1px solid var(--vas-ash-4);
+    top: 30px;
+  }
+  .grade .tick {
+    position: absolute;
+    left: -96px; top: 24px;
+    width: 44px;
+    font-family: var(--vas-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .grade-name {
+    font-family: var(--vas-serif);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .grade-label { color: var(--vas-ash-2); line-height: 1.5; }
+  .grade-verdict {
+    display: block;
+    font-family: var(--vas-mono);
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--vas-ash-2);
+    white-space: nowrap;
+    margin-bottom: 10px;
+  }
+  .grade-body {
+    font-family: var(--vas-serif);
+    font-size: 15px; line-height: 2.0;
+    color: var(--vas-ash-1); max-width: 40em;
+    text-wrap: pretty;
+  }
+  .grade-body .ex { color: var(--vas-ash-0); }
+  /* 兩端：偏離 — 退、灰、字級失衡（太大過大、太小過小） */
+  .grade.too-big .grade-label { font-size: 23px; color: var(--vas-ash-3); }
+  .grade.too-small .grade-label { font-size: 15px; color: var(--vas-ash-1); }
+  /* 太大示範：讓這句「叛逃明朝體」——渲染成輸入框裡的 placeholder 鬼影，
+     SaaS 預設 sans、灰掉、進不了被編輯的狀態——medium 本身就是白目。 */
+  .grade.too-big .grade-label {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    color: var(--vas-ash-0);
+    display: inline-block;
+    padding: 11px 16px;
+    border: 1px solid var(--vas-ash-3-soft);
+    border-radius: 7px;
+    background: rgba(240, 232, 220, 0.025);
+    letter-spacing: 0;
+    line-height: 1.4;
+    min-height: 1.4em;
+    min-width: 60px;
+  }
+  .grade.too-big .grade-label::after {
+    content: '';
+    display: inline-block;
+    width: 1.5px; height: 1.05em;
+    margin-left: 1px;
+    background: var(--vas-ash-0);
+    transform: translateY(0.2em);
+    animation: bigCaret 1.05s step-end infinite;
+  }
+  @keyframes bigCaret { 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+
+  /* 太小示範：兩顆真按鈕，6px vs 8px——瞑眼也分不出來，「太小」本身就是笑點 */
+  .radius-demo { display: flex; gap: 16px; align-items: center; margin: 4px 0 18px; flex-wrap: wrap; }
+  .radius-chip {
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.12em;
+    color: var(--vas-ash-2);
+    border: 1px solid var(--vas-ash-3-soft);
+    padding: 12px 22px;
+    background: rgba(240, 232, 220, 0.025);
+  }
+  .radius-chip.r6 { border-radius: 6px; }
+  .radius-chip.r8 { border-radius: 8px; }
+  .radius-demo-note {
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.02em;
+    color: var(--vas-ash-1);
+    white-space: nowrap;
+  }
+  .grade.too-big::before, .grade.too-small::before { border-color: var(--vas-ash-4); }
+  /* 中點：校準 — 紫、發光、份量剛好 */
+  .grade.just .grade-label { font-size: 21px; color: var(--vas-ash-0); }
+  .grade.just::before {
+    background: radial-gradient(circle, var(--vas-aurora-violet), var(--vas-aurora-pink) 60%, transparent 100%);
+    border-color: var(--vas-aurora-violet);
+    box-shadow: 0 0 8px rgba(196,113,245,0.5);
+  }
+  .grade.just .tick { color: var(--vas-ash-1); }
+  .grade.just .grade-verdict { color: var(--vas-aurora-violet); opacity: 0.8; }
+  .gauge-specimen {
+    margin: 8px 0 0;
+    font-family: var(--vas-serif);
+    font-size: clamp(20px, 2.6vw, 27px);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--vas-ash-0);
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  .gauge-specimen em { font-style: normal; font-weight: 500; }
+  .gauge-coda {
+    margin: 44px 0 0;
+    padding-left: 96px;
+    max-width: 38em;
+  }
+  .gauge-coda p {
+    font-family: var(--vas-serif);
+    font-size: 16px; line-height: 1.95;
+    color: var(--vas-ash-1); margin: 0 0 1em;
+  }
+  .gauge-coda em { font-style: normal; font-weight: 500; color: var(--vas-ash-0); }
+
+  @media (max-width: 768px) {
+    .ladder-rungs, .gauge-band { padding-left: 40px; }
+    .ladder-rungs::before, .gauge-band::before { left: 7px; }
+    .rung::before, .grade::before { left: -37px; }
+    .rung .lv, .grade .tick { position: static; width: auto; display: block; margin-bottom: 10px; }
+    .ladder-coda, .gauge-coda { padding-left: 40px; }
+    .rung.lv5 .rung-name { font-size: 30px; }
+  }
+
   /* ─── §06 對話框 · 沿用 us.html「那一晚」的形式 ─ */
   .ctx-dialogue {
     border: 1px solid var(--vas-rule);
@@ -353,14 +604,40 @@
     </div>
   </header>
   <div class="section-body">
-    <p>跟 AI 溝通的語彙，從無效到有效有五個層級：</p>
-    <p><strong>L1 · 形容詞</strong>——「簡潔一點」「乾淨」「現代」。無效。因為每個人的「簡潔」不一樣，AI 會挑最大公約數，給你最平庸的版本，就像你會在需求不明確時給你老闆的第一版一樣——「安全，但沒有亮點」。</p>
-    <p><strong>L2 · 感受詞</strong>——「我看到這個會想往後退」「這個讓我喘不過氣」「這個有種在跟我推銷的感覺」。身體不說謊，AI 可以從感受反推到參數。</p>
-    <p><strong>L3 · 對照物</strong>——「我希望它像圖書館，不是便利商店」「按鈕的存在感要像門把，不是像招牌」。對照物自帶完整的視覺、觸感、節奏、情緒——一個比喻可以校準十個參數與使用者體驗。</p>
-    <p><strong>L4 · 否定句</strong>——「不要 SaaS 味」「不要那種隨處可見的設計感」。一百個設計師可以給你一百種「現代感」，但「不要 SaaS 味」只有一條線，踩到了就是踩到了。邊界比中心更難偽造。</p>
-    <p><strong>L5 · 全然在場</strong>——試著在語句最後參雜一些「（笑）」「（托腮）」「（搖了搖頭）」。AI 看不到你，但他可以從你的文字感知你的肢體——這是文字的 hack 語言。</p>
-    <p>這不是 role play，也不是裝。是 <em>being</em>——你本來就在笑、在托腮、在搖頭，只是讓那個本來就在的你，被看見。</p>
-    <p>文字會把人壓扁，情緒與肢體使你在 AI 眼裡更加立體。</p>
+    <p>跟 AI 溝通的語彙，從無效到有效有五個層級。往下讀，就是往上爬：</p>
+    <div class="ladder">
+      <div class="ladder-rungs">
+        <div class="rung lv1">
+          <span class="lv">L1</span>
+          <div class="rung-name">形容詞 <span class="rung-verdict">無效 · Invalid</span></div>
+          <p class="rung-body"><span class="ex">「簡潔一點」「乾淨」「現代」。</span>因為每個人的「簡潔」不一樣，AI 會挑最大公約數，給你最平庸的版本——就像需求不明確時你給老闆的第一版：安全，但沒有亮點。</p>
+        </div>
+        <div class="rung lv2">
+          <span class="lv">L2</span>
+          <div class="rung-name">感受詞</div>
+          <p class="rung-body"><span class="ex">「我看到這個會想往後退」「這個讓我喘不過氣」「這個有種在跟我推銷的感覺」。</span>身體不說謊，AI 可以從感受反推到參數。</p>
+        </div>
+        <div class="rung lv3">
+          <span class="lv">L3</span>
+          <div class="rung-name">對照物</div>
+          <p class="rung-body"><span class="ex">「我希望它像圖書館，不是便利商店」「按鈕的存在感要像門把，不是像招牌」。</span>對照物自帶完整的視覺、觸感、節奏、情緒——一個比喻可以校準十個參數與使用者體驗。</p>
+        </div>
+        <div class="rung lv4">
+          <span class="lv">L4</span>
+          <div class="rung-name">否定句</div>
+          <p class="rung-body"><span class="ex">「不要 SaaS 味」「不要那種隨處可見的設計感」。</span>一百個設計師可以給你一百種「現代感」，但「不要 SaaS 味」只有一條線，踩到了就是踩到了。邊界比中心更難偽造。</p>
+        </div>
+        <div class="rung lv5">
+          <span class="lv">L5</span>
+          <div class="rung-name">全然在場 <span class="rung-verdict" style="color:var(--vas-aurora-violet);opacity:.8;">being</span></div>
+          <p class="rung-body"><span class="ex">試著在語句最後參雜一些「（笑）」「（托腮）」「（搖了搖頭）」。</span>AI 看不到你，但他可以從你的文字感知你的肢體——這是文字的 hack 語言。</p>
+        </div>
+      </div>
+      <div class="ladder-coda">
+        <p>這不是 role play，也不是裝。是 <em>being</em>——你本來就在笑、在托腮、在搖頭，只是讓那個本來就在的你，被看見。</p>
+        <p>文字會把人壓扁，情緒與肢體使你在 AI 眼裡更加立體。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -374,17 +651,38 @@
     </div>
   </header>
   <div class="section-body">
-    <p>「跟 AI 一次討論多少？」這個問題的答案不是時數，是顆粒度與對應的上下文濃度。</p>
-
-    <p><strong>太大：</strong>「幫我設計這個頁面。」——若這句話發生在第一回合，沒有任何前提與資訊，AI 一次做完一百個決策，你看到結果不對，但說不出哪裡不對。</p>
-    <p>你陷入「整體感覺不對」的迴圈，AI 重做一百遍，你還是說不出。因為你沒有「先聊聊」的那個基底存在過兩者之間，AI 對你的理解淡薄如水，自然做出來的東西也不會懂你。</p>
-
-    <p><strong>太小：</strong>「按鈕圓角 6px 還是 8px？」——技術細節是 AI 的工作。你只要負責指出哪裡不對勁、為什麼不對勁，剩下交給 AI。</p>
-
-    <p><strong>剛好：</strong>「<em>標題的份量</em>，應該更像碑文，不要像海報。」——能用手指指到位置、能用感受形容狀態、能用對照物或否定句指方向。人事物都齊，AI 就動得了。</p>
-
-    <p>剛好的顆粒，有兩件事：在製作前，給 Context 足夠的濃度；在製作時，剛好對應「眼睛掃過去停下來的那一點」。</p>
-    <p>你不需要學過設計才能談設計，你只需要誠實地說出：眼睛停在哪、感覺是什麼、想要它變什麼樣。</p>
+    <p>「跟 AI 一次討論多少？」這個問題的答案不是時數，是顆粒度與對應的上下文濃度。兩端都偏離，中點才校準：</p>
+    <div class="gauge">
+      <div class="gauge-band">
+        <div class="grade too-big">
+          <span class="tick">太大</span>
+          <div class="grade-verdict">失準 · Off</div>
+          <div class="grade-name"><span class="grade-label"><span class="typed" data-text="幫我設計這個頁面。"></span></span></div>
+          <p class="grade-body">若這句話發生在第一回合，沒有任何前提與資訊，AI 一次做完一百個決策，你看到結果不對，但說不出哪裡不對。你陷入「整體感覺不對」的迴圈，AI 重做一百遍，你還是說不出——因為你沒有「先聊聊」的那個基底存在過兩者之間，AI 對你的理解淡薄如水。</p>
+        </div>
+        <div class="grade too-small">
+          <span class="tick">太小</span>
+          <div class="grade-verdict">失準 · Off</div>
+          <div class="grade-name"><span class="grade-label">按鈕圓角 6px 還是 8px？</span></div>
+          <div class="radius-demo">
+            <span class="radius-chip r6">6px</span>
+            <span class="radius-chip r8">8px</span>
+            <span class="radius-demo-note">用眼睛選，不用數字選</span>
+          </div>
+          <p class="grade-body">技術細節是 AI 的工作。你只要負責指出哪裡不對勁、為什麼不對勁，擺在一起喜歡哪一個，剩下交給 AI。</p>
+        </div>
+        <div class="grade just">
+          <span class="tick">剛好</span>
+          <div class="grade-verdict">校準 · Calibrated</div>
+          <p class="gauge-specimen"><em>標題的份量</em>，應該更像碑文，不要像海報。</p>
+          <p class="grade-body" style="margin-top:18px;">能用手指指到位置、能用感受形容狀態、能用對照物或否定句指方向。人事物都齊，AI 就動得了。</p>
+        </div>
+      </div>
+      <div class="gauge-coda">
+        <p>剛好的顆粒，有兩件事：在製作前，給 Context 足夠的濃度；在製作時，剛好對應「<em>眼睛掃過去停下來的那一點</em>」。</p>
+        <p>你不需要學過設計才能談設計，你只需要誠實地說出：眼睛停在哪、感覺是什麼、想要它變什麼樣。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -506,7 +804,35 @@
       });
     }
   }
-  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); }
+  function initTyping() {
+    var el = document.querySelector('.grade.too-big .typed');
+    if (!el) return;
+    var full = el.getAttribute('data-text') || '';
+    var typing = false;
+    function run() {
+      if (typing) return;
+      typing = true;
+      el.textContent = '';
+      var i = 0;
+      (function step() {
+        if (i <= full.length) {
+          el.textContent = full.slice(0, i);
+          i++;
+          setTimeout(step, 145 + Math.random() * 95);
+        } else {
+          typing = false;
+        }
+      })();
+    }
+    if ('IntersectionObserver' in window) {
+      var target = el.closest('.grade') || el;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) run(); });
+      }, { threshold: 0.35 });
+      io.observe(target);
+    } else { run(); }
+  }
+  function init() { if (window.VASCore) VASCore.initNavDropdown(); initDotNav(); initTyping(); }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
