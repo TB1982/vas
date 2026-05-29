@@ -75,6 +75,7 @@ When uncertain, stop and ask. **Nova is a Human Design Generator** — sometimes
 3. **`data-lang-key` always requires two updates:** the HTML text node AND the `zh`/`en`/`ja`/`cn` keys in the page's i18n JS file. Missing either causes visible bugs.
    → For large i18n tasks: **CLAUDE-process.md § Haiku Protocol**
 4. **Use `臺` not `台`** — `臺灣`, `臺北`, `臺中`. Never substitute silently.
+5. **Identity values are canonical** — author / email / project name / URLs / social: see **README § Author / Project Identity**. Never invent alternatives.
 
 ---
 
@@ -91,74 +92,29 @@ Visual logic and copy follow from this line, not the other way around.
 
 ---
 
-## Project & Author Identity
-**Always use these exact values. Never invent alternatives.**
-
-| Field | Value |
-|-------|-------|
-| Author display name | Nova |
-| Author email | nova@yoursvas.app |
-| Project name (ZH) | 深握計畫 |
-| Project name (EN) | Deep Holding Project |
-| Site canonical URL | `https://yoursvas.app/` |
-| Copyright year | 2026– |
-| LinkedIn | `https://www.linkedin.com/in/yingtzuliu` |
-| Instagram | `https://www.instagram.com/liuyingtzu` |
-
-Per-page canonical: `https://yoursvas.app/<filename>` — strip `.html` (clean URL convention; Cloudflare Pages serves both).
-
-### Footer — canonical format
-```
-由 Cloudflare 部署　｜　Claude Code 傾力打造　｜　Nova（nova@yoursvas.app）最後更新於 2026
-Deployed via Cloudflare　｜　Built with Claude Code　｜　Last updated 2026 by Nova (nova@yoursvas.app)
-```
-
-### Social / JSON-LD author block
-```json
-"author": {
-  "@type": "Person",
-  "name": "Nova",
-  "email": "nova@yoursvas.app",
-  "sameAs": ["https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu"]
-}
-```
-
----
-
 ## Conventions
 
 - **Commit messages:** Traditional Chinese, action-oriented — `更新手機版顯示數字大小` / `新增 OCR 段落說明` / `清掉四語 index.html 殘留的空 trail-dot span`. Write each message complete enough that the change can be understood from `git log` alone.
-- **Stage of work complete → proactively commit + push.** This repo has a system stop-hook that detects untracked / unpushed changes. Once a well-bounded stage is complete → commit + push to the active branch without per-step asking. Exceptions still follow § Safety Rules (deletion / overwrite / force-push / irreversible actions).
-- **New page:** Update `README.md` and the Repository Structure in CLAUDE-process.md (lower priority than user-visible fixes, but don't let it accumulate).
-- **Version update:** Nova states the new version number directly. Update all hardcoded occurrences in HTML and i18n files. Historical narrative versions (e.g. "一週推出 v3.43") carry `<!--歷史版本，不可更動-->` in HTML or `// 歷史版本，不可更動` in JS. The marker locks *the historical fact* (versions, days, sprint counts) — not the surrounding vocabulary. Localization fixes (e.g. cn 程式码 → 代码) on those lines are still allowed.
-- **KM log:** Append to `km.md` when a bug is resolved AND there's recurrence risk or a pattern future 宰相s should be warned about. Routine fixes that won't come back (vocabulary sweeps, copy edits, mechanical replacements) don't need logging — `git log` is the time-axis memory for those.
-- **Translation & per-locale wording:** See `GLOSSARY.md` (root) — locked terminology + per-locale conventions (CN Mainland register, JA shinjitai rules, EN clarity preference, tri-script chapter labels).
+- **Stage of work complete → proactively commit + push.** Stop-hook detects untracked / unpushed changes. Once a stage is well-bounded, commit + push to the active branch without per-step asking.
+- **Ask Nova before** deleting files, overwriting uncommitted changes, force-pushing, or any irreversible command.
+- **Parallel sessions:** don't modify the same content file from two website 宰相 sessions simultaneously — same-file edits will collide.
+- **New page:** update `README.md` + Repository Structure in CLAUDE-process.md (lower priority than user-visible fixes, but don't accumulate).
+- **Version update:** Nova states the version directly. Lines marked `// 歷史版本，不可更動` / `// 歷史數字，不可更動` lock *historical facts* (version numbers, days, Sprint counts) — vocabulary fixes on those lines are still allowed.
+- **KM log:** append to `km.md` when there's recurrence risk or a pattern future 宰相s should be warned about. Routine fixes (vocabulary sweeps, copy edits) don't need logging — `git log` is the time-axis memory.
+- **Translation & per-locale wording:** see **GLOSSARY.md** — locked terminology + per-locale conventions.
 
 ---
 
 ## Git
-- **Remotes (三點等邊網)**:
-  - `github` = `https://github.com/TB1982/vas.git` — **Cloudflare Pages 部署來源** (source of truth post-2026-05-20 restoration)
-  - `origin` = `https://gitlab.com/babelon1882/vas.git` — GitLab，被動鏡像目標
-  - `backup` = `~/vas-backup.git` — 本機 bare repo
-- **Main branch:** `main` — Cloudflare Pages 從 **github/main** 部署。永遠不直接推 main，透過 **GitHub PR** 合併。
-- **Dev branches:** `claude/<description>-<id>` — 透過 `git pushall <branch>` alias 同時推三個 remote。
-- **Auto-mirror:** `.github/workflows/mirror-to-gitlab.yml` 在 github/main 變動時自動鏡像至 gitlab/main（GitHub 是 source of truth，GitLab 是被動鏡像；archive tag `pre-mirror-2026-05-11` 保存 pre-restoration 的 GitHub 原 lineage 於 `bd049e9`）。
+- **Remotes (三點等邊網):**
+  - `github` — Cloudflare Pages 部署來源 (source of truth post-2026-05-20 restoration)
+  - `origin` — GitLab，被動鏡像目標
+  - `backup` — `~/vas-backup.git` 本機 bare repo
+- **Main branch:** `main` — Cloudflare 從 `github/main` 部署。永遠不直推 main，透過 GitHub PR 合併。
+- **Dev branches:** `claude/<description>-<id>` — `git pushall <branch>` alias 同推三 remote。
+- **Auto-mirror:** `.github/workflows/mirror-to-gitlab.yml` 推動 github/main → gitlab/main（pre-restoration lineage 存於 tag `pre-mirror-2026-05-11`）。
 - **Backup ethos:** GitHub-suspension lesson — diversification is the careful move, not slowing down.
 - **CDN dependencies:** do not move to local files.
-
----
-
-## Safety Rules
-
-**Ask Nova before:** deleting files, overwriting uncommitted changes, force-pushing, any irreversible command.
-
-**Absolute prohibitions:**
-- Never push directly to `main` (also in Core Rules — repeated because it's the load-bearing rule).
-- Never modify the same content file from two website 宰相 sessions simultaneously — same-file edits from parallel instances will collide.
-- Never invent alternatives for the Project & Author Identity table values.
-- Never silently substitute `臺` ↔ `台`.
-- Never touch lines marked `// 歷史版本，不可更動` / `// 歷史數字，不可更動` for fact changes (vocabulary fixes still OK — see Conventions).
 
 ---
 
@@ -204,3 +160,4 @@ Deployed via Cloudflare　｜　Built with Claude Code　｜　Last updated 2026
 | Applying Claude Design CSS output | § Claude Design Protocol |
 | Checking file locations or ownership | § Repository Structure |
 | Large read/write task in the main session | § Trickle-Flow Discipline |
+| JSON-LD author block / SEO structured data | § SEO & Structured Data |
