@@ -133,12 +133,15 @@
   .ged-dict-sub { font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-2); margin: 14px 0 36px; }
 
   /* ═══ 編輯器節 · 24 工具脫框成「字典索引」 ═══ */
+  /* 用 grid 雙欄而非 CSS columns：docs.css 的 .g-tools-body 是 display:flex，
+     會吃掉 multi-column 佈局；改用 grid 才能可靠分欄、且左右欄等分組對齊。 */
   .g-tools-dict .g-tools-body {
-    columns: 2; column-gap: 56px; max-width: 720px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 56px;
+    max-width: 720px;
   }
-  .g-tools-dict .g-tools-body > div {
-    break-inside: avoid; margin-bottom: 30px;
-  }
+  .g-tools-dict .g-tools-body > div { margin-bottom: 0; }
   .g-tools-dict .g-grp-label {
     padding-bottom: 10px; margin-bottom: 4px;
     border-bottom: 1px solid var(--vas-rule);
@@ -159,7 +162,7 @@
   @media (max-width: 768px) {
     #toolbar .g-toolbar-grid { column-gap: 0; }
     .ged-zones { grid-template-columns: 1fr; gap: 0; }
-    .g-tools-dict .g-tools-body { columns: 1; }
+    .g-tools-dict .g-tools-body { grid-template-columns: 1fr; }
   }
 </style>
 <link rel="alternate" hreflang="zh-Hant" href="guide">
