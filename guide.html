@@ -97,6 +97,12 @@
   }
   .docs-main ul.docs-list { display: flex; flex-direction: column; gap: 2px; }
 
+  /* ── A1.5 · guide 專屬：項目符號往下推 4px 對齊文字第一行 baseline ──
+     docs.css 的 .docs-list > li::before 用 top: 9px 是相對 li 容器算的固定值，
+     guide.html 的 li 內常見 badge / 多行 mix（如「匯出」的四個項目），
+     第一行被推高時點點停在 9px 看起來偏上。只在這頁局部覆寫，docs.css 不動。 */
+  .docs-main ul.docs-list > li::before { top: 13px; }
+
   /* ── A2 · 工具列 8 卡：保留原本的 4×2 bordered grid ──
      這區本來就不擠、不是「帳本牆」，框是界定「兩排」的有意義結構，不該拆。
      只在 hover 時讓卡名亮成紫色，其餘交還 docs.css 原樣。 */
