@@ -169,10 +169,11 @@
   .g-tools-dict .g-chip:hover .g-chip-icon { color: var(--vas-aurora-violet); }
   .g-tools-dict .g-chip-key { margin-left: auto; padding-left: 12px; flex-shrink: 0; }
 
-  /* 1080px：工具列 4×2 grid 提早降成 2 欄，避免一般桌面寬度被擠成細長 4 欄文字直排
-     （docs.css 預設在 768 才降，覆寫層在 guide.html 局部提早觸發，不影響其他頁面） */
-  @media (max-width: 1080px) {
-    #toolbar .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
+  /* EN 專屬：工具列預設就 2 欄。英文卡名 / 描述較長，4 欄會擠成細長直排，
+     2 欄是英文閱讀的舒適形狀。手機 ≤480 由 docs.css 切 1 欄、這裡同步保留。 */
+  #toolbar .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 480px) {
+    #toolbar .g-toolbar-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 768px) {
     #toolbar .g-toolbar-grid { column-gap: 0; }
