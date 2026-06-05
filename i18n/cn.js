@@ -112,6 +112,7 @@
       zone3Name: '动态汇出按钮', zone3Desc: '右下角浮动按钮。可拖曳移动位置，对应左右撇子不同使用习惯。完成后拖曳至目标应用程序即可汇出。Tauri 另提供 Sharesheet 分享功能。',
       zone4Name: '状态列与磁吸工具开关', zone4Desc: '左下角状态列。显示目前缩放比例与画布尺寸，并提供磁吸对齐开关，可快速启用或关闭智慧磁吸功能。',
       s2Label: 'Section 03', s2Title: '左侧工具列', s2Sub: '所有标注工具一览，括号内为快捷键',
+      s2DictLabel: '标注工具字典 · Tools', s2DictSub: '二十四种工具，点任一个看操作方式与属性。',
       grpSelect: '选取', grpDraw: '绘图', grpAnnotate: '标注',
       grpPrivacy: '隐私与遮蔽', grpCanvas: '画布操作', grpLayout: '版面功能', grpOther: '其他',
       t_select: '选取', t_boxselect: '框型选取', t_pen: '笔型', t_line: '线条',

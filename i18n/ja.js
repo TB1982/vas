@@ -127,6 +127,8 @@
       s2Label: 'Section 03',
       s2Title: 'ツールメニュー',
       s2Sub: 'すべての注釈ツール一覧——括弧内はショートカット',
+      s2DictLabel: '注釈ツール辞典 · Tools',
+      s2DictSub: '24 のツール、ひとつクリックして操作方法と属性を確認。',
       grpSelect: '選択',
       grpDraw: '描画',
       grpAnnotate: '注釈',

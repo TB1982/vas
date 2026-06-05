@@ -129,6 +129,8 @@
       s2Label: 'Section 03',
       s2Title: 'Tool Menu',
       s2Sub: 'All annotation tools at a glance — keyboard shortcut in parentheses',
+      s2DictLabel: 'Annotation Tools Dictionary · Tools',
+      s2DictSub: 'Twenty-four tools — click any to see usage and attributes.',
       grpSelect: 'Select',
       grpDraw: 'Draw',
       grpAnnotate: 'Annotate',
