@@ -79,6 +79,10 @@
   @media (prefers-reduced-motion: reduce) {
     .docs-subsection { opacity: 1; transform: none; transition: none; }
   }
+  /* 970px：工具列 4×2 grid 提早降成 2 欄，避免 769-970 中間寬度被擠成細長 4 欄文字直排 */
+  @media (max-width: 970px) {
+    #toolbar .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
+  }
 </style>
 <link rel="alternate" hreflang="zh-Hant" href="../guide">
 <link rel="alternate" hreflang="en"       href="../en/guide">
