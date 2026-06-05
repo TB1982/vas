@@ -79,9 +79,105 @@
   @media (prefers-reduced-motion: reduce) {
     .docs-subsection { opacity: 1; transform: none; transition: none; }
   }
-  /* 970px：工具列 4×2 grid 提早降成 2 欄，避免 769-970 中間寬度被擠成細長 4 欄文字直排 */
+</style>
+
+<style>
+  /* ═══════════════════════════════════════════════
+     guide-v2 覆寫層 · A 拆帳本線 + 編輯器字典 + 加呼吸
+     只覆寫，不改 docs.css。
+     原則：拆「逐項框線」與「盒框牆」，保留「卡片／彈窗／accordion」這類有意義的容器。
+     ═══════════════════════════════════════════════ */
+
+  /* ── A1 · 清單脫掉逐項帳本線，改用留白 ── */
+  /* 只拆線、加一點行距；不碰 padding 與 ::before 定位，
+     否則 docs.css 算好的項目符號 top 會對不準（短行尤其明顯）。 */
+  .docs-main ul.docs-list > li,
+  .docs-main ol.docs-list > li {
+    border-bottom: none !important;
+  }
+  .docs-main ul.docs-list { display: flex; flex-direction: column; gap: 2px; }
+
+  /* ── A1.5 · guide 專屬：項目符號往下推 4px 對齊文字第一行 baseline ──
+     docs.css 的 .docs-list > li::before 用 top: 9px 是相對 li 容器算的固定值，
+     guide.html 的 li 內常見 badge / 多行 mix（如「匯出」的四個項目），
+     第一行被推高時點點停在 9px 看起來偏上。只在這頁局部覆寫，docs.css 不動。 */
+  .docs-main ul.docs-list > li::before { top: 13px; }
+
+  /* ── A2 · 工具列 8 卡：保留原本的 4×2 bordered grid ──
+     這區本來就不擠、不是「帳本牆」，框是界定「兩排」的有意義結構，不該拆。
+     只在 hover 時讓卡名亮成紫色，其餘交還 docs.css 原樣。 */
+  #toolbar .g-card:hover .g-card-name { color: var(--vas-aurora-violet); transition: color .2s; }
+
+  /* ── A3 · 圖片框減淡（保留邊界感，但不喧賓奪主） ── */
+  .docs-figure img, .g-img {
+    border-color: color-mix(in srgb, var(--vas-rule) 55%, transparent) !important;
+  }
+
+  /* ── A4 · 章與章、節與節之間加休息 ── */
+  /* 比原 64px 稍大一點點即可；88px 對「首節→入門」這種裸間距太大、
+     且首節下緣只有 24px 會造成分隔線上下不對稱。給首節補一點下緣來平衡。 */
+  .docs-section { padding-top: 68px; }
+  #welcome { padding-bottom: 44px; }
+  .docs-subsection { margin-bottom: 18px; }
+  .docs-subsection + .docs-subsection { margin-top: 56px; }
+
+  /* ═══ 編輯器節 · 四區圓點地圖 ═══ */
+  .ged-zones {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px 48px; margin: 4px 0 0; max-width: 720px;
+  }
+  .ged-zone { display: flex; gap: 13px; padding: 15px 0; align-items: baseline; }
+  .ged-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; transform: translateY(1px); }
+  .ged-zbody { min-width: 0; }
+  .ged-zn { font-family: var(--vas-serif); font-weight: 500; font-size: 15px; color: var(--vas-ash-0); display: block; margin-bottom: 3px; }
+  .ged-zd { font-family: var(--vas-serif); font-size: 14px; line-height: 1.75; color: var(--vas-ash-1); }
+
+  /* ── 地圖與字典之間的休息 + 安靜路標 ── */
+  .ged-rest { margin: 56px 0 0; display: flex; align-items: center; gap: 18px; max-width: 720px; }
+  .ged-rest-label { font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--vas-aurora-violet); opacity: 0.75; white-space: nowrap; }
+  .ged-rest-line { flex: 1; height: 1px; background: var(--vas-rule); }
+  .ged-dict-sub { font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-2); margin: 14px 0 36px; }
+
+  /* ═══ 編輯器節 · 24 工具脫框成「字典索引」 ═══ */
+  /* 用 CSS columns 達到 masonry 流式雙欄，短組會自動接下一組、不留空隙。
+     docs.css 的 .g-tools-body 是 display:flex 會吃掉 columns，
+     因此先 display:block !important 蓋回 block 容器，columns 才生效。 */
+  .g-tools-dict .g-tools-body {
+    display: block !important;
+    columns: 2;
+    column-gap: 56px;
+    max-width: 720px;
+  }
+  .g-tools-dict .g-tools-body > div {
+    break-inside: avoid;
+    margin-bottom: 30px;
+  }
+  .g-tools-dict .g-grp-label {
+    padding-bottom: 10px; margin-bottom: 4px;
+    border-bottom: 1px solid var(--vas-rule);
+  }
+  .g-tools-dict .g-chips { display: block; }
+  .g-tools-dict .g-chip {
+    display: flex; align-items: baseline; gap: 11px; width: 100%;
+    padding: 9px 0 !important;
+    border: none !important; border-radius: 0;
+    font-size: 15px;
+    transition: padding-left .18s ease;
+  }
+  .g-tools-dict .g-chip:hover { border-color: transparent !important; padding-left: 5px; color: var(--vas-ash-0); }
+  .g-tools-dict .g-chip-icon { width: 15px; flex-shrink: 0; text-align: center; transition: color .18s ease; }
+  .g-tools-dict .g-chip:hover .g-chip-icon { color: var(--vas-aurora-violet); }
+  .g-tools-dict .g-chip-key { margin-left: auto; padding-left: 12px; flex-shrink: 0; }
+
+  /* 970px：工具列 4×2 grid 提早降成 2 欄，避免 769-970 中間寬度被擠成細長 4 欄文字直排
+     （docs.css 預設在 768 才降，覆寫層在 guide.html 局部提早觸發，不影響其他頁面） */
   @media (max-width: 970px) {
     #toolbar .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    #toolbar .g-toolbar-grid { column-gap: 0; }
+    .ged-zones { grid-template-columns: 1fr; gap: 0; }
+    .g-tools-dict .g-tools-body { columns: 1; }
   }
 </style>
 <link rel="alternate" hreflang="zh-Hant" href="../guide">
@@ -304,15 +400,31 @@
           <img id="guideEditorImg" class="js-editor-img" src="../img/vas-guide-editor-jp.webp" alt="VAS スクリーンショットエディタ——注釈ツール・OCRプライバシーマスク・書き出し機能">
           <figcaption data-lang-key="editorCaption">EDITOR · 4 つの操作エリア。</figcaption>
         </figure>
-        <ul class="docs-list">
-          <li><strong data-lang-key="zone1Name" style="color:#f87171;">メインツールメニュー</strong>——<span data-lang-key="zone1Desc">左側の縦型ツールバー。ツールを選択するとキャンバスの操作モードが切り替わります。使用中のツールは青くハイライトされます。</span></li>
-          <li><strong data-lang-key="zone2Name" style="color:#fb923c;">サブプロパティパネル</strong>——<span data-lang-key="zone2Desc">上部ツールバー。選択中のツールに応じて動的に内容が変わります。色・線幅・不透明度・線スタイルなどを調整できます。</span></li>
-          <li><strong data-lang-key="zone3Name" style="color:#ffffff;">動的書き出しボタン</strong>——<span data-lang-key="zone3Desc">右下のフローティングボタン。ドラッグして位置を変更でき、左右どちらの手にも対応。完了後、対象アプリにドラッグして書き出します。Tauri は Sharesheet 共有機能も提供します。</span></li>
-          <li><strong data-lang-key="zone4Name" style="color:#4ade80;">ステータスバーとスナップのオン/オフ</strong>——<span data-lang-key="zone4Desc">左下のステータスバー。現在のズーム倍率とキャンバスサイズを表示し、スマートスナップのオン/オフを切り替えられます。</span></li>
-        </ul>
+        <div class="ged-zones">
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#f87171;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone1Name">メインツールメニュー</span><span class="ged-zd" data-lang-key="zone1Desc">左側の縦型ツールバー。ツールを選択するとキャンバスの操作モードが切り替わります。使用中のツールは青くハイライトされます。</span></span>
+          </div>
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#fb923c;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone2Name">サブプロパティパネル</span><span class="ged-zd" data-lang-key="zone2Desc">上部ツールバー。選択中のツールに応じて動的に内容が変わります。色・線幅・不透明度・線スタイルなどを調整できます。</span></span>
+          </div>
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#e8e8e8;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone3Name">動的書き出しボタン</span><span class="ged-zd" data-lang-key="zone3Desc">右下のフローティングボタン。ドラッグして位置を変更でき、左右どちらの手にも対応。完了後、対象アプリにドラッグして書き出します。Tauri は Sharesheet 共有機能も提供します。</span></span>
+          </div>
+          <div class="ged-zone">
+            <span class="ged-dot" style="background:#4ade80;"></span>
+            <span class="ged-zbody"><span class="ged-zn" data-lang-key="zone4Name">ステータスバーとスナップのオン/オフ</span><span class="ged-zd" data-lang-key="zone4Desc">左下のステータスバー。現在のズーム倍率とキャンバスサイズを表示し、スマートスナップのオン/オフを切り替えられます。</span></span>
+          </div>
+        </div>
 
-        <p class="g-section-sub" style="margin-top: 32px;" data-lang-key="s2Sub">すべての注釈ツール一覧——括弧内はショートカット</p>
-        <div class="g-tools-wrap">
+        <div class="ged-rest">
+          <span class="ged-rest-label" data-lang-key="s2DictLabel">注釈ツール辞典 · Tools</span>
+          <span class="ged-rest-line"></span>
+        </div>
+        <p class="ged-dict-sub" data-lang-key="s2DictSub">24 のツール、ひとつクリックして操作方法と属性を確認。</p>
+        <div class="g-tools-wrap g-tools-dict">
           <div class="g-tools-body">
 
             <div>
