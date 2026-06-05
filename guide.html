@@ -169,9 +169,9 @@
   .g-tools-dict .g-chip:hover .g-chip-icon { color: var(--vas-aurora-violet); }
   .g-tools-dict .g-chip-key { margin-left: auto; padding-left: 12px; flex-shrink: 0; }
 
-  /* 970px：工具列 4×2 grid 提早降成 2 欄，避免 769-970 中間寬度被擠成細長 4 欄文字直排
+  /* 1080px：工具列 4×2 grid 提早降成 2 欄，避免一般桌面寬度被擠成細長 4 欄文字直排
      （docs.css 預設在 768 才降，覆寫層在 guide.html 局部提早觸發，不影響其他頁面） */
-  @media (max-width: 970px) {
+  @media (max-width: 1080px) {
     #toolbar .g-toolbar-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
