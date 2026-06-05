@@ -194,10 +194,13 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
 }
 .lang-dropdown-menu .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
 
-@media (max-width: 768px) {
-  .site-nav { padding: 20px 24px; }
+/* 970px：語言選單先收下拉，避免跟頁面選單在中段寬度搶版面打架 */
+@media (max-width: 970px) {
   .lang-flat-row  { display: none; }
   .lang-mobile-dd { display: block; }
+}
+@media (max-width: 768px) {
+  .site-nav { padding: 20px 24px; }
   .site-nav-links { gap: 16px; font-size: 10px; }
 }
 @media (max-width: 560px) {
