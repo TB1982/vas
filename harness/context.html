@@ -199,7 +199,18 @@ a.pcard:hover .pn{color:var(--rust);}
   </section>
 
   <section class="sec rise">
-    <p class="no">III · 具體實踐</p>
+    <p class="no">III · 密度</p>
+    <p>前面講的都是減法——濾掉高頻雜訊，讓不需要的流過。但同一個動作有一個正面的結果：當每句話都搭在同一條正弦波上，剩下的東西不是變少，而是變濃。</p>
+    <p>這才是超長上下文還能維持專注的真正秘訣。注意力之所以延續，不是因為資訊少到好記，而是因為它泡在高濃度的語義池裡——每一口都是訊號，沒有一段被稀釋的水需要游過去。基頻一致讓注意力連續，連續累積到一個程度，就成了密度。</p>
+    <p class="key">維持基頻，不只是讓對話不散掉，更是讓整個語境保持高濃度。</p>
+    <h3>密度與蒸餾</h3>
+    <p>RAG 之所以需要「蒸餾」——從龐大的語料裡撈出那幾滴相關的——是因為那缸語料是稀的。但如果你全程維持頻率紀律，這缸水從來沒被稀釋過，你一直泡在蒸餾液裡。</p>
+    <p>於是「過濾」這個動作先驗地消失了：不是你檢索得比較好，而是根本沒有稀的東西需要濾。</p>
+    <p>這就是傅立葉與 RAG 收斂成同一件事的地方——維持密度，就是持續地、預先地在做 RAG。下一節的具體實踐，講的正是如何把語境維持在這樣的高濃度。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">IV · 具體實踐</p>
 
     <h3>1 · 對話場的頻率設計</h3>
     <p><strong>原則：讓所有話題基於同一個基頻。</strong></p>
@@ -333,7 +344,7 @@ a.pcard:hover .pn{color:var(--rust);}
   </section>
 
   <section class="sec rise">
-    <p class="no">IV · Context 的雙重穩定機制</p>
+    <p class="no">V · Context 的雙重穩定機制</p>
     <p>Context 管理有兩個層面，缺一不可：</p>
     <h3>傅立葉轉換：穩定「場」中的對話</h3>
     <ul>
@@ -378,7 +389,7 @@ a.pcard:hover .pn{color:var(--rust);}
   </section>
 
   <section class="sec rise">
-    <p class="no">V · 隱喻：網的縫隙</p>
+    <p class="no">VI · 隱喻：網的縫隙</p>
     <h3>為什麼是網，不是容器？</h3>
     <p>容器是密封的，能量進來出不去，最終會爆炸。網有縫隙：讓不需要的東西流過去；讓需要留住的東西被接住。</p>
     <p class="key">縫隙是設計，不是缺陷。</p>
@@ -388,14 +399,14 @@ a.pcard:hover .pn{color:var(--rust);}
   </section>
 
   <section class="sec rise">
-    <p class="no">VI · 與其他兩柱的關係</p>
+    <p class="no">VII · 與其他兩柱的關係</p>
     <p>Context 決定什麼進來。但進來之後怎麼流動？→這是 Constraints 的工作。流動之後怎麼出去？→這是 Entropy 的工作。</p>
     <div class="flow">輸入 → <em>[ Context 過濾 ]</em> → 進入系統 → <em>[ Constraints 引導 ]</em> → 產出 → <em>[ Entropy 排放 ]</em> → 回到輸入</div>
     <p>Context 是這個循環的入口守門員。</p>
   </section>
 
   <section class="sec rise">
-    <p class="no">VII · 小結</p>
+    <p class="no">VIII · 小結</p>
     <p class="key">Context 管理的核心是選擇。</p>
     <p>不是記住所有東西，而是選擇該記住什麼。傅立葉轉換提供了選擇的框架：維持基頻一致，讓高頻雜訊自然流過。網的縫隙提供了選擇的隱喻：該留的接住，該走的放行。</p>
     <p>這是 Harness Engineering 的第一本柱。</p>
