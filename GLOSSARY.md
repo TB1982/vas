@@ -194,7 +194,7 @@ Deep-layer sub-pages (sitemap-only, not in main nav):
 /harness/entropy        Pillar III · Entropy (與混亂共處)
 ```
 
-Three pillars use in-page JS lang switching (zh/en/ja) with `data-lang-key` + `translations` object (different pattern from main site's static per-lang files).
+Three pillars + treatise hall (2026-06 redesign) use **static per-locale files** — `/en|ja|cn/treatise.html` and `/en|ja|cn/harness/{context,constraints,entropy}.html` — consistent with the rest of the site. (The pre-redesign 深握計劃 version combined zh/en/ja in one page; normalized to separate files 2026-06.)
 
 ---
 
@@ -239,6 +239,33 @@ en:      Deployed via Cloudflare　｜　Built with Claude Code　｜　Last upd
 ja:      Cloudflare でデプロイ　｜　Claude Code で構築　｜　2026年 Nova (nova@yoursvas.app) 最終更新
 zh-Hans: 由 Cloudflare 部署　｜　Claude Code 倾力打造　｜　Nova（nova@yoursvas.app）最后更新于 2026
 ```
+
+---
+
+## 12 · 思 line — treatise hall + Harness 三柱 (redesign, locked 2026-06)
+
+Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave:
+
+| 繁中 | English | 日本語 | 简体 | Notes |
+|------|---------|--------|------|-------|
+| 心流 | flow | フロー | 心流 | Csikszentmihalyi; Context 柱副標 |
+| 傅立葉轉換 | Fourier transform | フーリエ変換 | 傅里叶变换 | cn Mainland transliteration 傅里叶 |
+| 基頻 / 諧波 | fundamental frequency / harmonics | 基本周波数 / 倍音 | 基频 / 谐波 | |
+| 密度 | density | 密度 | 密度 | Context 柱 III |
+| 蒸餾 | distillation | 蒸留 | 蒸馏 | |
+| 河道 | **Channel** | 河道 | 河道 | Constraints 柱隱喻；en uses Channel (verb sense = direct/guide flow), NOT riverbed/channel-as-TV |
+| 岸 | bank | 岸 | 岸 | the linear structure (流程) |
+| 水 | water | 水 | 水 | the networked collaboration (協作) |
+| 閘門 | gate | ゲート | 闸门 | workflow gate |
+| 僕人式領導 | Servant Leadership | サーバントリーダーシップ | 服务型领导 | cn uses Mainland mgmt term |
+| 無為而無不為 | doing-nothing-yet-all-done (wu wei) | 無為而無不為 | 无为而无不为 | Daoist; preserve kanji in ja |
+| 沉澱成壁 | sediment into a bank | 岸として沈殿する | 沉淀成壁 | water's harvest → new structure |
+| 結晶成洞見 | crystallize into insight | 洞察へ結晶する | 结晶成洞见 | water's harvest → insight |
+| 活文件 | living documents | 生きたドキュメント | 活文档 | cn: 文档 (documentation sense, §5) |
+
+**Treatise nav cards / pillar metaphor names**: Context · Water / Constraints · Channel / Entropy · Entropy (en); ja & cn keep 水／河道／熵 glyphs.
+
+**Preserve as-is in all locales** (these recur across the 思 line): RAG, Verify, QA, QC, Sprint, KM, Session, Context, Skills, hook, CLAUDE.md, DoR / DoD / SDD / TDD, Harness Engineering, "Be water, my friend" (Bruce Lee), Scrum Master, Lost in the Middle.
 
 ---
 
