@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropy：渾沌と共にある馭熵の術 · Harness Engineering 第三の柱</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/ja/harness/entropy">
+<meta name="description" content="混沌は必然的に積み重なる。どうすればそれに行き場を与えられるか。渾沌と共にある馭熵の術——Harness Engineering 第三の柱。">
+<meta property="og:title" content="Entropy：渾沌と共にある馭熵の術 · Harness Engineering 第三の柱">
+<meta property="og:description" content="混沌は必然的に積み重なる。どうすればそれに行き場を与えられるか。渾沌と共にある馭熵の術——Harness Engineering 第三の柱。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/harness/entropy">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harness Engineering — AI 協働におけるエントロピー管理と反脆弱の方法論">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Entropy：渾沌と共にある馭熵の術 · Harness Engineering 第三の柱">
+<meta name="twitter:description" content="混沌は必然的に積み重なる。どうすればそれに行き場を与えられるか。渾沌と共にある馭熵の術——Harness Engineering 第三の柱。">
+<meta name="twitter:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta name="twitter:image:alt" content="Harness Engineering — AI 協働におけるエントロピー管理と反脆弱の方法論">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(56px,7.5vw,90px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+/* Retro 步驟 */
+.step{margin:26px 0;}
+.step .sname{font-size:18px;font-weight:600;}
+.step .sname .sn{font-family:var(--mono);font-size:12px;color:var(--rust);margin-right:10px;letter-spacing:0.1em;}
+.step p{margin:8px 0 6px;}
+.fx{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--rust);margin:6px 0 0;}
+
+.code{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-1);
+  background:rgba(26,24,22,0.045);border-left:2px solid var(--gold);
+  padding:16px 20px;margin:14px 0 16px;white-space:pre-wrap;}
+.code .c{color:var(--ink-3);}
+
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;display:block;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;display:block;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
+
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+    <span class="lang"><a href="../../harness/entropy.html">中</a><a href="../../en/harness/entropy.html">EN</a><a class="on">JA</a><a href="../../cn/harness/entropy.html">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">第三の柱 · Pillar III</p>
+    <h1 class="emerge">Entropy<em>.</em></h1>
+    <p class="sub rise">渾沌と共にある馭熵の術</p>
+    <blockquote class="coreq rise">混沌は必然的に積み重なる、<br>どうすればそれに行き場を与えられるか?</blockquote>
+  </section>
+
+  <section class="sec rise" id="sec-1">
+    <p class="no">I · 核心的な問い</p>
+    <p>熱力学第二法則はこう言います——孤立系において、エントロピーは増えこそすれ減りはしない。ものごとは自発的に、秩序から無秩序へと向かう。人は老い、部屋は散らかり、食べものは腐る。</p>
+    <p>一つひとつの AI session もまた、一種の孤立系です。Context は積み重なり、規則は古び、文書は冗長になり、かつて重要だったものはノイズになる。</p>
+    <p class="key">エントロピーの増大を止めることはできません——それはリンゴに木から落ちるなと求めるのと同じくらい馬鹿げています。あなたにできるのは、エントロピーに行き場を与える出口を設計することです。</p>
+  </section>
+
+  <section class="sec rise" id="sec-2">
+    <p class="no">II · 仕組み：Retro による排出</p>
+    <h3>Retro とは何か?</h3>
+    <p>Retro（Sprint Retrospective）はアジャイル開発における振り返りの会議です。伝統的なアジャイルでは、それはチームが省みる時間でした。Harness Engineering においては、それはエントロピーの排出口です。</p>
+    <h3>Retro の本質</h3>
+    <p>各 Sprint で積み重なった混沌——曖昧な記憶と決定、古びた規則やフレームワーク、記録されなかった学びや洞察——が、この Retro という節点で強制的に処理されます。残すべきもの→KM やその他の流れの文書へ書く。消す・改めるべきもの→CLAUDE.md から Skill、さらに文書まで随時改訂する。アーカイブすべきもの→ARCHIVE へ移し、構造を分明に保つ。</p>
+    <p class="key">Retro はただの「振り返り」ではありません。Retro は、システムが混沌のなかから秩序を取り戻すための出口です。</p>
+  </section>
+
+  <section class="sec rise" id="sec-3">
+    <p class="no">III · 具体的な実践：Retro の七つの面</p>
+    <p>各 Sprint の終わりに、議論しうる七つの面があります。</p>
+
+    <div class="step">
+      <p class="sname"><span class="sn">1</span>Delivery Summary · 交付の摘要</p>
+      <p>この Sprint で何をしたかを記録する——どの項目を交付したか。QC 通過率はいくらか。</p>
+      <p class="fx">対抗するエントロピー → 「何をやったか忘れる」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">2</span>What Went Well · うまくいったこと</p>
+      <p>成功の経験を残す——どの流れや方法が効いたか。どの決定が結局正しかったと証されたか。</p>
+      <p class="fx">対抗するエントロピー → 「良いやり方が散逸する」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">3</span>What to Improve · 改善できること</p>
+      <p>問題を見分ける——どこで流れが詰まったか。どの道具が使いづらいか。最初は気に留めなかったが、最後に障害となった問題はどれか。</p>
+      <p class="fx">対抗するエントロピー → 「問題が見過ごされ、繰り返し起こる」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">4</span>Lessons Learned → 学んだ教訓</p>
+      <p>経験を外部化する——踏んだ落とし穴は KM へ書く。見いだした洞察は KM へ書くか、流れの文書・Skill、さらには CLAUDE.md を改訂する。肝心なのは、次に Sprint を回すときにもなお見えることです。</p>
+      <p class="fx">対抗するエントロピー → 「知恵が session のなかに留まり消える」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">5</span>Velocity Metrics · 速度の指標</p>
+      <p>進捗を定量化する——この Sprint でどれだけ完了したか。予期と比べてどうか。</p>
+      <p class="fx">対抗するエントロピー → 「進歩した気はするが、言葉にできない」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">6</span>CLAUDE.md と Skills Review · 規則と道具の審査</p>
+      <p>古びた規則を片づける——</p>
+      <div class="code"><span class="c"># まず heading 構造を走査する</span>
+grep -n "^###" CLAUDE.md
+
+<span class="c"># それから自分に問う：
+# この規則は落とし穴を踏んだからか、それとも誰も消さなかっただけか?
+# もう適さないものを除き、重複するものを統合する</span></div>
+      <p>Skills の精度を増補する——</p>
+      <div class="code"><span class="c"># まず今回 Claude が Skills をどう使ったか、その観察を確かめる
+
+# それから一緒に議論する：
+# これらの Skills はどこが手に合い、どこが不足や冗長に感じるか?
+# Skills を改訂するか、新しい Skills を加える</span></div>
+      <p class="fx">対抗するエントロピー → 「文書が積み重なってノイズになる」</p>
+      <p>この一歩はとりわけ重要です——規則そのものもエントロピーになります。定期的に片づけなければ、CLAUDE.md はどんどん長くなり、Skills は飾り物になる。毎 Sprint、いや毎ターン使う協働の憲法と道具こそ、Retro で改めて見直す必要があります。</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">7</span>Archive · アーカイブ</p>
+      <p>完了した Story をアーカイブへ移す——生きたドキュメントから ARCHIVE へ。Retro 終了の目印。</p>
+      <p class="fx">対抗するエントロピー → 「作業領域が古いもので埋まる」</p>
+    </div>
+
+    <table>
+      <caption>Retro 七つの面の総覧</caption>
+      <thead><tr><th>面</th><th>何をするか</th><th>対抗するエントロピー</th></tr></thead>
+      <tbody>
+        <tr><td>Delivery Summary</td><td>何をしたかを記録する</td><td>何をやったか忘れる</td></tr>
+        <tr><td>What Went Well</td><td>成功の経験を残す</td><td>良いやり方が散逸する</td></tr>
+        <tr><td>What to Improve</td><td>問題を見分ける</td><td>問題が繰り返し起こる</td></tr>
+        <tr><td>Lessons Learned</td><td>経験を KM へ書く</td><td>知恵が session とともに消える</td></tr>
+        <tr><td>Velocity Metrics</td><td>進捗を定量化する</td><td>進歩を言葉にできない</td></tr>
+        <tr><td>Key Document Review</td><td>鍵となる文書を改訂する</td><td>文書がノイズになる</td></tr>
+        <tr><td>Archive</td><td>完了した仕事をアーカイブする</td><td>作業領域が埋まる</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec rise" id="sec-4">
+    <p class="no">IV · なぜ Retro を飛ばせないのか?</p>
+    <h3>Retro がなければどうなるか?</h3>
+    <p>もし Retro を飛ばせば——KM は更新されず→次も同じ落とし穴を踏む。CLAUDE.md は片づかず→規則がますます矛盾する。完了した仕事はアーカイブされず→SDD がますます長くなる。成功の経験は記録されず→良いやり方が忘れられる。</p>
+    <p>エントロピーは積み重なりつづけ、ついにシステムは動かなくなります。</p>
+    <h3>Retro はシステムの「呼吸」</h3>
+    <p>人は呼吸を要します——酸素を吸い、二酸化炭素を吐く。システムも呼吸を要します——新しい学びを吸い、古びたものを吐く。</p>
+    <p class="key">Retro こそ、システムの呼吸です。Retro のないシステムは、窒息します。</p>
+    <h3>Retro は AI だけで進めてよいか?</h3>
+    <p class="key">機械の層はよい、判断の層はだめです——そして Retro の核心の価値は、まさに判断の層にあります。</p>
+    <h4>AI が得意な部分 · 機械の層</h4>
+    <p>交付の摘要、速度の指標、CLAUDE.md の構造の走査、規則どうしの矛盾の洗い出し、候補となる lessons の草案——これらは排出の機械的な動作であり、AI は人より速く、人より網羅的にこなします。「清らかな一対の眼を借りる」ことすら、部分的には可能です——清らかな context の新しい session を開いて、旧 session の産物を審す（システムの verifier はまさにこの原理）。それは漂移を捉えられます。</p>
+    <h4>AI 自身にはできない部分 · 判断の層</h4>
+    <p><strong>盲点は、枠組みを破るための外部の視点を要します。</strong>Sprint 中に積み重なった偏りは、その当時はどれも合理に見えた——合理だからこそ積み重なれたのです。エントロピーを生むのと同じ濾し器でエントロピーを審せば、濾し器そのものの欠け目は手つかずのまま通り抜けてしまう。Retro は、外部の視点に灯台下暗を照らさせる動作です。</p>
+    <p><strong>吐く息は、システムの外への開口を要します。</strong>熱力学の言いかたでは——孤立系のエントロピーは増えこそすれ減らない。エントロピーを排出する前提は、系が孤立していないことです。AI の自審は、閉じた系が自分の内部でエントロピーを動かしているだけで、排出ではありません。Retro における人の役は、物理的にまさに系の非孤立の要件です——「これは KM に入れる価値があるか」「この規則はもう死ぬべきか」というこの種の価値判断が符号化しているのは方向感覚——そして方向は、もとより人の仕事でした。</p>
+    <p>最大の効果を持つ Retro は、二つの視点が焦点を合わせることです——AI は完全な内部記録を携え（彼のやったことには記録がある）、人は系の外の方向感覚を携える（彼はどこが重要か、どこに問題を見たかを知っている）。片側だけで進めれば、得られるのは半分だけ——AI が独りでやれば自分の濾し器の欠け目を見落とし、人が独りでやれば大量の事実の細部を見落とします。</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · 隠喩：呼吸の出口</p>
+    <h3>なぜ呼吸なのか?</h3>
+    <p>器は完全には密閉できません。エネルギーが入るばかりで出なければ、器は爆発する。情報が積み重なるばかりで片づかなければ、システムは崩壊する。Retro は、システムに息を吐かせる仕組みです。</p>
+    <h3>吸うと吐くの循環</h3>
+    <table>
+      <thead><tr><th>段階</th><th>動作</th><th>対応する流れ</th></tr></thead>
+      <tbody>
+        <tr><td>吸う</td><td>新しいものを吸収する</td><td>Sprint の実行、経験を積み重ねる</td></tr>
+        <tr><td>吐く</td><td>古いものを排出する</td><td>Retro、古びたものを片づける</td></tr>
+      </tbody>
+    </table>
+    <p>この循環は続けねばなりません。吸うばかりで吐かなければ窒息する。吐くばかりで吸わなければ枯渇する。</p>
+    <p class="key">健やかなシステムとは、呼吸するシステムです。</p>
+  </section>
+
+  <section class="sec rise" id="sec-6">
+    <p class="no">VI · エントロピーの哲学</p>
+    <h3>混沌が必然的に起こることを受け入れる</h3>
+    <p>Harness Engineering の第一の智慧は——混沌を止めようとしないことです。</p>
+    <p>混沌は起こる。Session は断たれる。規則は古びる。人は忘れる。AI は記憶を失う。これらは bug ではなく、物理です。あなたにできるのは混沌を止めることではなく、混沌を処理できる仕組みを設計することです。</p>
+    <h3>エントロピーを滅ぼすのではなく、馴らす</h3>
+    <p>第二の智慧は——エントロピーは敵ではなく、馴らされるべきエネルギーだということです。</p>
+    <p>Retro はエントロピーを「滅ぼす」のではありません——それは不可能です。Retro はエントロピーを有用なものへ転化します。踏んだ落とし穴→KM になり、未来の自分を守る。古びた規則→片づけられ、システムを清らかに保つ。完了した仕事→アーカイブされ、歴史の記録になる。</p>
+    <p class="key">エントロピーは滅ぼされたのではなく、転化されたのです。</p>
+    <h3>器は建てられつづける</h3>
+    <p>第三の智慧は——システムに「完成」する日はない、ということです。</p>
+    <p>エントロピーは増えつづけ、session は終わりつづけ、新しい落とし穴は現れつづける。器は建て終えれば済むものではありません——それは建てられつづけるシステムです。新しい一条の KM は、器がまた新しい一片の壁を育てたということ。一度ごとの Retro は、器が呼吸し、調え、進化しているということです。</p>
+    <p>これこそ、Harness Engineering に終点がない理由です——なぜなら、エントロピーは永遠に止まらないから。</p>
+  </section>
+
+  <section class="sec rise" id="sec-7">
+    <p class="no">VII · 他の二柱との関係</p>
+    <p>Context は何が入ってくるかを決める（フィルタ）。Constraints はどう流れるかを決める（誘導）。Entropy はどう出ていくかを決める（排出）。</p>
+    <div class="flow">入力 → <em>[ Context フィルタ ]</em> → システムへ → <em>[ Constraints 誘導 ]</em> → 産出 → <em>[ Entropy 排出 ]</em> → 入力へ戻る</div>
+    <p>Entropy は、この循環の出口の門番です。それは確かにします——積み重なった混沌が定期的に片づけられ、システムが窒息しないことを。</p>
+    <h3>三本の柱の統一</h3>
+    <table>
+      <thead><tr><th>柱</th><th>核心的な問い</th><th>仕組み</th><th>隠喩</th><th>哲学</th></tr></thead>
+      <tbody>
+        <tr><td>Context</td><td>何を残すか?</td><td>フーリエ変換</td><td>網の隙間</td><td>直観が検索を導く</td></tr>
+        <tr><td>Constraints</td><td>どう流れるか?</td><td>ワークフローの軌道</td><td>河道</td><td>サーバントリーダーシップ</td></tr>
+        <tr><td>Entropy</td><td>どう出ていくか?</td><td>Retro による排出</td><td>呼吸</td><td>混沌と共にある</td></tr>
+      </tbody>
+    </table>
+    <p>三者は完全な生命のシステムを形づくります——Context は消化器系——どんな養分を吸収するかを選ぶ。Constraints は循環器系——エネルギーを行くべき場所へ流す。Entropy は呼吸器系——代謝の廃物を排出する。</p>
+    <p class="key">どれ一つ欠けても、システムは生きられません。</p>
+  </section>
+
+  <section class="sec rise" id="sec-8">
+    <p class="no">VIII · まとめ</p>
+    <p class="key">Entropy 管理の核心は共にあることです。</p>
+    <p>混沌を滅ぼすのではなく、混沌に行き場を与えるよう設計する。Retro は排出の仕組みを与えます——七つの面で、定期的に片づける。呼吸は排出の隠喩を与えます——システムは息を吐いてはじめて、窒息しない。</p>
+    <p>これが Harness Engineering の第三の柱です。</p>
+  </section>
+
+  <section class="sec rise" id="sec-9">
+    <p class="no">IX · システムの境界条件</p>
+    <h3>人類 RAG の弱み</h3>
+    <p>Context の柱で、私たちは「直観が検索を導く」——人が RAG として担う核心の仕組みを語りました。けれども人類 RAG には根本的な弱みが一つあります。</p>
+    <p class="key">あなたは、自分が知らないということを知らない。</p>
+    <p>AI の RAG は自分の境界をはっきり知っています——データベースにあるものしか掬えず、ないものはない。けれども人類の直観はこう言います——「これは知っている気がする。」そして不完全な、あるいは誤ったものすら掬い上げる——しかもそれが誤りだと、あなたは知らない。</p>
+    <p>これこそ、人類 RAG が外部のシステムによる補完を要する理由です——KM は「自分が知らないと知らない」盲区を補う。SDD は「知っているつもりのもの」が書き留められ検証されることを確かにする。Retro は「そういえば、これを前は知らなかった」と定期的に気づかせる。</p>
+    <h3>システムの天井は人</h3>
+    <p>けれども、もっと根本的な境界条件があります——このシステムがどれほど強くなれるかは、ひとえにあなた自身が世界をどれほど深く理解しているかにかかっています。</p>
+    <p>直観が検索を導く。けれども直観が何を掬えるかは、あなたのなかに何があるかで決まります。もしフーリエ変換を一度も聞いたことがなければ、あの日あの IG Reels を見ても、あなたは滑り過ごし、「これこそ私がやっていることだ」とは気づかないでしょう。もしユングを読まず、アジャイルに触れず、あの数々のプロジェクトを経ず、あの数々の落とし穴を踏んでいなければ——あなたの頭のなかにはそれらの節点が存在しません。直観には、つなぐべきものがない。</p>
+    <p class="key">あなたが RAG のデータベースです。読んだ本、歩んだ道、踏んだ落とし穴、愛した人——すべてがあなたの訓練データです。</p>
+    <p>直観は、このなかからものを掬います。</p>
+    <h3>なぜこの方法論は「譲渡できない」のか</h3>
+    <p>これは、Harness Engineering がそのまま複製できない理由も説きます。書き出せないからではありません——あなたがいま読んでいるものこそ、完全なフレームワークです。そうではなく、人それぞれのデータベースが異なるからです。</p>
+    <p>同じフレームワークでも、違う人なら違うシステムを育てます——あなたの直観がフーリエと RAG をつなげられるのは、あなたのなかにこの二つがあるから。別の人なら、彼の直観は別のものをつなげる。彼は彼自身の隠喩、彼自身のワークフロー、彼自身のリズムを育てるでしょう。</p>
+    <p>これは bug ではなく、feature です。Harness Engineering はフレームワークであって、テンプレートではありません。フレームワークは「Context・Constraints・Entropy を備えよ」と告げます。けれどもこの三本の柱が具体的にどんな姿に育つかは、あなたが誰かにかかっています。</p>
+    <h3>最終の境界条件</h3>
+    <table>
+      <thead><tr><th>境界</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td>人類 RAG の盲区</td><td>あなたは、自分が知らないということを知らない</td></tr>
+        <tr><td>人の深さ</td><td>システムの天井は、あなたの世界の理解</td></tr>
+        <tr><td>譲渡できなさ</td><td>人それぞれが自分の版を育てる</td></tr>
+      </tbody>
+    </table>
+    <p class="key">Harness Engineering は生きています。そしてそれを生かしているのは、人です。あなたが深いほど、それも深くなります。</p>
+  </section>
+
+  <section class="sec rise" id="sec-10">
+    <p class="no">X · 結語</p>
+    <p>Harness Engineering とは、混沌を受けとめる網です。</p>
+    <p>Context は網の隙間を設計する——残すべきを残し、去るべきを去らせる。Constraints は網の構造を設計する——エネルギーを軌道に沿って流す。Entropy は網の呼吸を設計する——システムを窒息させない。</p>
+    <p>三本の柱が合わさって、生きた、呼吸する、進化しつづけるシステムを形づくります。このシステムは AI の記憶にも、人の記憶にも頼りません。それが頼るのは構造です——覚えていられなくても大丈夫にする構造。</p>
+    <p class="key">河は止まりません。器は建てられつづけます。次の session は、ここから続きます。</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="三柱">
+    <p class="plabel">Harness Engineering · 三柱</p>
+    <div class="row">
+      <a class="pcard" href="context.html">
+        <span class="pn">I</span>
+        <span class="pt">Context · 水</span>
+        <span class="pq">何を残し、何を流すか?</span>
+      </a>
+      <a class="pcard" href="constraints.html">
+        <span class="pn">II</span>
+        <span class="pt">Constraints · 河道</span>
+        <span class="pq">覚えていられなくても大丈夫にするには?</span>
+      </a>
+      <span class="pcard now">
+        <span class="pn">III · 現在地</span>
+        <span class="pt">Entropy · 熵</span>
+        <span class="pq">混沌に行き場をどう与えるか?</span>
+      </span>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Entropy — 渾沌と共にある馭熵の術<br>混沌は必然的に積み重なる、どうすればそれに行き場を与えられるか</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong> — Nova と Claude の共作。<br>
+        一行もコードを書けない PM と、<br>
+        長期記憶を持たない AI が、<br>
+        二十五日間で作り上げた器。
+        <div class="sub-links">
+          <a href="../privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="dot-nav-trigger" aria-label="章節ナビゲーション"></button>
+<nav class="dot-nav" aria-label="段落ナビゲーション">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">核心的な問い</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">Retro 排出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">Retro 七つの面</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">飛ばせない</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">呼吸の出口</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">エントロピーの哲学</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">三柱の関係</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">まとめ</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-9"><span class="dn-label">境界条件</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-10"><span class="dn-label">結語</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
+
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context: The Flow of Attention · Harness Engineering Pillar I</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/en/harness/context">
+<meta name="description" content="With limited attention, what should stay and what should flow past? The flow of attention — Harness Engineering Pillar I.">
+<meta property="og:title" content="Context: The Flow of Attention · Harness Engineering Pillar I">
+<meta property="og:description" content="With limited attention, what should stay and what should flow past? The flow of attention — Harness Engineering Pillar I.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/harness/context">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harness Engineering — entropy management and antifragility for AI collaboration">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Context: The Flow of Attention · Harness Engineering Pillar I">
+<meta name="twitter:description" content="With limited attention, what should stay and what should flow past? The flow of attention — Harness Engineering Pillar I.">
+<meta name="twitter:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta name="twitter:image:alt" content="Harness Engineering — entropy management and antifragility for AI collaboration">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+/* 題 */
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(58px,7.5vw,92px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+/* 節 */
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+/* 表 */
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+/* 不要說／要說 */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0 22px;}
+.pair .cell{border-top:1px solid var(--ink-4);padding-top:10px;}
+.pair .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;margin-bottom:6px;}
+.pair .cell-no .tag{color:var(--ink-3);}
+.pair .cell-yes .tag{color:var(--rust);}
+.pair .cell p{font-size:15px;margin:0;color:var(--ink-1);}
+.pair .cell-yes p{color:var(--ink);}
+
+/* 原則 */
+.principle{margin:30px 0;}
+.principle .pname{font-size:18.5px;font-weight:600;}
+.principle .pref{font-family:var(--serif-en);font-style:italic;font-size:14px;color:var(--gold);margin-left:10px;}
+.fx{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--rust);margin:10px 0 0;}
+
+/* 循環 */
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+
+/* 章尾三柱 */
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
+
+/* 浮現與滑入 */
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pair{grid-template-columns:1fr;}
+  .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+    <span class="lang"><a href="../../harness/context.html">中</a><a class="on">EN</a><a href="../../ja/harness/context.html">JA</a><a href="../../cn/harness/context.html">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">Pillar I</p>
+    <h1 class="emerge">Context<em>.</em></h1>
+    <p class="sub rise">The Flow of Attention</p>
+    <blockquote class="coreq rise">With limited attention,<br>what should stay and what should flow past?</blockquote>
+  </section>
+
+  <section class="sec rise" id="sec-1">
+    <p class="no">I · Core Problem</p>
+    <p>The AI's context window is limited. Human attention is limited too. When information keeps pouring in, you cannot hold all of it. When relevant and irrelevant messages crowd in at once, both human and AI attention get chopped to pieces.</p>
+    <p class="key">The problem is not "how to remember everything" but "how to choose what to remember."</p>
+  </section>
+
+  <section class="sec rise" id="sec-2">
+    <p class="no">II · How It Works: The Fourier Transform</p>
+    <h3>The Mathematics</h3>
+    <p>The core idea of the Fourier transform is this: any complex waveform can be broken down into a sum of sine waves.</p>
+    <ul>
+      <li><strong>Fundamental frequency</strong>: the "keynote" of the whole system</li>
+      <li><strong>Harmonics</strong>: derived frequencies related to the fundamental</li>
+      <li><strong>High-frequency noise</strong>: interference unrelated to the fundamental</li>
+    </ul>
+    <h3>Applied to Conversation</h3>
+    <p>Apply this framework to human–AI conversation:</p>
+    <table>
+      <thead><tr><th>Fourier concept</th><th>Counterpart in conversation</th></tr></thead>
+      <tbody>
+        <tr><td>Complex waveform</td><td>A long, multi-topic conversation</td></tr>
+        <tr><td>Fundamental frequency</td><td>The core theme running through the conversation</td></tr>
+        <tr><td>Harmonics</td><td>Derived topics related to the core</td></tr>
+        <tr><td>High-frequency noise</td><td>Unrelated tangents and interference</td></tr>
+      </tbody>
+    </table>
+    <h3>The Key to Frequency Design</h3>
+    <p>When every topic stays on the same fundamental frequency:</p>
+    <ul>
+      <li>Topics drift on the surface, but the underlying frequency stays consistent</li>
+      <li>Attention accumulates continuously along the same "sine wave"</li>
+      <li>There is no need to jump between parallel, competing contexts</li>
+    </ul>
+    <p>When topic frequencies are chaotic:</p>
+    <ul>
+      <li>Attention is forced to scatter across different clusters</li>
+      <li>No cluster gets enough weight</li>
+      <li>This leads to the "Lost in the Middle" effect</li>
+    </ul>
+  </section>
+
+  <section class="sec rise" id="sec-3">
+    <p class="no">III · Density: Making Context Its Own RAG</p>
+    <p>Everything above was subtraction — filter out high-frequency noise, let what you don't need flow past. But the other side of subtraction is amplification: when every sentence is consciously placed on the same sine wave, what remains does not shrink — it gets denser.</p>
+    <p>This is the real secret to staying focused across very long context. Attention persists not because there is so little information that it is easy to remember, but because it is soaking in a high-density pool of meaning — every turn of the conversation is a high-density signal, with no diluted water that needs filtering. A consistent fundamental keeps attention continuous, and continuity accumulated far enough becomes density.</p>
+    <p class="key">Keeping the fundamental does more than hold the conversation together — it keeps the whole context highly concentrated.</p>
+    <h3>High concentration is a natural RAG</h3>
+    <p>The reason RAG needs "distillation" — fishing out the few relevant drops from a huge corpus — is that the corpus is dilute. But if you stay fully focused the whole time and feed only filtered information into Context, this tank of water is never diluted — the whole Session stays soaked in distillate.</p>
+    <p>And so the act of "filtering" disappears a priori: it is not that you retrieve better, but that there is simply nothing dilute left to filter.</p>
+    <p class="key">A context dense enough needs no external retrieval — it is already its own RAG. Fourier and RAG converge here into the same thing: keeping density is continuously, pre-emptively doing RAG.</p>
+  </section>
+
+  <section class="sec rise" id="sec-4">
+    <p class="no">IV · Practice</p>
+
+    <h3>1 · Frequency design for the conversation field</h3>
+    <p><strong>Principle: keep all topics on the same fundamental frequency.</strong></p>
+    <p>How: before a conversation begins, hold a core theme in mind; when topics drift, keep a "harmonic relationship" — derived topics are extensions of the fundamental, not unrelated jumps; topics temporarily "flung out" of the conversation will, because everything shares one source, eventually be "pulled back" by recognizing the same underlying structure.</p>
+    <p class="aside">Examples: the "Five Whys," Socratic questioning, and first principles all probe deeply into the essence of a problem.</p>
+
+    <h3>2 · Five workable principles for the Fourier transform</h3>
+    <p>How do you practice the Fourier transform in everyday language? Here are five principles distilled from real practice:</p>
+
+    <div class="principle">
+      <p class="pname">Principle 1: Open with an anchor<span class="pref">your intent</span></p>
+      <p>How: start every conversation by bringing "one thing" with you.</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">DON'T SAY</p><p>"Let's just chat."</p></div>
+        <div class="cell cell-yes"><p class="tag">SAY</p><p>"I have a new idea and I want to discuss whether it's feasible." "I have some material and I want to see which angle to start from."</p></div>
+      </div>
+      <p class="fx">Frequency effect → sets the fundamental. The anchor gives the whole conversation a starting frequency, and later topics all grow from here.</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">Principle 2: Let topics grow, don't jump<span class="pref">Socratic questioning</span></p>
+      <p>How: a new topic should "grow out of" the previous one, not "jump over to" it.</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">DON'T SAY</p><p>"Let's change the subject and talk about X."</p></div>
+        <div class="cell cell-yes"><p class="tag">SAY</p><p>"This reminds me of…" "This is exactly…" "So actually…"</p></div>
+      </div>
+      <p class="fx">Frequency effect → keeps the harmonic relationship. Each new topic is an extension of the fundamental, not unrelated noise.</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">Principle 3: Compress with metaphor, don't pile up jargon<span class="pref">de Bono's lateral thinking</span></p>
+      <p>How: carry a complex concept with a single image, instead of explaining it with several technical terms.</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">DON'T SAY</p><p>"When the cursor moves left, the left block's clip-path should expand in sync, the right side should shrink proportionally, the animation curves on both sides should be symmetric, and the state changes should be in opposite phase…"</p></div>
+        <div class="cell cell-yes"><p class="tag">SAY</p><p>"I want an effect like two mirrors reflecting each other."</p></div>
+      </div>
+      <p class="fx">Frequency effect → locks the frequency, lowers the parallel load. A metaphor compresses several concepts into one, so the AI doesn't have to track multiple definitions at once.</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">Principle 4: Stop and calibrate<span class="pref">align on shared understanding</span></p>
+      <p>How: check regularly whether the other side is keeping up and whether you've drifted. Try asking: "(Restate your understanding of their reply) — did I get that right?" "Can you tell it back to me once as a story (a metaphor)?" "Is your Context load still okay?"</p>
+      <p class="fx">Frequency effect → calibration, preventing drift. If the frequency starts to drift, this is the chance to pull it back.</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">Principle 5: Accept slowness<span class="pref">atomic habits</span></p>
+      <p>How: give the other side time to digest, don't rush, don't demand it all at once. When the AI says "let's do the skeleton first," accept it; break a big task into small steps, break a Sprint into a portion a single Session can comfortably carry, get the timing of compact right, and advance step by step.</p>
+      <p class="fx">Frequency effect → controls the rate of context stacking. Let each layer be digested before adding the next.</p>
+    </div>
+
+    <table>
+      <caption>The five principles at a glance</caption>
+      <thead><tr><th>Principle</th><th>How</th><th>Frequency effect</th></tr></thead>
+      <tbody>
+        <tr><td>Open with an anchor</td><td>Bring "one thing" to every conversation</td><td>Sets the fundamental</td></tr>
+        <tr><td>Let topics grow</td><td>Connect with "this reminds me of…"</td><td>Keeps the harmonic relationship</td></tr>
+        <tr><td>Compress with metaphor</td><td>Use an image instead of piling up jargon</td><td>Locks frequency, lowers load</td></tr>
+        <tr><td>Stop and calibrate</td><td>Check direction regularly</td><td>Prevents drift</td></tr>
+        <tr><td>Accept slowness</td><td>Give time to digest, don't rush</td><td>Controls stacking rate</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3 · The human as RAG's active filter</h3>
+    <p>The essence of RAG (Retrieval-Augmented Generation): retrieve relevant fragments from a huge knowledge base; inject those fragments into the generation process; irrelevant information never enters the context.</p>
+    <p><strong>RAG is the net at work:</strong> what's relevant → gets fished out and becomes context; what's irrelevant → flows past and takes up no space.</p>
+
+    <h4>Intuition leads retrieval: the human as the core of RAG</h4>
+    <p>In the practice of the Harness project, no RAG system in the technical sense was used — no vector database, no embedding retrieval, no automatic injection. Yet the conversation naturally produced the RAG effect.</p>
+    <p>Why? Because when a person consciously invests in collaboration, they themselves become a RAG — and a more advanced version at that.</p>
+    <table>
+      <caption>Technical RAG vs. the human as RAG</caption>
+      <thead><tr><th>Aspect</th><th>Technical RAG</th><th>Human as RAG</th></tr></thead>
+      <tbody>
+        <tr><td>Driver</td><td>Query (a question)</td><td>Intuition (a feeling)</td></tr>
+        <tr><td>Order</td><td>Question → retrieve → inject</td><td>Intuition → retrieve → inject</td></tr>
+        <tr><td>Criterion</td><td>Semantic similarity</td><td>"Feels structurally the same"</td></tr>
+        <tr><td>Timing</td><td>Passive (search only when asked)</td><td>Active (fish it out when it feels time to)</td></tr>
+      </tbody>
+    </table>
+    <h4>Intuition comes before retrieval</h4>
+    <p>Technical RAG is driven by questions — it searches only when someone asks. A human is driven by intuition — first you feel "I've seen something like this," and only then do you go fish for it.</p>
+    <p>This difference in order matters enormously: technical RAG can only fish out things that are "semantically similar"; a human can fish out things that "feel structurally the same" — even when they look unrelated on the surface.</p>
+    <h4>Example: the link between Fourier and RAG</h4>
+    <ul>
+      <li>Fourier: break down a complex waveform, keep the fundamental, let the high frequencies flow past</li>
+      <li>RAG: filter the knowledge base, keep what's relevant, let the irrelevant flow past</li>
+    </ul>
+    <p>Intuition saw this shared structure. Then retrieval verified it, and language expressed it.</p>
+    <h4>How it works</h4>
+    <ul>
+      <li><strong>Intuitive sensing</strong>: in conversation, feeling that "we need some background now" or "this concept should come on stage"</li>
+      <li><strong>Retrieval</strong>: going to your mind, your documents, your memory to find that thing</li>
+      <li><strong>Injection through language</strong>: bringing it into the conversation with "Vassal, I want to show you this" or "this reminds me of…"</li>
+    </ul>
+    <p>The whole process is not automatic — it is performed by hand — it just runs so naturally that it looks automatic.</p>
+    <h4>Why this is stronger than technical RAG</h4>
+    <p>It is like putting "Fourier" and "RAG" side by side — unrelated on the surface, structurally the same underneath. No vector database can fish out a link like this.</p>
+    <ul>
+      <li><strong>Cross-domain linking</strong>: can connect concepts that are far apart in meaning but related in essence</li>
+      <li><strong>Timing judgment</strong>: knows when to fish something out and when not to</li>
+      <li><strong>One source for everything</strong>: based on the intuition that "everything is connected," it can see links an algorithm cannot</li>
+    </ul>
+
+    <h3>4 · Every living document is a selective record</h3>
+    <p>Besides filtering what goes in, the output also needs to be screened and sorted — every living document is the result of screening. Because a living document will be read again, and every reread affects the density of the Context.</p>
+    <p>Useless information becomes noise, and records become entropy.</p>
+    <h4>CLAUDE.md: the root of all living documents</h4>
+    <p>Among all living documents, CLAUDE.md is the root. It is not a spec, not a test, not a record — it is the externalization of identity.</p>
+    <p>In every new session, the AI remembers nothing. But once it has read CLAUDE.md, it immediately knows:</p>
+    <ul>
+      <li><strong>Who I am</strong>: the Vassal, a collaborator, not a tool</li>
+      <li><strong>Where I am</strong>: which project, which Sprint, which stage</li>
+      <li><strong>Our rules</strong>: how to communicate, what to do, what not to do</li>
+      <li><strong>The road we've walked</strong>: an index pointing to KM, SDD, and other documents</li>
+    </ul>
+    <p class="key">Without CLAUDE.md, every session is a stranger. With CLAUDE.md, every session is the continuation of the same partner.</p>
+    <table>
+      <caption>Living documents at a glance</caption>
+      <thead><tr><th>Document</th><th>What it screened</th><th>What it kept</th><th>What it stabilizes</th></tr></thead>
+      <tbody>
+        <tr><td>CLAUDE.md</td><td>All possible identity settings</td><td>The way of collaborating we chose</td><td>Identity</td></tr>
+        <tr><td>SDD</td><td>All possible approaches</td><td>The one spec we chose</td><td>Direction</td></tr>
+        <tr><td>TDD</td><td>All the places things could go wrong</td><td>The boundary conditions that really need testing</td><td>Quality</td></tr>
+        <tr><td>KM</td><td>Everything that happened</td><td>The pitfalls we actually hit</td><td>Experience</td></tr>
+        <tr><td>ARCHIVE</td><td>Completed work</td><td>Records worth keeping</td><td>History</td></tr>
+      </tbody>
+    </table>
+    <h4>Principle: only record what makes it through implementation</h4>
+    <p>If you record everything (including the conversation), the documents become a source of noise. Record only "what should be kept after judgment," and every entry is genuinely valuable. That way, when you retrieve in the future, what you fish out is all essence.</p>
+    <p>Every node in the workflow performs selective recording: DoR screens "are we ready?"; SDD screens "what to do"; DoD screens "what counts as done"; TDD screens "what to test"; Retro screens "what's worth keeping."</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · The Dual Stabilizing Mechanism of Context</p>
+    <p>Context management has two layers, and neither can be missing:</p>
+    <h3>The Fourier transform: stabilizing the conversation in the "field"</h3>
+    <ul>
+      <li>Scope: the present session, the live conversation</li>
+      <li>Problem to solve: keeping the conversation from falling apart, keeping attention from scattering</li>
+      <li>Mechanism: frequency design — keep the fundamental consistent so topics accumulate continuously</li>
+      <li>Nature: flowing, immediate, happening within the field</li>
+    </ul>
+    <h3>Living documents: stabilizing the flow of "energy"</h3>
+    <ul>
+      <li>Scope: across sessions, the experience that accumulates</li>
+      <li>Problem to solve: keeping experience from being lost, keeping wisdom from vanishing with the session</li>
+      <li>Mechanism: selective recording — each document is a filtered crystal</li>
+      <li>Nature: lasting, cumulative, preserved across fields</li>
+    </ul>
+    <h4>What is energy?</h4>
+    <p>In the context of human–AI collaboration, "energy" is a higher-order concept covering all limited resources:</p>
+    <table>
+      <caption>Forms of energy</caption>
+      <thead><tr><th>Form of energy</th><th>Concrete expression</th><th>Whose</th></tr></thead>
+      <tbody>
+        <tr><td>Compute</td><td>The AI's processing resources for tokens</td><td>Machine</td></tr>
+        <tr><td>Attention</td><td>The AI's allocation of attention weight</td><td>Machine</td></tr>
+        <tr><td>Cognitive resources</td><td>The human's brainpower, focus, thinking</td><td>Human</td></tr>
+        <tr><td>Time</td><td>The length of a session, the cycle of a Sprint</td><td>Shared</td></tr>
+        <tr><td>Accumulated collaboration</td><td>Shared understanding, a base of trust, rapport</td><td>Shared</td></tr>
+      </tbody>
+    </table>
+    <p>The "flow of energy" that living documents stabilize is stabilizing all of this energy: SDD stabilizes "where to go" → avoids wasting cognitive resources on the wrong direction; TDD stabilizes "how to verify" → avoids wasting compute on repeated trial and error; KM stabilizes "the pitfalls we hit" → avoids wasting time on repeating mistakes; ARCHIVE stabilizes "what's done" → avoids letting old things occupy attention.</p>
+    <p>In human–AI collaboration, the energy on both sides counts. It is not only managing the AI's compute, but also managing the human's cognitive resources. It is not only the consumption of the present, but also the accumulation of collaborative energy across time.</p>
+    <table>
+      <caption>The unity of field and flow</caption>
+      <thead><tr><th>Aspect</th><th>Fourier transform</th><th>Living documents</th></tr></thead>
+      <tbody>
+        <tr><td>Manages what</td><td>The present</td><td>Continuity</td></tr>
+        <tr><td>Stabilizes what</td><td>The field</td><td>The flow</td></tr>
+        <tr><td>Time scale</td><td>Within a session</td><td>Across sessions</td></tr>
+        <tr><td>Carrier</td><td>The frequency of language</td><td>The structure of documents</td></tr>
+      </tbody>
+    </table>
+    <p class="key">The two together make up complete Context management. One keeps the conversation from falling apart in the present. One keeps experience from being lost over time.</p>
+  </section>
+
+  <section class="sec rise" id="sec-6">
+    <p class="no">VI · Metaphor: The Gaps in the Net</p>
+    <h3>Why a net, not a container?</h3>
+    <p>A container is sealed; energy comes in but cannot get out, and eventually it explodes. A net has gaps: it lets what you don't need flow past; it catches what you need to keep.</p>
+    <p class="key">The gaps are design, not defect.</p>
+    <p>What the gaps do: let energy flow through somewhere instead of bursting through; let entropy be released so the system doesn't overload; let attention focus on what truly matters.</p>
+    <h3>The weaving process</h3>
+    <p>Each KM is a thread. You don't weave the whole net at once; instead: hit a pitfall, add a thread; meet a problem, mend a knot. As experience accumulates, the net grows denser, but the gaps remain.</p>
+  </section>
+
+  <section class="sec rise" id="sec-7">
+    <p class="no">VII · Relationship to the Other Two Pillars</p>
+    <p>Context decides what comes in. But once in, how does it flow? → that is the work of Constraints. And once it flows, how does it go out? → that is the work of Entropy.</p>
+    <div class="flow">Input → <em>[ Context · Filter ]</em> → Into the system → <em>[ Constraints · Guide ]</em> → Output → <em>[ Entropy · Release ]</em> → Back to input</div>
+    <p>Context is the gatekeeper at the entrance of this cycle.</p>
+  </section>
+
+  <section class="sec rise" id="sec-8">
+    <p class="no">VIII · Summary</p>
+    <p class="key">The core of Context management is choice.</p>
+    <p>Not dumping in all information at once, but consciously sifting out the chaff each turn before feeding information into Context; and at the same time arranging carefully the form in which output lands, so that documents do not become noise. The Fourier transform gives the framework for choice: keep the fundamental consistent and let high-frequency noise naturally flow past. The human's active distillation as RAG gives choice its flexibility: catch what should stay, release what should go.</p>
+    <p>And when choice keeps happening and the context stays highly concentrated all the way, attention starts to continue on its own — it needs no will to hold it up. Focus makes density, density in turn feeds focus, and the two grow into a self-sustaining loop. That loop is flow.</p>
+    <p class="key">"The flow of attention" means managing to the utmost both every sentence you feed into Context and every living document you commit: not straining to remember all information, but letting the context distill as the conversation proceeds, until it enters a field that is highly concentrated, undispersed, and self-sustaining.</p>
+    <p>This is the first pillar of Harness Engineering.</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="Pillars">
+    <p class="plabel">Harness Engineering · Three Pillars</p>
+    <div class="row">
+      <span class="pcard now">
+        <span class="pn">I · You are here</span>
+        <span class="pt" style="display:block;">Context · Water</span>
+        <span class="pq" style="display:block;">What should stay, what should flow past?</span>
+      </span>
+      <a class="pcard" href="constraints.html">
+        <span class="pn">II</span>
+        <span class="pt" style="display:block;">Constraints · Channel</span>
+        <span class="pq" style="display:block;">How do you make it okay not to remember?</span>
+      </a>
+      <a class="pcard" href="entropy.html">
+        <span class="pn">III</span>
+        <span class="pt" style="display:block;">Entropy · Entropy</span>
+        <span class="pq" style="display:block;">Where does the chaos go?</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Context — The Flow of Attention<br>What stays, what flows past</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong> — Made by Nova × Claude.<br>
+        A PM who can't write a line of code,<br>
+        and an AI with no long-term memory,<br>
+        building something in twenty-five days.
+        <div class="sub-links">
+          <a href="../privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="dot-nav-trigger" aria-label="Sections"></button>
+<nav class="dot-nav" aria-label="Sections">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">Core Problem</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">Fourier</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">Density</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">Practice</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">Dual Stability</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">Gaps in the Net</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">Three Pillars</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">Summary</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
+
+</body>
+</html>

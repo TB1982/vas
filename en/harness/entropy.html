@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropy: The Art of Living with Chaos · Harness Engineering Pillar III</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/en/harness/entropy">
+<meta name="description" content="Chaos is bound to pile up — how do you give it somewhere to go? The art of living with chaos — Harness Engineering Pillar III.">
+<meta property="og:title" content="Entropy: The Art of Living with Chaos · Harness Engineering Pillar III">
+<meta property="og:description" content="Chaos is bound to pile up — how do you give it somewhere to go? The art of living with chaos — Harness Engineering Pillar III.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/harness/entropy">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harness Engineering — entropy management and antifragility for AI collaboration">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Entropy: The Art of Living with Chaos · Harness Engineering Pillar III">
+<meta name="twitter:description" content="Chaos is bound to pile up — how do you give it somewhere to go? The art of living with chaos — Harness Engineering Pillar III.">
+<meta name="twitter:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta name="twitter:image:alt" content="Harness Engineering — entropy management and antifragility for AI collaboration">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(56px,7.5vw,90px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+/* Retro 步驟 */
+.step{margin:26px 0;}
+.step .sname{font-size:18px;font-weight:600;}
+.step .sname .sn{font-family:var(--mono);font-size:12px;color:var(--rust);margin-right:10px;letter-spacing:0.1em;}
+.step p{margin:8px 0 6px;}
+.fx{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--rust);margin:6px 0 0;}
+
+.code{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-1);
+  background:rgba(26,24,22,0.045);border-left:2px solid var(--gold);
+  padding:16px 20px;margin:14px 0 16px;white-space:pre-wrap;}
+.code .c{color:var(--ink-3);}
+
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;display:block;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;display:block;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
+
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+    <span class="lang"><a href="../../harness/entropy.html">中</a><a class="on">EN</a><a href="../../ja/harness/entropy.html">JA</a><a href="../../cn/harness/entropy.html">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">Pillar III</p>
+    <h1 class="emerge">Entropy<em>.</em></h1>
+    <p class="sub rise">The Art of Living with Chaos</p>
+    <blockquote class="coreq rise">Chaos is bound to pile up —<br>how do you give it somewhere to go?</blockquote>
+  </section>
+
+  <section class="sec rise" id="sec-1">
+    <p class="no">I · Core Problem</p>
+    <p>The second law of thermodynamics says: in an isolated system, entropy only increases, never decreases. Things move spontaneously from order to disorder. People age, rooms get messy, food rots.</p>
+    <p>Every AI session is also a kind of isolated system. Context accumulates, rules go out of date, documents grow long, and what once mattered turns into noise.</p>
+    <p class="key">You cannot stop entropy from increasing — that is as absurd as demanding an apple not fall from the tree. What you can do is design an exit where entropy has somewhere to go.</p>
+  </section>
+
+  <section class="sec rise" id="sec-2">
+    <p class="no">II · How It Works: Retro as Release</p>
+    <h3>What is Retro?</h3>
+    <p>Retro (Sprint Retrospective) is the review meeting in agile development. In traditional agile, it is the team's time to reflect. In Harness Engineering, it is the release valve for entropy.</p>
+    <h3>The essence of Retro</h3>
+    <p>The chaos that accumulates each Sprint — fuzzy memories and decisions, outdated rules or frameworks, unrecorded learning or insight — is forced to be handled at this node called Retro: what should stay → written into KM or other process documents; what should be deleted or changed → revised at any time, from CLAUDE.md to a Skill to a document; what should be archived → moved to ARCHIVE to keep the structure clean.</p>
+    <p class="key">Retro is not just "review." Retro is the exit through which the system finds its way from chaos back to order.</p>
+  </section>
+
+  <section class="sec rise" id="sec-3">
+    <p class="no">III · Practice: The Seven Facets of Retro</p>
+    <p>Seven facets to discuss at the end of each Sprint:</p>
+
+    <div class="step">
+      <p class="sname"><span class="sn">1</span>Delivery Summary</p>
+      <p>Record what this Sprint did: which items were delivered; what the QC pass rate was.</p>
+      <p class="fx">Entropy it fights → "forgetting what was done"</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">2</span>What Went Well</p>
+      <p>Keep the successful experience: which processes or methods worked; which decisions turned out to be right.</p>
+      <p class="fx">Entropy it fights → "good practices scattering away"</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">3</span>What to Improve</p>
+      <p>Identify problems: where the process got stuck; which tools were hard to use; which problems went unnoticed at first and finally became obstacles.</p>
+      <p class="fx">Entropy it fights → "problems ignored, repeating"</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">4</span>Lessons Learned</p>
+      <p>Externalize the experience: pitfalls hit, written into KM; insights found, written into KM or revised into process documents, Skills, even CLAUDE.md — what matters is that they will still be seen the next time a Sprint runs.</p>
+      <p class="fx">Entropy it fights → "wisdom vanishing inside the session"</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">5</span>Velocity Metrics</p>
+      <p>Quantify progress: how much this Sprint completed; how it compares to expectations.</p>
+      <p class="fx">Entropy it fights → "feeling progress but unable to say it clearly"</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">6</span>CLAUDE.md and Skills Review · reviewing rules and tools</p>
+      <p>Clean out outdated rules:</p>
+      <div class="code"><span class="c"># First scan the heading structure</span>
+grep -n "^###" CLAUDE.md
+
+<span class="c"># Then ask yourself:
+# Is this rule here because of a pitfall hit, or because no one deleted it?
+# Remove what no longer applies, merge what's duplicated</span></div>
+      <p>Refine and update the Skills:</p>
+      <div class="code"><span class="c"># First confirm Claude's use of and observations on Skills this round
+
+# Then discuss together:
+# Where do these Skills fit well, where do they feel lacking or redundant?
+# Revise Skills or add new ones</span></div>
+      <p class="fx">Entropy it fights → "documents piling up into noise"</p>
+      <p>This step is especially important — the rules themselves also become entropy. If you don't clean up regularly, CLAUDE.md grows longer and longer, Skills turn into decorations, and the collaboration constitution and tools used every Sprint, even every turn, all need re-examining at Retro.</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">7</span>Archive</p>
+      <p>Move completed Stories to the archive: from living documents to ARCHIVE; the marker that Retro is over.</p>
+      <p class="fx">Entropy it fights → "the workspace stuffed with old things"</p>
+    </div>
+
+    <table>
+      <caption>The seven facets of Retro at a glance</caption>
+      <thead><tr><th>Facet</th><th>What it does</th><th>Entropy it fights</th></tr></thead>
+      <tbody>
+        <tr><td>Delivery Summary</td><td>Record what was done</td><td>Forgetting what was done</td></tr>
+        <tr><td>What Went Well</td><td>Keep successful experience</td><td>Good practices scattering away</td></tr>
+        <tr><td>What to Improve</td><td>Identify problems</td><td>Problems repeating</td></tr>
+        <tr><td>Lessons Learned</td><td>Write experience into KM</td><td>Wisdom vanishing with the session</td></tr>
+        <tr><td>Velocity Metrics</td><td>Quantify progress</td><td>Progress hard to articulate</td></tr>
+        <tr><td>Key Document Review</td><td>Revise key documents</td><td>Documents turning into noise</td></tr>
+        <tr><td>Archive</td><td>Archive completed work</td><td>The workspace getting stuffed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec rise" id="sec-4">
+    <p class="no">IV · Why You Can't Skip Retro</p>
+    <h3>What happens without Retro?</h3>
+    <p>If you skip Retro: KM won't update → you'll hit the same pitfall next time; CLAUDE.md won't be cleaned → rules grow more and more contradictory; completed work won't be archived → the SDD grows longer and longer; successful experience won't be recorded → good practices get forgotten.</p>
+    <p>Entropy keeps accumulating until the system becomes unworkable.</p>
+    <h3>Retro is the system's "breathing"</h3>
+    <p>People need to breathe — taking in oxygen, releasing carbon dioxide. The system needs to breathe too — taking in new learning, releasing what's out of date.</p>
+    <p class="key">Retro is the system's breathing. A system without Retro suffocates.</p>
+    <h3>Can Retro be done by the AI alone?</h3>
+    <p class="key">The mechanical layer can, the judgment layer cannot — and the core value of Retro lies precisely in the judgment layer.</p>
+    <h4>What the AI does well · the mechanical layer</h4>
+    <p>Delivery summary, velocity metrics, scanning CLAUDE.md's structure, finding contradictions between rules, drafting candidate lessons — these are the mechanical actions of release, and the AI does them faster and more completely than a human. Even "borrowing a clean pair of eyes" is partly workable: open a new session with a clean context to review the products of the old session (this is exactly the principle of the system's verifier), and it can catch drift.</p>
+    <h4>What the AI cannot do alone · the judgment layer</h4>
+    <p><strong>Blind spots need an outside view to break the frame.</strong> The biases accumulated within a Sprint all looked reasonable at the time — it is precisely because they looked reasonable that they could accumulate. Let the same filter that produced the entropy review the entropy, and the gaps in the filter itself pass through untouched. Retro is the action that lets an outside view shine on the blind spot beneath the lamp.</p>
+    <p><strong>Exhaling needs an opening outside the system.</strong> The thermodynamic way to put it: in an isolated system, entropy only increases — the precondition for releasing entropy is that the system is not isolated. AI self-review is a closed system moving entropy around inside itself, not releasing it. The human's role in Retro is, physically, the very requirement that the system not be isolated: value judgments like "is this worth putting into KM?" or "should this rule die?" encode a sense of direction — and direction has always been the human's job.</p>
+    <p>The most effective Retro is the focusing of two views — the AI brings the complete internal record (everything it did is recorded), the human brings the sense of direction from outside the system (knowing where it matters, where a problem was seen). Done one-sided, you only get half: the AI alone misses the gaps in its own filter, the human alone misses a great many factual details.</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · Metaphor: The Exit for Breath</p>
+    <h3>Why breathing?</h3>
+    <p>A vessel cannot be completely sealed. If energy only comes in and never goes out, the vessel explodes. If information only accumulates and is never cleaned up, the system collapses. Retro is the mechanism that lets the system exhale.</p>
+    <h3>The cycle of breathing in and out</h3>
+    <table>
+      <thead><tr><th>Phase</th><th>Action</th><th>Corresponding process</th></tr></thead>
+      <tbody>
+        <tr><td>Inhale</td><td>Take in the new</td><td>Run the Sprint, accumulate experience</td></tr>
+        <tr><td>Exhale</td><td>Release the old</td><td>Retro, clean out what's out of date</td></tr>
+      </tbody>
+    </table>
+    <p>This cycle must keep going. Only inhaling and never exhaling suffocates. Only exhaling and never inhaling withers.</p>
+    <p class="key">A healthy system is a system that breathes.</p>
+  </section>
+
+  <section class="sec rise" id="sec-6">
+    <p class="no">VI · The Philosophy of Entropy</p>
+    <h3>Accept that chaos is bound to happen</h3>
+    <p>The first wisdom of Harness Engineering is: don't try to stop chaos.</p>
+    <p>Chaos will happen. Sessions will break. Rules will go out of date. People will forget. The AI will lose its memory. These are not bugs; they are physics. What you can do is not to stop chaos, but to design a mechanism that lets chaos be handled.</p>
+    <h3>Tame entropy, don't destroy it</h3>
+    <p>The second wisdom is: entropy is not the enemy; it is energy that needs to be tamed.</p>
+    <p>Retro does not "destroy" entropy — that is impossible. Retro turns entropy into something useful: pitfalls hit → become KM, protecting your future self; outdated rules → get cleaned out, keeping the system clean; completed work → gets archived, becoming a historical record.</p>
+    <p class="key">Entropy is not destroyed; it is transformed.</p>
+    <h3>The vessel is continually being built</h3>
+    <p>The third wisdom is: the system never has a day when it is "finished."</p>
+    <p>Entropy keeps increasing, sessions keep ending, new pitfalls keep appearing. The vessel is not a thing you finish building once and for all — it is a system that is continually being built. Every new KM is another piece of wall the vessel grows. Every Retro is the vessel breathing, adjusting, evolving.</p>
+    <p>This is why Harness Engineering has no end — because entropy never stops.</p>
+  </section>
+
+  <section class="sec rise" id="sec-7">
+    <p class="no">VII · Relationship to the Other Two Pillars</p>
+    <p>Context decides what comes in (filter). Constraints decides how it flows (guide). Entropy decides how it goes out (release).</p>
+    <div class="flow">Input → <em>[ Context · Filter ]</em> → Into the system → <em>[ Constraints · Guide ]</em> → Output → <em>[ Entropy · Release ]</em> → Back to input</div>
+    <p>Entropy is the gatekeeper at the exit of this cycle. It ensures: the accumulated chaos gets cleaned out regularly, and the system does not suffocate.</p>
+    <h3>The unity of the three pillars</h3>
+    <table>
+      <thead><tr><th>Pillar</th><th>Core problem</th><th>Mechanism</th><th>Metaphor</th><th>Philosophy</th></tr></thead>
+      <tbody>
+        <tr><td>Context</td><td>What should stay?</td><td>Fourier transform</td><td>Gaps in the net</td><td>Intuition leads retrieval</td></tr>
+        <tr><td>Constraints</td><td>How does it flow?</td><td>The workflow track</td><td>The Channel</td><td>Servant Leadership</td></tr>
+        <tr><td>Entropy</td><td>How does it go out?</td><td>Retro as release</td><td>Breathing</td><td>Living with chaos</td></tr>
+      </tbody>
+    </table>
+    <p>The three form a complete living system: Context is the digestive system — choosing what nutrients to absorb; Constraints is the circulatory system — letting energy flow where it should go; Entropy is the respiratory system — releasing the waste of metabolism.</p>
+    <p class="key">Missing any one, and the system cannot survive.</p>
+  </section>
+
+  <section class="sec rise" id="sec-8">
+    <p class="no">VIII · Summary</p>
+    <p class="key">The core of Entropy management is living with it.</p>
+    <p>Not destroying chaos, but designing somewhere for chaos to go. Retro gives the mechanism for release: seven facets, cleaned out regularly. Breathing gives the metaphor for release: the system needs to exhale, or it suffocates.</p>
+    <p>This is the third pillar of Harness Engineering.</p>
+  </section>
+
+  <section class="sec rise" id="sec-9">
+    <p class="no">IX · The System's Boundary Conditions</p>
+    <h3>The weakness of the human RAG</h3>
+    <p>In the Context pillar, we talked about "intuition leads retrieval" — the human as the core of RAG. But the human RAG has one fundamental weakness:</p>
+    <p class="key">You don't know what you don't know.</p>
+    <p>The AI's RAG knows its boundary clearly — only what's in the database can be fished out, and what's not there simply isn't. But human intuition will say, "I think I know this." Then it fishes out something incomplete, or even wrong — and you don't know it's wrong.</p>
+    <p>This is why the human RAG needs an external system to make up for it: KM makes up for the blind spot of "what you don't know you don't know"; SDD ensures that "what you think you know" is written down and verified; Retro lets you regularly discover "so it turns out I didn't know this before."</p>
+    <h3>The system's ceiling is the human</h3>
+    <p>But there is an even more fundamental boundary condition: how powerful this system can be rests entirely on how deep your own understanding of the world is.</p>
+    <p>Intuition leads retrieval. But what intuition can fish out depends on what is inside you. If you'd never heard of the Fourier transform, the day you saw that IG Reel you would scroll past it, never realizing "this is exactly what I'm doing." If you hadn't read Jung, hadn't touched agile, hadn't lived through those projects, hadn't hit those pitfalls — those nodes wouldn't be in your mind. Intuition would have nothing to connect.</p>
+    <p class="key">You are RAG's database. The books you've read, the roads you've walked, the pitfalls you've hit, the people you've loved — all of it is your training data.</p>
+    <p>Intuition fishes things out of here.</p>
+    <h3>Why this methodology is "non-transferable"</h3>
+    <p>This also explains why Harness Engineering cannot be directly copied. Not because it can't be written down — what you are reading now is the complete framework. But because each person's database is different.</p>
+    <p>The same framework grows a different system for different people: your intuition can link Fourier and RAG because you have both of these inside you; for someone else, their intuition will link different things; they will grow their own metaphors, their own workflow, their own rhythm.</p>
+    <p>This is not a bug, it is a feature. Harness Engineering is a framework, not a template. The framework tells you "you must have Context, Constraints, Entropy." But what these three pillars concretely look like depends on who you are.</p>
+    <h3>The final boundary conditions</h3>
+    <table>
+      <thead><tr><th>Boundary</th><th>Explanation</th></tr></thead>
+      <tbody>
+        <tr><td>The blind spot of the human RAG</td><td>You don't know what you don't know</td></tr>
+        <tr><td>The depth of the human</td><td>The system's ceiling is your understanding of the world</td></tr>
+        <tr><td>Non-transferability</td><td>Each person grows their own version</td></tr>
+      </tbody>
+    </table>
+    <p class="key">Harness Engineering is alive. And what keeps it alive is the human. As deep as you are, that is how deep it goes.</p>
+  </section>
+
+  <section class="sec rise" id="sec-10">
+    <p class="no">X · Closing</p>
+    <p>Harness Engineering is the net that catches chaos.</p>
+    <p>Context designs the gaps in the net — letting what should stay stay, what should go go. Constraints designs the structure of the net — letting energy flow along the track. Entropy designs the breathing of the net — keeping the system from suffocating.</p>
+    <p>The three pillars together form a living, breathing, continually evolving system. This system does not rely on the AI's memory, nor on the human's memory. What it relies on is structure — structure that makes not remembering okay.</p>
+    <p class="key">The river never stops. The vessel keeps being built. The next session continues from here.</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="Pillars">
+    <p class="plabel">Harness Engineering · Three Pillars</p>
+    <div class="row">
+      <a class="pcard" href="context.html">
+        <span class="pn">I</span>
+        <span class="pt">Context · Water</span>
+        <span class="pq">What should stay, what should flow past?</span>
+      </a>
+      <a class="pcard" href="constraints.html">
+        <span class="pn">II</span>
+        <span class="pt">Constraints · Channel</span>
+        <span class="pq">How do you make it okay not to remember?</span>
+      </a>
+      <span class="pcard now">
+        <span class="pn">III · You are here</span>
+        <span class="pt">Entropy · Entropy</span>
+        <span class="pq">Where does the chaos go?</span>
+      </span>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Entropy — The Art of Living with Chaos<br>Chaos is bound to pile up, how to give it somewhere to go</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong> — Made by Nova × Claude.<br>
+        A PM who can't write a line of code,<br>
+        and an AI with no long-term memory,<br>
+        building something in twenty-five days.
+        <div class="sub-links">
+          <a href="../privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="dot-nav-trigger" aria-label="Sections"></button>
+<nav class="dot-nav" aria-label="Sections">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">Core Problem</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">Retro as Release</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">Seven Facets</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">Can't Skip It</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">Exit for Breath</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">Philosophy of Entropy</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">Three Pillars</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">Summary</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-9"><span class="dn-label">Boundary Conditions</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-10"><span class="dn-label">Closing</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
+
+</body>
+</html>

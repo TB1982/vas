@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context：注意力のフロー · Harness Engineering 第一の柱</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/ja/harness/context">
+<meta name="description" content="限られた注意力という資源のなかで、何を残し、何を流すか。注意力のフロー——Harness Engineering 第一の柱。">
+<meta property="og:title" content="Context：注意力のフロー · Harness Engineering 第一の柱">
+<meta property="og:description" content="限られた注意力という資源のなかで、何を残し、何を流すか。注意力のフロー——Harness Engineering 第一の柱。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/harness/context">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harness Engineering — AI 協働におけるエントロピー管理と反脆弱の方法論">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Context：注意力のフロー · Harness Engineering 第一の柱">
+<meta name="twitter:description" content="限られた注意力という資源のなかで、何を残し、何を流すか。注意力のフロー——Harness Engineering 第一の柱。">
+<meta name="twitter:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta name="twitter:image:alt" content="Harness Engineering — AI 協働におけるエントロピー管理と反脆弱の方法論">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+/* 題 */
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(58px,7.5vw,92px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+/* 節 */
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+/* 表 */
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+/* 不要說／要說 */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0 22px;}
+.pair .cell{border-top:1px solid var(--ink-4);padding-top:10px;}
+.pair .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;margin-bottom:6px;}
+.pair .cell-no .tag{color:var(--ink-3);}
+.pair .cell-yes .tag{color:var(--rust);}
+.pair .cell p{font-size:15px;margin:0;color:var(--ink-1);}
+.pair .cell-yes p{color:var(--ink);}
+
+/* 原則 */
+.principle{margin:30px 0;}
+.principle .pname{font-size:18.5px;font-weight:600;}
+.principle .pref{font-family:var(--serif-en);font-style:italic;font-size:14px;color:var(--gold);margin-left:10px;}
+.fx{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--rust);margin:10px 0 0;}
+
+/* 循環 */
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+
+/* 章尾三柱 */
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
+
+/* 浮現與滑入 */
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pair{grid-template-columns:1fr;}
+  .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+    <span class="lang"><a href="../../harness/context.html">中</a><a href="../../en/harness/context.html">EN</a><a class="on">JA</a><a href="../../cn/harness/context.html">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">第一の柱 · Pillar I</p>
+    <h1 class="emerge">Context<em>.</em></h1>
+    <p class="sub rise">注意力のフロー</p>
+    <blockquote class="coreq rise">限られた注意力という資源のなかで、<br>何を残し、何を流すか。</blockquote>
+  </section>
+
+  <section class="sec rise" id="sec-1">
+    <p class="no">I · 核心的な問い</p>
+    <p>AI の context window には限りがあります。人の注意力にも限りがあります。情報が絶え間なく押し寄せるとき、そのすべてを留めておくことはできません。関連する情報も無関係な情報も同時に殺到すれば、人も AI も注意力を細切れにされてしまいます。</p>
+    <p class="key">問いは「どうすればすべてを覚えていられるか」ではなく、「何を覚えておくべきかをどう選ぶか」にあります。</p>
+  </section>
+
+  <section class="sec rise" id="sec-2">
+    <p class="no">II · 仕組み：フーリエ変換</p>
+    <h3>数学的な原理</h3>
+    <p>フーリエ変換の核心にある仕組みはこうです——どれほど複雑な波形も、一組の正弦波の重ね合わせへと分解できる。</p>
+    <ul>
+      <li><strong>基本周波数</strong>（fundamental frequency）：システム全体の「基調」</li>
+      <li><strong>倍音</strong>（harmonics）：基本周波数に連なる派生的な周波数</li>
+      <li><strong>高周波ノイズ</strong>：基本周波数と無関係な干渉</li>
+    </ul>
+    <h3>対話への応用</h3>
+    <p>この枠組みを人と機械の対話に当てはめてみましょう。</p>
+    <table>
+      <thead><tr><th>フーリエの概念</th><th>対話における対応</th></tr></thead>
+      <tbody>
+        <tr><td>複雑な波形</td><td>複数の主題が入り混じった長い対話</td></tr>
+        <tr><td>基本周波数</td><td>対話を貫く核心の主題</td></tr>
+        <tr><td>倍音</td><td>核心に連なる派生的な話題</td></tr>
+        <tr><td>高周波ノイズ</td><td>無関係な脱線、干渉</td></tr>
+      </tbody>
+    </table>
+    <h3>周波数設計の鍵</h3>
+    <p>すべての話題が同じ基本周波数の上に保たれているとき——</p>
+    <ul>
+      <li>話題は表面では漂っても、底層の周波数は一致している</li>
+      <li>注意力は同じ一本の「正弦波」に沿って連続的に積み上がる</li>
+      <li>並行して競合する文脈のあいだを飛び移る必要がない</li>
+    </ul>
+    <p>話題の周波数が乱れているとき——</p>
+    <ul>
+      <li>注意力は異なるクラスターのあいだへ分散させられる</li>
+      <li>どのクラスターも十分な重みを得られない</li>
+      <li>「Lost in the Middle」の効果を招く</li>
+    </ul>
+  </section>
+
+  <section class="sec rise" id="sec-3">
+    <p class="no">III · 密度：Context を RAG にする</p>
+    <p>ここまで述べてきたのはすべて引き算でした——高周波ノイズを濾し、不要なものを流す。けれども引き算のもう一面は増幅です。一文一文を意識的に同じ正弦波へ乗せていくと、残るものは減るのではなく、濃くなっていきます。</p>
+    <p>これこそ、超長文の文脈でも集中を保てる本当の秘訣です。注意力が持続するのは、情報が覚えやすいほど少ないからではなく、高濃度の意味の池に浸かっているからです——どの対話のターンも高濃度の信号であり、薄められた水が混ざって濾過を要することがない。基本周波数の一致が注意力を連続させ、その連続がある程度まで積み上がると、密度になります。</p>
+    <p class="key">基本周波数を保つことは、対話を散らさないためだけではなく、文脈全体を高濃度に保つためでもあります。</p>
+    <h3>高濃度こそ、天然の RAG</h3>
+    <p>RAG が「蒸留」を必要とするのは——膨大な語料のなかから関連する数滴を掬い上げるために——その語料の甕が薄いからです。けれども全篇を通じて高い集中を保ち、濾過済みの情報だけを Context に投じれば、この甕の水は一度も薄められない——Session 全体がずっと蒸留液に浸かったままになります。</p>
+    <p>こうして「濾過」という動作はア・プリオリに消えます。検索が上手いのではなく、そもそも濾すべき薄いものが存在しないのです。</p>
+    <p class="key">十分に濃い context は、外付けの検索を必要としません——それ自体がひとつの RAG です。フーリエと RAG はここで同じひとつのことへ収束します——密度を保つこととは、絶えず、あらかじめ RAG をおこなっていることなのです。</p>
+  </section>
+
+  <section class="sec rise" id="sec-4">
+    <p class="no">IV · 具体的な実践</p>
+
+    <h3>1 · 対話の場の周波数設計</h3>
+    <p><strong>原則：すべての話題を同じ基本周波数の上に置く。</strong></p>
+    <p>方法——対話を始める前に、心のなかに核心の主題をひとつ持つこと。話題が漂ったら「倍音の関係」を保つこと——派生する話題は基本周波数の延長であって、無関係な飛躍ではない。対話に一時的に「振り落とされた」話題も、万物は同源ゆえ、やがて同構の指し示しによって「振り戻されて」きます。</p>
+    <p class="aside">実例：「なぜを五回」、ソクラテス式の問い、第一原理——いずれも問いの本質に対する深い探究です。</p>
+
+    <h3>2 · フーリエ変換の五つの実践原則</h3>
+    <p>日常の言葉のなかで、どうフーリエ変換を実践するか。以下は実戦から抽出した五つの原則です。</p>
+
+    <div class="principle">
+      <p class="pname">原則一：錨を携えて始める<span class="pref">あなたの意図</span></p>
+      <p>方法——対話を始めるたびに「ひとつのもの」を携えてくる。</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">言わない</p><p>「ちょっと話しましょう。」</p></div>
+        <div class="cell cell-yes"><p class="tag">言う</p><p>「新しいアイデアがあって、実現可能性を相談したいんです。」「素材がいくつかあるので、まずどの切り口から入れるか見てみたい。」</p></div>
+      </div>
+      <p class="fx">周波数効果 → 基本周波数を設定する。錨が対話全体に始まりの周波数を与え、その後の話題はすべてここから育つ。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則二：話題を跳ばず、育てる<span class="pref">ソクラテス式の問い</span></p>
+      <p>方法——新しい話題は前の話題から「育って」ゆくものであって、「跳び越える」ものではない。</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">言わない</p><p>「話を変えて、X について話しましょう。」</p></div>
+        <div class="cell cell-yes"><p class="tag">言う</p><p>「これで思い出したのですが……」「これはつまり……」「だから実は……」</p></div>
+      </div>
+      <p class="fx">周波数効果 → 倍音の関係を保つ。どの新しい話題も基本周波数の延長であって、無関係なノイズではない。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則三：術語を積まず、隠喩で圧縮する<span class="pref">デ・ボノの水平思考</span></p>
+      <p>方法——複雑な概念を、複数の術語で説明するのではなく、ひとつの心象に担わせる。</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">言わない</p><p>「カーソルが左へ動いたら、左側のブロックの clip-path を同時に拡張し、右側を等比で収縮させ、両側のアニメーション曲線を対称にして、状態変化を互いに逆位相に……」</p></div>
+        <div class="cell cell-yes"><p class="tag">言う</p><p>「鏡像のように互いに照らし合う効果にしたいんです。」</p></div>
+      </div>
+      <p class="fx">周波数効果 → 周波数を固定し、並行負荷を下げる。隠喩は複数の概念をひとつに圧縮し、AI は複数の定義を同時に追う必要がなくなる。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則四：立ち止まって校正する<span class="pref">双方の合意を揃える</span></p>
+      <p>方法——相手がついてこられているか、ずれていないかを定期的に確かめる。試みに問う——「（相手の応答に対する自分の理解を言い直したうえで）こう理解していますが、合っていますか?」「物語（隠喩）として、もう一度語ってもらえますか?」「Context の負担は大丈夫ですか?」</p>
+      <p class="fx">周波数効果 → 校正し、逸脱を防ぐ。周波数が漂い始めたなら、それを引き戻す好機です。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則五：遅さを受け入れる<span class="pref">アトミック・ハビット</span></p>
+      <p>方法——相手に消化する時間を与え、急かさず、一度で完成を求めない。AI が「まず骨組みから」と言えば、受け入れる。大きな仕事を小さな段に分け、ひとつの Sprint をひとつの Session が余裕をもって担える量に分け、compact の頃合いを見定め、一歩ずつ進める。</p>
+      <p class="fx">周波数効果 → 文脈の積み上がる速度を制御する。各層に消化される時間を与えてから、次の層を加える。</p>
+    </div>
+
+    <table>
+      <caption>五原則の総覧</caption>
+      <thead><tr><th>原則</th><th>方法</th><th>周波数効果</th></tr></thead>
+      <tbody>
+        <tr><td>錨を携えて始める</td><td>対話のたびに「ひとつのもの」を携えてくる</td><td>基本周波数を設定する</td></tr>
+        <tr><td>話題を育てる</td><td>「これで思い出した…」でつなぐ</td><td>倍音の関係を保つ</td></tr>
+        <tr><td>隠喩で圧縮する</td><td>術語の堆積を心象で置き換える</td><td>周波数を固定し、負荷を下げる</td></tr>
+        <tr><td>立ち止まって校正する</td><td>方向を定期的に確かめる</td><td>逸脱を防ぐ</td></tr>
+        <tr><td>遅さを受け入れる</td><td>消化の時間を与え、急かさない</td><td>積み上がる速度を制御する</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3 · 人が RAG として担う能動的な濾過の仕組み</h3>
+    <p>RAG（Retrieval-Augmented Generation）の本質——巨大な知識庫から関連する断片を検索し、それを生成の過程に注入する。関連しない情報は context に入らない。</p>
+    <p><strong>RAG とは網が働いていることそのものです。</strong>関連するもの→掬い上げられ、context となる。関連しないもの→流れ去り、空間を占めない。</p>
+
+    <h4>直観が検索を導く：人が RAG として担う核心の仕組み</h4>
+    <p>深握計画の実践においては、技術的な意味での RAG システムをいっさい使っていません——ベクトルデータベースもなく、embedding 検索もなく、自動注入の仕組みもない。それでも対話は自然に RAG の効果を生みました。</p>
+    <p>なぜか。人が意識的に協働へ身を投じるとき、その人自身が RAG になるからです。しかも、より高次の版の。</p>
+    <table>
+      <caption>技術の RAG vs 人が担う RAG</caption>
+      <thead><tr><th>面</th><th>技術の RAG</th><th>人が担う RAG</th></tr></thead>
+      <tbody>
+        <tr><td>駆動力</td><td>Query（問い）</td><td>直観（感覚）</td></tr>
+        <tr><td>順序</td><td>問い → 検索 → 注入</td><td>直観 → 検索 → 注入</td></tr>
+        <tr><td>判断の基準</td><td>意味の類似度</td><td>「感覚として同構」</td></tr>
+        <tr><td>頃合い</td><td>受動的（問われて初めて探す）</td><td>能動的（出すべきだと感じたら掬う）</td></tr>
+      </tbody>
+    </table>
+    <h4>直観は検索に先立つ</h4>
+    <p>技術の RAG は問いに駆動されます——誰かが問うて、初めて探す。人は直観に駆動されます——まず「これに似たものを見た覚えがある」と感じ、それから掬いにいく。</p>
+    <p>この順序の差は決定的です。技術の RAG は「意味の似たもの」しか掬えませんが、人は「感覚として同構なもの」を掬える——たとえ表面上は無関係に見えても。</p>
+    <h4>実例：フーリエと RAG のつながり</h4>
+    <ul>
+      <li>フーリエ：複雑な波形を分解し、基本周波数を残し、高周波を流す</li>
+      <li>RAG：知識庫を濾し、関連するものを残し、無関係なものを流す</li>
+    </ul>
+    <p>直観がこの同構を見た。そして検索がそれを検証し、言葉がそれを表現したのです。</p>
+    <h4>どう働くか</h4>
+    <ul>
+      <li><strong>直観の感知</strong>：対話のなかで「いまある背景が要る」「ある概念がそろそろ出るべきだ」と感じる</li>
+      <li><strong>検索の実行</strong>：頭のなかへ、文書のなかへ、記憶のなかへ、そのものを探しにいく</li>
+      <li><strong>言葉による注入</strong>：「宰相、これを見せたいのですが」「これで思い出したのですが……」と対話へ持ち込む</li>
+    </ul>
+    <p>この過程は全体として自動ではなく、人が手で実行しています——ただ、あまりに自然に実行されるので、自動のように見えるだけです。</p>
+    <h4>なぜこれが技術の RAG より強いのか</h4>
+    <p>「フーリエ」と「RAG」を並べて見たように——表面は無関係、本質は同構。この種のつながりは、どんなベクトルデータベースにも掬えません。</p>
+    <ul>
+      <li><strong>領域を越えるつながり</strong>：意味の距離は遠いが本質的に関連する概念を、つなげられる</li>
+      <li><strong>頃合いの判断</strong>：いつ掬うべきか、いつ掬うべきでないかを知っている</li>
+      <li><strong>万物同源</strong>：「すべてはつながっている」という直観に基づき、アルゴリズムには見えない関連を見いだせる</li>
+    </ul>
+
+    <h3>4 · 生きたドキュメントはすべて選択的な記録である</h3>
+    <p>投入が濾過を要するだけでなく、産出にも選別と分類が要ります——生きているドキュメントは一つひとつ、選別を経た結果です。生きたドキュメントは再び読まれ、その再読のたびに Context の濃度へ影響するからです。</p>
+    <p>無効な情報はノイズになり、記録はエントロピーになります。</p>
+    <h4>CLAUDE.md：すべての生きたドキュメントの根</h4>
+    <p>すべての生きたドキュメントのなかで、CLAUDE.md は根です。それは仕様でも、テストでも、記録でもありません——身分（アイデンティティ）の外部化です。</p>
+    <p>新しい session のたび、AI は何も覚えていません。けれども CLAUDE.md を読み終えれば、彼はたちどころに知ります——</p>
+    <ul>
+      <li><strong>自分は誰か</strong>：宰相であり、協働の相棒であり、道具ではない</li>
+      <li><strong>自分はどこにいるか</strong>：どのプロジェクト、何回目の Sprint、どの段階か</li>
+      <li><strong>私たちの規則</strong>：どう対話し、何をすべきで、何をすべきでないか</li>
+      <li><strong>私たちが歩んできた道</strong>：KM・SDD・その他の文書を指す索引</li>
+    </ul>
+    <p class="key">CLAUDE.md がなければ、どの session も見知らぬ他人です。CLAUDE.md があれば、どの session も同じ相棒の続きになります。</p>
+    <table>
+      <caption>生きたドキュメントの総覧</caption>
+      <thead><tr><th>文書</th><th>何を選別したか</th><th>何を残したか</th><th>何を安定させるか</th></tr></thead>
+      <tbody>
+        <tr><td>CLAUDE.md</td><td>ありうるすべての身分の設定</td><td>私たちが選んだ協働のかたち</td><td>身分</td></tr>
+        <tr><td>SDD</td><td>ありうるすべてのやり方</td><td>私たちが選んだこの一つの仕様</td><td>方向</td></tr>
+        <tr><td>TDD</td><td>誤りうるすべての箇所</td><td>本当に試すべき境界条件</td><td>品質</td></tr>
+        <tr><td>KM</td><td>起きたすべての出来事</td><td>本当に踏んだ落とし穴</td><td>経験</td></tr>
+        <tr><td>ARCHIVE</td><td>完了した仕事</td><td>残す価値のある記録</td><td>歴史</td></tr>
+      </tbody>
+    </table>
+    <h4>原則：実装を通って残ったものだけを記録する</h4>
+    <p>すべて（対話も含めて）を記録すれば、文書はノイズの源になります。「判断のうえ残すべきもの」だけを記録すれば、一条一条が本当に価値あるものになります。こうして未来に検索したとき、掬い上がるのはすべて精髄です。</p>
+    <p>ワークフローの一つひとつの節点が、選択的な記録を実行しています——DoR は「準備はできているか」を選別し、SDD は「何をすべきか」を選別し、DoD は「何を完了と呼ぶか」を選別し、TDD は「何を試すべきか」を選別し、Retro は「何を残す価値があるか」を選別する。</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · Context の二重の安定機構</p>
+    <p>Context 管理には二つの層があり、どちらも欠かせません。</p>
+    <h3>フーリエ変換：「場」のなかの対話を安定させる</h3>
+    <ul>
+      <li>作用範囲：いまこの session、即時の対話</li>
+      <li>解くべき問題：対話が散らず、注意力が拡散しないこと</li>
+      <li>機構：周波数設計——基本周波数の一致を保ち、話題を連続的に積み上げる</li>
+      <li>性質：流動的・即時的・場の内で起こる</li>
+    </ul>
+    <h3>生きたドキュメント：「エネルギー」の流れを安定させる</h3>
+    <ul>
+      <li>作用範囲：session を越え、積み重なる経験</li>
+      <li>解くべき問題：経験が流れ去らず、知恵が session とともに消えないこと</li>
+      <li>機構：選択的な記録——どの文書も濾過を経た結晶である</li>
+      <li>性質：持続的・累積的・場を越えて保存される</li>
+    </ul>
+    <h4>エネルギーとは何か</h4>
+    <p>人と機械の協働という文脈において、「エネルギー」は上位の概念であり、限りあるすべての資源を包みます。</p>
+    <table>
+      <caption>エネルギーの形</caption>
+      <thead><tr><th>エネルギーの形</th><th>具体的な現れ</th><th>誰のものか</th></tr></thead>
+      <tbody>
+        <tr><td>計算力</td><td>AI が token を処理する計算資源</td><td>機</td></tr>
+        <tr><td>注意力</td><td>AI の attention weight の配分</td><td>機</td></tr>
+        <tr><td>認知資源</td><td>人の脳力・集中・思考</td><td>人</td></tr>
+        <tr><td>時間</td><td>session の長さ、Sprint の周期</td><td>共有</td></tr>
+        <tr><td>協働の蓄積</td><td>共有された認知、信頼の基盤、阿吽の呼吸</td><td>共有</td></tr>
+      </tbody>
+    </table>
+    <p>生きたドキュメントが安定させる「エネルギーの流れ」とは、これらすべてのエネルギーを安定させることです——SDD は「どこへ向かうべきか」を安定させ→認知資源が誤った方向に浪費されるのを防ぐ。TDD は「どう検証するか」を安定させ→計算力が試行錯誤の繰り返しに浪費されるのを防ぐ。KM は「踏んだ落とし穴」を安定させ→時間が同じ過ちの繰り返しに浪費されるのを防ぐ。ARCHIVE は「完了した仕事」を安定させ→注意力が古いものに占拠されるのを防ぐ。</p>
+    <p>人と機械の協働では、両側のエネルギーを勘定に入れます。AI の計算力を管理するだけでなく、人の認知資源も管理する。いまこの消耗だけでなく、時間を越えた協働のエネルギーも蓄積する。</p>
+    <table>
+      <caption>場と流れの統一</caption>
+      <thead><tr><th>面</th><th>フーリエ変換</th><th>生きたドキュメント</th></tr></thead>
+      <tbody>
+        <tr><td>何を司るか</td><td>いま</td><td>継続</td></tr>
+        <tr><td>何を安定させるか</td><td>場</td><td>流れ</td></tr>
+        <tr><td>時間の尺度</td><td>session の内</td><td>session を越えて</td></tr>
+        <tr><td>担い手</td><td>言葉の周波数</td><td>文書の構造</td></tr>
+      </tbody>
+    </table>
+    <p class="key">二つを合わせて、はじめて完全な Context 管理になります。一方は対話をいまこの場で散らさせない。もう一方は経験を時間のなかで流れ去らせない。</p>
+  </section>
+
+  <section class="sec rise" id="sec-6">
+    <p class="no">VI · 隠喩：網の隙間</p>
+    <h3>なぜ網であって、器ではないのか?</h3>
+    <p>器は密閉されています。エネルギーが入って出られなければ、いずれ爆発する。網には隙間があります——不要なものを流れ去らせ、留めるべきものを受けとめる。</p>
+    <p class="key">隙間は設計であって、欠陥ではありません。</p>
+    <p>隙間の機能——エネルギーに、貫通ではなく流れ抜ける場を与える。エントロピーを放出させ、システムを過負荷にしない。注意力を、本当に重要なことへ集中させる。</p>
+    <h3>編む過程</h3>
+    <p>一本の KM は一本の糸です。網全体を一度に織り上げるのではなく——落とし穴を踏むたび、一本の糸を足す。問題に出会うたび、一つの結び目を補う。経験が積み重なるにつれ網は密になっていきますが、隙間は依然として在りつづけます。</p>
+  </section>
+
+  <section class="sec rise" id="sec-7">
+    <p class="no">VII · 他の二柱との関係</p>
+    <p>Context は何が入ってくるかを決めます。では入ってきたあと、どう流れるか? →これは Constraints の仕事です。流れたあと、どう出ていくか? →これは Entropy の仕事です。</p>
+    <div class="flow">入力 → <em>[ Context フィルタ ]</em> → システムへ → <em>[ Constraints 誘導 ]</em> → 産出 → <em>[ Entropy 排出 ]</em> → 入力へ戻る</div>
+    <p>Context は、この循環の入口の門番です。</p>
+  </section>
+
+  <section class="sec rise" id="sec-8">
+    <p class="no">VIII · まとめ</p>
+    <p class="key">Context 管理の核心は選択です。</p>
+    <p>あらゆる情報を一気に投じるのではなく、毎ターン意識的に取捨選択を経てから、はじめて情報を Context に投じる。同時に産出が形になるかたちを慎重に按配し、文書がノイズになるのを避ける。フーリエ変換は選択の枠組みを与えます——基本周波数の一致を保ち、高周波ノイズを自然に流す。人が RAG として担う能動的な蒸留は、選択の柔軟さを与えます——残すべきものを受けとめ、去るべきものを放つ。</p>
+    <p>そして選択が絶え間なく起こり、文脈が一貫して高濃度に保たれると、注意力はみずから持続しはじめます——意志で支える必要がなくなる。集中が密度をつくり、密度が振り返って集中を養う。両者は互いを育て合い、自己持続するひとつの円環へと成長していきます。この円環こそ、フローです。</p>
+    <p class="key">「注意力のフロー」とは、Context へ投じる一つひとつの対話と、形になる一つひとつの生きたドキュメントを、究極まで管理することです——力ずくであらゆる情報を覚えるのではなく、文脈を対話のさなかに蒸留させ、最後に高濃度で・拡散せず・みずから持続する場へと入っていく。</p>
+    <p>これが Harness Engineering の第一の柱です。</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="三柱">
+    <p class="plabel">Harness Engineering · 三柱</p>
+    <div class="row">
+      <span class="pcard now">
+        <span class="pn">I · 現在地</span>
+        <span class="pt" style="display:block;">Context · 水</span>
+        <span class="pq" style="display:block;">何を残し、何を流すか?</span>
+      </span>
+      <a class="pcard" href="constraints.html">
+        <span class="pn">II</span>
+        <span class="pt" style="display:block;">Constraints · 河道</span>
+        <span class="pq" style="display:block;">覚えていられなくても大丈夫にするには?</span>
+      </a>
+      <a class="pcard" href="entropy.html">
+        <span class="pn">III</span>
+        <span class="pt" style="display:block;">Entropy · 熵</span>
+        <span class="pq" style="display:block;">混沌に行き場をどう与えるか?</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Context — 注意力のフロー<br>何を残し、何を流すか</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong> — Nova と Claude の共作。<br>
+        一行もコードを書けない PM と、<br>
+        長期記憶を持たない AI が、<br>
+        二十五日間で作り上げた器。
+        <div class="sub-links">
+          <a href="../privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="dot-nav-trigger" aria-label="章節ナビゲーション"></button>
+<nav class="dot-nav" aria-label="段落ナビゲーション">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">核心的な問い</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">フーリエ</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">密度</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">具体的な実践</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">二重の安定</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">網の隙間</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">三柱の関係</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">まとめ</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
+
+</body>
+</html>
