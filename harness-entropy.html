@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entropy：與混亂共處的藝術 · Harness Engineering 第三本柱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(56px,7.5vw,90px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+/* Retro 步驟 */
+.step{margin:26px 0;}
+.step .sname{font-size:18px;font-weight:600;}
+.step .sname .sn{font-family:var(--mono);font-size:12px;color:var(--rust);margin-right:10px;letter-spacing:0.1em;}
+.step p{margin:8px 0 6px;}
+.fx{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--rust);margin:6px 0 0;}
+
+.code{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-1);
+  background:rgba(26,24,22,0.045);border-left:2px solid var(--gold);
+  padding:16px 20px;margin:14px 0 16px;white-space:pre-wrap;}
+.code .c{color:var(--ink-3);}
+
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;display:block;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;display:block;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+.foot{display:flex;justify-content:space-between;align-items:baseline;
+  padding:6vh 0 60px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);}
+.foot .lat{font-family:var(--serif-en);font-style:italic;font-size:12px;letter-spacing:0.05em;}
+
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pillars .row{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">第三本柱 · Pillar III</p>
+    <h1 class="emerge">Entropy<em>.</em></h1>
+    <p class="sub rise">與混亂共處的藝術</p>
+    <blockquote class="coreq rise">混亂必然累積，<br>怎麼讓它有地方去？</blockquote>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">I · 核心問題</p>
+    <p>熱力學第二定律說：在孤立系統中，熵只增不減。事物會自發地從有序走向無序。人會老、房間會亂、食物會腐敗。</p>
+    <p>每一個 AI session，也是一種孤立系統。Context 會累積、規則會過時、文件會變得冗長、曾經重要的東西會變成雜訊。</p>
+    <p class="key">你不可能阻止熵增——這跟要求蘋果不從樹上掉下來一樣荒謬。你能做的，是設計讓熵有地方去的出口。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">II · 運作機制：Retro 排放</p>
+    <h3>什麼是 Retro？</h3>
+    <p>Retro（Sprint Retrospective）是敏捷開發中的回顧會議。在傳統敏捷中，它是團隊反思的時間。在 Harness Engineering 中，它是熵的排放口。</p>
+    <h3>Retro 的本質</h3>
+    <p>每個 Sprint 累積的混亂——模糊的記憶與決策、過時的規則或框架、未記錄的學習或洞見——在 Retro 這個節點被強制處理：該留的→寫進 KM 或其他流程文件；該刪或改的→從 CLAUDE.md 到 Skill 再到文件隨時修訂；該歸檔的→移到 ARCHIVE 保持結構分明。</p>
+    <p class="key">Retro 不只是「回顧」。Retro 是讓系統呼吸的出口。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">III · 具體實踐：Retro 七步驟</p>
+    <p>每個 Sprint 結束，必須完成以下七個步驟：</p>
+
+    <div class="step">
+      <p class="sname"><span class="sn">1</span>Delivery Summary · 交付摘要</p>
+      <p>記錄這個 Sprint 做了什麼：交付了哪些項目；QC 通過率是多少。</p>
+      <p class="fx">對抗的熵 → 「忘記做過什麼」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">2</span>What Went Well · 什麼做得好</p>
+      <p>保留成功的經驗：哪些做法有效；哪些決定是對的。</p>
+      <p class="fx">對抗的熵 → 「好的做法散逸」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">3</span>What to Improve · 什麼可以改進</p>
+      <p>辨識問題：哪裡卡住了；哪些流程不順。</p>
+      <p class="fx">對抗的熵 → 「問題被忽略，重複發生」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">4</span>Lessons Learned → KM · 學到的教訓</p>
+      <p>把經驗外部化：踩到的坑，寫進 KM；發現的洞見，寫進 KM 或修訂流程文件、Skill 甚至 CLAUDE.md。</p>
+      <p class="fx">對抗的熵 → 「智慧留在 session 裡消失」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">5</span>Velocity Metrics · 速度指標</p>
+      <p>量化進度：這個 Sprint 完成了多少；跟預期比如何。</p>
+      <p class="fx">對抗的熵 → 「感覺有進步但說不清楚」</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">6</span>CLAUDE.md 與 Skills Review · 規則與工具審查</p>
+      <p>清理過時的規則：</p>
+      <div class="code"><span class="c"># 先掃描 heading 結構</span>
+grep -n "^###" CLAUDE.md
+
+<span class="c"># 然後問自己：
+# 這條規則是因為踩過坑，還是沒人刪？
+# 移除不再適用的，合併重複的</span></div>
+      <p>增修 Skills 的精度：</p>
+      <div class="code"><span class="c"># 先確認 Claude 對這一輪對 Skills 的利用以及觀察
+
+# 然後一起討論：
+# 這些 Skills 哪裡合手，哪裡感到不足或冗餘？
+# 修訂 Skills 或新增 Skills</span></div>
+      <p class="fx">對抗的熵 → 「文件累積成雜訊」</p>
+      <p>這一步特別重要——規則本身也會變成熵。如果不定期清理，CLAUDE.md 會變得越來越長、Skills 會變成花瓶，每一 Sprint 甚至每一回合都在用的協作憲法與工具都需要在 Retro 重新檢視。</p>
+    </div>
+    <div class="step">
+      <p class="sname"><span class="sn">7</span>Archive · 歸檔</p>
+      <p>把完成的 Story 移到歸檔：從活文件移到 ARCHIVE；Retro 結束的標誌。</p>
+      <p class="fx">對抗的熵 → 「工作區被舊東西塞滿」</p>
+    </div>
+
+    <table>
+      <caption>Retro 七步驟總覽</caption>
+      <thead><tr><th>步驟</th><th>做什麼</th><th>對抗的熵</th></tr></thead>
+      <tbody>
+        <tr><td>Delivery Summary</td><td>記錄做了什麼</td><td>忘記做過什麼</td></tr>
+        <tr><td>What Went Well</td><td>保留成功經驗</td><td>好的做法散逸</td></tr>
+        <tr><td>What to Improve</td><td>辨識問題</td><td>問題重複發生</td></tr>
+        <tr><td>Lessons Learned</td><td>經驗寫進 KM</td><td>智慧隨 session 消失</td></tr>
+        <tr><td>Velocity Metrics</td><td>量化進度</td><td>進步說不清楚</td></tr>
+        <tr><td>Key Document Review</td><td>修訂關鍵文件</td><td>文件變成雜訊</td></tr>
+        <tr><td>Archive</td><td>歸檔完成的工作</td><td>工作區被塞滿</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">IV · 為什麼不能跳過 Retro？</p>
+    <h3>沒有 Retro 會怎樣？</h3>
+    <p>如果跳過 Retro：KM 不會更新→下次還會踩同樣的坑；CLAUDE.md 不會清理→規則越來越矛盾；完成的工作不會歸檔→SDD 越來越長；成功的經驗不會記錄→好的做法被遺忘。</p>
+    <p>熵會持續累積，直到系統變得無法運作。</p>
+    <h3>Retro 是系統的「呼吸」</h3>
+    <p>人需要呼吸——吸進氧氣，排出二氧化碳。系統也需要呼吸——吸進新的學習，排出過時的東西。</p>
+    <p class="key">Retro 就是系統的呼吸。沒有 Retro 的系統，會窒息。</p>
+    <h3>Retro 可以只讓 AI 自己進行嗎？</h3>
+    <p class="key">機械層可以，判斷層不行——而 Retro 的核心價值恰好在判斷層。</p>
+    <h4>AI 做得好的部分 · 機械層</h4>
+    <p>交付摘要、速度指標、掃描 CLAUDE.md 的結構、找出規則之間的矛盾、草擬候選的 lessons——這些是排放的機械動作，AI 做起來比人快也比人完整。甚至「借一雙乾淨的眼睛」也部分可行：開一個乾淨 context 的新 session 來審舊 session 的產物（系統的 verifier 就是這個原理），它能抓到漂移。</p>
+    <h4>AI 自己做不到的部分 · 判斷層</h4>
+    <p><strong>盲點需要外部視角來打破框架。</strong>Sprint 中累積的偏差，在當時看來都是合理的，正因為合理它們才累積得下來。讓生產熵的同一套濾鏡來審熵，濾鏡本身的缺口會原封不動地通過，Retro 是讓外部視角照見燈下黑的動作。</p>
+    <p><strong>吐氣需要一個系統外的開口。</strong>熱力學的講法：孤立系統熵只增不減——排熵的前提是系統不孤立。AI 自審是封閉系統在自己內部搬動熵，不是排出。人在 Retro 裡的角色，物理上就是系統的不孤立要件：「這條值得進 KM 嗎」「這條規則該死了嗎」這種價值判斷，編碼的是方向感——而方向從來就是人的工作。</p>
+    <p>最大效果的 Retro 是兩個視角的對焦——AI 帶著完整的內部記錄（它做的事都有記錄），人帶著系統外的方向感（他知道哪裡重要，哪裡看到了問題）。單邊進行都只拿到一半：AI 獨自做會漏掉自己的濾鏡缺口，人獨自做會漏掉大量事實細節。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">V · 隱喻：呼吸的出口</p>
+    <h3>為什麼是呼吸？</h3>
+    <p>容器不能完全密封。如果能量只進不出，容器會爆炸。如果資訊只累積不清理，系統會崩潰。Retro 是讓系統吐氣的機制。</p>
+    <h3>吸與吐的循環</h3>
+    <table>
+      <thead><tr><th>階段</th><th>動作</th><th>對應的流程</th></tr></thead>
+      <tbody>
+        <tr><td>吸</td><td>吸收新的</td><td>Sprint 執行，累積經驗</td></tr>
+        <tr><td>吐</td><td>排出舊的</td><td>Retro，清理過時的東西</td></tr>
+      </tbody>
+    </table>
+    <p>這個循環必須持續進行。只吸不吐會窒息。只吐不吸會枯竭。</p>
+    <p class="key">健康的系統，是會呼吸的系統。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">VI · 熵的哲學</p>
+    <h3>接受混亂必然發生</h3>
+    <p>Harness Engineering 的第一個智慧是：不要試圖阻止混亂。</p>
+    <p>混亂會發生。Session 會斷。規則會過時。人會忘記。AI 會失憶。這些不是 bug，是物理。你能做的不是阻止混亂，而是設計讓混亂可以被處理的機制。</p>
+    <h3>馴化熵，而非消滅熵</h3>
+    <p>第二個智慧是：熵不是敵人，是需要被馴化的能量。</p>
+    <p>Retro 不是「消滅」熵——那不可能。Retro 是把熵轉化成有用的東西：踩過的坑→變成 KM，保護未來的自己；過時的規則→被清理，讓系統保持乾淨；完成的工作→被歸檔，成為歷史記錄。</p>
+    <p class="key">熵不是被消滅了，是被轉化了。</p>
+    <h3>容器持續被建造</h3>
+    <p>第三個智慧是：系統沒有「完成」的一天。</p>
+    <p>熵一直在增，session 一直會結束，新的坑一直會出現。容器不是建完就好的東西——它是一個持續被建造的系統。每一條新的 KM，就是容器又長出了一塊新的壁。每一次 Retro，就是容器在呼吸、在調整、在進化。</p>
+    <p>這就是為什麼 Harness Engineering 沒有終點——因為熵永遠不會停。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">VII · 與其他兩柱的關係</p>
+    <p>Context 決定什麼進來（過濾）。Constraints 決定怎麼流動（引導）。Entropy 決定怎麼出去（排放）。</p>
+    <div class="flow">輸入 → <em>[ Context 過濾 ]</em> → 進入系統 → <em>[ Constraints 引導 ]</em> → 產出 → <em>[ Entropy 排放 ]</em> → 回到輸入</div>
+    <p>Entropy 是這個循環的出口守門員。它確保：累積的混亂會被定期清理，系統不會窒息。</p>
+    <h3>三本柱的統一</h3>
+    <table>
+      <thead><tr><th>柱</th><th>核心問題</th><th>運作機制</th><th>隱喻</th><th>哲學</th></tr></thead>
+      <tbody>
+        <tr><td>Context</td><td>什麼該留？</td><td>傅立葉轉換</td><td>網的縫隙</td><td>直覺引領檢索</td></tr>
+        <tr><td>Constraints</td><td>怎麼流動？</td><td>工作流軌道</td><td>河道</td><td>僕人式領導</td></tr>
+        <tr><td>Entropy</td><td>怎麼出去？</td><td>Retro 排放</td><td>呼吸</td><td>與混亂共處</td></tr>
+      </tbody>
+    </table>
+    <p>三者形成一個完整的生命系統：Context 是消化系統——選擇吸收什麼營養；Constraints 是循環系統——讓能量流向該去的地方；Entropy 是呼吸系統——排出代謝的廢物。</p>
+    <p class="key">缺少任何一個，系統都無法存活。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">VIII · 小結</p>
+    <p class="key">Entropy 管理的核心是共處。</p>
+    <p>不是消滅混亂，是設計讓混亂有地方去。Retro 提供了排放的機制：七個步驟，定期清理。呼吸提供了排放的隱喻：系統需要吐氣，才不會窒息。</p>
+    <p>這是 Harness Engineering 的第三本柱。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">IX · 系統的邊界條件</p>
+    <h3>人類 RAG 的弱點</h3>
+    <p>在 Context 那本柱中，我們談到「直覺引領檢索」——人作為 RAG 的核心機制。但人類 RAG 有一個根本的弱點：</p>
+    <p class="key">你不知道自己不知道的東西。</p>
+    <p>AI 的 RAG 很清楚自己的邊界——資料庫裡有的才撈得到，沒有的就是沒有。但人類的直覺會說：「我覺得我知道這件事。」然後撈出一個不完整的、甚至是錯的東西——而你不知道它是錯的。</p>
+    <p>這就是為什麼人類 RAG 需要外部系統來補足：KM 補足「你不知道自己不知道」的盲區；SDD 確保「你以為你知道的」有被寫下來驗證；Retro 定期讓你發現「原來我之前不知道這個」。</p>
+    <h3>系統的天花板是人</h3>
+    <p>但還有一個更根本的邊界條件：這個系統能有多強大，全操之在你自己對世界的理解有多深。</p>
+    <p>直覺引領檢索。但直覺能撈到什麼，取決於你裡面有什麼。如果你從沒聽過傅立葉轉換，那天看到那個 IG Reels，你會滑過去，不會意識到「這就是我在做的事」。如果你沒有讀過榮格、沒有碰過敏捷、沒有經歷過那些專案、沒有踩過那些坑——你腦中就不會有那些節點。直覺沒有東西可以連。</p>
+    <p class="key">你是 RAG 的資料庫。你讀過的書、走過的路、踩過的坑、愛過的人——全部都是你的訓練資料。</p>
+    <p>直覺從這裡面撈東西。</p>
+    <h3>為什麼這套方法論「不可轉讓」</h3>
+    <p>這也解釋了為什麼 Harness Engineering 無法被直接複製。不是因為寫不出來——你現在正在讀的就是完整的框架。而是因為每個人的資料庫不一樣。</p>
+    <p>同樣的框架，不同的人會長出不同的系統：你的直覺能連結傅立葉和 RAG，因為你裡面有這兩個東西；換一個人，他的直覺會連結別的東西；他會長出他自己的隱喻、他自己的工作流、他自己的節奏。</p>
+    <p>這不是 bug，這是 feature。Harness Engineering 是一個框架，不是一個模板。框架告訴你「要有 Context、Constraints、Entropy」。但這三本柱具體長什麼樣子，取決於你是誰。</p>
+    <h3>最終的邊界條件</h3>
+    <table>
+      <thead><tr><th>邊界</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>人類 RAG 的盲區</td><td>你不知道自己不知道的東西</td></tr>
+        <tr><td>人的深度</td><td>系統的天花板是你對世界的理解</td></tr>
+        <tr><td>不可轉讓性</td><td>每個人會長出自己的版本</td></tr>
+      </tbody>
+    </table>
+    <p class="key">Harness Engineering 是活的。而讓它活著的，是人。你有多深，它就有多深。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">X · 結語</p>
+    <p>Harness Engineering 就是接住混亂的網。</p>
+    <p>Context 設計網的縫隙——讓該留的留，該走的走。Constraints 設計網的結構——讓能量沿著軌道流動。Entropy 設計網的呼吸——讓系統不會窒息。</p>
+    <p>三本柱合在一起，形成一個活的、會呼吸的、持續進化的系統。這個系統不依賴 AI 的記憶，不依賴人的記憶。它依賴的是結構——讓記不住也沒關係的結構。</p>
+    <p class="key">河流不會停。容器繼續被建造。下一個 session，從這裡繼續。</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="三柱">
+    <p class="plabel">Harness Engineering · 三柱</p>
+    <div class="row">
+      <a class="pcard" href="context.html">
+        <span class="pn">I</span>
+        <span class="pt">Context · 上下文</span>
+        <span class="pq">什麼該留下，什麼該流過？</span>
+      </a>
+      <a class="pcard" href="constraints.html">
+        <span class="pn">II</span>
+        <span class="pt">Constraints · 約束</span>
+        <span class="pq">怎麼讓記不住也沒關係？</span>
+      </a>
+      <span class="pcard now">
+        <span class="pn">III · 現在位置</span>
+        <span class="pt">Entropy · 熵</span>
+        <span class="pq">混亂怎麼有地方去？</span>
+      </span>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <span>原文 · NOVA · 2026-04</span>
+    <span class="lat">inhale — exhale — continue ∞</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+</body>
+</html>

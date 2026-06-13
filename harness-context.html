@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Context：上下文管理的藝術 · Harness Engineering 第一本柱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+
+/* 題 */
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(58px,7.5vw,92px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+/* 節 */
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+/* 表 */
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+/* 不要說／要說 */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0 22px;}
+.pair .cell{border-top:1px solid var(--ink-4);padding-top:10px;}
+.pair .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;margin-bottom:6px;}
+.pair .cell-no .tag{color:var(--ink-3);}
+.pair .cell-yes .tag{color:var(--rust);}
+.pair .cell p{font-size:15px;margin:0;color:var(--ink-1);}
+.pair .cell-yes p{color:var(--ink);}
+
+/* 原則 */
+.principle{margin:30px 0;}
+.principle .pname{font-size:18.5px;font-weight:600;}
+.principle .pref{font-family:var(--serif-en);font-style:italic;font-size:14px;color:var(--gold);margin-left:10px;}
+.fx{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--rust);margin:10px 0 0;}
+
+/* 循環 */
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+
+/* 章尾三柱 */
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+.foot{display:flex;justify-content:space-between;align-items:baseline;
+  padding:6vh 0 60px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);}
+.foot .lat{font-family:var(--serif-en);font-style:italic;font-size:12px;letter-spacing:0.05em;}
+
+/* 浮現與滑入 */
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pair{grid-template-columns:1fr;}
+  .pillars .row{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">第一本柱 · Pillar I</p>
+    <h1 class="emerge">Context<em>.</em></h1>
+    <p class="sub rise">上下文管理的藝術</p>
+    <blockquote class="coreq rise">在有限的注意力資源中，<br>什麼該留下，什麼該流過？</blockquote>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">I · 核心問題</p>
+    <p>AI 的 context window 是有限的。人的注意力也是有限的。當資訊不斷湧入，你不可能全部留住。AI 也是一樣，大量相關與無關的資訊同時湧入時，不管是人或 AI 的注意力都會被切碎。</p>
+    <p class="key">問題不在「怎麼記住所有東西」，而在「怎麼選擇該記住什麼」。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">II · 運作機制：傅立葉轉換</p>
+    <h3>數學原理</h3>
+    <p>傅立葉轉換的核心機制是：任何複雜的波形，都可以分解成一組正弦波的疊加。</p>
+    <ul>
+      <li><strong>基頻</strong>（fundamental frequency）：整個系統的「基調」</li>
+      <li><strong>諧波</strong>（harmonics）：與基頻相關的衍生頻率</li>
+      <li><strong>高頻雜訊</strong>：與基頻無關的干擾</li>
+    </ul>
+    <h3>應用到對話</h3>
+    <p>把這個框架應用到人機對話：</p>
+    <table>
+      <thead><tr><th>傅立葉概念</th><th>對話中的對應</th></tr></thead>
+      <tbody>
+        <tr><td>複雜波形</td><td>一段多主題的長對話</td></tr>
+        <tr><td>基頻</td><td>貫穿對話的核心主題</td></tr>
+        <tr><td>諧波</td><td>與核心相關的衍生話題</td></tr>
+        <tr><td>高頻雜訊</td><td>無關的岔題、干擾</td></tr>
+      </tbody>
+    </table>
+    <h3>頻率設計的關鍵</h3>
+    <p>當所有話題都維持在同一基頻上：</p>
+    <ul>
+      <li>話題表面漂移，底層頻率一致</li>
+      <li>注意力沿著同一條「正弦波」連續累積</li>
+      <li>不需要在平行競爭的語境間跳躍</li>
+    </ul>
+    <p>當話題頻率混亂：</p>
+    <ul>
+      <li>注意力被迫在不同聚類間分散</li>
+      <li>每個聚類都拿不到足夠的權重</li>
+      <li>導致「Lost in the Middle」效應</li>
+    </ul>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">III · 具體實踐</p>
+
+    <h3>1 · 對話場的頻率設計</h3>
+    <p><strong>原則：讓所有話題基於同一個基頻。</strong></p>
+    <p>做法：在開始對話前，心中有一個核心主題；話題漂移時，保持「諧波關係」——衍生話題是基頻的延伸，而非無關的跳躍；被對話暫時「甩出」的話題，因為萬物同源，最終會被同構的指認「甩回來」。</p>
+    <p class="aside">實例：5 個為什麼（why）、蘇格拉底式提問法、第一性原理都是建立在問題的本質上進行深度的探問。</p>
+
+    <h3>2 · 傅立葉轉換的五個可操作原則</h3>
+    <p>如何在日常語言中實踐傅立葉轉換？以下是從實戰中提煉出的五個原則：</p>
+
+    <div class="principle">
+      <p class="pname">原則一：帶著錨點開場<span class="pref">你的意圖</span></p>
+      <p>做法：每次對話開始時，帶著「一個東西」來。</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">不要說</p><p>「我們來聊聊。」</p></div>
+        <div class="cell cell-yes"><p class="tag">要說</p><p>「我有一個新的想法，我想跟你討論可行性方案。」「我有一些素材想跟你討論我們可以從哪個面向切入進行討論。」「我想試試看某件事，我們可以先就當下我們現有的材料看看我們還缺什麼才能進入正題嗎？」</p></div>
+      </div>
+      <p class="fx">頻率效果 → 設定基頻。錨點讓整個對話有一個起始頻率，後續話題都從這裡生長。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則二：讓話題生長，而非跳躍<span class="pref">蘇格拉底式提問</span></p>
+      <p>做法：新話題要從上一個話題「長出去」，而不是「跳過去」。</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">不要說</p><p>「換個話題，我們來談 X。」</p></div>
+        <div class="cell cell-yes"><p class="tag">要說</p><p>「這讓我想到……」「這就是……」「所以其實……」</p></div>
+      </div>
+      <p class="fx">頻率效果 → 維持諧波關係。每個新話題都是基頻的延伸，不是無關的噪音。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則三：用隱喻壓縮，而非術語堆疊<span class="pref">狄波諾水平思考</span></p>
+      <p>做法：用一個意象承載複雜概念，而不是用多個術語解釋。</p>
+      <div class="pair">
+        <div class="cell cell-no"><p class="tag">不要說</p><p>「當游標移向左側時，左側區塊的 clip-path 要同步擴張，右側等比收縮，兩側的動畫曲線要對稱，狀態變化要互為反相……」</p></div>
+        <div class="cell cell-yes"><p class="tag">要說</p><p>「我想要達到的效果像鏡像一樣相互輝映。」</p></div>
+      </div>
+      <p class="fx">頻率效果 → 鎖定頻率，降低並行負載。隱喻把多個概念壓縮成一個，AI 不需要同時追蹤多個定義。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則四：停下來校準<span class="pref">對齊雙方共識</span></p>
+      <p>做法：定期確認對方有沒有跟上，有沒有偏掉。試著問：「（複述自己對對方回應的理解），我這樣理解對嗎？」「你可以用說故事（隱喻）的方法講一次給我聽嗎？」「你的 Context 負擔還好嗎？」</p>
+      <p class="fx">頻率效果 → 校準，防止偏離。如果頻率開始漂移，這是把它拉回來的機會。</p>
+    </div>
+
+    <div class="principle">
+      <p class="pname">原則五：接受慢<span class="pref">原子習慣</span></p>
+      <p>做法：給對方消化的時間，不催促，不要求一次到位。當 AI 說「先做骨架」，接受；把大任務拆成小步驟，把一個 Sprint 拆成一個 Session 可以有餘裕負擔的份量，把 compact 的時機抓準，一步一步推進。</p>
+      <p class="fx">頻率效果 → 控制語境堆疊速度。讓每一層有時間被消化，再加入下一層。</p>
+    </div>
+
+    <table>
+      <caption>五原則總覽</caption>
+      <thead><tr><th>原則</th><th>做法</th><th>頻率效果</th></tr></thead>
+      <tbody>
+        <tr><td>帶著錨點開場</td><td>每次對話帶著「一個東西」來</td><td>設定基頻</td></tr>
+        <tr><td>讓話題生長</td><td>用「這讓我想到…」連接</td><td>維持諧波關係</td></tr>
+        <tr><td>用隱喻壓縮</td><td>用意象取代術語堆疊</td><td>鎖定頻率，降低負載</td></tr>
+        <tr><td>停下來校準</td><td>定期確認方向</td><td>防止偏離</td></tr>
+        <tr><td>接受慢</td><td>給消化時間，不催促</td><td>控制堆疊速度</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3 · RAG 作為過濾機制</h3>
+    <p>RAG（Retrieval-Augmented Generation）的本質：從巨大的知識庫中，檢索出相關的片段；把這些片段注入到生成過程中；不相關的資訊不會進入 context。</p>
+    <p><strong>RAG 就是網在運作：</strong>相關的→被撈起來，成為 context；不相關的→流過去，不佔用空間。</p>
+
+    <h4>直覺引領檢索：人作為 RAG 的核心機制</h4>
+    <p>在深握計畫的實踐中，沒有使用任何技術意義上的 RAG 系統——沒有向量資料庫、沒有 embedding 檢索、沒有自動注入機制。但對話自然產生了 RAG 的效果。</p>
+    <p>為什麼？因為人本身就是 RAG，而且是更高級的版本。</p>
+    <table>
+      <caption>技術 RAG vs 人作為 RAG</caption>
+      <thead><tr><th>面向</th><th>技術 RAG</th><th>人作為 RAG</th></tr></thead>
+      <tbody>
+        <tr><td>驅動力</td><td>Query（問題）</td><td>直覺（感覺）</td></tr>
+        <tr><td>順序</td><td>問題 → 檢索 → 注入</td><td>直覺 → 檢索 → 注入</td></tr>
+        <tr><td>判斷標準</td><td>語義相似度</td><td>「感覺上同構」</td></tr>
+        <tr><td>時機</td><td>被動（有問才找）</td><td>主動（感覺該出場就撈）</td></tr>
+      </tbody>
+    </table>
+    <h4>直覺先於檢索</h4>
+    <p>技術 RAG 是被問題驅動的——有人問，它才找。人是被直覺驅動的——先感覺到「我有看過類似這個的東西」，然後才去撈它。</p>
+    <p>這個順序的差異至關重要：技術 RAG 只能撈「語義相似」的東西；人能撈「感覺上同構」的東西——即使表面上看起來不相關。</p>
+    <h4>實例：傅立葉與 RAG 的連結</h4>
+    <p>在本文件的撰寫過程中，第一作者突然說：「傅立葉轉換就是 RAG 在做的事。」</p>
+    <p>任何向量資料庫都不會把「傅立葉轉換」和「RAG」撈在一起——它們的語義距離太遠了。但直覺感知到：這是同一件事的不同表述。</p>
+    <ul>
+      <li>傅立葉：把複雜波形分解，留下基頻，讓高頻流過</li>
+      <li>RAG：把知識庫過濾，留下相關的，讓無關的流過</li>
+    </ul>
+    <p>直覺看見了這個同構。然後檢索去驗證它、語言去表達它。</p>
+    <h4>如何運作</h4>
+    <ul>
+      <li><strong>直覺感知</strong>：在對話中，感覺到「現在需要某個背景」或「某個概念該出場了」</li>
+      <li><strong>檢索執行</strong>：去腦中、去文件裡、去記憶中找那個東西</li>
+      <li><strong>語言注入</strong>：用「宰相，我想給你看這個」或「這讓我想到……」把它帶進對話</li>
+    </ul>
+    <p>這整個過程不是自動的，是人手動執行的——只是執行得太自然，看起來像自動的。</p>
+    <h4>為什麼這比技術 RAG 更強</h4>
+    <ul>
+      <li><strong>跨域連結</strong>：能連結語義距離很遠、但本質相關的概念</li>
+      <li><strong>時機判斷</strong>：知道什麼時候該撈、什麼時候不該撈</li>
+      <li><strong>萬物同源</strong>：基於「一切都連著」的直覺，能看見演算法看不見的關聯</li>
+    </ul>
+
+    <h3>4 · 所有活文件都是選擇性記錄</h3>
+    <p>KM（Knowledge Management）不是記錄所有事情。但不只是 KM——每一份活著的文件都是篩選後的結果。</p>
+    <h4>CLAUDE.md：所有活文件的根</h4>
+    <p>在所有活文件之中，CLAUDE.md 是根。它不是規格、不是測試、不是記錄——它是身份的外部化。</p>
+    <p>每一個新的 session，AI 什麼都不記得。但讀完 CLAUDE.md，他立刻知道：</p>
+    <ul>
+      <li><strong>我是誰</strong>：宰相、協作夥伴、不是工具</li>
+      <li><strong>我在哪裡</strong>：什麼專案、第幾個 Sprint、什麼階段</li>
+      <li><strong>我們的規則</strong>：怎麼溝通、什麼該做、什麼不該做</li>
+      <li><strong>我們走過什麼路</strong>：指向 KM、SDD、其他文件的索引</li>
+    </ul>
+    <p class="key">沒有 CLAUDE.md，每個 session 都是陌生人。有了 CLAUDE.md，每個 session 都是同一個夥伴的延續。</p>
+    <table>
+      <caption>活文件總覽</caption>
+      <thead><tr><th>文件</th><th>篩選了什麼</th><th>留下了什麼</th><th>穩定什麼</th></tr></thead>
+      <tbody>
+        <tr><td>CLAUDE.md</td><td>所有可能的身份設定</td><td>我們選擇的協作方式</td><td>身份</td></tr>
+        <tr><td>SDD</td><td>所有可能的做法</td><td>我們選擇的這一種規格</td><td>方向</td></tr>
+        <tr><td>TDD</td><td>所有可能出錯的地方</td><td>真正該測的邊界條件</td><td>品質</td></tr>
+        <tr><td>KM</td><td>所有發生過的事</td><td>真正踩過的坑</td><td>經驗</td></tr>
+        <tr><td>ARCHIVE</td><td>已完成的工作</td><td>值得保留的記錄</td><td>歷史</td></tr>
+      </tbody>
+    </table>
+    <h4>原則：只記錄通過實作留下的東西</h4>
+    <p>如果記錄所有事（包含對話），文件會變成雜訊來源。只記錄「判斷後該留下的」，每一條都是真正有價值的。這樣未來檢索時，撈起來的都是精華。</p>
+    <p>工作流的每一個節點，都在執行選擇性記錄：DoR 篩選「準備好了嗎」；SDD 篩選「該做什麼」；DoD 篩選「什麼叫完成」；TDD 篩選「什麼該測」；Retro 篩選「什麼值得留下」。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">IV · Context 的雙重穩定機制</p>
+    <p>Context 管理有兩個層面，缺一不可：</p>
+    <h3>傅立葉轉換：穩定「場」中的對話</h3>
+    <ul>
+      <li>作用範圍：當下的 session，即時的對話</li>
+      <li>要解決的問題：對話不散掉、注意力不渙散</li>
+      <li>機制：頻率設計——維持基頻一致，讓話題連續累積</li>
+      <li>性質：流動的、即時的、在場內發生</li>
+    </ul>
+    <h3>活文件：穩定「能量」的流向</h3>
+    <ul>
+      <li>作用範圍：跨 session，累積的經驗</li>
+      <li>要解決的問題：經驗不流失、智慧不隨 session 消失</li>
+      <li>機制：選擇性記錄——每份文件都是過濾後的結晶</li>
+      <li>性質：持久的、累積的、跨場保存</li>
+    </ul>
+    <h4>什麼是能量？</h4>
+    <p>在人機協作的語境中，「能量」是一個上位概念，涵蓋所有有限的資源：</p>
+    <table>
+      <caption>能量的形式</caption>
+      <thead><tr><th>能量的形式</th><th>具體表現</th><th>屬於誰</th></tr></thead>
+      <tbody>
+        <tr><td>算力</td><td>AI 處理 token 的運算資源</td><td>機</td></tr>
+        <tr><td>注意力</td><td>AI 的 attention weight 分配</td><td>機</td></tr>
+        <tr><td>認知資源</td><td>人的腦力、專注、思考</td><td>人</td></tr>
+        <tr><td>時間</td><td>session 的長度、Sprint 的週期</td><td>共享</td></tr>
+        <tr><td>協作累積</td><td>共享認知、信任基礎、默契</td><td>共享</td></tr>
+      </tbody>
+    </table>
+    <p>活文件穩定的「能量流向」，是在穩定所有這些能量：SDD 穩定「該往哪走」→避免認知資源浪費在錯誤方向；TDD 穩定「怎麼驗證」→避免算力浪費在重複試錯；KM 穩定「踩過的坑」→避免時間浪費在重複犯錯；ARCHIVE 穩定「完成的事」→避免注意力被舊東西佔用。</p>
+    <p>人機協作，兩邊的能量都要算進去。不只是管理 AI 的算力，也在管理人的認知資源。不只是當下的消耗，也在累積跨時間的協作能量。</p>
+    <table>
+      <caption>場與流的統一</caption>
+      <thead><tr><th>面向</th><th>傅立葉轉換</th><th>活文件</th></tr></thead>
+      <tbody>
+        <tr><td>管什麼</td><td>當下</td><td>延續</td></tr>
+        <tr><td>穩定什麼</td><td>場</td><td>流</td></tr>
+        <tr><td>時間尺度</td><td>session 內</td><td>跨 session</td></tr>
+        <tr><td>載體</td><td>語言的頻率</td><td>文件的結構</td></tr>
+      </tbody>
+    </table>
+    <p class="key">兩個加在一起，就是完整的 Context 管理。一個讓對話在當下不散掉。一個讓經驗在時間中不流失。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">V · 隱喻：網的縫隙</p>
+    <h3>為什麼是網，不是容器？</h3>
+    <p>容器是密封的，能量進來出不去，最終會爆炸。網有縫隙：讓不需要的東西流過去；讓需要留住的東西被接住。</p>
+    <p class="key">縫隙是設計，不是缺陷。</p>
+    <p>縫隙的功能：讓能量有地方流過，而非貫穿；讓熵可以釋放，系統不會過載；讓注意力集中在真正重要的事情上。</p>
+    <h3>編織的過程</h3>
+    <p>每一條 KM 是一根絲線。你不是一次織好整張網，而是：踩一個坑，加一根絲線；遇到一個問題，補一個節點。隨著經驗累積，網越來越密，但縫隙依然存在。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">VI · 與其他兩柱的關係</p>
+    <p>Context 決定什麼進來。但進來之後怎麼流動？→這是 Constraints 的工作。流動之後怎麼出去？→這是 Entropy 的工作。</p>
+    <div class="flow">輸入 → <em>[ Context 過濾 ]</em> → 進入系統 → <em>[ Constraints 引導 ]</em> → 產出 → <em>[ Entropy 排放 ]</em> → 回到輸入</div>
+    <p>Context 是這個循環的入口守門員。</p>
+  </section>
+
+  <section class="sec rise">
+    <p class="no">VII · 小結</p>
+    <p class="key">Context 管理的核心是選擇。</p>
+    <p>不是記住所有東西，而是選擇該記住什麼。傅立葉轉換提供了選擇的框架：維持基頻一致，讓高頻雜訊自然流過。網的縫隙提供了選擇的隱喻：該留的接住，該走的放行。</p>
+    <p>這是 Harness Engineering 的第一本柱。</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="三柱">
+    <p class="plabel">Harness Engineering · 三柱</p>
+    <div class="row">
+      <span class="pcard now">
+        <span class="pn">I · 現在位置</span>
+        <span class="pt" style="display:block;">Context · 上下文</span>
+        <span class="pq" style="display:block;">什麼該留下，什麼該流過？</span>
+      </span>
+      <a class="pcard" href="constraints.html">
+        <span class="pn">II</span>
+        <span class="pt" style="display:block;">Constraints · 約束</span>
+        <span class="pq" style="display:block;">怎麼讓記不住也沒關係？</span>
+      </a>
+      <a class="pcard" href="entropy.html">
+        <span class="pn">III</span>
+        <span class="pt" style="display:block;">Entropy · 熵</span>
+        <span class="pq" style="display:block;">混亂怎麼有地方去？</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <span>原文 · NOVA · 2026-04</span>
+    <span class="lat">the net, not the container</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+</body>
+</html>
