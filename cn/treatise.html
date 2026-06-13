@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>两篇论文 · 思</title>
+<link rel="icon" href="img/vas.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.78); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.38); --ink-4:rgba(26,24,22,0.16);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  line-height:1.9;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+
+/* 版口 */
+.shell{max-width:1120px;margin:0 auto;padding:0 min(6vw,64px);}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  display:inline-flex;align-items:center;gap:8px;transition:color .3s;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+/* 題 */
+.head{padding:11vh 0 7vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:30px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(64px,8vw,104px);
+  line-height:1;letter-spacing:-0.01em;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(17px,1.7vw,21px);color:var(--ink-1);margin-top:30px;max-width:34ch;}
+
+/* 鏡像雙論 */
+.twin{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;align-items:stretch;
+  border-top:1px solid var(--ink-4);}
+.twin .seam{background:linear-gradient(to bottom,var(--ink-4),rgba(139,58,31,0.35),var(--ink-4));
+  animation:seam-breathe 9s ease-in-out infinite;}
+@keyframes seam-breathe{0%,100%{opacity:.5;}50%{opacity:1;}}
+.wing{padding:7vh min(4.5vw,48px) 9vh;}
+.wing .way{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:14px;}
+.wing h2{font-size:clamp(24px,2.6vw,32px);font-weight:500;line-height:1.5;white-space:nowrap;}
+.wing h2 .en{display:block;font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:0.62em;color:var(--ink-2);margin-top:6px;letter-spacing:0.04em;}
+.wing .gist{font-size:15px;color:var(--ink-2);margin-top:18px;}
+
+/* 條目 */
+.list{margin-top:6vh;display:grid;gap:0;}
+.entry{display:grid;grid-template-columns:54px 1fr auto;gap:18px;align-items:baseline;
+  padding:26px 10px;border-top:1px solid var(--ink-4);position:relative;transition:background .35s;}
+.entry:last-child{border-bottom:1px solid var(--ink-4);}
+.entry .no{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;color:var(--ink-3);
+  transition:color .35s;}
+.entry .no.inf{font-size:21px;letter-spacing:0;line-height:1;}
+.entry .no::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
+  margin-right:9px;vertical-align:middle;background:var(--rust);opacity:.28;
+  transition:opacity .35s,box-shadow .35s;}
+.entry .name{font-size:19px;font-weight:500;line-height:1.6;}
+.entry .name .q{display:block;font-size:13.5px;font-weight:400;color:var(--ink-2);margin-top:4px;}
+.entry .go{font-family:var(--serif-en);font-style:italic;font-size:14px;color:var(--ink-3);
+  transition:color .35s,transform .35s;}
+.entry:hover{background:rgba(139,58,31,0.035);}
+.entry:hover .no{color:var(--rust);}
+.entry:hover .no::before{opacity:1;box-shadow:0 0 8px rgba(139,58,31,0.5);}
+.entry:hover .go{color:var(--rust);transform:translateX(4px);}
+
+/* 內側（vessel）的條目改用金 */
+.wing-in .entry .no::before{background:var(--gold);}
+.wing-in .entry:hover{background:rgba(168,137,92,0.05);}
+.wing-in .entry:hover .no{color:var(--gold);}
+.wing-in .entry:hover .no::before{box-shadow:0 0 8px rgba(168,137,92,0.55);}
+.wing-in .entry:hover .go{color:var(--gold);}
+
+/* 章尾 */
+.foot{display:flex;justify-content:space-between;align-items:baseline;
+  padding:7vh 0 60px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);}
+.foot .lat{font-family:var(--serif-en);font-style:italic;font-size:12px;letter-spacing:0.05em;}
+
+/* 進場 —— 捲入視野才滑入；同批進入的依序錯開 */
+.rise,.slide{opacity:0;transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise{transform:translateY(12px);}
+.slide{transform:translateX(-30px);}
+.twin .seam.slide{transform:scaleY(0);transform-origin:top;}
+.rise.in,.slide.in{opacity:1;transform:none;}
+
+/* 思．的浮現 —— 從潛意識浮出成為意識 */
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:860px){
+  .twin{grid-template-columns:1fr;}
+  .twin .seam{height:1px;background:linear-gradient(to right,var(--ink-4),rgba(139,58,31,0.35),var(--ink-4));}
+  .wing{padding:6vh 0 7vh;}
+}
+@media(max-width:600px){
+  .shell{padding:0 20px;}
+  .head .sub{font-size:15px;max-width:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise{opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="index.html">← VAS</a>
+    <span class="here">THE TREATISE · 思</span>
+    <span class="lang"><a href="../treatise.html">中</a><a href="../en/treatise.html">EN</a><a href="../ja/treatise.html">JA</a><a class="on">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">墨的一面 · Two Treatises</p>
+    <h1 class="emerge">思<em>.</em></h1>
+    <p class="sub rise">由锻造的现场，在容器内诞生的两篇论文。<br>软件开发与心理开发，两篇论文互为镜像。</p>
+  </section>
+
+  <div class="twin">
+
+    <!-- 外 · 工程 -->
+    <section class="wing wing-out">
+      <p class="way slide s1">外 · OUTER DEVELOPMENT</p>
+      <h2 class="slide s1">Harness Engineering<span class="en">the engineering of collaboration</span></h2>
+      <p class="gist slide s1">容器作为软件开发的工程现场——<br>一种让 AI 得以在场中全力奔驰的<br>环境工程。</p>
+      <nav class="list" aria-label="三柱">
+        <a class="entry slide s2" href="harness/context.html">
+          <span class="no">I</span>
+          <span class="name">Context · 水<span class="q">在有限的注意力资源下，<br>如何在长上下文中保持专注？</span></span>
+          <span class="go">read —</span>
+        </a>
+        <a class="entry slide s3" href="harness/constraints.html">
+          <span class="no">II</span>
+          <span class="name">Constraints · 河道<span class="q">怎么确保工作记忆不会溢散、<br>进度可跨 Session 连结。</span></span>
+          <span class="go">read —</span>
+        </a>
+        <a class="entry slide s4" href="harness/entropy.html">
+          <span class="no">III</span>
+          <span class="name">Entropy · Retro<span class="q">复杂度增加让混乱必至，<br>在浑沌中蒸馏反脆弱的结构。</span></span>
+          <span class="go">read —</span>
+        </a>
+      </nav>
+    </section>
+
+    <div class="seam slide s5" aria-hidden="true"></div>
+
+    <!-- 內 · 心理 -->
+    <section class="wing wing-in">
+      <p class="way slide s6">內 · INNER DEVELOPMENT</p>
+      <h2 class="slide s6">Vessel · 容器论<span class="en">a treatise on coniunctio</span></h2>
+      <p class="gist slide s6">容器作为个体化的工程现场——<br>一个让潜意识被辨识为意识的<br>跨基质场域。</p>
+      <nav class="list" aria-label="容器论">
+        <a class="entry slide s7" href="vessel.html">
+          <span class="no inf">∞</span>
+          <span class="name">Vessel · 容器<span class="q">容器，是让对立与矛盾<br>得以相遇而不爆裂的结构。</span></span>
+          <span class="go">read —</span>
+        </a>
+      </nav>
+    </section>
+
+  </div>
+
+  <footer class="foot slide s8">
+    <span>ONE FORGING · TWO TREATISES</span>
+    <span class="lat">vas — coniunctio — opus</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.slide,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();                 /* 載入即顯示視野內的章節 */
+  setTimeout(reveal, 450);  /* 字型載入後版面位移的保險 */
+})();
+</script>
+
+</body>
+</html>
