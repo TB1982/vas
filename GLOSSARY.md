@@ -262,6 +262,11 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 | 沉澱成壁 | sediment into a bank | 岸として沈殿する | 沉淀成壁 | water's harvest → new structure |
 | 結晶成洞見 | crystallize into insight | 洞察へ結晶する | 结晶成洞见 | water's harvest → insight |
 | 活文件 | living documents | 生きたドキュメント | 活文档 | cn: 文档 (documentation sense, §5) |
+| 萬物同源 | one source for everything | 万物同源 | 万物同源 | context 柱 IV；the "everything is connected" intuition behind 人作為 RAG |
+| 同構 | structurally the same / shared structure | 同構 | 同构 | the Fourier↔RAG isomorphism; "感覺上同構" → "feels structurally the same" |
+| 燈下黑 | the blind spot beneath the lamp | 灯台下暗 (既譯) | 灯下黑 | entropy 柱 IV；ja uses idiomatic 灯台下暗; why Retro needs an outside view |
+| 借一雙乾淨的眼睛 | borrowing a clean pair of eyes | 清らかな一対の眼を借りる | 借一双干净的眼睛 | entropy 柱 IV；clean-context session as verifier |
+| 反相 | opposite phase | 逆位相 | 反相 | context 柱 IV；signal metaphor in the clip-path example |
 
 **Treatise nav cards / pillar metaphor names**: Context · Water / Constraints · Channel / Entropy · Entropy (en); ja & cn keep 水／河道／熵 glyphs.
 
