@@ -176,6 +176,15 @@ img{display:block;max-width:100%;}
 .world-void .seam-hint{color:var(--ash-3);}
 .world-paper .seam-hint{color:var(--ink-2);}
 
+/* 語言選單 —— 桌機跨縫居中（與底部 seam-hint 對稱），mix-blend 讓字在光墨兩側都反相可讀；
+   置於門熱區之上（z-index>門 20）才點得到 */
+.langsel{position:absolute;top:34px;left:50%;transform:translateX(-50%);z-index:40;
+  display:flex;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;
+  color:#fff;mix-blend-mode:difference;white-space:nowrap;}
+.langsel a{opacity:0.5;transition:opacity .3s;cursor:pointer;}
+.langsel a:hover{opacity:0.85;}
+.langsel .on{opacity:1;font-weight:500;}
+
 /* ═══ 入口熱區（看不見、撐滿半邊） ═══ */
 .door{position:fixed;top:0;bottom:0;z-index:20;display:block;}
 .door-void{left:0;width:var(--seam);}
@@ -214,6 +223,10 @@ img{display:block;max-width:100%;}
   .corner.tr,.corner.bl{display:none;}
   .corner.br{bottom:16px;}
   .seam-hint{display:none;}
+  /* 行動版：移到右上角，沿用器側 .top .lang 的單色做法（上半為器/光側，深底） */
+  .langsel{left:auto;right:8vw;transform:none;mix-blend-mode:normal;color:var(--ash-2);gap:9px;}
+  .langsel a{opacity:0.7;}
+  .langsel .on{opacity:1;color:var(--ash-0);}
   /* 行動版兩個半瓶疊在同一位置——浮沉改為同相，瓶身才是完整的一座 */
   .world-paper .vessel img{animation-delay:0s;}
   .world-paper .ground{animation-delay:0s;}
@@ -283,6 +296,14 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   <!-- 兩扇門 -->
   <a class="door door-void" href="instrument.html" aria-label="走進器——VAS 產品"></a>
   <a class="door door-paper" href="treatise.html" aria-label="走進思——兩份論文"></a>
+
+  <!-- 語言 / Language -->
+  <nav class="langsel" aria-label="語言 / Language">
+    <a class="on" aria-current="true">中</a>
+    <a href="en/index.html">EN</a>
+    <a href="ja/index.html">JA</a>
+    <a href="cn/index.html">简</a>
+  </nav>
 
 </div>
 
