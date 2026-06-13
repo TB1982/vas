@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>器 · The Instrument · VAS</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0e0b1a; --void-2:#15112c; --panel:#191334;
+  --aurora-v:#c471f5; --aurora-b:#4facfe; --aurora-p:#fa71cd;
+  --ash-0:rgba(240,232,220,0.94); --ash-1:rgba(240,232,220,0.78);
+  --ash-2:rgba(240,232,220,0.58); --ash-3:rgba(240,232,220,0.40);
+  --ash-4:rgba(240,232,220,0.18);
+  --edge:rgba(196,113,245,0.22);
+  --serif:'Shippori Mincho','Fraunces',serif;
+  --serif-en:'Fraunces','Shippori Mincho',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{overflow-x:clip;}
+body{background:var(--void);color:var(--ash-1);font-family:var(--serif);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+
+.shell{max-width:1180px;margin:0 auto;padding:0 5vw;}
+
+/* ── 頂列 ── */
+.top{display:flex;justify-content:space-between;align-items:center;padding:30px 0;
+  position:relative;z-index:10;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ash-2);
+  display:inline-flex;align-items:center;gap:8px;transition:color .3s;}
+.top .back:hover{color:var(--ash-0);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ash-3);}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ash-3);display:flex;gap:7px;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--ash-1);}
+.top .lang .on{color:var(--ash-0);}
+
+/* ── 正廳 ── */
+.foyer{display:grid;grid-template-columns:1.05fr 0.95fr;gap:3vw;align-items:center;
+  min-height:78vh;padding:2vh 0 6vh;}
+.foyer .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--ash-3);margin-bottom:32px;}
+.foyer h1{font-family:var(--serif-en);font-weight:300;font-size:clamp(76px,9vw,132px);line-height:0.95;
+  color:var(--ash-0);letter-spacing:-0.02em;}
+.foyer h1 em{font-style:normal;font-weight:500;color:var(--aurora-v);}
+.foyer .tagline{font-size:clamp(19px,2vw,25px);line-height:1.85;color:var(--ash-1);margin-top:30px;max-width:18ch;}
+.foyer .access{display:flex;gap:26px;margin-top:46px;font-family:var(--mono);font-size:12px;
+  letter-spacing:0.12em;}
+.foyer .access a{color:var(--ash-2);display:inline-flex;align-items:center;gap:8px;transition:color .3s,gap .3s;}
+.foyer .access a:hover{color:var(--ash-0);gap:11px;}
+.foyer .access a::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--edge);transition:background .3s,box-shadow .3s;}
+.foyer .access a:hover::before{background:var(--aurora-v);box-shadow:0 0 8px var(--aurora-v);}
+
+.vessel{position:relative;display:flex;align-items:center;justify-content:center;}
+.vessel .halo{position:absolute;width:120%;height:120%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(165,105,245,0.45) 0%,rgba(95,125,235,0.16) 46%,transparent 70%);
+  filter:blur(44px);animation:breathe 9s ease-in-out infinite;}
+@keyframes breathe{0%,100%{opacity:.42;transform:scale(0.92);}50%{opacity:1;transform:scale(1.12);}}
+.vessel img{position:relative;width:min(30vw,360px);
+  animation:float 9s ease-in-out infinite;filter:drop-shadow(0 30px 60px rgba(60,40,120,0.5));}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-0.4deg);}50%{transform:translateY(-13px) rotate(0.4deg);}}
+.scrollcue{grid-column:1/-1;justify-self:center;margin-top:3vh;
+  display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
+.scrollcue .zh{font-family:var(--mono);font-size:12px;letter-spacing:0.3em;color:var(--ash-2);}
+.scrollcue .en{font-family:var(--mono);font-size:10px;letter-spacing:0.26em;color:var(--ash-3);}
+
+/* ── 取得 · 兩版本鏡像 ── */
+.acquire{padding:9vh 0;}
+.acquire .sec-label{margin-bottom:36px;}
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--ash-3);margin-bottom:8px;}
+.sec-lead{font-size:clamp(17px,1.7vw,20px);color:var(--ash-1);max-width:42ch;margin-bottom:46px;}
+.editions{display:grid;grid-template-columns:1fr 1px 1fr;align-items:stretch;position:relative;
+  column-gap:22px;overflow:visible;background:transparent;max-width:880px;margin:0 auto;}
+/* 玻璃背後流動的光——讓折射有來源 */
+.editions::before,.editions::after{content:'';position:absolute;border-radius:50%;
+  filter:blur(46px);z-index:0;pointer-events:none;}
+.editions::before{width:320px;height:230px;left:6%;top:-50px;
+  background:radial-gradient(circle,rgba(196,113,245,0.30),transparent 70%);animation:gl-drift1 11s ease-in-out infinite;}
+.editions::after{width:300px;height:210px;right:5%;bottom:-40px;
+  background:radial-gradient(circle,rgba(79,172,254,0.28),transparent 70%);animation:gl-drift2 13s ease-in-out infinite;}
+@keyframes gl-drift1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(70px,30px) scale(1.15);}}
+@keyframes gl-drift2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-60px,-26px) scale(1.12);}}
+.editions .seam{position:relative;z-index:2;}
+.editions .seam{background:linear-gradient(transparent,rgba(196,113,245,0.5),transparent);
+  animation:seam-b 9s ease-in-out infinite;}
+@keyframes seam-b{0%,100%{opacity:.4;}50%{opacity:1;}}
+.edition{padding:24px 26px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;overflow:hidden;
+  background:linear-gradient(150deg,rgba(240,232,220,0.055),rgba(240,232,220,0.012) 40%,rgba(240,232,220,0.04) 100%);
+  backdrop-filter:blur(9px) saturate(170%);-webkit-backdrop-filter:blur(9px) saturate(170%);
+  border:1px solid rgba(240,232,220,0.13);border-radius:6px;
+  box-shadow:inset 0 0 0 1px rgba(240,232,220,0.05),
+    inset 2px 3px 10px rgba(240,232,220,0.20),
+    inset -2px -4px 10px rgba(240,232,220,0.08),
+    0 18px 44px rgba(0,0,0,0.4);
+  transition:background .4s,box-shadow .45s,transform .55s cubic-bezier(.2,.7,.2,1),border-color .4s;}
+.edition > *{position:relative;z-index:2;}
+/* 取得區的鏡面呼應：觸其一面，兩個版本相向轉身——一紫一藍 */
+.editions:has(.edition:hover) .edition.pro{transform:perspective(1000px) rotateY(12deg);
+  box-shadow:inset 0 0 0 1px rgba(240,232,220,0.08),inset 2px 3px 10px rgba(240,232,220,0.26),inset -2px -4px 10px rgba(240,232,220,0.11),
+    0 0 56px rgba(196,113,245,0.26),0 18px 44px rgba(0,0,0,0.4);}
+.editions:has(.edition:hover) .edition.free{transform:perspective(1000px) rotateY(-12deg);
+  box-shadow:inset 0 0 0 1px rgba(240,232,220,0.08),inset 2px 3px 10px rgba(240,232,220,0.26),inset -2px -4px 10px rgba(240,232,220,0.11),
+    0 0 56px rgba(79,172,254,0.24),0 18px 44px rgba(0,0,0,0.4);}
+.edition:hover{background:linear-gradient(150deg,rgba(240,232,220,0.085),rgba(240,232,220,0.025) 40%,rgba(240,232,220,0.06));
+  border-color:rgba(240,232,220,0.22);}
+.edition .tier{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ash-3);}
+.edition .idrow{display:flex;align-items:center;gap:16px;}
+.edition .appicon{flex:none;width:64px;height:64px;border-radius:15px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 24px rgba(0,0,0,0.45),inset 0 1px 0 rgba(240,232,220,0.10);}
+.edition .appicon img{width:82%;animation:none;filter:none;}
+.edition.pro .appicon{background:#070510;border:1px solid rgba(240,232,220,0.18);}
+.edition.free .appicon{background:#f2ece1;border:1px solid rgba(240,232,220,0.55);}
+.edition .names{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.edition .ename{font-family:var(--serif-en);font-size:clamp(23px,2.3vw,28px);font-weight:400;color:var(--ash-0);line-height:1.1;}
+.edition .meta{font-size:13px;color:var(--ash-2);line-height:1.65;}
+.edition .price{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--ash-1);}
+.edition .cta{margin-top:auto;padding-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:0.14em;
+  color:var(--ash-2);display:inline-flex;align-items:center;gap:10px;transition:color .3s,gap .3s;}
+.edition:hover .cta{color:var(--ash-0);gap:14px;}
+.edition .cta .ar{transition:transform .3s;}
+.edition:hover .cta .ar{transform:translateX(4px);}
+.edition.free .ename{color:var(--ash-0);}
+.edition.free:hover{background:rgba(79,172,254,0.06);}
+.edition.free .tier{color:var(--aurora-b);opacity:.8;}
+.edition.pro:hover{background:rgba(196,113,245,0.06);}
+.edition.pro .tier{color:var(--aurora-v);opacity:.85;}
+.acquire .guide-line{margin-top:22px;width:max-content;margin-left:auto;margin-right:max(0px,calc((100% - 880px)/2));font-family:var(--mono);font-size:12px;letter-spacing:0.12em;
+  color:var(--ash-2);display:flex;align-items:center;gap:10px;transition:color .3s,gap .3s;}
+.acquire .guide-line:hover{color:var(--ash-0);gap:13px;}
+
+/* ── 鏡廊 ── */
+.hall-sec{padding:6vh 0 4vh;text-align:center;}
+.hall-sec .sec-label,.hall-sec .sec-lead{margin-left:auto;margin-right:auto;}
+.hall-sec .sec-lead{margin-bottom:2vh;}
+/* ── 鏡廊 · 由外而内的穿越 ── */
+.hall-wrap{height:560vh;position:relative;margin-top:2vh;}
+.hall-sticky{position:sticky;top:0;height:100vh;overflow:hidden;}
+.hall-sticky::before,.hall-sticky::after{content:'';position:absolute;left:0;right:0;height:120px;pointer-events:none;z-index:8;}
+.hall-sticky::before{top:0;background:linear-gradient(var(--void),transparent);}
+.hall-sticky::after{bottom:0;background:linear-gradient(transparent,var(--void));}
+.hall-stage{position:absolute;inset:0;pointer-events:none;}
+
+/* 霧 */
+.mist{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:7;}
+.m1{width:46vw;height:30vh;left:-8vw;top:6vh;background:radial-gradient(ellipse,rgba(196,113,245,0.13),transparent 70%);animation:drift1 26s ease-in-out infinite;}
+.m2{width:40vw;height:26vh;right:-6vw;bottom:8vh;background:radial-gradient(ellipse,rgba(79,172,254,0.11),transparent 70%);animation:drift2 31s ease-in-out infinite;}
+@keyframes drift1{0%,100%{transform:translate(0,0);}50%{transform:translate(6vw,3vh);}}
+@keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-5vw,-3vh);}}
+
+/* 玻璃框層：空框與章節框共用；一層套一層沒入消失點 */
+.pane{position:absolute;left:50%;top:50%;width:min(92vw,1500px);height:min(80vh,820px);
+  border:1px solid rgba(196,113,245,0.34);border-radius:4px;
+  background:linear-gradient(165deg,rgba(196,113,245,0.055),rgba(79,172,254,0.045) 55%,rgba(14,11,26,0.02));
+  box-shadow:inset 0 0 90px rgba(196,113,245,0.07),0 0 50px rgba(196,113,245,0.06);
+  transform:translate(-50%,-50%);will-change:transform,opacity;}
+.pane.empty{pointer-events:none;}
+
+/* 鏡面呼應：觸其一面，兩面同時轉向彼此 */
+.pane.ring{transition:border-color .5s,box-shadow .5s;}
+.ring:has(.plate:hover){border-color:rgba(196,113,245,0.5);
+  box-shadow:inset 0 0 130px rgba(196,113,245,0.10),0 0 70px rgba(196,113,245,0.08);}
+.ring:has(.plate:hover) .rn{color:var(--ash-1);}
+/* 兩面轉向：左章面向右、右章面向左 */
+.ring:has(.plate:hover) .plate.l{transform:perspective(900px) rotateY(30deg);}
+.ring:has(.plate:hover) .plate.r{transform:perspective(900px) rotateY(-30deg);}
+/* hover 的一面：亮紫 */
+.plate:hover{border-color:rgba(196,113,245,0.8);box-shadow:0 0 46px rgba(196,113,245,0.32);}
+/* 鏡像的一面：同步亮藍 */
+.ring:has(.plate.l:hover) .plate.r,
+.ring:has(.plate.r:hover) .plate.l{
+  border-color:rgba(79,172,254,0.6);
+  box-shadow:0 0 40px rgba(79,172,254,0.28);
+  background:linear-gradient(135deg,rgba(22,28,62,0.95),rgba(14,11,26,0.85));}
+.ring:has(.plate.l:hover) .plate.r::before,
+.ring:has(.plate.r:hover) .plate.l::before{opacity:1;
+  background:linear-gradient(transparent,var(--aurora-b),transparent);}
+.ring:has(.plate.l:hover) .plate.r .pen,
+.ring:has(.plate.r:hover) .plate.l .pen{color:var(--aurora-b);opacity:.85;}
+
+/* 章節框：玻璃框内左右一對鏡像章 */
+.ring{display:flex;align-items:center;justify-content:space-between;padding:0 30px;}
+.ring .rn{position:absolute;top:20px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:10px;letter-spacing:0.26em;color:var(--ash-3);text-transform:uppercase;white-space:nowrap;}
+
+.plate{position:relative;width:310px;padding:22px 24px;border:1px solid var(--edge);border-radius:2px;
+  background:linear-gradient(135deg,rgba(25,19,52,0.95),rgba(14,11,26,0.85));
+  transition:border-color .4s,background .4s,box-shadow .4s,transform .55s cubic-bezier(.2,.7,.2,1);overflow:hidden;}
+.plate.l{text-align:left;}
+.plate.r{text-align:right;}
+.plate::before{content:'';position:absolute;top:0;bottom:0;width:2px;
+  background:linear-gradient(transparent,var(--aurora-v),transparent);opacity:.45;transition:opacity .4s;}
+.plate.l::before{left:0;}
+.plate.r::before{right:0;}
+.plate .pn{display:block;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ash-3);}
+.plate .pname{display:block;font-family:var(--serif-en);font-size:28px;font-weight:400;color:var(--ash-0);margin-top:5px;line-height:1.05;}
+.plate .pen{display:block;font-style:italic;font-size:13px;color:var(--aurora-v);opacity:.7;margin-top:3px;}
+.plate .pgist{display:block;font-size:13px;color:var(--ash-2);margin-top:9px;line-height:1.55;}
+.plate:hover{border-color:rgba(196,113,245,0.6);box-shadow:0 0 38px rgba(196,113,245,0.24);
+  background:linear-gradient(135deg,rgba(35,26,72,0.97),rgba(20,15,40,0.86));}
+.plate:hover::before{opacity:1;}
+
+/* 廊道盡頭：消失點門戶 → 思 */
+.portal{position:absolute;left:50%;top:50%;width:240px;height:340px;
+  transform:translate(-50%,-50%);will-change:transform,opacity;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  border:1px solid rgba(196,113,245,0.45);border-radius:4px;
+  background:radial-gradient(ellipse at center,rgba(196,113,245,0.28),rgba(14,11,26,0.04));
+  transition:border-color .4s;animation:portal-b 9s ease-in-out infinite;}
+@keyframes portal-b{0%,100%{box-shadow:0 0 70px rgba(196,113,245,0.3),inset 0 0 50px rgba(196,113,245,0.14);}
+  50%{box-shadow:0 0 130px rgba(196,113,245,0.55),inset 0 0 80px rgba(196,113,245,0.26);}}
+.portal:hover{border-color:rgba(196,113,245,0.85);}
+.portal .pk{font-family:var(--mono);font-size:9px;letter-spacing:0.24em;color:var(--ash-3);text-transform:uppercase;}
+.portal .pt{font-family:var(--serif-en);font-size:54px;font-weight:300;color:var(--ash-0);line-height:1;}
+.portal .pt em{font-style:normal;color:var(--aurora-v);}
+.portal .pg{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--ash-2);}
+
+/* 捷徑提示 */
+.hall-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:9;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ash-3);
+  display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity .6s;}
+.hall-hint .ln{width:1px;height:34px;background:linear-gradient(var(--edge),transparent);animation:cue 2.4s ease-in-out infinite;}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.7);}50%{opacity:1;transform:scaleY(1);}}
+
+.hall-cap{display:none;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ash-3);margin-top:2vh;}
+/* 廊道盡頭的停駐點：字從下方浮現，門再走近一步 */
+.hall-end{position:absolute;left:50%;bottom:58px;transform:translate(-50%,26px);z-index:9;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.26em;color:var(--ash-2);
+  white-space:nowrap;opacity:0;pointer-events:none;will-change:opacity,transform;}
+
+/* 行動版鏡廊：攤平成三對 */
+.hall-mobile{display:none;}
+
+/* ── 版次 + 頁尾 ── */
+.chronicle{display:flex;align-items:center;gap:24px;padding:8vh 0 4vh;}
+.chronicle .cl{flex:1;height:1px;background:var(--ash-4);}
+.chronicle .ce{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ash-2);text-align:center;}
+.chronicle .ce .en{display:block;font-family:var(--serif-en);font-style:italic;font-size:12px;color:var(--ash-3);margin-top:4px;letter-spacing:0.04em;}
+.foot{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;padding:3vh 0 56px;}
+.foot .credit{font-size:14px;color:var(--ash-2);line-height:1.95;max-width:42ch;}
+.foot .credit strong{color:var(--ash-0);font-weight:500;}
+.foot .credit a{color:var(--ash-3);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;display:inline-block;margin-top:10px;transition:color .3s;}
+.foot .credit a:hover{color:var(--ash-1);}
+.foot .right{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;color:var(--ash-3);text-align:right;line-height:2;}
+
+/* 進場 */
+.rise{opacity:0;transform:translateY(16px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+
+@media(max-width:900px){
+  /* 雜誌封面式：文字靠左，瓶身沉到右下 */
+  .foyer{grid-template-columns:1fr;text-align:left;min-height:auto;padding-top:3vh;gap:6vh;}
+  .foyer .kick{margin-bottom:22px;}
+  .foyer .tagline{max-width:16ch;}
+  .foyer .access{flex-wrap:wrap;gap:18px;}
+  .foyer .vessel{justify-content:flex-end;padding-right:2vw;}
+  .vessel img{width:min(56vw,280px);}
+  .scrollcue{justify-self:start;align-items:flex-start;text-align:left;}
+  .editions{grid-template-columns:1fr;}
+  .editions .seam{height:1px;width:auto;background:linear-gradient(90deg,transparent,rgba(196,113,245,0.5),transparent);}
+  /* 手機：取得區常駐鏡像態——左右斜開（外緣為樞紐），内側沒入暗處、外側受光 */
+  .edition.pro{transform-origin:left center;transform:perspective(900px) rotateY(13deg);
+    box-shadow:inset 0 0 0 1px rgba(240,232,220,0.07),inset 2px 3px 10px rgba(240,232,220,0.22),inset -2px -4px 10px rgba(240,232,220,0.09),0 0 34px rgba(196,113,245,0.20);}
+  .edition.free{transform-origin:right center;transform:perspective(900px) rotateY(-13deg);
+    box-shadow:inset 0 0 0 1px rgba(240,232,220,0.07),inset 2px 3px 10px rgba(240,232,220,0.22),inset -2px -4px 10px rgba(240,232,220,0.09),0 0 34px rgba(79,172,254,0.19);}
+  .edition::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;}
+  .edition.pro::before{background:linear-gradient(90deg,rgba(240,232,220,0.10) 0%,transparent 42%,rgba(5,3,14,0.52) 100%);}
+  .edition.free::before{background:linear-gradient(90deg,rgba(5,3,14,0.52) 0%,transparent 58%,rgba(240,232,220,0.10) 100%);}
+  /* 手機：同一座鏡廊，直式上下鏡像，捲動同樣向内穿越 */
+  .hall-wrap{height:470vh;}
+  .hall-end{font-size:9px;letter-spacing:0.18em;bottom:48px;}
+  .pane{width:min(94vw,460px);height:min(74vh,660px);}
+  .ring{flex-direction:column;justify-content:space-between;padding:48px 0 26px;}
+  .ring .rn{top:16px;}
+  .ring .plate{width:78%;max-width:310px;}
+  .portal{width:190px;height:266px;}
+  .portal .pt{font-size:44px;}
+  /* 直式鏡像：常駐鏡像態——兩章相向内傾（靠中央的邊退入深處），紫藍相對，點下即入 */
+  .ring .plate.l{transform:perspective(900px) rotateX(-22deg);
+    border-color:rgba(196,113,245,0.7);box-shadow:0 0 36px rgba(196,113,245,0.28);}
+  .ring .plate.l::before{opacity:1;}
+  .ring .plate.r{transform:perspective(900px) rotateX(22deg);
+    border-color:rgba(79,172,254,0.6);box-shadow:0 0 36px rgba(79,172,254,0.26);
+    background:linear-gradient(135deg,rgba(22,28,62,0.95),rgba(14,11,26,0.85));}
+  .ring .plate.r::before{opacity:1;background:linear-gradient(transparent,var(--aurora-b),transparent);}
+  .ring .plate.r .pen{color:var(--aurora-b);opacity:.85;}
+  .pair{display:flex;flex-direction:column;border:1px solid var(--edge);border-radius:3px;overflow:hidden;
+    background:linear-gradient(160deg,rgba(25,19,52,0.6),rgba(14,11,26,0.4));}
+  .pair .pseam{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(196,113,245,0.55),transparent);}
+  .pair .plate{position:static;border:none;border-radius:0;transform:none;width:auto;padding:20px 22px;background:transparent;text-align:left;}
+  .pair .plate::before{content:'';position:absolute;top:18px;bottom:18px;left:0;width:2px;right:auto;
+    background:linear-gradient(transparent,var(--aurora-v),transparent);opacity:.5;}
+  .pair .plate{position:relative;}
+  .pair .plate.r::before{background:linear-gradient(transparent,var(--aurora-b),transparent);}
+  .pair .plate:hover{transform:none;box-shadow:none;background:transparent;}
+  .pair .plate .pen{display:none;}
+  .m-portal{display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px;margin-top:8px;
+    border:1px solid rgba(196,113,245,0.4);border-radius:3px;
+    background:radial-gradient(ellipse at center,rgba(196,113,245,0.22),transparent);}
+  .m-portal .pt{font-family:var(--serif-en);font-size:44px;color:var(--ash-0);}
+  .m-portal .pt em{font-style:normal;color:var(--aurora-v);}
+  .m-portal .pg{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--ash-2);}
+  .foot{grid-template-columns:1fr;gap:18px;}
+  .foot .right{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise{opacity:1;transform:none;}
+  .hall-wrap{display:none;}
+  .hall-cap{display:block;}
+  .hall-mobile{display:flex;flex-direction:column;gap:18px;text-align:left;}
+  .pair .plate{width:auto;text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top">
+    <a class="back" href="index.html">← VAS</a>
+    <span class="here">THE INSTRUMENT · 器</span>
+    <span class="lang"><a href="../instrument.html">中</a><a href="../en/instrument.html">EN</a><a href="../ja/instrument.html">JA</a><a class="on">简</a></span>
+  </header>
+
+  <!-- ═══ 正廳 ═══ -->
+  <section class="foyer">
+    <div class="foyer-prose rise">
+      <p class="kick">器 · The Instrument</p>
+      <h1>VAS<em>.</em></h1>
+      <p class="tagline">给那些未能用文字明说的当下。</p>
+      <nav class="access">
+        <a href="guide.html">操作手册</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">为何存在</a>
+      </nav>
+    </div>
+    <div class="vessel rise">
+      <div class="halo"></div>
+      <img src="../img/vasweb.webp" alt="VAS——瓶形截图标注工具，光的一面">
+    </div>
+    <div class="scrollcue rise">
+      <span class="zh">容器 · 传递 · 未完成</span>
+      <span class="en">vessel — passage — unfinished</span>
+    </div>
+  </section>
+
+  <!-- ═══ 取得 · 兩版本鏡像 ═══ -->
+  <section class="acquire">
+    <p class="sec-label rise">获取 · Acquire</p>
+    <div class="editions rise">
+      <a class="edition pro" href="https://apps.apple.com/app/vas/id6761584119" target="_blank" rel="noopener noreferrer">
+        <span class="tier">Tauri · 专业版</span>
+        <span class="idrow">
+          <span class="appicon"><img src="../img/vasweb.webp" alt="VAS Pro 应用图标——黑底瓶身"></span>
+          <span class="names">
+            <span class="ename">VAS <span style="font-style:italic;opacity:.7">Pro</span></span>
+            <span class="price">68 元</span>
+          </span>
+        </span>
+        <span class="meta">v2.7.0 · Mac App Store · 安装 20.9 MB<br>轻巧、快速、原生 macOS 体验</span>
+        <span class="cta">前往 App Store <span class="ar">→</span></span>
+      </a>
+      <div class="seam" aria-hidden="true"></div>
+      <a class="edition free" href="https://download.yoursvas.app/VAS-3.63.0-arm64.dmg">
+        <span class="tier">Electron · 经典版</span>
+        <span class="idrow">
+          <span class="appicon"><img src="../img/vasweb.webp" alt="VAS Classic 应用图标——白底瓶身"></span>
+          <span class="names">
+            <span class="ename">VAS <span style="font-style:italic;opacity:.7">Classic</span></span>
+            <span class="price">免费</span>
+          </span>
+        </span>
+        <span class="meta">v3.63 · DMG · 安装 303 MB<br>完整编辑功能 · Notarization 公证</span>
+        <span class="cta">下载 DMG <span class="ar">→</span></span>
+      </a>
+    </div>
+    <a class="guide-line rise" href="guide.html">操作手册 · 工具栏 · 编辑器 · 快捷键 →</a>
+  </section>
+
+  <!-- ═══ 鏡廊 · 無限鏡廳 ═══ -->
+  <section class="hall-sec">
+    <p class="sec-label rise">镜廊 · The Mirror Hall</p>
+    <p class="sec-lead rise">开发历程的镜廊，每一章都是一次照见。<br>外向使用者的设计，内向开发的省思。</p>
+
+    <div class="hall-wrap">
+      <div class="hall-sticky">
+        <div class="mist m1"></div>
+        <div class="mist m2"></div>
+        <div class="hall-stage">
+
+          <!-- 第一面鏡 · insight ↔ collab -->
+          <div class="pane ring" data-z="-500">
+            <span class="rn">I · 外 REACHES · 内 MADE</span>
+            <a class="plate l" href="insight.html">
+              <span class="pn">外 · 设计</span>
+              <span class="pname">Insight</span>
+              <span class="pen">how it reaches you</span>
+              <span class="pgist">五个设计决策，五种意图</span>
+            </a>
+            <a class="plate r" href="collab.html">
+              <span class="pn">内 · 协作</span>
+              <span class="pname">Collab</span>
+              <span class="pen">how it was made</span>
+              <span class="pgist">人机协作开发实录</span>
+            </a>
+          </div>
+
+          <div class="pane empty" data-z="-900"></div>
+
+          <!-- 第二面鏡 · context ↔ self -->
+          <div class="pane ring" data-z="-1300">
+            <span class="rn">II · 外 TRUST · 内 SELF</span>
+            <a class="plate l" href="context.html">
+              <span class="pn">外 · 语境</span>
+              <span class="pname">Context</span>
+              <span class="pen">trust yourself</span>
+              <span class="pgist">本自具足的协作</span>
+            </a>
+            <a class="plate r" href="self.html">
+              <span class="pn">内 · 自己</span>
+              <span class="pname">Self</span>
+              <span class="pen">addition as subtraction</span>
+              <span class="pgist">在 CLAUDE.md 里用加法做减法</span>
+            </a>
+          </div>
+
+          <div class="pane empty" data-z="-1700"></div>
+
+          <!-- 第三面鏡 · harness ↔ us -->
+          <div class="pane ring" data-z="-2100">
+            <span class="rn">III · 外 SYSTEM · 内 VESSEL</span>
+            <a class="plate l" href="harness.html">
+              <span class="pn">外 · 系统</span>
+              <span class="pname">Harness</span>
+              <span class="pen">taming entropy</span>
+              <span class="pgist">管理熵增的反脆弱方法论</span>
+            </a>
+            <a class="plate r" href="us.html">
+              <span class="pn">内 · 我们</span>
+              <span class="pname">Us</span>
+              <span class="pen">the vessel was us</span>
+              <span class="pgist">Sapere Aude 2.0 · 容器一直是我们</span>
+            </a>
+          </div>
+
+          <div class="pane empty" data-z="-2500"></div>
+
+          <!-- 消失點 → 思 -->
+          <a class="portal" data-z="-2900" href="treatise.html">
+            <span class="pk">廊道尽头</span>
+            <span class="pt">思<em>.</em></span>
+            <span class="pg">→ the treatise</span>
+          </a>
+        </div>
+        <p class="hall-end">ONE VESSEL · TWO WALLS · THE HALL OPENS ONTO 思</p>
+        <div class="hall-hint"><span>滚动 · 走进镜廊</span><span class="ln"></span></div>
+      </div>
+    </div>
+
+    <!-- 行動版攤平 -->
+    <div class="hall-mobile rise">
+      <div class="pair">
+        <a class="plate l" href="insight.html"><span class="pn">外 · 设计</span><span class="pname">Insight</span><span class="pgist">五种设计决策</span></a>
+        <div class="pseam"></div>
+        <a class="plate r" href="collab.html"><span class="pn">内 · 协作</span><span class="pname">Collab</span><span class="pgist">人机协作实录</span></a>
+      </div>
+      <div class="pair">
+        <a class="plate l" href="context.html"><span class="pn">外 · 语境</span><span class="pname">Context</span><span class="pgist">本自具足的协作</span></a>
+        <div class="pseam"></div>
+        <a class="plate r" href="self.html"><span class="pn">内 · 自己</span><span class="pname">Self</span><span class="pgist">用加法做减法</span></a>
+      </div>
+      <div class="pair">
+        <a class="plate l" href="harness.html"><span class="pn">外 · 系统</span><span class="pname">Harness</span><span class="pgist">熵增管理方法论</span></a>
+        <div class="pseam"></div>
+        <a class="plate r" href="us.html"><span class="pn">内 · 我们</span><span class="pname">Us</span><span class="pgist">容器一直是我们</span></a>
+      </div>
+      <a class="m-portal" href="treatise.html">
+        <span class="pt">思<em>.</em></span>
+        <span class="pg">廊道尽头 → the treatise</span>
+      </a>
+    </div>
+
+    <p class="hall-cap rise">ONE VESSEL · TWO WALLS · THE HALL OPENS ONTO 思</p>
+  </section>
+
+  <!-- ═══ 版次 ═══ -->
+  <div class="chronicle rise">
+    <span class="cl"></span>
+    <span class="ce">第二十五天 · 器成<span class="en">Twenty-Fifth Day · The Vessel, Formed</span></span>
+    <span class="cl"></span>
+  </div>
+
+  <!-- ═══ 頁尾 ═══ -->
+  <footer class="foot">
+    <div class="credit">
+      <strong>VAS</strong>——由 Nova × Claude 共同完成。一位不会写程序的 PM，和一位没有长期记忆的 AI，在二十五天里做出的器物。
+      <a href="privacy.html">隐私政策 →</a>
+    </div>
+    <div class="right">yoursvas.app<br><span style="color:var(--ash-4)">© 2026 · MIT License</span></div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){ setTimeout(function(){ el.classList.add('in'); }, 120 + i*180); });
+  }
+
+  /* 鏡廊：捲動＝相機向「思」推進。所有鏡框皆居中，透視投影等價於等比縮放——
+     改用 2D scale 走同一條公式，視覺相同，但 iOS 對 2D 變形的裁切才可靠 */
+  var wrap = document.querySelector('.hall-wrap');
+  var layers = [].slice.call(document.querySelectorAll('.hall-stage [data-z]'));
+  layers.forEach(function(el){
+    el.style.zIndex = String(Math.max(0, Math.round((3000 + parseFloat(el.getAttribute('data-z'))) / 400)));
+  });
+  var hint = document.querySelector('.hall-hint');
+  var endcap = document.querySelector('.hall-end');
+  /* 行程分兩段：前 78% 是穿越；後 22% 相機停駐——字浮現，門再走近一步 */
+  var CAM_MAX = 2600, PERS = 940, DWELL = 0.78, APPROACH = 420;
+  function dolly(){
+    if(!wrap || reduced || !wrap.offsetHeight) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var total = wrap.offsetHeight - vh;
+    var p = Math.max(0, Math.min(1, -wrap.getBoundingClientRect().top / total));
+    var pA = Math.min(1, p / DWELL);
+    var pB = Math.max(0, Math.min(1, (p - DWELL) / (1 - DWELL)));
+    var ease = pB * pB * (3 - 2 * pB);
+    var cam = pA * CAM_MAX;
+    var nearEnd = (innerWidth || document.documentElement.clientWidth) <= 900 ? 290 : 550;
+    layers.forEach(function(el){
+      var isPortal = el.classList.contains('portal');
+      var ez = parseFloat(el.getAttribute('data-z')) + cam;
+      if(isPortal) ez += ease * APPROACH;
+      var far  = Math.max(0, Math.min(1, (ez + 2000) / 900));  /* 自深處浮現 */
+      var near = Math.max(0, Math.min(1, ((isPortal ? 550 : nearEnd) - ez) / 350)); /* 穿過後淡出；窄螢幕的鏡框收得更早，免得殘影留在門上 */
+      var op = far * near;
+      var sc = PERS / (PERS - Math.min(ez, PERS - 60));
+      el.style.transform = 'translate(-50%,-50%) scale(' + sc.toFixed(4) + ')';
+      el.style.opacity = op.toFixed(3);
+      el.style.visibility = op <= 0.01 ? 'hidden' : 'visible';
+      if(el.classList.contains('portal')){
+        el.style.pointerEvents = op < 0.25 ? 'none' : 'auto';
+      } else {
+        el.style.pointerEvents = 'none';   /* 玻璃框本身不擋滑鼠，章可以隔著框被碰到 */
+        if(!el.__plates) el.__plates = [].slice.call(el.querySelectorAll('.plate'));
+        el.__plates.forEach(function(pl){
+          pl.style.pointerEvents = (op < 0.15 || ez > 300) ? 'none' : 'auto';
+        });
+      }
+    });
+    if(endcap){
+      endcap.style.opacity = ease.toFixed(3);
+      endcap.style.transform = 'translate(-50%,' + ((1 - ease) * 26).toFixed(1) + 'px)';
+    }
+    if(hint) hint.style.opacity = p > 0.05 ? '0' : '1';
+  }
+
+  var ticking=false;
+  function onScroll(){ if(ticking)return;ticking=true;requestAnimationFrame(function(){ticking=false;reveal();dolly();}); }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', function(){ reveal(); dolly(); });
+  reveal(); dolly(); setTimeout(function(){ reveal(); dolly(); }, 450);
+})();
+</script>
+
+</body>
+</html>
