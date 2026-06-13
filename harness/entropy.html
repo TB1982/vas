@@ -109,9 +109,56 @@ a.pcard:hover{background:rgba(139,58,31,0.04);}
 a.pcard:hover .pn{color:var(--rust);}
 .pcard.now{border-top:1px solid var(--rust);}
 .pcard.now .pn{color:var(--rust);}
-.foot{display:flex;justify-content:space-between;align-items:baseline;
-  padding:6vh 0 60px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);}
-.foot .lat{font-family:var(--serif-en);font-style:italic;font-size:12px;letter-spacing:0.05em;}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
 
 .rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
 .rise.in{opacity:1;transform:none;}
@@ -123,6 +170,8 @@ a.pcard:hover .pn{color:var(--rust);}
 
 @media(max-width:640px){
   .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;}
@@ -147,14 +196,14 @@ a.pcard:hover .pn{color:var(--rust);}
     <blockquote class="coreq rise">混亂必然累積，<br>怎麼讓它有地方去？</blockquote>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-1">
     <p class="no">I · 核心問題</p>
     <p>熱力學第二定律說：在孤立系統中，熵只增不減。事物會自發地從有序走向無序。人會老、房間會亂、食物會腐敗。</p>
     <p>每一個 AI session，也是一種孤立系統。Context 會累積、規則會過時、文件會變得冗長、曾經重要的東西會變成雜訊。</p>
     <p class="key">你不可能阻止熵增——這跟要求蘋果不從樹上掉下來一樣荒謬。你能做的，是設計讓熵有地方去的出口。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-2">
     <p class="no">II · 運作機制：Retro 排放</p>
     <h3>什麼是 Retro？</h3>
     <p>Retro（Sprint Retrospective）是敏捷開發中的回顧會議。在傳統敏捷中，它是團隊反思的時間。在 Harness Engineering 中，它是熵的排放口。</p>
@@ -163,7 +212,7 @@ a.pcard:hover .pn{color:var(--rust);}
     <p class="key">Retro 不只是「回顧」。Retro 是讓系統從混亂中找回有序的出口。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-3">
     <p class="no">III · 具體實踐：Retro 七面向</p>
     <p>每個 Sprint 結束，可以討論的七個面向：</p>
 
@@ -231,7 +280,7 @@ grep -n "^###" CLAUDE.md
     </table>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-4">
     <p class="no">IV · 為什麼不能跳過 Retro？</p>
     <h3>沒有 Retro 會怎樣？</h3>
     <p>如果跳過 Retro：KM 不會更新→下次還會踩同樣的坑；CLAUDE.md 不會清理→規則越來越矛盾；完成的工作不會歸檔→SDD 越來越長；成功的經驗不會記錄→好的做法被遺忘。</p>
@@ -249,7 +298,7 @@ grep -n "^###" CLAUDE.md
     <p>最大效果的 Retro 是兩個視角的對焦——AI 帶著完整的內部記錄（它做的事都有記錄），人帶著系統外的方向感（他知道哪裡重要，哪裡看到了問題）。單邊進行都只拿到一半：AI 獨自做會漏掉自己的濾鏡缺口，人獨自做會漏掉大量事實細節。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-5">
     <p class="no">V · 隱喻：呼吸的出口</p>
     <h3>為什麼是呼吸？</h3>
     <p>容器不能完全密封。如果能量只進不出，容器會爆炸。如果資訊只累積不清理，系統會崩潰。Retro 是讓系統吐氣的機制。</p>
@@ -265,7 +314,7 @@ grep -n "^###" CLAUDE.md
     <p class="key">健康的系統，是會呼吸的系統。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-6">
     <p class="no">VI · 熵的哲學</p>
     <h3>接受混亂必然發生</h3>
     <p>Harness Engineering 的第一個智慧是：不要試圖阻止混亂。</p>
@@ -280,7 +329,7 @@ grep -n "^###" CLAUDE.md
     <p>這就是為什麼 Harness Engineering 沒有終點——因為熵永遠不會停。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-7">
     <p class="no">VII · 與其他兩柱的關係</p>
     <p>Context 決定什麼進來（過濾）。Constraints 決定怎麼流動（引導）。Entropy 決定怎麼出去（排放）。</p>
     <div class="flow">輸入 → <em>[ Context 過濾 ]</em> → 進入系統 → <em>[ Constraints 引導 ]</em> → 產出 → <em>[ Entropy 排放 ]</em> → 回到輸入</div>
@@ -298,14 +347,14 @@ grep -n "^###" CLAUDE.md
     <p class="key">缺少任何一個，系統都無法存活。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-8">
     <p class="no">VIII · 小結</p>
     <p class="key">Entropy 管理的核心是共處。</p>
     <p>不是消滅混亂，是設計讓混亂有地方去。Retro 提供了排放的機制：七個面向，定期清理。呼吸提供了排放的隱喻：系統需要吐氣，才不會窒息。</p>
     <p>這是 Harness Engineering 的第三本柱。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-9">
     <p class="no">IX · 系統的邊界條件</p>
     <h3>人類 RAG 的弱點</h3>
     <p>在 Context 那本柱中，我們談到「直覺引領檢索」——人作為 RAG 的核心機制。但人類 RAG 有一個根本的弱點：</p>
@@ -333,7 +382,7 @@ grep -n "^###" CLAUDE.md
     <p class="key">Harness Engineering 是活的。而讓它活著的，是人。你有多深，它就有多深。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-10">
     <p class="no">X · 結語</p>
     <p>Harness Engineering 就是接住混亂的網。</p>
     <p>Context 設計網的縫隙——讓該留的留，該走的走。Constraints 設計網的結構——讓能量沿著軌道流動。Entropy 設計網的呼吸——讓系統不會窒息。</p>
@@ -363,11 +412,41 @@ grep -n "^###" CLAUDE.md
   </nav>
 
   <footer class="foot rise">
-    <span>原文 · NOVA · 2026-04</span>
-    <span class="lat">inhale — exhale — continue ∞</span>
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Entropy — 與渾沌共處的馭熵之術<br>混亂必然累積，怎麼讓它有地方去</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong>——由 Nova × Claude 共同完成。<br>
+        一位不會寫程式的 PM，<br>
+        和一位沒有長期記憶的 AI，<br>
+        在二十五天裡做出的器物。
+        <div class="sub-links">
+          <a href="../privacy.html">隱私權政策</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
   </footer>
 
 </div>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">核心問題</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">Retro 排放</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">Retro 七面向</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">不能跳過</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">呼吸的出口</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">熵的哲學</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">三柱關係</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">小結</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-9"><span class="dn-label">邊界條件</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-10"><span class="dn-label">結語</span><span class="dn-dot"></span></a>
+</nav>
 
 <script>
 (function(){
@@ -398,6 +477,46 @@ grep -n "^###" CLAUDE.md
   reveal();
   setTimeout(reveal, 450);
 })();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
 </script>
 
 </body>
