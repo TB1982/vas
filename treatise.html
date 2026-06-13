@@ -28,6 +28,9 @@ a{color:inherit;text-decoration:none;}
   display:inline-flex;align-items:center;gap:8px;transition:color .3s;}
 .top .back:hover{color:var(--rust);}
 .top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
 
 /* 題 */
 .head{padding:11vh 0 7vh;}
@@ -115,6 +118,7 @@ a{color:inherit;text-decoration:none;}
   <header class="top rise">
     <a class="back" href="index.html">← VAS</a>
     <span class="here">THE TREATISE · 思</span>
+    <span class="lang"><a class="on">中</a><a href="en/treatise.html">EN</a><a href="ja/treatise.html">JA</a><a href="cn/treatise.html">简</a></span>
   </header>
 
   <section class="head">
