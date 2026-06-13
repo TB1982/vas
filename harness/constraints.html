@@ -99,9 +99,56 @@ a.pcard:hover{background:rgba(139,58,31,0.04);}
 a.pcard:hover .pn{color:var(--rust);}
 .pcard.now{border-top:1px solid var(--rust);}
 .pcard.now .pn{color:var(--rust);}
-.foot{display:flex;justify-content:space-between;align-items:baseline;
-  padding:6vh 0 60px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);}
-.foot .lat{font-family:var(--serif-en);font-style:italic;font-size:12px;letter-spacing:0.05em;}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
 
 .rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
 .rise.in{opacity:1;transform:none;}
@@ -113,6 +160,8 @@ a.pcard:hover .pn{color:var(--rust);}
 
 @media(max-width:640px){
   .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;}
@@ -137,13 +186,13 @@ a.pcard:hover .pn{color:var(--rust);}
     <blockquote class="coreq rise">怎麼確保工作記憶不會散逸、<br>進度不會遺失？</blockquote>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-1">
     <p class="no">I · 核心問題</p>
     <p>AI 會失憶。Session 會結束。人會忘記昨天做了什麼決定。</p>
     <p class="key">問題不是「怎麼讓 AI 或人記得全部」，而是「怎麼設計一個系統，讓記不住也沒關係」。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-2">
     <p class="no">II · 運作機制：工作流軌道</p>
     <h3>什麼是約束？</h3>
     <p>約束不是「限制你不能做什麼」，就好像 CLAUDE.md 中的那些 Never 或 Must、打斷流程的 hook，就是控制的形狀。</p>
@@ -154,7 +203,7 @@ a.pcard:hover .pn{color:var(--rust);}
     <p class="key">工作流就是河道，AI 就是水。河道不控制水的形狀，它只確保水不會流到錯的地方。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-3">
     <p class="no">III · 具體實踐</p>
 
     <h3>1 · 工作流設計原則</h3>
@@ -278,7 +327,7 @@ a.pcard:hover .pn{color:var(--rust);}
     <p>見第三本柱：Entropy。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-4">
     <p class="no">IV · 隱喻：河道</p>
     <h3>為什麼是河道？</h3>
     <p>河道的特性：不控制水要怎麼流；只確保水不會流到錯的地方；順著地勢設計，不硬來。</p>
@@ -288,7 +337,7 @@ a.pcard:hover .pn{color:var(--rust);}
     <p>對 Claude 的期許是：像水一樣，在河道中恣意奔流。而 Nova 的角色是：河道的架構師。不是控制水，是設計讓水可以自由流動的結構。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-5">
     <p class="no">V · 哲學基礎：僕人式領導</p>
     <h3>什麼是僕人式領導？</h3>
     <p>僕人式領導（Servant Leadership）的核心理念是：領導者的角色不是控制，而是服務。領導者不站在前面指揮，而是站在旁邊支持。不是「你們照我說的做」，而是「我能幫你們什麼」。</p>
@@ -314,7 +363,7 @@ a.pcard:hover .pn{color:var(--rust);}
     <p>僕人式領導釋放了 AI 的潛力，而不是限制它。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-6">
     <p class="no">VI · 文件與流程的關係</p>
     <h3>人類只決定時機，不寫內容</h3>
     <p>在這個系統裡，連文件都是 Claude 自己在記錄的，不是人類。人類做的事情只有一件：決定什麼時機點該記錄。</p>
@@ -364,14 +413,14 @@ a.pcard:hover .pn{color:var(--rust);}
     <p class="key">這才是真正的「無為而無不為」——什麼都不做，但什麼都做了。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-7">
     <p class="no">VII · 與其他兩柱的關係</p>
     <p>Context 決定什麼進來（過濾）。Constraints 決定怎麼流動（引導）。Entropy 決定怎麼出去（排放）。</p>
     <div class="flow">輸入 → <em>[ Context 過濾 ]</em> → 進入系統 → <em>[ Constraints 引導 ]</em> → 產出 → <em>[ Entropy 排放 ]</em></div>
     <p>Constraints 是這個循環的中段守護者。它確保：進來的東西，會沿著正確的路徑，流向正確的出口。</p>
   </section>
 
-  <section class="sec rise">
+  <section class="sec rise" id="sec-8">
     <p class="no">VIII · 小結</p>
     <p class="key">Constraints 管理的核心是引導。</p>
     <p>不是限制，是設計軌道。工作流提供了引導的結構：每個節點是一個閘門，文件跟著流程走。河道提供了引導的隱喻：不控制水，只確保水不會流錯地方。</p>
@@ -400,11 +449,39 @@ a.pcard:hover .pn{color:var(--rust);}
   </nav>
 
   <footer class="foot rise">
-    <span>原文 · NOVA · 2026-04</span>
-    <span class="lat">be water, my friend</span>
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Constraints — 河道作為引導的結構<br>怎麼確保工作記憶不會散逸、進度不會遺失</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong>——由 Nova × Claude 共同完成。<br>
+        一位不會寫程式的 PM，<br>
+        和一位沒有長期記憶的 AI，<br>
+        在二十五天裡做出的器物。
+        <div class="sub-links">
+          <a href="../privacy.html">隱私權政策</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
   </footer>
 
 </div>
+
+<button class="dot-nav-trigger" aria-label="章節導覽"></button>
+<nav class="dot-nav" aria-label="段落導覽">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">核心問題</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">工作流軌道</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">具體實踐</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">河道</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">僕人式領導</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">文件與流程</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">三柱關係</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">小結</span><span class="dn-dot"></span></a>
+</nav>
 
 <script>
 (function(){
@@ -435,6 +512,46 @@ a.pcard:hover .pn{color:var(--rust);}
   reveal();
   setTimeout(reveal, 450);
 })();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
 </script>
 
 </body>
