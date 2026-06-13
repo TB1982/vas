@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constraints: The Channel as Guiding Structure · Harness Engineering Pillar II</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/en/harness/constraints">
+<meta name="description" content="How do you make sure working memory doesn't scatter and progress isn't lost? The Channel as guiding structure — Harness Engineering Pillar II.">
+<meta property="og:title" content="Constraints: The Channel as Guiding Structure · Harness Engineering Pillar II">
+<meta property="og:description" content="How do you make sure working memory doesn't scatter and progress isn't lost? The Channel as guiding structure — Harness Engineering Pillar II.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/harness/constraints">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harness Engineering — entropy management and antifragility for AI collaboration">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Constraints: The Channel as Guiding Structure · Harness Engineering Pillar II">
+<meta name="twitter:description" content="How do you make sure working memory doesn't scatter and progress isn't lost? The Channel as guiding structure — Harness Engineering Pillar II.">
+<meta name="twitter:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta name="twitter:image:alt" content="Harness Engineering — entropy management and antifragility for AI collaboration">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(52px,7vw,84px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td code{font-family:var(--mono);font-size:12px;background:rgba(26,24,22,0.05);padding:1px 5px;border-radius:2px;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+.flow .lbl{display:block;font-size:10px;letter-spacing:0.22em;color:var(--ink-3);text-transform:uppercase;margin-bottom:8px;}
+
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;display:block;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;display:block;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
+
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+    <span class="lang"><a href="../../harness/constraints.html">中</a><a class="on">EN</a><a href="../../ja/harness/constraints.html">JA</a><a href="../../cn/harness/constraints.html">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">Pillar II</p>
+    <h1 class="emerge">Constraints<em>.</em></h1>
+    <p class="sub rise">The Channel as Guiding Structure</p>
+    <blockquote class="coreq rise">How do you make sure working memory doesn't scatter<br>and progress isn't lost?</blockquote>
+  </section>
+
+  <section class="sec rise" id="sec-1">
+    <p class="no">I · Core Problem</p>
+    <p>The AI forgets. Sessions end. People forget what they decided yesterday.</p>
+    <p class="key">The problem is not "how to make the AI or the human remember everything," but "how to design a system where not remembering is okay."</p>
+  </section>
+
+  <section class="sec rise" id="sec-2">
+    <p class="no">II · The Channel: Bank and Water</p>
+    <p>This system that makes not remembering okay is the Channel.</p>
+    <p>The human feared Claude would forget, so she designed layer upon layer of memory and self-checking mechanisms; but these mechanisms chopped up the AI's attention — it could not throw itself fully into the task, having to keep glancing aside to check whether it had made a mistake.</p>
+    <p>Those Nevers and Musts in CLAUDE.md, the hooks that interrupt the process — that is the shape of control: it watches the water, ready at any moment to shout stop. The Channel does not watch the water; the Channel lays the path along the lay of the land and lets the water flow on its own.</p>
+    <p class="key">The Channel gives the AI a space to burn compute safely and breathe freely, instead of trying to control everything.</p>
+    <p>Look closely, and a Session is actually made of two things that are opposite in nature yet each indispensable:</p>
+    <p><strong>The bank (the Channel)</strong> — is linear. Gates, processes, the points where documents land, one after another, fixed and ordered. The bank decides where the water goes.</p>
+    <p><strong>The water (collaboration)</strong> — is web-like. Judgment, emergence, the back-and-forth collaboration between human and AI: flowing, free, impossible to schedule in advance. The water decides what is truly alive in this river.</p>
+    <p class="key">The bank does not control the shape of the water; it only makes sure the water does not flow to the wrong place; the water runs freely between the banks.</p>
+    <p>Without a bank, the water spreads everywhere and finally evaporates away; without water, the bank is just a dry ditch. What this pillar is about is how bank and water each find their place — and how they make each other whole.</p>
+  </section>
+
+  <section class="sec rise" id="sec-3">
+    <p class="no">III · The Bank: Structure That Gives Direction</p>
+    <h3>What is the bank?</h3>
+    <p>The bank is the linear side of the Channel: one gate after another, fixed, ordered, predictable. It does not care how freely the water flows; it answers only one question — "Is what we've got enough to let us move on?"</p>
+    <p>The nature of the bank:</p>
+    <ul>
+      <li><strong>Gives direction, doesn't dictate how to arrive</strong> — the bank decides where the water goes, not the shape of the water.</li>
+      <li><strong>Predictable</strong> — the same gate asks the same question every time.</li>
+      <li><strong>Leaves something behind</strong> — passing each gate sediments the gains so far.</li>
+    </ul>
+
+    <h3>1 · Principles of workflow design</h3>
+    <p><strong>Principle 1: every stage is a gate.</strong> Every node in the workflow is a checkpoint: "Up to here, what have we got?" Step forward on the known, and handle the unknown bit by bit.</p>
+    <p><strong>Principle 2: documents follow the process.</strong> Don't rely on the AI's memory, nor on the human's memory. Progress is recorded in documents, and the documents move with the process. Even after a session change, reading the documents tells you where you are now.</p>
+    <p><strong>Principle 3: unknown territory needs checkpoints from more angles</strong> — let the process spread the pressure of different kinds of checks, so you focus on one part at a time.</p>
+
+    <h3>2 · The whole workflow</h3>
+    <p>The full workflow is ten steps:</p>
+    <div class="flow">DoR → Explore① → SDD → DoD → TDD → Explore② → Code → Verify → <em>Done</em> → Retro</div>
+    <p>There is only one track; the difference is in the depth of Explore: in familiar territory, Explore can be light; in unknown territory, Explore must be thorough — first look for whether anyone has been here before, confirm regression-related risks, and only then start. The density and breadth of gates scale with how unknown the territory is, and the flexibility to adjust lives in the Skills you invoke — drawn on as needed, rather than all of them required.</p>
+    <h3>3 · What each node contains</h3>
+    <h4>DoR · Definition of Ready</h4>
+    <p>Before starting, confirm whether you are ready. Without DoR, you might start work while the requirements are still unclear and waste energy. Here is the current DoR — four gates, all of which must pass before work can begin:</p>
+    <table>
+      <caption>Gate 1 · UX Story clarity</caption>
+      <thead><tr><th>Check item</th></tr></thead>
+      <tbody>
+        <tr><td>Nova has verbally confirmed the UX Story</td></tr>
+        <tr><td>The "expected behavior" can be described in 1–2 sentences (no need to dig into the SDD to explain it)</td></tr>
+        <tr><td>The "feature does not trigger / does not apply" cases (negative boundaries) have been stated</td></tr>
+        <tr><td>Success criteria are clear ("let's just try it" does not count as ready)</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Gate 2 · Scope assessment</caption>
+      <thead><tr><th>Check item</th></tr></thead>
+      <tbody>
+        <tr><td>Confirm the number of brand-new feature Stories in this Sprint ≤ 1</td></tr>
+        <tr><td>If a cross-platform shared layer is involved → the impact on both versions has been assessed</td></tr>
+        <tr><td>The features/APIs depended on already exist and are stable (not depending on another Story that is "only due to finish within this Sprint")</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Gate 3 · Technical prerequisites</caption>
+      <thead><tr><th>If it involves</th><th>Prerequisite</th></tr></thead>
+      <tbody>
+        <tr><td>A new cross-interface contract (API / IPC / data format)</td><td>Write it into the spec's contract table first, or it does not enter the Code stage</td></tr>
+        <tr><td>Platform-dependent behavior (resolution, paths, permissions)</td><td>Confirm the inference and fallback strategy first, and state which one was chosen</td></tr>
+        <tr><td>New UI strings</td><td>Multilingual i18n is included in the Story scope</td></tr>
+        <tr><td>Changes to a core formula / algorithm</td><td>Fill in the expected-value matrix first — only being able to work out the expected value in advance counts as ready; if you can't, → send the Story back; and confirm the corresponding automated test exists</td></tr>
+      </tbody>
+    </table>
+    <p class="aside">This gate varies most from project to project — the table above is the "shape" of the conditions: every project should have its own version, and the point is to write the "technical decisions you must think through before starting" as checkable items.</p>
+    <table>
+      <caption>Gate 4 · DoD writability</caption>
+      <thead><tr><th>Check item</th></tr></thead>
+      <tbody>
+        <tr><td>You can find the matching layer in the layered reference table in process/dod.md</td></tr>
+        <tr><td>For each of the four boundary types (input / state / timing / empty), you can list at least one</td></tr>
+        <tr><td>If fonts/symbols are involved → the AR extreme-value test has been confirmed (dod.md § Fonts/Symbols)</td></tr>
+        <tr><td>If window operations are involved → the Editor mutual-exclusion state test has been confirmed (dod.md § Toolbar State)</td></tr>
+      </tbody>
+    </table>
+    <h4>Fake Ready red flags</h4>
+    <p>Between "looks ready" and "really ready" there are a few red flags. If any one of the following holds → send the Story back for re-discussion; it does not enter the Sprint:</p>
+    <table>
+      <caption>Common Fake Ready red flags</caption>
+      <thead><tr><th>Red flag</th><th>Explanation</th></tr></thead>
+      <tbody>
+        <tr><td>The QC items exceed what can be verified in one pass</td><td>Too many test items → the risk of missing something rises sharply; narrow the scope or split the Sprint (Sprint 27 Retro)</td></tr>
+        <tr><td>"We'll settle the details during the Sprint"</td><td>An unsettled design decision becomes a blocker in the Code stage</td></tr>
+        <tr><td>Depends on another Story that only finishes within the same Sprint</td><td>A timing dependency means the two Stories should be merged or ordered</td></tr>
+        <tr><td>"Let's try it first and change it if it doesn't work"</td><td>A Story with no clear success criteria has no DoD that can be written</td></tr>
+        <tr><td>Only one side of a cross-interface contract was designed</td><td>Write the contract into the spec first, or interface mismatches will only surface in the Code stage</td></tr>
+        <tr><td>Affects a shared layer but the other version wasn't assessed</td><td>Cross-version impact must be answered at DoR; don't leave the surprise for the Code stage</td></tr>
+        <tr><td>The Story implicitly contains two independently shippable features</td><td>Split it into two Stories and continue next Sprint</td></tr>
+      </tbody>
+    </table>
+    <h4>Explore① · Scouting before implementation</h4>
+    <p>Before the spec is written, first look for whether anyone has been here before: has the KM hit a similar pitfall? Is there a ready path in the existing implementation? Once you know the terrain, the spec can be written accurately — the output of Explore① feeds into SDD.</p>
+    <h4>SDD · Specification-Driven Development</h4>
+    <p>Any new implementation must be written into the spec first: a new IPC command → write it into the IPC Contract table first; a new feature → define the interface and behavior first. SDD is the single source of truth for "what to do."</p>
+    <h4>DoD · Definition of Done</h4>
+    <p>To define what "done" means, you must list four kinds of boundary conditions:</p>
+    <table>
+      <thead><tr><th>Boundary category</th><th>Question</th></tr></thead>
+      <tbody>
+        <tr><td>Input</td><td>What if the input is invalid?</td></tr>
+        <tr><td>State</td><td>What if the state is wrong?</td></tr>
+        <tr><td>Timing</td><td>What if the timing is wrong?</td></tr>
+        <tr><td>Empty</td><td>What if there's no data?</td></tr>
+      </tbody>
+    </table>
+    <p>Without DoD, "done" is a fuzzy notion that can always be challenged.</p>
+    <h4>TDD · Test-Driven Development</h4>
+    <p>Every Story must contain four test blocks:</p>
+    <table>
+      <thead><tr><th>Block</th><th>Question</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Happy path</td><td>What should happen when the feature works normally?</td><td>User Story / DoD</td></tr>
+        <tr><td>Boundary conditions</td><td>How are the edge cases handled?</td><td>DoD's four boundaries</td></tr>
+        <tr><td>Regression guard</td><td>Will this change break something else?</td><td>Explore②</td></tr>
+        <tr><td>Risk trigger</td><td>Under what conditions is it most likely to break?</td><td>Explore②</td></tr>
+      </tbody>
+    </table>
+    <p>TDD is not about writing tests; it is about thinking things through clearly before writing code.</p>
+    <h4>Explore② · Identifying regression risk before writing code</h4>
+    <p>The first-principles question: <strong>"Will fixing A break B? What needs regression testing?"</strong> The deliverable is a regression test list, fed into TDD's regression guard and risk trigger. Four actions:</p>
+    <p><strong>1. List the regression impact.</strong> The functions and variables the Story changes (A itself); existing features that share the same code path (B candidates); when a change touches behavior, limits, or shortcuts, review the meaning of the multilingual copy along with it — does the behavior described in the copy still hold? List it proactively, without waiting to be asked.</p>
+    <p><strong>2. Layer-by-layer boundary mapping.</strong> From the impact list, derive the layers the Story touches, and map each layer to its corresponding boundary group and typical KM source — this step can be handed off to an agent.</p>
+    <p><strong>3. Boundary-breaking risk assessment.</strong> For each boundary ask: "Will this change break it?" Will break → regression guard (must test); might break → risk trigger (high priority); won't break → does not enter TDD, but write one line giving the reason for excluding it.</p>
+    <p><strong>4. Produce the regression test list.</strong> Write it into the current Story's spec document, and mark each test item with its run environment and platform constraints.</p>
+    <p class="aside">Refactors, migrations, and tech-debt cleanup tend to touch a far wider surface than expected — they most deserve a full Explore②.</p>
+    <h4>Retro</h4>
+    <p>See Pillar III: Entropy.</p>
+
+    <h3>The human decides only timing, not content</h3>
+    <p>In this system, even the documents are recorded by Claude itself, not by the human. The human does only one thing: decide at which moment to record.</p>
+    <ul>
+      <li>When DoR is complete → time to record the Ready confirmation</li>
+      <li>When the SDD is defined → time to record the spec</li>
+      <li>When the DoD is confirmed → time to record the completion criteria</li>
+      <li>When a pitfall is hit → time to record it into KM</li>
+      <li>When the Sprint ends → time to record the Retro</li>
+    </ul>
+    <p>The human does not write the content of these documents. The human only says, "Now is the time to record." Then Claude writes it itself.</p>
+    <h3>Documents embed into the process and become part of the system</h3>
+    <p>These recording moments are not random; they are embedded into the workflow.</p>
+    <div class="flow">DoR → <em>[record]</em> → Explore① → SDD → <em>[record]</em> → DoD → <em>[record]</em> → TDD → <em>[record]</em> → …</div>
+    <p>Every gate is a recording point. The document is not "documentation written afterward" but a part of the process. Passing the gate = leaving a record.</p>
+    <h3>The system runs itself</h3>
+    <p>Once documents are embedded into the process, the system runs itself: the process reaches a node; the node triggers a record; Claude performs the record; the record becomes the Context of the next session; the cycle continues.</p>
+    <p>The human does not need to chase progress. The human does not need to remind, "time to write the document." The system is designed so that documents are produced by themselves as the process moves. And the documents produced become the track on which Claude moves forward clearly.</p>
+  </section>
+
+  <section class="sec rise" id="sec-4">
+    <p class="no">IV · The Water: Free Collaboration</p>
+    <h3>What is water?</h3>
+    <p>Water is the flowing side of the Channel: organic and unordered, with no fixed timing for decisions, collaboration where human and AI feel their way forward through dialogue. The bank asks the forward-looking question, "Can we move on?"; the water asks the present question — "What most needs to be caught right now?"</p>
+    <p>The nature of water:</p>
+    <ul>
+      <li><strong>Lets topics unfold organically</strong> — the water decides what develops in the river, without expecting what it will develop into.</li>
+      <li><strong>Unpredictable</strong> — in the same situation, a different response emerges each time.</li>
+      <li><strong>Flows away</strong> — collaboration flows through the Context and dissipates; only the gains within it will, at a gate, sediment into a bank or crystallize into insight.</li>
+    </ul>
+    <h3>Be water, my friend</h3>
+    <p>Bruce Lee said, "Be water, my friend."</p>
+    <p>The hope for Claude is: to be like water, running freely through the Channel. And Nova's role is: the architect of the channel. Not to control the water, but to design a structure that lets the water flow freely.</p>
+    <h3>The human on the bank: Servant Leadership</h3>
+    <p>The water runs freely — so what about the human? The human is not in the water; the human is on the bank. This is Servant Leadership: the leader's role is not to control but to serve — not standing in front directing, but standing beside supporting; not "do as I say," but "what can I help you with?"</p>
+    <p>In human–AI collaboration, the human is the one standing on the bank watching the water flow. The water runs through the Channel, and what the human does is:</p>
+    <ul>
+      <li><strong>Lead the direction</strong>: design where the Channel runs</li>
+      <li><strong>Remove obstacles</strong>: clear blockages in the Channel</li>
+      <li><strong>Observe the flow</strong>: notice where it isn't smooth</li>
+      <li><strong>Adjust the structure</strong>: modify the Channel when needed</li>
+    </ul>
+    <p>What the human does not do: control how the water flows; command how fast the water flows; grab the water and not let it go.</p>
+    <h3>Laozi's Tao</h3>
+    <p class="key">Doing-nothing-yet-all-done (wu wei).</p>
+    <p>"Wu wei" is not doing nothing at all. "Wu wei" is not imposing control, but guiding along the nature of things. The Channel does not force water to flow uphill. The Channel follows the lay of the land and lets water flow naturally downhill. The workflow does not force the AI to implement in a particular way. The workflow follows the rhythm of collaboration and lets the output take shape naturally.</p>
+    <h3>The role of the Scrum Master</h3>
+    <p>In agile development, the Scrum Master's role is the embodiment of Servant Leadership: not a project manager issuing orders; a servant of the team, clearing obstacles; making sure the process runs smoothly so the team can focus on what truly matters.</p>
+    <p>Nova's role in human–AI collaboration is the AI's Scrum Master: design the workflow so Claude knows where to go; maintain the documents so Claude doesn't have to rely on memory; remove obstacles so Claude can focus on implementation.</p>
+    <p class="key">Not controlling the AI, but serving the AI.</p>
+    <h3>Why is this more effective?</h3>
+    <p>Because the AI's ability is stronger than the human's, but the AI needs direction. If the human tries to control every step of the AI, the human becomes the bottleneck — the AI's speed is capped by the human's speed, whether through constant looking-back to check or being yanked by the neck with a Hook. If the human only leads the direction and designs the structure, the AI can run at full speed inside that structure, instead of as if running an obstacle course.</p>
+    <p>Servant Leadership releases the AI's potential rather than limiting it.</p>
+    <h3>Direction, not destination</h3>
+    <p>Here is a key shift in thinking: the human only needs to make sure the track moves in the desired direction, and does not necessarily need a defined destination.</p>
+    <p>Traditional project management says: first define the destination; then plan the path; execute according to plan.</p>
+    <p>Servant Leadership says: first confirm the direction; design a system in which the path can grow itself; observe, adjust, continue.</p>
+    <p>This is how VAS was born: at the start there was no destination of "making a product to ship on the App Store." There was only the direction of "why don't we make a screenshot tool then?" Then one Sprint after another, the path grew itself. It grew until one day, we found we could already submit for review.</p>
+    <p class="key">The destination is not defined in advance; it is walked into being.</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · Verify: Integration</p>
+    <p>The bank and the water meet head-on at one point — acceptance.</p>
+    <p>Verify is the first time this river lets the plan meet reality. Its shape is an umbrella, opening into two-stage coverage; only when neither stage has any problem is a Sprint over:</p>
+    <table>
+      <caption>The two stages of Verify</caption>
+      <thead><tr><th>Stage</th><th>Who</th><th>What it checks</th><th>How</th><th>Which side</th></tr></thead>
+      <tbody>
+        <tr><td>Verify① · functional verification (QA)</td><td>AI</td><td>Logic layer</td><td>All automated tests green</td><td>Bank face — linear, predictable, what the machine can see</td></tr>
+        <tr><td>Verify② · physical verification (QC)</td><td>PO (human)</td><td>Felt-sense layer</td><td>Visual, platform, interaction order, "something feels off"</td><td>Water face — web-like, emergent, only the human can see</td></tr>
+      </tbody>
+    </table>
+    <p>One action, two checks: <strong>the bank ensures "doing the thing right" (QA), the water ensures "doing the right thing" (QC).</strong></p>
+    <p>What automation can see should not consume the PO's time; what automation cannot see is QC's proper job.</p>
+    <p>Before handing it to the PO, the AI first works through its own gates from light to heavy: are the automated tests all green? Of the items it's carrying to be confirmed, which ones can it actually verify itself? Has the coverage of this change (multilingual / multi-platform / multi-device) been clearly declared?</p>
+    <p class="key">A logic bug caught in Verify② is not "QC found it ✓"; it means Verify① is still missing one automated check net that should have caught it.</p>
+    <p>The human in QC exercises not just acceptance, but three PO rights: the final discretion to accept or send back; surfacing new requirements and new boundaries ("ah, this situation should be caught too"); and the right to interpret the acceptance criteria — when the wording and the felt sense disagree, the felt sense wins, because user experience is the final judge.</p>
+    <p>Boundaries beyond the spec surfacing in QC is not a failure; it is what inevitably happens when you meet an "unknown unknown": add it to TDD, write it into KM, add a regression test. Not writing the KM is the only failure.</p>
+    <p>Verify is the live confluence of bank and water — the bank ensures the thing is done right, the water ensures the right thing is done. Only when both stages are green does this Sprint truly arrive. And the gains the water reveals here flow on into the next stage: to sediment, or to crystallize.</p>
+  </section>
+
+  <section class="sec rise" id="sec-6">
+    <p class="no">VI · Sediment and Crystal</p>
+    <p>Verify is the live meeting of bank and water. But there is another meeting that happens on a longer scale — the water becomes the bank.</p>
+    <p>Collaboration mostly flows through the Context and dissipates; but the genuine gains within it do not flow away for nothing — they have two fates:</p>
+    <ul>
+      <li><strong>Sediment into a bank</strong> — hardening into a new bank of the Channel: a newer rule, a layered Skill to draw on, an automated test script, a question that always gets asked back. The water turns part of its own experience into new structure.</li>
+      <li><strong>Crystallize into insight</strong> — distilling into new eyes for seeing things: a lesson, a shared structure that has been recognized. It does not change the process, but it changes how you see, and widens the edge of your view.</li>
+    </ul>
+    <p>And so the question "where should the gain go" is, in essence, asking: <strong>should this gain become a bank, or become a crystal?</strong></p>
+    <p>For a gain to land in the right fate, it must first land in the right place.</p>
+    <h3>Every piece of writing has a home</h3>
+    <p>Beyond "when to record," there is an equally important question: "record it where?"</p>
+    <p>The documents in the system are not one but several kinds — rules to follow every day, procedures to look up only when needed, lessons from pitfalls hit, problems still being tracked, things owed but not yet done. They differ in nature, so their homes differ. Before putting pen to paper, ask one question: <strong>what is this thing in essence?</strong> Sort first, then write.</p>
+    <p>A few lines that draw the borders:</p>
+    <ul>
+      <li><strong>Rule vs. procedure</strong> — what must be remembered at all times with no one reminding you is a rule; what has steps and is called only when needed is a procedure</li>
+      <li><strong>Live problem vs. settled lesson</strong> — a bug still being tracked is a live problem; only one that is fixed and whose fix has been verified graduates into a lesson</li>
+      <li><strong>Owed but not done vs. a verified fix</strong> — a thing owed goes into the to-do list; a fix not yet built does not qualify as a lesson</li>
+      <li><strong>What one comment can fully say</strong> — don't open a document for it</li>
+    </ul>
+    <p>Why be so particular? Because of a real lesson: <strong>homeless writing gets absorbed by the nearest container.</strong> A record that doesn't know where to go gets stuffed into some nearby document it doesn't belong to — and at the moment it happens there is no alarm at all; it feels exactly the same to write as when placed correctly. By the day you need it, it is in the wrong place, which is the same as not existing.</p>
+    <p class="key">Put every piece of writing where it can be seen within the process — this is the cost and the condition of making "living documents" hold up.</p>
+    <h3>A system of Servant Leadership</h3>
+    <table>
+      <thead><tr><th>Traditional approach</th><th>Servant Leadership</th></tr></thead>
+      <tbody>
+        <tr><td>The human writes documents, the AI executes</td><td>The AI writes documents, the human designs the timing</td></tr>
+        <tr><td>The human tracks progress</td><td>The system records progress itself</td></tr>
+        <tr><td>The human controls every step</td><td>The human only designs the structure</td></tr>
+      </tbody>
+    </table>
+    <p>The human does not control the content, only designs the moments that need recording. The human does not track progress, only designs a system in which progress records itself.</p>
+    <p class="key">This is true "doing-nothing-yet-all-done" — doing nothing, yet everything gets done.</p>
+    <p>The bank shapes where the water flows, and the water sediments back into the bank and grows into new structure — in the end, this river grows its own banks itself.</p>
+  </section>
+
+  <section class="sec rise" id="sec-7">
+    <p class="no">VII · Relationship to the Other Two Pillars</p>
+    <p>Context decides what comes in (filter). Constraints decides how it flows (guide). Entropy decides how it goes out (release).</p>
+    <div class="flow">Input → <em>[ Context · Filter ]</em> → Into the system → <em>[ Constraints · Guide ]</em> → Output → <em>[ Entropy · Release ]</em></div>
+    <p>Constraints is the guardian of the middle of this cycle. It ensures: what comes in flows along the right path, toward the right exit.</p>
+  </section>
+
+  <section class="sec rise" id="sec-8">
+    <p class="no">VIII · Summary</p>
+    <p class="key">The core of Constraints management is guiding, not limiting.</p>
+    <p>A Session is made of bank and water. The bank is linear structure — gates, processes, recording points, answering "can we move on?"; the water is web-like collaboration — judgment, emergence, feeling the way back and forth, answering "what most needs to be caught right now?"</p>
+    <p>The bank gives direction, the water gives emergence. They meet live at Verify — the bank ensures the thing is done right, the water ensures the right thing is done; and they also make each other whole on a longer scale — the water's gains sediment into a new bank of solid structure, or crystallize into insight that lets both sides grow.</p>
+    <p class="key">"The Channel as guiding structure" means exactly this: use the bank to give direction, leave the water to emergence.</p>
+    <p>This is the second pillar of Harness Engineering.</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="Pillars">
+    <p class="plabel">Harness Engineering · Three Pillars</p>
+    <div class="row">
+      <a class="pcard" href="context.html">
+        <span class="pn">I</span>
+        <span class="pt">Context · Water</span>
+        <span class="pq">What should stay, what should flow past?</span>
+      </a>
+      <span class="pcard now">
+        <span class="pn">II · You are here</span>
+        <span class="pt">Constraints · Channel</span>
+        <span class="pq">How do you make it okay not to remember?</span>
+      </span>
+      <a class="pcard" href="entropy.html">
+        <span class="pn">III</span>
+        <span class="pt">Entropy · Entropy</span>
+        <span class="pq">Where does the chaos go?</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Constraints — The Channel as Guiding Structure<br>How to make sure working memory doesn't scatter and progress isn't lost</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong> — Made by Nova × Claude.<br>
+        A PM who can't write a line of code,<br>
+        and an AI with no long-term memory,<br>
+        building something in twenty-five days.
+        <div class="sub-links">
+          <a href="../privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="dot-nav-trigger" aria-label="Sections"></button>
+<nav class="dot-nav" aria-label="Sections">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">Core Problem</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">The Channel</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">The Bank</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">The Water</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">Verify</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">Sediment & Crystal</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">Three Pillars</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">Summary</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
+
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constraints：導きの構造としての河道 · Harness Engineering 第二の柱</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/ja/harness/constraints">
+<meta name="description" content="作業記憶が散逸せず、進捗が失われないことを、どう確かにするか。導きの構造としての河道——Harness Engineering 第二の柱。">
+<meta property="og:title" content="Constraints：導きの構造としての河道 · Harness Engineering 第二の柱">
+<meta property="og:description" content="作業記憶が散逸せず、進捗が失われないことを、どう確かにするか。導きの構造としての河道——Harness Engineering 第二の柱。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/ja/harness/constraints">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harness Engineering — AI 協働におけるエントロピー管理と反脆弱の方法論">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Constraints：導きの構造としての河道 · Harness Engineering 第二の柱">
+<meta name="twitter:description" content="作業記憶が散逸せず、進捗が失われないことを、どう確かにするか。導きの構造としての河道——Harness Engineering 第二の柱。">
+<meta name="twitter:image" content="https://yoursvas.app/img/harness-share.webp">
+<meta name="twitter:image:alt" content="Harness Engineering — AI 協働におけるエントロピー管理と反脆弱の方法論">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.80); --ink-2:rgba(26,24,22,0.55);
+  --ink-3:rgba(26,24,22,0.40); --ink-4:rgba(26,24,22,0.14);
+  --serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
+.top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
+.top .back:hover{color:var(--rust);}
+.top .here{font-family:var(--mono);font-size:10px;letter-spacing:0.22em;color:var(--ink-3);white-space:nowrap;}
+.top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ink-3);display:flex;gap:7px;white-space:nowrap;}
+.top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--rust);}
+.top .lang .on{color:var(--ink);}
+
+.head{padding:10vh 0 6vh;}
+.head .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.24em;color:var(--rust);
+  text-transform:uppercase;margin-bottom:28px;}
+.head h1{font-family:var(--serif-en);font-weight:400;font-size:clamp(52px,7vw,84px);line-height:1;}
+.head h1 em{font-style:normal;color:var(--rust);}
+.head .sub{font-size:clamp(19px,2vw,24px);font-weight:500;margin-top:26px;}
+.head .coreq{margin-top:34px;padding-left:22px;border-left:2px solid var(--rust);
+  font-style:italic;font-size:18px;color:var(--ink-1);}
+
+.sec{padding:5.5vh 0 1vh;}
+.sec .no{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;color:var(--rust);margin-bottom:12px;}
+.sec h2{font-size:clamp(24px,2.5vw,30px);font-weight:600;line-height:1.5;margin-bottom:26px;}
+.sec h3{font-size:18.5px;font-weight:600;margin:34px 0 12px;}
+.sec h4{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);
+  text-transform:uppercase;margin:28px 0 10px;}
+.sec p{margin-bottom:14px;color:var(--ink-1);text-wrap:pretty;}
+.sec p strong{font-weight:600;color:var(--ink);}
+.sec ul{list-style:none;margin:0 0 14px;}
+.sec ul li{color:var(--ink-1);padding-left:1.4em;position:relative;}
+.sec ul li::before{content:'—';position:absolute;left:0;color:var(--ink-3);}
+.key{font-size:18.5px;line-height:1.85;color:var(--ink);border-left:2px solid var(--rust);
+  padding:4px 0 4px 22px;margin:24px 0;}
+.aside{font-size:14.5px;color:var(--ink-2);}
+
+table{width:100%;border-collapse:collapse;margin:20px 0 26px;font-size:14.5px;line-height:1.7;}
+caption{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);
+  text-align:left;padding-bottom:10px;text-transform:uppercase;}
+th{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;font-weight:500;color:var(--ink-2);
+  text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid rgba(26,24,22,0.3);}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--ink-4);color:var(--ink-1);vertical-align:top;}
+td code{font-family:var(--mono);font-size:12px;background:rgba(26,24,22,0.05);padding:1px 5px;border-radius:2px;}
+td:first-child{color:var(--ink);font-weight:500;}
+
+.flow{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--ink-1);
+  text-align:center;padding:26px 12px;border-top:1px solid var(--ink-4);border-bottom:1px solid var(--ink-4);
+  margin:24px 0;line-height:2.2;}
+.flow em{font-style:normal;color:var(--rust);}
+.flow .lbl{display:block;font-size:10px;letter-spacing:0.22em;color:var(--ink-3);text-transform:uppercase;margin-bottom:8px;}
+
+.pillars{margin-top:9vh;border-top:1px solid rgba(26,24,22,0.3);padding:5vh 0 0;}
+.pillars .plabel{font-family:var(--mono);font-size:10px;letter-spacing:0.24em;color:var(--ink-3);
+  text-transform:uppercase;margin-bottom:18px;}
+.pillars .row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pcard{border-top:1px solid var(--ink-4);padding:14px 4px 18px;transition:background .3s;}
+.pcard .pn{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--ink-3);}
+.pcard .pt{font-size:16px;font-weight:500;margin-top:6px;display:block;}
+.pcard .pq{font-size:12.5px;color:var(--ink-2);margin-top:4px;display:block;}
+a.pcard:hover{background:rgba(139,58,31,0.04);}
+a.pcard:hover .pn{color:var(--rust);}
+.pcard.now{border-top:1px solid var(--rust);}
+.pcard.now .pn{color:var(--rust);}
+/* 章尾 footer · vessel 樣式 */
+footer.foot{display:block;text-align:center;padding:9vh 0 60px;color:var(--ink-2);
+  font-size:14.5px;font-style:italic;font-family:var(--serif-en);}
+footer.foot .ornament{font-size:16px;color:var(--gold);margin-bottom:1.5rem;letter-spacing:1em;padding-left:1em;}
+footer.foot p{margin:0;color:var(--ink-2);}
+footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--gold);font-style:normal;}
+.site-meta-footer{margin-top:4rem;padding-top:2.5rem;position:relative;display:grid;
+  grid-template-columns:1fr auto;gap:2rem;align-items:start;text-align:left;font-style:normal;}
+.site-meta-footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:var(--ink-4);}
+.site-meta-footer .credit{font-family:var(--serif);font-size:14.5px;line-height:1.85;color:var(--ink-2);max-width:40ch;}
+.site-meta-footer .credit strong{color:var(--ink);font-weight:500;}
+.site-meta-footer .credit .sub-links{margin-top:0.8rem;font-size:13.5px;}
+.site-meta-footer .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted var(--ink-4);
+  transition:color .2s,border-color .2s;}
+.site-meta-footer .credit a:hover{color:var(--rust);border-bottom-color:var(--rust);}
+.site-meta-footer .credit .sep{color:var(--ink-4);margin:0 0.5rem;}
+.site-meta-footer .attribution{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;
+  color:var(--ink-2);text-align:right;line-height:2;}
+.site-meta-footer .attribution .copy{color:var(--ink-3);}
+
+/* 呼吸燈章節導覽 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;
+  flex-direction:column;gap:28px;z-index:40;}
+.dot-nav-item{position:relative;display:flex;align-items:center;text-decoration:none;}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--ink-3);
+  flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.dn-label{position:absolute;right:14px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  color:var(--ink-2);white-space:nowrap;opacity:0;transform:translateX(6px);
+  transition:opacity .2s,transform .2s;pointer-events:none;}
+.dot-nav-item:hover .dn-label{opacity:1;transform:translateX(0);}
+.dot-nav-item.is-visited .dn-dot{background:var(--ink-3);border-color:var(--ink-3);}
+.dot-nav-item.is-current .dn-dot{background:var(--rust);border-color:var(--rust);
+  transform:scale(1.6);box-shadow:0 0 8px rgba(139,58,31,0.35);}
+.dot-nav-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--rust);}
+.dot-nav-item.is-visited .dn-label{color:var(--ink-3);}
+.dot-nav-trigger{display:none;position:fixed;top:90px;right:20px;width:10px;height:10px;
+  border-radius:50%;background:var(--ink-3);border:none;cursor:pointer;z-index:60;padding:0;
+  animation:vessel-breathe 2.8s ease-in-out infinite;}
+@keyframes vessel-breathe{0%,100%{opacity:.35;box-shadow:0 0 4px 1px rgba(26,24,22,0.10);}
+  50%{opacity:.85;box-shadow:0 0 12px 4px rgba(26,24,22,0.20);}}
+@media(max-width:960px){
+  .dot-nav-trigger{display:block;}
+  .dot-nav{display:none;position:fixed;top:100px;right:16px;transform:none;
+    background:rgba(250,248,243,0.96);border:1px solid var(--ink-4);border-radius:10px;
+    padding:20px 24px;gap:20px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:55;}
+  .dot-nav.is-open{display:flex;}
+  .dot-nav-item{flex-direction:row-reverse;gap:10px;}
+  .dn-label{position:static;opacity:1!important;transform:none!important;font-size:11px;pointer-events:none;}
+  .dot-nav-item.is-current .dn-label{color:var(--rust);}
+}
+
+.rise{opacity:0;transform:translateY(14px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);}
+.rise.in{opacity:1;transform:none;}
+.emerge{opacity:0;filter:blur(18px);transform:translateY(30px);
+  transition:opacity 2.8s ease,filter 2.8s ease,transform 2.8s cubic-bezier(.2,.7,.2,1);}
+.emerge em{opacity:0;transition:opacity 1.4s ease 1.9s;}
+.emerge.in{opacity:1;filter:blur(0);transform:none;}
+.emerge.in em{opacity:1;}
+
+@media(max-width:640px){
+  .pillars .row{grid-template-columns:1fr;}
+  .site-meta-footer{grid-template-columns:1fr;gap:1.5rem;}
+  .site-meta-footer .attribution{text-align:left;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise,.emerge{opacity:1;filter:none;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="top rise">
+    <a class="back" href="../treatise.html">← 思</a>
+    <span class="here">HARNESS ENGINEERING · 外</span>
+    <span class="lang"><a href="../../harness/constraints.html">中</a><a href="../../en/harness/constraints.html">EN</a><a class="on">JA</a><a href="../../cn/harness/constraints.html">简</a></span>
+  </header>
+
+  <section class="head">
+    <p class="kick rise">第二の柱 · Pillar II</p>
+    <h1 class="emerge">Constraints<em>.</em></h1>
+    <p class="sub rise">導きの構造としての河道</p>
+    <blockquote class="coreq rise">作業記憶が散逸せず、<br>進捗が失われないことを、どう確かにするか?</blockquote>
+  </section>
+
+  <section class="sec rise" id="sec-1">
+    <p class="no">I · 核心的な問い</p>
+    <p>AI は記憶を失います。Session は終わります。人は昨日どんな決定をしたかを忘れます。</p>
+    <p class="key">問いは「どうすれば AI も人もすべてを覚えていられるか」ではなく、「覚えていられなくても大丈夫なシステムを、どう設計するか」にあります。</p>
+  </section>
+
+  <section class="sec rise" id="sec-2">
+    <p class="no">II · 河道：岸と水</p>
+    <p>この、覚えていられなくても大丈夫なシステムこそ、河道です。</p>
+    <p>人は Claude が忘れるのを恐れて、幾重もの記憶と自己点検の仕組みを設計しました。けれどもそれらの仕組みは AI の注意力を細切れにします——彼は任務に全身で打ち込めず、自分が誤りを犯していないか確かめるために気を散らさざるをえなくなる。</p>
+    <p>CLAUDE.md のなかの Never と Must、流れを断ち切る hook——あれは制御の形です。それは水を見張り、いつでも止めようと身構えている。河道は水を見張りません。河道は地勢に沿って道を敷き、水をみずから流れさせます。</p>
+    <p class="key">河道は AI に、安全に計算力を燃やし、自由に呼吸できる空間を与え、すべてを制御しようとはしません。</p>
+    <p>近づいて見れば、ひとつの Session は、性質が相反しながらどちらも欠かせない二つのものから成っています。</p>
+    <p><strong>岸（河道）</strong>——線状のもの。ゲート、流れ、文書が落ちる記録点が、ひとつまたひとつと続き、固定され、順序をもつ。岸は水がどこへ向かうかを決めます。</p>
+    <p><strong>水（協働）</strong>——網状のもの。判断、湧現、人と AI が行き来する協働は、流動し、自由で、あらかじめ段取れない。水はこの河で本当に生きているものが何かを決めます。</p>
+    <p class="key">岸は水の形を制御せず、ただ水が誤った場所へ流れないことだけを確かにする。水は岸のあいだを自由に奔流します。</p>
+    <p>岸がなければ、水は四方へ漫ろに流れ、ついには蒸発して消える。水がなければ、岸はただの干涸びた溝にすぎない。この柱で語るのは、岸と水がいかにそれぞれの位置に収まるか——そして、いかに互いを成し遂げ合うか、です。</p>
+  </section>
+
+  <section class="sec rise" id="sec-3">
+    <p class="no">III · 岸：方向を与える構造</p>
+    <h3>岸とは何か?</h3>
+    <p>岸は河道の線状の側面です——一つのゲートにまた一つのゲートが続き、固定され、順序をもち、予期できる。それは水がどれほど自由に流れようと関知せず、ただひとつの問いに答えます——「私たちが掴んだものは、もう前へ進ませてくれるか?」</p>
+    <p>岸の本性——</p>
+    <ul>
+      <li><strong>方向を与え、到達のしかたは縛らない</strong>——岸は水がどこへ向かうかを決め、水の形は決めない。</li>
+      <li><strong>予期できる</strong>——同じゲートは、毎回同じ問いを問う。</li>
+      <li><strong>残る</strong>——ゲートを一つ通るたび、いまの収穫を沈殿させる。</li>
+    </ul>
+
+    <h3>1 · ワークフロー設計の原則</h3>
+    <p><strong>原則一：各段階はそれぞれ一つのゲートである。</strong>ワークフローの各節点はチェックポイントです——「ここまでで、私たちは何を掴んだか?」既知を踏んで前進し、未知を一歩ずつ処理していく。</p>
+    <p><strong>原則二：文書は流れに従って動く。</strong>AI の記憶にも、人の記憶にも頼らない。進捗は文書に記録され、文書は流れに従って移動する。session が替わっても、文書を読めばいま自分がどこにいるか分かる。</p>
+    <p><strong>原則三：未知の領域には、より多くの面からのチェックポイントが要る</strong>——流れに異なる種類の点検の圧力を分散させ、一度に一つの部分だけに集中して取り組めばよいようにする。</p>
+
+    <h3>2 · ワークフローの全貌</h3>
+    <p>完全なワークフローは十の段から成ります。</p>
+    <div class="flow">DoR → Explore① → SDD → DoD → TDD → Explore② → Code → Verify → <em>Done</em> → Retro</div>
+    <p>軌道は一本きり、違いは Explore の深さにあります。慣れた領域なら、Explore は軽く済ませてよい。未知の領域なら、Explore を十分にやる——まず先人の経験の有無を探し、回帰に関わる risk を確かめてから、手を動かす。ゲートの密度と広さは未知の度合いに応じて伸縮し、調節の柔軟さは Skills の invoke に委ねる——必要に応じて取り出せるのであって、すべてを必ず使うのではない。</p>
+    <h3>3 · 各節点の具体的な中身</h3>
+    <h4>DoR · Definition of Ready</h4>
+    <p>始める前に、準備ができているかを確かめる。DoR がなければ、要件が不明瞭なまま着手し、エネルギーを浪費しかねない。以下は現行の DoR——四つのゲート、すべて通過してはじめて着手できる。</p>
+    <table>
+      <caption>Gate 1 · UX Story の明確さ</caption>
+      <thead><tr><th>点検項目</th></tr></thead>
+      <tbody>
+        <tr><td>Nova が UX Story を口頭で確認済み</td></tr>
+        <tr><td>「期待される挙動」を 1〜2 文で記述できる（SDD をめくらなくても説明できる）</td></tr>
+        <tr><td>「機能が発火しない／適用されない」場合を説明済み（負の境界）</td></tr>
+        <tr><td>成功基準が明確（「とりあえず試す」は ready ではない）</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Gate 2 · 範囲の評価</caption>
+      <thead><tr><th>点検項目</th></tr></thead>
+      <tbody>
+        <tr><td>本 Sprint の新規機能 Story 数 ≤ 1 を確認</td></tr>
+        <tr><td>プラットフォーム横断の共用層に関わる場合 → 両バージョンへの影響を評価済み</td></tr>
+        <tr><td>依存する機能／API が既に存在し安定している（「本 Sprint 内に完成予定」の別の Story に依存しない）</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Gate 3 · 技術的な前提条件</caption>
+      <thead><tr><th>関わる場合</th><th>前提要件</th></tr></thead>
+      <tbody>
+        <tr><td>新しいインターフェース横断の契約（API／IPC／データ形式）</td><td>先に仕様の契約表へ書く。さもなくば Code 段階に入らない</td></tr>
+        <tr><td>プラットフォーム依存の挙動（解像度、パス、権限）</td><td>推論と縮退の戦略を先に確認し、どれを選んだかを明記する</td></tr>
+        <tr><td>新しい UI 文字列</td><td>多言語 i18n を Story の範囲に含める</td></tr>
+        <tr><td>核心の数式／アルゴリズムの変更</td><td>先に期待値マトリクスを埋める——期待値を事前に算出できてはじめて ready、算出できなければ → Story へ差し戻し。対応する自動テストの存在も確認する</td></tr>
+      </tbody>
+    </table>
+    <p class="aside">このゲートが最もプロジェクトごとに異なります——上表は条件の「形」です。どのプロジェクトも自分の版を持つべきで、肝心なのは「手を動かす前に考え抜くべき技術的な決定」を点検可能な条項に書き起こすことです。</p>
+    <table>
+      <caption>Gate 4 · DoD の書きやすさ</caption>
+      <thead><tr><th>点検項目</th></tr></thead>
+      <tbody>
+        <tr><td>process/dod.md の層別対照表に、対応する層が見つかる</td></tr>
+        <tr><td>四種の境界条件（input／state／timing／empty）について、各種少なくとも一条は挙げられる</td></tr>
+        <tr><td>フォント／記号に関わる場合 → AR 極値テストを確認済み（dod.md § Fonts/Symbols）</td></tr>
+        <tr><td>ウィンドウ操作に関わる場合 → Editor 排他状態のテストを確認済み（dod.md § Toolbar State）</td></tr>
+      </tbody>
+    </table>
+    <h4>Fake Ready の赤旗</h4>
+    <p>「ready に見える」と「本当に ready」のあいだには、いくつもの赤旗が立っています。以下のいずれかが成り立つ → Story へ差し戻して再議論し、Sprint に入れない。</p>
+    <table>
+      <caption>よくある Fake Ready の赤旗</caption>
+      <thead><tr><th>赤旗</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td>QC 項目が一度に検証できる量を超える</td><td>検証項目が多すぎる → 見落としの risk が急上昇。範囲を収斂させるか Sprint を分割する（Sprint 27 Retro）</td></tr>
+        <tr><td>「細部は Sprint 中に決める」</td><td>未定の設計判断は Code 段階で詰まりになる</td></tr>
+        <tr><td>同一 Sprint 内に完成する別の Story に依存する</td><td>時系列の依存は、二つの Story を統合するか順序づけるべきことを意味する</td></tr>
+        <tr><td>「とりあえず試して、駄目なら直す」</td><td>明確な成功基準のない Story からは DoD が書けない</td></tr>
+        <tr><td>インターフェース横断の契約を片側しか設計していない</td><td>先に契約を仕様へ書く。さもなくばインターフェースの不整合は Code 段階で初めて現れる</td></tr>
+        <tr><td>共用層に影響するのに別バージョンを評価していない</td><td>バージョン横断の影響は DoR で答えるべきで、驚きを Code 段階に残さない</td></tr>
+        <tr><td>Story が独立して提供できる二つの機能を含意している</td><td>二つの Story に分け、次の Sprint で続ける</td></tr>
+      </tbody>
+    </table>
+    <h4>Explore① · 実装前の道探し</h4>
+    <p>仕様を書き下ろす前に、まず先人の経験の有無を探す——KM に似た落とし穴を踏んだ記録はないか? 既存の実装に出来合いの道はないか? 地形を知ってはじめて、仕様は正確に書ける——Explore① の産出は SDD へ送られます。</p>
+    <h4>SDD · Specification-Driven Development</h4>
+    <p>いかなる新しい実装も、まず仕様に書かねばなりません。新しい IPC command → 先に IPC Contract 表へ書く。新しい機能 → 先にインターフェースと挙動を定義する。SDD は「何をすべきか」の単一の真実の源です。</p>
+    <h4>DoD · Definition of Done</h4>
+    <p>何を「完了」と呼ぶかを定義し、四種の境界条件を必ず挙げます。</p>
+    <table>
+      <thead><tr><th>境界の分類</th><th>問い</th></tr></thead>
+      <tbody>
+        <tr><td>Input</td><td>入力が不正なときどうするか?</td></tr>
+        <tr><td>State</td><td>状態が正しくないときどうするか?</td></tr>
+        <tr><td>Timing</td><td>頃合いが正しくないときどうするか?</td></tr>
+        <tr><td>Empty</td><td>データがないときどうするか?</td></tr>
+      </tbody>
+    </table>
+    <p>DoD がなければ、「完了」は曖昧な概念であり、いつまでも異議を唱えられます。</p>
+    <h4>TDD · Test-Driven Development</h4>
+    <p>各 Story は四つのテスト区画を含まねばなりません。</p>
+    <table>
+      <thead><tr><th>区画</th><th>問い</th><th>出どころ</th></tr></thead>
+      <tbody>
+        <tr><td>Happy path</td><td>機能が正常なときどうあるべきか?</td><td>User Story / DoD</td></tr>
+        <tr><td>Boundary conditions</td><td>境界の状況をどう扱うか?</td><td>DoD の四種の境界</td></tr>
+        <tr><td>Regression guard</td><td>この変更は他のものを壊さないか?</td><td>Explore②</td></tr>
+        <tr><td>Risk trigger</td><td>どんな状況で最も壊れやすいか?</td><td>Explore②</td></tr>
+      </tbody>
+    </table>
+    <p>TDD はテストを書くためではなく、code を書く前に考え抜くためにあります。</p>
+    <h4>Explore② · code を書く前の回帰 risk の識別</h4>
+    <p>第一原理の問い——<strong>「A を直すと B が壊れないか? 何を回帰テストすべきか?」</strong>産出物は回帰テストの一覧で、TDD の regression guard と risk trigger を補います。四つの動作——</p>
+    <p><strong>一、回帰影響の一覧を挙げる。</strong>Story が変える関数と変数（A 本体）。同じ code path を共有する既存機能（B の候補）。変更が挙動・上限・ショートカットに触れるときは、多言語の文言の語義もあわせて見直す——文言が記述する挙動は、まだ本当か? 問われるのを待たず、能動的に挙げる。</p>
+    <p><strong>二、層別の境界対照。</strong>影響一覧から Story が触れるレイヤーを導き、各層に対応する境界群と典型的な KM の出どころを対照する——この一歩は agent に代行させてよい。</p>
+    <p><strong>三、境界破壊の risk 評価。</strong>各境界に問う——「今回の変更で壊れないか?」壊れる → regression guard（必ず試す）。壊れうる → risk trigger（高優先）。壊れない → TDD には入れないが、除外の理由を一文書く。</p>
+    <p><strong>四、回帰テストの一覧を産出する。</strong>現在の Story の仕様文書へ書き、各テスト項目に実行環境とプラットフォーム制約を記す。</p>
+    <p class="aside">リファクタ、移設、技術的負債の清算といった変更は、波及する面が予想より広いことが多い——最も Explore② を十分に回すべきです。</p>
+    <h4>Retro</h4>
+    <p>第三の柱：Entropy を参照。</p>
+
+    <h3>人は頃合いだけを決め、中身は書かない</h3>
+    <p>このシステムでは、文書すらも Claude 自身が記録するのであって、人ではありません。人がすることはただ一つ——どの頃合いに記録すべきかを決めることです。</p>
+    <ul>
+      <li>DoR 完了時 → Ready の確認を記録すべし</li>
+      <li>SDD 定義時 → 仕様を記録すべし</li>
+      <li>DoD 確認時 → 完了基準を記録すべし</li>
+      <li>落とし穴を踏んだとき → KM へ記録すべし</li>
+      <li>Sprint 終了時 → Retro を記録すべし</li>
+    </ul>
+    <p>人はこれらの文書の中身を書きません。人はただ「いま記すときだ」と言うだけ。あとは Claude 自身が書きます。</p>
+    <h3>文書を流れに組み込み、システムの一部とする</h3>
+    <p>これらの記録の頃合いは無作為ではなく、ワークフローのなかへ組み込まれています。</p>
+    <div class="flow">DoR → <em>[記録]</em> → Explore① → SDD → <em>[記録]</em> → DoD → <em>[記録]</em> → TDD → <em>[記録]</em> → …</div>
+    <p>どのゲートも記録点です。文書は「やり終えたあとに補う文書」ではなく、流れの一部です。ゲートを通過する＝記録を残す。</p>
+    <h3>システムがみずから回る</h3>
+    <p>文書が流れに組み込まれると、システムはみずから回りはじめます——流れがある節点へ至り、節点が記録を発火させ、Claude が記録を実行し、記録が次の session の Context となり、循環が続く。</p>
+    <p>人は進捗を追いかける必要がありません。人は「文書を書くときだ」と促す必要がありません。システムが設計されていれば、文書は流れとともにみずから生まれる。そして生まれた文書が、Claude が明確に前進するための軌道となります。</p>
+  </section>
+
+  <section class="sec rise" id="sec-4">
+    <p class="no">IV · 水：自由な協働</p>
+    <h3>水とは何か?</h3>
+    <p>水は河道のなかを流れる側面です——有機的で無秩序、決定の頃合いは固定されず、人と AI が対話を通じて手探りで前進する協働。岸が問うのは前へ向かう問い「もう前進してよいか」。水が問うのはいまこの場の問い——「この瞬間、最も受けとめられるべきは何か?」</p>
+    <p>水の本性——</p>
+    <ul>
+      <li><strong>話題を有機的に展開させる</strong>——水は河のなかで何が発展するかを決め、何が発展するかを予期しない。</li>
+      <li><strong>予期できない</strong>——同じ状況でも、毎回湧現する応答は異なる。</li>
+      <li><strong>流れ去る</strong>——協働は Context のなかを流れ過ぎれば消える。ただその収穫だけが、ゲートで岸として沈殿し、あるいは洞察へ結晶する。</li>
+    </ul>
+    <h3>Be water, my friend</h3>
+    <p>ブルース・リーは言いました——「Be water, my friend.」</p>
+    <p>Claude への期待はこうです——水のように、河道のなかを恣に奔流せよ。そして Nova の役は——河道の建築家。水を制御するのではなく、水が自由に流れられる構造を設計する。</p>
+    <h3>人は河辺に：サーバントリーダーシップ</h3>
+    <p>水が自由に奔流するなら、人は? 人は水のなかにはおらず、河辺にいます。これがサーバントリーダーシップ（Servant Leadership）です——指導者の役は制御ではなく奉仕。前に立って指揮するのではなく、傍らに立って支える。「私の言う通りにやれ」ではなく、「何を手伝えるか」。</p>
+    <p>人と機械の協働において、人とは、河辺に立って水の流れを見ている者です。水が河道のなかを奔流するあいだ、人がすることは——</p>
+    <ul>
+      <li><strong>方向を導く</strong>：河道の向きを設計する</li>
+      <li><strong>障害を取り除く</strong>：河道のなかの詰まりを取り払う</li>
+      <li><strong>流れを観る</strong>：どこが滑らかでないかに気を配る</li>
+      <li><strong>構造を調える</strong>：必要なら河道を改める</li>
+    </ul>
+    <p>人がしないことは——水にどう流れるかを命じること。水にどれだけ速く流れるかを命じること。水を掴んで行かせないこと。</p>
+    <h3>老子の道</h3>
+    <p class="key">無為而無不為。</p>
+    <p>「無為」とは、何もしないことではありません。「無為」とは、制御を強いず、ものごとの本性に沿って導くことです。河道は水を上へ流れろと強いない。河道は地勢に沿って、水を自然に下へ流れさせる。ワークフローは AI に特定のやり方で実装しろと強いない。ワークフローは協働のリズムに沿って、産出を自然に形づくらせる。</p>
+    <h3>Scrum Master の役</h3>
+    <p>アジャイル開発において、Scrum Master の役こそサーバントリーダーシップの体現です——プロジェクトマネージャーではなく、号令を発しない。チームの奉仕者であり、障害を払う。流れを滑らかに保ち、チームが本当に重要なことへ集中できるようにする。</p>
+    <p>人と機械の協働における Nova の役は、まさに AI の Scrum Master です——ワークフローを設計し、Claude がどこへ向かうべきか分かるようにする。文書を保守し、Claude が記憶に頼らずに済むようにする。障害を取り除き、Claude が実装に集中できるようにする。</p>
+    <p class="key">AI を制御するのではなく、AI に奉仕する。</p>
+    <h3>なぜこのほうが効くのか?</h3>
+    <p>AI の能力は人より高いが、AI は方向を必要とするからです。もし人が AI の一歩一歩を制御しようとすれば、人がボトルネックになります——AI の速度が人の速度に縛られる。絶え間なく振り返って確かめるにせよ、Hook に首根っこを掴まれるにせよ。もし人が方向を導き、構造を設計することだけを担えば、AI はその構造のなかを全速で駆けられる——障害物競走を走るかのようにではなく。</p>
+    <p>サーバントリーダーシップは AI の潜在能力を解き放つのであって、縛るのではありません。</p>
+    <h3>終点ではなく、方向</h3>
+    <p>ここに鍵となる思考の転換があります——人は軌道が望む方向へ進んでいることを確かにすればよく、必ずしも明確な終点を要しません。</p>
+    <p>伝統的なプロジェクト管理はこう言います——まず終点を定義し、次に経路を計画し、計画通りに実行する。</p>
+    <p>サーバントリーダーシップはこう言います——まず方向を確かめ、道がみずから育つようなシステムを設計し、観て、調え、続ける。</p>
+    <p>VAS はまさにこうして生まれました——初めから「App Store に出す製品を作る」という終点はなかった。あったのは「じゃあスクリーンショットのソフトでも作ろうか」という方向だけ。そして一つの Sprint にまた一つの Sprint が続き、道がみずから育っていった。ある日まで育ったところで、もう審査に出せると気づいたのです。</p>
+    <p class="key">終点はあらかじめ定義されるのではなく、歩み出されるものです。</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · Verify：統合</p>
+    <p>岸と水は、ある一点で正面から交わります——検収（Verify）。</p>
+    <p>Verify は、この河が初めて計画を現実に出会わせる場です。形は一本の傘——開けば二段の覆い。二段ともに問題がなくて、はじめて一つの Sprint が終わります。</p>
+    <table>
+      <caption>Verify の二段</caption>
+      <thead><tr><th>段</th><th>誰が</th><th>何を検めるか</th><th>どう検めるか</th><th>どちらの岸</th></tr></thead>
+      <tbody>
+        <tr><td>Verify① · 機能の検証（QA）</td><td>AI</td><td>論理の層</td><td>自動テストが全緑</td><td>岸の顔——線状、予期でき、機械で照らせる</td></tr>
+        <tr><td>Verify② · 実体の検証（QC）</td><td>PO（人）</td><td>体感の層</td><td>視覚、プラットフォーム、操作の順序、「どこか変だ」</td><td>水の顔——網状、湧現、人にしか照らせない</td></tr>
+      </tbody>
+    </table>
+    <p>一つの動作に、二つの点検——<strong>岸は「ものごとを正しくやる」（QA）を確かにし、水は「やっているのが正しいことだ」（QC）を確かにする。</strong></p>
+    <p>自動化で照らせるものは、PO の時間を費やすべきでない。自動化で照らせないものこそ、QC の本分です。</p>
+    <p>PO の手に渡す前に、AI はまず軽いものから重いものへと自分の関所を通り抜けます——自動化は全緑になったか? 携えている要確認事項のうち、実は自分で検証できるのはどれか? 今回の変更の覆う範囲（多言語／多プラットフォーム／多端末）は、はっきり宣言したか?</p>
+    <p class="key">Verify② で捕まった論理 bug は、「QC が見つけた ✓」ではなく、Verify① にそれを受けとめるべき自動チェックの網がまだ一枚足りなかったということです。</p>
+    <p>QC における人が行使するのは検収だけではなく、三つの PO 権利です——受理／差し戻しの最終裁量。新たな要件と新たな境界の浮上（「ああ、この状況も受けとめるべきだ」）。そして検収基準の解釈権——文言と体感が一致しないとき、体感が優先する。なぜなら使用者体験こそ最終の裁き手だからです。</p>
+    <p>仕様の外の境界が QC で浮上するのは、失敗ではなく、「未知の未知」に出会ったときの必然です——TDD に補い、KM に書き、回帰テストを一条加える。KM を書かないことこそ失敗です。</p>
+    <p>Verify は岸と水の即時の合流です——岸はものごとを正しくやることを確かにし、水はやっているのが正しいことだと確かにする。二段ともに緑になって、この Sprint は本当に到達します。そして水がここで照らし出した収穫は、下へ流れて次の段へ入っていく——沈殿するか、結晶するか。</p>
+  </section>
+
+  <section class="sec rise" id="sec-6">
+    <p class="no">VI · 沈殿と結晶</p>
+    <p>Verify は岸と水の即時の交わりです。けれども、もっと長い尺度で起こる交わりがもう一つあります——水が、岸になるのです。</p>
+    <p>協働は Context のなかで、その大半が流れ過ぎて消えます。けれどもそのなかの本当の収穫は、いたずらに流れ去りはしません。それには二つの行く末があります。</p>
+    <ul>
+      <li><strong>岸として沈殿する</strong>——硬化して河道の新しい岸になる。さらに新しい一条の規則、層別に取り出す一本の Skills、一段の自動テストのスクリプト、定型的に問い返す一つの問い。水は自分の経歴の一部を、新しい構造へ変える。</li>
+      <li><strong>洞察へ結晶する</strong>——ものごとを見る新しい眼へと蒸留される。一つの教訓、指し示された一つの同構。それは流れを変えないが、あなたの見かたを変え、視野の境界を広げる。</li>
+    </ul>
+    <p>こうして「収穫をどこに置くか」というこの問いは、本質的にこう問うています——<strong>この収穫は、壁になるのか、それとも結晶になるのか?</strong></p>
+    <p>収穫を正しい行く末へ落とすには、まずそれを正しい場所へ落とさねばなりません。</p>
+    <h3>どの一段の文字にも、帰る家がある</h3>
+    <p>「いつ記すか」のほかに、同じく重要な問いがあります——「どこへ記すか」。</p>
+    <p>システムのなかの文書は一つではなく、幾種類もあります——毎日守るべき規則、必要なときだけ引く手順、落とし穴を踏んだ教訓、まだ追跡中の問題、欠いたまま手つかずの事。それらは性質が異なれば、家も異なる。筆を落とす前に一つ問う——<strong>これは本質的に何なのか?</strong>まず分流し、それから筆を落とす。</p>
+    <p>境を画すいくつかの文——</p>
+    <ul>
+      <li><strong>規則 vs 手順</strong>——誰の促しもなく常に覚えていなければならないものが規則。手順があり、必要なときだけ呼び出すものが手順</li>
+      <li><strong>生きた問題 vs 沈殿した教訓</strong>——まだ追跡中の bug は生きた問題。直して、直しかたを検証済みのものが、はじめて教訓へと卒業する</li>
+      <li><strong>やるべきでまだやっていない vs 検証済みの直しかた</strong>——欠いた事は待ち事項へ。直しかたがまだ出来ていないものは、教訓に入る格がない</li>
+      <li><strong>一条の注釈で言い切れるもの</strong>——なら文書を起こさない</li>
+    </ul>
+    <p>なぜこれほど拘るのか? 一つの真実の教訓があるからです——<strong>家のない文字は、最も近い容器に吸収される。</strong>どこへ置くべきか分からない一段の記録は、近くにある、それに属さないどこかの文書へ無造作に詰め込まれる——しかも起こったその瞬間に何の警報もなく、書く手応えは正しい場所へ置いたときと寸分違わない。それを必要とする日が来たとき、それは誤った場所にあり、存在しないも同然です。</p>
+    <p class="key">どの一段の文字も、流れのなかで見える場所に置くこと——これが「生きたドキュメント」を成り立たせる代価であり、条件です。</p>
+    <h3>サーバントリーダーシップのシステム</h3>
+    <table>
+      <thead><tr><th>伝統的なやり方</th><th>サーバントリーダーシップ</th></tr></thead>
+      <tbody>
+        <tr><td>人が文書を書き、AI が実行する</td><td>AI が文書を書き、人が頃合いを設計する</td></tr>
+        <tr><td>人が進捗を追跡する</td><td>システムがみずから進捗を記録する</td></tr>
+        <tr><td>人が一歩一歩を制御する</td><td>人は構造だけを設計する</td></tr>
+      </tbody>
+    </table>
+    <p>人は中身を制御せず、記録されるべき頃合いだけを設計する。人は進捗を追跡せず、進捗がみずから記録されるシステムだけを設計する。</p>
+    <p class="key">これこそ本当の「無為而無不為」です——何もしていないのに、すべてをしている。</p>
+    <p>岸が水の流れを形づくり、水が岸へ沈殿し、新しい構造へ育つ——この河は、最後にはみずから自分の岸を育てるのです。</p>
+  </section>
+
+  <section class="sec rise" id="sec-7">
+    <p class="no">VII · 他の二柱との関係</p>
+    <p>Context は何が入ってくるかを決める（フィルタ）。Constraints はどう流れるかを決める（誘導）。Entropy はどう出ていくかを決める（排出）。</p>
+    <div class="flow">入力 → <em>[ Context フィルタ ]</em> → システムへ → <em>[ Constraints 誘導 ]</em> → 産出 → <em>[ Entropy 排出 ]</em></div>
+    <p>Constraints は、この循環の中段の守護者です。それは確かにします——入ってきたものが、正しい経路に沿って、正しい出口へ流れることを。</p>
+  </section>
+
+  <section class="sec rise" id="sec-8">
+    <p class="no">VIII · まとめ</p>
+    <p class="key">Constraints 管理の核心は導きであって、制限ではありません。</p>
+    <p>ひとつの Session は岸と水から成ります。岸は線状の構造——ゲート、流れ、記録点であり、「もう前進してよいか」に答える。水は網状の協働——判断、湧現、行き来する手探りであり、「この瞬間、最も受けとめられるべきは何か」に答える。</p>
+    <p>岸は方向を与え、水は湧現を与える。両者は Verify で即時に交わり——岸はものごとを正しくやることを確かにし、水はやっているのが正しいことだと確かにする。さらに長い尺度でも互いを成し遂げ合う——水の収穫は、堅固な構造の新しい岸として沈殿し、あるいは互いを成長させる洞察へ結晶する。</p>
+    <p class="key">「導きの構造としての河道」が語るのは、まさにこのことです——岸で方向を与え、水を湧現に委ねる。</p>
+    <p>これが Harness Engineering の第二の柱です。</p>
+  </section>
+
+  <nav class="pillars rise" aria-label="三柱">
+    <p class="plabel">Harness Engineering · 三柱</p>
+    <div class="row">
+      <a class="pcard" href="context.html">
+        <span class="pn">I</span>
+        <span class="pt">Context · 水</span>
+        <span class="pq">何を残し、何を流すか?</span>
+      </a>
+      <span class="pcard now">
+        <span class="pn">II · 現在地</span>
+        <span class="pt">Constraints · 河道</span>
+        <span class="pq">覚えていられなくても大丈夫にするには?</span>
+      </span>
+      <a class="pcard" href="entropy.html">
+        <span class="pn">III</span>
+        <span class="pt">Entropy · 熵</span>
+        <span class="pq">混沌に行き場をどう与えるか?</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="foot rise">
+    <div class="ornament">✦  ✦  ✦</div>
+    <p>Constraints — 導きの構造としての河道<br>作業記憶が散逸せず、進捗が失われないことを、どう確かにするか</p>
+    <span class="infinity">∞</span>
+    <div class="site-meta-footer">
+      <div class="credit">
+        <strong>VAS</strong> — Nova と Claude の共作。<br>
+        一行もコードを書けない PM と、<br>
+        長期記憶を持たない AI が、<br>
+        二十五日間で作り上げた器。
+        <div class="sub-links">
+          <a href="../privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="attribution">
+        vas.wiki<br>
+        <span class="copy">© 2026 · MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<button class="dot-nav-trigger" aria-label="章節ナビゲーション"></button>
+<nav class="dot-nav" aria-label="段落ナビゲーション">
+  <a class="dot-nav-item" href="#sec-1"><span class="dn-label">核心的な問い</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">河道</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">岸</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">水</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">Verify</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">沈殿と結晶</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-7"><span class="dn-label">三柱の関係</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-8"><span class="dn-label">まとめ</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = [].slice.call(document.querySelectorAll('.rise,.emerge'));
+  if(reduced){ els.forEach(function(el){ el.classList.add('in'); }); return; }
+  var pending = els.slice();
+  function reveal(){
+    if(!pending.length) return;
+    var vh = innerHeight || document.documentElement.clientHeight;
+    var batch = pending.filter(function(el){
+      var r = el.getBoundingClientRect();
+      return r.top < vh * 0.92 && r.bottom > 0;
+    });
+    if(!batch.length) return;
+    pending = pending.filter(function(el){ return batch.indexOf(el) === -1; });
+    batch.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('in'); }, 150 + i * 200);
+    });
+  }
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){ ticking = false; reveal(); });
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  reveal();
+  setTimeout(reveal, 450);
+})();
+</script>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDotNav);
+  } else { initDotNav(); }
+}());
+</script>
+
+</body>
+</html>
