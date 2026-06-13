@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
 <script>
@@ -11,13 +11,12 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title data-lang-key="home2.title">VAS | 你的多模態人機協作工具箱</title>
+<title>VAS | 你的多模態人機協作工具箱</title>
 <link rel="icon" href="img/vas.ico" type="image/x-icon">
-<meta name="description" data-lang-key="home2.meta.desc"
-      content="OCR 文字辨識、隱私遮蔽、多螢幕截圖、網頁截圖、複製圖片編輯、QR Code 掃描、圖片拼貼排版、批次轉檔、浮水印、自訂快捷鍵——Mac 截圖與圖片處理工具，免費下載。" />
+<meta name="description" content="一座器物，兩扇門——器：Mac 截圖與圖片處理工具（OCR 文字辨識、隱私遮蔽、多螢幕截圖，免費下載）；思：容器論與人機協作方法論。給那些未能用文字明說的當下。">
 <link rel="canonical" href="https://yoursvas.app/">
 <meta property="og:title" content="VAS | 你的多模態人機協作工具箱">
-<meta property="og:description" content="OCR 文字辨識、隱私遮蔽、多螢幕截圖、網頁截圖、複製圖片編輯、QR Code 掃描、圖片拼貼排版、批次轉檔、浮水印、自訂快捷鍵——Mac 截圖與圖片處理工具，免費下載。">
+<meta property="og:description" content="一座器物，兩扇門——器：Mac 截圖與圖片處理工具；思：容器論與人機協作方法論。給那些未能用文字明說的當下。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/">
 <meta property="og:locale" content="zh_TW">
@@ -25,371 +24,356 @@
 <meta property="og:image:type" content="image/webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
-<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
-<meta name="twitter:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
+<meta property="og:image:alt" content="VAS — 一座器物，兩扇門">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VAS | 你的多模態人機協作工具箱">
-<meta name="twitter:description" content="OCR 文字辨識、隱私遮蔽、多螢幕截圖、網頁截圖、複製圖片編輯、QR Code 掃描、圖片拼貼排版、批次轉檔、浮水印、自訂快捷鍵——Mac 截圖與圖片處理工具，免費下載。">
-
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
 <!--
   AI CONTEXT · index.html
-  This is the VAS homepage. VAS (Visual Annotation Studio) is a macOS app for screenshot capture, annotation, OCR, privacy masking, and AI-ready image handoff.
-  Product positioning: VAS sits at the intersection of human visual communication and AI multimodal input.
-  It is designed for workflows where screenshots are passed to AI assistants — making human intent legible to AI.
-  Built by: Nova (human, product manager) × Claude (AI assistant, Anthropic). First public release: March 2026.
-  Available on Mac App Store (Tauri, primary) and as free Electron download.
-  Site structure: about (origin) · insight (design) · collab (collaboration) · harness (system) · milestone (history) · guide (manual).
+  This is the VAS mirror entrance — one vessel, two doors.
+  Left (器 · the instrument): the macOS product — screenshot capture, annotation, OCR, privacy masking → instrument.html
+  Right (思 · the treatise): the methodology — vessel treatise (inner development) and harness engineering (outer development) → vessel.html
+  Built by: Nova (human, product manager) × Claude (AI assistant, Anthropic).
 -->
-<!-- 字型：進 repo 後由 base.css.v3-proposal 接手；此處獨立載入以便預覽 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/vasweb-mo.webp" media="(max-width: 768px)" fetchpriority="high">
-<link rel="preload" as="image" href="img/vasweb.webp" media="(min-width: 769px)" fetchpriority="high">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-
-<!-- CSS：tokens 必須最先；home 為 shrine+unfold+acquire+chronicle 合併版（PSI 優化） -->
-<link rel="stylesheet" href="css/tokens.css?v=2026-06-05a">
-<link rel="stylesheet" href="css/home.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Shippori+Mincho:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+TC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* SEO 補殼：h1/h2/h3 純語意，不動視覺 —— 由 class 樣式接手 */
-h1, h2, h3 {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  font-family: inherit;
+:root{
+  /* void 世界 · css/tokens.css */
+  --void:#0e0b1a;
+  --aurora-v:#c471f5; --aurora-p:#fa71cd; --aurora-b:#4facfe;
+  --ash-0:rgba(240,232,220,0.94); --ash-1:rgba(240,232,220,0.78);
+  --ash-2:rgba(240,232,220,0.60); --ash-3:rgba(240,232,220,0.55);
+  --ash-4:rgba(240,232,220,0.22);
+  /* paper 世界 · vessel.html */
+  --paper:#faf8f3; --ink:#1a1816; --rust:#8b3a1f; --gold:#a8895c;
+  --ink-1:rgba(26,24,22,0.78); --ink-2:rgba(26,24,22,0.55); --ink-4:rgba(26,24,22,0.22);
+  /* 字 */
+  --serif:'Shippori Mincho','Fraunces','Noto Serif TC',serif;
+  --serif-en:'Fraunces','Shippori Mincho',serif;
+  --t-serif:'Noto Serif TC','Cormorant Garamond',serif;
+  --t-serif-en:'Cormorant Garamond','Noto Serif TC',serif;
+  --mono:'JetBrains Mono','SF Mono',monospace;
+  /* 鏡面位置 */
+  --seam:50%;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:var(--void);overflow:hidden;font-family:var(--serif);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+
+/* ═══ 鏡面結構：兩個全幅世界，各被 seam 裁切 ═══ */
+.mirror{position:fixed;inset:0;}
+.world{position:absolute;inset:0;}
+.world-void{clip-path:inset(0 calc(100% - var(--seam)) 0 0);background:var(--void);}
+.world-paper{clip-path:inset(0 0 0 var(--seam));background:var(--paper);}
+
+/* 縫線本身 */
+.seam-line{position:absolute;top:0;bottom:0;left:var(--seam);width:1px;z-index:30;
+  background:linear-gradient(to bottom,transparent 0%,rgba(196,113,245,0.4) 30%,rgba(168,137,92,0.5) 70%,transparent 100%);
+  pointer-events:none;}
+.seam-line::after{content:'';position:absolute;top:0;bottom:0;left:-20px;width:40px;
+  background:linear-gradient(to bottom,transparent 20%,rgba(196,113,245,0.05) 45%,rgba(168,137,92,0.06) 60%,transparent 85%);
+  filter:blur(12px);}
+
+/* ═══ 兩個世界共用的幾何（瓶置中、字各居半側） ═══ */
+.stage{position:absolute;inset:0;}
+
+/* 中央的瓶 —— 兩個世界各畫一次，位置完全相同 */
+.vessel{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);
+  width:min(30vw,330px);}
+.vessel img{width:100%;animation:float 9s ease-in-out infinite;}
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-0.4deg);}
+  50%{transform:translateY(-14px) rotate(0.4deg);}}
+
+/* void 側的瓶：光的呼吸 */
+.world-void .halo{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
+  width:160%;height:160%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(165,105,245,0.55) 0%,rgba(95,125,235,0.20) 46%,transparent 70%);
+  filter:blur(46px);animation:halo-breathe 9s ease-in-out infinite;}
+@keyframes halo-breathe{
+  0%,100%{opacity:calc(0.30 * var(--lean-void,1));transform:translate(-50%,-50%) scale(0.9);}
+  50%{opacity:calc(1 * var(--lean-void,1));transform:translate(-50%,-50%) scale(1.16);}}
+.world-void .vessel img{filter:drop-shadow(0 34px 64px rgba(60,40,120,0.5));}
+
+/* paper 側的瓶：墨的拓印 · 反相成版畫 */
+.world-paper .vessel img{
+  filter:invert(1) grayscale(0.82) sepia(0.38) contrast(0.92) brightness(1.04);
+  mix-blend-mode:multiply;animation-delay:-4.5s;}
+.world-paper .halo{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
+  width:140%;height:140%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(168,137,92,0.30) 0%,rgba(139,58,31,0.10) 48%,transparent 70%);
+  filter:blur(40px);animation:ink-breathe 9s ease-in-out infinite;animation-delay:-4.5s;}
+@keyframes ink-breathe{
+  0%,100%{opacity:0.25;transform:translate(-50%,-50%) scale(0.92);}
+  50%{opacity:0.8;transform:translate(-50%,-50%) scale(1.1);}}
+
+/* 思側的墨影 —— 與器側紫暈相對的地上陰影，跟著漂浮反相呼吸 */
+.world-paper .ground{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);
+  width:62%;height:22px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(26,24,22,0.4) 0%,rgba(139,58,31,0.12) 55%,transparent 72%);
+  filter:blur(7px);animation:ground-breathe 9s ease-in-out infinite;animation-delay:-4.5s;}
+@keyframes ground-breathe{
+  0%,100%{opacity:calc(0.9 * var(--lean-paper,1));transform:translateX(-50%) scaleX(1);}
+  50%{opacity:calc(0.38 * var(--lean-paper,1));transform:translateX(-50%) scaleX(0.84);}}
+
+/* ═══ 大字 VAS. —— 同一位置、兩種材質 ═══ */
+.wordmark{position:absolute;left:50%;top:24%;transform:translate(-50%,-50%);
+  font-size:clamp(90px,11vw,150px);font-weight:300;line-height:1;letter-spacing:-0.02em;
+  white-space:nowrap;z-index:5;pointer-events:none;}
+.world-void .wordmark{font-family:var(--serif-en);color:var(--ash-0);}
+.world-void .wordmark em{font-style:normal;font-weight:500;color:var(--aurora-v);}
+.world-paper .wordmark{font-family:var(--t-serif-en);color:var(--ink);}
+.world-paper .wordmark em{font-style:normal;font-weight:500;color:var(--rust);}
+
+/* ═══ 左側 · 器 ═══ */
+.side{position:absolute;top:50%;z-index:6;}
+.side-void{left:6vw;transform:translateY(-50%);max-width:30vw;}
+.side .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--ash-3);margin-bottom:26px;white-space:nowrap;}
+.side .line{font-size:clamp(17px,1.8vw,22px);line-height:1.9;color:var(--ash-1);
+  min-height:3.8em;max-width:17ch;}
+.side .line .caret{display:inline-block;width:1px;height:1.1em;vertical-align:-0.18em;
+  background:var(--aurora-v);margin-left:2px;animation:caret 1.1s step-end infinite;}
+@keyframes caret{0%,100%{opacity:1;}50%{opacity:0;}}
+.side .enter{display:inline-flex;align-items:center;gap:12px;margin-top:34px;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--ash-2);
+  transition:color .3s,gap .3s;}
+.side .enter .ln{width:38px;height:1px;background:var(--ash-4);transition:width .3s,background .3s;}
+.side .enter:hover{color:var(--ash-0);gap:16px;}
+.side .enter:hover .ln{width:54px;background:var(--aurora-v);}
+
+/* ═══ 右側 · 思 ═══ */
+.side-paper{right:6vw;transform:translateY(-50%);max-width:30vw;text-align:right;
+  font-family:var(--t-serif);}
+.side-paper .kick{color:var(--rust);opacity:0.75;}
+.side-paper .line{color:var(--ink-1);margin-left:auto;}
+.side-paper .line .caret{background:var(--rust);}
+.side-paper .enter{color:var(--ink-2);flex-direction:row-reverse;}
+.side-paper .enter .ln{background:var(--ink-4);}
+.side-paper .enter:hover{color:var(--ink);}
+.side-paper .enter:hover .ln{background:var(--rust);}
+
+/* ═══ 版口 ═══ */
+.corner{position:absolute;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;z-index:6;white-space:nowrap;}
+.corner.tl{top:34px;left:6vw;display:flex;align-items:center;gap:10px;color:var(--ash-3);}
+.corner.tl .dot{width:6px;height:6px;border-radius:50%;
+  background:radial-gradient(circle,var(--aurora-v),transparent 70%);
+  box-shadow:0 0 10px rgba(196,113,245,0.7);animation:dot-breathe 6s ease-in-out infinite;}
+@keyframes dot-breathe{0%,100%{opacity:.6;}50%{opacity:1;}}
+.corner.tr{top:34px;right:6vw;color:var(--ink-2);}
+.corner.bl{bottom:34px;left:6vw;color:var(--ash-3);}
+.corner.br{bottom:34px;right:6vw;color:var(--ink-2);font-family:var(--t-serif-en);
+  font-style:italic;font-size:12px;letter-spacing:0.06em;}
+
+/* 縫底的提示 —— 跨縫居中，兩世界各寫一次變色 */
+.seam-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:10px;letter-spacing:0.24em;white-space:nowrap;z-index:6;}
+.world-void .seam-hint{color:var(--ash-3);}
+.world-paper .seam-hint{color:var(--ink-2);}
+
+/* ═══ 入口熱區（看不見、撐滿半邊） ═══ */
+.door{position:fixed;top:0;bottom:0;z-index:20;display:block;}
+.door-void{left:0;width:var(--seam);}
+.door-paper{left:var(--seam);right:0;}
+
+/* 進場 */
+.rise{opacity:0;animation:rise 1.8s ease forwards;}
+.d1{animation-delay:.3s;}.d2{animation-delay:.6s;}.d3{animation-delay:1s;}.d4{animation-delay:1.4s;}
+@keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.vessel.rise{animation-name:rise-v;}
+@keyframes rise-v{from{opacity:0;transform:translate(-50%,-46%);}to{opacity:1;transform:translate(-50%,-50%);}}
+.wordmark.rise{animation-name:rise-w;}
+@keyframes rise-w{from{opacity:0;transform:translate(-50%,-44%);}to{opacity:1;transform:translate(-50%,-50%);}}
+
+/* ═══ 行動版：上下鏡像 ═══ */
+@media(max-width:768px){
+  :root{--seam:50%;}
+  .world-void{clip-path:inset(0 0 calc(100% - var(--seam)) 0);}
+  .world-paper{clip-path:inset(var(--seam) 0 0 0);}
+  .seam-line{left:0;right:0;top:var(--seam);bottom:auto;width:auto;height:1px;
+    background:linear-gradient(to right,transparent,rgba(196,113,245,0.4) 35%,rgba(168,137,92,0.5) 65%,transparent);}
+  .seam-line::after{display:none;}
+  .door-void{left:0;right:0;top:0;width:auto;height:var(--seam);}
+  .door-paper{left:0;right:0;top:var(--seam);bottom:0;width:auto;}
+  .wordmark{display:block;left:8vw;top:12%;transform:none;
+    font-size:clamp(52px,15vw,80px);}
+  .wordmark.rise{animation-name:rise-wm;}
+  @keyframes rise-wm{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .vessel{width:min(40vw,175px);top:56%;}
+  .side-void{left:8vw;right:8vw;top:24%;max-width:none;transform:none;}
+  .side-void .kick{margin-bottom:16px;}
+  .side .enter{margin-top:20px;}
+  .side-paper{left:8vw;right:8vw;top:auto;bottom:6%;max-width:none;text-align:left;transform:none;}
+  .side-paper .line{margin-left:0;}
+  .side-paper .enter{flex-direction:row;}
+  .corner.tr,.corner.bl{display:none;}
+  .corner.br{bottom:16px;}
+  .seam-hint{display:none;}
+  /* 行動版兩個半瓶疊在同一位置——浮沉改為同相，瓶身才是完整的一座 */
+  .world-paper .vessel img{animation-delay:0s;}
+  .world-paper .ground{animation-delay:0s;}
 }
 
-/* 語言切換下拉（沿用 base.css 變數；index-B 獨立預覽時的最小覆蓋） */
-.lang-dropdown-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.6);
-  font-family: var(--vas-mono, monospace);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex; align-items: center; gap: 6px;
+/* 進場跑完後固定終態（截圖引擎、回頁皆穩定） */
+body.settled .rise{animation:none;opacity:1;}
+body.settled .vessel.rise{transform:translate(-50%,-50%);}
+body.settled .wordmark.rise{transform:translate(-50%,-50%);}
+@media(max-width:768px){
+  body.settled .wordmark.rise{transform:none;}
 }
-.lang-dropdown-btn:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
-.lang-dropdown-menu {
-  display: none; position: absolute; right: 0; top: calc(100% + 6px);
-  background: #1a1a2e; border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 6px; padding: 4px; min-width: 100px; z-index: 100;
-}
-.lang-dropdown-menu.open { display: block; }
-.lang-opt {
-  display: block; width: 100%; text-align: left;
-  background: transparent; border: none;
-  color: rgba(255,255,255,0.5); font-size: 12px;
-  padding: 6px 10px; border-radius: 4px; cursor: pointer;
-}
-.lang-opt:hover, .lang-opt.active { color: #fff; background: rgba(255,255,255,0.07); }
 
-/* ─── 頁尾 ───────────────────────────────── */
-.site-footer {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: end;
-  padding: 56px 48px 40px;
-  border-top: 1px solid var(--vas-rule);
-}
-@media (max-width: 768px) {
-  .site-footer {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 40px 24px 32px;
-  }
-  .site-footer .footer-right { text-align: left; }
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .rise{opacity:1;}
+  .side .line .caret{display:none;}
 }
 </style>
-<link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/index">
-<link rel="alternate" hreflang="en"       href="https://yoursvas.app/en/index">
-<link rel="alternate" hreflang="ja"       href="https://yoursvas.app/ja/index">
-<link rel="alternate" hreflang="zh-Hans"  href="https://yoursvas.app/cn/index">
-<link rel="alternate" hreflang="x-default" href="https://yoursvas.app/index">
 </head>
-<body class="is-home">
+<body>
 
-<!-- ═══════ 頂部 nav ═══════ -->
-<nav class="site-nav">
-  <div class="site-nav-brand">
-    <span class="mark"></span>
-    <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
-  </div>
-  <div class="site-nav-links">
-    <a href="about.html" data-lang-key="home2.nav.about">關於</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">殘響</a>
-    <a href="harness.html" data-lang-key="home2.nav.system">系統</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">手冊</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
-  </div>
-  <div class="site-nav-lang" id="langDropdownWrap">
-  <div class="lang-flat-row">
-<a href="index.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/index.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
-  </div>
-  <div class="lang-mobile-dd">
-    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
-    <div class="lang-dropdown-menu">
-      <a href="index.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
-      <a href="en/index.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
-      <a href="ja/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
-      <a href="cn/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+<div class="mirror" id="mirror">
+
+  <!-- 世界一 · void · 器 -->
+  <div class="world world-void">
+    <div class="stage">
+      <div class="corner tl rise d1"><span class="dot"></span>VAS</div>
+      <div class="corner bl rise d4">第二十五日 · 醞成</div>
+      <div class="seam-hint rise d4">ONE VESSEL · TWO DOORS</div>
+      <h1 class="wordmark rise d2" data-comment-anchor="v11-wordmark">VAS<em>.</em></h1>
+      <div class="vessel rise d2">
+        <div class="halo"></div>
+        <img src="img/vasweb.webp" alt="VAS——瓶形容器，光的一面">
+      </div>
+      <div class="side side-void rise d3">
+        <p class="kick">器 · THE INSTRUMENT</p>
+        <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p>
+        <span class="enter">走進 光的一面<span class="ln"></span></span>
+      </div>
     </div>
   </div>
+
+  <!-- 世界二 · paper · 思 -->
+  <div class="world world-paper">
+    <div class="stage">
+      <div class="corner tr rise d1">TREATISE · 容器論</div>
+      <div class="corner br rise d4">A Treatise on Coniunctio</div>
+      <div class="seam-hint rise d4">ONE VESSEL · TWO DOORS</div>
+      <h1 class="wordmark rise d2" aria-hidden="true">VAS<em>.</em></h1>
+      <div class="vessel rise d2" aria-hidden="true">
+        <div class="halo"></div>
+        <img src="img/vasweb.webp" alt="">
+        <div class="ground"></div>
+      </div>
+      <div class="side side-paper rise d3">
+        <p class="kick">思 · THE TREATISE</p>
+        <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p>
+        <span class="enter">走進 墨的一面<span class="ln"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 縫 -->
+  <div class="seam-line"></div>
+
+  <!-- 兩扇門 -->
+  <a class="door door-void" href="instrument.html" aria-label="走進器——VAS 產品"></a>
+  <a class="door door-paper" href="treatise.html" aria-label="走進思——兩份論文"></a>
+
 </div>
-</nav>
 
-<main>
-
-<!-- ═══════ 首屏：器物 · 題辭 · 四道門 ═══════ -->
-<!-- Product identity: VAS takes its name from Jung's alchemical vas — the vessel that holds and transforms. Core action: making the invisible visible, enabling transmission between human and AI. -->
-<section class="shrine">
-  <div class="shrine-prose">
-    <div class="mark" data-lang-key="home2.shrine.kicker">A Vessel · since 2026</div>
-    <h1 class="shrine-name">VAS<em>.</em></h1>
-    <h2 class="shrine-tagline" data-lang-key="home2.shrine.tagline">
-      給那些未能用文字明說的<wbr>當下。
-    </h2>
-  </div>
-
-  <div class="shrine-vessel">
-    <div class="halo"></div>
-    <picture>
-      <source media="(max-width: 768px)" srcset="img/vasweb-mo.webp">
-      <img src="img/vasweb.webp" alt="VAS Mac 截圖標注工具——瓶形 App 界面，承載截圖、標注與傳遞" fetchpriority="high" />
-    </picture>
-    <div class="base"></div>
-    <div class="shrine-colophon">
-      <span data-lang-key="home2.shrine.colophon.zh">容器 · 傳遞 · 未完成</span><br>
-      <span class="faint" data-lang-key="home2.shrine.colophon.en">vessel — passage — unfinished</span>
-    </div>
-  </div>
-
-  <!-- Chapter 0 · 序章門 · 通往 about.html -->
-  <!-- Chapter 0 / Preface: links to about.html — the page that explains why VAS exists and how it was made. -->
-  <a class="shrine-preface" href="about.html">
-    <div class="shrine-preface-num" data-lang-key="home2.preface.num">0 · 序章</div>
-    <h3 class="shrine-preface-name" data-lang-key="home2.preface.name">為何存在</h3>
-    <div class="shrine-preface-echo" data-lang-key="home2.preface.echo">The Vessel Speaks</div>
-  </a>
-
-  <!-- 三道門(桌機) · 三道門 + 迴響(手機 2×2) · 首屏唯一入口 -->
-  <div class="shrine-gates">
-    <a class="shrine-gate" href="echo.html">
-      <div class="num" data-lang-key="home2.gates.1.num">I · 殘響</div>
-      <div class="shrine-gate-body">
-        <h3 class="name" data-lang-key="home2.gates.1.name">薦骨的語言</h3>
-        <div class="echo" data-lang-key="home2.gates.1.echo">迴盪在心底的「是」</div>
-      </div>
-    </a>
-    <a class="shrine-gate hidden-door" href="harness.html">
-      <div class="num" data-lang-key="home2.gates.2.num">II · 系統</div>
-      <div class="shrine-gate-body">
-        <h3 class="name" data-lang-key="home2.gates.2.name">Harness</h3>
-        <div class="echo" data-lang-key="home2.gates.2.echo">管理熵增的心理學</div>
-      </div>
-    </a>
-    <a class="shrine-gate" href="milestone.html">
-      <div class="num" data-lang-key="home2.gates.3.num">III · 里程碑</div>
-      <div class="shrine-gate-body">
-        <h3 class="name" data-lang-key="home2.gates.3.name">二十五日</h3>
-        <div class="echo" data-lang-key="home2.gates.3.echo">恍若隔世的回眸</div>
-      </div>
-    </a>
-    <a class="shrine-gate shrine-gate--reverb" href="mailto:nova@yoursvas.app">
-      <div class="num" data-lang-key="home2.gates.4.num">IV · 迴響</div>
-      <div class="shrine-gate-body">
-        <h3 class="name" data-lang-key="home2.gates.4.name">你的故事</h3>
-        <div class="echo reverb-arrow" data-lang-key="home2.gates.4.echo">→</div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- Download options: Tauri (App Store, macOS 12+, primary) and Electron (free DMG download, maintained). -->
-<!-- ═══════ 取得 · 讓 VAS 走進工作流 ═══════ -->
-<section class="acquire" id="acquire">
-  <div class="acquire-meta">
-    <h2 class="acquire-label" data-lang-key="home2.acquire.label">讓 VAS 走進你的工作流</h2>
-    <p class="hero-polish" aria-label="Latest polish date">
-      Latest polish · 2026-06-01
-    </p>
-  </div>
-  <div class="acquire-body">
-    <a class="line" href="https://apps.apple.com/app/vas/id6761584119" target="_blank" rel="noopener noreferrer">
-      <div class="what" data-lang-key="home2.acquire.tauri.what">Tauri</div>
-      <h3 class="name" data-lang-key="home2.acquire.tauri.name">
-        VAS 正式版 <em>macOS 12+ · App Store</em>
-      </h3>
-      <div class="go" data-lang-key="home2.acquire.tauri.go">→ 前往</div>
-    </a>
-    <a class="line" href="https://download.yoursvas.app/VAS-3.63.0-arm64.dmg">
-      <div class="what" data-lang-key="home2.acquire.electron.what">Electron</div>
-      <h3 class="name" data-lang-key="home2.acquire.electron.name">
-        經典版 <em>免費下載 · 持續維護</em>
-      </h3>
-      <div class="go" data-lang-key="home2.acquire.electron.go">→ 下載</div>
-    </a>
-    <a class="line" href="guide.html">
-      <div class="what" data-lang-key="home2.acquire.guide.what">Guide</div>
-      <h3 class="name" data-lang-key="home2.acquire.guide.name">
-        操作手冊 <em>工具列 · 編輯器 · 快捷鍵</em>
-      </h3>
-      <div class="go" data-lang-key="home2.acquire.guide.go">→ 閱讀</div>
-    </a>
-  </div>
-</section>
-
-<!-- Philosophy: VAS as a vessel in the alchemical sense — not a feature list, but a space for transformation between capture and delivery. -->
-<!-- ═══════ 展開的題辭 ═══════ -->
-<section class="unfold">
-  <h2 class="unfold-label" data-lang-key="home2.unfold.label">為何存在</h2>
-  <div class="unfold-body">
-    <p data-lang-key="home2.unfold.p1">
-      VAS 是一只<em>傳遞資訊的煉金容器</em>——從形狀到符號，給你超越文字的力量。
-    </p>
-    <p data-lang-key="home2.unfold.p2">
-      作為<em>工作流的河道</em>——在按下截圖鍵、和把檔案丟出去之間，留給你一段點石成金的空間。
-    </p>
-    <a class="drop" href="about.html" data-lang-key="home2.unfold.drop">
-      Yours, VAS
-    </a>
-  </div>
-</section>
-
-<!-- ═══════ 時間印記 ═══════ -->
-<section class="chronicle">
-  <h2 class="chronicle-label" data-lang-key="home2.chronicle.label">版次記號</h2>
-  <div class="chronicle-line"></div>
-  <div class="chronicle-edition">
-    <span data-lang-key="home2.chronicle.edition">第二十五日 · 器成</span>
-    <span class="jp" data-lang-key="home2.chronicle.edition.en">Twenty-Fifth Day · The Vessel, Formed</span>
-  </div>
-</section>
-
-<!-- ═══════ 頁尾 ═══════ -->
-</main>
-
-<footer class="site-footer">
-  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
-    一位不會寫程式的 PM，<br>
-    和一位沒有長期記憶的 AI，<br>
-    在二十五天裡做出的器物。</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">隱私權政策</a>
-  </div>
-  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
-    vas.wiki<br>
-    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
-  </div>
-</footer>
-
-<script defer src="i18n/core.js"></script>
 <script>
-  function applyLang(lang) {
-    VASCore.loadLang(lang, function (t) {
-      // 合併 shared + home2（home2 key 加前綴 "home2."）
-      var merged = Object.assign({}, t.shared || {});
-      var h2 = t.home2 || {};
-      Object.keys(h2).forEach(function (k) {
-        merged['home2.' + k] = h2[k];
+(function(){
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(function(){ document.body.classList.add('settled'); }, reduced ? 0 : 3300);
+  var mobile  = matchMedia('(max-width: 768px)').matches;
+  var mirror  = document.getElementById('mirror');
+
+  /* ── 鏡面：桌面隨游標傾斜；手機隨指尖讓位，閒置時自體呼吸 ── */
+  var target = 50, current = 50, amp = 18;
+  function calcAmp(){
+    var half = Math.min(innerWidth * 0.30, 330) / 2;   /* 瓶的半寬 */
+    amp = Math.min(30, (half + 90) / innerWidth * 100); /* 全偏時讓縫越過瓶身再留邊距 */
+  }
+  if(!reduced){
+    var ampM = 10, hiM = 70, loM = 47, lastTouch = 0, t0 = performance.now();
+    function calcSweep(){
+      /* 行動版掃描範圍：下探到瓶底上縮 26px（不遮「思」標），上收到中線上方 20px */
+      var h = Math.min(innerWidth * 0.40, 175);
+      hiM = Math.min(74, (innerHeight * 0.56 + h / 2 - 26) / innerHeight * 100);
+      loM = (innerHeight * 0.50 - 20) / innerHeight * 100;
+    }
+    if(!mobile){
+      calcAmp();
+      addEventListener('resize', calcAmp);
+      addEventListener('mousemove', function(e){
+        var r = (e.clientX / innerWidth - 0.5) * 2;       /* -1 ~ 1 */
+        target = 50 - r * amp;                            /* 游標往左→器拓寬；往右→思拓寬 */
       });
-      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-        var key = el.getAttribute('data-lang-key');
-        if (merged[key] !== undefined) el.innerHTML = merged[key];
-      });
-      // html lang 屬性
-      document.documentElement.lang =
-        lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
-      VASCore.updateDropdown(lang);
-      try { localStorage.setItem('vasLang', lang); } catch (e) {}
-    });
+      document.documentElement.addEventListener('mouseleave', function(){ target = 50; });
+    } else {
+      calcSweep();
+      addEventListener('resize', calcSweep);
+      addEventListener('touchmove', function(e){
+        lastTouch = performance.now();
+        var ry = (e.touches[0].clientY / innerHeight - 0.5) * 2;
+        /* 指尖在上→光拓寬；在下→墨拓寬；夾在不剪到文字與瓶底極限之間 */
+        target = Math.max(46, Math.min(hiM, 50 - ry * ampM));
+      }, {passive:true});
+    }
+    (function tick(){
+      if(mobile && performance.now() - lastTouch > 1800){
+        /* 自體呼吸：在 loM↔hiM 之間掃描（9 秒週期，與光暈同步） */
+        var mid = (loM + hiM) / 2, a = (hiM - loM) / 2;
+        target = mid + Math.sin((performance.now() - t0) / 9000 * Math.PI * 2) * a;
+      }
+      current += (target - current) * 0.06;
+      mirror.style.setProperty('--seam', current.toFixed(3) + '%');
+      /* 偏向哪邊，那邊的光／影呼吸得更滿 */
+      var a = mobile ? ampM : amp;
+      var leanV = 1 + Math.max(0, current - 50) / a * 0.7;
+      var leanP = 1 + Math.max(0, 50 - current) / a * 0.7;
+      mirror.style.setProperty('--lean-void',  leanV.toFixed(3));
+      mirror.style.setProperty('--lean-paper', leanP.toFixed(3));
+      requestAnimationFrame(tick);
+    })();
   }
 
-  
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "VAS",
-  "operatingSystem": "macOS",
-  "applicationCategory": "UtilitiesApplication",
-  "applicationSubCategory": "ProductivityApplication",
-  "softwareVersion": "2.6.1",
-  "description": "VAS 是一只傳遞意象的煉金容器——從形狀到符號，給你超越文字的力量。A macOS screenshot and annotation workstation designed for human–AI collaboration.",
-  "url": "https://yoursvas.app/",
-  "dateModified": "2026-06-01",
-  "downloadUrl": "https://apps.apple.com/app/vas/id6761584119",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "VAS Pro (Tauri v2.6.1 · App Store)",
-      "price": "9.99",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "url": "https://apps.apple.com/app/vas/id6761584119"
-    },
-    {
-      "@type": "Offer",
-      "name": "VAS Classic (Electron v3.63 · Free)",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "url": "https://download.yoursvas.app/VAS-3.63.0-arm64.dmg"
-    }
-  ],
-  "publisher": {
-    "@type": "Organization",
-    "name": "Deep Holding Project",
-    "url": "https://yoursvas.app/"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Nova",
-    "email": "nova@yoursvas.app",
-    "sameAs": [
-      "https://www.linkedin.com/in/yingtzuliu",
-      "https://www.instagram.com/liuyingtzu"
-    ]
+  /* ── 打字 ── */
+  var voidLine  = '給那些未能用文字明說的當下。';
+  var paperLine = '容器，是讓對立得以相遇而不爆裂的邊界本身。';
+  var elV = document.getElementById('type-void'),
+      elP = document.getElementById('type-paper'),
+      cV  = document.getElementById('caret-void'),
+      cP  = document.getElementById('caret-paper');
+  if(reduced){
+    elV.textContent = voidLine; elP.textContent = paperLine;
+  } else {
+    var typeInto = function(el, text, done){
+      var i = 0;
+      (function step(){
+        if(i <= text.length){
+          el.textContent = text.slice(0, i); i++;
+          setTimeout(step, 90 + Math.random()*70);
+        } else if(done){ done(); }
+      })();
+    };
+    setTimeout(function(){
+      typeInto(elV, voidLine, function(){
+        cV.style.visibility = 'hidden';
+        cP.style.visibility = 'visible';
+        typeInto(elP, paperLine, function(){
+          cP.style.visibility = 'hidden';
+        });
+      });
+    }, 1600);
   }
-}
+})();
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Deep Holding Project",
-  "alternateName": "深握計畫",
-  "url": "https://yoursvas.app/",
-  "dateModified": "2026-05-17",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://yoursvas.app/img/vas-share.webp"
-  },
-  "foundingDate": "2026",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "nova@yoursvas.app",
-    "contactType": "customer support"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/yingtzuliu",
-    "https://www.instagram.com/liuyingtzu"
-  ]
-}
-</script>
-<script defer src="js/analytics.js"></script>
+
 </body>
 </html>
