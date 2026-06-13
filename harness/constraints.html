@@ -206,7 +206,15 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   </section>
 
   <section class="sec rise" id="sec-3">
-    <p class="no">III · 具體實踐</p>
+    <p class="no">III · 岸：給方向的結構</p>
+    <h3>什麼是岸？</h3>
+    <p>岸是河道線狀的那一面：一道閘門接著一道閘門，固定、有次序、可預期。它不管水流得多自由，它只回答一個問題——「我們掌握的東西可以讓我們繼續前進了嗎？」</p>
+    <p>岸的本性：</p>
+    <ul>
+      <li><strong>給方向，不設限到達的方式</strong>——岸決定水往哪去，不決定水的形狀。</li>
+      <li><strong>可預期</strong>——同一道閘門，每次都問同樣的問題。</li>
+      <li><strong>會留下</strong>——每通過一道閘門，沉澱現有的收穫。</li>
+    </ul>
 
     <h3>1 · 工作流設計原則</h3>
     <p><strong>原則一：每個階段都是一道閘門。</strong>工作流的每個節點都是一個檢查點：「到這裡為止，我們掌握了什麼？」踏著已知前進，逐步處理未知。</p>
@@ -310,37 +318,42 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p><strong>三、邊界破壞風險評估。</strong>對每條邊界問：「這次變動會不會破？」會破 → regression guard（必測）；可能破 → risk trigger（高優先級）；不會破 → 不進 TDD，但寫一句排除理由。</p>
     <p><strong>四、產出回歸測試清單。</strong>寫進當前 Story 的規格文件，每個測試項標上執行環境與平臺約束。</p>
     <p class="aside">重構、搬遷、清技術債的改動，牽動面常比預期廣——最該跑足 Explore②。</p>
-    <h4>Verify · 兩段式驗證</h4>
-    <p>Verify 是一把傘，撐開是兩段，兩段都綠，Sprint 才算結束：</p>
-    <table>
-      <caption>Verify 的兩段</caption>
-      <thead><tr><th>段</th><th>誰</th><th>驗什麼</th><th>怎麼驗</th></tr></thead>
-      <tbody>
-        <tr><td>Verify ① · 功能驗證</td><td>AI</td><td>邏輯層</td><td>自動化測試全綠</td></tr>
-        <tr><td>Verify ② · 實體驗證（QC）</td><td>PO（人）</td><td>體感層</td><td>視覺、平臺、互動順序、「哪裡怪怪的」</td></tr>
-      </tbody>
-    </table>
-    <p>分工的原則只有一條：<strong>自動化照得到的，不該消耗 PO 的時間；自動化照不到的，才是 QC 的本職。</strong></p>
-    <p>所以在交到 PO 手上之前，AI 要先由輕至重過完自己的關卡（Pre-QC）：自動化全綠了嗎？帶著的待確認事項，哪些其實自己就能查證——不把確認外包給 PO？這次改動的覆蓋範圍（多語／多平臺／多裝置）有沒有明白宣告，讓 PO 知道該抽查哪裡，而不是隨機採樣？</p>
-    <p class="key">反向陳述：在 Verify ② 被抓到的邏輯 bug，不是「QC 有找到 ✓」，是 Verify ① 失職。</p>
-    <p>而 QC 裡的人，行使的不只是「驗收」，是三項 PO 權利：接受／退回的最終裁量；浮現新需求與新邊界（QC 中冒出的「啊，這個情境也該接住」是正當管道）；以及驗收標準的解釋權——文字與體感不一致時，體感贏，因為使用者體驗才是最後的關卡。</p>
-    <p>規格之外的邊界在 QC 浮現，不是失敗，是遭遇「未知的未知」時的必然：補進 TDD、寫進 KM、加一條回歸測試、從流程改進。沒寫 KM 才是失敗。</p>
     <h4>Retro</h4>
     <p>見第三本柱：Entropy。</p>
+
+    <h3>人類只決定時機，不寫內容</h3>
+    <p>在這個系統裡，連文件都是 Claude 自己在記錄的，不是人類。人類做的事情只有一件：決定什麼時機點該記錄。</p>
+    <ul>
+      <li>DoR 完成時 → 該記錄 Ready 的確認</li>
+      <li>SDD 定義時 → 該記錄規格</li>
+      <li>DoD 確認時 → 該記錄完成標準</li>
+      <li>踩到坑時 → 該記錄進 KM</li>
+      <li>Sprint 結束時 → 該記錄 Retro</li>
+    </ul>
+    <p>人類不寫這些文件的內容。人類只是說：「現在該記了。」然後 Claude 自己寫。</p>
+    <h3>文件嵌進流程，成為系統的一部分</h3>
+    <p>這些記錄的時機點不是隨機的，而是嵌進工作流裡的。</p>
+    <div class="flow">DoR → <em>[記錄]</em> → Explore① → SDD → <em>[記錄]</em> → DoD → <em>[記錄]</em> → TDD → <em>[記錄]</em> → …</div>
+    <p>每個閘門都是一個記錄點。文件不是「做完之後補的文檔」，而是流程的一部分。通過閘門＝留下記錄。</p>
+    <h3>系統自己運轉</h3>
+    <p>當文件嵌進流程，系統就會自己運轉：流程走到某個節點；節點觸發記錄；Claude 執行記錄；記錄成為下一個 session 的 Context；循環繼續。</p>
+    <p>人類不需要追著進度跑。人類不需要提醒「該寫文件了」。系統設計好了，文件就會隨著流程自己產生。而產生的文件，成為了 Claude 明確前進的軌道。</p>
   </section>
 
   <section class="sec rise" id="sec-4">
-    <p class="no">IV · 隱喻：河道</p>
-    <h3>為什麼是河道？</h3>
-    <p>河道的特性：不控制水要怎麼流；只確保水不會流到錯的地方；順著地勢設計，不硬來。</p>
-    <p>工作流也是：不控制 AI 要怎麼實作；只確保產出不會偏離方向；順著協作的自然節奏設計。</p>
+    <p class="no">IV · 水：自由的協作</p>
+    <h3>什麼是水？</h3>
+    <p>水是河道中流動的那一面：有機無序、決策時機不固定、人與 AI 之間靠對話摸索前進的協作。岸問的是向前的問題「可以繼續前進了嗎」；水問的是當下的問題——「此刻最需要被接住的是什麼？」</p>
+    <p>水的本性：</p>
+    <ul>
+      <li><strong>讓話題有機地展開</strong>——水決定河裡發展的是什麼，不預期發展出什麼。</li>
+      <li><strong>不可預期</strong>——同一個情境，每次湧現的回應都不一樣。</li>
+      <li><strong>會流走</strong>——協作在 Context 中流過就消散；唯有其中的收穫，會在閘門沉澱成岸、或結晶成洞見。</li>
+    </ul>
     <h3>Be water, my friend</h3>
     <p>李小龍說：「Be water, my friend.」</p>
     <p>對 Claude 的期許是：像水一樣，在河道中恣意奔流。而 Nova 的角色是：河道的架構師。不是控制水，是設計讓水可以自由流動的結構。</p>
-  </section>
-
-  <section class="sec rise" id="sec-5">
-    <p class="no">V · 哲學基礎：僕人式領導</p>
+    <h3>人在河邊：僕人式領導</h3>
     <h3>什麼是僕人式領導？</h3>
     <p>僕人式領導（Servant Leadership）的核心理念是：領導者的角色不是控制，而是服務。領導者不站在前面指揮，而是站在旁邊支持。不是「你們照我說的做」，而是「我能幫你們什麼」。</p>
     <h3>在河邊看水流的人</h3>
@@ -363,27 +376,38 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <h3>為什麼這樣更有效？</h3>
     <p>因為 AI 的能力比人強，但 AI 需要方向。如果人試圖控制 AI 的每一步，會變成瓶頸——AI 的速度被人的速度限制住，不管是不斷地回頭檢查或被 Hook 拉住脖子。如果人只負責引領方向、設計結構，AI 就可以在那個結構裡全速奔跑，而不是像在跑障礙賽。</p>
     <p>僕人式領導釋放了 AI 的潛力，而不是限制它。</p>
+    <h3>方向，而非終點</h3>
+    <p>這裡有一個關鍵的思維轉換：人類只需要確保軌道朝著想要的方向前進，不一定需要明確的終點。</p>
+    <p>傳統專案管理說：先定義終點；然後規劃路徑；按照計畫執行。</p>
+    <p>僕人式領導說：先確認方向；設計讓路可以自己長出來的系統；觀察、調整、繼續。</p>
+    <p>VAS 就是這樣誕生的：一開始沒有「要做一個上架 App Store 的產品」這個終點。只有「不然我們來做一個截圖軟體好了」這個方向。然後一個 Sprint 接一個 Sprint，路自己長出來。長到某一天，發現已經可以送審了。</p>
+    <p class="key">終點不是預先定義的，是走出來的。</p>
+  </section>
+
+  <section class="sec rise" id="sec-5">
+    <p class="no">V · Verify：整合</p>
+    <p>岸與水會在一個點上正面交會——驗收。</p>
+    <p>Verify 是這條河第一次讓計劃碰上現實。形狀是一把傘，撐開是兩段式的覆蓋，兩段都沒有問題，一個 Sprint 才算結束：</p>
+    <table>
+      <caption>Verify 的兩段</caption>
+      <thead><tr><th>段</th><th>誰</th><th>驗什麼</th><th>怎麼驗</th><th>哪一岸</th></tr></thead>
+      <tbody>
+        <tr><td>Verify① · 功能驗證</td><td>AI</td><td>邏輯層</td><td>自動化測試全綠</td><td>岸臉——線狀、可預期、機器照得到</td></tr>
+        <tr><td>Verify② · 實體驗證（QC）</td><td>PO（人）</td><td>體感層</td><td>視覺、平臺、互動順序、「哪裡怪怪的」</td><td>水臉——網狀、湧現、只有人照得到</td></tr>
+      </tbody>
+    </table>
+    <p>一個動作，兩道檢核：<strong>岸確保「把事情做對」（QA），水確保「做的是對的事」（QC）。</strong></p>
+    <p>自動化照得到的，不該消耗 PO 的時間；自動化照不到的，才是 QC 的本職。</p>
+    <p>交到 PO 手上之前，AI 先由輕至重過完自己的關卡：自動化全綠了嗎？帶著的待確認事項，哪些其實自己就能查證？這次改動的覆蓋範圍（多語／多平臺／多裝置）有沒有明白宣告？</p>
+    <p class="key">在 Verify② 被抓到的邏輯 bug，不是「QC 有找到 ✓」，是 Verify① 還缺一張本該接住它的自動化檢查網。</p>
+    <p>QC 裡的人行使的不只是驗收，是三項 PO 權利：接受／退回的最終裁量；浮現新需求與新邊界（「啊，這個情境也該接住」）；以及驗收標準的解釋權——文字與體感不一致時，體感優先，因為使用者體驗才是最終的裁判。</p>
+    <p>規格之外的邊界在 QC 浮現，不是失敗，是遇上「未知的未知」時的必然：補進 TDD、寫進 KM、加一條回歸測試。沒寫 KM 才是失敗。</p>
+    <p>Verify 是岸與水即時的合流——岸確保把事情做對，水確保做的是對的事。兩段都綠，這個 Sprint 才真的抵達。而水在這裡照出的收穫，會往下流進下一段：沉澱，還是結晶。</p>
   </section>
 
   <section class="sec rise" id="sec-6">
-    <p class="no">VI · 文件與流程的關係</p>
-    <h3>人類只決定時機，不寫內容</h3>
-    <p>在這個系統裡，連文件都是 Claude 自己在記錄的，不是人類。人類做的事情只有一件：決定什麼時機點該記錄。</p>
-    <ul>
-      <li>DoR 完成時 → 該記錄 Ready 的確認</li>
-      <li>SDD 定義時 → 該記錄規格</li>
-      <li>DoD 確認時 → 該記錄完成標準</li>
-      <li>踩到坑時 → 該記錄進 KM</li>
-      <li>Sprint 結束時 → 該記錄 Retro</li>
-    </ul>
-    <p>人類不寫這些文件的內容。人類只是說：「現在該記了。」然後 Claude 自己寫。</p>
-    <h3>文件嵌進流程，成為系統的一部分</h3>
-    <p>這些記錄的時機點不是隨機的，而是嵌進工作流裡的。</p>
-    <div class="flow">DoR → <em>[記錄]</em> → Explore① → SDD → <em>[記錄]</em> → DoD → <em>[記錄]</em> → TDD → <em>[記錄]</em> → …</div>
-    <p>每個閘門都是一個記錄點。文件不是「做完之後補的文檔」，而是流程的一部分。通過閘門＝留下記錄。</p>
-    <h3>系統自己運轉</h3>
-    <p>當文件嵌進流程，系統就會自己運轉：流程走到某個節點；節點觸發記錄；Claude 執行記錄；記錄成為下一個 session 的 Context；循環繼續。</p>
-    <p>人類不需要追著進度跑。人類不需要提醒「該寫文件了」。系統設計好了，文件就會隨著流程自己產生。而產生的文件，成為了 Claude 明確前進的軌道。</p>
+    <p class="no">VI · 沉澱與結晶</p>
+    <!-- WIP: 框架待寫，以下為待重織的原料 -->
     <h3>每段文字都有一個家</h3>
     <p>「何時記」之外，還有一個同樣重要的問題：「記到哪裡」。</p>
     <p>系統裡的文件不是一份，是好幾種——每天都要遵守的規則、需要時才查的程序、踩過坑的教訓、還在追蹤的問題、欠著沒做的事。它們的性質不同，家就不同。落筆之前先問一個問題：<strong>這個東西在本質上是什麼？</strong>先分流，再落筆。</p>
@@ -396,12 +420,6 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     </ul>
     <p>為什麼要這麼講究？因為一個真實的教訓：<strong>無家的文字會被最近的容器吸收。</strong>一段不知道該放哪的記錄，會就近塞進某份不屬於它的文件——而且發生的當下沒有任何警報，寫起來的手感跟放對地方時一模一樣。等到需要它的那天，它在錯的地方，等於不存在。</p>
     <p class="key">讓每段文字都放在流程中能被看得到的地方——這就是讓「活文件」成立的代價與條件。</p>
-    <h3>方向，而非終點</h3>
-    <p>這裡有一個關鍵的思維轉換：人類只需要確保軌道朝著想要的方向前進，不一定需要明確的終點。</p>
-    <p>傳統專案管理說：先定義終點；然後規劃路徑；按照計畫執行。</p>
-    <p>僕人式領導說：先確認方向；設計讓路可以自己長出來的系統；觀察、調整、繼續。</p>
-    <p>VAS 就是這樣誕生的：一開始沒有「要做一個上架 App Store 的產品」這個終點。只有「不然我們來做一個截圖軟體好了」這個方向。然後一個 Sprint 接一個 Sprint，路自己長出來。長到某一天，發現已經可以送審了。</p>
-    <p class="key">終點不是預先定義的，是走出來的。</p>
     <h3>僕人式領導的極致</h3>
     <table>
       <thead><tr><th>傳統做法</th><th>僕人式領導</th></tr></thead>
@@ -476,11 +494,11 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
   <a class="dot-nav-item" href="#sec-1"><span class="dn-label">核心問題</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">工作流軌道</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">具體實踐</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">河道</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">僕人式領導</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">文件與流程</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-2"><span class="dn-label">河道</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-3"><span class="dn-label">岸</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-4"><span class="dn-label">水</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-5"><span class="dn-label">Verify</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sec-6"><span class="dn-label">沉澱與結晶</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-7"><span class="dn-label">三柱關係</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sec-8"><span class="dn-label">小結</span><span class="dn-dot"></span></a>
 </nav>
