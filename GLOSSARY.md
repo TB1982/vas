@@ -180,11 +180,19 @@ I · 殘響        echo.html         I · ECHOES          I · 残響 · ECHOES 
   頁二 · 協作    collab.html       Page II · Collab    第二話 · 協作              页二 · 协作
   頁三 · 信念    context.html      Page III · Trust    第三話 · 信頼              页三 · 信念
   頁四 · 自己    self.html         Page IV · Self      第四話 · 自分              页四 · 自己
-II · 系統       harness.html      II · SYSTEM         II · システム · SYSTEM    II · 系统 · SYSTEM
-  └ (mirror) us.html              Chapter II · ⓘ      Chapter II · ⓘ            Chapter II · ⓘ
-III · 里程碑    milestone.html    III · Milestones    III · マイルストーン       III · 里程碑
+  頁五 · 系統    harness.html      Page V · System     第五話 · システム          页五 · 系统
+  頁六 · 我們    us.html           Page VI · Us        第六話 · 私たち            页六 · 我们
+里程碑          milestone.html    Milestones          マイルストーン            里程碑
                                   · CHRONICLE          · CHRONICLE                · CHRONICLE
 ```
+
+**2026-06 IA redesign — folded harness/us into 殘響.** The standalone "II · 系統" chapter dissolved: `harness.html` became 殘響's **頁五 · 系統**, `us.html` (its mirror) became **頁六 · 我們**. The methodology proper now lives on the 思 side (the three pillars under `/harness/`); `harness.html` is 殘響's gateway into them. `milestone.html` is reached from instrument's acquire section (器 side), no longer numbered "III". harness/us keep their Design-special breathing lights (`.trail-dot` / three-dot `.chapter-trail`) — preserve verbatim through any relabel.
+
+**殘響 = instrument's 鏡廊 (Mirror Hall).** The six chapters are three mirror pairs (外 user-facing / 內 dev-reflection): 設計↔協作 · 信念↔自己 · 系統↔我們. instrument's 鏡廊 section title links to `echo.html` and its lead reads 「開發歷程的殘響」 to bind the two names.
+
+**章末 pager (left-right `.passage-nav`, in `css/shell.css`).** Each chapter ends with a prev/next pager along one continuous zigzag:
+`鏡廊(殘響) → 頁一設計 → 頁二協作 → 頁三信念 → 頁四自己 → 頁五系統 → 頁六我們 → 冊(思/treatise)`.
+insight's prev = 鏡廊/殘響 (`echo.html`); us's next = **冊 · 思** (`treatise.html`). **冊** (a bound volume) is a neutral, non-sequential word marking the density shift from 頁 (essay-pages) to the treatise — deliberately *not* 終章, the story continues. Labels per locale: 頁N / Page N / 第N話 (ja, locked §6) / 页N — pager + colophons + chapter headers all unified.
 
 Deep-layer sub-pages (sitemap-only, not in main nav):
 
