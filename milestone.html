@@ -746,21 +746,6 @@
 <script src="i18n/core.js"></script>
 <script>
 (function () {
-  function applyLang(lang) {
-    VASCore.loadLang(lang, function (t) {
-      var merged = Object.assign({}, t.shared || {});
-      var chronicle = t.chronicle || {};
-      Object.keys(chronicle).forEach(function (k) { merged['chronicle.' + k] = chronicle[k]; });
-      var h2 = t.home2 || {};
-      Object.keys(h2).forEach(function (k) { merged['home2.' + k] = h2[k]; });
-      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-        var key = el.getAttribute('data-lang-key');
-        if (merged[key] !== undefined) el.innerHTML = merged[key];
-      });
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
-    });
-    VASCore.updateDropdown(lang);
-  }
 
   function initDotNav() {
     var items = document.querySelectorAll('.dot-nav-item');
