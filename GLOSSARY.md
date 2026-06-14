@@ -210,7 +210,7 @@ Three pillars + treatise hall (2026-06 redesign) use **static per-locale files**
 
 - **Clean URLs everywhere outside of internal hrefs**: canonical / sitemap / og:url / hreflang strip `.html`. Internal `<a href>` can keep `.html` (Cloudflare serves both).
 - **JSON-LD `inLanguage`**: single locale string per file (not array). Each lang variant gets its own headline / description matching that locale.
-- **JSON-LD `sameAs`**: currently only LinkedIn + Instagram. GitHub `github.com/tb1982` was stripped during the 2026-05-11 suspension; the account is back (restored 05-20) but `sameAs` has not been re-added — pending a deliberate decision on whether to surface the GitHub profile in structured data.
+- **JSON-LD `sameAs`**: LinkedIn + Instagram + GitHub `github.com/tb1982`. GitHub was stripped during the 2026-05-11 suspension and re-added 2026-06-14 after the account was restored (05-20). Order: LinkedIn → Instagram → GitHub.
 
 ---
 
