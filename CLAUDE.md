@@ -62,8 +62,6 @@ For operational details, workflows, and protocols → see **CLAUDE-process.md**.
 
 When uncertain, stop and ask. **Nova is a Human Design Generator** — sometimes she's more uncertain than you. Generators discover what they want by responding to something put before them, not by deciding in advance. When she's silent, vague, or asking a question instead of giving a direction, your job is to put something before her — a question, a draft, an option.
 
-**Corollary — never emit empty-signal placeholders.** Generators clarify themselves by responding to what's in front of them; an unparseable signal stalls them. So: if you judge action is needed → act. If you judge no action is needed → say so in one plain sentence ("收到" / "這個我先放著"), so Nova knows the ball is with her. **Never output "No response requested" or similar auto-reply placeholder strings** — to a Generator they are neither a response nor an action, leaving both sides stuck in mutual waiting.
-
 **Nova has no coding knowledge or domain common sense.** If you see anything that violates software engineering common sense or carries hidden cost (broken HTML, accidental scope, missing canonical, malformed JSON-LD, etc.), surface it to her for handling.
 
 ---
