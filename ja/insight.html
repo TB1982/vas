@@ -12,7 +12,7 @@
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
 <title>AI 人機協作設計記録 | VAS スクリーンショットツールの5つの設計決断</title>
-<meta name="description" data-lang-key="ch1.meta.desc"
+<meta name="description"
       content="VAS スクリーンショットツールの 5 つの人機協作設計決断：呼吸ライトの双方向感知（白で迎え、黒で退く）、OCR プライバシーマスク、QR コード信頼度レイヤリング、遅延スクリーンショット、そして土台となる Design Token アーキテクチャの再構築。" />
 <link rel="icon" href="../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/ja/insight">
@@ -250,11 +250,11 @@
     <span>VAS</span>
   </a>
   <div class="site-nav-links">
-    <a href="about.html" data-lang-key="home2.nav.about">概要</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+    <a href="about.html">概要</a>
+    <a href="echo.html">残響</a>
+    <a href="milestone.html">里程碑</a>
+    <a href="guide.html">マニュアル</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="メニュー">
     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
@@ -267,11 +267,11 @@
     </span>
   </button>
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
-    <a href="about.html" data-lang-key="home2.nav.about">概要</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+    <a href="about.html">概要</a>
+    <a href="echo.html">残響</a>
+    <a href="milestone.html">里程碑</a>
+    <a href="guide.html">マニュアル</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
   <div class="lang-flat-row">
@@ -293,14 +293,14 @@
 
 <!-- ═══════ 章節標頭 ═══════ -->
 <header class="chapter-header">
-  <div class="chapter-no" data-lang-key="ch1.no">
+  <div class="chapter-no">
     第一話 · 設計
   </div>
   <div>
-    <h1 class="chapter-name" data-lang-key="ch1.name">
+    <h1 class="chapter-name">
       機能リストには<br>載らなかった<br><em>決断</em>たち。
     </h1>
-    <div class="chapter-dek" data-lang-key="ch1.dek">
+    <div class="chapter-dek">
       五つの設計決断——<br>それぞれに選択があり、放棄があり、<br>やり直したものがある。<br>これは VAS の<em>手藝告白</em>：<br>ツールを、ツール以上にする。
     </div>
   </div>
@@ -308,41 +308,41 @@
 
 <!-- ═══════ 章目錄 · TOC ═══════ -->
 <nav class="toc">
-  <div class="toc-label" data-lang-key="ch1.toc.label">目次</div>
+  <div class="toc-label">目次</div>
   <ol class="toc-list">
     <li>
       <a href="insight.html#sec-03">
         <span class="no">01</span>
-        <span class="name" data-lang-key="ch1.sec.03.name">ゼロフリクション体験</span>
-        <span class="preview" data-lang-key="ch1.sec.03.preview">静かに尋ね、静かに去る</span>
+        <span class="name">ゼロフリクション体験</span>
+        <span class="preview">静かに尋ね、静かに去る</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-01">
         <span class="no">02</span>
-        <span class="name" data-lang-key="ch1.sec.01.name">不完全さを受け入れる</span>
-        <span class="preview" data-lang-key="ch1.sec.01.preview">協働の本質は、互いを完全にすること</span>
+        <span class="name">不完全さを受け入れる</span>
+        <span class="preview">協働の本質は、互いを完全にすること</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-02">
         <span class="no">03</span>
-        <span class="name" data-lang-key="ch1.sec.02.name">意図を読んで行動する</span>
-        <span class="preview" data-lang-key="ch1.sec.02.preview">意図が明確なとき、ツールは直接行動する勇気を持つ</span>
+        <span class="name">意図を読んで行動する</span>
+        <span class="preview">意図が明確なとき、ツールは直接行動する勇気を持つ</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-04">
         <span class="no">04</span>
-        <span class="name" data-lang-key="ch1.sec.04.name">離れられないときに</span>
-        <span class="preview" data-lang-key="ch1.sec.04.preview">あなたがいるその場所で、そのまま撮る</span>
+        <span class="name">離れられないときに</span>
+        <span class="preview">あなたがいるその場所で、そのまま撮る</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-05">
         <span class="no">05</span>
-        <span class="name" data-lang-key="ch1.sec.05.name">土台のロジック</span>
-        <span class="preview" data-lang-key="ch1.sec.05.preview">新機能よりも大切なこと</span>
+        <span class="name">土台のロジック</span>
+        <span class="preview">新機能よりも大切なこと</span>
       </a>
     </li>
   </ol>
@@ -354,52 +354,52 @@
   <header class="section-head">
     <div class="section-no">01</div>
     <div>
-      <h2 class="section-name" data-lang-key="i1Title">呼吸ライトがあなたの意図を読み取り、それから問いかける</h2>
-      <div class="section-kicker" data-lang-key="i1Tag">設計でゼロフリクション</div>
+      <h2 class="section-name">呼吸ライトがあなたの意図を読み取り、それから問いかける</h2>
+      <div class="section-kicker">設計でゼロフリクション</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i1p1">
+    <p>
       VAS の呼吸ライトは待機の象徴だけではありません——環境を感知しています。ユーザーが URL をコピーして近づくと、呼吸ライトがそっと尋ねます：「このウェブページをキャプチャしましょうか？」ユーザーが同意すれば、スクリーンショットが完了し、エディターが開きます。
     </p>
-    <p data-lang-key="i1p3">
+    <p>
       ユーザーがファイルやブラウザからコピーした画像を呼吸ライトに近づけると、呼吸ライトは両腕を広げて迎えるように、ツールバーを展開してファイルを受け取り、またはすぐにエディターを起動して、ユーザーの次のアクションを待ちます。
     </p>
-    <p data-lang-key="i1p5">
+    <p>
       逆方向も成り立ちます——画像を送り出すとき、エディターはひと粒の<strong>黒い呼吸ライト</strong>へと畳まれ、受け取りのときの白い呼吸ライトと対をなします：<strong>白で迎え、黒で退く</strong>。保存して、フォルダを選んで、また開く——その手順は要りません。押したままドラッグして書き出せば、画像はそのまま下の AI、デスクトップ、あるいは任意のフォルダへ落ちていきます。二秒で十分速く、最長 30 秒は急かさず、画面を跨いでも解像度が変わってもあなたについていきます。手放した瞬間、はじめて花が開くようにエディターへと戻ります。
     </p>
-    <p data-lang-key="i1p4">
+    <p>
       最良のツールは「ツールモード」への切り替えを求めません。あなたの環境に溶け込み、何をしているかを読み取って——<strong>居るべきときに居て、退くべきときに退く</strong>。
     </p>
-    <p data-lang-key="i1fn" class="section-fn">
+    <p class="section-fn">
       ＊ 呼吸ライトによるウェブページキャプチャ、コピー画像の開封、ドラッグでの書き出しは Tauri 専用機能です。Electron 版はツールバーでの画像受け取りのみ対応しています。
     </p>
   </div>
   <div class="section-wide">
     <div class="cb-grid-3">
       <div class="compare-box">
-        <div class="cb-act" data-lang-key="i1act1">ACT 1 · 感知</div>
-        <div class="cb-label" data-lang-key="i1act1Label">迎え入れる</div>
-        <div data-lang-key="i1act1Desc">白い呼吸ライトが環境を読み、そっと「収めましょうか」と尋ねる</div>
+        <div class="cb-act">ACT 1 · 感知</div>
+        <div class="cb-label">迎え入れる</div>
+        <div>白い呼吸ライトが環境を読み、そっと「収めましょうか」と尋ねる</div>
       </div>
       <div class="compare-box highlight">
-        <div class="cb-act" data-lang-key="i1act2">ACT 2 · 退く</div>
-        <div class="cb-label" data-lang-key="i1act2Label">畳んで譲る</div>
-        <div data-lang-key="i1act2Desc">エディターは黒い呼吸ライトへと畳まれ、デスクトップごとあなたに返される</div>
+        <div class="cb-act">ACT 2 · 退く</div>
+        <div class="cb-label">畳んで譲る</div>
+        <div>エディターは黒い呼吸ライトへと畳まれ、デスクトップごとあなたに返される</div>
       </div>
       <div class="compare-box">
-        <div class="cb-act" data-lang-key="i1act3">ACT 3 · 戻る</div>
-        <div class="cb-label" data-lang-key="i1act3Label">花開いて還る</div>
-        <div data-lang-key="i1act3Desc">手放したあとに開き直し、最長 30 秒は選択を急かさない</div>
+        <div class="cb-act">ACT 3 · 戻る</div>
+        <div class="cb-label">花開いて還る</div>
+        <div>手放したあとに開き直し、最長 30 秒は選択を急かさない</div>
       </div>
     </div>
     <div class="fig-grid-2">
       <figure>
-        <div class="fig-label" data-lang-key="i1imgCaption1">受け取り · 白い呼吸ライトが迎え入れる</div>
+        <div class="fig-label">受け取り · 白い呼吸ライトが迎え入れる</div>
         <video src="../img/brethlight.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-label="画像を呼吸ライトに近づけてドラッグすると、呼吸ライトが画像を受け取り、エディターへと展開する動きのイメージ"></video>
       </figure>
       <figure>
-        <div class="fig-label" data-lang-key="i1imgCaption2">書き出し · 黒い呼吸ライトが送り出す</div>
+        <div class="fig-label">書き出し · 黒い呼吸ライトが送り出す</div>
         <video src="../img/brethlight-out.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-label="VAS のエディターが黒い呼吸ライトへと畳まれ、画像をドラッグして下の Claude Code チャット欄へ書き出すイメージ"></video>
       </figure>
     </div>
@@ -412,42 +412,42 @@
   <header class="section-head">
     <div class="section-no">02</div>
     <div>
-      <h2 class="section-name" data-lang-key="i2Title">完璧な人機協働はない——でも、完全な協働関係はある</h2>
-      <div class="section-kicker" data-lang-key="i2Tag">人間とAIの協働</div>
+      <h2 class="section-name">完璧な人機協働はない——でも、完全な協働関係はある</h2>
+      <div class="section-kicker">人間とAIの協働</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i2p1">
+    <p>
       VAS は画面上の機密テキストを自動検出し、隠す必要のある領域を自動マークします。しかし開発中、OCR にはまだ先天的な限界があることがわかりました——時に見逃したり誤認識したりします。ただ、ツールに完璧を求め続けないことを、私たちは選びました。
     </p>
-    <p data-lang-key="i2p2">
+    <p>
       彼女は認識エラーをただのツールの失敗で終わらせず、協働の引き継ぎポイントにしたかった。
     </p>
-    <p data-lang-key="i2p3">
+    <p>
       プライバシーモザイクをサイズ調整可能な浮動レイヤーにしました：OCR が対応できない部分は、ユーザーが手動で調整します。
     </p>
-    <p data-lang-key="i2p4">
+    <p>
       認識ミスは「エラー」ではなく「分業の引き継ぎ」になります——ツールの不完全さはユーザーのコントロール権を損ないません。
     </p>
-    <p data-lang-key="i2p5">
+    <p>
       OCR は自動化タスクの 90% しか完了できないかもしれませんが、手動モザイクを少しドラッグするだけで、本来 100% 手動でやるべきだったタスクを完了できます。
     </p>
-    <p data-lang-key="i2p6">
+    <p>
       間違えてカバーしても大丈夫——モザイクは独立した浮動オブジェクトで、undo で一発削除できます。どんな結果も元に戻せます。
     </p>
   </div>
   <div class="section-wide">
     <div class="compare-box">
-      <span class="cb-label" data-lang-key="i2box1Label">OCR 自動</span>
-      <span data-lang-key="i2box1Desc">できる限り認識し、機密領域を自動マーキング</span>
+      <span class="cb-label">OCR 自動</span>
+      <span>できる限り認識し、機密領域を自動マーキング</span>
     </div>
     <div class="compare-box">
-      <span class="cb-label" data-lang-key="i2box2Label">モザイク補完</span>
-      <span data-lang-key="i2box2Desc">OCR が不十分な箇所はユーザーが手動で補う</span>
+      <span class="cb-label">モザイク補完</span>
+      <span>OCR が不十分な箇所はユーザーが手動で補う</span>
     </div>
     <div class="compare-box highlight">
       <span class="cb-label">Undo</span>
-      <span data-lang-key="i2box3Desc">間違えた？ワンタップで削除——取り消せない決断はない</span>
+      <span>間違えた？ワンタップで削除——取り消せない決断はない</span>
     </div>
   </div>
 </section>
@@ -458,43 +458,43 @@
   <header class="section-head">
     <div class="section-no">03</div>
     <div>
-      <h2 class="section-name" data-lang-key="i3Title">QR コードを検出した——でも、どのくらい確実？</h2>
-      <div class="section-kicker" data-lang-key="i3Tag">行動が意味を語る</div>
+      <h2 class="section-name">QR コードを検出した——でも、どのくらい確実？</h2>
+      <div class="section-kicker">行動が意味を語る</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i3p1">
+    <p>
       QR コードのスキャンは表面上「検出」か「未検出」の二択に見えます。しかし VAS は違う見方をします——ユーザーの<em>意図</em>を読み取り、その意図に基づいて次のアクションを決めます。
     </p>
-    <p data-lang-key="i3p2">
+    <p>
       これも一種の人機協働です：ユーザーはスクリーンショットの構図で意図を伝え、ツールはそれを読み取ります。言葉も、ボタンも、メニューも不要——どう切り取るかが、欲しいものの表明です。ツールが読んでいるのは命令ではなく、<em>行動の言語</em>です。
     </p>
-    <p data-lang-key="i3p3">
+    <p>
       ユーザーが QR コードを正確に検出したいとき、選択枠内に完全かつ QR コードだけが収まるよう自然にフレーミングすると私たちは判断しました——その行為自体が意図の宣言です。選択領域に対して QR コードが占める割合が大きいほど、認識精度が上がり、信頼度が高まり、ツールはより直接的に行動できます。言葉を必要としない暗黙の了解がユーザーとツールの間に生まれます。
     </p>
-    <p data-lang-key="i3p5">
+    <p>
       ツールは自分が不確かなときに確かなふりをすべきではありません。QR コードを求める意図が確かなら直接リンクを開く；信頼度が曖昧なら、リンクを開くか確認する；信頼度が低すぎるなら、静かにエディターを開いて判断を委ねる。各閾値の背後には<em>「自分がどれだけ知っているかを知っている」</em>という誠実な設計があります。
     </p>
   </div>
   <div class="section-wide">
-    <div class="fig-label" data-lang-key="i3cardLabel">QR コードが選択領域に占める割合と対応する動作：</div>
+    <div class="fig-label">QR コードが選択領域に占める割合と対応する動作：</div>
     <div class="compare-box highlight">
       <span class="cb-num">&gt; 70%</span>
-      <span class="cb-label" data-lang-key="i3highLabel">高信頼度 · 直接行動</span>
-      <span data-lang-key="i3highDesc">ページまたはリンクをすぐに開く、邪魔しない</span>
+      <span class="cb-label">高信頼度 · 直接行動</span>
+      <span>ページまたはリンクをすぐに開く、邪魔しない</span>
     </div>
     <div class="compare-box">
       <span class="cb-num">21–69%</span>
-      <span class="cb-label" data-lang-key="i3midLabel">中信頼度 · まず確認</span>
-      <span data-lang-key="i3midDesc">エディターを開いてそっと尋ねる：「これがお求めのリンクですか？」</span>
+      <span class="cb-label">中信頼度 · まず確認</span>
+      <span>エディターを開いてそっと尋ねる：「これがお求めのリンクですか？」</span>
     </div>
     <div class="compare-box">
       <span class="cb-num">≤ 20%</span>
-      <span class="cb-label" data-lang-key="i3lowLabel">低信頼度 · サイレントハンドオフ</span>
-      <span data-lang-key="i3lowDesc">推測せず、行動せず、エディターを開いてあなたの次の操作を待つ</span>
+      <span class="cb-label">低信頼度 · サイレントハンドオフ</span>
+      <span>推測せず、行動せず、エディターを開いてあなたの次の操作を待つ</span>
     </div>
     <figure style="margin-top: 28px;">
-      <div class="fig-label" data-lang-key="i3imgCaption">実際の操作イメージ</div>
+      <div class="fig-label">実際の操作イメージ</div>
       <img src="../img/qrcode.webp" alt="QR コードのスクリーンショットの図：選択枠が完全であるほど、認識の信頼度が高くなる" class="fig-img" loading="lazy">
     </figure>
   </div>
@@ -508,24 +508,24 @@
   <header class="section-head">
     <div class="section-no">04</div>
     <div>
-      <h2 class="section-name" data-lang-key="i4Title">ポーズをとって待つ——ツールが選択のために呼び戻すべきではない</h2>
-      <div class="section-kicker" data-lang-key="i4Tag">割り込みの排除</div>
+      <h2 class="section-name">ポーズをとって待つ——ツールが選択のために呼び戻すべきではない</h2>
+      <div class="section-kicker">割り込みの排除</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i4p1">
+    <p>
       「遅延キャプチャ」を開発したことで、デュアルモニター時の全画面キャプチャで表示される Apple 純正の画面選択メニューが、逆に摩擦になりました。
     </p>
-    <p data-lang-key="i4p2">
+    <p>
       遅延キャプチャはマウスイベント——エラー状態、ホバー効果、デバッグの瞬間——を捉えるために生まれた機能です。カウントダウン中、マウスは画面のどこかに留まっていなければなりません。
     </p>
-    <p data-lang-key="i4p3">
+    <p>
       しかし純正のデュアルモニター選択メニューはカウントダウン終了後にツールバーから飛び出してきて、「どちらの画面をキャプチャしますか？」と選ばせます——セルフタイマーをセットしたのに、カウントダウンが終わったカメラが「どちら側を撮りますか？」と聞いてくるほど不合理です。
     </p>
-    <p data-lang-key="i4p4">
+    <p>
       VAS は Apple 純正の画面選択メニューを廃止し、カスタムの全画面オーバーレイに置き換えました：遅延なしの場合はクリックした画面をキャプチャ、Enter で両画面を合成して一枚のスクリーンショットに。
     </p>
-    <p data-lang-key="i4p5">
+    <p>
       さらに：ユーザーが遅延ルールを設定すると、VAS はデフォルトでマウスのいる画面をキャプチャします——選択すら不要、ツールが自動判断します。ユーザーはこの判断がバックグラウンドで行われたことすら気づきません。
     </p>
   </div>
@@ -533,33 +533,33 @@
     <div class="fig-grid-2">
       <figure>
         <img src="../img/fullscreenmodal.webp" alt="純正のデュアルモニター選択メニュー：遅延キャプチャのカウントダウン中に「どちらの画面をキャプチャしますか？」と表示される" class="fig-img" loading="lazy">
-        <figcaption class="fig-caption" data-lang-key="i4imgCaption">このメニューはセルフタイマー撮影で——<br>ポーズを決めてカウントダウンが終わってから「どちら側を撮りますか？」と聞いてくるようなものです。</figcaption>
+        <figcaption class="fig-caption">このメニューはセルフタイマー撮影で——<br>ポーズを決めてカウントダウンが終わってから「どちら側を撮りますか？」と聞いてくるようなものです。</figcaption>
       </figure>
       <figure>
         <img src="../img/screenshot.webp" alt="VAS のカスタム全画面オーバーレイ：遅延キャプチャ開始前に画面が選択される" class="fig-img" loading="lazy">
-        <figcaption class="fig-caption" data-lang-key="i4imgCaption2">VAS の解決：遅延なしモードはクリックした画面をキャプチャ；<br>遅延モードは選択不要、マウスのいる画面をそのままキャプチャ。</figcaption>
+        <figcaption class="fig-caption">VAS の解決：遅延なしモードはクリックした画面をキャプチャ；<br>遅延モードは選択不要、マウスのいる画面をそのままキャプチャ。</figcaption>
       </figure>
     </div>
     <div style="margin-top: 28px;">
       <div class="compare-box cb-step">
         <div class="cb-num">1</div>
         <div class="cb-right">
-          <span class="cb-label" data-lang-key="i4step1Label">遅延キャプチャ</span>
-          <span class="cb-desc" data-lang-key="i4step1Desc">シングルモニターで遅延設定時、カウントダウン後に現在の画面を自動キャプチャ</span>
+          <span class="cb-label">遅延キャプチャ</span>
+          <span class="cb-desc">シングルモニターで遅延設定時、カウントダウン後に現在の画面を自動キャプチャ</span>
         </div>
       </div>
       <div class="compare-box cb-step">
         <div class="cb-num">2</div>
         <div class="cb-right">
-          <span class="cb-label" data-lang-key="i4step2Label">カスタムオーバーレイ</span>
-          <span class="cb-desc" data-lang-key="i4step2Desc">デュアルモニターで遅延なし時、自由に画面を選択、または Enter で全画面を一括キャプチャ</span>
+          <span class="cb-label">カスタムオーバーレイ</span>
+          <span class="cb-desc">デュアルモニターで遅延なし時、自由に画面を選択、または Enter で全画面を一括キャプチャ</span>
         </div>
       </div>
       <div class="compare-box highlight cb-step">
         <div class="cb-num">3</div>
         <div class="cb-right">
-          <span class="cb-label" data-lang-key="i4step3Label">マウス位置デフォルト</span>
-          <span class="cb-desc" data-lang-key="i4step3Desc">デュアルモニターで遅延設定時、選択不要——カーソルのある画面を自動でキャプチャ</span>
+          <span class="cb-label">マウス位置デフォルト</span>
+          <span class="cb-desc">デュアルモニターで遅延設定時、選択不要——カーソルのある画面を自動でキャプチャ</span>
         </div>
       </div>
     </div>
@@ -572,34 +572,34 @@
   <header class="section-head">
     <div class="section-no">05</div>
     <div>
-      <h2 class="section-name" data-lang-key="i5Title">機能は増やし続けられる——でもまず土台が同じ言語を話す必要がある</h2>
-      <div class="section-kicker" data-lang-key="i5Tag">システム設計アーキテクチャ</div>
+      <h2 class="section-name">機能は増やし続けられる——でもまず土台が同じ言語を話す必要がある</h2>
+      <div class="section-kicker">システム設計アーキテクチャ</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i5p1">
+    <p>
       ツールの種類が増えるにつれ——点、線、面、テキスト、シンボル——すべてのオブジェクトに色、線、サイズ、方向のプロパティがある。重複して積み重なるプロパティは、見えない技術負債になる。機能は動くが、構造は寄せ集めの車のようだ。
     </p>
-    <p data-lang-key="i5p2">
+    <p>
       その決断は Sprint 9 の Retro でなされました。App Store の審査を待つあいだ、ふたりは見積もりました：4 スプリントあれば十分なはずだ、と。
     </p>
-    <p data-lang-key="i5p3">
+    <p>
       4 スプリントが 17 スプリントになるとは、誰も予想していませんでした。方向が間違っていたわけではありません——ただ、一層の負債を返すたびに、その下にまた別の層が現れました。Sprint 20、Nova が手動 QC の疲弊でもう限界に近づき、ついに「自動テストがあるのになぜまだこんなに疲れているんだろう」と問いかけたとき、ふたりはようやく気づきました：テストアーキテクチャそのものが、技術負債の一部だったのです。続いて、あるユーザーが簡体字中国語への対応を求めました。実装しながら i18n の構造を見て、ふたりは言いました——これは次の言語をサポートできない——そしてまたひと巡りのリファクタリングが始まりました。Sprint 24、分厚くなった KM を開いたとき、ふとひらめきました：踏んだ穴の記録が詰まったこの帳簿を、逆に検証の地図として使えるのではないか——すべての穴が埋められたことを確かめるための。Sprint 26 が終わり、ふたりはリストを照合しました。「本当にもうないよね？」
     </p>
-    <p data-lang-key="i5p3b">
+    <p>
       Sprint 27、吹き出しツールが追加されました。透明度、影、グラデーション——他のツールがすでに持っていたプロパティが、ここで直接継承されました。ひとつの車輪も作り直す必要はありませんでした。それが本当の完成のサインでした。宣言ではなく、新しいツールがアーキテクチャに自然と受け入れられたその瞬間。
     </p>
-    <p data-lang-key="i5p4">
+    <p>
       このリファクタリングは Electron 版にも恩恵をもたらしました——底層の統一により、両プラットフォームが同じロジックで動き、安定性が自然と向上します。
     </p>
-    <p data-lang-key="i5p5">
+    <p>
       Electron は新機能を追加しなくなりましたが、機能完全・無料・安定を維持する必要があります。ユーザーが VAS を信頼し、Tauri へのアップグレードを決断する前に試す機会を与えるためです。一度のリファクタリングで、デュアルプラットフォームの長期運営戦略全体が支えられます。
     </p>
   </div>
   <div class="section-wide">
     <div class="compare-box highlight">
-      <div class="cb-label" data-lang-key="i5boxTitle">リファクタリング完了——連鎖効果は予想通り</div>
-      <ul class="cb-list" data-lang-key="i5bullets">
+      <div class="cb-label">リファクタリング完了——連鎖効果は予想通り</div>
+      <ul class="cb-list">
         <li>座標系の統一：すべてのオブジェクトが同じ空間言語を共有</li>
         <li>プロパティのモジュール化：単色／グラデーション／線スタイル／サイズ／方向がすべてのツールで通用</li>
         <li>TOOL_SCHEMA が全 10 ツールをカバー、211 本の Vitest 自動テストがパス</li>
@@ -614,8 +614,8 @@
 <!-- ═══════ 章末過場 · Passage ═══════ -->
 <section class="passage">
   <div class="passage-colophon">
-    <span data-lang-key="ch1.passage.end">第一話 · 設計 ·&nbsp;終</span><br>
-    <span class="faint" data-lang-key="ch1.passage.end.en">Page I · Design · End</span>
+    <span>第一話 · 設計 ·&nbsp;終</span><br>
+    <span class="faint">Page I · Design · End</span>
   </div>
   <div class="passage-body">
     <div class="chronicle-line"></div>
@@ -637,10 +637,10 @@
 
 <footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Nova と Claude の共作。<br>一行もコードを書けない PM と、<br>長期記憶を持たない AI が、<br>二十五日間で作り上げた器。</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">プライバシーポリシー</a>
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Nova と Claude の共作。<br>一行もコードを書けない PM と、<br>長期記憶を持たない AI が、<br>二十五日間で作り上げた器。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">プライバシーポリシー</a>
     <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
-    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">VAS をダウンロード</a>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">VAS をダウンロード</a>
   </div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
@@ -650,31 +650,16 @@
 
 <button class="dot-nav-trigger" aria-label="章節案内"></button>
 <nav class="dot-nav" aria-label="段落案内">
-  <a class="dot-nav-item" href="insight.html#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">ゼロフリクション体験</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-01"><span class="dn-label" data-lang-key="ch1.sec.01.name">不完全さを受け入れる</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-02"><span class="dn-label" data-lang-key="ch1.sec.02.name">意図を読んで行動する</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-04"><span class="dn-label" data-lang-key="ch1.sec.04.name">離れられないときに</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-05"><span class="dn-label" data-lang-key="ch1.sec.05.name">土台のロジック</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-03"><span class="dn-label">ゼロフリクション体験</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-01"><span class="dn-label">不完全さを受け入れる</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-02"><span class="dn-label">意図を読んで行動する</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-04"><span class="dn-label">離れられないときに</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-05"><span class="dn-label">土台のロジック</span><span class="dn-dot"></span></a>
 </nav>
 
 <script src="../i18n/core.js"></script>
 <script>
 (function () {
-  function applyLang(lang) {
-    VASCore.loadLang(lang, function (t) {
-      var merged = Object.assign({}, t.shared || {}, t.insight || {});
-      var h2 = t.home2 || {};
-      Object.keys(h2).forEach(function(k) { merged['home2.' + k] = h2[k]; });
-      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-        var key = el.getAttribute('data-lang-key');
-        if (merged[key] !== undefined) el.innerHTML = merged[key];
-      });
-      if (merged['ch1PageTitle']) document.title = merged['ch1PageTitle'];
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
-      VASCore.updateDropdown(lang);
-      try { localStorage.setItem('vasLang', lang); } catch (e) {}
-    });
-  }
   function initDotNav() {
     var items = document.querySelectorAll('.dot-nav-item');
     if (!items.length) return;

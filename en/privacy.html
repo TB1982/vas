@@ -173,11 +173,11 @@
     <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
   </div>
   <div class="site-nav-links">
-    <a href="about.html" data-lang-key="home2.nav.about">About</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">Echoes</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">Guide</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+    <a href="about.html">About</a>
+    <a href="echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide.html">Guide</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
   <div class="lang-flat-row">
@@ -198,43 +198,43 @@
 <!-- ═══════ 隱私權政策內容 ═══════ -->
 <main class="priv-wrap">
 
-  <p class="priv-kicker" data-lang-key="pageLabel">Legal</p>
-  <h1 class="priv-title" data-lang-key="appName">VAS Privacy Policy</h1>
-  <p class="priv-updated" data-lang-key="updatedDate">Last updated: 2026-04-03</p>
+  <p class="priv-kicker">Legal</p>
+  <h1 class="priv-title">VAS Privacy Policy</h1>
+  <p class="priv-updated">Last updated: 2026-04-03</p>
   <div class="priv-rule"></div>
 
-  <p class="priv-body" data-lang-key="intro">VAS — Visual Annotation Studio (hereinafter "the App") respects your privacy.</p>
+  <p class="priv-body">VAS — Visual Annotation Studio (hereinafter "the App") respects your privacy.</p>
 
   <article class="priv-section">
-    <h2 data-lang-key="s1.h2">Data Collection</h2>
-    <p data-lang-key="s1.p">The App does not collect, store, or transmit any personal data. All image processing (including OCR text recognition and privacy masking scans) is performed locally on your device and never sent to any server.</p>
+    <h2>Data Collection</h2>
+    <p>The App does not collect, store, or transmit any personal data. All image processing (including OCR text recognition and privacy masking scans) is performed locally on your device and never sent to any server.</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s2.h2">System Permissions</h2>
-    <p data-lang-key="s2.p">The App requires screen recording permission to perform screenshot capture. This permission is used solely for screenshots and for no other purpose.</p>
+    <h2>System Permissions</h2>
+    <p>The App requires screen recording permission to perform screenshot capture. This permission is used solely for screenshots and for no other purpose.</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s3.h2">Network Access</h2>
-    <p data-lang-key="s3.p">The App uses a network connection only when checking for updates. No user data is uploaded.</p>
+    <h2>Network Access</h2>
+    <p>The App uses a network connection only when checking for updates. No user data is uploaded.</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s4.h2">Third-Party Services</h2>
-    <p data-lang-key="s4.p">The App does not use any third-party analytics, advertising, or tracking services.</p>
+    <h2>Third-Party Services</h2>
+    <p>The App does not use any third-party analytics, advertising, or tracking services.</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s5.h2">Contact</h2>
-    <p data-lang-key="s5.p">For any privacy-related questions, please contact: <a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a></p>
+    <h2>Contact</h2>
+    <p>For any privacy-related questions, please contact: <a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a></p>
   </article>
 
 </main>
 
 <!-- ═══════ 頁尾 ═══════ -->
 <footer class="site-footer">
-  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;" data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
     <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
@@ -243,18 +243,6 @@
 
 <script>
 (function () {
-  function applyLang(lang) {
-    VASCore.loadLang(lang, function (t) {
-      var merged = Object.assign({}, t.shared || {}, t.privacy || {});
-      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-        var key = el.getAttribute('data-lang-key');
-        if (merged[key] !== undefined) el.innerHTML = merged[key];
-      });
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
-      VASCore.updateDropdown(lang);
-      try { localStorage.setItem('vasLang', lang); } catch (e) {}
-    });
-  }
   function init() {  }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

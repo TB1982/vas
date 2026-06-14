@@ -173,11 +173,11 @@
     <a href="index.html" style="color:inherit;text-decoration:none;">VAS</a>
   </div>
   <div class="site-nav-links">
-    <a href="about.html" data-lang-key="home2.nav.about">關於</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">殘響</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">手冊</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+    <a href="about.html">關於</a>
+    <a href="echo.html">殘響</a>
+    <a href="milestone.html">里程碑</a>
+    <a href="guide.html">手冊</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
   <div class="lang-flat-row">
@@ -198,43 +198,43 @@
 <!-- ═══════ 隱私權政策內容 ═══════ -->
 <main class="priv-wrap">
 
-  <p class="priv-kicker" data-lang-key="pageLabel">Legal</p>
-  <h1 class="priv-title" data-lang-key="appName">VAS 隱私權政策</h1>
-  <p class="priv-updated" data-lang-key="updatedDate">最後更新：2026-04-03</p>
+  <p class="priv-kicker">Legal</p>
+  <h1 class="priv-title">VAS 隱私權政策</h1>
+  <p class="priv-updated">最後更新：2026-04-03</p>
   <div class="priv-rule"></div>
 
-  <p class="priv-body" data-lang-key="intro">VAS — Visual Annotation Studio（以下簡稱「本應用程式」）尊重您的隱私。</p>
+  <p class="priv-body">VAS — Visual Annotation Studio（以下簡稱「本應用程式」）尊重您的隱私。</p>
 
   <article class="priv-section">
-    <h2 data-lang-key="s1.h2">資料收集</h2>
-    <p data-lang-key="s1.p">本應用程式不會收集、儲存或傳送任何個人資料。所有圖片處理（包含 OCR 文字辨識與隱私遮蔽掃描）皆在您的裝置本地完成，不傳送至任何伺服器。</p>
+    <h2>資料收集</h2>
+    <p>本應用程式不會收集、儲存或傳送任何個人資料。所有圖片處理（包含 OCR 文字辨識與隱私遮蔽掃描）皆在您的裝置本地完成，不傳送至任何伺服器。</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s2.h2">系統權限</h2>
-    <p data-lang-key="s2.p">本應用程式需要螢幕錄製權限以執行截圖功能，此權限僅用於截圖，不用於其他任何用途。</p>
+    <h2>系統權限</h2>
+    <p>本應用程式需要螢幕錄製權限以執行截圖功能，此權限僅用於截圖，不用於其他任何用途。</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s3.h2">網路存取</h2>
-    <p data-lang-key="s3.p">本應用程式僅在檢查更新時使用網路連線，不會上傳任何使用者資料。</p>
+    <h2>網路存取</h2>
+    <p>本應用程式僅在檢查更新時使用網路連線，不會上傳任何使用者資料。</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s4.h2">第三方服務</h2>
-    <p data-lang-key="s4.p">本應用程式不使用任何第三方分析、廣告或追蹤服務。</p>
+    <h2>第三方服務</h2>
+    <p>本應用程式不使用任何第三方分析、廣告或追蹤服務。</p>
   </article>
 
   <article class="priv-section">
-    <h2 data-lang-key="s5.h2">聯絡方式</h2>
-    <p data-lang-key="s5.p">如有任何隱私相關問題，請聯絡：<a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a></p>
+    <h2>聯絡方式</h2>
+    <p>如有任何隱私相關問題，請聯絡：<a href="mailto:nova@yoursvas.app">nova@yoursvas.app</a></p>
   </article>
 
 </main>
 
 <!-- ═══════ 頁尾 ═══════ -->
 <footer class="site-footer">
-  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;" data-lang-key="home2.footer.credit">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
     <strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
     一位不會寫程式的 PM，<br>
     和一位沒有長期記憶的 AI，<br>
@@ -249,18 +249,6 @@
 <script src="i18n/core.js"></script>
 <script>
 (function () {
-  function applyLang(lang) {
-    VASCore.loadLang(lang, function (t) {
-      var merged = Object.assign({}, t.shared || {}, t.privacy || {});
-      document.querySelectorAll('[data-lang-key]').forEach(function (el) {
-        var key = el.getAttribute('data-lang-key');
-        if (merged[key] !== undefined) el.innerHTML = merged[key];
-      });
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang === 'ja' ? 'ja' : 'en';
-      VASCore.updateDropdown(lang);
-      try { localStorage.setItem('vasLang', lang); } catch (e) {}
-    });
-  }
   function init() {  }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

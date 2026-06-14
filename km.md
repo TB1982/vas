@@ -314,4 +314,37 @@ CN 翻譯 agent 直接 simplified 化「马照跑舞照跳」放進 `cn/self.htm
 
 ---
 
+## 13. 執行期 i18n 死碼陷阱：長文 × 重 SEO 的站不要回頭用 runtime 換字（2026-06-14）
+
+**症狀**
+本站早期鋪了一層 runtime i18n：`data-lang-key` 屬性 + `i18n/<lang>.js` 語言包 +
+`applyLang()` 逐元素 `innerHTML` 換字。但某個時期後新頁全部改成 static-per-locale
+（zh 根目錄 / `en/` `ja/` `cn/` 各自獨立硬寫）。兩套並存，舊那套**從未被實際呼叫**
+（除了 `404.html` 一行殘留 + archive 紀念頁）。結果：
+- agent／未來宰相讀到 `i18n/en.js` 的 `ch3No='Chapter III'`，卻發現頁面顯示硬寫的別的字，
+  困惑「到底哪個是真的」——死碼看起來像活的，誤導判斷。
+- 真實潛藏 bug：`guide.html` 工具彈窗走 runtime 查 `VASI18n`，但 `applyLang` 從沒被呼叫→
+  英／日／簡三版彈窗全部 fallback 顯示**繁中**，沒人發現（譯文鎖在沒人載入的語言包裡）。
+
+**根本原因**
+runtime i18n 適合 app-like、輕 SEO、單一 URL 的場景。長文 × 重 SEO × per-locale clean URL
+的站，每個語系本來就該是獨立可被爬蟲索引的靜態檔。硬套 runtime 換字 → 既不利 SEO，
+又留下一層「看似活、實則死」的碼，是純負債。
+
+**最終解法**
+- guide 彈窗譯文從語言包搬進各 `en/ja/cn/guide.html` 的 `popupData`（順手修好繁中 bug）。
+- 拆掉整層死碼：29 活頁的 `applyLang`、`404` 呼叫、四語 value packs、`core.js` 的
+  `loadLang/updateDropdown/initDropdown`、3660 個 `data-lang-key` 屬性。
+- `core.js` 只留活的 `initNavDropdown`（手機版 nav）。archive 紀念頁完全不動（其相對路徑
+  `i18n/core.js` 歸檔時已斷，本就 frozen）。
+- rendering 不變是硬不變量：死碼不 render，搬譯文只是讓本來該顯示的譯文真的顯示。
+
+**規則**
+- 新站／新區塊一律 static-per-locale，不要鋪 runtime i18n。語系切換靠頁面導覽，不靠執行期換字。
+- 砍死碼前先確認「真的死」：grep 出所有呼叫點，區分 live consumer vs dead definition；
+  archive／紀念頁的相對路徑依賴要單獨確認（常已斷），確認後不動它。
+- 拆陷阱優於寫規則記得繞過陷阱——「讓記不住也沒關係的系統」：能刪就刪，不要靠 CLAUDE.md 提醒自己無視死碼。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*
