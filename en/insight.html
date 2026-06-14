@@ -12,7 +12,7 @@
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
 <title>AI Human-Machine Collaboration Design Records | 5 Design Decisions Behind VAS</title>
-<meta name="description" data-lang-key="ch1.meta.desc"
+<meta name="description"
       content="5 human-AI collaboration design decisions behind VAS: breathing-light dual-direction sensing (white to receive, black to step aside), OCR privacy masking, QR Code confidence layering, delayed screenshot, and Design Token architecture refactor." />
 <link rel="icon" href="../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/en/insight">
@@ -250,11 +250,11 @@
     <span>VAS</span>
   </a>
   <div class="site-nav-links">
-    <a href="about.html" data-lang-key="home2.nav.about">About</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">Echoes</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">Guide</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+    <a href="about.html">About</a>
+    <a href="echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide.html">Guide</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
     <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
@@ -267,11 +267,11 @@
     </span>
   </button>
   <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
-    <a href="about.html" data-lang-key="home2.nav.about">About</a>
-    <a href="echo.html" data-lang-key="home2.nav.echo">Echoes</a>
-    <a href="milestone.html" data-lang-key="home2.nav.milestones">Milestones</a>
-    <a href="guide.html" data-lang-key="home2.nav.guide">Guide</a>
-    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+    <a href="about.html">About</a>
+    <a href="echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide.html">Guide</a>
+    <a href="faq.html">FAQ</a>
   </div>
   <div class="site-nav-lang" id="langDropdownWrap">
   <div class="lang-flat-row">
@@ -293,50 +293,50 @@
 
 <!-- ═══════ 章節標頭 ═══════ -->
 <header class="chapter-header">
-  <div class="chapter-no" data-lang-key="ch1.no">Page I · Design</div>
+  <div class="chapter-no">Page I · Design</div>
   <div>
-    <h1 class="chapter-name" data-lang-key="ch1.name">Decisions that never made it onto<br><em>the feature list</em>.</h1>
-    <div class="chapter-dek" data-lang-key="ch1.dek">Five design decisions —<br>every one a choice made, a path abandoned,<br>something done and then undone.<br>This chapter is VAS's <em>craft confession</em>:<br>Making the tool more than a tool.</div>
+    <h1 class="chapter-name">Decisions that never made it onto<br><em>the feature list</em>.</h1>
+    <div class="chapter-dek">Five design decisions —<br>every one a choice made, a path abandoned,<br>something done and then undone.<br>This chapter is VAS's <em>craft confession</em>:<br>Making the tool more than a tool.</div>
   </div>
 </header>
 
 <!-- ═══════ 章目錄 · TOC ═══════ -->
 <nav class="toc">
-  <div class="toc-label" data-lang-key="ch1.toc.label">Contents</div>
+  <div class="toc-label">Contents</div>
   <ol class="toc-list">
     <li>
       <a href="insight.html#sec-03">
         <span class="no">01</span>
-        <span class="name" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span>
-        <span class="preview" data-lang-key="ch1.sec.03.preview">A quiet ask, then quietly gone</span>
+        <span class="name">Zero-Friction Experience</span>
+        <span class="preview">A quiet ask, then quietly gone</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-01">
         <span class="no">02</span>
-        <span class="name" data-lang-key="ch1.sec.01.name">Accept Imperfection</span>
-        <span class="preview" data-lang-key="ch1.sec.01.preview">The essence of collaboration is completion</span>
+        <span class="name">Accept Imperfection</span>
+        <span class="preview">The essence of collaboration is completion</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-02">
         <span class="no">03</span>
-        <span class="name" data-lang-key="ch1.sec.02.name">Act with Awareness</span>
-        <span class="preview" data-lang-key="ch1.sec.02.preview">When intent is clear, the tool dares to act directly</span>
+        <span class="name">Act with Awareness</span>
+        <span class="preview">When intent is clear, the tool dares to act directly</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-04">
         <span class="no">04</span>
-        <span class="name" data-lang-key="ch1.sec.04.name">When You Can't Step Away</span>
-        <span class="preview" data-lang-key="ch1.sec.04.preview">Wherever you are, that's where I capture</span>
+        <span class="name">When You Can't Step Away</span>
+        <span class="preview">Wherever you are, that's where I capture</span>
       </a>
     </li>
     <li>
       <a href="insight.html#sec-05">
         <span class="no">05</span>
-        <span class="name" data-lang-key="ch1.sec.05.name">Underlying Logic</span>
-        <span class="preview" data-lang-key="ch1.sec.05.preview">Something more important than new features</span>
+        <span class="name">Underlying Logic</span>
+        <span class="preview">Something more important than new features</span>
       </a>
     </li>
   </ol>
@@ -348,42 +348,42 @@
   <header class="section-head">
     <div class="section-no">01</div>
     <div>
-      <h2 class="section-name" data-lang-key="i1Title">The breathing light reads your intent — then asks</h2>
-      <div class="section-kicker" data-lang-key="i1Tag">Frictionless by Design</div>
+      <h2 class="section-name">The breathing light reads your intent — then asks</h2>
+      <div class="section-kicker">Frictionless by Design</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i1p1">VAS's breathing light isn't just a symbol of waiting — it's sensing the environment. When a user copies a URL nearby, the light gently asks: "Want me to capture this webpage?" User confirms, screenshot taken, editor opens.</p>
-    <p data-lang-key="i1p3">And when a user drags an image or copies one from a browser toward the breathing light, the light opens up like welcoming arms — expanding the toolbar to receive the image or, after a quick confirmation, immediately launching the editor for whatever comes next.</p>
-    <p data-lang-key="i1p5">The reverse holds too — when you want to send an image out, the editor folds itself into a single <strong>black breathing light</strong>, twin to the white one that received it: <strong>white to receive, black to step aside</strong>. No saving, no folder picking, no folder reopening — press, drag, and the image lands directly into the AI below, the desktop, or any folder you like. Two seconds is plenty; thirty seconds at most before any nudge — across screens, across resolutions, it follows you. Only after you let go does it bloom back into the editor.</p>
-    <p data-lang-key="i1p4">The best tools don't make you switch into "tool mode." They live in your environment, read what you're doing — <strong>present when needed, gone when not</strong>.</p>
-    <p data-lang-key="i1fn" class="section-fn">＊ Breathing-light webpage capture, copied-image opening, and drag-to-export step-aside are Tauri-exclusive features. The Electron version offers only image pickup via the toolbar.</p>
+    <p>VAS's breathing light isn't just a symbol of waiting — it's sensing the environment. When a user copies a URL nearby, the light gently asks: "Want me to capture this webpage?" User confirms, screenshot taken, editor opens.</p>
+    <p>And when a user drags an image or copies one from a browser toward the breathing light, the light opens up like welcoming arms — expanding the toolbar to receive the image or, after a quick confirmation, immediately launching the editor for whatever comes next.</p>
+    <p>The reverse holds too — when you want to send an image out, the editor folds itself into a single <strong>black breathing light</strong>, twin to the white one that received it: <strong>white to receive, black to step aside</strong>. No saving, no folder picking, no folder reopening — press, drag, and the image lands directly into the AI below, the desktop, or any folder you like. Two seconds is plenty; thirty seconds at most before any nudge — across screens, across resolutions, it follows you. Only after you let go does it bloom back into the editor.</p>
+    <p>The best tools don't make you switch into "tool mode." They live in your environment, read what you're doing — <strong>present when needed, gone when not</strong>.</p>
+    <p class="section-fn">＊ Breathing-light webpage capture, copied-image opening, and drag-to-export step-aside are Tauri-exclusive features. The Electron version offers only image pickup via the toolbar.</p>
   </div>
   <div class="section-wide">
     <div class="cb-grid-3">
       <div class="compare-box">
-        <div class="cb-act" data-lang-key="i1act1">ACT 1 · Sense</div>
-        <div class="cb-label" data-lang-key="i1act1Label">Embrace In</div>
-        <div data-lang-key="i1act1Desc">The white breathing light reads the room and quietly asks if you want to bring it in</div>
+        <div class="cb-act">ACT 1 · Sense</div>
+        <div class="cb-label">Embrace In</div>
+        <div>The white breathing light reads the room and quietly asks if you want to bring it in</div>
       </div>
       <div class="compare-box highlight">
-        <div class="cb-act" data-lang-key="i1act2">ACT 2 · Step Aside</div>
-        <div class="cb-label" data-lang-key="i1act2Label">Fold Away</div>
-        <div data-lang-key="i1act2Desc">The editor collapses into a black breathing light — the whole desktop is yours to drag across</div>
+        <div class="cb-act">ACT 2 · Step Aside</div>
+        <div class="cb-label">Fold Away</div>
+        <div>The editor collapses into a black breathing light — the whole desktop is yours to drag across</div>
       </div>
       <div class="compare-box">
-        <div class="cb-act" data-lang-key="i1act3">ACT 3 · Return</div>
-        <div class="cb-label" data-lang-key="i1act3Label">Bloom Back</div>
-        <div data-lang-key="i1act3Desc">Only after you let go does it bloom back — up to thirty seconds, never rushing your choice</div>
+        <div class="cb-act">ACT 3 · Return</div>
+        <div class="cb-label">Bloom Back</div>
+        <div>Only after you let go does it bloom back — up to thirty seconds, never rushing your choice</div>
       </div>
     </div>
     <div class="fig-grid-2">
       <figure>
-        <div class="fig-label" data-lang-key="i1imgCaption1">Import · the white light receives you</div>
+        <div class="fig-label">Import · the white light receives you</div>
         <video src="../img/brethlight.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-label="Drag an image toward the breathing light: the light receives the image and unfolds into the editor"></video>
       </figure>
       <figure>
-        <div class="fig-label" data-lang-key="i1imgCaption2">Export · the black light steps aside for you</div>
+        <div class="fig-label">Export · the black light steps aside for you</div>
         <video src="../img/brethlight-out.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-label="The VAS editor folds into a black breathing light, then drag-exports the image into the Claude Code chat below"></video>
       </figure>
     </div>
@@ -396,30 +396,30 @@
   <header class="section-head">
     <div class="section-no">02</div>
     <div>
-      <h2 class="section-name" data-lang-key="i2Title">No perfect human-AI pair — but a complete collaboration</h2>
-      <div class="section-kicker" data-lang-key="i2Tag">Human-AI Collaboration</div>
+      <h2 class="section-name">No perfect human-AI pair — but a complete collaboration</h2>
+      <div class="section-kicker">Human-AI Collaboration</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i2p1">VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We simply chose not to keep pushing for a perfect tool.</p>
-    <p data-lang-key="i2p2">I wanted recognition errors to be more than just a tool failure — to become a handoff point for collaboration.</p>
-    <p data-lang-key="i2p3">We made the privacy mosaic a floating layer with adjustable size: wherever OCR falls short, the user steps in manually.</p>
-    <p data-lang-key="i2p4">A recognition error stops being a "mistake" — it becomes a division of labour. The tool's imperfection leaves the user's control intact.</p>
-    <p data-lang-key="i2p5">OCR may only automate 90% of the task — but a quick drag of the manual mosaic handles what would otherwise be 100% manual work.</p>
-    <p data-lang-key="i2p6">And if you cover the wrong area, no problem — mosaics are independent floating objects, deleted with a single undo. Nothing is irreversible.</p>
+    <p>VAS automatically detects sensitive text on screen and marks areas to be hidden. But during development we found OCR still has inherent limits — occasionally missing or misreading content. We simply chose not to keep pushing for a perfect tool.</p>
+    <p>I wanted recognition errors to be more than just a tool failure — to become a handoff point for collaboration.</p>
+    <p>We made the privacy mosaic a floating layer with adjustable size: wherever OCR falls short, the user steps in manually.</p>
+    <p>A recognition error stops being a "mistake" — it becomes a division of labour. The tool's imperfection leaves the user's control intact.</p>
+    <p>OCR may only automate 90% of the task — but a quick drag of the manual mosaic handles what would otherwise be 100% manual work.</p>
+    <p>And if you cover the wrong area, no problem — mosaics are independent floating objects, deleted with a single undo. Nothing is irreversible.</p>
   </div>
   <div class="section-wide">
     <div class="compare-box">
-      <span class="cb-label" data-lang-key="i2box1Label">OCR Auto</span>
-      <span data-lang-key="i2box1Desc">Recognise as much as possible, auto-mark sensitive areas</span>
+      <span class="cb-label">OCR Auto</span>
+      <span>Recognise as much as possible, auto-mark sensitive areas</span>
     </div>
     <div class="compare-box">
-      <span class="cb-label" data-lang-key="i2box2Label">Mosaic Fill-in</span>
-      <span data-lang-key="i2box2Desc">Where OCR falls short, the user takes over manually</span>
+      <span class="cb-label">Mosaic Fill-in</span>
+      <span>Where OCR falls short, the user takes over manually</span>
     </div>
     <div class="compare-box highlight">
       <span class="cb-label">Undo</span>
-      <span data-lang-key="i2box3Desc">Covered the wrong spot? One-tap delete — no irreversible decisions</span>
+      <span>Covered the wrong spot? One-tap delete — no irreversible decisions</span>
     </div>
   </div>
 </section>
@@ -430,35 +430,35 @@
   <header class="section-head">
     <div class="section-no">03</div>
     <div>
-      <h2 class="section-name" data-lang-key="i3Title">QR Code detected — but how confident is it?</h2>
-      <div class="section-kicker" data-lang-key="i3Tag">Behaviour as Meaning</div>
+      <h2 class="section-name">QR Code detected — but how confident is it?</h2>
+      <div class="section-kicker">Behaviour as Meaning</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i3p1">Scanning a QR code seems like a binary outcome — found or not found. But VAS sees it differently: it reads user intent, then decides what to do next based on that intent.</p>
-    <p data-lang-key="i3p2">This is also human-AI collaboration: the user speaks through how they frame the screenshot, and the tool understands. No language, no buttons, no menus — how you frame it is what you want. The tool isn't reading commands; it's reading behaviour.</p>
-    <p data-lang-key="i3p3">We reasoned that when a user wants accurate QR Code detection, they'll naturally frame it as completely and exclusively as possible within the selection box — that act itself is a declaration of intent. The larger the QR Code fills the selected area, the more accurate the recognition, the higher the confidence, and the more directly the tool can act. A wordless understanding forms between user and tool.</p>
-    <p data-lang-key="i3p5">A tool shouldn't pretend to be certain when it isn't. When intent is clear, it opens the link directly; when confidence is ambiguous, it asks if you'd like to open it; when confidence is too low, it silently opens the editor and hands over to you. Behind each threshold is an honest design: knowing how much it knows.</p>
+    <p>Scanning a QR code seems like a binary outcome — found or not found. But VAS sees it differently: it reads user intent, then decides what to do next based on that intent.</p>
+    <p>This is also human-AI collaboration: the user speaks through how they frame the screenshot, and the tool understands. No language, no buttons, no menus — how you frame it is what you want. The tool isn't reading commands; it's reading behaviour.</p>
+    <p>We reasoned that when a user wants accurate QR Code detection, they'll naturally frame it as completely and exclusively as possible within the selection box — that act itself is a declaration of intent. The larger the QR Code fills the selected area, the more accurate the recognition, the higher the confidence, and the more directly the tool can act. A wordless understanding forms between user and tool.</p>
+    <p>A tool shouldn't pretend to be certain when it isn't. When intent is clear, it opens the link directly; when confidence is ambiguous, it asks if you'd like to open it; when confidence is too low, it silently opens the editor and hands over to you. Behind each threshold is an honest design: knowing how much it knows.</p>
   </div>
   <div class="section-wide">
-    <div class="fig-label" data-lang-key="i3cardLabel">QR Code area within selection — behaviour logic:</div>
+    <div class="fig-label">QR Code area within selection — behaviour logic:</div>
     <div class="compare-box highlight">
       <span class="cb-num">&gt; 70%</span>
-      <span class="cb-label" data-lang-key="i3highLabel">High confidence · Act directly</span>
-      <span data-lang-key="i3highDesc">Opens the page or link immediately, no interruption</span>
+      <span class="cb-label">High confidence · Act directly</span>
+      <span>Opens the page or link immediately, no interruption</span>
     </div>
     <div class="compare-box">
       <span class="cb-num">21–69%</span>
-      <span class="cb-label" data-lang-key="i3midLabel">Mid confidence · Ask first</span>
-      <span data-lang-key="i3midDesc">Opens the editor and gently asks: "Is this the link you wanted?"</span>
+      <span class="cb-label">Mid confidence · Ask first</span>
+      <span>Opens the editor and gently asks: "Is this the link you wanted?"</span>
     </div>
     <div class="compare-box">
       <span class="cb-num">≤ 20%</span>
-      <span class="cb-label" data-lang-key="i3lowLabel">Low confidence · Silent handoff</span>
-      <span data-lang-key="i3lowDesc">No guessing, no action — opens the editor for you to take it from there</span>
+      <span class="cb-label">Low confidence · Silent handoff</span>
+      <span>No guessing, no action — opens the editor for you to take it from there</span>
     </div>
     <figure style="margin-top: 28px;">
-      <div class="fig-label" data-lang-key="i3imgCaption">How it looks in practice</div>
+      <div class="fig-label">How it looks in practice</div>
       <img src="../img/qrcode.webp" alt="QR Code framing example: the more completely it's framed, the higher the recognition confidence" class="fig-img" loading="lazy">
     </figure>
   </div>
@@ -470,48 +470,48 @@
   <header class="section-head">
     <div class="section-no">04</div>
     <div>
-      <h2 class="section-name" data-lang-key="i4Title">Strike your pose and hold — the tool should not call you back to choose</h2>
-      <div class="section-kicker" data-lang-key="i4Tag">Eliminating Interruption</div>
+      <h2 class="section-name">Strike your pose and hold — the tool should not call you back to choose</h2>
+      <div class="section-kicker">Eliminating Interruption</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i4p1">Once we built Delay Capture, the native Apple screen-picker for fullscreen captures in dual-monitor mode became friction.</p>
-    <p data-lang-key="i4p2">Delay Capture was born to catch mouse events — error states, hover effects, debug moments. While the countdown runs, the mouse must stay in its corner of the screen.</p>
-    <p data-lang-key="i4p3">But once the countdown ends, the native dual-monitor picker pops up and forces the user back to choose a screen before capturing — like setting a self-timer for a selfie, only for the camera to ask "which side do you want?" when it finishes counting down.</p>
-    <p data-lang-key="i4p4">VAS replaces the native Apple screen-picker with a custom fullscreen overlay: no delay — click whichever screen to capture it, or press Enter to merge both screens into one screenshot.</p>
-    <p data-lang-key="i4p5">Going further: when a user sets a delay rule, VAS defaults to capturing whichever screen the mouse is currently on — no selection needed at all. The user never even knows this decision happened in the background.</p>
+    <p>Once we built Delay Capture, the native Apple screen-picker for fullscreen captures in dual-monitor mode became friction.</p>
+    <p>Delay Capture was born to catch mouse events — error states, hover effects, debug moments. While the countdown runs, the mouse must stay in its corner of the screen.</p>
+    <p>But once the countdown ends, the native dual-monitor picker pops up and forces the user back to choose a screen before capturing — like setting a self-timer for a selfie, only for the camera to ask "which side do you want?" when it finishes counting down.</p>
+    <p>VAS replaces the native Apple screen-picker with a custom fullscreen overlay: no delay — click whichever screen to capture it, or press Enter to merge both screens into one screenshot.</p>
+    <p>Going further: when a user sets a delay rule, VAS defaults to capturing whichever screen the mouse is currently on — no selection needed at all. The user never even knows this decision happened in the background.</p>
   </div>
   <div class="section-wide">
     <div class="fig-grid-2">
       <figure>
         <img src="../img/fullscreenmodal.webp" alt="原生雙螢幕選單：延遲截圖倒數期間跳出「請選擇要截哪個螢幕」" class="fig-img" loading="lazy">
-        <figcaption class="fig-caption" data-lang-key="i4imgCaption">This menu is like a timer selfie —<br>the camera waits for you to strike a pose, counts down, then asks which side you want to shoot.</figcaption>
+        <figcaption class="fig-caption">This menu is like a timer selfie —<br>the camera waits for you to strike a pose, counts down, then asks which side you want to shoot.</figcaption>
       </figure>
       <figure>
         <img src="../img/screenshot.webp" alt="VAS 自製全螢幕遮罩：延遲截圖開始前即選定螢幕" class="fig-img" loading="lazy">
-        <figcaption class="fig-caption" data-lang-key="i4imgCaption2">VAS fix: no delay — click a screen, that screen is captured;<br>delay mode — no selection needed, wherever you are is where it captures.</figcaption>
+        <figcaption class="fig-caption">VAS fix: no delay — click a screen, that screen is captured;<br>delay mode — no selection needed, wherever you are is where it captures.</figcaption>
       </figure>
     </div>
     <div style="margin-top: 28px;">
       <div class="compare-box cb-step">
         <div class="cb-num">1</div>
         <div class="cb-right">
-          <span class="cb-label" data-lang-key="i4step1Label">Delayed capture</span>
-          <span class="cb-desc" data-lang-key="i4step1Desc">Single-monitor delay mode: automatically captures the current screen after the countdown</span>
+          <span class="cb-label">Delayed capture</span>
+          <span class="cb-desc">Single-monitor delay mode: automatically captures the current screen after the countdown</span>
         </div>
       </div>
       <div class="compare-box cb-step">
         <div class="cb-num">2</div>
         <div class="cb-right">
-          <span class="cb-label" data-lang-key="i4step2Label">Custom overlay</span>
-          <span class="cb-desc" data-lang-key="i4step2Desc">Dual-monitor, no delay: freely choose a screen, or press Enter to capture all screens at once</span>
+          <span class="cb-label">Custom overlay</span>
+          <span class="cb-desc">Dual-monitor, no delay: freely choose a screen, or press Enter to capture all screens at once</span>
         </div>
       </div>
       <div class="compare-box highlight cb-step">
         <div class="cb-num">3</div>
         <div class="cb-right">
-          <span class="cb-label" data-lang-key="i4step3Label">Mouse-position default</span>
-          <span class="cb-desc" data-lang-key="i4step3Desc">Dual-monitor delay mode: no selection needed — the tool reads your cursor position and captures there automatically</span>
+          <span class="cb-label">Mouse-position default</span>
+          <span class="cb-desc">Dual-monitor delay mode: no selection needed — the tool reads your cursor position and captures there automatically</span>
         </div>
       </div>
     </div>
@@ -524,22 +524,22 @@
   <header class="section-head">
     <div class="section-no">05</div>
     <div>
-      <h2 class="section-name" data-lang-key="i5Title">Features can keep growing — but the foundation must speak one language first</h2>
-      <div class="section-kicker" data-lang-key="i5Tag">Design Token Architecture</div>
+      <h2 class="section-name">Features can keep growing — but the foundation must speak one language first</h2>
+      <div class="section-kicker">Design Token Architecture</div>
     </div>
   </header>
   <div class="section-body">
-    <p data-lang-key="i5p1">As tool types multiply — points, lines, surfaces, text, symbols — each object carries colour, stroke, size, and direction properties. Stacked and duplicated, those properties become invisible tech debt: the features work, but the structure is cobbled together.</p>
-    <p data-lang-key="i5p2">They made the call at the Sprint 9 Retro. While waiting for the App Store review, they estimated: four Sprints should be enough.</p>
-    <p data-lang-key="i5p3">Nobody expected four Sprints to become seventeen. Not because the direction was wrong — but because every layer of debt, once paid, revealed another underneath. At Sprint 20, when Nova was nearly breaking under the exhaustion of manual QC and finally asked "why am I still this tired when we have automated tests?", they realised: the test architecture itself was part of the debt. Then a user asked for Simplified Chinese. Looking at the i18n structure, they said — this can't support another language — and another round began. At Sprint 24, they opened the KM, grown thick with accumulated entries, and had a thought: could this record of every mistake become a verification map — to confirm that every pit had been filled? At the end of Sprint 26, they checked the list one more time. "Are we really done now?"</p>
-    <p data-lang-key="i5p3b">Sprint 27: the callout bubble tool was added. Transparency, shadow, gradient — properties that other tools had long carried — were inherited directly. No wheel was rebuilt. That was the real completion signal: not a declaration, but the moment a new tool was naturally received by the architecture.</p>
-    <p data-lang-key="i5p4">This refactor also benefits the Electron version — a unified foundation means both platforms run on the same logic, and stability improves naturally.</p>
-    <p data-lang-key="i5p5">Electron may no longer gain new features, but it needs to remain feature-complete, free, and stable — giving users the chance to build trust in VAS before deciding whether to upgrade to Tauri. One refactor supports the entire long-term dual-platform strategy.</p>
+    <p>As tool types multiply — points, lines, surfaces, text, symbols — each object carries colour, stroke, size, and direction properties. Stacked and duplicated, those properties become invisible tech debt: the features work, but the structure is cobbled together.</p>
+    <p>They made the call at the Sprint 9 Retro. While waiting for the App Store review, they estimated: four Sprints should be enough.</p>
+    <p>Nobody expected four Sprints to become seventeen. Not because the direction was wrong — but because every layer of debt, once paid, revealed another underneath. At Sprint 20, when Nova was nearly breaking under the exhaustion of manual QC and finally asked "why am I still this tired when we have automated tests?", they realised: the test architecture itself was part of the debt. Then a user asked for Simplified Chinese. Looking at the i18n structure, they said — this can't support another language — and another round began. At Sprint 24, they opened the KM, grown thick with accumulated entries, and had a thought: could this record of every mistake become a verification map — to confirm that every pit had been filled? At the end of Sprint 26, they checked the list one more time. "Are we really done now?"</p>
+    <p>Sprint 27: the callout bubble tool was added. Transparency, shadow, gradient — properties that other tools had long carried — were inherited directly. No wheel was rebuilt. That was the real completion signal: not a declaration, but the moment a new tool was naturally received by the architecture.</p>
+    <p>This refactor also benefits the Electron version — a unified foundation means both platforms run on the same logic, and stability improves naturally.</p>
+    <p>Electron may no longer gain new features, but it needs to remain feature-complete, free, and stable — giving users the chance to build trust in VAS before deciding whether to upgrade to Tauri. One refactor supports the entire long-term dual-platform strategy.</p>
   </div>
   <div class="section-wide">
     <div class="compare-box highlight">
-      <div class="cb-label" data-lang-key="i5boxTitle">Refactor complete — chain effects as expected</div>
-      <ul class="cb-list" data-lang-key="i5bullets"><li>Unified coordinate system: all objects share the same spatial language</li><li>Modular properties: solid/gradient/dash/size/direction shared across all tools</li><li>TOOL_SCHEMA covers all 10 tool types, 211 Vitest automated tests passing</li><li>Callout bubble inherits transparency, shadow, and gradient — no properties rebuilt from scratch</li></ul>
+      <div class="cb-label">Refactor complete — chain effects as expected</div>
+      <ul class="cb-list"><li>Unified coordinate system: all objects share the same spatial language</li><li>Modular properties: solid/gradient/dash/size/direction shared across all tools</li><li>TOOL_SCHEMA covers all 10 tool types, 211 Vitest automated tests passing</li><li>Callout bubble inherits transparency, shadow, and gradient — no properties rebuilt from scratch</li></ul>
     </div>
   </div>
 </section>
@@ -549,8 +549,8 @@
 <!-- ═══════ 章末過場 · Passage ═══════ -->
 <section class="passage">
   <div class="passage-colophon">
-    <span data-lang-key="ch1.passage.end">Page I · Design · End</span><br>
-    <span class="faint" data-lang-key="ch1.passage.end.en"></span>
+    <span>Page I · Design · End</span><br>
+    <span class="faint"></span>
   </div>
   <div class="passage-body">
     <div class="chronicle-line"></div>
@@ -572,10 +572,10 @@
 
 <footer class="site-footer">
   <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
-    <div data-lang-key="home2.footer.credit"><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
-    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;" data-lang-key="privacyLink">Privacy Policy</a>
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">Privacy Policy</a>
     <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
-    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;" data-lang-key="ctaDownload">Download VAS</a>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">Download VAS</a>
   </div>
   <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
     vas.wiki<br>
@@ -585,11 +585,11 @@
 
 <button class="dot-nav-trigger" aria-label="Chapter navigation"></button>
 <nav class="dot-nav" aria-label="Section navigation">
-  <a class="dot-nav-item" href="insight.html#sec-03"><span class="dn-label" data-lang-key="ch1.sec.03.name">Zero-Friction Experience</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-01"><span class="dn-label" data-lang-key="ch1.sec.01.name">Accept Imperfection</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-02"><span class="dn-label" data-lang-key="ch1.sec.02.name">Act with Awareness</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-04"><span class="dn-label" data-lang-key="ch1.sec.04.name">When You Can't Step Away</span><span class="dn-dot"></span></a>
-  <a class="dot-nav-item" href="insight.html#sec-05"><span class="dn-label" data-lang-key="ch1.sec.05.name">Underlying Logic</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-03"><span class="dn-label">Zero-Friction Experience</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-01"><span class="dn-label">Accept Imperfection</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-02"><span class="dn-label">Act with Awareness</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-04"><span class="dn-label">When You Can't Step Away</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-05"><span class="dn-label">Underlying Logic</span><span class="dn-dot"></span></a>
 </nav>
 
 <script>
