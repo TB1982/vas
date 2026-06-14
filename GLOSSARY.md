@@ -210,7 +210,7 @@ Three pillars + treatise hall (2026-06 redesign) use **static per-locale files**
 
 - **Clean URLs everywhere outside of internal hrefs**: canonical / sitemap / og:url / hreflang strip `.html`. Internal `<a href>` can keep `.html` (Cloudflare serves both).
 - **JSON-LD `inLanguage`**: single locale string per file (not array). Each lang variant gets its own headline / description matching that locale.
-- **JSON-LD `sameAs`**: GitHub `github.com/tb1982` removed everywhere (account sealed 2026-05-11); only LinkedIn + Instagram remain.
+- **JSON-LD `sameAs`**: LinkedIn + Instagram + GitHub `github.com/tb1982`. GitHub was stripped during the 2026-05-11 suspension and re-added 2026-06-14 after the account was restored (05-20). Order: LinkedIn → Instagram → GitHub.
 
 ---
 
@@ -236,8 +236,9 @@ Always use these EXACT values (from CLAUDE.md, locked):
 | Project name (CN) | 深握计划 |
 | Site canonical URL | `https://yoursvas.app/` |
 | Copyright year | 2026– |
-| Deployment | Cloudflare Pages (NOT GitHub — account sealed 2026-05-11) |
-| Repo | `https://gitlab.com/babelon1882/vas.git` (NOT GitHub) |
+| Deployment | Cloudflare Pages, deploying from GitHub `main` |
+| Repo (source of truth) | GitHub `github.com/tb1982/vas` — account restored 2026-05-20 after the 05-11 suspension |
+| Repo (mirror) | GitLab `https://gitlab.com/babelon1882/vas.git` — passive mirror, kept as fallback home should GitHub suspend again |
 
 Footer canonical format (in 4 i18n files):
 

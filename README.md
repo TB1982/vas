@@ -8,36 +8,51 @@ The website for **VAS** — a macOS screenshot annotation tool — and the home 
 
 ## What's here
 
-This is a vanilla-JS static site, deployed via Cloudflare Pages from this GitLab repo. No build tools, no package manager.
+This is a vanilla-JS static site, deployed via Cloudflare Pages. No build tools, no package manager.
 
-### Top-level pages
+### Structure — two sides (2026-06 IA)
 
-| Page | Path | Theme |
-|------|------|-------|
-| Home | `/` | Product showcase, four chapter gates |
-| About | `/about` | Chapter 0 · 序章 · PREFACE — why VAS exists |
-| Echoes (cover) | `/echo` | Chapter I · 殘響 · ECHOES — frontispiece |
+The home page (`/`) is two doors: **器 · The Instrument** (the product) and **思 · The Treatise** (the thought). Everything hangs off one of those two sides.
+
+**器 — The Instrument side**
+
+| Page | Path | Role |
+|------|------|------|
+| Instrument | `/instrument` | 器 · The Instrument — the macOS screenshot tool; its acquire section leads to Milestones |
+| Echoes (Mirror Hall) | `/echo` | I · 殘響 · ECHOES — instrument's 鏡廊, the hub for the six chapter pages below |
 | ↳ Design | `/insight` | 頁一 · 設計 — five design decisions |
 | ↳ Collab | `/collab` | 頁二 · 協作 — six collaboration stories |
 | ↳ Trust | `/context` | 頁三 · 信念 — context as a way of trusting yourself |
-| ↳ Self | `/self` | 頁四 · 自己 — Claude.md as Jungian Self-mirror |
-| Harness | `/harness` | Chapter II · 系統 · SYSTEM — Harness Engineering |
-| ↳ Pillar I | `/harness/context` | Context management (deep layer) |
-| ↳ Pillar II | `/harness/constraints` | Constraints as guidance (deep layer) |
-| ↳ Pillar III | `/harness/entropy` | Coexisting with entropy (deep layer) |
-| Us (mirror) | `/us` | Chapter II · ⓘ — Sapere Aude 2.0 (sitemap-only, deliberately not in main nav) |
-| Vessel | `/vessel` | 容器論 · Treatise — the vas hermeticum, hidden under harness 呼吸燈 |
-| Milestones | `/milestone` | Chapter III · 里程碑 · CHRONICLE — 25 days, 80+ versions |
-| FAQ | `/faq` | Eight Questions |
+| ↳ Self | `/self` | 頁四 · 自己 — CLAUDE.md as Jungian Self-mirror |
+| ↳ System | `/harness` | 頁五 · 系統 — Harness Engineering (gateway to the 思-side pillars) |
+| ↳ Us | `/us` | 頁六 · 我們 — Sapere Aude 2.0 (sitemap-only, not in main nav) |
+| Milestones | `/milestone` | 里程碑 · CHRONICLE — 25 days, 80+ versions (reached from instrument's acquire section) |
 | Guide | `/guide` | User manual |
+| FAQ | `/faq` | Eight Questions |
+
+The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection): 設計↔協作 · 信念↔自己 · 系統↔我們. Each chapter ends with a left-right pager along one continuous zigzag: `鏡廊(echo) → 頁一 → 頁二 → 頁三 → 頁四 → 頁五 → 頁六 → 冊(treatise)`.
+
+**思 — The Treatise side**
+
+| Page | Path | Role |
+|------|------|------|
+| Treatise | `/treatise` | 思 · The Treatise — hall presenting two treatises |
+| ↳ Harness · Pillar I | `/harness/context` | Context management — 上下文管理的藝術 (sitemap-only) |
+| ↳ Harness · Pillar II | `/harness/constraints` | Constraints as guidance — 約束作為引導 (sitemap-only) |
+| ↳ Harness · Pillar III | `/harness/entropy` | Coexisting with entropy — 與混亂共處 (sitemap-only) |
+| Vessel | `/vessel` | 容器論 — the vas hermeticum treatise (also gated behind harness/self trail-dot doors) |
+
+**Site-wide**
+
+| Page | Path | Role |
+|------|------|------|
+| About | `/about` | 0 · 序章 · PREFACE — why VAS exists |
 | Privacy | `/privacy` | Privacy policy |
 | 404 | `/404` | Error page |
 
-**Localization:** Every top-level page exists in 4 locales — zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`).
+**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 17 pages × 4 locales, plus `/harness/{context,constraints,entropy}` × 4. There is no runtime i18n — language switching is page navigation.
 
-**Two exceptions:**
-- `/harness/{context,constraints,entropy}` — in-page JS lang switcher (zh/en/ja), no `/cn/` variants yet. Pending Design refactor.
-- `/us` — sitemap-only, no main nav entry, reachable via the inline-dot from `/harness` chapter end (deliberate "humans must dig" design).
+**Sitemap-only (not in main nav, by design):** `/us`, `/vessel`, and `/harness/{context,constraints,entropy}`. Humans reach them by digging (trail-dot / inline-dot doors); crawlers and AI reach them via sitemap. Hide-from-human ≠ hide-from-machine.
 
 ---
 
