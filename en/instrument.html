@@ -61,6 +61,10 @@ img{display:block;max-width:100%;}
 .top .lang{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--ash-3);display:flex;gap:7px;}
 .top .lang a{transition:color .3s;}.top .lang a:hover{color:var(--ash-1);}
 .top .lang .on{color:var(--ash-0);}
+.top .brand{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif-en);font-size:15px;font-weight:500;letter-spacing:0.02em;color:var(--ash-1);transition:color .3s;}
+.top .brand:hover{color:var(--ash-0);}
+.top .brand .dot{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,var(--aurora-v),transparent 70%);box-shadow:0 0 10px rgba(196,113,245,0.7);animation:dot-breathe 6s ease-in-out infinite;}
+@keyframes dot-breathe{0%,100%{opacity:.6;}50%{opacity:1;}}
 
 /* ── 正廳 ── */
 .foyer{display:grid;grid-template-columns:1.05fr 0.95fr;gap:3vw;align-items:center;
@@ -393,7 +397,7 @@ img{display:block;max-width:100%;}
 <div class="shell">
 
   <header class="top">
-    <a class="back" href="index.html">← VAS</a>
+    <a class="brand" href="index.html"><span class="dot"></span>VAS</a>
     <span class="here">THE INSTRUMENT · 器</span>
     <span class="lang"><a href="../instrument.html">中</a><a class="on">EN</a><a href="../ja/instrument.html">JA</a><a href="../cn/instrument.html">简</a></span>
   </header>
