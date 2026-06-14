@@ -189,6 +189,7 @@ img{display:block;max-width:100%;}
 
 /* 鏡面呼應：觸其一面，兩面同時轉向彼此 */
 .pane.ring{transition:border-color .5s,box-shadow .5s;}
+@media (hover:hover){
 .ring:has(.plate:hover){border-color:rgba(196,113,245,0.5);
   box-shadow:inset 0 0 130px rgba(196,113,245,0.10),0 0 70px rgba(196,113,245,0.08);}
 .ring:has(.plate:hover) .rn{color:var(--ash-1);}
@@ -208,6 +209,7 @@ img{display:block;max-width:100%;}
   background:linear-gradient(transparent,var(--aurora-b),transparent);}
 .ring:has(.plate.l:hover) .plate.r .pen,
 .ring:has(.plate.r:hover) .plate.l .pen{color:var(--aurora-b);opacity:.85;}
+}
 
 /* 章節框：玻璃框内左右一對鏡像章 */
 .ring{display:flex;align-items:center;justify-content:space-between;padding:0 30px;}
@@ -227,9 +229,11 @@ img{display:block;max-width:100%;}
 .plate .pname{display:block;font-family:var(--serif-en);font-size:28px;font-weight:400;color:var(--ash-0);margin-top:5px;line-height:1.05;}
 .plate .pen{display:block;font-style:italic;font-size:13px;color:var(--aurora-v);opacity:.7;margin-top:3px;}
 .plate .pgist{display:block;font-size:13px;color:var(--ash-2);margin-top:9px;line-height:1.55;}
+@media (hover:hover){
 .plate:hover{border-color:rgba(196,113,245,0.6);box-shadow:0 0 38px rgba(196,113,245,0.24);
   background:linear-gradient(135deg,rgba(35,26,72,0.97),rgba(20,15,40,0.86));}
 .plate:hover::before{opacity:1;}
+}
 
 /* 廊道盡頭：消失點門戶 → 思 */
 .portal{position:absolute;left:50%;top:50%;width:240px;height:340px;
