@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="_i7wM3TUtMDmwpIFTYA9JIKEetS6yrD5wyCm8o2G6FI" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M8YMJ7QH3S');
+    </script>
+    <title>VAS — Visual Annotation Studio</title>
+    <link rel="icon" href="img/vas.ico" type="image/x-icon">
+    <meta name="description" content="VAS 是一款專為 Mac 設計的截圖與圖像敘述工具。一站式匯聚標注、套版、OCR、批次轉檔，為跨領域溝通而生。">
+    <link rel="canonical" href="https://tb1982.github.io/vas/">
+    <meta property="og:title" content="VAS — Visual Annotation Studio">
+    <meta property="og:description" content="為跨領域溝通而生的截圖與圖像敘述工具，專為 Mac 設計。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tb1982.github.io/vas/">
+    <meta property="og:image" content="https://tb1982.github.io/vas/img/vas-share.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="zh_TW">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background: linear-gradient(145deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #c471f5 0%, #fa71cd 100%);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(196, 113, 245, 0.45);
+            opacity: 0.92;
+        }
+        .download-btn-free {
+            background: linear-gradient(135deg, #4facfe 0%, #667eea 100%);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        }
+        .download-btn-free:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(79, 172, 254, 0.4);
+            opacity: 0.92;
+        }
+        /* ── Persona Tabs ── */
+        .tab-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none;
+        }
+        .tab-bar::-webkit-scrollbar { display: none; }
+        .tab-btn {
+            flex-shrink: 0;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.10);
+            color: rgba(255,255,255,0.55);
+            white-space: nowrap;
+        }
+        .tab-btn:hover { background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.80); }
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(196,113,245,0.28), rgba(250,113,205,0.20));
+            border-color: rgba(196,113,245,0.45);
+            color: #e8b4ff;
+            font-weight: 600;
+        }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+        .persona-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+            background: rgba(196,113,245,0.15);
+            color: #d9a0ff;
+            border: 1px solid rgba(196,113,245,0.25);
+        }
+        .feat-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: background 0.2s;
+        }
+        .feat-item:hover { background: rgba(255,255,255,0.07); }
+        .feat-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .feat-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 3px;
+        }
+        .feat-desc {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.42);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="hero-bg text-white min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-white/10" style="background: rgba(15,12,41,0.85); backdrop-filter: blur(16px);">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex-1 flex items-center">
+                <!-- Mobile: hamburger dropdown -->
+                <div class="relative sm:hidden" id="navMobileWrap">
+                    <button id="navMobileBtn" class="nav-pill-group flex items-center gap-1.5" style="appearance:none;cursor:pointer;" aria-haspopup="true" aria-expanded="false" aria-label="導覽選單">
+                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none" aria-hidden="true"><path d="M1 1.5h12M1 5.5h12M1 9.5h12" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        <svg id="navMobileChevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style="transition:transform 0.2s"><path d="M1 1l4 4 4-4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <div id="navMobileMenu" style="display:none; position:absolute; top:calc(100% + 8px); left:0; flex-direction:column; gap:2px; padding:6px; border-radius:16px; background:rgba(15,12,41,0.92); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(20px); min-width:96px; box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+                        <a href="#features-anchor" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navFeatures">功能</a>
+                        <a href="#moments-anchor" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navMoments">細節</a>
+                        <a href="#story-anchor" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navOrigin">起源</a>
+                        <a href="#roadmap-anchor" class="nav-pill" style="display:block;text-align:center;" data-lang-key="navRoadmap">版本</a>
+                    </div>
+                </div>
+                <!-- Desktop: pill group -->
+                <div class="nav-pill-group hidden sm:flex">
+                    <a href="#features-anchor" class="nav-pill" data-lang-key="navFeatures">功能</a>
+                    <a href="#moments-anchor" class="nav-pill" data-lang-key="navMoments">細節</a>
+                    <a href="#story-anchor" class="nav-pill" data-lang-key="navOrigin">起源</a>
+                    <a href="#roadmap-anchor" class="nav-pill" data-lang-key="navRoadmap">版本</a>
+                </div>
+            </div>
+            <a href="#" class="text-lg font-bold tracking-widest gradient-text" style="text-decoration:none;" aria-label="回到頁首">VAS</a>
+            <div class="flex-1 flex justify-end">
+                <div class="relative" id="langDropdownWrap">
+                    <button id="langDropdownBtn" class="lang-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="語言切換">
+                        <span id="langDropdownLabel">中</span>
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.7"/></svg>
+                    </button>
+                    <div id="langDropdownMenu" class="lang-dropdown-menu" role="listbox" aria-label="語言選擇">
+                        <button class="lang-opt active" data-lang="zh" role="option">中文</button>
+                        <button class="lang-opt" data-lang="en" role="option">English</button>
+                        <button class="lang-opt" data-lang="ja" role="option">日本語</button>
+                        <button class="lang-opt" data-lang="cn" role="option">简中</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="container mx-auto px-6 pt-16 pb-20 text-center" aria-labelledby="hero-heading">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest" style="background: rgba(196,113,245,0.18); color: #e2aaff; border: 1px solid rgba(196,113,245,0.3);">
+                <span data-lang-key="badge">Mac 專屬 · 現已上架 App Store</span>
+            </div>
+
+            <div class="flex justify-center mb-6">
+                <img src="img/vasweb.webp" alt="VAS app icon" width="120" height="120" class="drop-shadow-2xl" style="filter: drop-shadow(0 0 32px rgba(196,113,245,0.5));">
+            </div>
+
+            <h1 id="hero-heading" class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+                <span class="gradient-text">VAS</span>
+            </h1>
+            <p class="text-lg md:text-2xl font-light text-white/70 mb-3 tracking-wide" data-lang-key="heroSubtitle">
+                Visual Annotation Studio
+            </p>
+            <p class="text-base md:text-lg text-white/50 mb-12 max-w-xl mx-auto" data-lang-key="heroTagline">
+                給那些未能用文字明說的當下。
+            </p>
+
+            <div class="flex flex-col items-center justify-center gap-4">
+                <!-- Row 1：App Store 付費版 ｜ Electron 免費版 -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div class="relative inline-block">
+                        <span class="absolute -top-2 -right-2 bg-purple-400 text-white text-xs font-bold px-2 py-0.5 rounded-full z-10">Pro</span>
+                        <a id="downloadLink"
+                           href="https://apps.apple.com/app/vas/id6761584119"
+                           class="download-btn inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg min-h-[52px]"
+                           target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            <span data-lang-key="downloadBtn">Tauri 版 · App Store</span>
+                        </a>
+                    </div>
+                    <a id="electronDownload"
+                       href="https://github.com/TB1982/vas/releases/download/v3.60.0/VAS-3.60.0-arm64.dmg"
+                       class="download-btn-free inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-white text-lg min-h-[52px]"
+                       download>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span data-lang-key="electronBtn">Electron 版 · 免費下載</span>
+                    </a>
+                </div>
+                <!-- Row 2：操作手冊 ｜ Release Notes -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="guide.html"
+                       class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white min-h-[52px] min-w-[44px] transition-all"
+                       style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                        </svg>
+                        <span data-lang-key="guideBtn">操作手冊</span>
+                    </a>
+                    <a id="releaseLink"
+                       href="https://github.com/TB1982/vas/releases/tag/v3.60.0"
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-medium text-white/70 hover:text-white transition-colors min-h-[52px]"
+                       style="border: 1px solid rgba(255,255,255,0.15);">
+                        <span data-lang-key="releaseNotesBtn">Release Notes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <p class="mt-5 text-xs font-medium" style="color: #c084fc;" data-lang-key="sysReq">
+                需要 macOS · Electron 版免費 · Tauri 版付費
+            </p>
+
+            <div class="mt-8">
+                <h2 class="text-sm font-semibold tracking-widest text-white/30 uppercase mb-4" data-lang-key="toolbarLabel">Capture Toolbar</h2>
+                <img id="toolbarImg" src="img/vastoolbar.webp" alt="VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕" width="1052" height="150" class="mx-auto rounded-2xl shadow-xl max-w-[85%] md:max-w-[50%]" loading="lazy" style="box-shadow: 0 8px 40px rgba(0,0,0,0.4); margin-bottom: -24px;">
+            </div>
+
+        </section>
+
+        <!-- About -->
+        <section class="container mx-auto px-6 pt-2 pb-16 max-w-2xl text-center" aria-labelledby="about-heading">
+            <div class="divider mx-auto mb-8"></div>
+            <p class="text-xs font-bold tracking-widest text-white/30 uppercase mb-6" data-lang-key="aboutLabel">ABOUT</p>
+            <h2 id="about-heading" class="text-3xl md:text-4xl font-bold text-white/95 mb-6" data-lang-key="about1">
+                傳遞資訊的煉金容器
+            </h2>
+            <p class="text-white/55 leading-relaxed text-base md:text-lg" data-lang-key="about2">
+                讓資訊順勢流入，乘載所有想表達的思緒，無痛送到它該去的地方。
+            </p>
+        </section>
+
+        <!-- App Preview -->
+        <section class="container mx-auto px-4 md:px-6 py-4 max-w-5xl" aria-labelledby="preview-heading">
+            <h2 id="preview-heading" class="sr-only">VAS 編輯器介面預覽</h2>
+            <div style="
+                transform: perspective(1400px) rotateX(4deg);
+                transform-origin: center bottom;
+                filter:
+                    drop-shadow(0 0 48px rgba(196,113,245,0.22))
+                    drop-shadow(0 0 96px rgba(79,172,254,0.12))
+                    drop-shadow(0 48px 80px rgba(0,0,0,0.75));
+                transition: transform .4s ease, filter .4s ease;
+            " onmouseenter="this.style.transform='perspective(1400px) rotateX(1deg)'; this.style.filter='drop-shadow(0 0 64px rgba(196,113,245,0.35)) drop-shadow(0 0 120px rgba(79,172,254,0.18)) drop-shadow(0 56px 90px rgba(0,0,0,0.8))';"
+               onmouseleave="this.style.transform='perspective(1400px) rotateX(4deg)'; this.style.filter='drop-shadow(0 0 48px rgba(196,113,245,0.22)) drop-shadow(0 0 96px rgba(79,172,254,0.12)) drop-shadow(0 48px 80px rgba(0,0,0,0.75))';">
+                <img id="vasframeImg" src="img/vasframe-zh.webp" alt="VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布" width="2560" height="1640" class="w-full block" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Features (Persona Tabs) -->
+        <section class="page-section container mx-auto px-6 max-w-4xl" aria-labelledby="features-heading">
+            <div id="features-anchor" class="divider mx-auto mb-8"></div>
+            <p class="text-center text-xs font-bold tracking-widest text-white/30 uppercase mb-2" data-lang-key="featuresLabel">SAME WORKFLOW</p>
+            <h2 id="features-heading" class="text-2xl md:text-3xl font-bold text-center mb-10 text-white/90" data-lang-key="featuresTitle">找到你的使用方式</h2>
+
+            <!-- Tab buttons -->
+            <div class="tab-bar mb-8" role="tablist" aria-label="使用者族群">
+                <button class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-qa"     data-tab="qa"     data-lang-key="tabQA">🔬 QA / 測試工程師</button>
+                <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-design" data-tab="design" data-lang-key="tabDesign">🎨 設計師 / 學生</button>
+                <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-pm"     data-tab="pm"     data-lang-key="tabPM">📋 PM / 跨職能協作</button>
+                <button class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-dev"    data-tab="dev"    data-lang-key="tabDev">💻 開發者 / DevOps</button>
+            </div>
+
+            <!-- QA -->
+            <div id="tab-qa" class="tab-panel active" role="tabpanel">
+                <p class="persona-badge" data-lang-key="qaTagline">截圖要給人看，但截圖裡有不能給人看的東西</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">🛡️</span><div><div class="feat-name" data-lang-key="qa1n">隱私遮蔽</div><div class="feat-desc" data-lang-key="qa1d">自動偵測並遮蔽 IP、Email、電話、身分證、信用卡、API Token、密碼等十餘種敏感資料</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">▦</span><div><div class="feat-name" data-lang-key="qa2n">馬賽克 / 模糊</div><div class="feat-desc" data-lang-key="qa2d">手動框選任意區域打碼，區塊大小可調，支援模糊模式</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">①</span><div><div class="feat-name" data-lang-key="qa3n">編號步驟印章</div><div class="feat-desc" data-lang-key="qa3d">替截圖貼上序號，Bug Report 的步驟說明一目了然</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">□</span><div><div class="feat-name" data-lang-key="qa4n">矩形紅框標注</div><div class="feat-desc" data-lang-key="qa4d">老牌必備，圈出問題區域；支援圓角、描邊顏色、陰影</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">文</span><div><div class="feat-name" data-lang-key="qa5n">OCR 文字辨識</div><div class="feat-desc" data-lang-key="qa5d">截圖裡的錯誤訊息一鍵掃成可編輯文字，直接貼進 Jira</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">📋</span><div><div class="feat-name" data-lang-key="qa6n">一鍵複製 + 拖曳匯出</div><div class="feat-desc" data-lang-key="qa6d">標注完畢直接貼進 Slack、Notion、Confluence，或拖入附件區</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">✂️</span><div><div class="feat-name" data-lang-key="qa7n">區域 / 視窗截圖</div><div class="feat-desc" data-lang-key="qa7d">精準框選問題區域，或只截特定視窗，不含桌面雜訊</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⏱</span><div><div class="feat-name" data-lang-key="qa8n">延遲截圖</div><div class="feat-desc" data-lang-key="qa8d">設定 1–3 秒延遲，補抓 tooltip、dropdown、hover 狀態等稍縱即逝的 UI 畫面</div></div></div>
+                </div>
+            </div>
+
+            <!-- Design -->
+            <div id="tab-design" class="tab-panel" role="tabpanel">
+                <p class="persona-badge" data-lang-key="designTagline">截圖只是素材，我還要在上面做事</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⊞</span><div><div class="feat-name" data-lang-key="d1n">新開畫布</div><div class="feat-desc" data-lang-key="d1d">A4、Full HD、IG 貼文、YouTube 縮圖等預設尺寸一鍵開啟，不用再手動計算像素</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">🎨</span><div><div class="feat-name" data-lang-key="d2n">填色塊（漸層 / 透明）</div><div class="feat-desc" data-lang-key="d2d">矩形 / 橢圓色塊，支援雙色漸層、透明度，快速鋪底色</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">T</span><div><div class="feat-name" data-lang-key="d3n">文字工具</div><div class="feat-desc" data-lang-key="d3d">粗體、斜體、底線、刪除線、描邊、背景色、多行換行，排版基本需求全覆蓋</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">✦</span><div><div class="feat-name" data-lang-key="d4n">符號印章</div><div class="feat-desc" data-lang-key="d4d">表情、箭頭、幾何符號快速貼上，不需要另開圖庫</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⊟</span><div><div class="feat-name" data-lang-key="d5n">智慧磁吸對齊</div><div class="feat-desc" data-lang-key="d5d">拖曳時自動吸附邊緣、中線、均分間距，參考線即時顯示</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">↔</span><div><div class="feat-name" data-lang-key="d6n">多選對齊 + 鏡射</div><div class="feat-desc" data-lang-key="d6d">6 方向對齊、水平 / 垂直均分、水平 / 垂直鏡射，一次套用到所有選取物件</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">▣</span><div><div class="feat-name" data-lang-key="d7n">一鍵套版</div><div class="feat-desc" data-lang-key="d7d">六款 Apple mesh 漸層背景，秒轉 LinkedIn / Instagram / X 社群規格</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⊞</span><div><div class="feat-name" data-lang-key="d8n">裁切 / 延伸 / 縮放畫布</div><div class="feat-desc" data-lang-key="d8d">完整畫布操作，不需要另開影像編輯軟體</div></div></div>
+                </div>
+            </div>
+
+            <!-- PM -->
+            <div id="tab-pm" class="tab-panel" role="tabpanel">
+                <p class="persona-badge" data-lang-key="pmTagline">截圖是溝通媒介，要清楚、要快、要能傳</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">文</span><div><div class="feat-name" data-lang-key="pm1n">OCR 文字辨識</div><div class="feat-desc" data-lang-key="pm1d">截圖裡的文字直接掃成可編輯文字，一鍵複製給設計師製圖，不用手抄</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⬛</span><div><div class="feat-name" data-lang-key="pm2n">QR Code 智慧掃描</div><div class="feat-desc" data-lang-key="pm2d">框住 QR 直接開網頁；佔比 70% 以上自動開啟，21–69% 詢問確認，不用拿手機掃</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">╱</span><div><div class="feat-name" data-lang-key="pm3n">箭頭 / 貝茲曲線</div><div class="feat-desc" data-lang-key="pm3d">畫流程、指向、標示關係；曲線控制點讓箭頭繞過障礙物</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">T</span><div><div class="feat-name" data-lang-key="pm4n">文字標注</div><div class="feat-desc" data-lang-key="pm4d">在截圖上直接寫說明文字，省去回到文件補充的來回</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⬚</span><div><div class="feat-name" data-lang-key="pm5n">視窗截圖</div><div class="feat-desc" data-lang-key="pm5d">只截特定應用程式視窗，畫面乾淨，不含桌面和其他視窗</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">📋</span><div><div class="feat-name" data-lang-key="pm6n">複製 + 拖曳匯出</div><div class="feat-desc" data-lang-key="pm6d">截完即貼，無縫進 Notion、Confluence、Slack，或拖進任何附件欄位</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">📦</span><div><div class="feat-name" data-lang-key="pm7n">批次轉檔</div><div class="feat-desc" data-lang-key="pm7d">一次將多張圖片轉換格式，支援 JPG、PNG、WebP、GIF</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⧉</span><div><div class="feat-name" data-lang-key="pm8n">疊入圖片</div><div class="feat-desc" data-lang-key="pm8d">把 wireframe、設計稿或 logo 疊進截圖，一張圖說清楚</div></div></div>
+                </div>
+            </div>
+
+            <!-- Dev -->
+            <div id="tab-dev" class="tab-panel" role="tabpanel">
+                <p class="persona-badge" data-lang-key="devTagline">截圖含伺服器資訊，對外分享前需要清理</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">🛡️</span><div><div class="feat-name" data-lang-key="dev1n">隱私遮蔽（伺服器資訊）</div><div class="feat-desc" data-lang-key="dev1d">自動偵測 IPv4 / IPv6、API Token、伺服器路徑、統一編號，截圖對外安全</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">文</span><div><div class="feat-name" data-lang-key="dev2n">OCR 文字辨識</div><div class="feat-desc" data-lang-key="dev2d">把 terminal log 截圖轉成可搜尋文字，方便貼進 issue 或 ticket</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">▦</span><div><div class="feat-name" data-lang-key="dev3n">馬賽克 / 模糊</div><div class="feat-desc" data-lang-key="dev3d">手動遮蔽自動偵測沒抓到的特定欄位或自訂格式敏感資料</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⬛</span><div><div class="feat-name" data-lang-key="dev4n">QR Code 掃描</div><div class="feat-desc" data-lang-key="dev4d">截 deploy 產出的 QR code 直接驗證跳轉，不需要拿手機</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">①</span><div><div class="feat-name" data-lang-key="dev5n">編號步驟印章</div><div class="feat-desc" data-lang-key="dev5d">替 reproduce 步驟截圖編號，讓 bug report 的操作流程一目了然</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">✂️</span><div><div class="feat-name" data-lang-key="dev6n">區域截圖</div><div class="feat-desc" data-lang-key="dev6d">只截 console 或特定視窗區域，不截入桌面其他視窗的機密資訊</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">⏱</span><div><div class="feat-name" data-lang-key="dev7n">延遲截圖</div><div class="feat-desc" data-lang-key="dev7d">設定 1–3 秒延遲，補抓 toast、loading spinner、hover dropdown 等稍縱即逝的 UI 狀態——那個「點下去才出現」的畫面終於截得到了</div></div></div>
+                    <div class="feat-item"><span class="feat-icon" aria-hidden="true">📋</span><div><div class="feat-name" data-lang-key="dev8n">一鍵複製 + 拖曳匯出</div><div class="feat-desc" data-lang-key="dev8d">截完直接貼進 GitHub issue、PR comment、Slack 頻道，不需存檔再附加；截圖變附件，動作少一半</div></div></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Flagship Moments -->
+        <section class="page-section container mx-auto px-6 max-w-4xl" aria-labelledby="moments-heading">
+            <div class="divider mx-auto mb-8" id="moments-anchor"></div>
+            <p class="text-center text-xs font-bold tracking-widest text-white/30 uppercase mb-2" data-lang-key="momentsLabel">Thoughtful by Design</p>
+            <h2 id="moments-heading" class="text-2xl md:text-3xl font-bold text-center mb-10 text-white/90" data-lang-key="momentsTitle">設計，就是更貼心。</h2>
+
+            <!-- Moment 1: 捕蠅草 -->
+            <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
+                <div class="flex-1 order-2 lg:order-1">
+                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m1Label">Capture Toolbar</span> <span class="badge-all" data-lang-key="badgeAllVersions">全版本</span></p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4" data-lang-key="m1Title">一盞呼吸燈，需要時它都在</h3>
+                    <p class="text-white/55 leading-relaxed" data-lang-key="m1Desc">工具列縮成一條呼吸燈，待在桌面角落。拖著檔案靠近，它自己張開。放開，直接進編輯器。走了，它縮回去，繼續等。</p>
+                </div>
+                <div class="flex-1 order-1 lg:order-2">
+                    <video src="img/brethlight.mov" autoplay loop muted playsinline
+                           class="w-full rounded-2xl shadow-2xl"
+                           style="border: 1px solid rgba(255,255,255,0.08);"
+                           aria-label="VAS 工具列捕蠅草模式：縮成呼吸燈後感應檔案靠近自動展開"></video>
+                </div>
+            </div>
+
+            <!-- Moment 2: 工作流 -->
+            <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
+                <div class="flex-1">
+                    <div class="relative">
+                        <img id="workflowImg0" src="img/in.webp" alt="VAS 延遲截圖：抓住 dropdown 展開的瞬間" width="3024" height="1964" class="w-full rounded-2xl shadow-2xl workflow-img" style="border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.5s ease;" loading="lazy">
+                        <img id="workflowImg1" src="img/out.webp" alt="VAS 編輯器：截圖後直接進入標注與匯出流程" width="3024" height="1964" class="w-full rounded-2xl shadow-2xl workflow-img absolute inset-0" style="border: 1px solid rgba(255,255,255,0.08); transition: opacity 0.5s ease; opacity: 0;" loading="lazy">
+                    </div>
+                    <div class="flex justify-center gap-2 mt-4" aria-hidden="true">
+                        <span id="wfDot0" class="w-1.5 h-1.5 rounded-full bg-white/60"></span>
+                        <span id="wfDot1" class="w-1.5 h-1.5 rounded-full bg-white/20"></span>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m2Label">Delay Capture</span> <span class="badge-all" data-lang-key="badgeAllVersions">全版本</span></p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4" data-lang-key="m2Title">那個截不到的瞬間，截到了</h3>
+                    <p class="text-white/55 leading-relaxed" data-lang-key="m2Desc">設好延遲，dropdown、tooltip、hover 狀態——點下去才出現的畫面，終於不再溜走。截完直接進編輯器，標注、匯出，Workflow 不再有任何「選擇開啟資料夾」或「確定鍵」卡住你。</p>
+                </div>
+            </div>
+
+            <!-- Moment 3: ShareSheet -->
+            <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
+                <div class="flex-1 order-2 lg:order-1">
+                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m5Label">ShareSheet</span> <span class="badge-tauri" data-lang-key="tauriOnly">Tauri 專屬</span></p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4" data-lang-key="m5Title">順勢流動，一鍵出口</h3>
+                    <p class="text-white/55 leading-relaxed" data-lang-key="m5Desc">截完，不用存檔。不用找資料夾。不用切 App。叫出 ShareSheet，選一個去處，圖就到了。資訊流進 VAS，也流出 VAS——從來不是你的終點站，是你工作流的一條河。</p>
+                </div>
+                <div class="flex-1 order-1 lg:order-2">
+                    <img id="sharesheetImg" src="img/sharesheet.webp" alt="VAS ShareSheet：截圖後一鍵叫出系統分享選單，直接傳送至社群或雲端" width="1199" height="883" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Moment 4: 自定義快捷鍵 -->
+            <div class="flex flex-col lg:flex-row items-center gap-10 mb-20">
+                <div class="flex-1">
+                    <img id="fastImg" src="img/fast.webp" alt="VAS 自定義全域快捷鍵：在偏好設定中為工具錄製專屬快捷鍵組合" width="840" height="720" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08); max-height: 380px; object-fit: contain;" loading="lazy">
+                </div>
+                <div class="flex-1">
+                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m4Label">Global Shortcuts</span> <span class="badge-tauri" data-lang-key="tauriOnly">Tauri 專屬</span></p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4" data-lang-key="m4Title">你的習慣，不用重學</h3>
+                    <p class="text-white/55 leading-relaxed" data-lang-key="m4Desc">從任何截圖工具遷移過來，快捷鍵配合你，不是你配合快捷鍵。在偏好設定裡錄製一次，往後每個工具都回應你熟悉的那個按鍵組合。</p>
+                </div>
+            </div>
+
+            <!-- Moment 5: 設計火力 -->
+            <div class="flex flex-col lg:flex-row items-center gap-10">
+                <div class="flex-1 order-2 lg:order-1">
+                    <p class="text-xs font-bold tracking-widest text-purple-400/70 uppercase mb-3"><span data-lang-key="m3Label">Annotation Tools</span> <span class="badge-all" data-lang-key="badgeAllVersions">全版本</span></p>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4" data-lang-key="m3Title">比你以為的更多可能</h3>
+                    <p class="text-white/55 leading-relaxed" data-lang-key="m3Desc">漸層色塊、透明疊加、符號印章、貝茲曲線、疊圖、圖層上下移動、複製物件、複數字型選擇——不只是標注工具，也是一個輕量設計環境。你能想到的表達方式，它都有。</p>
+                </div>
+                <div class="flex-1 order-1 lg:order-2">
+                    <img src="img/paint.webp" alt="VAS 設計工具展示：漸層色塊、透明文字、符號印章、貝茲曲線等標注工具成果" width="1920" height="1080" class="w-full rounded-2xl shadow-2xl" style="border: 1px solid rgba(255,255,255,0.08);" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Insight link -->
+            <div class="text-center mt-16">
+                <p class="text-white/30 text-sm mb-4" data-lang-key="insightTeaser">這些設計背後的思路</p>
+                <a href="insight.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white/70 hover:text-white transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);" data-lang-key="insightBtn">閱讀設計洞察 →</a>
+            </div>
+        </section>
+
+        <!-- Origin Story -->
+        <section class="page-section container mx-auto px-6 max-w-2xl text-center" aria-labelledby="story-heading">
+            <div id="story-anchor" class="divider mx-auto mb-8"></div>
+            <p class="text-center text-xs font-bold tracking-widest text-white/30 uppercase mb-2" data-lang-key="storyTitle">ORIGIN</p>
+            <h2 id="story-heading" class="text-2xl md:text-3xl font-bold text-center mb-8 text-white/90" data-lang-key="storyH2">因為不知道，所以做得到。</h2>
+            <blockquote class="glass-section rounded-3xl p-8 md:p-10">
+                <p class="text-white/80 text-base md:text-lg leading-loose mb-6" data-lang-key="storyBody">
+                    來自一位<strong class="text-white">一行程式碼都不會寫的 PM</strong>，<br>以及 Claude Code 的 Claude，<br>
+                    人機協作 <strong class="gradient-text text-2xl font-bold">一週</strong>內迭代至 v3.43 而誕生的作品。
+                </p>
+                <footer class="text-white/35 text-sm" data-lang-key="storyByline">— Nova &amp; Claude，2026</footer>
+            </blockquote>
+            <div class="mt-8">
+                <p class="text-white/30 text-sm mb-4" data-lang-key="collabTeaser">想知道是怎麼做到的？</p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a href="collab.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white/70 hover:text-white transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);" data-lang-key="collabBtn">閱讀協作筆記 →</a>
+                    <a href="harness.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white/70 hover:text-white transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);" data-lang-key="harnessBtn">閱讀系統思維 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap & Pricing -->
+        <section class="page-section container mx-auto px-6 max-w-3xl" aria-labelledby="roadmap-heading">
+            <div id="roadmap-anchor" class="divider mx-auto mb-8"></div>
+            <p class="text-center text-xs font-bold tracking-widest text-white/30 uppercase mb-2" data-lang-key="roadmapTitle">ROADMAP &amp; PRICING</p>
+            <h2 id="roadmap-heading" class="text-2xl md:text-3xl font-bold text-center mb-10 text-white/90" data-lang-key="roadmapSub">一萬次迭代而非一萬個小時</h2>
+
+            <div id="pricingGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Electron — current free -->
+                <div id="electronPricingCard" class="glass-section rounded-3xl p-7 flex flex-col gap-4 border border-white/10">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl" aria-hidden="true">📦</span>
+                        <div>
+                            <div class="text-white font-bold text-base" data-lang-key="planElectronName">Electron 版（現行）</div>
+                            <div class="text-white/40 text-xs mt-0.5" data-lang-key="planElectronPriceBadge">免費 · 完整功能</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-white/65 text-sm flex-1" data-lang-key="planElectronFeatures">
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>所有現有功能完整收錄</span></li>
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>無使用期限，永久免費</span></li>
+                        <li class="flex gap-2"><span class="text-yellow-400/80 mt-0.5" aria-hidden="true">△</span><span>安裝包體積較大（~113 MB）</span></li>
+                        <li class="flex gap-2"><span class="text-white/30 mt-0.5" aria-hidden="true">—</span><span>前端共用，隨 Tauri 版同步受惠</span></li>
+                    </ul>
+                    <div class="text-white/25 text-xs border-t border-white/10 pt-4" data-lang-key="planElectronNote">首發版本，功能完整，歡迎久用。</div>
+                </div>
+
+                <!-- Tauri — coming paid -->
+                <div class="glass-section rounded-3xl p-7 flex flex-col gap-4 border border-purple-400/25" style="background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(59,130,246,0.08) 100%);">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl" aria-hidden="true">🚀</span>
+                        <div>
+                            <div class="text-white font-bold text-base" data-lang-key="planTauriName">Tauri 版（App Store 已上架）</div>
+                            <div class="text-purple-300/70 text-xs mt-0.5" data-lang-key="planTauriPriceBadge">付費 · 持續更新</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-white/65 text-sm flex-1" data-lang-key="planTauriFeatures">
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>全新輕量架構，體積大幅縮小（5.5MB）</span></li>
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>所有後續新功能優先上線</span></li>
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>ShareSheet 分享、自定義快捷鍵等進階工具</span></li>
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>支援 BMP / WebP / PDF 等存檔格式</span></li>
+                        <li class="flex gap-2"><span class="text-green-400 mt-0.5" aria-hidden="true">✓</span><span>支援網址截圖</span></li>
+                        <li id="cnLangNote" class="flex gap-2" style="display:none"><span class="text-purple-400 mt-0.5" aria-hidden="true">✓</span><span>支持简体中文，陆续扩充更多语言</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 完整版本歷史 -->
+        <div class="text-center mt-8 mb-2">
+            <a href="milestone.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white/60 hover:text-white transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);" data-lang-key="milestoneBtn">完整版本歷史 →</a>
+        </div>
+
+        <!-- Early Bird Survey CTA -->
+        <section class="max-w-2xl mx-auto px-6 mt-16 mb-4">
+            <div class="rounded-2xl border border-purple-400/20 bg-white/5 backdrop-blur-sm p-8 text-center">
+                <div class="inline-block text-xs font-semibold tracking-widest text-purple-300/70 uppercase mb-4 px-3 py-1 rounded-full border border-purple-400/20 bg-purple-400/10" data-lang-key="surveyBadge">早鳥專區</div>
+                <h2 class="text-2xl font-bold text-white mb-3" data-lang-key="surveyTitle">填問卷，換早鳥優惠碼</h2>
+                <p class="text-white/55 text-sm leading-relaxed mb-6 max-w-md mx-auto" data-lang-key="surveyDesc">6 道題，每一道都值得好好想想。你的答案直接影響 Tauri 版的功能優先順序——填寫後，我們會以 E-mail 寄送早鳥優惠碼。</p>
+                <a id="surveyFormLink" href="https://forms.gle/5xWyyvehF1HSAyDu7" target="_blank" rel="noopener noreferrer"
+                   class="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold text-sm hover:from-purple-400 hover:to-indigo-400 transition-all duration-200 shadow-lg shadow-purple-900/30"
+                   data-lang-key="surveyBtn">前往填寫問卷</a>
+                <p class="text-white/25 text-xs mt-4" data-lang-key="surveyNote">E-mail 僅用於寄送早鳥優惠碼，不作其他用途。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 mt-16 py-10 text-center text-white/25 text-xs space-y-2">
+        <p data-lang-key="footer">由 GitHub 部署　｜　Claude Code 傾力打造　｜　<a href="mailto:babelon1882@gmail.com" class="hover:text-white/50 transition-colors">Nova</a> 最後更新於 2026</p>
+        <p><a href="privacy.html" class="hover:text-white/50 transition-colors" data-lang-key="privacyLink">隱私權政策</a>　｜　<a href="https://tb1982.github.io/pm/" class="hover:text-white/50 transition-colors" data-lang-key="pmLink">深握計畫</a></p>
+    </footer>
+
+    <script src="i18n/core.js"></script>
+    <script>
+        const surveyLinks = {
+            zh: 'https://forms.gle/5xWyyvehF1HSAyDu7',
+            en: 'https://forms.gle/qgzfrBA9MbHK1fb4A',
+            ja: 'https://forms.gle/9D3fFbfadzbijcvh6',
+            cn: 'https://forms.gle/5xWyyvehF1HSAyDu7'
+        };
+
+        function applyLang(lang) {
+            VASCore.loadLang(lang, function (t) {
+                var merged = Object.assign({}, t.shared || {}, t.index || {});
+                document.querySelectorAll('[data-lang-key]').forEach(function (el) {
+                    var key = el.getAttribute('data-lang-key');
+                    if (merged[key] !== undefined) el.innerHTML = merged[key];
+                });
+                var surveyLink = document.getElementById('surveyFormLink');
+                if (surveyLink) surveyLink.href = surveyLinks[lang] || surveyLinks['zh'];
+                var toolbarImg = document.getElementById('toolbarImg');
+                if (toolbarImg) {
+                    toolbarImg.src = lang === 'ja' ? 'img/vastoolbar-jp.webp' : lang === 'en' ? 'img/vastoolbar-en.webp' : 'img/vastoolbar.webp';
+                    toolbarImg.alt = lang === 'ja' ? 'VAS キャプチャツールバー：全画面・ウィンドウ・矩形・遅延・開く・バッチ変換ボタン' : lang === 'en' ? 'VAS capture toolbar: fullscreen, window, rectangle, delay, open, batch convert buttons' : 'VAS 截圖工具列：全螢幕、視窗、矩形、延遲、開啟、批次轉等功能按鈕';
+                }
+                var vasframeImg = document.getElementById('vasframeImg');
+                if (vasframeImg) {
+                    vasframeImg.src = lang === 'ja' ? 'img/vasframe-jp.webp' : lang === 'en' ? 'img/vasframe-en.webp' : 'img/vasframe-zh.webp';
+                    vasframeImg.alt = lang === 'ja' ? 'VAS エディタ画面：ダーク作業エリア、左側ツールバー、上部オプションバー、中央に注釈キャンバス' : lang === 'en' ? 'VAS editor interface: dark workspace with left toolbar, top options bar, and annotation canvas' : 'VAS 編輯器介面：深色工作區，左側工具列，頂部選項列，中央為圖片標注畫布';
+                }
+                var sharesheetImg = document.getElementById('sharesheetImg');
+                if (sharesheetImg) sharesheetImg.src = lang === 'ja' ? 'img/sharesheet-jp.webp' : lang === 'cn' ? 'img/sharesheet-zh-CN.png' : lang === 'en' ? 'img/sharesheet-en.webp' : 'img/sharesheet.webp';
+                var fastImg = document.getElementById('fastImg');
+                if (fastImg) fastImg.src = lang === 'ja' ? 'img/fast-jp.webp' : lang === 'cn' ? 'img/fast-zh-CN.png' : lang === 'en' ? 'img/fast-en.webp' : 'img/fast.webp';
+                var toolbarImg = document.getElementById('toolbarImg');
+                if (toolbarImg && lang === 'cn') toolbarImg.src = 'img/vastoolbar-zh-CN.png';
+                var vasframeImg = document.getElementById('vasframeImg');
+                if (vasframeImg && lang === 'cn') vasframeImg.src = 'img/vasframe-zh-CN.png';
+                var electronBtn = document.getElementById('electronDownload');
+                if (electronBtn) electronBtn.style.display = lang === 'cn' ? 'none' : '';
+                var electronCard = document.getElementById('electronPricingCard');
+                if (electronCard) electronCard.style.display = lang === 'cn' ? 'none' : '';
+                var pricingGrid = document.getElementById('pricingGrid');
+                if (pricingGrid) {
+                    pricingGrid.style.gridTemplateColumns = lang === 'cn' ? 'minmax(0,26rem)' : '';
+                    pricingGrid.style.justifyContent = lang === 'cn' ? 'center' : '';
+                }
+                var cnNote = document.getElementById('cnLangNote');
+                if (cnNote) cnNote.style.display = lang === 'cn' ? '' : 'none';
+                var releaseLink = document.getElementById('releaseLink');
+                if (releaseLink) releaseLink.style.display = lang === 'cn' ? 'none' : '';
+                document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : lang === 'cn' ? 'zh-Hans' : lang;
+                VASCore.updateDropdown(lang);
+                try { localStorage.setItem('vasLang', lang); } catch (e) {}
+            });
+        }
+
+        // ── Header nav: mobile dropdown + custom anchor scroll ───────────────
+        (function() {
+            const btn = document.getElementById('navMobileBtn');
+            const menu = document.getElementById('navMobileMenu');
+            const chevron = document.getElementById('navMobileChevron');
+            let open = false;
+
+            if (btn && menu) {
+                function close() {
+                    open = false;
+                    menu.style.display = 'none';
+                    if (chevron) chevron.style.transform = '';
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+                function toggle(e) {
+                    e.stopPropagation();
+                    if (open) { close(); return; }
+                    open = true;
+                    menu.style.display = 'flex';
+                    if (chevron) chevron.style.transform = 'rotate(180deg)';
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+                btn.addEventListener('click', toggle);
+                menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+                document.addEventListener('click', close);
+            }
+
+            // Custom anchor scroll — use scrollIntoView (native, iOS-safe)
+            // scroll-margin-top: 108px on .divider handles header offset
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return; // 回頁首：讓瀏覽器原生處理
+                    const target = document.querySelector(href);
+                    if (!target) return;
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        })();
+
+        // ── Workflow image carousel ──────────────────────────────
+        (function() {
+            const imgs = [document.getElementById('workflowImg0'), document.getElementById('workflowImg1')];
+            const dots = [document.getElementById('wfDot0'), document.getElementById('wfDot1')];
+            if (!imgs[0]) return;
+            let cur = 0;
+            setInterval(() => {
+                imgs[cur].style.opacity = '0';
+                dots[cur].style.background = 'rgba(255,255,255,0.2)';
+                cur = (cur + 1) % 2;
+                imgs[cur].style.opacity = '1';
+                dots[cur].style.background = 'rgba(255,255,255,0.6)';
+            }, 2800);
+        })();
+
+        applyLang('zh'); // 初始化：套用 zh i18n key，確保硬寫內容與翻譯一致
+        VASCore.initDropdown(applyLang); VASCore.initNavDropdown(); // 綁定 dropdown 事件 + 恢復 localStorage 語言
+
+        // ── Persona Tab switching ──────────────────────────────────────────────
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                document.getElementById('tab-' + target).classList.add('active');
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            });
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "VAS — Visual Annotation Studio",
+        "description": "專為 Mac 設計的截圖與圖像敘述工具，一站式匯聚標注、套版、OCR、批次轉檔，為跨領域溝通而生。",
+        "url": "https://tb1982.github.io/vas/",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "macOS",
+        "inLanguage": "zh-Hant",
+        "author": {
+            "@type": "Person",
+            "name": "Nova",
+            "email": "babelon1882@gmail.com",
+            "sameAs": [
+                "https://github.com/tb1982",
+                "https://www.linkedin.com/in/yingtzuliu",
+                "https://www.instagram.com/liuyingtzu"
+            ]
+        }
+    }
+    </script>
+
+</body>
+</html>
