@@ -83,11 +83,8 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
 .site-nav-brand .mark {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: radial-gradient(circle,
-    var(--vas-aurora-violet) 0%,
-    var(--vas-aurora-pink) 60%,
-    transparent 100%);
-  box-shadow: 0 0 12px rgba(196, 113, 245, 0.6);
+  background: radial-gradient(circle, var(--vas-aurora-violet), transparent 70%);
+  box-shadow: 0 0 10px rgba(196, 113, 245, 0.7);
   animation: vas-breathe 6s ease-in-out infinite;
 }
 @keyframes vas-breathe {
