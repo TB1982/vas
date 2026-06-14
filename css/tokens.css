@@ -91,9 +91,6 @@ a.site-nav-brand:hover { color: var(--vas-ash-0); }
   0%, 100% { opacity: 0.75; transform: scale(1); }
   50%      { opacity: 1;    transform: scale(1.15); }
 }
-@media (max-width: 960px) {
-  body:not(.is-home) .site-nav-brand .mark { animation: none; }
-}
 .site-nav-links {
   display: flex; gap: 32px;
   position: absolute; left: 50%; transform: translateX(-50%);
