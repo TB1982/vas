@@ -283,6 +283,23 @@ h1, h2, h3 {
     <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
     <a href="faq.html" class="active" data-lang-key="home2.nav.faq">FAQ</a>
   </div>
+    <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="メニュー">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html" data-lang-key="home2.nav.about">について</a>
+    <a href="echo.html" data-lang-key="home2.nav.echo">残響</a>
+    <a href="milestone.html" data-lang-key="home2.nav.milestones">里程碑</a>
+    <a href="guide.html" data-lang-key="home2.nav.guide">マニュアル</a>
+    <a href="faq.html" data-lang-key="home2.nav.faq">FAQ</a>
+  </div>
   <div class="site-nav-lang" id="langDropdownWrap">
     <div class="lang-flat-row">
       <a href="../faq.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/faq.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="faq.html" class="lang-opt active" hreflang="ja" style="text-decoration:none;white-space:nowrap;font-weight:600">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/faq.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
@@ -619,5 +636,6 @@ h1, h2, h3 {
 
 <script defer src="../js/analytics.js"></script>
 
+<script>document.addEventListener("DOMContentLoaded",function(){window.VASCore&&VASCore.initNavDropdown&&VASCore.initNavDropdown();});</script>
 </body>
 </html>
