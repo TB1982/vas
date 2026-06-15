@@ -182,7 +182,7 @@ img{display:block;max-width:100%;}
 @keyframes drift2{0%,100%{transform:translate(0,0);}50%{transform:translate(-5vw,-3vh);}}
 
 /* 玻璃框層：空框與章節框共用；一層套一層沒入消失點 */
-.pane{position:absolute;left:50%;top:50%;width:min(92vw,1500px);height:min(80vh,820px);
+.pane{position:absolute;left:50%;top:50%;width:100%;height:min(80vh,820px);
   border:1px solid rgba(196,113,245,0.34);border-radius:4px;
   background:linear-gradient(165deg,rgba(196,113,245,0.055),rgba(79,172,254,0.045) 55%,rgba(14,11,26,0.02));
   box-shadow:inset 0 0 90px rgba(196,113,245,0.07),0 0 50px rgba(196,113,245,0.06);
@@ -214,12 +214,13 @@ img{display:block;max-width:100%;}
 }
 
 /* 章節框：玻璃框內左右一對鏡像章 */
-.ring{display:flex;align-items:center;justify-content:space-between;padding:0 30px;}
+.ring{display:flex;align-items:center;justify-content:center;gap:min(240px,24vw);padding:0 30px;}
 .ring .rn{position:absolute;top:20px;left:50%;transform:translateX(-50%);
   font-family:var(--mono);font-size:10px;letter-spacing:0.26em;color:var(--ash-3);text-transform:uppercase;white-space:nowrap;}
 
 .plate{position:relative;width:310px;padding:22px 24px;border:1px solid var(--edge);border-radius:2px;
-  background:linear-gradient(135deg,rgba(25,19,52,0.95),rgba(14,11,26,0.85));
+  background:linear-gradient(135deg,rgba(25,19,52,0.985),rgba(13,10,24,0.965));
+  transform:translateZ(0);backface-visibility:hidden;
   transition:border-color .4s,background .4s,box-shadow .4s,transform .55s cubic-bezier(.2,.7,.2,1);overflow:hidden;}
 .plate.l{text-align:left;}
 .plate.r{text-align:right;}
