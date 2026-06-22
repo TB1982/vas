@@ -193,6 +193,22 @@ a{color:inherit;text-decoration:none;}
 .wing-in .entry:hover .no::before{box-shadow:0 0 8px rgba(168,137,92,0.55);}
 .wing-in .entry:hover .go{color:var(--gold);}
 
+/* 對面的門 —— 從墨的一面通往光的一面（器 · 軟體本體）；用光側的紫，提示這是另一個世界 */
+.crossdoor{display:flex;justify-content:space-between;align-items:center;gap:24px;
+  margin-top:2vh;padding:30px 10px;border-top:1px solid var(--ink-4);
+  border-bottom:1px solid var(--ink-4);transition:background .35s;}
+.crossdoor .cd-l{display:flex;flex-direction:column;gap:9px;}
+.crossdoor .cd-way{display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#7c4bd0;}
+.crossdoor .cd-dot{width:7px;height:7px;border-radius:50%;flex:none;
+  background:radial-gradient(circle,#c471f5,transparent 70%);box-shadow:0 0 8px rgba(196,113,245,0.6);}
+.crossdoor .cd-name{font-size:19px;font-weight:500;line-height:1.6;color:var(--ink);}
+.crossdoor .cd-name .q{display:block;font-size:13.5px;font-weight:400;color:var(--ink-2);margin-top:4px;}
+.crossdoor .cd-go{font-family:var(--serif-en);font-style:italic;font-size:14px;color:var(--ink-3);
+  white-space:nowrap;transition:color .35s,transform .35s;}
+.crossdoor:hover{background:rgba(124,75,208,0.05);}
+.crossdoor:hover .cd-go{color:#7c4bd0;transform:translateX(4px);}
+
 /* 章尾 */
 .foot{display:flex;justify-content:space-between;align-items:baseline;
   padding:7vh 0 60px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--ink-3);}
@@ -220,6 +236,7 @@ a{color:inherit;text-decoration:none;}
 @media(max-width:600px){
   .shell{padding:0 20px;}
   .head .sub{font-size:15px;max-width:none;}
+  .crossdoor{flex-direction:column;align-items:flex-start;gap:14px;}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;}
@@ -287,7 +304,15 @@ a{color:inherit;text-decoration:none;}
 
   </div>
 
-  <footer class="foot slide s8">
+  <a class="crossdoor slide s8" href="instrument.html">
+    <span class="cd-l">
+      <span class="cd-way"><span class="cd-dot"></span>器 · THE INSTRUMENT</span>
+      <span class="cd-name">Enter the side of light — the VAS software<span class="q">Screenshots, OCR, privacy masking, batch processing —<br>a multimodal toolbox on macOS.</span></span>
+    </span>
+    <span class="cd-go">enter —</span>
+  </a>
+
+  <footer class="foot slide s9">
     <span>ONE FORGING · TWO TREATISES</span>
     <span class="lat">vas — coniunctio — opus</span>
   </footer>
