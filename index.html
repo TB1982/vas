@@ -377,7 +377,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
     /* 兩側的字塊就是熱區，也是門：滑到它才展開、點它才進入 */
     var voidCard  = document.querySelector('.side-void');
     var paperCard = document.querySelector('.side-paper');
-    var hover = 0;  /* 1=器（光）展開 · -1=思（墨）展開 · 0=自體流動 */
+    var hover = 0, lastHoverT = -1e4;  /* 1=器（光）展開 · -1=思（墨）展開 · 0=自體流動 · lastHoverT=放開時刻 */
     function inCard(el, x, y){
       if(!el) return false;
       var r = el.getBoundingClientRect();
@@ -435,7 +435,10 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         var mid = (loM + hiM) / 2, a = (hiM - loM) / 2;
         target = mid + Math.sin((now - t0) / 9000 * Math.PI * 2) * a;
       }
-      current += (target - current) * 0.3;   /* 追蹤調緊：忠實重現瓶的強緩動，不把曲線抹平成均速 */
+      var k = 0.3;                                   /* 自體流動緊跟瓶：大=貼瓶緩動、小=更鬆（太小會抹平成均速） */
+      if(hover !== 0){ lastHoverT = now; k = 0.06; } /* hover 拉開速度：小=慢柔、大=快 */
+      else if(now - lastHoverT < 600){ k = 0.06; }   /* 放開後柔順回流窗（ms）：調慢速度時跟著放大 */
+      current += (target - current) * k;
       mirror.style.setProperty('--seam', current.toFixed(3) + '%');
       /* 偏向哪邊，那邊的光／影呼吸得更滿 */
       var a = mobile ? ampM : (FLOW_AMP + 3);

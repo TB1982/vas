@@ -155,6 +155,33 @@ VAS has two nav contexts that share the same mobile dropdown pattern:
 
 ---
 
+## 首頁鏡面互動 — 參數地圖（微調指南）
+
+首頁 `index.html`（四語同構：`en/` `ja/` `cn/` 一起改）。鏡面流動 = 中央瓶的升降直接耦合那條縫；hover 任一側字塊則該側拓寬。下面是「想調什麼 → 搜尋哪段 → 怎麼動」。
+
+### 鏡面 `<script>`（頁尾）裡的 `tick` / `measure`
+
+| 想調什麼 | 搜尋 | 怎麼動 |
+|---------|------|-------|
+| **hover 拉開速度** | `if(hover !== 0){ lastHoverT = now; k = 0.06; }` | 兩個 `0.06` 一起改；小=慢/柔、大=快。下一行 `< 600` 是放開後柔順回流的窗（ms），改慢速度時跟著放大 |
+| 自體流動緊跟瓶的程度 | `var k = 0.3;` | 大=線更貼瓶的緩動；小=更鬆（太小會被抹平成均速） |
+| 左右擺幅（頂到 LOGO 多遠） | `+ 1.5; /* 流動頂到大字 LOGO` | `+1.5` 是越過 LOGO 緣的餘量，大=線擺更開 |
+| hover 多展開一點 | `OPEN_VOID = Math.min(50 + FLOW_AMP + 3` | `+3` ／下一行 `-3` 控制 hover 比呼吸峰再多開多少 |
+| 熱區邊緣寬鬆度 | `var padX = 56, padY = 44;` | 越大越好探到 |
+
+### `<style>` 裡的呼吸動畫（四組要一起改才同步）
+
+| 想調什麼 | 搜尋 | 怎麼動 |
+|---------|------|-------|
+| 呼吸週期 | `animation:float 9s` | 四處 `9s`（`float` / `halo-breathe` / `ink-breathe` / `ground-breathe`）一起改 |
+| 緩動曲線 | `cubic-bezier(0.65,0,0.35,1)` | 四處一起改。光譜：Sine `.37,0,.63,1` → Quad `.45,0,.55,1` → **Cubic 現在** → Quart `.76,0,.24,1` → Quint `.83,0,.17,1` |
+| 兩端留白時間 | `@keyframes float` 的 `0%,3%` `47%,53%` `97%,100%` | 把 `3` / `47,53` / `97` 的間距拉大 = 停更久。四組 keyframe 都有同樣三停 |
+| 瓶浮動振幅 | `translateY(-14px)` | ⚠️ 見下方硬耦合警告 |
+
+> **⚠️ 硬耦合（一定要記住）：** 瓶振幅 `-14px` 在 **CSS（`@keyframes float`）和 JS（`frac = ... ty / -14`）兩邊都有**。改振幅必須**兩邊同步改**，只改一邊瓶與縫就脫鉤。
+
+---
+
 ## Design Consistency Check
 When reviewing the codebase, check visual consistency as a separate axis from correctness:
 - Nav structure (pill style, spacing) matches across homepage and all sub-pages
