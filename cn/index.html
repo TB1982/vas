@@ -90,41 +90,45 @@ img{display:block;max-width:100%;}
 /* 中央的瓶 —— 兩個世界各畫一次，位置完全相同 */
 .vessel{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);
   width:min(30vw,330px);}
-.vessel img{width:100%;animation:float 9s ease-in-out infinite;}
+.vessel img{width:100%;animation:float 9s cubic-bezier(0.65,0,0.35,1) infinite;}
 @keyframes float{
-  0%,100%{transform:translateY(0) rotate(-0.4deg);}
-  50%{transform:translateY(-14px) rotate(0.4deg);}}
+  0%,3%{transform:translateY(0) rotate(-0.4deg);}
+  47%,53%{transform:translateY(-14px) rotate(0.4deg);}
+  97%,100%{transform:translateY(0) rotate(-0.4deg);}}
 
 /* void 側的瓶：光的呼吸 */
 .world-void .halo{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
   width:160%;height:160%;border-radius:50%;pointer-events:none;
   background:radial-gradient(circle,rgba(165,105,245,0.55) 0%,rgba(95,125,235,0.20) 46%,transparent 70%);
-  filter:blur(46px);animation:halo-breathe 9s ease-in-out infinite;}
+  filter:blur(46px);animation:halo-breathe 9s cubic-bezier(0.65,0,0.35,1) infinite;}
 @keyframes halo-breathe{
-  0%,100%{opacity:calc(0.30 * var(--lean-void,1));transform:translate(-50%,-50%) scale(0.9);}
-  50%{opacity:calc(1 * var(--lean-void,1));transform:translate(-50%,-50%) scale(1.16);}}
+  0%,3%{opacity:calc(0.30 * var(--lean-void,1));transform:translate(-50%,-50%) scale(0.9);}
+  47%,53%{opacity:calc(1 * var(--lean-void,1));transform:translate(-50%,-50%) scale(1.16);}
+  97%,100%{opacity:calc(0.30 * var(--lean-void,1));transform:translate(-50%,-50%) scale(0.9);}}
 .world-void .vessel img{filter:drop-shadow(0 34px 64px rgba(60,40,120,0.5));}
 
 /* paper 側的瓶：墨的拓印 · 反相成版畫 */
 .world-paper .vessel img{
   filter:invert(1) grayscale(0.82) sepia(0.38) contrast(0.92) brightness(1.04);
-  mix-blend-mode:multiply;animation-delay:-4.5s;}
+  mix-blend-mode:multiply;animation-delay:0s;}
 .world-paper .halo{position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
   width:140%;height:140%;border-radius:50%;pointer-events:none;
   background:radial-gradient(circle,rgba(168,137,92,0.30) 0%,rgba(139,58,31,0.10) 48%,transparent 70%);
-  filter:blur(40px);animation:ink-breathe 9s ease-in-out infinite;animation-delay:-4.5s;}
+  filter:blur(40px);animation:ink-breathe 9s cubic-bezier(0.65,0,0.35,1) infinite;animation-delay:-4.5s;}
 @keyframes ink-breathe{
-  0%,100%{opacity:0.25;transform:translate(-50%,-50%) scale(0.92);}
-  50%{opacity:0.8;transform:translate(-50%,-50%) scale(1.1);}}
+  0%,3%{opacity:0.25;transform:translate(-50%,-50%) scale(0.92);}
+  47%,53%{opacity:0.8;transform:translate(-50%,-50%) scale(1.1);}
+  97%,100%{opacity:0.25;transform:translate(-50%,-50%) scale(0.92);}}
 
 /* 思側的墨影 —— 與器側紫暈相對的地上陰影，跟著漂浮反相呼吸 */
 .world-paper .ground{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);
   width:62%;height:22px;border-radius:50%;pointer-events:none;
   background:radial-gradient(ellipse at center,rgba(26,24,22,0.4) 0%,rgba(139,58,31,0.12) 55%,transparent 72%);
-  filter:blur(7px);animation:ground-breathe 9s ease-in-out infinite;animation-delay:-4.5s;}
+  filter:blur(7px);animation:ground-breathe 9s cubic-bezier(0.65,0,0.35,1) infinite;animation-delay:0s;}
 @keyframes ground-breathe{
-  0%,100%{opacity:calc(0.9 * var(--lean-paper,1));transform:translateX(-50%) scaleX(1);}
-  50%{opacity:calc(0.38 * var(--lean-paper,1));transform:translateX(-50%) scaleX(0.84);}}
+  0%,3%{opacity:calc(0.9 * var(--lean-paper,1));transform:translateX(-50%) scaleX(1);}
+  47%,53%{opacity:calc(0.38 * var(--lean-paper,1));transform:translateX(-50%) scaleX(0.84);}
+  97%,100%{opacity:calc(0.9 * var(--lean-paper,1));transform:translateX(-50%) scaleX(1);}}
 
 /* ═══ 大字 VAS. —— 同一位置、兩種材質 ═══ */
 .wordmark{position:absolute;left:50%;top:24%;transform:translate(-50%,-50%);
@@ -136,7 +140,7 @@ img{display:block;max-width:100%;}
 .world-paper .wordmark em{font-style:normal;font-weight:500;color:var(--rust);}
 
 /* ═══ 左側 · 器 ═══ */
-.side{position:absolute;top:50%;z-index:6;}
+.side{position:absolute;top:50%;z-index:6;display:block;}
 .side-void{left:6vw;transform:translateY(-50%);max-width:30vw;}
 .side .kick{font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
   color:var(--ash-3);margin-bottom:26px;white-space:nowrap;}
@@ -149,8 +153,8 @@ img{display:block;max-width:100%;}
   font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--ash-2);
   transition:color .3s,gap .3s;}
 .side .enter .ln{width:38px;height:1px;background:var(--ash-4);transition:width .3s,background .3s;}
-.side .enter:hover{color:var(--ash-0);gap:16px;}
-.side .enter:hover .ln{width:54px;background:var(--aurora-v);}
+.side:hover .enter{color:var(--ash-0);gap:16px;}
+.side:hover .enter .ln{width:54px;background:var(--aurora-v);}
 
 /* ═══ 右側 · 思 ═══ */
 .side-paper{right:6vw;transform:translateY(-50%);max-width:30vw;text-align:right;
@@ -160,8 +164,8 @@ img{display:block;max-width:100%;}
 .side-paper .line .caret{background:var(--rust);}
 .side-paper .enter{color:var(--ink-2);flex-direction:row-reverse;}
 .side-paper .enter .ln{background:var(--ink-4);}
-.side-paper .enter:hover{color:var(--ink);}
-.side-paper .enter:hover .ln{background:var(--rust);}
+.side-paper:hover .enter{color:var(--ink);}
+.side-paper:hover .enter .ln{background:var(--rust);}
 
 /* ═══ 版口 ═══ */
 .corner{position:absolute;font-family:var(--mono);font-size:10px;letter-spacing:0.18em;z-index:6;white-space:nowrap;}
@@ -190,10 +194,7 @@ img{display:block;max-width:100%;}
 .langsel a:hover{opacity:0.85;}
 .langsel .on{opacity:1;font-weight:500;}
 
-/* ═══ 入口熱區（看不見、撐滿半邊） ═══ */
-.door{position:fixed;top:0;bottom:0;z-index:20;display:block;}
-.door-void{left:0;width:var(--seam);}
-.door-paper{left:var(--seam);right:0;}
+/* ═══ 入口＝兩側字塊本身（.side 為 <a>）；不再用撐滿半邊的隱形門 ═══ */
 
 /* 進場 */
 .rise{opacity:0;animation:rise 1.8s ease forwards;}
@@ -212,8 +213,6 @@ img{display:block;max-width:100%;}
   .seam-line{left:0;right:0;top:var(--seam);bottom:auto;width:auto;height:1px;
     background:linear-gradient(to right,transparent,rgba(196,113,245,0.4) 35%,rgba(168,137,92,0.5) 65%,transparent);}
   .seam-line::after{display:none;}
-  .door-void{left:0;right:0;top:0;width:auto;height:var(--seam);}
-  .door-paper{left:0;right:0;top:var(--seam);bottom:0;width:auto;}
   .wordmark{display:block;left:8vw;top:12%;transform:none;
     font-size:clamp(52px,15vw,80px);}
   .wordmark.rise{animation-name:rise-wm;}
@@ -263,7 +262,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   "description": "VAS——整合 OCR 文字识别、隐私遮蔽、多屏与网页截图、QR Code 扫描、批量转换、标注、智慧导线排版的 macOS 截图与图片处理工具。专为人机协作打造。",
   "url": "https://yoursvas.app/cn/",
   "inLanguage": "zh-Hans",
-  "dateModified": "2026-06-19",
+  "dateModified": "2026-06-22",
   "downloadUrl": "https://apps.apple.com/app/vas/id6761584119",
   "offers": [
     {
@@ -316,11 +315,11 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         <div class="halo"></div>
         <img src="../img/vasweb.webp" alt="VAS——瓶形容器，光的一面">
       </div>
-      <div class="side side-void rise d3">
+      <a class="side side-void rise d3" href="instrument.html" aria-label="走进器——VAS 产品">
         <p class="kick">器 · THE INSTRUMENT</p>
         <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p>
         <span class="enter">走进 光的一面<span class="ln"></span></span>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -336,20 +335,17 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         <img src="../img/vasweb.webp" alt="">
         <div class="ground"></div>
       </div>
-      <div class="side side-paper rise d3">
+      <a class="side side-paper rise d3" href="treatise.html" aria-label="走进思——两份论文">
         <p class="kick">思 · THE TREATISE</p>
         <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p>
         <span class="enter">走进 墨的一面<span class="ln"></span></span>
-      </div>
+      </a>
     </div>
   </div>
 
   <!-- 縫 -->
   <div class="seam-line"></div>
 
-  <!-- 兩扇門 -->
-  <a class="door door-void" href="instrument.html" aria-label="走进器——VAS 产品"></a>
-  <a class="door door-paper" href="treatise.html" aria-label="走进思——两份论文"></a>
 
   <!-- 語言 / Language -->
   <nav class="langsel" aria-label="語言 / Language">
@@ -368,28 +364,50 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   var mobile  = matchMedia('(max-width: 768px)').matches;
   var mirror  = document.getElementById('mirror');
 
-  /* ── 鏡面：桌面隨游標傾斜；手機隨指尖讓位，閒置時自體呼吸 ── */
-  var target = 50, current = 50, amp = 18;
-  function calcAmp(){
-    var half = Math.min(innerWidth * 0.30, 330) / 2;   /* 瓶的半寬 */
-    amp = Math.min(30, (half + 90) / innerWidth * 100); /* 全偏時讓縫越過瓶身再留邊距 */
-  }
+  /* ── 鏡面：閒置時自體流動（桌機左右、手機上下）；游標／指尖探進任一側的字塊熱區，那一側才展開 ── */
+  var current = 50, target = 50, t0 = performance.now();
   if(!reduced){
-    var ampM = 10, hiM = 70, loM = 47, lastTouch = 0, t0 = performance.now();
+    var ampM = 10, hiM = 70, loM = 47, lastTouch = 0;
     function calcSweep(){
       /* 行動版掃描範圍：下探到瓶底上縮 26px（不遮「思」標），上收到中線上方 20px */
       var h = Math.min(innerWidth * 0.40, 175);
       hiM = Math.min(74, (innerHeight * 0.56 + h / 2 - 26) / innerHeight * 100);
       loM = (innerHeight * 0.50 - 20) / innerHeight * 100;
     }
+    /* 兩側的字塊就是熱區，也是門：滑到它才展開、點它才進入 */
+    var voidCard  = document.querySelector('.side-void');
+    var paperCard = document.querySelector('.side-paper');
+    var hover = 0;  /* 1=器（光）展開 · -1=思（墨）展開 · 0=自體流動 */
+    function inCard(el, x, y){
+      if(!el) return false;
+      var r = el.getBoundingClientRect();
+      var padX = 56, padY = 44;        /* 寬鬆一點，邊緣不必精準對齊 */
+      return x >= r.left - padX && x <= r.right + padX
+          && y >= r.top - padY && y <= r.bottom + padY;
+    }
+    var FLOW_AMP = 10, OPEN_VOID = 61, OPEN_PAPER = 39;
+    function measure(){
+      var wm = document.querySelector('.world-void .wordmark');
+      if(wm){
+        var r = wm.getBoundingClientRect();
+        FLOW_AMP = r.width / 2 / innerWidth * 100 + 1.5;   /* 流動頂到大字 LOGO 左右緣外一點點，兩側 LOGO 都完整顯示 */
+      }
+      var vr = voidCard  && voidCard.getBoundingClientRect();
+      var pr = paperCard && paperCard.getBoundingClientRect();
+      var voidRight = vr ? vr.right / innerWidth * 100 : 36;   /* 器字塊右緣 */
+      var paperLeft = pr ? pr.left  / innerWidth * 100 : 64;   /* 思字塊左緣 */
+      OPEN_VOID  = Math.min(50 + FLOW_AMP + 3, paperLeft - 0.5);  /* hover 再多展一點，但不剪到對側字塊 */
+      OPEN_PAPER = Math.max(50 - FLOW_AMP - 3, voidRight + 0.5);
+    }
     if(!mobile){
-      calcAmp();
-      addEventListener('resize', calcAmp);
+      measure();
+      addEventListener('resize', measure);
+      setTimeout(measure, 500);                                 /* 字型載入後重量 */
       addEventListener('mousemove', function(e){
-        var r = (e.clientX / innerWidth - 0.5) * 2;       /* -1 ~ 1 */
-        target = 50 - r * amp;                            /* 游標往左→器拓寬；往右→思拓寬 */
+        hover = inCard(voidCard, e.clientX, e.clientY) ? 1
+              : inCard(paperCard, e.clientX, e.clientY) ? -1 : 0;
       });
-      document.documentElement.addEventListener('mouseleave', function(){ target = 50; });
+      document.documentElement.addEventListener('mouseleave', function(){ hover = 0; });
     } else {
       calcSweep();
       addEventListener('resize', calcSweep);
@@ -400,16 +418,27 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         target = Math.max(46, Math.min(hiM, 50 - ry * ampM));
       }, {passive:true});
     }
+    var vimg = document.querySelector('.world-void .vessel img');   /* 線跟著這座瓶的升降呼吸 */
     (function tick(){
-      if(mobile && performance.now() - lastTouch > 1800){
-        /* 自體呼吸：在 loM↔hiM 之間掃描（9 秒週期，與光暈同步） */
+      var now = performance.now();
+      if(!mobile){
+        if(hover === 1)       target = OPEN_VOID;     /* 滑進器的字塊→光拓寬 */
+        else if(hover === -1) target = OPEN_PAPER;    /* 滑進思的字塊→墨拓寬 */
+        else {
+          /* 與瓶的浮沉成對：升到頂→器（光）拓寬、光暈正盛；沉到底→思（墨）拓寬、影子沉澱。直接讀瓶的真實 translateY，連呼吸曲線都繼承 */
+          var ty = vimg ? new DOMMatrixReadOnly(getComputedStyle(vimg).transform).m42 : 0;
+          var frac = Math.min(1, Math.max(0, ty / -14));   /* 0=沉到底 · 1=升到頂（對應 @keyframes float 的 -14px） */
+          target = 50 - FLOW_AMP + frac * 2 * FLOW_AMP;     /* 光往上：頂→50+amp（器寬）· 影往下：底→50-amp（思寬） */
+        }
+      } else if(now - lastTouch > 1800){
+        /* 行動版閒置自體呼吸：在 loM↔hiM 之間掃描（9 秒週期，與光暈同步） */
         var mid = (loM + hiM) / 2, a = (hiM - loM) / 2;
-        target = mid + Math.sin((performance.now() - t0) / 9000 * Math.PI * 2) * a;
+        target = mid + Math.sin((now - t0) / 9000 * Math.PI * 2) * a;
       }
-      current += (target - current) * 0.06;
+      current += (target - current) * 0.3;   /* 追蹤調緊：忠實重現瓶的強緩動，不把曲線抹平成均速 */
       mirror.style.setProperty('--seam', current.toFixed(3) + '%');
       /* 偏向哪邊，那邊的光／影呼吸得更滿 */
-      var a = mobile ? ampM : amp;
+      var a = mobile ? ampM : (FLOW_AMP + 3);
       var leanV = 1 + Math.max(0, current - 50) / a * 0.7;
       var leanP = 1 + Math.max(0, 50 - current) / a * 0.7;
       mirror.style.setProperty('--lean-void',  leanV.toFixed(3));
