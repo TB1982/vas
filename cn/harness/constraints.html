@@ -39,7 +39,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);
   font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 a{color:inherit;text-decoration:none;}
 
-.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.shell{max-width:900px;margin:0 auto;padding:0 6vw;}
 .top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
 .top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
 .top .back:hover{color:var(--rust);}
@@ -283,6 +283,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
         <tr><td>Story 隐含两个可独立交付的功能</td><td>拆成两个 Story，下个 Sprint 继续</td></tr>
       </tbody>
     </table>
+    <p class="aside">用第一柱 Context 的 epicycle 来看：DoR 是<strong>操作频谱的手</strong>，逼出「建构必配校正」这条原理——把不对频、与产品无关的闯入者（藏着的第二功能、没定的设计、scope creep）挡在 Code 之前。而一条为反对而反对、与出货无关的官僚规则，不是校正，是伪装成闸门的不对频噪声——这正是 Retro 要砍它的理由（见第三柱 Entropy）。</p>
     <h4>Explore① · 实作前探路</h4>
     <p>在规格写下之前，先寻找有无前人经验：KM 里有没有踩过类似的坑？既有的实作里有没有现成的路？知道地形之后，规格才写得准——Explore① 的产出喂给 SDD。</p>
     <h4>SDD · Specification-Driven Development</h4>
@@ -412,6 +413,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     </ul>
     <p>于是「收获该放哪」这个问题，本质上是在问：<strong>这份收获，要成为壁，还是成为结晶？</strong></p>
     <p>要让收获落在对的命运里，得先让它落在对的地方。</p>
+    <p class="aside">这些沉淀成的壁，正是第三柱 Entropy 里 Retro 每一圈抬升后留下的结果——水的收获变成岸，地基因此一层层变厚，螺旋才升得上去。</p>
     <h3>每段文字都有一个家</h3>
     <p>「何时记」之外，还有一个同样重要的问题：「记到哪里」。</p>
     <p>系统里的文档不是一份，是好几种——每天都要遵守的规则、需要时才查的程序、踩过坑的教训、还在追踪的问题、欠着没做的事。它们的性质不同，家就不同。落笔之前先问一个问题：<strong>这个东西在本质上是什么？</strong>先分流，再落笔。</p>
