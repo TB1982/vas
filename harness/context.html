@@ -213,33 +213,59 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   </section>
 
   <section class="sec rise" id="sec-2">
-    <p class="no">II · 運作機制：傅立葉轉換</p>
+    <p class="no">II · 運作原理：傅立葉級數的 epicycle</p>
     <h3>數學原理</h3>
-    <p>傅立葉轉換的核心機制是：任何複雜的波形，都可以分解成一組正弦波的疊加。</p>
+    <p>傅立葉 epicycle 的組成是：任何一條複雜的封閉曲線（要描出的形狀），都可以拆解成一組旋轉圓的疊加；而每個圓投影到一根軸上，就是一條正弦波。</p>
     <ul>
-      <li><strong>基頻</strong>（fundamental frequency）：整個系統的「基調」</li>
-      <li><strong>諧波</strong>（harmonics）：與基頻相關的衍生頻率</li>
-      <li><strong>高頻雜訊</strong>：與基頻無關的干擾</li>
+      <li><strong>基頻</strong>（fundamental frequency）：轉得最慢的那個圓——一個週期繞一圈，定下整個系統的「基調」與轉速基準。</li>
+      <li><strong>諧波</strong>（harmonics）：基頻的整數倍，一環長在前一環的邊緣上，扣著疊上去。</li>
+      <li><strong>雜訊</strong>：轉速不是基頻整數倍的圓——到閉合那一刻回不了家，疊上去只會讓形狀失真、曲線閉不起來。</li>
     </ul>
-    <h3>應用到對話</h3>
-    <p>把這個框架應用到人機對話：</p>
+    <h3>一個意象，兩層同構</h3>
+    <p>同一組 epicycle，描對話也描開發：</p>
     <table>
-      <thead><tr><th>傅立葉概念</th><th>對話中的對應</th></tr></thead>
+      <caption>epicycle · 兩層同構</caption>
+      <thead><tr><th>epicycle 概念</th><th>對話中的對應</th><th>開發中的對應</th></tr></thead>
       <tbody>
-        <tr><td>複雜波形</td><td>一段多主題的長對話</td></tr>
-        <tr><td>基頻</td><td>貫穿對話的核心主題</td></tr>
-        <tr><td>諧波</td><td>與核心相關的衍生話題</td></tr>
-        <tr><td>高頻雜訊</td><td>無關的岔題、干擾</td></tr>
+        <tr><td>描出的形狀</td><td>一段多主題的長對話</td><td>交付的產品</td></tr>
+        <tr><td>基頻</td><td>貫穿對話的核心主題</td><td>產品目標</td></tr>
+        <tr><td>諧波（一環扣一環）</td><td>與核心相關的衍生話題</td><td>DoR → SDD → DoD → Verify → Done 的串接</td></tr>
+        <tr><td>雜訊</td><td>無關的岔題、干擾</td><td>與產品無關的支線、scope creep</td></tr>
       </tbody>
     </table>
+    <h3>筆尖描繪：圓同時轉，線依序畫</h3>
+    <p>在開發裡，這組 epicycle 就是工作流的骨幹：<strong>DoR → SDD → DoD → Verify → Done</strong>。基頻是產品目標，大圓帶著筆尖走完一整圈——那一圈就是一次完整的交付。筆尖依序經過每一道閘門的弧段，每到一段，那一環的小圓才把它的細節轉出來：DoR 的圓描出開場的弧，Verify 的圓描出收尾的弧。</p>
+    <p>所有的圓同時在轉，依序的，是筆尖落線的順序。看 epicycle 動畫時會有種錯覺：大圓帶你繞，繞到某些段落，小圓才像突然「長出來」補上轉折——其實小圓一直都在轉，只是它的細節要等筆尖走到那一段才顯形。</p>
+    <h3>閉合：計劃與現實對齊的瞬間</h3>
+    <p>大圓帶著筆尖繞完一整圈，每一環的小圓也恰好都繞完整數圈——於是在 <strong>DoD 與 Verify 對上</strong>的那一刻，所有的圓同時被甩回出發的位置、一起歸位，產品的形狀才真正描完、閉合。</p>
+    <p class="key">這一刻，計劃（DoD：什麼叫完成）與現實（Verify：真的完成了嗎）疊合為一。</p>
+    <p>而它們能同時歸位，正因為每一環都是同一個基頻的整數倍：任何一個不繞著產品轉的圓，到這一刻都還落單在外圈，曲線就閉不起來。閉合本身，就是在驗收「所有的環是不是真的都繞著同一個基頻」——能同時回家的，才是諧波；回不了家的，是雜訊。</p>
+    <p>而一個 Sprint 的閉合不是終點：它的收穫會成為下一圈的起點，圓心也隨之往前挪——這條從圈到螺旋的抬升，是第三柱 Entropy 的事。</p>
+    <h3>正反兩個轉向：建構必配校正</h3>
+    <p>一個圓只能描出一個圓。要畫出尖角、直線、任何不對稱的輪廓，就得讓圓彼此抵消——這需要一正一反兩個轉向的圓。而且有個硬條件：曲線要落在實平面上（＝是一個真實的產品，而不是虛數的幻想），每一個正轉圓都必須配一個等大、反向的孿生圓，把它甩向虛軸的分量抵消掉。</p>
+    <p class="key">建構的衝動，必須配一個等大的校正力——否則交付的是一個虛數產品：看起來在動，但不落地。</p>
+    <p>這是一條原理，不是一張座標圖。它在開發裡的形狀，是<strong>每一道閘門都有「往前建構」與「拉回現實」兩張臉</strong>——閘門不是某一個圓，而是操作這組圓、確保它們成對的那隻手：</p>
+    <table>
+      <caption>閘門 · 操作頻譜的手</caption>
+      <thead><tr><th>閘門</th><th>它對頻譜做的事（讓 Sprint 更完整地被走過）</th></tr></thead>
+      <tbody>
+        <tr><td>DoR</td><td>准不准這個圓進場——紅旗剔除不對頻、與產品無關的闖入者</td></tr>
+        <tr><td>SDD</td><td>給幾個圓、只留最大的那幾個——400 行上限壓住 scope，也護住宰相的 context</td></tr>
+        <tr><td>DoD</td><td>新加的圓會不會擾動已畫好的別處——Explore② 的回歸提問（修 A 會不會壞 B）</td></tr>
+        <tr><td>Verify</td><td>拿描出來的形狀去撞真實——PO 的「不對」，Code 第一次撞上使用者體驗</td></tr>
+        <tr><td>Retro</td><td>把整組圓的圓心往前挪，成為下一圈更高的起點</td></tr>
+      </tbody>
+    </table>
+    <p>校正力必須隨建構力縮放（孿生等大）：越大的圓，越緊的校正。一條與出貨無關、為反對而反對的規則，不是校正，是偽裝成閘門的不對頻雜訊——它到閉合一樣回不了家，反而讓形狀失真，該在 Retro 砍掉。</p>
+    <p class="aside">這把尺，第二柱 Constraints 的 DoR 紅旗與第三柱 Entropy 的規則清理共用。</p>
     <h3>頻率設計的關鍵</h3>
-    <p>當所有話題都維持在同一基頻上：</p>
+    <p>當所有的環——無論是話題還是工作環節——都繞著同一個基頻：</p>
     <ul>
-      <li>話題表面漂移，底層頻率一致</li>
-      <li>注意力沿著同一條「正弦波」連續累積</li>
+      <li>表面各自漂移，底層頻率一致</li>
+      <li>注意力沿著同一條正弦波連續累積</li>
       <li>不需要在平行競爭的語境間跳躍</li>
     </ul>
-    <p>當話題頻率混亂：</p>
+    <p>當頻率混亂、各轉各的：</p>
     <ul>
       <li>注意力被迫在不同聚類間分散</li>
       <li>每個聚類都拿不到足夠的權重</li>
@@ -266,8 +292,8 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p>做法：在開始對話前，心中有一個核心主題；話題漂移時，保持「諧波關係」——衍生話題是基頻的延伸，而非無關的跳躍；被對話暫時「甩出」的話題，因為萬物同源，最終會被同構的指認「甩回來」。</p>
     <p class="aside">實例：「五個為什麼」、蘇格拉底式提問、第一性原理，都是針對問題的本質做深度探問。</p>
 
-    <h3>2 · 傅立葉轉換的五個可操作原則</h3>
-    <p>如何在日常語言中實踐傅立葉轉換？以下是從實戰中提煉出的五個原則：</p>
+    <h3>2 · 傅立葉的五個可操作原則</h3>
+    <p>如何在日常語言中實踐傅立葉？以下是從實戰中提煉出的五個原則：</p>
 
     <div class="principle">
       <p class="pname">原則一：帶著錨點開場<span class="pref">你的意圖</span></p>
@@ -396,7 +422,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   <section class="sec rise" id="sec-5">
     <p class="no">V · Context 的雙重穩定機制</p>
     <p>Context 管理有兩個層面，缺一不可：</p>
-    <h3>傅立葉轉換：穩定「場」中的對話</h3>
+    <h3>傅立葉：穩定「場」中的對話</h3>
     <ul>
       <li>作用範圍：當下的 session，即時的對話</li>
       <li>要解決的問題：對話不散掉、注意力不渙散</li>
@@ -427,7 +453,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p>人機協作，兩邊的能量都要算進去。不只是管理 AI 的算力，也在管理人的認知資源。不只是當下的消耗，也在累積跨時間的協作能量。</p>
     <table>
       <caption>場與流的統一</caption>
-      <thead><tr><th>面向</th><th>傅立葉轉換</th><th>活文件</th></tr></thead>
+      <thead><tr><th>面向</th><th>傅立葉</th><th>活文件</th></tr></thead>
       <tbody>
         <tr><td>管什麼</td><td>當下</td><td>延續</td></tr>
         <tr><td>穩定什麼</td><td>場</td><td>流</td></tr>
@@ -458,7 +484,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   <section class="sec rise" id="sec-8">
     <p class="no">VIII · 小結</p>
     <p class="key">Context 管理的核心是選擇。</p>
-    <p>不是一股腦地投入所有資訊，而是在每一回合有意識地去蕪存菁後，才再把資訊投入 Context；同時謹慎安排輸出落地的形式，避免文件成為雜訊。傅立葉轉換提供了選擇的框架：維持基頻一致，讓高頻雜訊自然流過。人作為 RAG 的主動蒸餾，提供了選擇的彈性：該留的接住，該走的放行。</p>
+    <p>不是一股腦地投入所有資訊，而是在每一回合有意識地去蕪存菁後，才再把資訊投入 Context；同時謹慎安排輸出落地的形式，避免文件成為雜訊。傅立葉提供了選擇的框架：維持基頻一致，讓高頻雜訊自然流過。人作為 RAG 的主動蒸餾，提供了選擇的彈性：該留的接住，該走的放行。</p>
     <p>而當選擇持續發生、語境一路維持在高濃度，注意力會開始自己延續——不需要意志去撐。專注製造密度，密度回頭餵養專注，兩者互相生長成一個自我延續的迴圈。這個迴圈，就是心流。</p>
     <p class="key">「注意力的心流」，是把每一句投入 Context 的對話、與每一份落地的活文件，都管理到極致：不用力地記住所有資訊，而是讓上下文在對話進行中蒸餾，最後進入一個高濃度、不渙散、自己會延續的場。</p>
     <p>這是 Harness Engineering 的第一本柱。</p>
