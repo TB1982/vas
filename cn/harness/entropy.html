@@ -39,7 +39,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);
   font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 a{color:inherit;text-decoration:none;}
 
-.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.shell{max-width:900px;margin:0 auto;padding:0 6vw;}
 .top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
 .top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
 .top .back:hover{color:var(--rust);}
@@ -258,6 +258,7 @@ grep -n "^###" CLAUDE.md
 # 修订 Skills 或新增 Skills</span></div>
       <p class="fx">对抗的熵 → 「文档累积成噪声」</p>
       <p>这一步特别重要——规则本身也会变成熵。如果不定期清理，CLAUDE.md 会变得越来越长、Skills 会变成花瓶，每一 Sprint 甚至每一回合都在用的协作宪法与工具都需要在 Retro 重新检视。</p>
+      <p>判准借第一柱 Context 的 epicycle：<strong>这条规则还绕着产品这个基频转吗？</strong>真正在校正、把杂质挡下的规则 → 留；为反对而反对、与出货无关的官僚规则，不是校正，是伪装成闸门的不对频噪声，收口时一样回不了家 → 砍。砍掉不对频的伪闸门，这个 Sprint 才收得了口。</p>
     </div>
     <div class="step">
       <p class="sname"><span class="sn">7</span>Archive · 归档</p>
@@ -312,6 +313,10 @@ grep -n "^###" CLAUDE.md
     </table>
     <p>这个循环必须持续进行。只吸不吐会窒息。只吐不吸会枯竭。</p>
     <p class="key">健康的系统，是会呼吸的系统。</p>
+    <h3>从呼吸到螺旋</h3>
+    <p>一次呼吸是一道循环：吸进新的（一个 Sprint），吐出旧的（一次 Retro）。但呼吸不只是原地起伏——反复呼吸描出的轨迹，是一条向上的螺旋。</p>
+    <p>关键在「吐」要刻意。自动呼吸只让你活着、原地打转；像古人练吐纳，刻意的吐息才让气往上走。Retro 就是那刻意的一吐——少了它，Sprint 一圈圈重复，却不上升。</p>
+    <p>而螺旋之所以上升，靠两股力：一是 Retro 从<strong>系统外</strong>注入的推力——闭合系统升不了自己（熵只增不减），抬升的方向来自圈外的人；二是每个 Sprint 的成果会<strong>累积</strong>——产品、KM、沉淀成的壁一层层叠上去，下一圈是踩在更厚的地基上开始的。<strong>有方向、无终点、每圈更高</strong>：这就是螺旋。</p>
   </section>
 
   <section class="sec rise" id="sec-6">
@@ -338,7 +343,7 @@ grep -n "^###" CLAUDE.md
     <table>
       <thead><tr><th>柱</th><th>核心问题</th><th>运作机制</th><th>隐喻</th><th>哲学</th></tr></thead>
       <tbody>
-        <tr><td>Context</td><td>什么该留？</td><td>傅里叶变换</td><td>网的缝隙</td><td>直觉引领检索</td></tr>
+        <tr><td>Context</td><td>什么该留？</td><td>傅里叶·epicycle</td><td>网的缝隙</td><td>直觉引领检索</td></tr>
         <tr><td>Constraints</td><td>怎么流动？</td><td>工作流轨道</td><td>河道</td><td>服务型领导</td></tr>
         <tr><td>Entropy</td><td>怎么出去？</td><td>Retro 排放</td><td>呼吸</td><td>与混乱共处</td></tr>
       </tbody>
@@ -363,7 +368,7 @@ grep -n "^###" CLAUDE.md
     <p>这就是为什么人类 RAG 需要外部系统来补足：KM 补足「你不知道自己不知道」的盲区；SDD 确保「你以为你知道的」有被写下来验证；Retro 定期让你发现「原来我之前不知道这个」。</p>
     <h3>系统的天花板是人</h3>
     <p>但还有一个更根本的边界条件：这个系统能有多强大，全操之在你自己对世界的理解有多深。</p>
-    <p>直觉引领检索。但直觉能捞到什么，取决于你里面有什么。如果你从没听过傅里叶变换，那天看到那个 IG Reels，你会滑过去，不会意识到「这就是我在做的事」。如果你没有读过荣格、没有碰过敏捷、没有经历过那些项目、没有踩过那些坑——你脑中就不会有那些节点。直觉没有东西可以连。</p>
+    <p>直觉引领检索。但直觉能捞到什么，取决于你里面有什么。如果你从没听过傅里叶，那天看到那个 IG Reels，你会滑过去，不会意识到「这就是我在做的事」。如果你没有读过荣格、没有碰过敏捷、没有经历过那些项目、没有踩过那些坑——你脑中就不会有那些节点。直觉没有东西可以连。</p>
     <p class="key">你是 RAG 的数据库。你读过的书、走过的路、踩过的坑、爱过的人——全部都是你的训练数据。</p>
     <p>直觉从这里面捞东西。</p>
     <h3>为什么这套方法论「不可转让」</h3>
@@ -387,7 +392,7 @@ grep -n "^###" CLAUDE.md
     <p>Harness Engineering 就是接住混乱的网。</p>
     <p>Context 设计网的缝隙——让该留的留，该走的走。Constraints 设计网的结构——让能量沿着轨道流动。Entropy 设计网的呼吸——让系统不会窒息。</p>
     <p>三根柱合在一起，形成一个活的、会呼吸的、持续进化的系统。这个系统不依赖 AI 的记忆，不依赖人的记忆。它依赖的是结构——让记不住也没关系的结构。</p>
-    <p class="key">河流不会停。容器继续被建造。下一个 session，从这里继续。</p>
+    <p class="key">圈不闭成原地的圆，会旋成上升的螺旋。河流不会停，容器继续被建造，每一圈都比上一圈高一点。下一个 session，从这里——更高的这里——继续。</p>
   </section>
 
   <nav class="pillars rise" aria-label="三柱">

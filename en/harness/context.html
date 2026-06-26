@@ -39,7 +39,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);
   font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 a{color:inherit;text-decoration:none;}
 
-.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.shell{max-width:900px;margin:0 auto;padding:0 6vw;}
 .top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
 .top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
 .top .back:hover{color:var(--rust);}
@@ -213,33 +213,65 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   </section>
 
   <section class="sec rise" id="sec-2">
-    <p class="no">II · How It Works: The Fourier Transform</p>
+    <p class="no">II · How It Works: The Epicycle of the Fourier Series</p>
     <h3>The Mathematics</h3>
-    <p>The core idea of the Fourier transform is this: any complex waveform can be broken down into a sum of sine waves.</p>
+    <p>A Fourier epicycle is built like this: any complex wave (the square wave in the figure = the product's behavior over time) can be decomposed into a stack of rotating circles; each circle, projected onto the time axis, is a sine wave, and stacked together they trace out the whole waveform.</p>
     <ul>
-      <li><strong>Fundamental frequency</strong>: the "keynote" of the whole system</li>
-      <li><strong>Harmonics</strong>: derived frequencies related to the fundamental</li>
-      <li><strong>High-frequency noise</strong>: interference unrelated to the fundamental</li>
+      <li><strong>Fundamental frequency</strong>: the slowest-turning circle — one loop per period — which sets the whole system's "keynote" and the baseline for the rates of rotation.</li>
+      <li><strong>Harmonics</strong>: integer multiples of the fundamental, each ring growing on the edge of the one before it, latched on and stacked up.</li>
+      <li><strong>Noise</strong>: circles whose rate of rotation is not an integer multiple of the fundamental — at the moment of closure they can't come home, and stacking them in only distorts the waveform so it never closes.</li>
     </ul>
-    <h3>Applied to Conversation</h3>
-    <p>Apply this framework to human–AI conversation:</p>
+    <h3>One image, two isomorphic layers</h3>
+    <p>The same set of epicycles traces both the conversation and the development:</p>
     <table>
-      <thead><tr><th>Fourier concept</th><th>Counterpart in conversation</th></tr></thead>
+      <caption>Epicycle · two isomorphic layers</caption>
+      <thead><tr><th>Epicycle concept</th><th>Counterpart in conversation</th><th>Counterpart in development</th></tr></thead>
       <tbody>
-        <tr><td>Complex waveform</td><td>A long, multi-topic conversation</td></tr>
-        <tr><td>Fundamental frequency</td><td>The core theme running through the conversation</td></tr>
-        <tr><td>Harmonics</td><td>Derived topics related to the core</td></tr>
-        <tr><td>High-frequency noise</td><td>Unrelated tangents and interference</td></tr>
+        <tr><td>The traced wave</td><td>A long, multi-topic conversation</td><td>The product's behavior over time</td></tr>
+        <tr><td>Fundamental frequency</td><td>The core theme running through the conversation</td><td>The product goal</td></tr>
+        <tr><td>Harmonics (ring latched onto ring)</td><td>Derived topics related to the core</td><td>The chain of DoR → SDD → DoD → Verify → Done</td></tr>
+        <tr><td>Noise</td><td>Unrelated tangents and interference</td><td>Side branches unrelated to the product, scope creep</td></tr>
       </tbody>
     </table>
+    <h3>The waveform unfolds over time: the circles turn together, the wave is drawn in order</h3>
+    <p>In development, this set of epicycles is the backbone of the workflow: <strong>DoR → SDD → DoD → Verify → Done</strong>. The fundamental is the product goal; as the circles turn, the wave unfolds from left to right — that one period is one complete delivery (just as in the figure: the circles on the left turn, and the square wave on the right grows out over time). The wave passes through each gate's segment in order, and only when it reaches a given segment does that ring's harmonic draw in its detail.</p>
+    <p>All the circles are turning at once; what happens in order is the wave falling into place from left to right. Watching the animation creates an illusion: the big circle carries the wave along, and at certain segments a small circle seems to suddenly "grow out" to add a steep turn — but in fact the small circle has been turning all along; its detail only takes form once the wave unfolds to that segment.</p>
+    <h3>Closure: the moment the plan and reality align</h3>
+    <p>A Sprint closes at the moment <strong>DoD and Verify meet</strong>: DoD says "what counts as done," Verify takes the product and runs it against reality, and only when the two overlap is the product delivered. This is an engineering closure; it needs no mathematical endorsement.</p>
+    <p class="key">In this moment, the plan (DoD: what counts as done) and reality (Verify: is it really done?) overlap into one.</p>
+    <p>When a periodic wave completes one period, all its harmonics return to the start at exactly the same time — only those that can come home together belong to the same fundamental. Carried over: every link of the work, if it orbits the product as its fundamental, will close together at Verify; whatever orbits something else (scope creep) is still left out at this moment and cannot close.</p>
+    <p>And a Sprint's closure is not the end: its gains raise the starting point of the next loop — this lift from circle to spiral is the work of the third pillar, Entropy.</p>
+    <h3>The two directions of turn: one whole coin</h3>
+    <p>A single circle can only trace a circle — turning around itself, spinning in place. To draw out a trajectory that truly lands, a circle cannot turn in only one direction: a circle turning forward must be paired with one turning the opposite way, cancelling each other.</p>
+    <p>But these two directions of turn are <strong>not two forces competing for dominance</strong>; they are <strong>two faces of the same coin</strong>:</p>
+    <p class="key">A real delivery is one whole action with two faces — one building forward (tracing the product out a little further), one pulling back to reality (confirming this stretch truly landed). Missing either face, it is no longer a coin, and it cannot land.</p>
+    <p>Building forward only, never pulling back to reality, ships out <strong>half a coin</strong>: it looks like it's moving, yet it stays suspended, never touching ground.</p>
+    <p>The two faces <strong>grow together</strong> — this is not an externally imposed discipline; it is the condition for a coin being a coin. A coin can grow larger, but when it does both faces grow together; you never get a coin with a large construction face and a tiny correction face — that is not a coin, it is a half-finished blank. So correction scales with construction: however large the product grows, the face that catches it must grow just as large.</p>
+    <p class="aside">[A VAS case] Before the front-end refactor (S47), about 318 automated tests; today (S98), 868 unit + 167 interaction + 31 pixel-golden = 1066 tests across 55 files, and still growing. As the product grew, the correction face grew from three hundred to a thousand — not one left behind. This is what "scaling" looks like when it grows on something real: the point isn't the number 1066, it's that it grew alongside the construction, with neither face falling behind.</p>
+    <p>Every gate is the hand that mints this coin and ensures both faces are present. A rule unrelated to shipping, opposing for opposition's sake, is not the "correction" face; it is noise that slipped in — it cannot mint a coin, only distort the waveform, and should be cut at Retro.</p>
+    <table>
+      <caption>Gate · the hand that operates the spectrum</caption>
+      <thead><tr><th>Gate</th><th>What it does to the spectrum (so the Sprint is walked through more completely)</th></tr></thead>
+      <tbody>
+        <tr><td>DoR</td><td>Whether to admit this circle — red flags weed out the off-frequency intruders unrelated to the product</td></tr>
+        <tr><td>SDD</td><td>Allow a few circles, keep only the largest — the 400-line cap holds down scope and also protects the Vassal's context</td></tr>
+        <tr><td>DoD</td><td>Whether a newly added circle disturbs what's already drawn elsewhere — Explore②'s regression question (will fixing A break B?)</td></tr>
+        <tr><td>Verify</td><td>Run the traced wave against reality — the PO's "that's wrong," where Code first hits the user experience</td></tr>
+        <tr><td>Retro</td><td>Raise the starting point of the next loop — gains accumulate into a thicker foundation (→ spiral)</td></tr>
+      </tbody>
+    </table>
+    <p class="aside">This same yardstick is shared by Pillar II Constraints' DoR red flags and Pillar III Entropy's rule cleanup.</p>
+    <p><strong>About Fourier — here we borrow this chapter's lens to look at engineering: it lets you see the shape; it does not undertake to prove it.</strong></p>
+    <p>The lens helps you see, the engineering carries the weight. "A coin must be whole to land" holds without any math — Fourier is just the lens that lets you see its shape clearly.</p>
+    <p>And the coin is about <strong>wholeness</strong> (both faces must be present), not <strong>simultaneity</strong> — construction and correction are still two things separable in time.</p>
     <h3>The Key to Frequency Design</h3>
-    <p>When every topic stays on the same fundamental frequency:</p>
+    <p>When all the rings — whether topics or links of the work — orbit the same fundamental:</p>
     <ul>
-      <li>Topics drift on the surface, but the underlying frequency stays consistent</li>
-      <li>Attention accumulates continuously along the same "sine wave"</li>
+      <li>They drift apart on the surface, but the underlying frequency stays consistent</li>
+      <li>Attention accumulates continuously along the same sine wave</li>
       <li>There is no need to jump between parallel, competing contexts</li>
     </ul>
-    <p>When topic frequencies are chaotic:</p>
+    <p>When the frequencies are chaotic, each turning on its own:</p>
     <ul>
       <li>Attention is forced to scatter across different clusters</li>
       <li>No cluster gets enough weight</li>
@@ -266,8 +298,8 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p>How: before a conversation begins, hold a core theme in mind; when topics drift, keep a "harmonic relationship" — derived topics are extensions of the fundamental, not unrelated jumps; topics temporarily "flung out" of the conversation will, because everything shares one source, eventually be "pulled back" by recognizing the same underlying structure.</p>
     <p class="aside">Examples: the "Five Whys," Socratic questioning, and first principles all probe deeply into the essence of a problem.</p>
 
-    <h3>2 · Five workable principles for the Fourier transform</h3>
-    <p>How do you practice the Fourier transform in everyday language? Here are five principles distilled from real practice:</p>
+    <h3>2 · Five workable principles for Fourier</h3>
+    <p>How do you practice Fourier in everyday language? Here are five principles distilled from real practice:</p>
 
     <div class="principle">
       <p class="pname">Principle 1: Open with an anchor<span class="pref">your intent</span></p>
@@ -396,7 +428,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   <section class="sec rise" id="sec-5">
     <p class="no">V · The Dual Stabilizing Mechanism of Context</p>
     <p>Context management has two layers, and neither can be missing:</p>
-    <h3>The Fourier transform: stabilizing the conversation in the "field"</h3>
+    <h3>Fourier: stabilizing the conversation in the "field"</h3>
     <ul>
       <li>Scope: the present session, the live conversation</li>
       <li>Problem to solve: keeping the conversation from falling apart, keeping attention from scattering</li>
@@ -427,7 +459,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p>In human–AI collaboration, the energy on both sides counts. It is not only managing the AI's compute, but also managing the human's cognitive resources. It is not only the consumption of the present, but also the accumulation of collaborative energy across time.</p>
     <table>
       <caption>The unity of field and flow</caption>
-      <thead><tr><th>Aspect</th><th>Fourier transform</th><th>Living documents</th></tr></thead>
+      <thead><tr><th>Aspect</th><th>Fourier</th><th>Living documents</th></tr></thead>
       <tbody>
         <tr><td>Manages what</td><td>The present</td><td>Continuity</td></tr>
         <tr><td>Stabilizes what</td><td>The field</td><td>The flow</td></tr>
@@ -458,7 +490,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   <section class="sec rise" id="sec-8">
     <p class="no">VIII · Summary</p>
     <p class="key">The core of Context management is choice.</p>
-    <p>Not dumping in all information at once, but consciously sifting out the chaff each turn before feeding information into Context; and at the same time arranging carefully the form in which output lands, so that documents do not become noise. The Fourier transform gives the framework for choice: keep the fundamental consistent and let high-frequency noise naturally flow past. The human's active distillation as RAG gives choice its flexibility: catch what should stay, release what should go.</p>
+    <p>Not dumping in all information at once, but consciously sifting out the chaff each turn before feeding information into Context; and at the same time arranging carefully the form in which output lands, so that documents do not become noise. Fourier gives the framework for choice: keep the fundamental consistent and let high-frequency noise naturally flow past. The human's active distillation as RAG gives choice its flexibility: catch what should stay, release what should go.</p>
     <p>And when choice keeps happening and the context stays highly concentrated all the way, attention starts to continue on its own — it needs no will to hold it up. Focus makes density, density in turn feeds focus, and the two grow into a self-sustaining loop. That loop is flow.</p>
     <p class="key">"The flow of attention" means managing to the utmost both every sentence you feed into Context and every living document you commit: not straining to remember all information, but letting the context distill as the conversation proceeds, until it enters a field that is highly concentrated, undispersed, and self-sustaining.</p>
     <p>This is the first pillar of Harness Engineering.</p>

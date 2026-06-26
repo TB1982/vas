@@ -39,7 +39,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);
   font-size:16.5px;line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 a{color:inherit;text-decoration:none;}
 
-.shell{max-width:720px;margin:0 auto;padding:0 6vw;}
+.shell{max-width:900px;margin:0 auto;padding:0 6vw;}
 .top{display:flex;justify-content:space-between;align-items:baseline;padding:34px 0 0;}
 .top .back{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink-2);transition:color .3s;white-space:nowrap;}
 .top .back:hover{color:var(--rust);}
@@ -213,33 +213,65 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   </section>
 
   <section class="sec rise" id="sec-2">
-    <p class="no">II · 运作机制：傅里叶变换</p>
+    <p class="no">II · 运作原理：傅里叶级数的 epicycle</p>
     <h3>数学原理</h3>
-    <p>傅里叶变换的核心机制是：任何复杂的波形，都可以分解成一组正弦波的叠加。</p>
+    <p>傅里叶 epicycle 的组成是：任何一条复杂的波（图上那条方波＝产品随时间的行为），都可以拆解成一组旋转圆的叠加；每个圆投影到时间轴上就是一条正弦波，叠起来描出整条波形。</p>
     <ul>
-      <li><strong>基频</strong>（fundamental frequency）：整个系统的「基调」</li>
-      <li><strong>谐波</strong>（harmonics）：与基频相关的衍生频率</li>
-      <li><strong>高频噪声</strong>：与基频无关的干扰</li>
+      <li><strong>基频</strong>（fundamental frequency）：转得最慢的那个圆——一个周期绕一圈，定下整个系统的「基调」与转速基准。</li>
+      <li><strong>谐波</strong>（harmonics）：基频的整数倍，一环长在前一环的边缘上，扣着叠上去。</li>
+      <li><strong>噪声</strong>：转速不是基频整数倍的圆——到收口那一刻回不了家，叠上去只会让波形失真、收不了口。</li>
     </ul>
-    <h3>应用到对话</h3>
-    <p>把这个框架应用到人机对话：</p>
+    <h3>一个意象，两层同构</h3>
+    <p>同一组 epicycle，描对话也描开发：</p>
     <table>
-      <thead><tr><th>傅里叶概念</th><th>对话中的对应</th></tr></thead>
+      <caption>epicycle · 两层同构</caption>
+      <thead><tr><th>epicycle 概念</th><th>对话中的对应</th><th>开发中的对应</th></tr></thead>
       <tbody>
-        <tr><td>复杂波形</td><td>一段多主题的长对话</td></tr>
-        <tr><td>基频</td><td>贯穿对话的核心主题</td></tr>
-        <tr><td>谐波</td><td>与核心相关的衍生话题</td></tr>
-        <tr><td>高频噪声</td><td>无关的岔题、干扰</td></tr>
+        <tr><td>描出的波</td><td>一段多主题的长对话</td><td>产品随时间的行为</td></tr>
+        <tr><td>基频</td><td>贯穿对话的核心主题</td><td>产品目标</td></tr>
+        <tr><td>谐波（一环扣一环）</td><td>与核心相关的衍生话题</td><td>DoR → SDD → DoD → Verify → Done 的串接</td></tr>
+        <tr><td>噪声</td><td>无关的岔题、干扰</td><td>与产品无关的支线、scope creep</td></tr>
       </tbody>
     </table>
+    <h3>波形随时间展开：圆同时转，波依序画</h3>
+    <p>在开发里，这组 epicycle 就是工作流的骨干：<strong>DoR → SDD → DoD → Verify → Done</strong>。基频是产品目标，圆一转，波就从左往右展开——那一个周期，就是一次完整的交付（正如图上：左边的圆在转，右边的方波随时间长出来）。波依序经过每一道闸门的区段，每到一段，那一环的谐波才把它的细节画上去。</p>
+    <p>所有的圆同时在转，依序的，是波从左往右落下的顺序。看动画时会有种错觉：大圆带着波走，走到某些段落，小圆才像突然「长出来」补上一个陡转——其实小圆一直都在转，只是它的细节要等波展开到那一段才显形。</p>
+    <h3>收口：计划与现实对齐的瞬间</h3>
+    <p>一个 Sprint 收口，是在 <strong>DoD 与 Verify 对上</strong>那一刻：DoD 说「什么叫完成」，Verify 拿成品去撞真实，两者叠合，产品才算交付。这是工程上的闭合，不需要数学背书。</p>
+    <p class="key">这一刻，计划（DoD：什么叫完成）与现实（Verify：真的完成了吗）叠合为一。</p>
+    <p>一条周期波绕完一个周期，所有谐波恰好同时回到起点——能一起回家的，才同属一个基频。引申过来，所有环节若都绕着产品这个基频，才会在 Verify 同时收口；绕着别的东西的（scope creep），到这一刻还落单，收不了口。</p>
+    <p>而一个 Sprint 的收口不是终点：它的收获会垫高下一圈的起点——这条从圈到螺旋的抬升，是第三柱 Entropy 的事。</p>
+    <h3>正反两个转向：一枚完整的硬币</h3>
+    <p>一个圆只能描出一个圆——自己绕自己，原地打转。要拉出一条真正落地的轨迹，圆就不能只往一个方向转：一个往前转的圆，得配一个反向转的圆，彼此抵消。</p>
+    <p>但这两个转向<strong>不是两股要分高下的力</strong>，是<strong>同一枚硬币的两面</strong>：</p>
+    <p class="key">一次真实的交付，是一个完整的动作，有两张脸——一张往前建（把产品多描出一段），一张拉回现实（确认这一段真的落地）。少了任何一面，它就不是一枚硬币，落不了地。</p>
+    <p>只往前建、不拉回现实，交付出去的是<strong>半枚硬币</strong>：看起来在动，却一直悬着、不着地。</p>
+    <p><strong>两面一起长</strong>——这不是外加的纪律，是硬币之所以是硬币的条件。硬币会变大，但变大时两面一起变大；你不会得到一个建构面很大、校正面很小的硬币——那不是一枚硬币，是半成品。所以校正随建构缩放：产品长多大，接住它的那一面就得长多大。</p>
+    <p class="aside">〔VAS 实例〕前端重构前（S47）约 318 条自动化测试；如今（S98）单元 868 ＋ 互动 167 ＋ 像素 golden 31 ＝ 1066 条、55 档，仍在长。产品长大的同时，校正面从三百长到一千、一条没落下。「缩放」长在真东西上，就是这个样子——重点不是 1066 这个数，是它跟着建构一起长、没有一面落后。</p>
+    <p>每道闸门，就是铸这枚硬币、确保它两面俱全的那只手。一条与出货无关、为反对而反对的规则，不是「校正」那一面，是混进来的噪声——它铸不成硬币，只让波形失真，该在 Retro 砍掉。</p>
+    <table>
+      <caption>闸门 · 操作频谱的手</caption>
+      <thead><tr><th>闸门</th><th>它对频谱做的事（让 Sprint 更完整地被走过）</th></tr></thead>
+      <tbody>
+        <tr><td>DoR</td><td>准不准这个圆进场——红旗剔除不对频、与产品无关的闯入者</td></tr>
+        <tr><td>SDD</td><td>给几个圆、只留最大的那几个——400 行上限压住 scope，也护住宰相的 context</td></tr>
+        <tr><td>DoD</td><td>新加的圆会不会扰动已画好的别处——Explore② 的回归提问（修 A 会不会坏 B）</td></tr>
+        <tr><td>Verify</td><td>拿描出来的波去撞真实——PO 的「不对」，Code 第一次撞上用户体验</td></tr>
+        <tr><td>Retro</td><td>垫高下一圈的起点——成果累积成更厚的地基（→ 螺旋）</td></tr>
+      </tbody>
+    </table>
+    <p class="aside">这把尺，第二柱 Constraints 的 DoR 红旗与第三柱 Entropy 的规则清理共用。</p>
+    <p><strong>关于傅里叶——这里是把这一章的镜头借来照工程：它让你看见形状，不负责证明。</strong></p>
+    <p>镜头帮你看见，工程扛重量。「硬币要完整才落地」不靠数学也成立——傅里叶是让你看清它形状的镜头。</p>
+    <p>而硬币讲的是<strong>完整性</strong>（两面都得在），不是<strong>同时性</strong>——建构与校正在时间上仍是分得开的两件事。</p>
     <h3>频率设计的关键</h3>
-    <p>当所有话题都维持在同一基频上：</p>
+    <p>当所有的环——无论是话题还是工作环节——都绕着同一个基频：</p>
     <ul>
-      <li>话题表面漂移，底层频率一致</li>
-      <li>注意力沿着同一条「正弦波」连续累积</li>
+      <li>表面各自漂移，底层频率一致</li>
+      <li>注意力沿着同一条正弦波连续累积</li>
       <li>不需要在平行竞争的语境间跳跃</li>
     </ul>
-    <p>当话题频率混乱：</p>
+    <p>当频率混乱、各转各的：</p>
     <ul>
       <li>注意力被迫在不同聚类间分散</li>
       <li>每个聚类都拿不到足够的权重</li>
@@ -266,8 +298,8 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p>做法：在开始对话前，心中有一个核心主题；话题漂移时，保持「谐波关系」——衍生话题是基频的延伸，而非无关的跳跃；被对话暂时「甩出」的话题，因为万物同源，最终会被同构的指认「甩回来」。</p>
     <p class="aside">实例：「五个为什么」、苏格拉底式提问、第一性原理，都是针对问题的本质做深度探问。</p>
 
-    <h3>2 · 傅里叶变换的五个可操作原则</h3>
-    <p>如何在日常语言中实践傅里叶变换？以下是从实战中提炼出的五个原则：</p>
+    <h3>2 · 傅里叶的五个可操作原则</h3>
+    <p>如何在日常语言中实践傅里叶？以下是从实战中提炼出的五个原则：</p>
 
     <div class="principle">
       <p class="pname">原则一：带着锚点开场<span class="pref">你的意图</span></p>
@@ -396,7 +428,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   <section class="sec rise" id="sec-5">
     <p class="no">V · Context 的双重稳定机制</p>
     <p>Context 管理有两个层面，缺一不可：</p>
-    <h3>傅里叶变换：稳定「场」中的对话</h3>
+    <h3>傅里叶：稳定「场」中的对话</h3>
     <ul>
       <li>作用范围：当下的 session，即时的对话</li>
       <li>要解决的问题：对话不散掉、注意力不涣散</li>
@@ -427,7 +459,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
     <p>人机协作，两边的能量都要算进去。不只是管理 AI 的算力，也在管理人的认知资源。不只是当下的消耗，也在累积跨时间的协作能量。</p>
     <table>
       <caption>场与流的统一</caption>
-      <thead><tr><th>面向</th><th>傅里叶变换</th><th>活文档</th></tr></thead>
+      <thead><tr><th>面向</th><th>傅里叶</th><th>活文档</th></tr></thead>
       <tbody>
         <tr><td>管什么</td><td>当下</td><td>延续</td></tr>
         <tr><td>稳定什么</td><td>场</td><td>流</td></tr>
@@ -458,7 +490,7 @@ footer.foot .infinity{display:block;margin-top:2rem;font-size:24px;color:var(--g
   <section class="sec rise" id="sec-8">
     <p class="no">VIII · 小结</p>
     <p class="key">Context 管理的核心是选择。</p>
-    <p>不是一股脑地投入所有信息，而是在每一回合有意识地去芜存菁后，才再把信息投入 Context；同时谨慎安排输出落地的形式，避免文档成为噪声。傅里叶变换提供了选择的框架：维持基频一致，让高频噪声自然流过。人作为 RAG 的主动蒸馏，提供了选择的弹性：该留的接住，该走的放行。</p>
+    <p>不是一股脑地投入所有信息，而是在每一回合有意识地去芜存菁后，才再把信息投入 Context；同时谨慎安排输出落地的形式，避免文档成为噪声。傅里叶提供了选择的框架：维持基频一致，让高频噪声自然流过。人作为 RAG 的主动蒸馏，提供了选择的弹性：该留的接住，该走的放行。</p>
     <p>而当选择持续发生、语境一路维持在高浓度，注意力会开始自己延续——不需要意志去撑。专注制造密度，密度回头喂养专注，两者互相生长成一个自我延续的循环。这个循环，就是心流。</p>
     <p class="key">「注意力的心流」，是把每一句投入 Context 的对话、与每一份落地的活文档，都管理到极致：不用力地记住所有信息，而是让上下文在对话进行中蒸馏，最后进入一个高浓度、不涣散、自己会延续的场。</p>
     <p>这是 Harness Engineering 的第一根柱。</p>
