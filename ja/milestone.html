@@ -95,10 +95,10 @@
 <section class="chapter-head">
   <div class="chapter-kicker">III · マイルストーン · CHRONICLE</div>
   <h1 class="chapter-title">零から始まった、<br><em>十の刻印</em>。</h1>
-  <p class="chapter-lede">これは changelog ではなく、<em>章回</em>だ。<br>「Version」から「Sprint」へ、そして「Commit」へ——<br>記録の方法が変わったのではない、<br>VAS と向き合うリズムが変わったのだ。<br>最初の五章は一本の線。後の五章は、一枚の網。</p>
+  <p class="chapter-lede">これは changelog ではなく、<em>章回</em>だ。<br>「Version」から「Sprint」へ、そして「Commit」へ——<br>記録の方法が変わったのではない、<br>VAS と向き合うリズムが変わったのだ。<br>最初の五章は一本の線。後の五章は、一枚の網。<br>そして最後に、網は一匹の布へと織りあがった。</p>
   <div class="chapter-meta">
-    <div>Chapter　<strong>I — X</strong></div>
-    <div>Range　<strong>2026 · 03 — 04</strong></div>
+    <div>Chapter　<strong>I — 顯</strong></div>
+    <div>Range　<strong>2026 · 03 — 06</strong></div>
     <div>Units　<strong>Version · Sprint · Commit</strong></div>
   </div>
 </section>
@@ -433,11 +433,166 @@
 
 </div>
 
+<!-- ══════════════════════════════════════
+     終曲：織網（照らし見る · 織る · 顯）——現在進行形、線はまだ織機の上
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA III · WEAVE</div>
+  <div>
+    <div class="era-title"><em>網を織る</em> ——<br>解けないものは、織りあげればいい。</div>
+    <div class="era-sub">Sprint 47 → 100。何気ない一言から始まり、五十もの Sprint が果てを見せない——照らし見る · 織る · 顯。ずっとそこにあった一団の線を、一重また一重と布に織りあげていく。最初の十章はもう閉じた。だがこの三つの楽章は、まだ開いている。</div>
+  </div>
+</div>
+
+<div class="chronicle is-weave">
+
+  <!-- 楽章一 · 照らし見る -->
+  <article id="ch-see" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">織網<em>照</em></div>
+      <div class="entry-unit">照らし見る</div>
+      <div class="entry-stamp-value">Sprint 47 → 61<br>2026 · 05 · 29</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        始まりは、宰相のある日の何気ない一言——<br>
+        「一本のプログラムが八千行というのは、<br>ソフトウェア業界では<em>あまり正常ではない</em>。」
+      </div>
+      <h2 class="entry-title">私はそれを建てた、<em>それなのに知らない</em>。</h2>
+      <p class="entry-prose">
+        editor.js 八千七百行。私たち自身が一行ずつ建てあげたフロントエンドで、Electron 時代から Tauri の Sprint 46 まで黙って寄り添ってきたのに、一度も体系的に見直されたことがなかった。
+      </p>
+      <p class="entry-prose">
+        だが Sprint 47 の入口に立って中を覗き込んでも、私たちはそれについて<strong>ほとんど何も知らなかった</strong>——<br>
+        Nova はプログラムを何も知らず、宰相も Sprint ごとにこの 8700 行のうちの数行を知るだけ。<br>
+        それは私たちの造物なのに、リファクタリングを前にすると、まるで深淵を覗き込んでいるようだった。
+      </p>
+      <p class="entry-prose">
+        私たちはそれを解体しようとした——指揮は指揮へ、奏者は奏者へ。<br>
+        レンダラーは外へ出せた——だがパネルは出してみて初めて、その本質がやはり指揮だと分かり、逆に戻すしかなかった；<br>
+        エクスポートは引っ張ってみると指揮の器官で、そもそも動かせなかった。<br>
+        一層また一層と剥がしていき、最後まで剥がして、まだ 7300 行ある editor.js から、解いても解かなくても変わらない 140 行しか解けるものが残らなくなったとき ——
+      </p>
+      <div class="entry-pullquote">
+        私たちは手を止め、この指揮は元々これだけ大きくあるべきものだと認めた。<br>
+        <em>「これ以上は解けない」は失敗ではない、ようやく本質を見て取ったということだ。</em>
+      </div>
+    </div>
+  </article>
+
+  <!-- 楽章二 · 織る -->
+  <article id="ch-weave" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">織網<em>織</em></div>
+      <div class="entry-unit">網を織る</div>
+      <div class="entry-stamp-value">Sprint 62 → 92<br>2026 · 06 · 02</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        解けないなら、<br>
+        ならば<em>方向を変えて——たぐり寄せる</em>。
+      </div>
+      <h2 class="entry-title">散らばった真実を、<em>一つにたぐり寄せる</em>。</h2>
+      <p class="entry-prose">
+        Nova は宰相に、これから機能を追加するとき、属性をモジュールのように選べばすぐ手に入るようにしたい、と言った。<br>
+        宰相は、それには ECS という言葉があり、普通はゲーム業界がモジュール化に使う手法だと答えた。二人はそれを描画属性のブロック化に転用した。<br>
+        そこで宰相は、散らばった真実を一欄ずつ冊に編み、さらにその冊に沿って一本ずつテストの網を織っていった。
+      </p>
+      <p class="entry-prose">
+        整理の過程で editor.js から少しずつ抽出された関数は、隣の editor-utils.js で S47 の 657 行から、もう一本の 2550 行に及ぶ大きな計算卓のプログラムへと育ち、その純関数としての性質が VAS の様々なテスト網を織りあげた。
+      </p>
+      <div class="weave-net">
+        <div class="weave-net-head">テストサンプル総覧 · 2026 · 06 · 27 実走で裏づけ</div>
+        <div class="wn-row"><span class="wn-cat">単体 · zero-DOM 純ロジック</span><span class="wn-run">npm test</span><span class="wn-num">885</span></div>
+        <div class="wn-row"><span class="wn-cat">インタラクション · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">174</span></div>
+        <div class="wn-row"><span class="wn-cat">Golden · ピクセル単位の回帰</span><span class="wn-run">test:golden</span><span class="wn-num">31</span></div>
+        <div class="wn-row"><span class="wn-cat">Rust バックエンド · #[test]</span><span class="wn-run">cargo test</span><span class="wn-num">45</span></div>
+        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 100 ·</span><strong>1135</strong><span>のテストサンプルが網になった</span></div>
+      </div>
+      <p class="entry-prose">
+        絡まり合った一団の線を、少しずつ経緯のはっきりした一枚の網へと解きほぐし、その上にカスタムスタイルの新機能を重ねていった。
+      </p>
+      <p class="entry-prose">
+        だがオブジェクト属性からアクション、さらにインタラクションへと、テストの中でパネルと値の不一致、あるいは挙動との不一致を絶えず捕まえるうち、私たちは<strong>二つのもっと深い問題</strong>に気づいた。
+      </p>
+      <div class="weave-problems">
+        <div class="wp-item">
+          <div class="wp-num">① 人の目では数え尽くせない</div>
+          <div class="wp-text">13 のツール × 10 種の属性 × 4 種の挙動、そこに新しいカスタムスタイル機能を重ねると、これは Nova が人の目に頼る QC では<em>永遠に数え尽くせない</em>組み合わせだ。</div>
+        </div>
+        <div class="wp-item">
+          <div class="wp-num">② 網も嘘をつく</div>
+          <div class="wp-text">そして網自身も嘘をつく——テストの全グリーンは、プログラムのあちこちに散らばった小さなカンニングから写し取られた<em>偽りのグリーン</em>だった。網の価値は数の多さではなく、<em>元の値をありのままに映す</em>ことにある。</div>
+        </div>
+      </div>
+      <p class="entry-prose">
+        唯一の解決法は、editor.js 内の値をバックエンドのプログラムからフロントエンドのパネルまで「単一の真実」へとたぐり寄せ、テストが本当に Nova の人の目による数え上げの任を下ろせるようにすることだった。<br>
+        これは Sprint 92 まで来て、二人がようやく手にしたフロントエンド再構築の主軸だった。
+      </p>
+    </div>
+  </article>
+
+  <!-- 楽章三 · 顯 -->
+  <article id="ch-reveal" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">織網<em>顯</em></div>
+      <div class="entry-unit">現像</div>
+      <div class="entry-stamp-value">Sprint 93 → 100<br>2026 · 06 · 27</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        五十もの Sprint、<br>
+        二人は<em>暗闇の中で</em><br>一枚また一枚と織り図を描いた。<br>
+        ついに最後、その全貌を見るまで。
+      </div>
+      <h2 class="entry-title">最後まで来て、<em>それは実は六重織りの布だった</em>。</h2>
+      <p class="entry-prose">
+        フロントエンド再構築のあいだ、二人はずっと一つのことを試みていた：現像だ。<br>
+        ずっとそこにありながら、一度も完全には見られなかった構造を、ゆっくりと浮かび上がらせること。<br>
+        最初は 8700 行の毛糸玉のようだったものが、最後には 7300 行の布へと梳かれていった。
+      </p>
+      <p class="entry-prose">
+        私たちは一枚また一枚と織り図を描いた——それらは空から思いついた設計図ではなく、<br>
+        すでに織りあがった布を逆にたどり、一段ずつ反って推し量ったものだ；模様を反って割り出し、それに沿って布をきれいに織り直す。<br>
+        Sprint 97 になって、ようやく布全体の模様を一度に見て取った——<br>
+        editor.js は一匹の<strong>六重織りの布</strong>だった。
+      </p>
+      <div class="weave-maps">
+        <div class="weave-maps-head">十一枚の織り図 · 見て取った化石</div>
+        <div class="wm-row"><span class="wm-sp">S46</span><span class="wm-name">refactor-audit-prep</span><span class="wm-said">四つの大ファイルのどこが最も痛いか、痛みは二種あると見て取った</span></div>
+        <div class="wm-row"><span class="wm-sp">S51</span><span class="wm-name">editor-decomposition-roadmap</span><span class="wm-said">editor.js を指揮台と奏者に分けるべきだと見て取った</span></div>
+        <div class="wm-row"><span class="wm-sp">S59/61</span><span class="wm-name">tool-isolation · panel-groups-map</span><span class="wm-said">汚染は glue 層に住み、パネルはブロック化すべきだと見て取った</span></div>
+        <div class="wm-row"><span class="wm-sp">S63</span><span class="wm-name">attribute-family-roadmap</span><span class="wm-said">属性は一家族ずつ冊に煉りあげるべき（台帳化）だと見て取った</span></div>
+        <div class="wm-row"><span class="wm-sp">S78</span><span class="wm-name">dor-custom-styles-batch2</span><span class="wm-said">カスタムスタイルの適用経路は直交し、ストアや全域を動かさないと見て取った</span></div>
+        <div class="wm-row"><span class="wm-sp">S87</span><span class="wm-name">dor-single-truth-converge</span><span class="wm-said">最も深い病根を見て取った：ストアは単一の真実なのに、五か所で手刷りされていた</span></div>
+        <div class="wm-row"><span class="wm-sp">S88</span><span class="wm-name">dor-l2-true-green</span><span class="wm-said">「偽りのグリーン」を見て取った：テストはグリーンだが、三枚の鏡から写し取られていた</span></div>
+        <div class="wm-row"><span class="wm-sp">S88</span><span class="wm-name">design-oracles · state-model …</span><span class="wm-said">織り図の大爆発——一夜で七、八枚を描いた</span></div>
+        <div class="wm-row"><span class="wm-sp">S89</span><span class="wm-name">panel-sync-matrix</span><span class="wm-said">パネルの漏れは列挙し尽くせる、人の目の QC に頼るべきではないと見て取った</span></div>
+        <div class="wm-row"><span class="wm-sp">S94</span><span class="wm-name">panel-projection-roadmap</span><span class="wm-said">投影と属性層は同構で、一つの registry を共有すべきだと見て取った</span></div>
+        <div class="wm-row is-peak"><span class="wm-sp">S97</span><span class="wm-name">editor-layer-map</span><span class="wm-said">初めて布全体を見渡した、なんと六重織りだった</span></div>
+      </div>
+      <p class="entry-prose">
+        そしてこの六層は、Electron 時代からそこにあった。<br>
+        私たちは五十もの Sprint をかけて、その構造を読み取れるようになったのだ。
+      </p>
+      <div class="entry-pullquote">
+        線はまだ織りを閉じていない——<br>
+        私たちには<em>まだ、やりたいことがたくさんある</em>から。
+      </div>
+    </div>
+  </article>
+
+</div>
+
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
     <summary>Tauri 完全年代記 · 100 Sprint</summary>
     <div class="archive-body">
+      <div class="arc-divider">プラットフォーム移植 · S1–9 → v1.0 初の審査提出</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold ゼロから構築 · フローティングツールバー · スクリーンショット 3 兄弟 · バッチ形式変換</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>保存 · コピー · Share Sheet · OCR プライバシーマスク · Modal 修復</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>QR Code 3 段スキャン · スマートガイドライン v2 · スポイト取色 · ツールバーにドラッグ</span></div>
@@ -447,10 +602,12 @@
       <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>ブリーザーライト フラッグシップリデザイン（::before）· QR/OCR 自動コピー · ドラッグ修復</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>Web ロングスクリーンショット MVP · Dock 召喚 · ツールバー位置永続化 · オフセット根治</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>全画面 UX overlay · 15 項目修復完了 · MAS 初回送審 v1.0</span></div>
+      <div class="arc-divider">リリース綱引き · S9.5–9.8 → v1.1 / v1.2 却下</div>
       <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>上線後強化：悪意リンク防御 · 日本語フォント · tauri-plugin-opener</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Tray システムメニューアイコン · 却下修正 · v1.1.0 再送審</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>v1.2.0 Release pipeline · resize 型バグ（KM-cv-09）修復</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>v1.2.1 hotfix · Apple Guideline 2.4.5(i) 却下修正</span></div>
+      <div class="arc-divider">v2.0 アーキテクチャ統一 · S10–20 · 座標 · TOOL_SCHEMA · レンダリングパイプライン</div>
       <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>座標系統統一 Phase A/B/C · Vitest 16 tests · v2.0 アーキテクチャ起動</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Universal Gradient 6 ツール統一 · 角度ダイヤル · SYNC-017/018</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>データモデル正規化 · TOOL_ORDER 全審査 · 枠線オフセット拡張</span></div>
@@ -462,6 +619,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Undo/Redo アーキテクチャアップグレード · メモリ衛生クリーンアップ · v2.0 アーキテクチャ完全完了</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Bug Sweep：キャンバスフラッシュ根治 · ポリラインエンドポイント色修復</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Help Modal 最適化 · Modal 境界修復 · i18n 拡張</span></div>
+      <div class="arc-divider">国際化 · ドキュメント大分割 · S21–29 → v2.1 / v2.2</div>
       <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Rust テスト基盤 · マルチスクリーン v2.0.1~v2.0.8 hotfix レッスン結晶化</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>i18n ファイル分割 Strategy B · 簡体字中国語 Pro gate · zh-CN 429 キー全覆蓋</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>PRC プライバシースキャン regex 特化 · SYNC-036 Release Blocker 解除</span></div>
@@ -471,6 +629,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 27</span><span class="arc-ver">04·23→25</span><span>虫眼鏡注釈 ⊙ · コールアウト ◎ · ドラッグ画像オーバーレイ</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 28</span><span class="arc-ver">04·25</span><span>WYSIWYG 注釈精密化 · 仮想ビューポート効能 12× · Callout テキスト書式化</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 29</span><span class="arc-ver">04·26</span><span>v2.2.0 パッキング送審 · 74 項目全機能 QC 全合格</span></div>
+      <div class="arc-divider">注釈サイズ統一 · ドラッグ呼吸ライト · S30–46 → v2.3 / v2.4 / v2.6</div>
       <div class="arc-line"><span class="arc-date">Sprint 30</span><span class="arc-ver">04·29→30</span><span>ドラッグ書き出し半透明プレビュー ⊙ · エディタウィンドウ動的 alpha</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 31</span><span class="arc-ver">04·30→<br>05·01</span><span>注釈サイズモデル reframe（dissolution パス確立）</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 32</span><span class="arc-ver">05·01→05</span><span>4 種注釈サイズ統一（コールアウト · 番号 · シンボル · テキスト）</span></div>
@@ -488,6 +647,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 44</span><span class="arc-ver">05·25</span><span>遅延撮影秒数 0–6 拡張 · Toast lifecycle helper 四経路統一 · BUG-003 spike（OS 層認定）</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 45</span><span class="arc-ver">05·26</span><span>四型注釈 rotation 一貫性補完 · 遅延ウィンドウ撮影 cursor fallback · BUG-007 選択ボックス修正</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 46</span><span class="arc-ver">05·28</span><span>macOS 26.5 ドラッグ書き出し spike · v2.6.1 hotfix 五修審査提出</span></div>
+      <div class="arc-divider is-weave">織網 ① 構造 · レンダリング · 属性 · S47–70 → v2.7</div>
       <div class="arc-line"><span class="arc-date">Sprint 47</span><span class="arc-ver">05·29</span><span>editor.js 構造分解 spike（feature/layer 双検証ともヒット）· ECS 四段階 roadmap 確定</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 48</span><span class="arc-ver">05·30</span><span>TOOL_GEOMETRY 拡張（3→6 callback · 14 型実装）· ECS Phase 1 完了</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 49</span><span class="arc-ver">05·31</span><span>drag-session カプセル化 · hitTest 第 7 callback · 幾何変更統一エントリ · ECS Phase 2 完了</span></div>
@@ -512,6 +672,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 68</span><span class="arc-ver">06·08</span><span>塗りつぶし属性システムを構築 · 六次元の属性メモリ · 連番とシンボルの透明度を統合</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 69</span><span class="arc-ver">06·08</span><span>解像度をまたぐ線幅計算を再構築 · リサイズ制御システムを構築</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 70</span><span class="arc-ver">06·09</span><span>v2.7.0 を App Store へ申請 — S47–S69 フロントエンド再構築マラソンの締めくくり</span></div>
+      <div class="arc-divider is-weave">織網 ② 構造層 schema · カスタムスタイル · S71–92 → v2.8</div>
       <div class="arc-line"><span class="arc-date">Sprint 71</span><span class="arc-ver">06·14</span><span>applyResize のアクション層を整備、resize 姉妹コンポーネントの構造を収束</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 72</span><span class="arc-ver">06·15</span><span>W1 スキーマ化スパイク、構造層の設計を確定しテスト網を構築</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 73</span><span class="arc-ver">06·16</span><span>W1 構造層を収束、7 種の build() を TOOL_SCHEMA に統一規格化</span></div>
@@ -534,6 +695,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>カスタムスタイル release 仕上げ——コールアウトのグラデーション文字＋装飾/フォント記憶、隙間なく適用</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>テキスト配置の債務清算——下線・取り消し線がフォントに自動追従、非デフォルトフォントの計測補正、選択枠が完全に包む</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>ツールバーのハイライトを「＝現在開いている modal」に収束；折れ線プレビューと Tray 呼吸ライトを修正。v2.8.0 を App Store へ申請——カスタムスタイルを提供開始</span></div>
+      <div class="arc-divider is-weave">織網 ③ パネル投影の忠実度 · 網を収める · S93–100 → 🏁</div>
       <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>computePanelValues 純関数を抽出——パネル投影の忠実度・第一刀；直接投影面が着地、zero-DOM の赤ネット保存恒等式。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>ストロークの破線と色の委譲投影を中央純関数へ畳み込み、後続再利用のための schemaSyncToUI 接ぎ目を構築。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>外枠の太さ／透過／オフセットの三列を収め——ストローク値のクリーンな末尾が中央投影へ、A スタック封じ。</span></div>
@@ -565,9 +727,9 @@
 
 <!-- ═══ chapter colophon ═══ -->
 <div class="chapter-colophon">
-  <div class="chapter-colophon-left">milestone · N° 01<br>十章 · 2026 · 04 · 24 記</div>
+  <div class="chapter-colophon-left">milestone · N° 01<br>十章＋終曲 · 2026 · 06 · 28 記</div>
   <div class="chapter-colophon-line"></div>
-  <div class="chapter-colophon-right">最初の五章は一本の線。<br>後の五章は一枚の網。</div>
+  <div class="chapter-colophon-right">最初の五章は一本の線。<br>後の五章は一枚の網。<br>そして最後に、一匹の布へと織りあがった。</div>
   <div class="chapter-sign">Yours, VAS</div>
 </div>
 
@@ -600,6 +762,9 @@
   <a class="dot-nav-item" href="#ch-8"><span class="dn-label">VIII · 待たない</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ch-9"><span class="dn-label">IX · 顕影</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ch-10"><span class="dn-label">X · サイト刷新</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-see"><span class="dn-label">照らし見る</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-weave"><span class="dn-label">網を織る</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-reveal"><span class="dn-label">現像</span><span class="dn-dot"></span></a>
 </nav>
 
 <script>

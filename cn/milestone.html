@@ -95,10 +95,10 @@
 <section class="chapter-head">
   <div class="chapter-kicker">III · 里程碑 · CHRONICLE</div>
   <h1 class="chapter-title">从零开始的<br><em>十个刻痕</em>。</h1>
-  <p class="chapter-lede">这不是 changelog，而是<em>章回</em>。<br>从「Version」到「Sprint」再到「Commit」<br>不是记账方式换了，是我们和 VAS<br>相处的节奏变了。<br>前五章是一条线，后五章是一张网。</p>
+  <p class="chapter-lede">这不是 changelog，而是<em>章回</em>。<br>从「Version」到「Sprint」再到「Commit」<br>不是记账方式换了，是我们和 VAS<br>相处的节奏变了。<br>前五章是一条线，后五章是一张网，<br>而最后，网织成了一匹布。</p>
   <div class="chapter-meta">
-    <div>Chapter　<strong>I — X</strong></div>
-    <div>Range　<strong>2026 · 03 — 04</strong></div>
+    <div>Chapter　<strong>I — 显</strong></div>
+    <div>Range　<strong>2026 · 03 — 06</strong></div>
     <div>Units　<strong>Version · Sprint · Commit</strong></div>
   </div>
 </section>
@@ -433,11 +433,166 @@
 
 </div>
 
+<!-- ══════════════════════════════════════
+     終曲：織網（照見 · 織 · 顯）——現在進行式，線還在織機上
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA III · WEAVE</div>
+  <div>
+    <div class="era-title"><em>织网</em> ——<br>拆不开的，就把它织起来。</div>
+    <div class="era-sub">Sprint 47 → 100。一句无心的话开始，五十个 Sprint 看不到尽头——照见 · 织 · 显，把一团一直都在的线，一重一重织成布。前十章已合上，这三个乐章还开着。</div>
+  </div>
+</div>
+
+<div class="chronicle is-weave">
+
+  <!-- 樂章一 · 照見 -->
+  <article id="ch-see" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">织网<em>照</em></div>
+      <div class="entry-unit">照见</div>
+      <div class="entry-stamp-value">Sprint 47 → 61<br>2026 · 05 · 29</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        起点是宰相某天一句无心的话——<br>
+        「一支程序八千行，<br>在软件业<em>不太正常</em>。」
+      </div>
+      <h2 class="entry-title">我盖了它，<em>却不认识它</em>。</h2>
+      <p class="entry-prose">
+        editor.js 八千七百行，是我们自己一行一行盖起来的前端，他沉默地从 Electron 时期陪着我们走到 Tauri 的 Sprint 46，都没被系统性地检视过。
+      </p>
+      <p class="entry-prose">
+        可是站在 Sprint 47 的门口往里看，我们对它<strong>几乎一无所知</strong>——<br>
+        Nova 对程序一无所知，宰相每个 Sprint 都只认识这 8700 行里的某几行。<br>
+        它是我们的造物，在重构面前我们却像看着一座深渊。
+      </p>
+      <p class="entry-prose">
+        我们打算把它拆开：指挥归指挥、乐手归乐手。<br>
+        渲染器搬出去了——可是面板搬出来才发现它本质还是指挥，只好逆搬回去；<br>
+        导出一拉就发现它是指挥的器官，根本搬不动。<br>
+        一层一层拨下去，拨到最后，对一个还有 7300 行的 editor.js 只剩 140 行拆不拆都无所谓的程序可以拆时 ——
+      </p>
+      <div class="entry-pullquote">
+        我们停手，承认这个指挥本来就该有这么大。<br>
+        <em>「拆不下去」不是失败，是终于认出了本质。</em>
+      </div>
+    </div>
+  </article>
+
+  <!-- 樂章二 · 織 -->
+  <article id="ch-weave" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">织网<em>织</em></div>
+      <div class="entry-unit">织网</div>
+      <div class="entry-stamp-value">Sprint 62 → 92<br>2026 · 06 · 02</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        拆不开，<br>
+        那就<em>换个方向——收拢</em>。
+      </div>
+      <h2 class="entry-title">把散落的真相，<em>收拢成一份</em>。</h2>
+      <p class="entry-prose">
+        Nova 跟宰相说，她希望未来新增功能的时候，能把属性当成模块一样随选随有。<br>
+        宰相说这有个词，叫做 ECS，通常是游戏业用来做模块化的做法，被两人拿来当绘图属性的积木化。<br>
+        于是宰相把散落的真相，一栏一栏抽成册，再沿着册一条一条地织测试网。
+      </p>
+      <p class="entry-prose">
+        在整理的过程中从 editor.js 逐渐抽出的函数，在隔壁的 editor-utils.js 从 S47 时的 657 行长成了另一支 2550 行的大计算桌程序，它的纯函数性质织起了 VAS 各式各样的测试网。
+      </p>
+      <div class="weave-net">
+        <div class="weave-net-head">测试样本总览 · 2026 · 06 · 27 实跑坐实</div>
+        <div class="wn-row"><span class="wn-cat">单元 · zero-DOM 纯逻辑</span><span class="wn-run">npm test</span><span class="wn-num">885</span></div>
+        <div class="wn-row"><span class="wn-cat">交互 · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">174</span></div>
+        <div class="wn-row"><span class="wn-cat">Golden · 像素逐比特回归</span><span class="wn-run">test:golden</span><span class="wn-num">31</span></div>
+        <div class="wn-row"><span class="wn-cat">Rust 后端 · #[test]</span><span class="wn-run">cargo test</span><span class="wn-num">45</span></div>
+        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 100 ·</span><strong>1135</strong><span>个测试样本成网</span></div>
+      </div>
+      <p class="entry-prose">
+        我们把一团纠在一起的线，逐渐理成一张经纬分明的网，再在上面叠加自定义样式的新功能。
+      </p>
+      <p class="entry-prose">
+        但从对象属性到动作再到交互，在测试中不停抓到面板与值的不匹配或与行为不匹配时，我们发现了<strong>两个更深的问题</strong>。
+      </p>
+      <div class="weave-problems">
+        <div class="wp-item">
+          <div class="wp-num">① 人眼穷举不完</div>
+          <div class="wp-text">13 个工具 × 10 种属性 × 4 种行为，再叠上新增的自定义样式功能，这是 Nova 靠人眼的 QC <em>永远穷举不完</em>的组合。</div>
+        </div>
+        <div class="wp-item">
+          <div class="wp-num">② 网会说谎</div>
+          <div class="wp-text">而网自己也会说谎——测试的全绿，是散落在程序里各种小抄抄出来的<em>假绿</em>。网的价值不在多，而在<em>如实地反映原值</em>。</div>
+        </div>
+      </div>
+      <p class="entry-prose">
+        唯一的解决方法，就是让 editor.js 内的值从后端程序到前端面板收拢成「单一真相」，让测试真的能卸下 Nova 用人眼穷举的任务。<br>
+        这是走到 Sprint 92 的时候，两人才真正摸到的前端重构主轴。
+      </p>
+    </div>
+  </article>
+
+  <!-- 樂章三 · 顯 -->
+  <article id="ch-reveal" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">织网<em>显</em></div>
+      <div class="entry-unit">显影</div>
+      <div class="entry-stamp-value">Sprint 93 → 100<br>2026 · 06 · 27</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        五十个 Sprint，<br>
+        两个人<em>在黑暗中</em>画了<br>一张又一张的织图。<br>
+        直到最后终于看见全貌。
+      </div>
+      <h2 class="entry-title">走到最后，<em>它其实是一匹六重纱</em>。</h2>
+      <p class="entry-prose">
+        整个前端重构，两人一直试着在做一件事：显影。<br>
+        让一直在场、却从未被完整看见的结构，慢慢浮现出来。<br>
+        一开始像 8700 行的毛线球，最后梳理成了 7300 行的布匹。
+      </p>
+      <p class="entry-prose">
+        我们画了一张又一张织图——它们不是凭空想出来的蓝图，<br>
+        是逆着已经织好的布、一段段反推出来的；反推出花样，再照着它把布重织干净。<br>
+        直到 Sprint 97，才终于把整匹布的花纹一次看清——<br>
+        editor.js 是一匹<strong>六重纱</strong>。
+      </p>
+      <div class="weave-maps">
+        <div class="weave-maps-head">十一张织图 · 认出的化石</div>
+        <div class="wm-row"><span class="wm-sp">S46</span><span class="wm-name">refactor-audit-prep</span><span class="wm-said">认出四大档里，哪一块最痛、痛两种</span></div>
+        <div class="wm-row"><span class="wm-sp">S51</span><span class="wm-name">editor-decomposition-roadmap</span><span class="wm-said">认出 editor.js 该分成指挥台与乐手</span></div>
+        <div class="wm-row"><span class="wm-sp">S59/61</span><span class="wm-name">tool-isolation · panel-groups-map</span><span class="wm-said">认出污染住在 glue 层、面板该积木化</span></div>
+        <div class="wm-row"><span class="wm-sp">S63</span><span class="wm-name">attribute-family-roadmap</span><span class="wm-said">认出属性该一个家族一个家族炼成册（造册）</span></div>
+        <div class="wm-row"><span class="wm-sp">S78</span><span class="wm-name">dor-custom-styles-batch2</span><span class="wm-said">认出自定义样式的套用路径正交、不牵动仓与全局</span></div>
+        <div class="wm-row"><span class="wm-sp">S87</span><span class="wm-name">dor-single-truth-converge</span><span class="wm-said">认出最深的病根：仓是单一真相，却散在五个地方手刷</span></div>
+        <div class="wm-row"><span class="wm-sp">S88</span><span class="wm-name">dor-l2-true-green</span><span class="wm-said">认出「假绿」：测试是绿的，却是三面镜子抄出来的</span></div>
+        <div class="wm-row"><span class="wm-sp">S88</span><span class="wm-name">design-oracles · state-model …</span><span class="wm-said">织图大爆发——一夜画了七八张</span></div>
+        <div class="wm-row"><span class="wm-sp">S89</span><span class="wm-name">panel-sync-matrix</span><span class="wm-said">认出面板漏洞可以被穷举列表、不该靠人眼 QC</span></div>
+        <div class="wm-row"><span class="wm-sp">S94</span><span class="wm-name">panel-projection-roadmap</span><span class="wm-said">认出投影与属性层同构、该共用一套 registry</span></div>
+        <div class="wm-row is-peak"><span class="wm-sp">S97</span><span class="wm-name">editor-layer-map</span><span class="wm-said">第一次把整匹布看全，原来是六重织的</span></div>
+      </div>
+      <p class="entry-prose">
+        而这六层，从 Electron 时期就在了。<br>
+        我们花了五十个 Sprint，学会看懂它的结构。
+      </p>
+      <div class="entry-pullquote">
+        线还没收口——<br>
+        因为我们<em>还有很多想做的</em>。
+      </div>
+    </div>
+  </article>
+
+</div>
+
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
     <summary>Tauri 完整编年 · 100 个 Sprint</summary>
     <div class="archive-body">
+      <div class="arc-divider">平台移植 · S1–9 → v1.0 首送审</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 从零建立；浮动工具栏 · 截图三兄弟 · 批次格式转换</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>存档 · 复制 · Share Sheet · OCR 隐私遮蔽 · Modal 修复</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>QR Code 三段扫描 · 智慧导线 v2 · 滴管取色 · 拖入工具栏</span></div>
@@ -447,10 +602,12 @@
       <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>呼吸灯旗舰改版（::before）· QR/OCR 自动复制 · 拖曳修复</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>网页长截图 MVP · Dock 召唤 · 工具栏位置持久化 · 位移根治</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>全屏 UX overlay · 15 项修复收尾 · MAS 首次送审 v1.0</span></div>
+      <div class="arc-divider">上线拉锯 · S9.5–9.8 → v1.1 / v1.2 退件</div>
       <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>上线后补强：恶意链接防护 · 日文字型 · tauri-plugin-opener</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Tray 系统菜单图示 · 退件修正 · v1.1.0 重送审</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>v1.2.0 Release pipeline · resize 类型漏洞（KM-cv-09）修复</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>v1.2.1 hotfix · Apple Guideline 2.4.5(i) 退件修正</span></div>
+      <div class="arc-divider">v2.0 架构统一 · S10–20 · 座标 · TOOL_SCHEMA · 渲染管线</div>
       <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>座标系统统一 Phase A/B/C · Vitest 16 tests · v2.0 架构启动</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Universal Gradient 六工具统一 · 角度转盘 · SYNC-017/018</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>数据模型正规化 · TOOL_ORDER 全审 · 外框位移扩充</span></div>
@@ -462,6 +619,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Undo/Redo 架构升级 · 内存卫生清理 · v2.0 架构全数完成</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Bug Sweep：画布闪动根治 · 折线端点色修复</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Help Modal 优化 · Modal 边界修复 · i18n 扩充</span></div>
+      <div class="arc-divider">国际化 · 文档大拆 · S21–29 → v2.1 / v2.2</div>
       <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Rust 测试基建 · 多屏幕 v2.0.1~v2.0.8 hotfix 教训结晶化</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>i18n 拆档 Strategy B · 简中 Pro gate · zh-CN 429 keys 全覆盖</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>PRC 隐私扫描 regex 特化 · SYNC-036 Release Blocker 解除</span></div>
@@ -471,6 +629,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 27</span><span class="arc-ver">04·23→25</span><span>放大镜标注 ⊙ · 对话气泡 ◎ · 拖入图片叠加</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 28</span><span class="arc-ver">04·25</span><span>WYSIWYG 标注精准化 · 虚拟视口效能 12× · Callout 文字格式化</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 29</span><span class="arc-ver">04·26</span><span>v2.2.0 打包送审 · 74 项全功能 QC 全过</span></div>
+      <div class="arc-divider">标注尺寸统一 · 拖曳呼吸灯 · S30–46 → v2.3 / v2.4 / v2.6</div>
       <div class="arc-line"><span class="arc-date">Sprint 30</span><span class="arc-ver">04·29→30</span><span>拖曳导出半透明预览 ⊙ · 编辑器视窗动态 alpha</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 31</span><span class="arc-ver">04·30→<br>05·01</span><span>标注尺寸模型 reframe（dissolution 路线确立）</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 32</span><span class="arc-ver">05·01→05</span><span>4 种标注尺寸统一（气泡 · 编号 · 符号 · 文字）</span></div>
@@ -488,6 +647,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 44</span><span class="arc-ver">05·25</span><span>延迟截图秒数 0–6 扩充 · Toast lifecycle helper 四路统一 · BUG-003 spike（OS 层认定）</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 45</span><span class="arc-ver">05·26</span><span>四型标注 rotation 一致性补完 · 延迟窗口截图 cursor fallback · BUG-007 选取框修正</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 46</span><span class="arc-ver">05·28</span><span>macOS 26.5 拖拽导出 spike · v2.6.1 hotfix 五修送审</span></div>
+      <div class="arc-divider is-weave">织网 ① 结构 · 渲染 · 属性 · S47–70 → v2.7</div>
       <div class="arc-line"><span class="arc-date">Sprint 47</span><span class="arc-ver">05·29</span><span>editor.js 架构拆解 spike（feature/layer 双验全中）· ECS 四阶段 roadmap 拍板</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 48</span><span class="arc-ver">05·30</span><span>TOOL_GEOMETRY 扩充（3→6 callback · 14 型实作）· ECS Phase 1 完成</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 49</span><span class="arc-ver">05·31</span><span>drag-session 封装 · hitTest 第 7 callback · 几何变更统一入口 · ECS Phase 2 完成</span></div>
@@ -512,6 +672,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 68</span><span class="arc-ver">06·08</span><span>填色属性系统建置 · 六维属性记忆卡 · 编号与符号透明度整合</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 69</span><span class="arc-ver">06·08</span><span>线粗跨分辨率计算重整 · 缩放控制系统建置</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 70</span><span class="arc-ver">06·09</span><span>v2.7.0 送审上架 — S47–S69 前端重构马拉松封顶</span></div>
+      <div class="arc-divider is-weave">织网 ② 构造层 schema · 自定义样式 · S71–92 → v2.8</div>
       <div class="arc-line"><span class="arc-date">Sprint 71</span><span class="arc-ver">06·14</span><span>applyResize 动作层造册，完成 resize 姊妹组件的结构收束</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 72</span><span class="arc-ver">06·15</span><span>W1 schema 化 Spike，拍板构造层设计并建测试网</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 73</span><span class="arc-ver">06·16</span><span>W1 构造层收敛，7 型 build() 统一规范化进 TOOL_SCHEMA</span></div>
@@ -534,6 +695,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>自定义样式 release 收尾——callout 渐变文字 ＋ 装饰/字体记忆，套样式无破口</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>文字定位清债——下划线/删除线随字体自动对位、非默认字体测量校正，选取框完整包覆不截断</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>工具栏高亮收敛成「＝当下开着的 modal」恒等式；折线预览、Tray 呼吸灯修复。v2.8.0 送审上架——自定义样式推出</span></div>
+      <div class="arc-divider is-weave">织网 ③ 面板投影忠实度 · 收网 · S93–100 → 🏁</div>
       <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>抽出 computePanelValues 纯函数——面板投影忠实度第一刀，直接投影面落地、零-DOM 红灯网守恒等式。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>描边虚线与颜色委派投影塌缩进中央纯函数，建起 schemaSyncToUI 接缝供后续复用。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>外框粗细／透光／位移三栏收齐——描边值干净尾全进中央投影，A 堆封口。</span></div>
@@ -565,9 +727,9 @@
 
 <!-- ═══ chapter colophon ═══ -->
 <div class="chapter-colophon">
-  <div class="chapter-colophon-left">milestone · N° 01<br>十章 · 记于 2026 · 04 · 24</div>
+  <div class="chapter-colophon-left">milestone · N° 01<br>十章一终曲 · 记于 2026 · 06 · 28</div>
   <div class="chapter-colophon-line"></div>
-  <div class="chapter-colophon-right">前五章是一条线，<br>后五章是一张网。</div>
+  <div class="chapter-colophon-right">前五章是一条线，<br>后五章是一张网，<br>而最后，织成一匹布。</div>
   <div class="chapter-sign">Yours, VAS</div>
 </div>
 
@@ -600,6 +762,9 @@
   <a class="dot-nav-item" href="#ch-8"><span class="dn-label">VIII · 不等了</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ch-9"><span class="dn-label">IX · 显影</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ch-10"><span class="dn-label">X · 网站改版</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-see"><span class="dn-label">照见</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-weave"><span class="dn-label">织网</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-reveal"><span class="dn-label">显影</span><span class="dn-dot"></span></a>
 </nav>
 
 <script>
