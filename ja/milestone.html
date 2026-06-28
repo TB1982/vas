@@ -11,11 +11,11 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>VAS 開発マイルストーン | 25日で公開 · 100 Sprint フロントエンド再構築 · 双プラットフォームMac App</title>
+<title>VAS 開発マイルストーン | 25日で公開後 · 100 Sprint を越えた双プラットフォーム Mac App</title>
 <meta name="description"
-      content="ゼロから双プラットフォームリリースまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査を経て、100 Sprintに及ぶフロントエンド再構築（単一の真実 · 1135 テスト）、そして各Sprintの技術的決断。">
-<meta property="og:title" content="VAS 開発マイルストーン | 25日で公開 · 100 Sprint フロントエンド再構築 · 双プラットフォームMac App">
-<meta property="og:description" content="ゼロから双プラットフォームリリースまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査を経て、100 Sprintに及ぶフロントエンド再構築（単一の真実 · 1135 テスト）、そして各Sprintの技術的決断。">
+      content="ゼロから双プラットフォーム公開、さらに 100 Sprint を越えるまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査を経て、フロントエンド再構築と CI 稼働（単一の真実 · 自動網羅）、そして各Sprintの技術的決断。">
+<meta property="og:title" content="VAS 開発マイルストーン | 25日で公開後 · 100 Sprint を越えた双プラットフォーム Mac App">
+<meta property="og:description" content="ゼロから双プラットフォーム公開、さらに 100 Sprint を越えるまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査を経て、フロントエンド再構築と CI 稼働（単一の真実 · 自動網羅）、そして各Sprintの技術的決断。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/ja/milestone">
 <meta property="og:locale" content="ja_JP">
@@ -27,8 +27,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:image:alt" content="VAS — 人とAIの協働ワークフローのためのMacスクリーンショットツール">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VAS 開発マイルストーン | 25日で公開 · 100 Sprint フロントエンド再構築 · 双プラットフォームMac App">
-<meta name="twitter:description" content="ゼロから双プラットフォームリリースまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査を経て、100 Sprintに及ぶフロントエンド再構築（単一の真実 · 1135 テスト）、そして各Sprintの技術的決断。">
+<meta name="twitter:title" content="VAS 開発マイルストーン | 25日で公開後 · 100 Sprint を越えた双プラットフォーム Mac App">
+<meta name="twitter:description" content="ゼロから双プラットフォーム公開、さらに 100 Sprint を越えるまでの完全な開発タイムライン：25日・80以上のバージョン・Electron + Tauri・App Store審査を経て、フロントエンド再構築と CI 稼働（単一の真実 · 自動網羅）、そして各Sprintの技術的決断。">
 <link rel="canonical" href="https://yoursvas.app/ja/milestone">
 <link rel="icon" href="../img/vas.ico">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -504,12 +504,12 @@
         整理の過程で editor.js から少しずつ抽出された関数は、隣の editor-utils.js で S47 の 657 行から、もう一本の 2550 行に及ぶ大きな計算卓のプログラムへと育ち、その純関数としての性質が VAS の様々なテスト網を織りあげた。
       </p>
       <div class="weave-net">
-        <div class="weave-net-head">テストサンプル総覧 · 2026 · 06 · 27 実走で裏づけ</div>
-        <div class="wn-row"><span class="wn-cat">単体 · zero-DOM 純ロジック</span><span class="wn-run">npm test</span><span class="wn-num">885</span></div>
-        <div class="wn-row"><span class="wn-cat">インタラクション · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">174</span></div>
+        <div class="weave-net-head">テストサンプル総覧 · 2026 · 06 · 28 実走で裏づけ</div>
+        <div class="wn-row"><span class="wn-cat">単体 · zero-DOM 純ロジック</span><span class="wn-run">npm test</span><span class="wn-num">931</span></div>
+        <div class="wn-row"><span class="wn-cat">インタラクション · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">242</span></div>
         <div class="wn-row"><span class="wn-cat">Golden · ピクセル単位の回帰</span><span class="wn-run">test:golden</span><span class="wn-num">31</span></div>
         <div class="wn-row"><span class="wn-cat">Rust バックエンド · #[test]</span><span class="wn-run">cargo test</span><span class="wn-num">45</span></div>
-        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 100 ·</span><strong>1135</strong><span>のテストサンプルが網になった</span></div>
+        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 103 ·</span><strong>1249</strong><span>のテストサンプルが網になった</span></div>
       </div>
       <p class="entry-prose">
         絡まり合った一団の線を、少しずつ経緯のはっきりした一枚の網へと解きほぐし、その上にカスタムスタイルの新機能を重ねていった。
@@ -590,7 +590,7 @@
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
-    <summary>Tauri 完全年代記 · 101 Sprint</summary>
+    <summary>Tauri 完全年代記 · 103 Sprint</summary>
     <div class="archive-body">
       <div class="arc-divider">プラットフォーム移植 · S1–9 → v1.0 初の審査提出</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold ゼロから構築 · フローティングツールバー · スクリーンショット 3 兄弟 · バッチ形式変換</span></div>
@@ -695,7 +695,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>カスタムスタイル release 仕上げ——コールアウトのグラデーション文字＋装飾/フォント記憶、隙間なく適用</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>テキスト配置の債務清算——下線・取り消し線がフォントに自動追従、非デフォルトフォントの計測補正、選択枠が完全に包む</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>ツールバーのハイライトを「＝現在開いている modal」に収束；折れ線プレビューと Tray 呼吸ライトを修正。v2.8.0 を App Store へ申請——カスタムスタイルを提供開始</span></div>
-      <div class="arc-divider is-weave">織網 ③ パネル投影の忠実度 · 網を収める · S93–101 → 🏁</div>
+      <div class="arc-divider is-weave">織網 ③ パネル投影の忠実度 · 網を収める · S93–103 → 🏁</div>
       <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>computePanelValues 純関数を抽出——パネル投影の忠実度・第一刀；直接投影面が着地、zero-DOM の赤ネット保存恒等式。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>ストロークの破線と色の委譲投影を中央純関数へ畳み込み、後続再利用のための schemaSyncToUI 接ぎ目を構築。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>外枠の太さ／透過／オフセットの三列を収め——ストローク値のクリーンな末尾が中央投影へ、A スタック封じ。</span></div>
@@ -704,7 +704,9 @@
       <div class="arc-line"><span class="arc-date">Sprint 98</span><span class="arc-ver">06·26</span><span>値投影面が頂上に（角丸を併合、字級とフォントは各々の判決）＋表示状態投影の第一刀、姉妹純関数 computePanelState を新設。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 99</span><span class="arc-ver">06·27</span><span>symbol の塗り投影を統合（色＋透過を統一投影へ）；寄り付きで翻案「冊にある≠投影できる」、textDeco は面に残すが投影しないと判決。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 100</span><span class="arc-ver">06·27</span><span>callout の塗りを統合＋symbol を主幹へ（9→10 型が隊列復帰）、検収2波、4つの落差すべて byte-identical。</span></div>
-      <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>🏁 マイルストーン——magnify·callout が主幹へ合流、12 型すべてが schema を通る——投影層が封頂し、パネルの表示と作業台の保存が単一の真実に収束、物理的にもう分岐できない。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>magnify·callout が主幹へ合流、12 型すべてが schema を通る——投影層が封頂し、パネルの表示と作業台の保存が単一の真実に収束、物理的にもう分岐できない。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 102</span><span class="arc-ver">06·28</span><span>「各ツールがどの属性を持つべきか」を単一の真実の表に収束——属性パネルが初めてコードと一致し、初めてテスト網で完全に網羅できるようになった。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 103</span><span class="arc-ver">06·28</span><span>🏁 マイルストーン——「読み込み」を唯一完全な執事 readAnnot に収束——CI が稼働、すべての変更が自動で数千の網を通り、赤はその場で止める；網羅は、もう誰かが覚えている必要がなくなった。</span></div>
     </div>
   </details>
 </div>
@@ -818,8 +820,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "VAS 開発マイルストーン | 25 日で公開、そして 100 Sprint に及ぶフロントエンド再構築",
-  "description": "VAS が零から両プラットフォーム公開に至るまでの完全な開発タイムライン：25 日、80+ バージョン、Electron + Tauri、App Store 審査の道のり、100 Sprint に及ぶフロントエンド再構築（単一の真実 · 1135 テスト）、そして各 Sprint の技術的決断。",
+  "headline": "VAS 開発マイルストーン | 25 日で公開、そして 100 Sprint を越えてなお続く",
+  "description": "VAS が零から両プラットフォーム公開、さらに 100 Sprint を越えるまでの完全な開発タイムライン：25 日、80+ バージョン、Electron + Tauri、App Store 審査の道のり、フロントエンド再構築と CI 稼働（単一の真実 · 自動網羅）、そして各 Sprint の技術的決断。",
   "inLanguage": "ja",
   "url": "https://yoursvas.app/ja/milestone",
   "datePublished": "2026-03-21",

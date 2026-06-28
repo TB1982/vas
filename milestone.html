@@ -11,11 +11,11 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>VAS 開發里程碑 | 25 天上架 · 100 Sprint 前端重構雙平臺 Mac App</title>
+<title>VAS 開發里程碑 | 25 天上架後 · 跨越 100 個 Sprint 的雙平臺 Mac App</title>
 <meta name="description"
-      content="VAS 從零到雙平臺上架的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到 100 個 Sprint 的前端重構（單一真相 · 1135 測試樣本），以及每個 Sprint 的技術決策。">
-<meta property="og:title" content="VAS 開發里程碑 | 25 天上架 · 100 Sprint 前端重構雙平臺 Mac App">
-<meta property="og:description" content="VAS 從零到雙平臺上架的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到 100 個 Sprint 的前端重構（單一真相 · 1135 測試樣本），以及每個 Sprint 的技術決策。">
+      content="VAS 從零到雙平臺上架、再跨越 100 個 Sprint 的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到前端重構與 CI 上線（單一真相 · 自動窮舉），以及每個 Sprint 的技術決策。">
+<meta property="og:title" content="VAS 開發里程碑 | 25 天上架後 · 跨越 100 個 Sprint 的雙平臺 Mac App">
+<meta property="og:description" content="VAS 從零到雙平臺上架、再跨越 100 個 Sprint 的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到前端重構與 CI 上線（單一真相 · 自動窮舉），以及每個 Sprint 的技術決策。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/milestone">
 <meta property="og:locale" content="zh_TW">
@@ -27,8 +27,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VAS 開發里程碑 | 25 天上架 · 100 Sprint 前端重構雙平臺 Mac App">
-<meta name="twitter:description" content="VAS 從零到雙平臺上架的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到 100 個 Sprint 的前端重構（單一真相 · 1135 測試樣本），以及每個 Sprint 的技術決策。">
+<meta name="twitter:title" content="VAS 開發里程碑 | 25 天上架後 · 跨越 100 個 Sprint 的雙平臺 Mac App">
+<meta name="twitter:description" content="VAS 從零到雙平臺上架、再跨越 100 個 Sprint 的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到前端重構與 CI 上線（單一真相 · 自動窮舉），以及每個 Sprint 的技術決策。">
 <link rel="canonical" href="https://yoursvas.app/milestone">
 <link rel="icon" href="img/vas.ico">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -668,12 +668,12 @@
         在整理的過程中從 editor.js 逐漸抽出的函式，在隔壁的 editor-utils.js 從 S47 時的 657 行長成了另一支 2550 行的大計算桌程式，它的純函式性質織起了 VAS 各式各樣的測試網。
       </p>
       <div class="weave-net">
-        <div class="weave-net-head">測試樣本總覽 · 2026 · 06 · 27 實跑坐實</div>
-        <div class="wn-row"><span class="wn-cat">單元 · zero-DOM 純邏輯</span><span class="wn-run">npm test</span><span class="wn-num">885</span></div>
-        <div class="wn-row"><span class="wn-cat">互動 · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">174</span></div>
+        <div class="weave-net-head">測試樣本總覽 · 2026 · 06 · 28 實跑坐實</div>
+        <div class="wn-row"><span class="wn-cat">單元 · zero-DOM 純邏輯</span><span class="wn-run">npm test</span><span class="wn-num">931</span></div>
+        <div class="wn-row"><span class="wn-cat">互動 · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">242</span></div>
         <div class="wn-row"><span class="wn-cat">Golden · 像素逐位元回歸</span><span class="wn-run">test:golden</span><span class="wn-num">31</span></div>
         <div class="wn-row"><span class="wn-cat">Rust 後端 · #[test]</span><span class="wn-run">cargo test</span><span class="wn-num">45</span></div>
-        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 100 ·</span><strong>1135</strong><span>個測試樣本成網</span></div>
+        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 103 ·</span><strong>1249</strong><span>個測試樣本成網</span></div>
       </div>
       <p class="entry-prose">
         我們把一團糾在一起的線，逐漸理成一張經緯分明的網，再在上面疊加自訂樣式的新功能。
@@ -754,7 +754,7 @@
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
-    <summary>Tauri 完整編年 · 101 個 Sprint</summary>
+    <summary>Tauri 完整編年 · 103 個 Sprint</summary>
     <div class="archive-body">
       <div class="arc-divider">平臺移植 · S1–9 → v1.0 首送審</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 從零建立；浮動工具列 · 截圖三兄弟 · 批次格式轉換</span></div>
@@ -859,7 +859,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>自訂樣式 release 收尾——callout 漸層文字 ＋ 裝飾/字型記憶，套樣式無破口</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>文字定位清債——底線/刪除線隨字型自動對位、非預設字型量測校正，選取框完整包覆不截斷</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>工具列高亮收斂成「＝當下開著的 modal」恆等式；折線預覽、Tray 呼吸燈修復。v2.8.0 送審上架——自訂樣式推出</span></div>
-      <div class="arc-divider is-weave">織網 ③ 面板投影忠實度 · 收網 · S93–101 → 🏁</div>
+      <div class="arc-divider is-weave">織網 ③ 面板投影忠實度 · 收網 · S93–103 → 🏁</div>
       <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>抽出 computePanelValues 純函式——面板投影忠實度第一刀，直接投影面落地、零-DOM 紅燈網守恆等式。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>描邊虛線與顏色委派投影塌縮進中央純函式，建起 schemaSyncToUI 接縫供後續複用。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>外框粗細／透光／位移三欄收齊——描邊值乾淨尾全進中央投影，A 堆封口。</span></div>
@@ -868,7 +868,9 @@
       <div class="arc-line"><span class="arc-date">Sprint 98</span><span class="arc-ver">06·26</span><span>值投影面封頂（圓角併入、字級字型各有判決）＋顯示態投影第一刀，新增姊妹純函式 computePanelState。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 99</span><span class="arc-ver">06·27</span><span>symbol 填色投影合一（色＋透光收進統一投影）；開盤翻案「有冊≠可投影」，textDeco 判留面不投影。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 100</span><span class="arc-ver">06·27</span><span>callout 填色合一＋symbol 走主幹（9→10 型歸隊），兩波驗收、四落差全 byte-identical。</span></div>
-      <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>🏁 里程碑——magnify·callout 歸隊主幹，十二型全走 schema——投影層封頂，面板所見與工作台所存收成同一份真相、物理上不可能再分岔。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>magnify·callout 歸隊主幹，十二型全走 schema——投影層封頂，面板所見與工作台所存收成同一份真相、物理上不可能再分岔。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 102</span><span class="arc-ver">06·28</span><span>把「每個工具該有哪些屬性」收斂成一張單一真相表——屬性面板第一次與程式碼對齊，也第一次能被測試網完整窮舉。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 103</span><span class="arc-ver">06·28</span><span>🏁 里程碑——把「載入」收斂成唯一完整的管家 readAnnot——CI 上線，每一次改動都自動跑過上千條網，紅了當場攔；窮舉，從此不再需要誰記得。</span></div>
     </div>
   </details>
 </div>
@@ -993,8 +995,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "VAS 開發里程碑 | 25 天上架 · 100 Sprint 前端重構雙平臺 Mac App",
-  "description": "VAS 從零到雙平臺上架的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到 100 個 Sprint 的前端重構（單一真相 · 1135 測試樣本），以及每個 Sprint 的技術決策。",
+  "headline": "VAS 開發里程碑 | 25 天上架後 · 跨越 100 個 Sprint 的雙平臺 Mac App",
+  "description": "VAS 從零到雙平臺上架、再跨越 100 個 Sprint 的完整開發時間軸：25 天上架、80+ 版本、Electron + Tauri、App Store 審查歷程，到前端重構與 CI 上線（單一真相 · 自動窮舉），以及每個 Sprint 的技術決策。",
   "inLanguage": "zh-Hant",
   "url": "https://yoursvas.app/milestone.html",
   "datePublished": "2026-03-21",

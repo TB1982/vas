@@ -11,11 +11,11 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>VAS Dev Milestones | 25-Day Launch · 100-Sprint Front-End Refactor · Dual-Platform Mac App</title>
+<title>VAS Dev Milestones | Shipped in 25 Days · A Dual-Platform Mac App Across 100 Sprints</title>
 <meta name="description"
-      content="The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, the App Store review process, then 100 Sprints of front-end refactoring (single source of truth · 1135 tests), and the technical decisions behind every Sprint.">
-<meta property="og:title" content="VAS Dev Milestones | 25-Day Launch · 100-Sprint Front-End Refactor · Dual-Platform Mac App">
-<meta property="og:description" content="The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, the App Store review process, then 100 Sprints of front-end refactoring (single source of truth · 1135 tests), and the technical decisions behind every Sprint.">
+      content="The complete development timeline from zero to dual-platform launch and on across 100 Sprints: 25 days, 80+ versions, Electron + Tauri, the App Store review process, then a front-end refactor and CI going live (single source of truth · automated exhaustive checks), and the technical decisions behind every Sprint.">
+<meta property="og:title" content="VAS Dev Milestones | Shipped in 25 Days · A Dual-Platform Mac App Across 100 Sprints">
+<meta property="og:description" content="The complete development timeline from zero to dual-platform launch and on across 100 Sprints: 25 days, 80+ versions, Electron + Tauri, the App Store review process, then a front-end refactor and CI going live (single source of truth · automated exhaustive checks), and the technical decisions behind every Sprint.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/en/milestone">
 <meta property="og:locale" content="en_US">
@@ -27,8 +27,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
 <meta name="twitter:image:alt" content="VAS — A screenshot tool for human–AI collaboration on Mac">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VAS Dev Milestones | 25-Day Launch · 100-Sprint Front-End Refactor · Dual-Platform Mac App">
-<meta name="twitter:description" content="The complete development timeline from zero to dual-platform launch: 25 days, 80+ versions, Electron + Tauri, the App Store review process, then 100 Sprints of front-end refactoring (single source of truth · 1135 tests), and the technical decisions behind every Sprint.">
+<meta name="twitter:title" content="VAS Dev Milestones | Shipped in 25 Days · A Dual-Platform Mac App Across 100 Sprints">
+<meta name="twitter:description" content="The complete development timeline from zero to dual-platform launch and on across 100 Sprints: 25 days, 80+ versions, Electron + Tauri, the App Store review process, then a front-end refactor and CI going live (single source of truth · automated exhaustive checks), and the technical decisions behind every Sprint.">
 <link rel="canonical" href="https://yoursvas.app/en/milestone">
 <link rel="icon" href="../img/vas.ico">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -504,12 +504,12 @@
         In the course of that tidying, the functions gradually extracted from editor.js grew next door in editor-utils.js — from 657 lines at S47 into another 2,550-line computation desk; its pure-function nature wove every kind of test net across VAS.
       </p>
       <div class="weave-net">
-        <div class="weave-net-head">Test-sample overview · run for real on 2026 · 06 · 27</div>
-        <div class="wn-row"><span class="wn-cat">Unit · zero-DOM pure logic</span><span class="wn-run">npm test</span><span class="wn-num">885</span></div>
-        <div class="wn-row"><span class="wn-cat">Interaction · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">174</span></div>
+        <div class="weave-net-head">Test-sample overview · run for real on 2026 · 06 · 28</div>
+        <div class="wn-row"><span class="wn-cat">Unit · zero-DOM pure logic</span><span class="wn-run">npm test</span><span class="wn-num">931</span></div>
+        <div class="wn-row"><span class="wn-cat">Interaction · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">242</span></div>
         <div class="wn-row"><span class="wn-cat">Golden · pixel-by-bit regression</span><span class="wn-run">test:golden</span><span class="wn-num">31</span></div>
         <div class="wn-row"><span class="wn-cat">Rust backend · #[test]</span><span class="wn-run">cargo test</span><span class="wn-num">45</span></div>
-        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 100 ·</span><strong>1135</strong><span>test samples woven into a net</span></div>
+        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 103 ·</span><strong>1249</strong><span>test samples woven into a net</span></div>
       </div>
       <p class="entry-prose">
         We gradually combed a tangle of knotted yarn into a net with clear warp and weft, then layered new custom-style features on top of it.
@@ -590,7 +590,7 @@
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
   <details class="archive-wrap">
-    <summary>Complete Tauri Chronicle · 101 Sprints</summary>
+    <summary>Complete Tauri Chronicle · 103 Sprints</summary>
     <div class="archive-body">
       <div class="arc-divider">Platform port · S1–9 → v1.0 first review submission</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold from zero · Floating toolbar · Screenshot trio · Batch format convert</span></div>
@@ -695,7 +695,7 @@
       <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>Custom Styles release polish — callout gradient text plus decoration/font memory; styles apply with no gaps</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>Text-positioning debt cleared — underline/strikethrough auto-align to the font; non-default fonts measured correctly, selection box wraps fully</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>Toolbar highlight converged to "whichever modal is open"; polyline preview and Tray breathing-light fixed. v2.8.0 submitted to the App Store — Custom Styles ships</span></div>
-      <div class="arc-divider is-weave">Weaving ③ Panel-projection fidelity · Closing the net · S93–101 → 🏁</div>
+      <div class="arc-divider is-weave">Weaving ③ Panel-projection fidelity · Closing the net · S93–103 → 🏁</div>
       <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>Extracted the computePanelValues pure function — first cut at panel-projection fidelity; the direct projection surface lands, a zero-DOM red-net conservation identity.</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>Stroke dash and color delegated-projection collapsed into the central pure function; built the schemaSyncToUI seam for later reuse.</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>Outline thickness / opacity / offset — three columns gathered; the stroke values' clean tail all into central projection, Stack A sealed.</span></div>
@@ -704,7 +704,9 @@
       <div class="arc-line"><span class="arc-date">Sprint 98</span><span class="arc-ver">06·26</span><span>Value-projection surface tops out (corner-radius folded in; font-size and font each get their own ruling) + display-state projection first cut; added the sister pure function computePanelState.</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 99</span><span class="arc-ver">06·27</span><span>symbol fill projection unified (color + opacity into one projection); an opening-bell reversal — "registered ≠ projectable" — textDeco ruled to stay on the surface, not projected.</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 100</span><span class="arc-ver">06·27</span><span>Callout fill unified + symbol onto the main trunk (9→10 types fall in line); two acceptance waves, all four gaps byte-identical.</span></div>
-      <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>🏁 Milestone — magnify·callout fall in line onto the main trunk, all twelve types now run through schema — projection layer topped out; what the panel shows and what the worktable stores converge into one truth, physically impossible to diverge again.</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>magnify·callout fall in line onto the main trunk, all twelve types now run through schema — projection layer topped out; what the panel shows and what the worktable stores converge into one truth, physically impossible to diverge again.</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 102</span><span class="arc-ver">06·28</span><span>Converged each tool’s attribute set into a single source-of-truth table — the attribute panel aligned with the code for the first time, and for the first time could be exhaustively enumerated by the test net.</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 103</span><span class="arc-ver">06·28</span><span>🏁 Milestone — Converged the load path into one complete steward, readAnnot — CI went live; every change automatically runs through thousands of nets, red caught on the spot; exhaustive checking no longer needs anyone to remember.</span></div>
     </div>
   </details>
 </div>
@@ -818,8 +820,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "VAS Development Milestones | A dual-platform App shipped in 25 days, then 100 Sprints of front-end refactoring",
-  "description": "The full development timeline of VAS from zero to dual-platform release: 25 days, 80+ versions, Electron + Tauri, the App Store review journey, then 100 Sprints of front-end refactoring (single source of truth · 1135 tests), and every Sprint's technical decisions.",
+  "headline": "VAS Development Milestones | A dual-platform App shipped in 25 days, now across 100 Sprints",
+  "description": "The full development timeline of VAS from zero to dual-platform release and on across 100 Sprints: 25 days, 80+ versions, Electron + Tauri, the App Store review journey, then a front-end refactor and CI going live (single source of truth · automated exhaustive checks), and every Sprint's technical decisions.",
   "inLanguage": "en",
   "url": "https://yoursvas.app/en/milestone",
   "datePublished": "2026-03-21",
