@@ -155,12 +155,16 @@ img{display:block;max-width:100%;}
 .side .enter .ln{width:38px;height:1px;background:var(--ash-4);transition:width .3s,background .3s;}
 .side:hover .enter{color:var(--ash-0);gap:16px;}
 .side:hover .enter .ln{width:54px;background:var(--aurora-v);}
+.side-head{display:block;}
+.enter-links a{transition:color .2s,opacity .2s;}
+.side .enter a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
 
 /* ═══ 右側 · 思 ═══ */
 .side-paper{right:6vw;transform:translateY(-50%);max-width:30vw;text-align:right;
   font-family:var(--t-serif);}
 .side-paper .kick{color:var(--rust);opacity:0.75;}
 .side-paper .line{color:var(--ink-1);margin-left:auto;max-width:none;white-space:pre-line;}
+.side-void .line{white-space:pre-line;}
 .side-paper .line .caret{background:var(--rust);}
 .side-paper .enter{color:var(--ink-2);flex-direction:row-reverse;}
 .side-paper .enter .ln{background:var(--ink-4);}
@@ -317,11 +321,11 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         <div class="halo"></div>
         <img src="../img/vasweb.webp" alt="VAS——瓶形の器、光の面">
       </div>
-      <a class="side side-void rise d3" href="instrument.html" aria-label="器へ——VAS プロダクト">
+      <div class="side side-void rise d3"><a class="side-head" href="instrument.html" aria-label="器へ——VAS プロダクト">
         <p class="kick">器 · THE INSTRUMENT</p>
-        <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p>
-        <span class="enter">無料ダウンロード・ガイド<span class="ln"></span></span>
-      </a>
+        <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p></a>
+        <span class="enter"><span class="enter-links"><a href="instrument.html#acquire">無料ダウンロード</a>・<a href="guide.html">ガイド</a></span><span class="ln"></span></span>
+      </div>
     </div>
   </div>
 
@@ -337,11 +341,11 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         <img src="../img/vasweb.webp" alt="">
         <div class="ground"></div>
       </div>
-      <a class="side side-paper rise d3" href="treatise.html" aria-label="思へ——二つの論文">
+      <div class="side side-paper rise d3"><a class="side-head" href="treatise.html" aria-label="思へ——二つの論文">
         <p class="kick">思 · THE TREATISE</p>
-        <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p>
-        <span class="enter">アジャイル開発・ユング心理学<span class="ln"></span></span>
-      </a>
+        <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p></a>
+        <span class="enter"><span class="enter-links"><a href="harness/context.html">アジャイル開発</a>・<a href="vessel.html">ユング心理学</a></span><span class="ln"></span></span>
+      </div>
     </div>
   </div>
 
@@ -456,7 +460,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   }
 
   /* ── 打字 ── */
-  var voidLine  = '言葉では言い切れない、あの瞬間のために。';
+  var voidLine  = '言葉では言い切れない、\nあの瞬間のために。';
   var paperLine = '容器とは、対立が出会いながらも\n破裂せず、境界そのもの。';
   var elV = document.getElementById('type-void'),
       elP = document.getElementById('type-paper'),
