@@ -160,7 +160,7 @@ img{display:block;max-width:100%;}
 .side-paper{right:6vw;transform:translateY(-50%);max-width:30vw;text-align:right;
   font-family:var(--t-serif);}
 .side-paper .kick{color:var(--rust);opacity:0.75;}
-.side-paper .line{color:var(--ink-1);margin-left:auto;}
+.side-paper .line{color:var(--ink-1);margin-left:auto;max-width:none;white-space:pre-line;}
 .side-paper .line .caret{background:var(--rust);}
 .side-paper .enter{color:var(--ink-2);flex-direction:row-reverse;}
 .side-paper .enter .ln{background:var(--ink-4);}
@@ -174,6 +174,7 @@ img{display:block;max-width:100%;}
   background:radial-gradient(circle,var(--aurora-v),transparent 70%);
   box-shadow:0 0 10px rgba(196,113,245,0.7);animation:dot-breathe 6s ease-in-out infinite;}
 @keyframes dot-breathe{0%,100%{opacity:.6;}50%{opacity:1;}}
+.corner.tl .tl-sub{font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:0.18em;color:var(--ash-3);}
 .corner.tr{top:34px;right:6vw;color:var(--ink-2);}
 .corner.bl{bottom:34px;left:6vw;color:var(--ash-3);}
 .corner.br{bottom:34px;right:6vw;color:var(--ink-2);font-family:var(--t-serif-en);
@@ -225,6 +226,7 @@ img{display:block;max-width:100%;}
   .side-paper .line{margin-left:0;}
   .side-paper .enter{flex-direction:row;}
   .corner.tr,.corner.bl{display:none;}
+  .corner.tl .tl-sub{display:none;}
   .corner.br{bottom:16px;}
   .seam-hint{display:none;}
   /* 行動版：移到右上角，沿用器側 .top .lang 的單色做法（上半為器/光側，深底） */
@@ -307,7 +309,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   <!-- 世界一 · void · 器 -->
   <div class="world world-void">
     <div class="stage">
-      <div class="corner tl rise d1"><span class="dot"></span>VAS</div>
+      <div class="corner tl rise d1"><span class="dot"></span>VAS<span class="tl-sub">macOS 截图与图片处理工具</span></div>
       <div class="corner bl rise d4">第二十五天 · 酝成</div>
       <div class="seam-hint rise d4">ONE VESSEL · TWO DOORS</div>
       <h1 class="wordmark rise d2" data-comment-anchor="v11-wordmark">VAS<em>.</em></h1>
@@ -318,7 +320,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
       <a class="side side-void rise d3" href="instrument.html" aria-label="走进器——VAS 产品">
         <p class="kick">器 · THE INSTRUMENT</p>
         <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p>
-        <span class="enter">走进 光的一面<span class="ln"></span></span>
+        <span class="enter">免费下载 · 指南<span class="ln"></span></span>
       </a>
     </div>
   </div>
@@ -326,7 +328,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   <!-- 世界二 · paper · 思 -->
   <div class="world world-paper">
     <div class="stage">
-      <div class="corner tr rise d1">TREATISE · 容器论</div>
+      <div class="corner tr rise d1">VESSEL · 人机协作开发方法论 · 容器论</div>
       <div class="corner br rise d4">A Treatise on Coniunctio</div>
       <div class="seam-hint rise d4">ONE VESSEL · TWO DOORS</div>
       <h1 class="wordmark rise d2" aria-hidden="true">VAS<em>.</em></h1>
@@ -338,7 +340,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
       <a class="side side-paper rise d3" href="treatise.html" aria-label="走进思——两份论文">
         <p class="kick">思 · THE TREATISE</p>
         <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p>
-        <span class="enter">走进 墨的一面<span class="ln"></span></span>
+        <span class="enter">敏捷开发 · 荣格心理学<span class="ln"></span></span>
       </a>
     </div>
   </div>
@@ -361,7 +363,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
 (function(){
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   setTimeout(function(){ document.body.classList.add('settled'); }, reduced ? 0 : 3300);
-  var mobile  = matchMedia('(max-width: 768px)').matches;
+  var mobileMq = matchMedia('(max-width: 768px)');
   var mirror  = document.getElementById('mirror');
 
   /* ── 鏡面：閒置時自體流動（桌機左右、手機上下）；游標／指尖探進任一側的字塊熱區，那一側才展開 ── */
@@ -399,16 +401,18 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
       OPEN_VOID  = Math.min(50 + FLOW_AMP + 3, paperLeft - 0.5);  /* hover 再多展一點，但不剪到對側字塊 */
       OPEN_PAPER = Math.max(50 - FLOW_AMP - 3, voidRight + 0.5);
     }
-    if(!mobile){
+    {
       measure();
       addEventListener('resize', measure);
       setTimeout(measure, 500);                                 /* 字型載入後重量 */
       addEventListener('mousemove', function(e){
+        if(mobileMq.matches) return;
         hover = inCard(voidCard, e.clientX, e.clientY) ? 1
               : inCard(paperCard, e.clientX, e.clientY) ? -1 : 0;
       });
       document.documentElement.addEventListener('mouseleave', function(){ hover = 0; });
-    } else {
+    }
+    {
       calcSweep();
       addEventListener('resize', calcSweep);
       addEventListener('touchmove', function(e){
@@ -421,6 +425,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
     var vimg = document.querySelector('.world-void .vessel img');   /* 線跟著這座瓶的升降呼吸 */
     (function tick(){
       var now = performance.now();
+      var mobile = mobileMq.matches;
       if(!mobile){
         if(hover === 1)       target = OPEN_VOID;     /* 滑進器的字塊→光拓寬 */
         else if(hover === -1) target = OPEN_PAPER;    /* 滑進思的字塊→墨拓寬 */
@@ -452,7 +457,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
 
   /* ── 打字 ── */
   var voidLine  = '给那些未能用文字明说的当下。';
-  var paperLine = '容器，是让对立得以相遇而不爆裂的边界本身。';
+  var paperLine = '容器，是让对立得以相遇\n而不爆裂的边界本身。';
   var elV = document.getElementById('type-void'),
       elP = document.getElementById('type-paper'),
       cV  = document.getElementById('caret-void'),
