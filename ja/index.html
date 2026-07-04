@@ -161,6 +161,7 @@ img{display:block;max-width:100%;}
   font-family:var(--t-serif);}
 .side-paper .kick{color:var(--rust);opacity:0.75;}
 .side-paper .line{color:var(--ink-1);margin-left:auto;max-width:none;white-space:pre-line;}
+.side-void .line{white-space:pre-line;}
 .side-paper .line .caret{background:var(--rust);}
 .side-paper .enter{color:var(--ink-2);flex-direction:row-reverse;}
 .side-paper .enter .ln{background:var(--ink-4);}
@@ -456,7 +457,7 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
   }
 
   /* ── 打字 ── */
-  var voidLine  = '言葉では言い切れない、あの瞬間のために。';
+  var voidLine  = '言葉では言い切れない、\nあの瞬間のために。';
   var paperLine = '容器とは、対立が出会いながらも\n破裂せず、境界そのもの。';
   var elV = document.getElementById('type-void'),
       elP = document.getElementById('type-paper'),
