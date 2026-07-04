@@ -155,6 +155,9 @@ img{display:block;max-width:100%;}
 .side .enter .ln{width:38px;height:1px;background:var(--ash-4);transition:width .3s,background .3s;}
 .side:hover .enter{color:var(--ash-0);gap:16px;}
 .side:hover .enter .ln{width:54px;background:var(--aurora-v);}
+.side-head{display:block;}
+.enter-links a{transition:color .2s,opacity .2s;}
+.side .enter a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
 
 /* ═══ 右側 · 思 ═══ */
 .side-paper{right:6vw;transform:translateY(-50%);max-width:30vw;text-align:right;
@@ -317,11 +320,11 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         <div class="halo"></div>
         <img src="img/vasweb.webp" alt="VAS——瓶形容器，光的一面">
       </div>
-      <a class="side side-void rise d3" href="instrument.html" aria-label="走進器——VAS 產品">
+      <div class="side side-void rise d3"><a class="side-head" href="instrument.html" aria-label="走進器——VAS 產品">
         <p class="kick">器 · THE INSTRUMENT</p>
-        <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p>
-        <span class="enter">免費下載 · 指南<span class="ln"></span></span>
-      </a>
+        <p class="line"><span id="type-void"></span><span class="caret" id="caret-void"></span></p></a>
+        <span class="enter"><span class="enter-links"><a href="instrument.html#acquire">免費下載</a> · <a href="guide.html">指南</a></span><span class="ln"></span></span>
+      </div>
     </div>
   </div>
 
@@ -337,11 +340,11 @@ body.settled .wordmark.rise{transform:translate(-50%,-50%);}
         <img src="img/vasweb.webp" alt="">
         <div class="ground"></div>
       </div>
-      <a class="side side-paper rise d3" href="treatise.html" aria-label="走進思——兩份論文">
+      <div class="side side-paper rise d3"><a class="side-head" href="treatise.html" aria-label="走進思——兩份論文">
         <p class="kick">思 · THE TREATISE</p>
-        <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p>
-        <span class="enter">敏捷開發 · 榮格心理學<span class="ln"></span></span>
-      </a>
+        <p class="line"><span id="type-paper"></span><span class="caret" id="caret-paper" style="visibility:hidden"></span></p></a>
+        <span class="enter"><span class="enter-links"><a href="harness/context.html">敏捷開發</a> · <a href="vessel.html">榮格心理學</a></span><span class="ln"></span></span>
+      </div>
     </div>
   </div>
 
