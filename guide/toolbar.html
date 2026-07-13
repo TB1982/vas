@@ -683,7 +683,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   <main class="docs-main">
 
     <section class="docs-section" id="toolbar-top">
-      <h2 class="docs-section-kicker">手冊 · 01 — 工具列 · Toolbar</h2>
+      <div class="docs-section-kicker">手冊 · 01 — 工具列 · Toolbar</div>
       <h1>Mac 截圖，從這條工具列開始</h1>
       <div class="docs-dek docs-dek--desktop">桌面上那條浮動工具列，是 VAS 一切的起點——四種截圖模式、取色器、尺標、延遲與批次都在這裡。不用時，它縮成一盞呼吸燈。</div>
     </section>
@@ -746,16 +746,16 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
           <div class="g-card" data-key="scroll_capture">
             <p class="g-card-name">長截圖 <span class="g-badge-t">Tauri 專屬</span></p>
-            <p class="g-card-desc">針對瀏覽器頁面自動捲動並拼接，接住整頁內容成一張完整長圖。</p>
-            <p class="g-card-note">＊需使用者經引導開啟「輔助使用」權限</p>
+            <p class="g-card-desc">自動偵測桌面前景的 Google Chrome 視窗，捲動抓取整頁網頁並自動拼接，還能自動清除重複的回頁首／置頂鈕。</p>
+            <p class="g-card-note">＊首次使用需在「系統設定 → 隱私權與安全性 → 輔助使用」為 VAS 開啟權限</p>
           </div>
           <div class="g-card" data-key="color">
             <p class="g-card-name">取色器 <span class="g-badge-t">Tauri 專屬</span></p>
-            <p class="g-card-desc">吸取畫面任一點顏色，HEX／RGB／HSL 一鍵複製，並保留最近使用色。</p>
+            <p class="g-card-desc">滴管取螢幕上任一像素的精確色碼，常用顏色自動存入最近色並與編輯器色盤連動。</p>
           </div>
           <div class="g-card" data-key="ruler">
             <p class="g-card-name">尺標 <span class="g-badge-t">Tauri 專屬</span></p>
-            <p class="g-card-desc">量區塊寬×高、兩點距離，或對角線＋外接寬高，pt 與 px 並列。</p>
+            <p class="g-card-desc">在畫面上拖框自動吸附邊緣量出像素尺寸，或點兩點量點對點距離；量測線可選取刪除、可復原／重做，輸出時烘進圖裡。</p>
           </div>
           <div class="g-card" data-key="open">
             <p class="g-card-name">開啟</p>
@@ -779,7 +779,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 
         <!-- ═══ 取色器示意 ═══ -->
         <div class="tf-head" id="colorpicker"><span class="tf-head-t">取色器 · Color Picker</span><span class="tf-head-line"></span></div>
-        <p class="tf-sub">吸取畫面任一點的顏色，HEX／RGB／HSL 一鍵切換複製，並保留最近使用的十色。</p>
+        <p class="tf-sub">吸取畫面任一點的顏色，HEX／RGB／HSL 一鍵切換複製，常用顏色自動存入最近色並與編輯器色盤連動。</p>
         <div class="cpk">
           <div class="cpk-row">
             <div class="cpk-sw" style="background:#313130" title="取到的顏色"></div>
@@ -793,7 +793,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 
         <!-- ═══ 尺標示意 ═══ -->
         <div class="tf-head" id="ruler"><span class="tf-head-t">尺標 · Ruler</span><span class="tf-head-line"></span></div>
-        <p class="tf-sub">純影像量測、不碰 DOM。滑鼠靠近會浮出吸附參考線幫你對齊；量兩點給你工字線讀數，斜著量還拆出橫縱分量；也量得出框與文字的大小、框與框之間的間距。單位 <b>pt 與 px 並列</b>。</p>
+        <p class="tf-sub">拖框自動吸附邊緣量出像素尺寸，或點兩點量點對點距離；量測線可選取、刪除、復原／重做。</p>
 
         <div class="rf-panel rf-wide">
           <div class="rf-cap">① 吸附參考線 · 滑鼠靠近物件／文字邊緣，浮出十字虛線，落點吸在邊上，不必手抖對齊。</div>
@@ -954,7 +954,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <a class="gx-item" href="editor.html"><span class="gx-no">02</span><span class="gx-nm">編輯器</span></a>
     <a class="gx-item" href="ocr.html"><span class="gx-no">03</span><span class="gx-nm">OCR</span></a>
     <a class="gx-item" href="arrange.html"><span class="gx-no">04</span><span class="gx-nm">編排</span></a>
-    <a class="gx-item" href="export.html"><span class="gx-no">05</span><span class="gx-nm">匯出與匯入</span></a>
+    <a class="gx-item" href="export.html"><span class="gx-no">05</span><span class="gx-nm">匯入與匯出</span></a>
     <a class="gx-item" href="shortcuts.html"><span class="gx-no">06</span><span class="gx-nm">快捷鍵</span></a>
   </div>
   <div class="gx-home"><a href="index.html">← 回手冊中心</a></div>
