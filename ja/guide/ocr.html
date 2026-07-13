@@ -733,7 +733,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 
     <section class="docs-section" id="privacy">
       <h2>自動プライバシーマスク特化（オンデバイス · 各地域フォーマット）</h2>
-      <p>OCR が文字を読めるということは、「どの文字がプライバシーか」も読めるということ。VAS は機微な情報を<strong>自動で検出してマークし</strong>、対応する言語圏ごとにローカル特化します——その地域の本人確認番号、法人番号、クレジットカード番号、電話番号、Email、IPv4／IPv6、API Token などのフォーマットを認識します。</p>
+      <p>OCR が文字を読めるということは、「どの文字がプライバシーか」も読めるということ。VAS は機微な情報を<strong>自動で検出してマークし</strong>、対応する言語圏ごとにローカル特化します——日本語では、マイナンバー、郵便番号、電話番号（携帯・固定）、クレジットカード番号、Email、IPv4／IPv6、API トークン、さらに氏名・担当者・パスワード・暗証番号などのラベル項目を認識します。</p>
       <p style="margin-top:16px"><span class="g-badge-a" style="margin:0 8px 0 0">全バージョン</span>Electron は Vision Framework を使用；<br><span class="g-badge-t" style="margin:0 8px">Tauri 専用</span>さらに五層検出に対応し、より多くの地域フォーマットをカバー。</p>
 
       <p class="g-section-sub" style="margin-top:32px">設計判断 · 完璧なふりをせず、コントロールをあなたに残す</p>
@@ -747,15 +747,15 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <div class="pm-cards">
           <div class="pm-card">
             <div class="pm-card-h">個人情報シート</div>
-            氏名：王小明<br>本人確認番号：A123456789<br>生年月日：1990/05/15<br>電話番号：0912-345-678<br>Email：xiaoming@example.com<br>住所：臺北市中正區忠孝東路 100 號 5 樓<br>クレジットカード：4532-1234-5678-9012
+            氏名：山田太郎<br>マイナンバー：1234 5678 9012<br>生年月日：1990/05/15<br>電話番号：090-1234-5678<br>Email：taro@example.co.jp<br>住所：東京都渋谷区神南 1-2-3<br>クレジットカード：4532-1234-5678-9012
           </div>
           <div class="pm-arrow">⇧K<br>一鍵遮蔽 →</div>
           <div class="pm-card">
             <div class="pm-card-h">個人情報シート</div>
-氏名：<span class="pm-mask">王小明</span><br>本人確認番号：<span class="pm-sel"><span class="pm-mask">A123456789</span><i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i></span><br>生年月日：<span class="pm-mask">1990/05/15</span><br>電話番号：<span class="pm-mask">0912-345-678</span><br>Email：<span class="pm-mask">xiaoming@example.com</span><br>住所：<span class="pm-mask">臺北市中正區忠孝東路 100 號</span><br>クレジットカード：<span class="pm-mask">4532-1234-5678-9012</span>
+氏名：<span class="pm-mask">山田太郎</span><br>マイナンバー：<span class="pm-sel"><span class="pm-mask">1234 5678 9012</span><i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i></span><br>生年月日：<span class="pm-mask">1990/05/15</span><br>電話番号：<span class="pm-mask">090-1234-5678</span><br>Email：<span class="pm-mask">taro@example.co.jp</span><br>住所：<span class="pm-mask">東京都渋谷区神南 1-2-3</span><br>クレジットカード：<span class="pm-mask">4532-1234-5678-9012</span>
           </div>
         </div>
-        <p class="pm-cap"><b>⇧K でワンタッチのプライバシーマスク</b>——OCR が機微な項目を自動検出してモザイクをかけます；モザイクはどれも<b>フローティングレイヤー</b>——図の本人確認番号のように選択すると、<b>移動・サイズ変更・削除</b>ができます。OCR が拾えなかったところは、手でひとつ足すだけ。</p>
+        <p class="pm-cap"><b>⇧K でワンタッチのプライバシーマスク</b>——OCR が機微な項目を自動検出してモザイクをかけます；モザイクはどれも<b>フローティングレイヤー</b>——図のマイナンバーのように選択すると、<b>移動・サイズ変更・削除</b>ができます。OCR が拾えなかったところは、手でひとつ足すだけ。</p>
       </div>
       <div class="qr-tiers ocr-trio">
         <div class="qr-tier"><span class="qr-pct sm">OCR 自動</span><span class="qr-desc">できる限り認識し、機微な領域を自動でマーク</span></div>
