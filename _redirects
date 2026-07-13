@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# 舊扁平操作手冊 → 新分頁式 guide/（四語）。301 = 永久轉址，保住舊連結與 SEO 權重。
+/guide.html      /guide/      301
+/en/guide.html   /en/guide/   301
+/ja/guide.html   /ja/guide/   301
+/cn/guide.html   /cn/guide/   301
