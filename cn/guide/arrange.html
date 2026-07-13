@@ -289,7 +289,7 @@
   }
 
   /* ═══ 交互编辑器 · 活的编辑器接口（取代静态截屏） ═══
-     真品四区：左侧工具栏 / 顶部子属性列 / 右下拖曳导出 / 左下状态栏。
+     真品四区：左侧工具栏 / 顶部子属性列 / 右下拖动导出 / 左下状态栏。
      左侧工具可点 → 蓝色高亮 + 顶部子属性列跟着换 + 跳出功能说明弹窗。 */
   .gedm { margin: 4px 0 6px; }
   .gedm-win {
@@ -720,7 +720,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <li><strong>蓝线</strong>——对象边缘／中心对齐到另一个对象或画布中线时浮现。</li>
         <li><strong>红线</strong>——等距参考线；三个以上对象间距相等时亮起，量排版节奏用。</li>
         <li><span class="docs-kbd">\</span>——一键切换磁吸开关。</li>
-        <li><strong>Alt＋拖曳</strong>——暂时跳过磁吸，自由放置。</li>
+        <li><strong>Alt＋拖动</strong>——暂时跳过磁吸，自由放置。</li>
       </ul>
       </div>
       <div class="ar-fig">
@@ -861,7 +861,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   </div>
 </footer>
 
-<!-- ═══ 交互编辑器 · 选工具高亮 / 子属性列动态 / 拖曳导出 / 磁吸 / 区域交叉高亮 ═══ -->
+<!-- ═══ 交互编辑器 · 选工具高亮 / 子属性列动态 / 拖动导出 / 磁吸 / 区域交叉高亮 ═══ -->
 <script>
 (function () {
   var rail = document.getElementById('gedmRail');
@@ -931,7 +931,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   var REG={
     menu:{sel:'.gedm-rail',c:'#f87171',n:'主要功能菜单',d:'左侧垂直工具栏。点工具切换，目前使用中的工具以蓝色高亮。'},
     props:{sel:'.gedm-top',c:'#fb923c',n:'子属性调整菜单',d:'顶部工具栏，依所选工具动态更换，可调颜色、粗细、透明度、线条样式等属性。'},
-    export:{sel:'.gedm-export',c:'#e8e8e8',n:'动态导出按钮',d:'右下角浮动钮，可拖曳移位（对应左右撇子），完成后拖到目标 App 即导出。'},
+    export:{sel:'.gedm-export',c:'#e8e8e8',n:'动态导出按钮',d:'右下角浮动钮，可拖动移位（对应左右撇子），完成后拖到目标 App 即导出。'},
     status:{sel:'.gedm-status',c:'#4ade80',n:'状态栏与磁吸开关',d:'左下角：目前缩放比例、画布尺寸，与磁吸对齐智能导线开关。'}
   };
   var rlabel=document.getElementById('gedmRLabel');
