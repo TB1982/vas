@@ -604,6 +604,26 @@
 .pm-sel .h1{top:-4px;left:-4px}.pm-sel .h2{top:-4px;right:-4px}.pm-sel .h3{bottom:-4px;left:-4px}.pm-sel .h4{bottom:-4px;right:-4px}
 @media(max-width:600px){.tr-arrow{transform:rotate(90deg);margin:2px auto}}
 </style>
+<style id="ocr-qrfig">
+/* 「框選 QR」示意——同一個藍虛線框選，QR 磁磚填滿程度＝信心度。純 CSS，QR 為深色現實島（兩主題維持深色）。 */
+.qrf-fig{margin:26px 0 6px;max-width:640px}
+.qrf-row{display:flex;gap:16px;flex-wrap:wrap}
+.qrf-cell{flex:1;min-width:150px;margin:0}
+.qrf-frame{position:relative;aspect-ratio:1;border:1.5px dashed #4a9eff;border-radius:8px;background:rgba(74,158,255,.05);display:flex;align-items:center;justify-content:center}
+.qrf-frame .qh{position:absolute;width:7px;height:7px;background:#fff;border:1px solid #4a9eff;border-radius:1px}
+.qrf-frame .qh.a{top:-4px;left:-4px}.qrf-frame .qh.b{top:-4px;right:-4px}.qrf-frame .qh.c{bottom:-4px;left:-4px}.qrf-frame .qh.d{bottom:-4px;right:-4px}
+.qrf-code{position:relative;aspect-ratio:1;width:var(--s);background:#161618;border-radius:3px;outline:1px solid rgba(255,255,255,.06);background-image:conic-gradient(from 90deg,#cfcfd6 25%,transparent 0 50%,#cfcfd6 0 75%,transparent 0);background-size:20% 20%;background-position:center}
+.qrf-code i{position:absolute;width:27%;height:27%;background:#161618;border:2px solid #cfcfd6;border-radius:2px}
+.qrf-code i::after{content:"";position:absolute;inset:4px;background:#cfcfd6;border-radius:1px}
+.qrf-code .f1{top:7%;left:7%}.qrf-code .f2{top:7%;right:7%}.qrf-code .f3{bottom:7%;left:7%}
+.qrf-meta{margin-top:11px;text-align:center}
+.qrf-pct{display:block;font-family:var(--vas-mono);font-size:15px;font-weight:600;color:var(--vas-ash-0)}
+.qrf-cf{display:block;margin-top:3px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.04em;color:var(--vas-ash-2)}
+.qrf-cell.hi .qrf-pct{color:var(--vas-aurora-violet)}
+.qrf-cell.hi .qrf-cf{color:var(--vas-aurora-violet)}
+.qrf-cap{font-family:var(--vas-serif);font-size:13px;color:var(--vas-ash-2);line-height:1.75;margin-top:16px;max-width:34em}
+@media(max-width:560px){.qrf-cell{min-width:118px}}
+</style>
 <style id="cjk-measure">
 /* 中文行寬校正：ch 是半形拉丁單位，56ch≈28 全形字偏窄；改用 em 讓中日文排到 ~34 全形字。
    以 lang 綁定——英文版維持 docs.css 的 56ch。全站推進前先在 guide 範圍驗證手感。 */
@@ -755,9 +775,22 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <div class="qr-tier mid"><span class="qr-pct">21–69%</span><span class="qr-tag">中信心 · 主動詢問</span><span class="qr-desc">開啟編輯器後輕聲問你：「這是你要的連結嗎？」</span></div>
         <div class="qr-tier lo"><span class="qr-pct">≤ 20%</span><span class="qr-tag">低信心 · 靜默交手</span><span class="qr-desc">不猜測、不行動，直接把編輯器打開給你接續接下來的行動</span></div>
       </div>
-      <figure class="docs-figure" style="margin-top:24px">
-        <img src="../img/qrcode.webp" alt="QR Code 截圖示意：框選越完整，辨識信心度越高" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--vas-rule)">
-        <figcaption>QR Code 佔框選面積 → 信心度 → 行為。每一個閾值背後，都是「我知道自己知道多少」的誠實。</figcaption>
+      <figure class="qrf-fig">
+        <div class="qrf-row">
+        <div class="qrf-cell hi">
+          <div class="qrf-frame"><i class="qh a"></i><i class="qh b"></i><i class="qh c"></i><i class="qh d"></i><div class="qrf-code" style="--s:84%"><i class="f1"></i><i class="f2"></i><i class="f3"></i></div></div>
+          <div class="qrf-meta"><span class="qrf-pct">&gt; 70%</span><span class="qrf-cf">高信心 · 直接行動</span></div>
+        </div>
+        <div class="qrf-cell mid">
+          <div class="qrf-frame"><i class="qh a"></i><i class="qh b"></i><i class="qh c"></i><i class="qh d"></i><div class="qrf-code" style="--s:50%"><i class="f1"></i><i class="f2"></i><i class="f3"></i></div></div>
+          <div class="qrf-meta"><span class="qrf-pct">21–69%</span><span class="qrf-cf">中信心 · 主動詢問</span></div>
+        </div>
+        <div class="qrf-cell lo">
+          <div class="qrf-frame"><i class="qh a"></i><i class="qh b"></i><i class="qh c"></i><i class="qh d"></i><div class="qrf-code" style="--s:24%"><i class="f1"></i><i class="f2"></i><i class="f3"></i></div></div>
+          <div class="qrf-meta"><span class="qrf-pct">≤ 20%</span><span class="qrf-cf">低信心 · 靜默交手</span></div>
+        </div>
+        </div>
+        <figcaption class="qrf-cap">框得越滿，工具越敢直接行動；框得越空，它越傾向把決定交還給你。每一個閾值背後，都是「我知道自己知道多少」的誠實。</figcaption>
       </figure>
     </section>
 
