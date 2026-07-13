@@ -4,10 +4,20 @@
 (function () {
   var KEY = 'vas-theme';
   function current() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+  // aria-label 依 <html lang> 在地化；繁中維持原字串（向後相容）。
+  var LABELS = {
+    'zh-Hant': ['切換到深色', '切換到淺色'],
+    'en':      ['Switch to dark', 'Switch to light'],
+    'ja':      ['ダークに切り替え', 'ライトに切り替え'],
+    'zh-Hans': ['切换到深色', '切换到浅色']
+  };
+  function labels() {
+    return LABELS[document.documentElement.getAttribute('lang')] || LABELS['zh-Hant'];
+  }
   function sync() {
-    var t = current();
+    var t = current(), lab = labels();
     document.querySelectorAll('.theme-toggle').forEach(function (b) {
-      b.setAttribute('aria-label', t === 'light' ? '切換到深色' : '切換到淺色');
+      b.setAttribute('aria-label', t === 'light' ? lab[0] : lab[1]);
       b.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
     });
   }
