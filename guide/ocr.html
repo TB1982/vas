@@ -734,14 +734,14 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <section class="docs-section" id="privacy">
       <h2>自動隱私遮蔽特化（on-device · 各國格式）</h2>
       <p>OCR 讀得懂字，就讀得出「哪些字是隱私」。VAS 會<strong>自動偵測並標記</strong>敏感資訊，並針對支援的語言市場做在地特化——認得當地的身分證字號、統一編號、信用卡號、電話、Email、IPv4／IPv6、API Token 等格式。</p>
-      <p style="margin-top:16px"><span class="g-badge-a" style="margin:0 8px 0 0">全版本</span>Electron 使用 Vision Framework；<span class="g-badge-t" style="margin:0 8px">Tauri 專屬</span>另支援五層偵測，涵蓋更多在地格式。</p>
+      <p style="margin-top:16px"><span class="g-badge-a" style="margin:0 8px 0 0">全版本</span>Electron 使用 Vision Framework；<br><span class="g-badge-t" style="margin:0 8px">Tauri 專屬</span>另支援五層偵測，涵蓋更多在地格式。</p>
 
       <p class="g-section-sub" style="margin-top:32px">設計決策 · 不假裝完美，把控制權留給你</p>
       <p>開發時我們發現 OCR 有先天極限——偶爾漏抓或抓錯。我們沒有硬 push「工具必須完美」，而是換一個設計：</p>
       <ul class="docs-list">
         <li>把隱私遮蔽的<strong>馬賽克做成浮動圖層</strong>、範圍可調——OCR 沒蓋到的，你手動一拉補上。辨識失誤從「錯誤」變成「待確認」，工具的不完美無損你的控制權。</li>
         <li>OCR 自動完成約 <strong>90%</strong>；你輕輕一拉手動馬賽克，就補完本來 100% 都得手動的活。</li>
-        <li>遮錯也沒關係——馬賽克是獨立的浮動物件，<span class="docs-kbd">⌘Z</span> 一鍵刪除。<strong>沒有任何結果是不可逆的。</strong></li>
+        <li>遮錯也沒關係——馬賽克是獨立的浮動物件，<span class="docs-kbd">Delete</span> 一鍵刪除。<strong>沒有任何結果是不可逆的。</strong></li>
       </ul>
       <div class="pm-fig">
         <div class="pm-cards">
@@ -755,7 +755,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 姓名：<span class="pm-mask">王小明</span><br>身分證：<span class="pm-sel"><span class="pm-mask">A123456789</span><i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i></span><br>出生日期：<span class="pm-mask">1990/05/15</span><br>電話：<span class="pm-mask">0912-345-678</span><br>Email：<span class="pm-mask">xiaoming@example.com</span><br>地址：<span class="pm-mask">臺北市中正區忠孝東路 100 號</span><br>信用卡：<span class="pm-mask">4532-1234-5678-9012</span>
           </div>
         </div>
-        <p class="pm-cap"><b>⇧K 一鍵隱私遮蔽</b>——OCR 自動偵測敏感欄位並蓋上馬賽克；每塊馬賽克都是<b>浮動圖層</b>——像圖中身分證那塊被選取時，可以<b>拖移、改變大小或刪除</b>。OCR 沒抓到的，你手動補一塊。</p>
+        <p class="pm-cap"><b>⇧K 一鍵隱私遮蔽</b>——OCR 自動偵測敏感欄位並蓋上馬賽克；每塊馬賽克都是<b>浮動圖層</b>——像圖中身分證那塊被選取時，可以<b>拖移、改變大小或刪除</b>。OCR 沒抓到的，手動補一塊就好。</p>
       </div>
       <div class="qr-tiers ocr-trio">
         <div class="qr-tier"><span class="qr-pct sm">OCR 自動</span><span class="qr-desc">盡可能辨識，自動標記敏感區域</span></div>
