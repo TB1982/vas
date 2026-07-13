@@ -620,8 +620,9 @@ html[lang="zh-Hant"] .rf-foot,
 html[lang="zh-Hant"] .blz-cap{max-width:34em}
 </style>
 <style>
-/* 收窄 H1/dek 與首個內容區之間的空白、移除孤立分隔線 */
-.docs-section:first-of-type + .docs-section{padding-top:12px;border-top:none}
+/* H1/dek 與首個內容區之間：保留細 1px 分隔線，總高約 100px（線置中，上下各 50px） */
+.docs-section:first-of-type{padding-bottom:50px}
+.docs-section:first-of-type + .docs-section{padding-top:50px}
 .docs-section:first-of-type + .docs-section > .docs-subsection:first-child{margin-top:0}
 .docs-section:first-of-type + .docs-section > h2:first-child{margin-top:0}
 </style>
