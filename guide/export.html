@@ -635,14 +635,18 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 .ge-duo-item.hl .ge-duo-k{color:var(--vas-aurora-violet)}
 .ge-duo-d{font-family:var(--vas-serif);font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
 /* 兩欄相對：匯入左 · 匯出右，影片在上、整段文字在下（位置 A · Nova 定案） */
-.io-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1040px;margin:0 auto 8px;padding-top:64px;border-top:1px solid var(--vas-rule);align-items:start}
+/* 分隔區約 100px、線置中：dek 下 50px → 線 → 50px → 影片（比照其他頁節奏） */
+#io-top{padding-bottom:0}
+#io-top .docs-dek{margin-bottom:50px}
+.io-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1040px;margin:0 auto 8px;padding-top:50px;border-top:1px solid var(--vas-rule);align-items:start}
 .io-cols > .docs-section{margin:0;padding:0;border-top:none}
 .io-cols h2{margin-top:0}
 .io-fig{margin:0 0 16px}
 .io-fig .ge-vid{margin:0}
 .io-duo{margin:26px auto 6px;max-width:1040px}
 @media(max-width:760px){
-  .io-cols{grid-template-columns:1fr;gap:0;margin-bottom:0}
+  #io-top .docs-dek{margin-bottom:28px}
+  .io-cols{grid-template-columns:1fr;gap:0;margin-bottom:0;padding-top:28px}
   .io-cols > .docs-section{margin:0 0 8px}
   .io-cols > .docs-section + .docs-section{margin-top:40px}
 }
