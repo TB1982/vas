@@ -1,0 +1,145 @@
+/* ═══════════════════════════════════════════════
+   VAS · Guide Theme Layer · 深色(器) / 淺色(思) 切換
+   - 深色 = 現有 void 調（:root，tokens.css 既有值）
+   - 淺色 = 思側紙墨鏽調（[data-theme="light"] 覆寫 token）
+   - 產品實境島（工具列 / 編輯器 / 呼吸燈 demo）永遠深色
+   - 對比對齊 WCAG AA
+   載入順序：置於 tokens/shell/docs 與各頁 inline <style> 之後。
+   ═══════════════════════════════════════════════ */
+
+/* ─── 淺色主題 · token 重映射 ─────────────────── */
+html[data-theme="light"] {
+  --vas-void:     #faf8f3;   /* 紙 */
+  --vas-void-up:  #f2eee4;   /* 提亮面 · 彈窗卡 */
+  --vas-void-up2: #eae4d6;
+
+  /* 墨階（深字壓在紙上）· 已對齊 AA */
+  --vas-ash-0: rgba(26, 24, 22, 0.96);  /* 主文 / 標題 */
+  --vas-ash-1: rgba(26, 24, 22, 0.80);  /* 一般敘述 */
+  --vas-ash-2: rgba(26, 24, 22, 0.66);  /* 次要描述 / mono 標籤 · ~5.3:1 */
+  --vas-ash-3:      rgba(26, 24, 22, 0.64);  /* 結構性微標籤 · ~4.8:1 過 AA */
+  --vas-ash-3-soft: rgba(26, 24, 22, 0.44);  /* 邊註 / colophon */
+  --vas-ash-4:      rgba(26, 24, 22, 0.20);  /* 純裝飾 · 線 / 點 */
+
+  --vas-rule:        rgba(26, 24, 22, 0.12);
+  --vas-rule-strong: rgba(26, 24, 22, 0.24);
+
+  /* 強調：淺色改用「思」側鏽紅；金為次強調；連結用可讀藍 */
+  --vas-aurora-violet: #8b3a1f;  /* 鏽紅（沿用變數名，全站強調自動翻） */
+  --vas-aurora-pink:   #a8895c;  /* 金 */
+  --vas-aurora-blue:   #2f6db0;  /* 連結藍（紙上 AA） */
+}
+
+/* 簡中淺色維持 Noto Serif SC（tokens.css 已綁 serif；此處不動字體） */
+
+/* ─── 平滑切換（尊重減量偏好；tokens.css 已全域關動效） ─ */
+html[data-theme] body { transition: background-color .4s ease, color .4s ease; }
+.site-nav, .docs-toc-sticky a, .gh-tile, .docs-card, .docs-block,
+.g-card, .g-chip, .docs-accordion, .ogchip { transition: background-color .35s ease, border-color .35s ease, color .35s ease; }
+
+/* ═══ 切換鈕 · nav 內日／月 ═══ */
+.site-nav-lang { display: flex; align-items: center; gap: 16px; }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 999px;
+  background: transparent; border: 1px solid var(--vas-rule);
+  color: var(--vas-ash-2); cursor: pointer; padding: 0; flex-shrink: 0;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.theme-toggle:hover { color: var(--vas-ash-0); border-color: var(--vas-rule-strong); background: color-mix(in srgb, var(--vas-ash-0) 6%, transparent); }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .ti-sun, .theme-toggle .ti-moon { display: none; }
+html[data-theme="dark"]  .theme-toggle .ti-sun  { display: block; } /* 深色 → 顯示太陽（點去淺色） */
+html[data-theme="light"] .theme-toggle .ti-moon { display: block; } /* 淺色 → 顯示月亮（點去深色） */
+@media (max-width: 970px) { .site-nav-lang { gap: 12px; } }
+
+/* ═══ 淺色 · 硬編碼色覆寫（自動翻不到的部分） ═══ */
+
+/* nav 玻璃底（tokens.css 寫死深紫玻璃） */
+html[data-theme="light"] .site-nav { background: rgba(250, 248, 243, 0.85); }
+html[data-theme="light"] .site-nav-brand .mark { box-shadow: 0 0 10px rgba(139, 58, 31, 0.55); }
+
+/* 語言下拉（各頁 inline 與 tokens.css 重複寫死 ash 玻璃） */
+html[data-theme="light"] .lang-dropdown-btn { background: rgba(26, 24, 22, 0.05); }
+html[data-theme="light"] .lang-dropdown-btn:hover { background: rgba(26, 24, 22, 0.09); }
+html[data-theme="light"] .lang-opt:hover,
+html[data-theme="light"] .lang-dropdown-menu .lang-opt:hover { background: rgba(26, 24, 22, 0.05); }
+
+/* docs.css 內硬編碼紫／ash */
+html[data-theme="light"] .docs-main em {
+  background: rgba(139, 58, 31, 0.08); border-color: rgba(139, 58, 31, 0.24); }
+html[data-theme="light"] .docs-note {
+  background: rgba(139, 58, 31, 0.05); border-color: rgba(139, 58, 31, 0.22); }
+html[data-theme="light"] .docs-kbd { background: rgba(26, 24, 22, 0.07); }
+html[data-theme="light"] .docs-main p code,
+html[data-theme="light"] .docs-main li code { background: rgba(26, 24, 22, 0.06); }
+html[data-theme="light"] .modal-section-label { color: rgba(139, 58, 31, 0.9); }
+html[data-theme="light"] .modal-tag {
+  background: rgba(139, 58, 31, 0.08); border-color: rgba(139, 58, 31, 0.2); }
+html[data-theme="light"] .modal-align-row { background: rgba(26, 24, 22, 0.04); }
+html[data-theme="light"] .g-badge-t {
+  background: rgba(139, 58, 31, 0.1); border-color: rgba(139, 58, 31, 0.26); }
+html[data-theme="light"] .g-badge-a { background: rgba(26, 24, 22, 0.05); }
+html[data-theme="light"] .g-chip[data-tool]:hover { border-color: rgba(139, 58, 31, 0.35); }
+html[data-theme="light"] .tm-notice { background: rgba(139, 58, 31, 0.08); }
+html[data-theme="light"] .tool-modal-backdrop { background: rgba(26, 24, 22, 0.42); }
+html[data-theme="light"] .g-check { color: #1f8a5b; }
+html[data-theme="light"] .g-cross { color: #c0392b; }
+
+/* shell.css 內硬編碼紫底線 / 微互動底 */
+html[data-theme="light"] .chapter-dek em,
+html[data-theme="light"] .section-body em {
+  background: linear-gradient(180deg, transparent 62%, rgba(139, 58, 31, 0.22) 62%); }
+html[data-theme="light"] .toc-list a:hover,
+html[data-theme="light"] .passage-next:hover { background: rgba(26, 24, 22, 0.03); }
+html[data-theme="light"] .dot-nav { background: rgba(250, 248, 243, 0.96); }
+
+/* index.html · 手冊中樞頁專屬 */
+html[data-theme="light"] .gh-pilot-bar { background: rgba(26, 24, 22, 0.5); }
+/* 銘牌小標（CHAPTERS/PLATFORM/UPDATED）· 資訊性文字，紙上提到 AA */
+html[data-theme="light"] .gh-meta .lab { color: var(--vas-ash-3); }
+html[data-theme="light"] .gh-tile {
+  background:
+    linear-gradient(var(--vas-void), var(--vas-void)) padding-box,
+    repeating-linear-gradient(0deg, rgba(26, 24, 22, 0.03) 0 1px, transparent 1px 26px) padding-box; }
+html[data-theme="light"] .gh-tile.gh-wish {
+  background:
+    linear-gradient(rgba(139, 58, 31, 0.05), rgba(139, 58, 31, 0.02)) padding-box,
+    repeating-linear-gradient(0deg, rgba(26, 24, 22, 0.03) 0 1px, transparent 1px 26px) padding-box;
+  border-color: rgba(139, 58, 31, 0.26); }
+html[data-theme="light"] .gh-tile.gh-wish:hover { border-color: var(--vas-aurora-violet); }
+html[data-theme="light"] .gh-foot-hint .k { background: rgba(26, 24, 22, 0.06); }
+
+/* 內容頁 inline · 章節索引卡 / 匯出雙欄 / 字典 code */
+html[data-theme="light"] .gx-item:hover { background: rgba(26, 24, 22, 0.03); }
+html[data-theme="light"] .gx-item.cur {
+  border-color: rgba(139, 58, 31, 0.4); background: rgba(139, 58, 31, 0.05); }
+html[data-theme="light"] .ge-duo-item.hl {
+  border-color: rgba(139, 58, 31, 0.3); background: rgba(139, 58, 31, 0.05); }
+html[data-theme="light"] .tdx-body code { background: rgba(26, 24, 22, 0.06); }
+/* toolbar 頁 · 卡片藍色連動（呼應產品藍高亮）在紙上壓深至 AA */
+html[data-theme="light"] #toolbar .g-card .g-card-name { color: var(--vas-aurora-blue); }
+html[data-theme="light"] #toolbar .g-card { border-color: rgba(47, 109, 176, 0.4) !important; background: rgba(47, 109, 176, 0.06); }
+
+/* ═══ 產品實境島 · 永遠深色（把 token 在島內還原成深色調） ═══
+   島內任何用 var(--vas-*) 的字／線都回到淺字壓深底，避免翻成深字看不見。
+   島本身的底色本就寫死深色，不受主題影響。 */
+html[data-theme="light"] .blz-stage,
+html[data-theme="light"] .tbz-stage,
+html[data-theme="light"] .gedm-win {
+  --vas-ash-0: rgba(240, 232, 220, 0.94);
+  --vas-ash-1: rgba(240, 232, 220, 0.78);
+  --vas-ash-2: rgba(240, 232, 220, 0.60);
+  --vas-ash-3: rgba(240, 232, 220, 0.55);
+  --vas-ash-3-soft: rgba(240, 232, 220, 0.38);
+  --vas-ash-4: rgba(240, 232, 220, 0.22);
+  --vas-rule: rgba(240, 232, 220, 0.08);
+  --vas-rule-strong: rgba(240, 232, 220, 0.18);
+  --vas-aurora-violet: #c471f5;
+}
+/* 淺色時讓深色島浮起（呼應 OG 的產品浮島） */
+html[data-theme="light"] .blz-stage,
+html[data-theme="light"] .tbz-stage,
+html[data-theme="light"] .gedm-win {
+  box-shadow: 0 18px 44px rgba(26, 24, 22, 0.16);
+}
