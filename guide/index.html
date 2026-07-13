@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>(function(){try{var t=localStorage.getItem('vas-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<title>操作手冊 · Manual | VAS</title>
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/guide">
+<meta name="description" content="VAS 操作手冊——依你要做的事分章：工具列與截圖、編輯器、OCR、編排、匯出與匯入、快捷鍵。一台可以握住的工具，一本可以操作的手冊。" />
+<meta property="og:title" content="VAS 操作手冊 | Mac 截圖標註工具完整使用指南">
+<meta property="og:description" content="VAS 操作手冊——依你要做的事分章：工具列與截圖、編輯器、OCR、編排、匯出與匯入、快捷鍵。一台可以握住的工具，一本可以操作的手冊。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/guide">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-guide-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS 操作手冊 — 一台可以握住的工具，一本可以操作的手冊">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share.webp">
+<meta name="twitter:image:alt" content="VAS 操作手冊 — 一台可以握住的工具，一本可以操作的手冊">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VAS 操作手冊 | Mac 截圖標註工具完整使用指南">
+<meta name="twitter:description" content="VAS 操作手冊——依你要做的事分章：工具列與截圖、編輯器、OCR、編排、匯出與匯入、快捷鍵。一台可以握住的工具，一本可以操作的手冊。">
+<link rel="alternate" hreflang="zh-Hant" href="/guide">
+<link rel="alternate" hreflang="en"       href="/en/guide">
+<link rel="alternate" hreflang="ja"       href="/ja/guide">
+<link rel="alternate" hreflang="zh-Hans"  href="/cn/guide">
+<link rel="alternate" hreflang="x-default" href="/guide">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css?v=2026-06-14a">
+<link rel="stylesheet" href="../css/shell.css?v=2026-06-14a">
+<link rel="stylesheet" href="../css/docs.css?v=2026-06-14a">
+<style>
+  /* ═══════════════════════════════════════════════
+     手冊中心 · 專屬列表頁「一台待命中的儀器」
+     不抄殘響（扉頁序詩）——這裡走控制面板 / 器械感：
+     待命呼吸燈 pilot light + 功能面板網格 + 圖紙底線。
+     ═══════════════════════════════════════════════ */
+  .gh-main { max-width: 1080px; margin: 0 auto; padding: 0 48px 120px; }
+
+  /* ── Masthead · 儀器銘牌 ── */
+  .gh-head {
+    position: relative; padding: 76px 0 52px;
+    border-bottom: 1px solid var(--vas-rule);
+  }
+  .gh-kicker {
+    font-family: var(--vas-mono); font-size: 12px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--vas-aurora-violet); opacity: 0.85;
+    margin-bottom: 22px;
+  }
+  .gh-title {
+    font-family: var(--vas-serif); font-weight: 500; font-size: 52px;
+    line-height: 1.16; color: var(--vas-ash-0); max-width: 15ch;
+    letter-spacing: 0.01em;
+  }
+  .gh-dek {
+    font-family: var(--vas-serif); font-size: 17px; line-height: 1.85;
+    color: var(--vas-ash-1); max-width: 52ch; margin-top: 22px;
+  }
+  /* pilot light · 待命呼吸燈（器的指示燈） */
+  .gh-pilot {
+    position: absolute; top: 78px; right: 0;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 11px;
+  }
+  .gh-pilot-bar {
+    width: 92px; height: 5px; border-radius: 2.5px;
+    background: rgba(240, 232, 220, 0.5);
+    animation: gh-breathe 2.4s ease-in-out infinite;
+  }
+  .gh-pilot-label {
+    font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--vas-ash-3);
+  }
+  @keyframes gh-breathe {
+    0%, 100% { opacity: 0.3; box-shadow: none; }
+    50% { opacity: 0.85; box-shadow: 0 0 9px 2px rgba(240,232,220,0.4), 0 0 20px 6px rgba(196,113,245,0.18); }
+  }
+  @media (prefers-reduced-motion: reduce) { .gh-pilot-bar { animation: none; } }
+
+  /* ── 銘牌資訊列 ── */
+  .gh-meta {
+    display: flex; flex-wrap: wrap; gap: 34px; margin-top: 40px;
+    font-family: var(--vas-mono); font-size: 12px; color: var(--vas-ash-3);
+    letter-spacing: 0.04em;
+  }
+  .gh-meta .lab { display: block; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 5px; color: var(--vas-ash-4); }
+  .gh-meta strong { color: var(--vas-ash-1); font-weight: 500; font-size: 13px; }
+
+  /* ── 章節網格 · 功能面板 ── */
+  .gh-chapters { padding-top: 52px; }
+  .gh-sec-label {
+    font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--vas-ash-3); margin-bottom: 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .gh-sec-label::after { content: ''; flex: 1; height: 1px; background: var(--vas-rule); }
+  .gh-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .gh-tile {
+    position: relative; display: flex; gap: 22px; padding: 28px 26px;
+    border: 1px solid var(--vas-rule); border-radius: 4px;
+    text-decoration: none; color: inherit; overflow: hidden;
+    background:
+      linear-gradient(var(--vas-void), var(--vas-void)) padding-box,
+      repeating-linear-gradient(0deg, rgba(240,232,220,0.028) 0 1px, transparent 1px 26px) padding-box;
+    transition: border-color .2s, transform .2s, background-color .2s;
+  }
+  .gh-tile::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: var(--vas-aurora-violet); opacity: 0;
+    transition: opacity .2s;
+  }
+  .gh-tile:hover { border-color: var(--vas-rule-strong); transform: translateY(-2px); }
+  .gh-tile:hover::before { opacity: 0.8; }
+  .gh-tile-l { display: flex; flex-direction: column; align-items: center; gap: 14px; flex-shrink: 0; width: 46px; }
+  .gh-no { font-family: var(--vas-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--vas-aurora-violet); }
+  .gh-ico { color: var(--vas-ash-2); transition: color .2s, transform .2s; }
+  .gh-tile:hover .gh-ico { color: var(--vas-aurora-blue); }
+  .gh-tile-body { min-width: 0; flex: 1; }
+  .gh-tile-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .gh-name { font-family: var(--vas-serif); font-weight: 500; font-size: 22px; color: var(--vas-ash-0); }
+  .gh-en { font-family: var(--vas-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vas-ash-4); }
+  .gh-desc { font-family: var(--vas-serif); font-size: 14px; line-height: 1.75; color: var(--vas-ash-2); margin-top: 9px; }
+  .gh-tags { display: flex; flex-wrap: wrap; gap: 6px 8px; margin-top: 14px; }
+  .gh-tag { font-family: var(--vas-mono); font-size: 10.5px; letter-spacing: 0.02em; color: var(--vas-ash-3); padding: 2px 8px; border: 1px solid var(--vas-rule); border-radius: 999px; }
+  .gh-go { position: absolute; right: 22px; bottom: 22px; font-family: var(--vas-mono); font-size: 15px; color: var(--vas-ash-4); transition: color .2s, transform .2s; }
+  .gh-tile:hover .gh-go { color: var(--vas-aurora-violet); transform: translateX(3px); }
+
+  /* 首章橫幅（入門）跨兩欄、語氣不同 */
+  .gh-tile.gh-lead { grid-column: 1 / -1; align-items: center; }
+  .gh-tile.gh-lead .gh-name { font-size: 25px; }
+
+  /* 許願 CTA · 外寄面板（呼應首頁迴響位） */
+  .gh-tile.gh-wish {
+    background:
+      linear-gradient(rgba(196,113,245,0.05), rgba(196,113,245,0.02)) padding-box,
+      repeating-linear-gradient(0deg, rgba(240,232,220,0.028) 0 1px, transparent 1px 26px) padding-box;
+    border-color: rgba(196,113,245,0.24);
+  }
+  .gh-tile.gh-wish .gh-no, .gh-tile.gh-wish .gh-ico { color: var(--vas-aurora-violet); }
+  .gh-tile.gh-wish:hover { border-color: var(--vas-aurora-violet); }
+  .gh-tile.gh-wish .gh-go { font-size: 13px; }
+
+  /* ── 底部：查詢提示 ── */
+  .gh-foot-hint {
+    margin-top: 52px; padding-top: 26px; border-top: 1px solid var(--vas-rule);
+    font-family: var(--vas-serif); font-size: 14px; color: var(--vas-ash-2); line-height: 1.8;
+  }
+  .gh-foot-hint .k { font-family: var(--vas-mono); font-size: 12px; color: var(--vas-ash-1); background: rgba(240,232,220,0.06); border: 1px solid var(--vas-rule); border-radius: 5px; padding: 2px 7px; }
+  .gh-foot-hint a { color: var(--vas-aurora-blue); }
+  .gh-foot-hint a:hover { color: var(--vas-aurora-violet); }
+
+  .gh-main a { color: var(--vas-aurora-blue); }
+  .gh-main a:hover { color: var(--vas-aurora-violet); }
+
+  @media (max-width: 820px) {
+    .gh-main { padding: 0 28px 90px; }
+    .gh-title { font-size: 38px; }
+    .gh-pilot { display: none; }
+    .gh-grid { grid-template-columns: 1fr; }
+    .gh-tile.gh-lead { grid-column: auto; }
+  }
+</style>
+<!--
+  AI CONTEXT · guide.html (手冊中心 · Manual hub)
+  This is the landing/index for VAS's operating manual. It sets the tone (an instrument you operate)
+  and routes to per-topic sub-pages: getting-started, capture, editor, export, advanced, shortcuts.
+  Distinct editorial style from echo.html (which is a literary frontispiece) — this is a control-panel index.
+-->
+<style id="gh-gs-css">
+.gh-gs{max-width:820px;margin:0;padding:46px 0 6px;border-bottom:1px solid var(--vas-rule)}
+.gh-steps{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
+.gh-step{display:flex;gap:18px;align-items:flex-start}
+.gh-step-n{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid var(--vas-rule-strong);display:flex;align-items:center;justify-content:center;font-family:var(--vas-mono);font-size:13px;color:var(--vas-aurora-violet);margin-top:2px}
+.gh-step-h{font-family:var(--vas-serif);font-weight:500;font-size:19px;color:var(--vas-ash-0);margin:0 0 5px}
+.gh-step-p{font-family:var(--vas-serif);font-size:15px;line-height:1.85;color:var(--vas-ash-1);margin:0;max-width:64ch}
+.gh-step-p strong{color:var(--vas-ash-0);font-weight:500}
+@media(max-width:820px){.gh-step-p{font-size:14px}.gh-step{gap:13px}}
+</style>
+<style id="cjk-measure">
+/* 中文行寬校正：ch 是半形拉丁單位，56ch≈28 全形字偏窄；改用 em 讓中日文排到 ~34 全形字。
+   以 lang 綁定——英文版維持 docs.css 的 56ch。全站推進前先在 guide 範圍驗證手感。 */
+html[lang="zh-Hant"] .docs-main p,
+html[lang="zh-Hant"] .docs-main ul.docs-list,
+html[lang="zh-Hant"] .docs-main ol.docs-list,
+html[lang="zh-Hant"] .docs-note,
+html[lang="zh-Hant"] .docs-main .docs-dek,
+html[lang="zh-Hant"] .docs-shortcut-table{max-width:34em}
+html[lang="zh-Hant"] .gh-dek,
+html[lang="zh-Hant"] .gh-step-p,
+html[lang="zh-Hant"] .tf-sub,
+html[lang="zh-Hant"] .rf-foot,
+html[lang="zh-Hant"] .blz-cap{max-width:34em}
+</style>
+<link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="../instrument.html" aria-label="回到器 · The Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="../about.html">關於</a>
+    <a href="../echo.html">殘響</a>
+    <a href="../milestone.html">里程碑</a>
+    <a href="index.html" class="active">手冊</a>
+    <a href="../faq.html">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="../about.html">關於</a>
+    <a href="../echo.html">殘響</a>
+    <a href="../milestone.html">里程碑</a>
+    <a href="index.html" class="active">手冊</a>
+    <a href="../faq.html">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap"><button class="theme-toggle" type="button" aria-label="切換深色／淺色"><svg class="ti-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg><svg class="ti-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></svg></button>
+    <div class="lang-flat-row">
+      <a href="index.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/guide/index.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/guide/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/guide/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+    </div>
+    <div class="lang-mobile-dd">
+      <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+      <div class="lang-dropdown-menu">
+        <a href="index.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+        <a href="../en/guide/index.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+        <a href="../ja/guide/index.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+        <a href="../cn/guide/index.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+<div class="gh-main">
+
+  <!-- ═══ 銘牌 ═══ -->
+  <section class="gh-head">
+    <div class="gh-pilot"><div class="gh-pilot-bar"></div><div class="gh-pilot-label">待命中 · Standby</div></div>
+    <div class="gh-kicker">VAS · 操作手冊</div>
+    <h1 class="gh-title">把整台 VAS，拆給你看。</h1>
+    <p class="gh-dek">從第一次召喚，到每一種標註的每一個屬性。這頁本身就是<strong>入門</strong>——三步讓 VAS 上線；要更深，往下按章節翻。</p>
+    <div class="gh-meta">
+      <div><span class="lab">Chapters</span><strong>入門即中樞 · 六章</strong></div>
+      <div><span class="lab">Platform</span><strong>Tauri / Electron</strong></div>
+      <div><span class="lab">Updated</span><strong>2026 · 07</strong></div>
+    </div>
+  </section>
+
+  <!-- ═══ 00 入門 · 三步上線（濃縮） ═══ -->
+  <section class="gh-gs" id="getting-started">
+    <div class="gh-sec-label">00 入門 · Getting Started</div>
+    <ol class="gh-steps">
+      <li class="gh-step" id="first-launch"><span class="gh-step-n">1</span><div class="gh-step-b"><h2 class="gh-step-h">打開</h2><p class="gh-step-p">從 App Store 安裝並打開，桌面浮出一排工具列（可拖動），選單列右上角也多一個瓶子。想更低調，就開<strong>呼吸燈</strong>——縮成一條 120×6px 的光，點一下召喚回來。</p></div></li>
+      <li class="gh-step" id="permissions"><span class="gh-step-n">2</span><div class="gh-step-b"><h2 class="gh-step-h">授權</h2><p class="gh-step-p">第一次截圖，macOS 會要<strong>螢幕錄製權限</strong>——勾選 VAS 即可（系統設定 → 隱私權與安全性 → 螢幕錄製）。所有截圖、OCR、QR 都<strong>在本機處理</strong>，不上傳、不分析。</p></div></li>
+      <li class="gh-step" id="first-capture"><span class="gh-step-n">3</span><div class="gh-step-b"><h2 class="gh-step-h">截圖</h2><p class="gh-step-p">選模式（全螢幕 <span class="docs-kbd">⌥⌘1</span>、視窗 <span class="docs-kbd">⌥⌘2</span>、矩形 <span class="docs-kbd">⌥⌘X</span>）框出畫面 → 進編輯器編輯 → 用「拖曳匯出」拖給任何視窗。<strong>三秒內結束。</strong></p></div></li>
+    </ol>
+  </section>
+
+  <!-- ═══ 章節網格 ═══ -->
+  <section class="gh-chapters">
+    <div class="gh-sec-label">章節 · Contents</div>
+    <div class="gh-grid">
+      <a class="gh-tile" href="toolbar.html">
+        <div class="gh-tile-l"><div class="gh-no">01</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="8" rx="4"/><circle cx="7" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="17" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">工具列</span><span class="gh-en">Toolbar</span></div><p class="gh-desc">桌面上那條浮動工具列——從呼吸燈的收合與召喚，到四種截圖、取色器、尺標、延遲與批次，每一顆按鈕做什麼。</p><div class="gh-tags"><span class="gh-tag">呼吸燈</span><span class="gh-tag">四種截圖</span><span class="gh-tag">取色器·尺標</span><span class="gh-tag">延遲·批次</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+      <a class="gh-tile" href="editor.html">
+        <div class="gh-tile-l"><div class="gh-no">02</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="20" y2="8"/><circle cx="9" cy="8" r="2.5" fill="var(--vas-void)"/><line x1="4" y1="16" x2="20" y2="16"/><circle cx="15" cy="16" r="2.5" fill="var(--vas-void)"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">編輯器</span><span class="gh-en">Editor</span></div><p class="gh-desc">截圖之後的主場——四區介面、12 種標註工具 × 屬性，自由組合出你想要的煉金配方。</p><div class="gh-tags"><span class="gh-tag">12 種工具</span><span class="gh-tag">自訂樣式</span><span class="gh-tag">煉金配方</span><span class="gh-tag">裁切與延伸</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+      <a class="gh-tile" href="ocr.html">
+        <div class="gh-tile-l"><div class="gh-no">03</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h4M7 13h6M7 17h3"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">OCR</span><span class="gh-en">Recognition</span></div><p class="gh-desc">本機讀出畫面裡的字、遮掉不該外流的資訊、掃出 QR Code 背後的意圖——三件事，都不上雲。</p><div class="gh-tags"><span class="gh-tag">文字辨識</span><span class="gh-tag">隱私遮蔽</span><span class="gh-tag">QR Code</span><span class="gh-tag">on-device</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+      <a class="gh-tile" href="arrange.html">
+        <div class="gh-tile-l"><div class="gh-no">04</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">編排</span><span class="gh-en">Arrange</span></div><p class="gh-desc">讓標註長出秩序的那些能力——智慧磁吸導線、多選對齊分布、群組與圖層順序。</p><div class="gh-tags"><span class="gh-tag">磁吸導線</span><span class="gh-tag">多選對齊</span><span class="gh-tag">群組·圖層</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+      <a class="gh-tile" href="export.html">
+        <div class="gh-tile-l"><div class="gh-no">05</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">匯出與匯入</span><span class="gh-en">Export &amp; Import</span></div><p class="gh-desc">進出 VAS 的每一種方式。獨家的拖曳／貼上匯入（工具列自動張開接住你的圖）、拖曳匯出、剪貼簿、ShareSheet、八種存檔與批次浮水印。</p><div class="gh-tags"><span class="gh-tag">獨家匯入</span><span class="gh-tag">拖曳匯出</span><span class="gh-tag">8 種格式</span><span class="gh-tag">批次浮水印</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+      <a class="gh-tile" href="shortcuts.html">
+        <div class="gh-tile-l"><div class="gh-no">06</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h.01M11 9h.01M15 9h2M7 13h10"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">快捷鍵</span><span class="gh-en">Shortcuts</span></div><p class="gh-desc">工具切換、畫布、編輯、物件操作，加上可自訂的全域快捷鍵——完整對照，純查詢用。</p><div class="gh-tags"><span class="gh-tag">全域自訂</span><span class="gh-tag">全功能對照</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+      <a class="gh-tile gh-wish" href="mailto:nova@yoursvas.app?subject=VAS%20%E8%A8%B1%E9%A1%98%E6%96%B0%E5%8A%9F%E8%83%BD">
+        <div class="gh-tile-l"><div class="gh-no">✎</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.4L19 10l-5.1 1.6L12 17l-1.9-5.4L5 10l5.1-1.6z"/></svg></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">許願新功能</span><span class="gh-en">Wishlist</span></div><p class="gh-desc">有想要的元素或功能？寄一封信給我。這本手冊、這台 VAS，都會跟著你的願望一起長大。</p><div class="gh-tags"><span class="gh-tag">nova@yoursvas.app</span></div></div>
+        <span class="gh-go" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <p class="gh-foot-hint">找特定功能？每一頁的內容都是實打實的文字，進了對的章節按 <span class="k">Ctrl</span>＋<span class="k">F</span> 就搜得到——例如工具的每個屬性都寫在 <a href="editor.html">編輯器</a> 那頁裡。這本手冊會跟著 VAS 一起長大。</p>
+  </section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>一位不會寫程式的 PM，<br>和一位沒有長期記憶的 AI，<br>在二十五天裡做出的器物。</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">隱私權政策</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="../instrument.html#acquire" class="site-sub-link" style="display: inline-block;">下載 VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="../i18n/core.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "VAS 操作手冊 | Mac 截圖標註工具完整使用指南",
+  "description": "VAS 操作手冊——依你要做的事分章：工具列與截圖、編輯器、OCR、編排、匯出與匯入、快捷鍵。一台可以握住的工具，一本可以操作的手冊。",
+  "inLanguage": "zh-Hant",
+  "url": "https://yoursvas.app/guide",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-07-13",
+  "image": "https://yoursvas.app/img/vas-guide-share.webp",
+  "publisher": { "@type": "Organization", "name": "Deep Holding Project", "url": "https://yoursvas.app/" },
+  "author": { "@type": "Person", "name": "Nova", "email": "nova@yoursvas.app", "sameAs": ["https://www.linkedin.com/in/yingtzuliu", "https://www.instagram.com/liuyingtzu", "https://github.com/tb1982"] }
+}
+</script>
+<script src="../js/analytics.js"></script>
+<script src="../js/theme-toggle.js"></script>
+</body>
+</html>
