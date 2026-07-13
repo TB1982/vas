@@ -303,3 +303,23 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   非 Retina 螢幕的閱讀增強 · 2026-07
+   Retina（≥1.5dppx）維持現況；1× 外接螢幕上：墨階抬一階 + 關灰階平滑 + 正文加一級字重。
+   用「筆畫質量」而非「亮度」補可讀性，避免長讀眩光。
+   僅影響載入本檔的暗色閱讀頁；instrument/index 用自有 :root 不受影響；
+   treatise/harness 為紙色頁、無此問題。
+   ═══════════════════════════════════════════════ */
+@media (max-resolution: 1.5dppx), (-webkit-max-device-pixel-ratio: 1.5) {
+  :root {
+    --vas-ash-1: rgba(240, 232, 220, 0.86);  /* 一般敘述        0.78 → 0.86 */
+    --vas-ash-2: rgba(240, 232, 220, 0.70);  /* 注釋 / 次要正文  0.60 → 0.70（改善最大）*/
+    --vas-ash-3: rgba(240, 232, 220, 0.62);  /* 結構性微標籤    0.55 → 0.62 */
+  }
+  body {
+    -webkit-font-smoothing: auto;    /* 關灰階平滑：1× 上筆畫不再掉肉 */
+    -moz-osx-font-smoothing: auto;
+    font-weight: 500;                /* 正文以墨感補清晰（Shippori / Noto Serif 500 已在字型清單）*/
+  }
+}
