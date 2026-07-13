@@ -634,6 +634,19 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 .ge-duo-k{display:block;font-family:var(--vas-mono);font-size:12px;color:var(--vas-ash-1);margin-bottom:6px}
 .ge-duo-item.hl .ge-duo-k{color:var(--vas-aurora-violet)}
 .ge-duo-d{font-family:var(--vas-serif);font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
+/* 兩欄相對：匯入左 · 匯出右，影片在上、整段文字在下（位置 A · Nova 定案） */
+.io-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1040px;margin:24px auto 8px;align-items:start}
+.io-cols > .docs-section{margin:0;padding:0;border-top:none}
+.io-cols h2{margin-top:16px}
+.io-fig{margin:0}
+.io-fig .ge-vid{margin:0}
+.io-fig .fig-label{margin:11px 0 0}
+.io-duo{margin:26px auto 6px;max-width:1040px}
+@media(max-width:760px){
+  .io-cols{grid-template-columns:1fr;gap:0;margin-bottom:0}
+  .io-cols > .docs-section{margin:0 0 8px}
+  .io-cols > .docs-section + .docs-section{margin-top:40px}
+}
 </style>
 <link rel="stylesheet" href="../css/theme.css">
 </head>
@@ -697,37 +710,42 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       <div class="docs-dek docs-dek--desktop">VAS 進出圖片的方式，是一盞會呼吸的燈——<strong>白接收、黑讓位</strong>。圖片靠近，它張開手接住你；要送出去，它收攏成一顆黑光把整個桌面還給你。</div>
     </section>
 
-    <section class="docs-section ge-fig" id="import">
-      <h2>匯入 · 呼吸燈接你進來</h2>
-      <p>VAS 的匯入不是「開啟檔案」對話框，而是<strong>把圖片帶到它面前，它自己接住</strong>。</p>
-      <ul class="docs-list">
-        <li><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間直接進編輯器；若你正在編輯別的東西，它會收好那張、直接展開編輯器繼續。</li>
-        <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器；或直接用自訂快捷鍵貼入編輯器也可以。</li>
-      </ul>
-      <figure>
-        <div class="fig-label">匯入 · 白呼吸燈接你進來</div>
-        <div class="ge-vid"><img class="fig-img" src="../img/in.webp" alt="拖曳圖片靠近呼吸燈，呼吸燈收納圖片並展開為編輯器的動態示意"><video src="../img/brethlight.mp4" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-hidden="true"></video></div>
-      </figure>
-    </section>
+    <div class="io-cols">
 
-    <section class="docs-section ge-fig" id="export-sec">
-      <h2>匯出 · 呼吸燈讓你出去</h2>
-      <p>編輯完了，VAS 給你四條出口——都不必先存檔、選資料夾、再開資料夾：</p>
-      <ul class="docs-list">
-        <li><strong>拖曳匯出（Drag out）</strong>——<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>編輯器收攏成一顆黑呼吸燈，把整個桌面讓給你。按住拖到桌面、Finder、Slack、對話框、任何接受圖片的地方，放開即傳。兩秒夠快、最久 30 秒不催，跨螢幕跨解析度都跟著你。</li>
-        <li><strong>複製到剪貼簿</strong>——按「複製」，圖片進剪貼簿，到別處按 <span class="docs-kbd">⌘V</span> 貼上。</li>
-        <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
-        <li><strong>存檔</strong>——<span class="g-badge-a" style="margin:0 6px 0 0">全版本</span>JPG／PNG／WebP／GIF／TIFF，<span class="g-badge-t" style="margin:0 6px">Tauri 專屬</span>BMP／PDF。</li>
-      </ul>
-      <figure>
-        <div class="fig-label">匯出 · 黑呼吸燈讓你出去</div>
-        <div class="ge-vid"><img class="fig-img" src="../img/out.webp" alt="VAS 編輯器收攏成黑呼吸燈，拖曳匯出圖片至下方的 Claude Code 對話框"><video src="../img/brethlight-out.mp4" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-hidden="true"></video></div>
-      </figure>
-      <div class="ge-duo">
-        <div class="ge-duo-item"><span class="ge-duo-k">白接收</span><span class="ge-duo-d">圖片靠近，白呼吸燈張開工具列把它接進來。</span></div>
-        <div class="ge-duo-item hl"><span class="ge-duo-k">黑讓位</span><span class="ge-duo-d">要送出去，編輯器坍縮成黑呼吸燈，桌面全還給你拖。</span></div>
-      </div>
-    </section>
+      <section class="docs-section ge-fig" id="import">
+        <figure class="io-fig">
+          <div class="ge-vid"><img class="fig-img" src="../img/in.webp" alt="拖曳圖片靠近呼吸燈，呼吸燈收納圖片並展開為編輯器的動態示意"><video src="../img/brethlight.mp4" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-hidden="true"></video></div>
+          <figcaption class="fig-label">匯入 · 白呼吸燈接你進來</figcaption>
+        </figure>
+        <h2>匯入 · 呼吸燈接你進來</h2>
+        <p>VAS 的匯入不是「開啟檔案」對話框，而是<strong>把圖片帶到它面前，它自己接住</strong>。</p>
+        <ul class="docs-list">
+          <li><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間直接進編輯器；若你正在編輯別的東西，它會收好那張、直接展開編輯器繼續。</li>
+          <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器；或直接用自訂快捷鍵貼入編輯器也可以。</li>
+        </ul>
+      </section>
+
+      <section class="docs-section ge-fig" id="export-sec">
+        <figure class="io-fig">
+          <div class="ge-vid"><img class="fig-img" src="../img/out.webp" alt="VAS 編輯器收攏成黑呼吸燈，拖曳匯出圖片至下方的 Claude Code 對話框"><video src="../img/brethlight-out.mp4" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-hidden="true"></video></div>
+          <figcaption class="fig-label">匯出 · 黑呼吸燈讓你出去</figcaption>
+        </figure>
+        <h2>匯出 · 呼吸燈讓你出去</h2>
+        <p>編輯完了，VAS 給你四條出口——都不必先存檔、選資料夾、再開資料夾：</p>
+        <ul class="docs-list">
+          <li><strong>拖曳匯出（Drag out）</strong>——<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>編輯器收攏成一顆黑呼吸燈，把整個桌面讓給你。按住拖到桌面、Finder、Slack、對話框、任何接受圖片的地方，放開即傳。兩秒夠快、最久 30 秒不催，跨螢幕跨解析度都跟著你。</li>
+          <li><strong>複製到剪貼簿</strong>——按「複製」，圖片進剪貼簿，到別處按 <span class="docs-kbd">⌘V</span> 貼上。</li>
+          <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
+          <li><strong>存檔</strong>——<span class="g-badge-a" style="margin:0 6px 0 0">全版本</span>JPG／PNG／WebP／GIF／TIFF，<span class="g-badge-t" style="margin:0 6px">Tauri 專屬</span>BMP／PDF。</li>
+        </ul>
+      </section>
+
+    </div><!-- /.io-cols -->
+
+    <div class="ge-duo io-duo">
+      <div class="ge-duo-item"><span class="ge-duo-k">白接收</span><span class="ge-duo-d">圖片靠近，白呼吸燈張開工具列把它接進來。</span></div>
+      <div class="ge-duo-item hl"><span class="ge-duo-k">黑讓位</span><span class="ge-duo-d">要送出去，編輯器坍縮成黑呼吸燈，桌面全還給你拖。</span></div>
+    </div>
 
   </main>
 </div><!-- /.docs-layout -->
