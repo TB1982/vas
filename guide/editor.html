@@ -430,6 +430,24 @@
   .g-tools-dict .g-chip:hover .g-chip-icon { color: var(--vas-aurora-violet); }
   .g-tools-dict .g-chip-key { margin-left: auto; padding-left: 12px; flex-shrink: 0; }
 
+  /* 收合工具字典 · summary 開合鈕 + 區標題/工具粒字體 */
+  .g-dict { margin-top: 8px; border-top: 1px solid var(--vas-rule); }
+  .g-dict > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 12px;
+    padding: 16px 0 4px; font-family: var(--vas-mono); font-size: 11.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--vas-aurora-violet); transition: opacity .18s; }
+  .g-dict > summary::-webkit-details-marker { display: none; }
+  .g-dict > summary::before { content: '＋'; font-size: 13px; line-height: 1; opacity: .7; }
+  .g-dict[open] > summary::before { content: '－'; }
+  .g-dict > summary:hover { opacity: .7; }
+  .g-dict > summary .g-dict-sum-n { color: var(--vas-ash-4); letter-spacing: .05em; }
+  .g-dict .g-tools-dict { margin-top: 20px; }
+  .g-tools-dict .g-grp-label { font-family: var(--vas-mono); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--vas-aurora-violet); }
+  .g-tools-dict .g-grp-label .cnt { color: var(--vas-ash-4); margin-left: 8px; letter-spacing: .05em; }
+  .g-tools-dict .g-chip { color: var(--vas-ash-1); font-family: var(--vas-serif); }
+  .g-tools-dict .g-chip-icon { color: var(--vas-ash-3); font-family: var(--vas-mono); }
+  .g-tools-dict .g-chip-key { color: var(--vas-ash-4); font-family: var(--vas-mono); font-size: 12px; }
+
   /* 1080px：工具列 4×2 grid 提早降成 2 欄，避免一般桌面寬度被擠成細長 4 欄文字直排
      （docs.css 預設在 768 才降，覆寫層在 guide.html 局部提早觸發，不影響其他頁面） */
   @media (max-width: 1080px) {
@@ -534,7 +552,11 @@
 </style>
 <style id="ge-doc">
 .gedm-canvas{overflow:hidden}
-.gedm-doc{position:absolute;top:14px;left:14px;right:14px;max-height:calc(100% - 28px);overflow:auto;background:rgba(15,13,22,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 24px 24px;z-index:4}
+.gedm-doc{position:absolute;top:14px;left:14px;right:14px;max-height:min(380px, calc(100% - 28px));overflow:auto;background:rgba(15,13,22,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px 24px 24px;z-index:4;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.22) transparent}
+.gedm-doc::-webkit-scrollbar{width:9px}
+.gedm-doc::-webkit-scrollbar-track{background:transparent;margin:6px 0}
+.gedm-doc::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+.gedm-doc::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.32);background-clip:padding-box}
 .gedm-export{z-index:6}
 .gdoc-item[hidden]{display:none}
 .gdoc-h{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -733,6 +755,51 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           <div class="gzm"><span class="gzm-dot" style="background:#4ade80"></span><div class="gzm-b"><span class="gzm-n">狀態列與磁吸開關</span><span class="gzm-d">左下角：目前縮放比例、畫布尺寸，與磁吸對齊智慧導線開關。</span></div></div>
         </div>
         </div>
+
+      <div class="docs-subsection" id="tools-dict">
+        <h3>完整工具字典</h3>
+        <p style="max-width:60ch;">編輯器的核心是標註，但不只是標註——選取、檢視、裁切、排版才能擁有完整編輯能力。上面點得動的編輯器是主場；想一次看齊全部工具，展開下面這份索引。</p>
+        <details class="g-dict">
+          <summary><span>攤開全部工具</span><span class="g-dict-sum-n">23 項 · 六類</span></summary>
+          <div class="g-tools-dict"><div class="g-tools-body">
+            <div><div class="g-grp-label">選取工具<span class="cnt">2</span></div><div class="g-chips">
+              <div class="g-chip"><span class="g-chip-icon">↖</span><span>選取</span><span class="g-chip-key">V</span></div>
+              <div class="g-chip"><span class="g-chip-icon">⬚</span><span>框型選取</span><span class="g-chip-key">M</span></div>
+            </div></div>
+            <div><div class="g-grp-label">標註工具<span class="cnt">12 種</span></div><div class="g-chips">
+              <div class="g-chip"><span class="g-chip-icon">✒</span><span>筆型</span><span class="g-chip-key">P</span></div>
+              <div class="g-chip"><span class="g-chip-icon">╱</span><span>線條</span><span class="g-chip-key">L</span></div>
+              <div class="g-chip"><span class="g-chip-icon">▭</span><span>矩形框</span><span class="g-chip-key">R</span></div>
+              <div class="g-chip"><span class="g-chip-icon">■</span><span>色塊</span><span class="g-chip-key">B</span></div>
+              <div class="g-chip"><span class="g-chip-icon">T</span><span>文字</span><span class="g-chip-key">T</span></div>
+              <div class="g-chip"><span class="g-chip-icon">①</span><span>編號</span><span class="g-chip-key">N</span></div>
+              <div class="g-chip"><span class="g-chip-icon">☺</span><span>符號印章</span><span class="g-chip-key">U</span></div>
+              <div class="g-chip"><span class="g-chip-icon">⬜</span><span>馬賽克／模糊</span><span class="g-chip-key">X</span></div>
+              <div class="g-chip"><span class="g-chip-icon">⊙</span><span>放大鏡</span><span class="g-chip-key">Y</span></div>
+              <div class="g-chip"><span class="g-chip-icon">◎</span><span>對話氣泡</span><span class="g-chip-key">Q</span></div>
+              <div class="g-chip"><span class="g-chip-icon">文</span><span>OCR 文字辨識</span><span class="g-chip-key">G</span></div>
+              <div class="g-chip"><span class="g-chip-icon" style="text-decoration:line-through">文</span><span>隱私遮蔽</span><span class="g-chip-key">K</span></div>
+            </div></div>
+            <div><div class="g-grp-label">檢視工具<span class="cnt">3</span></div><div class="g-chips">
+              <div class="g-chip"><span class="g-chip-icon">⊕</span><span>放大</span><span class="g-chip-key">⌘=</span></div>
+              <div class="g-chip"><span class="g-chip-icon">⊖</span><span>縮小</span><span class="g-chip-key">⌘-</span></div>
+              <div class="g-chip"><span class="g-chip-icon">⊡</span><span>適合視窗</span><span class="g-chip-key">⌘0</span></div>
+            </div></div>
+            <div><div class="g-grp-label">畫布操作<span class="cnt">3</span></div><div class="g-chips">
+              <div class="g-chip"><span class="g-chip-icon">✂</span><span>裁切</span><span class="g-chip-key">C</span></div>
+              <div class="g-chip"><span class="g-chip-icon">↔</span><span>調整大小</span><span class="g-chip-key">S</span></div>
+              <div class="g-chip"><span class="g-chip-icon">⊞</span><span>延伸畫布</span><span class="g-chip-key">E</span></div>
+            </div></div>
+            <div><div class="g-grp-label">匯入・套版<span class="cnt">2</span></div><div class="g-chips">
+              <div class="g-chip"><span class="g-chip-icon">⧉</span><span>疊入圖片</span><span class="g-chip-key">O</span></div>
+              <div class="g-chip"><span class="g-chip-icon">◱</span><span>一鍵套版</span><span class="g-chip-key">—</span></div>
+            </div></div>
+            <div><div class="g-grp-label">往返操作<span class="cnt">1</span></div><div class="g-chips">
+              <div class="g-chip"><span class="g-chip-icon">↩↪</span><span>撤銷／重做</span><span class="g-chip-key">⌘Z ／ ⌘⇧Z</span></div>
+            </div></div>
+          </div></div>
+        </details>
+      </div>
 
       <div class="docs-subsection" id="recipes">
         <h3>煉金配方</h3>
