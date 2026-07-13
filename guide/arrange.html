@@ -633,6 +633,15 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 .ar-cap{font-family:var(--vas-mono);font-size:11px;color:var(--vas-ash-3);margin-top:10px}
 .ar-svg{width:100%;height:auto;display:block}
 .ar-t{fill:var(--vas-ash-2);font-family:var(--vas-mono);font-size:11px}
+/* 文左圖右：示意圖移到文案右方（Nova 定案） */
+.ar-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,440px);gap:40px;align-items:start}
+.ar-two .ar-text{min-width:0}
+.ar-two .ar-text > :first-child{margin-top:0}
+.ar-two .ar-fig{margin:0;max-width:none}
+@media(max-width:768px){
+  .ar-two{grid-template-columns:1fr;gap:0}
+  .ar-two .ar-fig{margin:20px 0 4px;max-width:440px}
+}
 </style>
 <style>
 /* H1/dek 與首個內容區之間：保留細 1px 分隔線，總高約 100px（線置中，上下各 50px） */
@@ -703,7 +712,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       <div class="docs-dek">畫好之後，讓它們長出秩序。VAS 幫你把標註<strong>對齊、分布、群組、疊層</strong>——滑鼠靠近會自動吸附，多選一次排好，群組一起搬，圖層決定誰在上面。</div>
     </section>
 
-    <section class="docs-section" id="snap">
+    <section class="docs-section ar-two" id="snap">
+      <div class="ar-text">
       <h2>智慧磁吸與參考線</h2>
       <p>移動物件時，VAS 會自動浮出參考線幫你對齊——不必手抖對準。</p>
       <ul class="docs-list">
@@ -712,6 +722,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <li><span class="docs-kbd">\</span>——一鍵切換磁吸開關。</li>
         <li><strong>Alt＋拖曳</strong>——暫時跳過磁吸，自由放置。</li>
       </ul>
+      </div>
       <div class="ar-fig">
         <svg viewBox="0 0 380 150" class="ar-svg" role="img" aria-label="磁吸參考線示意">
           <rect x="120" y="18" width="120" height="30" rx="4" fill="rgba(74,158,255,0.12)" stroke="#4a9eff" stroke-width="1.2"/>
@@ -727,12 +738,14 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       </div>
     </section>
 
-    <section class="docs-section" id="align">
+    <section class="docs-section ar-two" id="align">
+      <div class="ar-text">
       <h2>多選對齊與分布</h2>
       <p>框選或 Shift 加選多個物件，頂部會出現對齊工具列，一次把它們排好：</p>
       <div class="al-grid">
         <div class="al-col"><div class="al-h">對齊</div><ul class="al-list"><li><b>齊左</b>對齊最左物件的左緣</li><li><b>水中</b>水平置中</li><li><b>齊右</b>對齊最右物件的右緣</li><li><b>齊上</b>對齊最上物件的上緣</li><li><b>垂中</b>垂直置中</li><li><b>齊下</b>對齊最下物件的下緣</li></ul></div>
         <div class="al-col"><div class="al-h">分布</div><ul class="al-list"><li><b>水均</b>水平均分間距</li><li><b>垂均</b>垂直均分間距</li></ul><div class="al-h" style="margin-top:16px">其他</div><ul class="al-list"><li><b>對齊中線</b>對齊畫布中心線</li><li><b>水平鏡射</b>左右翻轉</li><li><b>垂直鏡射</b>上下翻轉</li></ul></div>
+      </div>
       </div>
       <div class="ar-fig">
         <svg viewBox="0 0 380 150" class="ar-svg" role="img" aria-label="多選對齊分布示意">
@@ -752,14 +765,16 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       </div>
     </section>
 
-    <section class="docs-section" id="group">
+    <section class="docs-section ar-two" id="group">
+      <div class="ar-text">
       <h2>群組</h2>
-      <p>把幾個物件<strong>組成一個</strong>——一起移動、縮放、旋轉，不會散開。需要再拆時解散群組即可。屬性（顏色、陰影、透明度）也能套用到整組。</p>
+      <p>把幾個物件<strong>組成一個</strong>——一起移動、縮放、旋轉，不會散開。需要再拆時解散群組即可。</p>
       <ul class="docs-list">
         <li><strong>成群</strong>——多選後組成群組，之後單擊即選取整組。</li>
         <li><strong>群中編輯</strong>——雙擊點入群組中的單一物件獨立編輯，離開後仍維持在群組內。</li>
         <li><strong>解散</strong>——把群組拆回獨立物件，各自再編輯。</li>
       </ul>
+      </div>
       <div class="ar-fig">
         <svg viewBox="0 0 380 150" class="ar-svg" role="img" aria-label="群組示意">
           <rect x="70" y="34" width="240" height="82" rx="6" fill="none" stroke="#c471f5" stroke-width="1.3" stroke-dasharray="5 4"/>
@@ -773,13 +788,15 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       </div>
     </section>
 
-    <section class="docs-section" id="layer">
+    <section class="docs-section ar-two" id="layer">
+      <div class="ar-text">
       <h2>圖層順序</h2>
       <p>標註互相重疊時，用圖層順序決定<strong>誰蓋住誰</strong>。在物件上按右鍵：</p>
       <ul class="docs-list">
         <li><strong>移到最前 / 最後</strong>——一步送到最上層或最底層。</li>
         <li><strong>上移 / 下移一層</strong>——逐層微調堆疊順序。</li>
       </ul>
+      </div>
       <div class="ar-fig">
         <svg viewBox="0 0 380 150" class="ar-svg" role="img" aria-label="圖層順序示意">
           <rect x="70" y="70" width="120" height="60" rx="6" fill="#2a2740" stroke="#5a5570" stroke-width="1.1"/>
