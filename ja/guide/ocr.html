@@ -705,7 +705,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <section class="docs-section" id="ocr-top">
       <div class="docs-section-kicker">マニュアル · 03 — OCR · Recognition</div>
       <h1>OCR テキスト認識</h1>
-      <div class="docs-dek">スクリーンショットは、描くためだけのものじゃない。VAS はあなたの Mac のローカルで、画面の文字を読み取り、漏らすべきでない情報を隠し、QR コードの奥にある意図を読み解く——この三つ、どれもクラウドには上げません。</div>
+      <div class="docs-dek">スクリーンショットは、描くためだけのものではありません。VAS はあなたの Mac のローカルで、画面の文字を読み取り、漏らすべきでない情報を隠し、QR コードの奥にある意図を読み解く——この三つ、どれもクラウドには上げません。</div>
     </section>
 
     <section class="docs-section" id="recognition">
@@ -736,8 +736,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       <p>OCR が文字を読めるということは、「どの文字がプライバシーか」も読めるということ。VAS は機微な情報を<strong>自動で検出してマークし</strong>、対応する言語圏ごとにローカル特化します——日本語では、マイナンバー、郵便番号、電話番号（携帯・固定）、クレジットカード番号、Email、IPv4／IPv6、API トークン、さらに氏名・担当者・パスワード・暗証番号などのラベル項目を認識します。</p>
       <p style="margin-top:16px"><span class="g-badge-a" style="margin:0 8px 0 0">全バージョン</span>Electron は Vision Framework を使用；<br><span class="g-badge-t" style="margin:0 8px">Tauri 専用</span>さらに五層検出に対応し、より多くの地域フォーマットをカバー。</p>
 
-      <p class="g-section-sub" style="margin-top:32px">設計判断 · 完璧なふりをせず、コントロールをあなたに残す</p>
-      <p>開発の中で、OCR には生まれつきの限界があると分かりました——たまに取りこぼしたり、間違えたり。私たちは「ツールは完璧であるべき」と押し通すのではなく、別の設計を選びました：</p>
+      <p class="g-section-sub" style="margin-top:32px">設計判断 · 完璧なふりをせず、コントロールをあなたに残します</p>
+      <p>開発の中で、OCR には生まれつきの限界があると分かりました——たまに取りこぼしたり、間違えたりします。私たちは「ツールは完璧であるべき」と押し通すのではなく、別の設計を選びました：</p>
       <ul class="docs-list">
         <li>プライバシーマスクの<strong>モザイクをフローティングレイヤーに</strong>、範囲も調整可能に——OCR が覆いきれなかったところは、手でひと引きすれば補える。認識ミスは「エラー」から「要確認」へ。ツールの不完全さが、あなたのコントロールを損ないません。</li>
         <li>OCR が自動で約 <strong>90%</strong> をこなす；あなたが手動モザイクを軽くひと引きするだけで、本来 100% 手作業だった仕事が仕上がります。</li>
@@ -758,22 +758,22 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <p class="pm-cap"><b>⇧K でワンタッチのプライバシーマスク</b>——OCR が機微な項目を自動検出してモザイクをかけます；モザイクはどれも<b>フローティングレイヤー</b>——図のマイナンバーのように選択すると、<b>移動・サイズ変更・削除</b>ができます。OCR が拾えなかったところは、手でひとつ足すだけ。</p>
       </div>
       <div class="qr-tiers ocr-trio">
-        <div class="qr-tier"><span class="qr-pct sm">OCR 自動</span><span class="qr-desc">できる限り認識し、機微な領域を自動でマーク</span></div>
-        <div class="qr-tier"><span class="qr-pct sm">モザイクで補完</span><span class="qr-desc">OCR が足りないところは、ユーザーが手動で引き継ぐ</span></div>
-        <div class="qr-tier hi"><span class="qr-pct sm">UNDO</span><span class="qr-desc">隠し間違い？ワンタッチで削除、取り返しのつかない決定はない</span></div>
+        <div class="qr-tier"><span class="qr-pct sm">OCR 自動</span><span class="qr-desc">できる限り認識し、機微な領域を自動でマークします</span></div>
+        <div class="qr-tier"><span class="qr-pct sm">モザイクで補完</span><span class="qr-desc">OCR が足りないところは、ユーザーが手動で引き継ぎます</span></div>
+        <div class="qr-tier hi"><span class="qr-pct sm">UNDO</span><span class="qr-desc">隠し間違い？ワンタッチで削除、取り返しのつかない決定はありません</span></div>
       </div>
     </section>
 
     <section class="docs-section" id="qrcode">
       <h2>QR コードスキャン（フレーム占有率で挙動が変わる）</h2>
-      <p>QR コードのスキャンは、表面的には「読めた／読めない」の二択に見えます。でも VAS はそう見ない——見ているのは<strong>あなたの意図</strong>、それに応じて次の一手を決めます。</p>
+      <p>QR コードのスキャンは、表面的には「読めた／読めない」の二択に見えます。でも VAS はそう見ません——見ているのは<strong>あなたの意図</strong>、それに応じて次の一手を決めます。</p>
       <p>正確に検出したいとき、人は自然と QR コードを<strong>丸ごと、できるだけそれだけ</strong>フレームに収めます——この動作そのものが意図の宣言です。フレームいっぱいに収めるほど認識は正確になり、信頼度も上がり、ツールは迷わず行動します。意図がフレーム選択の瞬間に明確だからこそ、QR 検出はツールバーの矩形スクリーンショットで<strong>直接トリガー</strong>され、エディターに入る必要もありません。</p>
-      <p class="g-section-sub" style="margin-top:28px">ツールは、確信がないときに確信のあるふりをしない</p>
+      <p class="g-section-sub" style="margin-top:28px">ツールは、確信がないときに確信のあるふりをしません</p>
       <div class="qr-tier-label">QR コードのフレーム占有率と挙動ロジック</div>
       <div class="qr-tiers">
-        <div class="qr-tier hi"><span class="qr-pct">&gt; 70%</span><span class="qr-tag">高信頼 · 即行動</span><span class="qr-desc">そのまま Web ページやリンクを開く、ユーザーを煩わせない</span></div>
+        <div class="qr-tier hi"><span class="qr-pct">&gt; 70%</span><span class="qr-tag">高信頼 · 即行動</span><span class="qr-desc">そのまま Web ページやリンクを開き、ユーザーを煩わせません</span></div>
         <div class="qr-tier mid"><span class="qr-pct">21–69%</span><span class="qr-tag">中信頼 · こちらから確認</span><span class="qr-desc">エディターを開いて、そっと尋ねます：「これはあなたが求めたリンク？」</span></div>
-        <div class="qr-tier lo"><span class="qr-pct">≤ 20%</span><span class="qr-tag">低信頼 · 静かにお任せ</span><span class="qr-desc">推測も行動もせず、エディターをそのまま開いて次の操作をあなたに委ねる</span></div>
+        <div class="qr-tier lo"><span class="qr-pct">≤ 20%</span><span class="qr-tag">低信頼 · 静かにお任せ</span><span class="qr-desc">推測も行動もせず、エディターをそのまま開いて次の操作をあなたに委ねます</span></div>
       </div>
       <figure class="qrf-fig">
         <div class="qrf-row">
@@ -790,7 +790,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           <div class="qrf-meta"><span class="qrf-pct">≤ 20%</span><span class="qrf-cf">低信頼 · 静かにお任せ</span></div>
         </div>
         </div>
-        <figcaption class="qrf-cap">フレームを満たすほど、ツールは迷わず行動する；フレームが空くほど、決定をあなたに返そうとする。どの閾値の裏にも、「自分がどれだけ知っているかを、自分で分かっている」という誠実さがあります。</figcaption>
+        <figcaption class="qrf-cap">フレームを満たすほど、ツールは迷わず行動します；フレームが空くほど、決定をあなたに返そうとします。どの閾値の裏にも、「自分がどれだけ知っているかを、自分で分かっている」という誠実さがあります。</figcaption>
       </figure>
     </section>
 
