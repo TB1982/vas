@@ -634,6 +634,12 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   #sc-list .docs-shortcut-table td:first-child{width:auto;color:var(--vas-ash-0);padding-right:0}
 }
 </style>
+<style>
+/* 收窄 H1/dek 與首個內容區之間的空白、移除孤立分隔線 */
+.docs-section:first-of-type + .docs-section{padding-top:12px;border-top:none}
+.docs-section:first-of-type + .docs-section > .docs-subsection:first-child{margin-top:0}
+.docs-section:first-of-type + .docs-section > h2:first-child{margin-top:0}
+</style>
 <link rel="stylesheet" href="../css/theme.css">
 </head>
 <body class="is-guide">
