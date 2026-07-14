@@ -726,7 +726,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
                   </div>
                   <div class="tbz-mrow click">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6"/><path d="M2.5 22v-6h6"/><path d="M21.1 8A9 9 0 0 0 5.3 5.3L2.5 8"/><path d="M2.9 16A9 9 0 0 0 18.7 18.7l2.8-2.7"/></svg>
-                    <span data-k="batch">批次轉</span>
+                    <span data-k="batch">一括</span>
                   </div>
                 </div>
               </div>
@@ -878,6 +878,42 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ 一括変換 ═══ -->
+        <div class="tf-head" id="batch"><span class="tf-head-t">一括変換</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub">複数の画像を一度に統一フォーマットへ変換でき、変換と同時にサイズをそろえたり、ウォーターマークを加えたり、保存先を指定したりできます。大量のスクリーンショットや素材をまとめて処理するのに向いています。</p>
+
+        <p style="margin-top:28px"><strong>ファイルを追加</strong></p>
+        <ul class="docs-list">
+          <li>画像をウィンドウにドラッグするか、「ファイルを選択」で選びます。「＋ファイルを追加」で続けて足すこともできます。</li>
+          <li>一度に最大 100 枚まで。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>対応フォーマット</strong></p>
+        <ul class="docs-list">
+          <li><strong>読み込み</strong> — PNG、JPG／JPEG、WebP、GIF、BMP、TIFF、SVG（ベクター画像はアプリ内でラスタライズされます）。</li>
+          <li><strong>書き出し</strong> — PNG、JPG、WebP、GIF、BMP、TIFF の 6 種類。<span class="g-badge-t" style="margin:0 0 0 6px">Tauri 専用</span>うち BMP と TIFF は Tauri のみ対応です。</li>
+          <li>JPG／WebP で書き出す際は画質（1–100%）を設定でき、バッチに SVG が含まれる場合は SVG の出力幅（ラスタライズ解像度を決めます）を設定できます。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>サイズを統一</strong><span style="color:var(--vas-ash-3)">（任意）</span></p>
+        <ul class="docs-list">
+          <li>幅または高さを指定ピクセルに固定し、もう一方は比率を保って拡大・縮小します。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>ウォーターマーク</strong><span style="color:var(--vas-ash-3)">（任意 · テキストと画像は同時に使えます）</span></p>
+        <ul class="docs-list">
+          <li><strong>テキストウォーターマーク</strong> — 文字（日本語・中国語対応）、サイズ、色、不透明度、そして九分割の位置（四隅／四辺／中央）を設定します。</li>
+          <li><strong>画像ウォーターマーク（ロゴ）</strong> — 画像を 1 枚選び、幅の比率（元画像に対する割合）、不透明度、九分割の位置を設定します。リアルタイムプレビュー付きです。</li>
+          <li>両者は余白設定を共有します。同時に使う場合は、テキストが下、画像が上になります。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>保存先</strong></p>
+        <ul class="docs-list">
+          <li>元ファイルと同じフォルダ、または指定したフォルダ（任意で選べます）。</li>
+          <li>「変換後に元ファイルを削除」にチェックできます——元ファイルはゴミ箱に移動します（復元可能で、完全削除ではありません）。</li>
+          <li>変換の進行状況は 1 枚ずつ表示されます。</li>
+        </ul>
 
       </div>
 

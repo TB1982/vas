@@ -726,7 +726,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
                   </div>
                   <div class="tbz-mrow click">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6"/><path d="M2.5 22v-6h6"/><path d="M21.1 8A9 9 0 0 0 5.3 5.3L2.5 8"/><path d="M2.9 16A9 9 0 0 0 18.7 18.7l2.8-2.7"/></svg>
-                    <span data-k="batch">批次轉</span>
+                    <span data-k="batch">Batch</span>
                   </div>
                 </div>
               </div>
@@ -878,6 +878,42 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ Batch Convert ═══ -->
+        <div class="tf-head" id="batch"><span class="tf-head-t">Batch Convert</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub">Convert many images to one format in a single pass — and while converting, resize them uniformly, add a watermark, and choose where they save. Made for processing large batches of screenshots or assets.</p>
+
+        <p style="margin-top:28px"><strong>Add files</strong></p>
+        <ul class="docs-list">
+          <li>Drag images into the window, or click “Select files” to pick them; you can also “+ Add files” to keep adding.</li>
+          <li>Up to 100 images per run.</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>Supported formats</strong></p>
+        <ul class="docs-list">
+          <li><strong>Reads</strong> — PNG, JPG/JPEG, WebP, GIF, BMP, TIFF, SVG (vector art is rasterized inside the app).</li>
+          <li><strong>Writes</strong> — PNG, JPG, WebP, GIF, BMP, TIFF — six formats. <span class="g-badge-t" style="margin:0 0 0 6px">Tauri only</span>BMP and TIFF are Tauri-only.</li>
+          <li>When writing JPG/WebP you can set quality (1–100%); if the batch contains SVGs you can set the SVG output width (which decides the rasterization resolution).</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>Uniform resize</strong><span style="color:var(--vas-ash-3)"> (optional)</span></p>
+        <ul class="docs-list">
+          <li>Fix the width or the height to a set pixel value; the other side scales proportionally.</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>Watermark</strong><span style="color:var(--vas-ash-3)"> (optional · text and image can be used together)</span></p>
+        <ul class="docs-list">
+          <li><strong>Text watermark</strong> — enter the text (Chinese and Japanese supported), size, color, opacity, and a nine-grid position (corners / edges / center).</li>
+          <li><strong>Image watermark (logo)</strong> — pick an image, set its width ratio (relative to the original), opacity, and nine-grid position, with a live preview.</li>
+          <li>Both share the margin setting; when both are on, text sits below and the image on top.</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>Save location</strong></p>
+        <ul class="docs-list">
+          <li>The same folder as the source files, or a folder you choose.</li>
+          <li>You can tick “Delete originals after converting” — the originals go to the Trash (still recoverable, not permanently deleted).</li>
+          <li>Progress shows image by image as it converts.</li>
+        </ul>
 
       </div>
 

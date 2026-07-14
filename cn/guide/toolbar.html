@@ -879,6 +879,42 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
         </div>
 
+        <!-- ═══ 批量转换 ═══ -->
+        <div class="tf-head" id="batch"><span class="tf-head-t">批量转换 · Batch Convert</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub">一次把多张图片转成统一格式，并可在转换时统一缩放、加水印、指定保存位置。适合大量截图／素材的整批处理。</p>
+
+        <p style="margin-top:28px"><strong>添加文件</strong></p>
+        <ul class="docs-list">
+          <li>拖动图片到窗口，或按「选择文件」挑选，也可「＋添加文件」继续加。</li>
+          <li>单次最多 100 张。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>支持格式</strong></p>
+        <ul class="docs-list">
+          <li><strong>可读取</strong>——PNG、JPG／JPEG、WebP、GIF、BMP、TIFF、SVG（矢量图会在程序内栅格化）。</li>
+          <li><strong>可输出</strong>——PNG、JPG、WebP、GIF、BMP、TIFF 六种。<span class="g-badge-t" style="margin:0 0 0 6px">Tauri 专属</span>其中 BMP 及 TIFF 仅 Tauri 支持。</li>
+          <li>输出 JPG／WebP 时可设质量（1–100%）；批量中含 SVG 时可设 SVG 输出宽度（决定栅格化分辨率）。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>统一调整尺寸</strong><span style="color:var(--vas-ash-3)">（可选）</span></p>
+        <ul class="docs-list">
+          <li>固定宽度或高度为指定像素，另一边等比缩放。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>水印</strong><span style="color:var(--vas-ash-3)">（可选 · 文字与图片可同时使用）</span></p>
+        <ul class="docs-list">
+          <li><strong>文字水印</strong>——输入文字（支持中日文）、字号、颜色、不透明度，以及九宫格位置（四角／四边／居中）。</li>
+          <li><strong>图片水印（Logo）</strong>——选一张图、设宽度占比（相对原图）、不透明度、九宫格位置，并有实时预览。</li>
+          <li>两者共用边距设置；同时开启时，文字在下、图片在上。</li>
+        </ul>
+
+        <p style="margin-top:28px"><strong>保存位置</strong></p>
+        <ul class="docs-list">
+          <li>与原始文件相同目录，或指定目录（自选文件夹）。</li>
+          <li>可勾选「转换完成后删除原始文件」——原文件会移入废纸篓（仍可恢复，非永久删除）。</li>
+          <li>转换过程会逐张显示进度。</li>
+        </ul>
+
       </div>
 
       <div class="docs-subsection" id="breath">
