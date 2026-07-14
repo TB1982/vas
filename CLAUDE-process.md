@@ -114,15 +114,20 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 │
 ├── CLAUDE.md               # Core rules (always loaded)
 ├── CLAUDE-process.md       # This file — workflows
-├── GLOSSARY.md             # Translation terminology + per-locale conventions
 ├── README.md               # Public-facing overview
-├── km.md                   # Known issues log — append only
-└── designrule.md           # Visual design rules
+│
+├── docs/                   # Reference docs (not runtime)
+│   ├── GLOSSARY.md         # Translation terminology + per-locale conventions
+│   ├── km.md               # Known issues log — append only
+│   ├── designrule.md       # Visual design rules
+│   └── toolnamemap.md      # Guide tool-name four-language map (from app i18n)
+│
+└── archive/                # Retired docs & handoffs (HANDOFF0613.md, *-handoff.md …)
 ```
 
 **File ownership:**
 - Claude Design owns: `css/tokens.css`, `css/shell.css`, HTML layout structure
-- Nova owns: all `i18n/*.js`, `data-lang-key` attributes, content text, `km.md`, `GLOSSARY.md`
+- Nova owns: all `i18n/*.js`, `data-lang-key` attributes, content text, `docs/km.md`, `docs/GLOSSARY.md`
 - Lang static files (`en/`, `ja/`, `cn/`): translation pass owned by Nova + agent; structure mirrors root
 
 ---
@@ -146,7 +151,7 @@ Different stack — Tailwind CDN + inline `<style>` + in-page JS dictionary (`tr
 
 ## Development Workflow
 
-> **Before any HTML or CSS change: read `designrule.md` AND `css/shell.css` first. Mandatory.**
+> **Before any HTML or CSS change: read `docs/designrule.md` AND `css/shell.css` first. Mandatory.**
 
 **Full collaboration loop (7 steps, including 巡水田):**
 
@@ -219,7 +224,7 @@ When creating a new top-level page:
 5. Add 4 URL entries to `sitemap.xml` (root + 3 lang) with per-locale `<xhtml:link>` hreflang block
 6. Update `README.md` — add to page list
 7. Update Repository Structure in this file (CLAUDE-process.md)
-8. If new terminology introduced: add to `GLOSSARY.md` § appropriate section
+8. If new terminology introduced: add to `docs/GLOSSARY.md` § appropriate section
 
 ---
 
@@ -286,8 +291,9 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n/core.js` | Loader logic + dropdown for dynamic lang switching on root pages |
 | `sitemap.xml` | 59 URLs, per-locale hreflang. Update on any new page (see § New Page Checklist) |
-| `km.md` | KM log — append immediately when a bug is resolved |
-| `GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
+| `docs/km.md` | KM log — append immediately when a bug is resolved |
+| `docs/GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
+| `docs/toolnamemap.md` | Guide tool-name four-language map (from app i18n) — look up, don't retranslate |
 
 ---
 
