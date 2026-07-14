@@ -725,7 +725,6 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <ul class="docs-list">
           <li><span class="g-badge-a" style="margin:0 6px 0 0">全バージョン</span><strong>画像を近づける</strong> — ツールバーがハエトリグサのように開いて、持ってきた画像を受け止めます。手を放した瞬間そのままエディターへ；別のものを編集中なら、それを収めてエディターを開き直し、続けられます。</li>
           <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ブラウザから画像をコピー</strong> — toast が「画像を貼り付けますか」と尋ね、はいと答えればそのままエディターへ；自分のカスタムショートカットで直接エディターに貼り付けることもできます。</li>
-          <li><strong>読み込み対応</strong> — <span class="g-badge-a" style="margin:0 6px 0 0">全バージョン</span>JPG / PNG / WebP / GIF / TIFF / SVG、<br><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span>BMP / PDF。<br>（うち SVG は読み込み専用——読み込み 8 種、保存 7 種。）</li>
         </ul>
       </section>
 
@@ -739,9 +738,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           <li><strong>ドラッグ書き出し</strong> — <span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span>エディターがひとつの黒い呼吸ライトに畳まれ、デスクトップ全体をあなたに譲ります。押したままデスクトップ・Finder・Slack・チャット・画像を受け付けるどこへでもドラッグし、放せば送れます。2 秒でも十分速く、最長 30 秒は急かさず、画面や解像度をまたいでも付いてきます。</li>
           <li><strong>クリップボードにコピー</strong> — 「コピー」を押すと画像がクリップボードに入り、別の場所で <span class="docs-kbd">⌘V</span> で貼り付けられます。</li>
           <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span><strong>ShareSheet</strong> — macOS ネイティブの共有パネルで、AirDrop・メッセージ・メール・お使いの SNS へ渡します。</li>
-          <li><strong>ファイルに保存</strong> — <span class="g-badge-a" style="margin:0 6px 0 0">全バージョン</span>JPG / PNG / WebP / GIF / TIFF、<br><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span>BMP / PDF。</li>
+          <li><strong>ファイルに保存</strong> — フラット化した画像をディスクに保存します（保存できるフォーマットは下の対応表を参照）。</li>
         </ul>
-        <p style="margin-top:18px">画像をまとめて一度に処理したいときは——統一フォーマット、サイズ変更、ウォーターマーク、保存先の指定——<a href="toolbar.html#batch" style="color:var(--vas-aurora-violet);text-decoration:underline;text-underline-offset:2px">一括変換</a>にお任せください（詳しい説明はツールバーのページにあります）。</p>
       </section>
 
     </div><!-- /.io-cols -->
@@ -750,6 +748,38 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       <div class="ge-duo-item"><span class="ge-duo-k">白は受け入れ</span><span class="ge-duo-d">画像が近づくと、白い呼吸ライトがツールバーを開いて受け入れます。</span></div>
       <div class="ge-duo-item hl"><span class="ge-duo-k">黒は場を譲る</span><span class="ge-duo-d">送り出すときは、エディターが黒い呼吸ライトに畳まれ、デスクトップをすべてあなたのドラッグに返します。</span></div>
     </div>
+
+    <section class="docs-section" id="format-table">
+<style>
+    .fmt-head{display:flex;align-items:center;gap:14px;margin:12px 0 6px}
+    .fmt-head-t{font-family:var(--vas-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-2)}
+    .fmt-head-line{flex:1;height:1px;background:var(--vas-rule)}
+    .fmt-sub{font-family:var(--vas-mono);font-size:11px;color:var(--vas-ash-3);line-height:1.7;margin:0 0 18px}
+    .fmt-wrap{overflow-x:auto;margin:0 0 4px}
+    .fmt-table{border-collapse:collapse;width:100%;min-width:560px;font-family:var(--vas-serif);font-size:14px}
+    .fmt-table th,.fmt-table td{border:1px solid var(--vas-rule);padding:11px 14px;text-align:left;vertical-align:top}
+    .fmt-table thead th{font-family:var(--vas-mono);font-size:11px;letter-spacing:.06em;color:var(--vas-ash-2);font-weight:400;background:rgba(240,232,220,.03)}
+    .fmt-table tbody th{font-family:var(--vas-mono);font-size:12px;color:var(--vas-ash-0);font-weight:500;white-space:nowrap}
+    .fmt-ok{color:var(--vas-ash-0)}
+    .fmt-tau{color:var(--vas-aurora-violet)}
+    .fmt-no{color:var(--vas-ash-3)}
+    .fmt-cn{display:block;font-family:var(--vas-mono);font-size:10px;color:var(--vas-ash-3);margin-top:3px;letter-spacing:0;white-space:normal}
+    </style>
+    <div class="fmt-head"><span class="fmt-head-t">対応フォーマット一覧 · Format Support</span><span class="fmt-head-line"></span></div>
+    <p class="fmt-sub">同じフォーマットでも操作によって対応が異なります · Tauri＝VAS Pro、「全バージョン」は無料の Electron 版を含みます</p>
+    <div class="fmt-wrap">
+    <table class="fmt-table">
+      <thead><tr><th>フォーマット</th><th>読み込み・取り込み</th><th>エディター保存</th><th>一括書き出し</th></tr></thead>
+      <tbody>
+        <tr><th>PNG · JPG · WebP · GIF</th><td class="fmt-ok">全バージョン</td><td class="fmt-ok">全バージョン</td><td class="fmt-ok">全バージョン</td></tr>
+        <tr><th>TIFF</th><td class="fmt-ok">全バージョン<span class="fmt-cn">Electron は sharp で変換表示</span></td><td class="fmt-ok">全バージョン</td><td class="fmt-tau">Tauri のみ</td></tr>
+        <tr><th>BMP</th><td class="fmt-tau">Tauri のみ</td><td class="fmt-tau">Tauri のみ</td><td class="fmt-tau">Tauri のみ</td></tr>
+        <tr><th>SVG</th><td class="fmt-ok">全バージョン</td><td class="fmt-no">保存不可</td><td class="fmt-no">—</td></tr>
+        <tr><th>PDF</th><td class="fmt-no">読み込み不可</td><td class="fmt-tau">Tauri のみ<span class="fmt-cn">フラット化して単一ページ PDF</span></td><td class="fmt-no">—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    </section>
 
   </main>
 </div><!-- /.docs-layout -->

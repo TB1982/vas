@@ -725,7 +725,6 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <ul class="docs-list">
           <li><span class="g-badge-a" style="margin:0 6px 0 0">All versions</span><strong>Drag an image close</strong> — the toolbar opens like a Venus flytrap and catches the image you bring it. The moment you let go it drops into the editor; if you were editing something else, it tucks that away and reopens the editor so you can keep going.</li>
           <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>Copy an image from your browser</strong> — a toast pops up asking whether to “paste the image”; say yes and it drops into the editor. Or paste it into the editor directly with your own custom shortcut.</li>
-          <li><strong>Readable</strong> — <span class="g-badge-a" style="margin:0 6px 0 0">All versions</span>JPG / PNG / WebP / GIF / TIFF / SVG, <br><span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span>BMP / PDF.<br>(SVG is read-only — 8 formats in, 7 out.)</li>
         </ul>
       </section>
 
@@ -739,9 +738,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           <li><strong>Drag out</strong> — <span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span>the editor draws into a single black breathing light, handing you the whole desktop. Hold and drag it to the desktop, Finder, Slack, a chat box — anywhere that accepts an image — and let go to send. Fast in two seconds, patient for up to 30, following you across displays and resolutions.</li>
           <li><strong>Copy to clipboard</strong> — click “Copy” and the image goes to the clipboard; press <span class="docs-kbd">⌘V</span> to paste it elsewhere.</li>
           <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span><strong>ShareSheet</strong> — the native macOS share panel: send to AirDrop, Messages, Mail or your social media.</li>
-          <li><strong>Save to file</strong> — <span class="g-badge-a" style="margin:0 6px 0 0">All versions</span>JPG / PNG / WebP / GIF / TIFF, <br><span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span>BMP / PDF.</li>
+          <li><strong>Save to file</strong> — write the flattened image to disk (see the format table below for what you can save).</li>
         </ul>
-        <p style="margin-top:18px">Need to process a whole batch of images at once — one format, resize, watermark, save location — that’s <a href="toolbar.html#batch" style="color:var(--vas-aurora-violet);text-decoration:underline;text-underline-offset:2px">Batch Convert</a>; full details on the toolbar page.</p>
       </section>
 
     </div><!-- /.io-cols -->
@@ -750,6 +748,38 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       <div class="ge-duo-item"><span class="ge-duo-k">White receives</span><span class="ge-duo-d">An image comes close and the white breathing light opens a toolbar to take it in.</span></div>
       <div class="ge-duo-item hl"><span class="ge-duo-k">Black gives way</span><span class="ge-duo-d">To send it out, the editor collapses into a black breathing light, handing the desktop back for you to drag.</span></div>
     </div>
+
+    <section class="docs-section" id="format-table">
+<style>
+    .fmt-head{display:flex;align-items:center;gap:14px;margin:12px 0 6px}
+    .fmt-head-t{font-family:var(--vas-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-2)}
+    .fmt-head-line{flex:1;height:1px;background:var(--vas-rule)}
+    .fmt-sub{font-family:var(--vas-mono);font-size:11px;color:var(--vas-ash-3);line-height:1.7;margin:0 0 18px}
+    .fmt-wrap{overflow-x:auto;margin:0 0 4px}
+    .fmt-table{border-collapse:collapse;width:100%;min-width:560px;font-family:var(--vas-serif);font-size:14px}
+    .fmt-table th,.fmt-table td{border:1px solid var(--vas-rule);padding:11px 14px;text-align:left;vertical-align:top}
+    .fmt-table thead th{font-family:var(--vas-mono);font-size:11px;letter-spacing:.06em;color:var(--vas-ash-2);font-weight:400;background:rgba(240,232,220,.03)}
+    .fmt-table tbody th{font-family:var(--vas-mono);font-size:12px;color:var(--vas-ash-0);font-weight:500;white-space:nowrap}
+    .fmt-ok{color:var(--vas-ash-0)}
+    .fmt-tau{color:var(--vas-aurora-violet)}
+    .fmt-no{color:var(--vas-ash-3)}
+    .fmt-cn{display:block;font-family:var(--vas-mono);font-size:10px;color:var(--vas-ash-3);margin-top:3px;letter-spacing:0;white-space:normal}
+    </style>
+    <div class="fmt-head"><span class="fmt-head-t">Format Support</span><span class="fmt-head-line"></span></div>
+    <p class="fmt-sub">The same format can behave differently by operation · Tauri = VAS Pro; “All versions” includes the free Electron build</p>
+    <div class="fmt-wrap">
+    <table class="fmt-table">
+      <thead><tr><th>Format</th><th>Read / Import</th><th>Editor “Save As”</th><th>Batch output</th></tr></thead>
+      <tbody>
+        <tr><th>PNG · JPG · WebP · GIF</th><td class="fmt-ok">All versions</td><td class="fmt-ok">All versions</td><td class="fmt-ok">All versions</td></tr>
+        <tr><th>TIFF</th><td class="fmt-ok">All versions<span class="fmt-cn">rendered via sharp on Electron</span></td><td class="fmt-ok">All versions</td><td class="fmt-tau">Tauri only</td></tr>
+        <tr><th>BMP</th><td class="fmt-tau">Tauri only</td><td class="fmt-tau">Tauri only</td><td class="fmt-tau">Tauri only</td></tr>
+        <tr><th>SVG</th><td class="fmt-ok">All versions</td><td class="fmt-no">Can’t save</td><td class="fmt-no">—</td></tr>
+        <tr><th>PDF</th><td class="fmt-no">Can’t read</td><td class="fmt-tau">Tauri only<span class="fmt-cn">flattened to a single-page PDF</span></td><td class="fmt-no">—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    </section>
 
   </main>
 </div><!-- /.docs-layout -->

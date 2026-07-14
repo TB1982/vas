@@ -725,7 +725,6 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <ul class="docs-list">
           <li><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span><strong>拖曳圖片靠近</strong>——工具列像捕蠅草一樣張開，接住你拖過來的圖。放開的瞬間直接進編輯器；若你正在編輯別的東西，它會收好那張、直接展開編輯器繼續。</li>
           <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>從瀏覽器複製圖片</strong>——跳出 toast 問你「貼上圖片」，你說好就直接進編輯器；或直接用自訂快捷鍵貼入編輯器也可以。</li>
-          <li><strong>可讀入</strong>——<span class="g-badge-a" style="margin:0 6px 0 0">全版本</span>JPG／PNG／WebP／GIF／TIFF／SVG，<br><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>BMP／PDF。<br>（其中 SVG 只讀不存——可讀入 8 種、存檔 7 種。）</li>
         </ul>
       </section>
 
@@ -739,9 +738,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           <li><strong>拖曳匯出（Drag out）</strong>——<span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>編輯器收攏成一顆黑呼吸燈，把整個桌面讓給你。按住拖到桌面、Finder、Slack、對話框、任何接受圖片的地方，放開即傳。兩秒夠快、最久 30 秒不催，跨螢幕跨解析度都跟著你。</li>
           <li><strong>複製到剪貼簿</strong>——按「複製」，圖片進剪貼簿，到別處按 <span class="docs-kbd">⌘V</span> 貼上。</li>
           <li><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span><strong>ShareSheet</strong>——macOS 原生分享面板，轉給 AirDrop、訊息、郵件或你的社群媒體。</li>
-          <li><strong>存檔</strong>——<span class="g-badge-a" style="margin:0 6px 0 0">全版本</span>JPG／PNG／WebP／GIF／TIFF，<br><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>BMP／PDF。</li>
+          <li><strong>存檔</strong>——把平面圖存成檔案（可存格式見下方支援表）。</li>
         </ul>
-        <p style="margin-top:18px">要一次處理一整批圖時——統一格式、縮放、加浮水印、指定儲存位置——交給<a href="toolbar.html#batch" style="color:var(--vas-aurora-violet);text-decoration:underline;text-underline-offset:2px">批次格式轉檔</a>，完整說明在工具列頁。</p>
       </section>
 
     </div><!-- /.io-cols -->
@@ -750,6 +748,38 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
       <div class="ge-duo-item"><span class="ge-duo-k">白接收</span><span class="ge-duo-d">圖片靠近，白呼吸燈張開工具列把它接進來。</span></div>
       <div class="ge-duo-item hl"><span class="ge-duo-k">黑讓位</span><span class="ge-duo-d">要送出去，編輯器坍縮成黑呼吸燈，桌面全還給你拖。</span></div>
     </div>
+
+    <section class="docs-section" id="format-table">
+<style>
+    .fmt-head{display:flex;align-items:center;gap:14px;margin:12px 0 6px}
+    .fmt-head-t{font-family:var(--vas-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-2)}
+    .fmt-head-line{flex:1;height:1px;background:var(--vas-rule)}
+    .fmt-sub{font-family:var(--vas-mono);font-size:11px;color:var(--vas-ash-3);line-height:1.7;margin:0 0 18px}
+    .fmt-wrap{overflow-x:auto;margin:0 0 4px}
+    .fmt-table{border-collapse:collapse;width:100%;min-width:560px;font-family:var(--vas-serif);font-size:14px}
+    .fmt-table th,.fmt-table td{border:1px solid var(--vas-rule);padding:11px 14px;text-align:left;vertical-align:top}
+    .fmt-table thead th{font-family:var(--vas-mono);font-size:11px;letter-spacing:.06em;color:var(--vas-ash-2);font-weight:400;background:rgba(240,232,220,.03)}
+    .fmt-table tbody th{font-family:var(--vas-mono);font-size:12px;color:var(--vas-ash-0);font-weight:500;white-space:nowrap}
+    .fmt-ok{color:var(--vas-ash-0)}
+    .fmt-tau{color:var(--vas-aurora-violet)}
+    .fmt-no{color:var(--vas-ash-3)}
+    .fmt-cn{display:block;font-family:var(--vas-mono);font-size:10px;color:var(--vas-ash-3);margin-top:3px;letter-spacing:0;white-space:normal}
+    </style>
+    <div class="fmt-head"><span class="fmt-head-t">支援格式總表 · Format Support</span><span class="fmt-head-line"></span></div>
+    <p class="fmt-sub">同一格式在不同動作下能力不同 · Tauri＝VAS Pro、全版本含免費 Electron 版</p>
+    <div class="fmt-wrap">
+    <table class="fmt-table">
+      <thead><tr><th>格式</th><th>讀取／匯入</th><th>編輯器另存</th><th>批次輸出</th></tr></thead>
+      <tbody>
+        <tr><th>PNG · JPG · WebP · GIF</th><td class="fmt-ok">全版本</td><td class="fmt-ok">全版本</td><td class="fmt-ok">全版本</td></tr>
+        <tr><th>TIFF</th><td class="fmt-ok">全版本<span class="fmt-cn">Electron 以 sharp 轉檔顯示</span></td><td class="fmt-ok">全版本</td><td class="fmt-tau">僅 Tauri</td></tr>
+        <tr><th>BMP</th><td class="fmt-tau">僅 Tauri</td><td class="fmt-tau">僅 Tauri</td><td class="fmt-tau">僅 Tauri</td></tr>
+        <tr><th>SVG</th><td class="fmt-ok">全版本</td><td class="fmt-no">不能存</td><td class="fmt-no">—</td></tr>
+        <tr><th>PDF</th><td class="fmt-no">不能讀</td><td class="fmt-tau">僅 Tauri<span class="fmt-cn">壓平存成單頁 PDF</span></td><td class="fmt-no">—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    </section>
 
   </main>
 </div><!-- /.docs-layout -->
