@@ -62,9 +62,10 @@ The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection)
 |------|-----------|
 | [CLAUDE.md](CLAUDE.md) | First file any AI assistant should read — core rules, identity, conventions |
 | [CLAUDE-process.md](CLAUDE-process.md) | Workflows / protocols / repository structure / 巡水田 phase |
-| [GLOSSARY.md](GLOSSARY.md) | Translation terminology + per-locale conventions (CN Mainland, JA shinjitai, EN clarity, etc.) |
-| [km.md](km.md) | Known issues & solutions — append-only bug log |
-| [designrule.md](designrule.md) | Visual design rules |
+| [GLOSSARY.md](docs/GLOSSARY.md) | Translation terminology + per-locale conventions (CN Mainland, JA shinjitai, EN clarity, etc.) |
+| [km.md](docs/km.md) | Known issues & solutions — append-only bug log |
+| [designrule.md](docs/designrule.md) | Visual design rules |
+| [toolnamemap.md](docs/toolnamemap.md) | Guide tool-name four-language map (from app i18n) |
 
 ---
 
