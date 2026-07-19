@@ -589,8 +589,8 @@
 
 <!-- Tauri + Web 档案室 -->
 <div class="archive">
-  <details class="archive-wrap">
-    <summary>Tauri 完整编年 · 130 个 Sprint</summary>
+  <details class="archive-wrap" id="tauri">
+    <summary>Tauri 完整编年 · 135 个 Sprint</summary>
     <div class="archive-body">
       <div class="arc-divider">平台移植 · S1–9 → v1.0 首送审</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 从零建立；浮动工具栏 · 截图三兄弟 · 批次格式转换</span></div>
@@ -736,9 +736,12 @@
       <div class="arc-line"><span class="arc-date">Sprint 128</span><span class="arc-ver">07·11</span><span>标尺量测升级——点对点测距、选取删除、复原重做</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 129</span><span class="arc-ver">07·12</span><span>工具栏预设布局重排＋延迟改按钮组，修掉复制粘贴锁死</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 130</span><span class="arc-ver">07·12</span><span>擦净长截图置顶钮／回页首钮残留的淡白矩形（Spike）v2.11.0送审上架</span></div>
+      <div class="arc-divider is-weave">真实用户体验反馈 × UI 重新设计 × Hotfix · 谢谢 <a href="https://app.foreglint.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">foreglint</a> · S131–135 → v2.12.0</div>
       <div class="arc-line"><span class="arc-date">Sprint 131</span><span class="arc-ver">07·13</span><span>长截图固定元件残影修复实验（Spike）</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 132</span><span class="arc-ver">07·16</span><span>长截图·取色器·尺标全局快捷键＋系统托盘菜单 · 修复尺标 Retina 漂移</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 133</span><span class="arc-ver">07·18</span><span>OCR·隐私自动遮蔽·QR 扫描三功能修复（App Store 沙盒版根治）· v2.11.3 hotfix 送审上架</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 134</span><span class="arc-ver">07·18</span><span>选取心智模型重新设计</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 135</span><span class="arc-ver">07·18</span><span>截图权限赋予 UI 重新设计 · v2.12.0送审上架</span></div>
     </div>
   </details>
 </div>
@@ -877,5 +880,8 @@
 }
 </script>
 <script src="../js/analytics.js"></script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
 </body>
 </html>

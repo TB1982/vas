@@ -589,8 +589,8 @@
 
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
-  <details class="archive-wrap">
-    <summary>Complete Tauri Chronicle · 130 Sprints</summary>
+  <details class="archive-wrap" id="tauri">
+    <summary>Complete Tauri Chronicle · 135 Sprints</summary>
     <div class="archive-body">
       <div class="arc-divider">Platform port · S1–9 → v1.0 first review submission</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold from zero · Floating toolbar · Screenshot trio · Batch format convert</span></div>
@@ -736,9 +736,12 @@
       <div class="arc-line"><span class="arc-date">Sprint 128</span><span class="arc-ver">07·11</span><span>Ruler measurement upgrade — point-to-point distance, select-and-delete, undo/redo.</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 129</span><span class="arc-ver">07·12</span><span>Toolbar default layout rearranged ＋ delay switched to a button group, fixing the copy-paste lockup.</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 130</span><span class="arc-ver">07·12</span><span>Clean up the faint white rectangle left by the pin-to-top / back-to-top buttons in long screenshots (Spike). v2.11.0 submitted for review.</span></div>
+      <div class="arc-divider is-weave">Real user feedback × UI redesign × Hotfix · thank you, <a href="https://app.foreglint.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">foreglint</a> · S131–135 → v2.12.0</div>
       <div class="arc-line"><span class="arc-date">Sprint 131</span><span class="arc-ver">07·13</span><span>Experiment: fixing the ghosting from pinned elements in long screenshots (Spike)</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 132</span><span class="arc-ver">07·16</span><span>Global shortcuts for long screenshot · color picker · ruler, plus a menu-bar tray menu · fixed ruler drift on Retina</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 133</span><span class="arc-ver">07·18</span><span>Fixed OCR · auto privacy masking · QR scanning — three features rooted out for the App Store sandbox build · v2.11.3 hotfix submitted for review.</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 134</span><span class="arc-ver">07·18</span><span>Redesigned the selection mental model</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 135</span><span class="arc-ver">07·18</span><span>Redesigned the screen-capture permission-granting UI · v2.12.0 submitted for review.</span></div>
     </div>
   </details>
 </div>
@@ -877,5 +880,8 @@
 }
 </script>
 <script src="../js/analytics.js"></script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
 </body>
 </html>

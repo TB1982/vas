@@ -589,8 +589,8 @@
 
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
-  <details class="archive-wrap">
-    <summary>Tauri 完全年代記 · 130 Sprint</summary>
+  <details class="archive-wrap" id="tauri">
+    <summary>Tauri 完全年代記 · 135 Sprint</summary>
     <div class="archive-body">
       <div class="arc-divider">プラットフォーム移植 · S1–9 → v1.0 初の審査提出</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold ゼロから構築 · フローティングツールバー · スクリーンショット 3 兄弟 · バッチ形式変換</span></div>
@@ -736,9 +736,12 @@
       <div class="arc-line"><span class="arc-date">Sprint 128</span><span class="arc-ver">07·11</span><span>定規の計測を強化——点対点の距離、選択削除、取り消し／やり直し。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 129</span><span class="arc-ver">07·12</span><span>ツールバーの初期レイアウトを再配置 ＋ 遅延をボタン群に変更、コピペのロックを修正。</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 130</span><span class="arc-ver">07·12</span><span>長尺キャプチャの最前面ボタン／トップへ戻るボタンが残す薄白い矩形を消す（Spike）。v2.11.0 を審査提出。</span></div>
+      <div class="arc-divider is-weave">実ユーザーの声 × UI 再設計 × Hotfix · <a href="https://app.foreglint.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">foreglint</a> さんに感謝 · S131–135 → v2.12.0</div>
       <div class="arc-line"><span class="arc-date">Sprint 131</span><span class="arc-ver">07·13</span><span>長尺キャプチャの固定要素が残す残像の修復実験（Spike）</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 132</span><span class="arc-ver">07·16</span><span>長尺キャプチャ・カラーピッカー・定規のグローバルショートカット＋メニューバー(トレイ)メニュー · 定規の Retina ずれを修正</span></div>
       <div class="arc-line"><span class="arc-date">Sprint 133</span><span class="arc-ver">07·18</span><span>OCR・プライバシー自動マスク・QR スキャンの三機能を修正（App Store サンドボックス版で根治）· v2.11.3 hotfix を審査提出。</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 134</span><span class="arc-ver">07·18</span><span>選択のメンタルモデルを再設計</span></div>
+      <div class="arc-line"><span class="arc-date">Sprint 135</span><span class="arc-ver">07·18</span><span>スクリーンショット権限付与 UI を再設計 · v2.12.0 を審査提出。</span></div>
     </div>
   </details>
 </div>
@@ -877,5 +880,8 @@
 }
 </script>
 <script src="../js/analytics.js"></script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
 </body>
 </html>
