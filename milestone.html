@@ -111,7 +111,7 @@
   </p>
   <div class="chapter-meta">
     <div>Chapter　<strong>I — 顯</strong></div>
-    <div>Range　<strong>2026 · 03 — 07</strong></div>
+    <div>Range　<strong>2026 · 03 — <span id="range-end">07</span></strong></div>
     <div>Units　<strong>Version · Sprint · Commit</strong></div>
   </div>
 </section>
@@ -1057,6 +1057,10 @@
 <script src="js/analytics.js"></script>
 <script>
 (function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
+<!-- Range 收尾月自動跟隨 #tauri 最後一個 Sprint 的月份（假設同年 2026；跨年需另加年份處理）-->
+<script>
+(function(){var el=document.getElementById("range-end"),box=document.getElementById("tauri");if(!el||!box)return;var mx=0;box.querySelectorAll(".arc-ver").forEach(function(s){var m=parseInt((s.textContent||"").split("·")[0],10);if(m>=1&&m<=12&&m>mx)mx=m;});if(mx>0)el.textContent=("0"+mx).slice(-2);})();
 </script>
 </body>
 </html>
