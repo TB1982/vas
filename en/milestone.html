@@ -589,8 +589,8 @@
 
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
-  <details class="archive-wrap">
-    <summary>Complete Tauri Chronicle · 130 Sprints</summary>
+  <details class="archive-wrap" id="tauri">
+    <summary>Complete Tauri Chronicle · 135 Sprints</summary>
     <div class="archive-body">
       <div class="arc-divider">Platform port · S1–9 → v1.0 first review submission</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold from zero · Floating toolbar · Screenshot trio · Batch format convert</span></div>
@@ -880,5 +880,8 @@
 }
 </script>
 <script src="../js/analytics.js"></script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
 </body>
 </html>

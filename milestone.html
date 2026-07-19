@@ -753,8 +753,8 @@
 
 <!-- Tauri + Web 檔案室 -->
 <div class="archive">
-  <details class="archive-wrap">
-    <summary>Tauri 完整編年 · 130 個 Sprint</summary>
+  <details class="archive-wrap" id="tauri">
+    <summary>Tauri 完整編年 · 135 個 Sprint</summary>
     <div class="archive-body">
       <div class="arc-divider">平臺移植 · S1–9 → v1.0 首送審</div>
       <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 從零建立；浮動工具列 · 截圖三兄弟 · 批次格式轉換</span></div>
@@ -1055,5 +1055,8 @@
 }
 </script>
 <script src="js/analytics.js"></script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
 </body>
 </html>
