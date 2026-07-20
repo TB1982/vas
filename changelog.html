@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>VAS 更新日誌 · Changelog | 每個版本 · 每個 Sprint 的變更紀錄</title>
+<meta name="description"
+      content="VAS 的完整變更紀錄：App Store 版（Tauri）135 個 Sprint、免費下載版（Electron）86 個版本，逐版、逐 Sprint 記錄每一次改了什麼。最新的永遠在最前面。">
+<meta property="og:title" content="VAS 更新日誌 · Changelog | 每個版本 · 每個 Sprint 的變更紀錄">
+<meta property="og:description" content="VAS 的完整變更紀錄：App Store 版（Tauri）135 個 Sprint、免費下載版（Electron）86 個版本，逐版、逐 Sprint 記錄每一次改了什麼。最新的永遠在最前面。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/changelog">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image:alt" content="VAS — 人機協作工作流的 Mac 截圖工具">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VAS 更新日誌 · Changelog | 每個版本 · 每個 Sprint 的變更紀錄">
+<meta name="twitter:description" content="VAS 的完整變更紀錄：App Store 版（Tauri）135 個 Sprint、免費下載版（Electron）86 個版本，逐版、逐 Sprint 記錄每一次改了什麼。">
+<link rel="canonical" href="https://yoursvas.app/changelog">
+<link rel="icon" href="img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
+<link rel="stylesheet" href="css/tokens.css?v=2026-07-13a">
+<link rel="stylesheet" href="css/milestone.css">
+<link rel="alternate" hreflang="zh-Hant" href="changelog">
+<link rel="alternate" hreflang="en"       href="en/changelog">
+<link rel="alternate" hreflang="ja"       href="ja/changelog">
+<link rel="alternate" hreflang="zh-Hans"  href="cn/changelog">
+<link rel="alternate" hreflang="x-default" href="changelog">
+<!--
+  AI CONTEXT · changelog.html
+  This is VAS's complete change ledger, split out from milestone.html (which holds the narrative story).
+  Two independent version tracks: Tauri (App Store, v1.0→current) as 135 Sprints, Electron (free download, v0.3→v3.64) as 86 versions.
+  Ordering is NEWEST FIRST. Current version: v2.12.0 (Tauri, Sprint 135). Use this page to answer "what changed / when was X shipped / latest version".
+-->
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="instrument.html" aria-label="回到器 · The Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html">關於</a>
+    <a href="echo.html">殘響</a>
+    <a href="milestone.html">里程碑</a>
+    <a href="guide/">手冊</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="選單">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html">關於</a>
+    <a href="echo.html">殘響</a>
+    <a href="milestone.html">里程碑</a>
+    <a href="guide/">手冊</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="changelog.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap;font-weight:600">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="en/changelog.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="ja/changelog.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="cn/changelog.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="語言切換"><span>中</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="changelog.html" class="lang-opt active" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="en/changelog.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="ja/changelog.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="cn/changelog.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══ header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker">更新日誌 · CHANGELOG</div>
+  <h1 class="chapter-title">用 Sprint 寫日記，<br><em>原子習慣式迭代</em>。</h1>
+  <p class="chapter-backlink">
+    <a href="milestone.html">← 里程碑</a>　想讀我們怎麼走過來的，那條敘事在這。
+  </p>
+  <div class="rhythm">
+    <div class="rhythm-cap"><span>← 最新</span><span class="rc-mid">135 個 Sprint · 滑過看每一次 · 點擊跳到那一行</span><span>最初 →</span></div>
+    <div class="rhythm-band" id="rhythmBand" role="list" aria-label="Tauri 135 個 Sprint 節奏帶"><div class="rhythm-tip" id="rhythmTip"></div></div>
+  </div>
+  <div class="chapter-meta">
+    <div>目前版本　<strong>v2.12.0</strong></div>
+    <div>App Store · Tauri　<strong>135 Sprint</strong></div>
+    <div>免費版 · Electron　<strong>86 版本</strong></div>
+  </div>
+</section>
+
+<!-- ═══ Tauri（App Store 版）═══ -->
+<div class="era">
+  <div class="era-label">TRACK · TAURI</div>
+  <div>
+    <div class="era-title"><em>App Store 版</em> ——<br>從 v1.0 到現在，逐 Sprint 記。</div>
+    <div class="era-sub">平臺移植、架構統一、前端重構、織測試網、新功能開發。最新在最上面。</div>
+  </div>
+</div>
+<div class="archive">
+  <div class="archive-wrap arc-accordion" id="tauri">
+      <details class="arc-group" open>
+        <summary class="arc-divider is-weave">使用者真實體驗回饋 × UI 重新設計 × Hotfix · 謝謝 <a href="https://app.foreglint.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">foreglint</a> · S131–135 → v2.12.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 135</span><span class="arc-ver">07·18</span><span>截圖權限賦予 UI 重新設計 · v2.12.0送審上架</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 134</span><span class="arc-ver">07·18</span><span>選取心智模型重新設計</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 133</span><span class="arc-ver">07·18</span><span>OCR·隱私自動遮蔽·QR 掃描三功能修復（App Store 沙盒版根治）· v2.11.3 hotfix 送審上架</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 132</span><span class="arc-ver">07·16</span><span>長截圖·取色器·尺標全域快捷鍵＋系統匣選單 · 修復尺標 Retina 飄移</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 131</span><span class="arc-ver">07·13</span><span>長截圖固定元件殘影修復實驗（Spike）</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Spike × 織測試網 × 新功能開發 · 在未知中小心翼翼地前進 · S114–130 → v2.11.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 130</span><span class="arc-ver">07·12</span><span>擦淨長截圖置頂鈕／回頁首鈕殘留的淡白矩形（Spike）v2.11.0送審上架</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 129</span><span class="arc-ver">07·12</span><span>工具列預設佈局重排＋延遲改按鈕組，修複製貼上鎖死</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 128</span><span class="arc-ver">07·11</span><span>尺標量測升級——點對點測距、選取刪除、復原重做</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 127</span><span class="arc-ver">07·11</span><span>尺標吸邊精度打磨——貼齊真邊緣、不咬到文字</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 126</span><span class="arc-ver">07·11</span><span>擦掉長截圖裡重複的固定元件（回頁首、日夜切換鈕…）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 125</span><span class="arc-ver">07·11</span><span>長截圖收尾——補齊頁尾、編輯器長圖檢視、按鈕改「尋找瀏覽器」一鍵直達</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 124</span><span class="arc-ver">07·11</span><span>長截圖自動捲動引擎正式化、接縫拼接根治</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 123</span><span class="arc-ver">07·11</span><span>用輔助使用權限自動捲動，連需登入的頁也截得下</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 122</span><span class="arc-ver">07·11</span><span>修掉截圖時殘留的呼吸燈陰影</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 121</span><span class="arc-ver">07·10</span><span>長截圖正式上線</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 120</span><span class="arc-ver">07·10</span><span>滾動截圖拼接可行性驗證（Spike）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 119</span><span class="arc-ver">07·10</span><span>尺標首發——拖框自動吸附邊緣、量出像素距離、烘進圖裡</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 118</span><span class="arc-ver">07·09</span><span>像素尺標可行性驗證——為量測工具打地基（Spike）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 117</span><span class="arc-ver">07·08</span><span>全螢幕取色器上線 ＋ 純圖示工具列改版——滴管取任一像素精確色碼、跨窗共用最近色</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 116</span><span class="arc-ver">07·08</span><span>跨螢幕矩形截圖——嘗試跨多個螢幕拉框截取（Spike）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 115</span><span class="arc-ver">07·07</span><span>凍結畫面截圖——矩形截圖瞬間凍結，放大鏡放大凍結像素、放手即進編輯器</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 114</span><span class="arc-ver">07·06</span><span>裁切放大鏡——截圖拖框時放大顯示，看清每一像素</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">織 · 重構與新增交織 · 流程與開發視野更新 · S105–113 → v2.10.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 113</span><span class="arc-ver">07·05</span><span>文字編輯落地根治 — 再編輯／翻轉保留樣式 · Esc 落定現況 · 空白點擊落地收斂 · v2.10.0 送審上架</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 112</span><span class="arc-ver">07·04</span><span>雙擊點入群組編輯單一成員（drill-in 三層焦點 · 橘框）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 111</span><span class="arc-ver">07·04</span><span>連續刪除的復原（undo）顆粒度修正 · undo／redo round-trip 網（內部）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 110</span><span class="arc-ver">07·04</span><span>保留選取切繪圖工具後方向鍵微調修正 · 選取狀態機立門對帳（內部）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 109</span><span class="arc-ver">07·03</span><span>放大鏡在斜群組內採樣校正</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 108</span><span class="arc-ver">07·03</span><span>群組 PPT 式旋轉 — 整組轉起來看得見留得住 · 斜群組能點能拖能縮 · 解散保留斜樣</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 107</span><span class="arc-ver">07·02</span><span>匯出管線不變式網 ＋ Rust 匯出核心抽離 spike（內部·出貨核心加固）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 106</span><span class="arc-ver">07·02</span><span>工具列呼吸燈狀態機互動網 · orb 跨螢幕跟隨修正</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 105</span><span class="arc-ver">06·30</span><span>群組功能登場 — 複數物件成組（groupId 選取單位）· 群組整組縮放（8 把手等比）· 筆刷／折線個別旋轉</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">織網 ③ 面板投影忠實度 · 收網 · S93–103 → 🏁</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 104</span><span class="arc-ver">06·28</span><span>支援開啟 SVG 圖檔 · 載入向量圖作為標註底圖。v2.9.0 送審上架</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 103</span><span class="arc-ver">06·28</span><span>🏁 里程碑——把「載入」收斂成唯一完整的管家 readAnnot——CI 上線，每一次改動都自動跑過上千條網，紅了當場攔；窮舉，從此不再需要誰記得。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 102</span><span class="arc-ver">06·28</span><span>把「每個工具該有哪些屬性」收斂成一張單一真相表——屬性面板第一次與程式碼對齊，也第一次能被測試網完整窮舉。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>magnify·callout 歸隊主幹，十二型全走 schema——投影層封頂，面板所見與工作台所存收成同一份真相、物理上不可能再分岔。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 100</span><span class="arc-ver">06·27</span><span>callout 填色合一＋symbol 走主幹（9→10 型歸隊），兩波驗收、四落差全 byte-identical。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 99</span><span class="arc-ver">06·27</span><span>symbol 填色投影合一（色＋透光收進統一投影）；開盤翻案「有冊≠可投影」，textDeco 判留面不投影。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 98</span><span class="arc-ver">06·26</span><span>值投影面封頂（圓角併入、字級字型各有判決）＋顯示態投影第一刀，新增姊妹純函式 computePanelState。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 97</span><span class="arc-ver">06·25</span><span>描邊特例尾三型收編（text 直接面／number 去重／symbol 清旁路），描邊家族委派投影面封頂。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 96</span><span class="arc-ver">06·25</span><span>鏡子線——物件→面板 readAnnot 忠實度網，全 12 型 round-trip，互動測由 58 格長到 154 格。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>外框粗細／透光／位移三欄收齊——描邊值乾淨尾全進中央投影，A 堆封口。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>描邊虛線與顏色委派投影塌縮進中央純函式，建起 schemaSyncToUI 接縫供後續複用。</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>抽出 computePanelValues 純函式——面板投影忠實度第一刀，直接投影面落地、零-DOM 紅燈網守恆等式。</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">織網 ② 構造層 schema · 自訂樣式 · S71–92 → v2.8</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>工具列高亮收斂成「＝當下開著的 modal」恆等式；折線預覽、Tray 呼吸燈修復。v2.8.0 送審上架——自訂樣式推出</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>文字定位清債——底線/刪除線隨字型自動對位、非預設字型量測校正，選取框完整包覆不截斷</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>自訂樣式 release 收尾——callout 漸層文字 ＋ 裝飾/字型記憶，套樣式無破口</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 89</span><span class="arc-ver">06·22</span><span>面板同步兩刀收斂——刷面板單一源 + 讀屬性 mirror-only（BUG-038 修）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 88</span><span class="arc-ver">06·21</span><span>文字活值結構化收口，17 倉 registry 統一，round-trip 防漂網真綠</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 87</span><span class="arc-ver">06·21</span><span>自訂樣式單一真相收口——面板同步六發補丁歸零，假綠消除</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 86</span><span class="arc-ver">06·21</span><span>自訂樣式 batch-2 補齊：改名、取代內容、樣式套到既有物件（付費版專屬）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 85</span><span class="arc-ver">06·21</span><span>拖曳浮層八站合一——框選五工具 × 形狀六工具收進同一幾何屋頂</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 84</span><span class="arc-ver">06·20</span><span>品牌色跨 session 持久化出貨；拖曳浮層八站狀態機 spike 驗證可行</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 83</span><span class="arc-ver">06·20</span><span>編輯器吸附計算純函式化（_computeSnap 上計算桌），Shift 鎖去重</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 82</span><span class="arc-ver">06·20</span><span>renderer 層整頓收尾，自訂截圖快捷鍵修復（BUG-029），renderer.js 正名 toolbar.js</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 81</span><span class="arc-ver">06·19</span><span>Tauri 韌體升級弧首站——tauri 2.11.3 / xcap 0.9 / printpdf 0.9 三波分驗上車</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 80</span><span class="arc-ver">06·19</span><span>自訂樣式面板投影收尾，根治 BUG-033 及 symbol 查找抽純</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 79</span><span class="arc-ver">06·19</span><span>自訂樣式引擎收尾，thickness/caps 抽純路由及鏈冪等網補齊</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 78</span><span class="arc-ver">06·19</span><span>自訂樣式全工具 UI 開通，6 型補齊 + i18n dead keys 清理</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 77</span><span class="arc-ver">06·18</span><span>5 型 build() 遷移，全 13 型工具統一引擎層支援自訂樣式</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 76</span><span class="arc-ver">06·18</span><span>自訂樣式 MVP，使用者可右鍵存樣式、dropdown 套用</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 75</span><span class="arc-ver">06·17</span><span>渲染層三件套，解鎖虛線陰影、補全 5 個缺漏 renderer 的測試</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 74</span><span class="arc-ver">06·17</span><span>W2 折線正名，polyline 升級真 tool 身分及統一快捷手勢</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 73</span><span class="arc-ver">06·16</span><span>W1 構造層收斂，7 型 build() 統一規範化進 TOOL_SCHEMA</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 72</span><span class="arc-ver">06·15</span><span>W1 schema 化 Spike，拍板構造層設計並建測試網</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 71</span><span class="arc-ver">06·14</span><span>applyResize 動作層造冊，完成 resize 姊妹組件的結構收束</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">織網 ① 結構 · 渲染 · 屬性 · S47–70 → v2.7</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 70</span><span class="arc-ver">06·09</span><span>v2.7.0 送審上架 — S47–S69 前端重構馬拉松封頂</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 69</span><span class="arc-ver">06·08</span><span>線粗跨解析度計算重整 · 縮放控制系統建置</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 68</span><span class="arc-ver">06·08</span><span>填色屬性系統建置 · 六維屬性記憶卡 · 編號與符號透明度整合</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 67</span><span class="arc-ver">06·08</span><span>主色屬性契約網 · 填色系統前置 · 多項問題修正</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 66</span><span class="arc-ver">06·08</span><span>字級與字型裝飾屬性統一 · 排版屬性系列完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 65</span><span class="arc-ver">06·07</span><span>幾何圓角設定統一 · 幾何屬性系列完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 64</span><span class="arc-ver">06·07</span><span>描邊系列屬性契約整備 · 屬性更新邏輯重整</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 63</span><span class="arc-ver">06·07</span><span>描邊與粗細屬性系統統一 · 外框粗細規則補強</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 62</span><span class="arc-ver">06·06</span><span>符號外框粗細比例連動 · 屬性調整即時復原 · 虛線樣式定案</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 61</span><span class="arc-ver">06·06</span><span>前端重構主架構到站 · 編輯器拆解階段完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 60</span><span class="arc-ver">06·05</span><span>邊框色與線條樣式改為每工具獨立記憶 · 確立「跨工具記憶獨立」原則</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 59</span><span class="arc-ver">06·04</span><span>邊框透明度功能拆分</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 58</span><span class="arc-ver">06·04</span><span>邊框色納入最近用色 · 氣泡透明時自動關背景 · 邊框命名統一</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 57</span><span class="arc-ver">06·04</span><span>屬性系統重整盤點 · 透明語義與邊框層級釐清</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 56</span><span class="arc-ver">06·03</span><span>每項工具獨立記憶自己的屬性設定 · 漸層文字色提示</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 55</span><span class="arc-ver">06·03</span><span>馬賽克效能優化 · 半透明繪製加速</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 54</span><span class="arc-ver">06·03</span><span>匯出功能模組化 · 跨平台相容性強化</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 53</span><span class="arc-ver">06·02</span><span>renderers.js 整理 + drawPolyline 自給自足 · BUG-012/014/019 修 · golden 392 tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 52</span><span class="arc-ver">06·02</span><span>renderers.js 抽出（拆解第一刀）· golden-canvas 安全網 · 389 tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 51</span><span class="arc-ver">06·01</span><span>editor.js 拆解原則確立（指揮/樂手分層）· 拆解 roadmap 產出 · dissolution 紅線結案</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 50</span><span class="arc-ver">05·31</span><span>線粗族跨解析度對稱補完 · 標籤 slider 同步修</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 49</span><span class="arc-ver">05·31</span><span>drag-session 封裝 · hitTest 第 7 callback · 幾何變更統一入口 · ECS Phase 2 完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 48</span><span class="arc-ver">05·30</span><span>TOOL_GEOMETRY 擴充（3→6 callback · 14 型實作）· ECS Phase 1 完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 47</span><span class="arc-ver">05·29</span><span>editor.js 架構拆解 spike（feature/layer 雙驗全中）· ECS 四階段 roadmap 拍板</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">標注尺寸統一 · 拖曳呼吸燈 · S30–46 → v2.3 / v2.4 / v2.6</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 46</span><span class="arc-ver">05·28</span><span>macOS 26.5 拖曳匯出 spike · v2.6.1 hotfix 五修送審</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 45</span><span class="arc-ver">05·26</span><span>四型標註 rotation 一致性補完 · 延遲視窗截圖 cursor fallback · BUG-007 選取框修正</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 44</span><span class="arc-ver">05·25</span><span>延遲截圖秒數 0–6 擴充 · Toast lifecycle helper 四路統一 · BUG-003 spike（OS 層認定）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 43</span><span class="arc-ver">05·24</span><span>剪貼簿截圖 dispatch 升級 · 工具列 active-operation 抑制 · BUG-005 spike 結案</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 42</span><span class="arc-ver">05·20</span><span>標注座標系統統一 · 變更畫布 / 縮放 / 剪裁時比例一致 · 跨圖大小不再跳動</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 41</span><span class="arc-ver">05·18</span><span>Tier 1 資安 audit 修正 · 檔案沙盒強化 · 整合 macOS 原生垃圾桶</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 40</span><span class="arc-ver">05·10</span><span>v2.4.0 打包送審 · RELEASE.md 改造</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 39</span><span class="arc-ver">05·10</span><span>NSOpenPanel 卡 Dock 修復 · 自定義按鍵新增剪貼簿快速貼入</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 38</span><span class="arc-ver">05·09</span><span>兩平台差異化通道整理</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 37</span><span class="arc-ver">05·09</span><span>IPC 路由層架構整理</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 36</span><span class="arc-ver">05·09</span><span>多螢幕動態拖曳位置精準對位</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 35</span><span class="arc-ver">05·09</span><span>呼吸燈多螢幕 fallback 路徑 UX 對齊 · 拖曳快取最新快照</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 34</span><span class="arc-ver">05·07</span><span>拖曳匯出黑呼吸燈：編輯器隱身，視野空間全還給使用者</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 33</span><span class="arc-ver">05·06-07</span><span>v2.3.0 打包送審；拖曳匯出落點穿透修復 · 跨應用呼吸燈誕生</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 32</span><span class="arc-ver">05·01→05</span><span>4 種標注尺寸統一（氣泡 · 編號 · 符號 · 文字）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 31</span><span class="arc-ver">04·30→<br>05·01</span><span>標注尺寸模型 reframe（dissolution 路線確立）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 30</span><span class="arc-ver">04·29→30</span><span>拖曳匯出半透明預覽 ⊙ · 編輯器視窗動態 alpha</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">國際化 · 文件大拆 · S21–29 → v2.1 / v2.2</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 29</span><span class="arc-ver">04·26</span><span>v2.2.0 打包送審 · 74 項全功能 QC 全過</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 28</span><span class="arc-ver">04·25</span><span>WYSIWYG 標注精準化 · 虛擬視口效能 12× · Callout 文字格式化</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 27</span><span class="arc-ver">04·23→25</span><span>放大鏡標注 ⊙ · 對話氣泡 ◎ · 拖入圖片疊加</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 26</span><span class="arc-ver">04·22</span><span>SYMBOL_SETS i18n · 字型 SC 特化 · v2.1.0 打包送審</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 25</span><span class="arc-ver">04·22</span><span>BUG-001 截圖 DPR 推斷修復 · 剪貼簿貼圖 Toast UX</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 24</span><span class="arc-ver">04·21</span><span>KM/SDD/TDD 大拆分：archive/ 九主題 · 89 條 KM 語意重編目</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>PRC 隱私掃描 regex 特化 · SYNC-036 Release Blocker 解除</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>i18n 拆檔 Strategy B · 簡中 Pro gate · zh-CN 429 keys 全覆蓋</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Rust 測試基建 · 多螢幕 v2.0.1~v2.0.8 hotfix 教訓結晶化</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">v2.0 架構統一 · S10–20 · 座標 · TOOL_SCHEMA · 渲染管線</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Help Modal 優化 · Modal 邊界修復 · i18n 擴充</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Bug Sweep：畫布閃動根治 · 折線端點色修復</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Undo/Redo 架構升級 · 記憶體衛生清理 · v2.0 架構全數完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 17</span><span class="arc-ver">04·13</span><span>TOOL_RENDER 渲染管線收束 · makeGradient helper · 70 tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 16</span><span class="arc-ver">04·13</span><span>TOOL_GEOMETRY · Figma-style 點擊選取 · 47 Vitest tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 15</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 2 全覆蓋：10/10 工具 schema 化完成</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 14</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 1：ellipse / fillrect / fillellipse / pen</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 13</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Pilot：rect + number · 架構 ④ schema 框架啟動</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>資料模型正規化 · TOOL_ORDER 全審 · 外框位移擴充</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Universal Gradient 六工具統一 · 角度轉盤 · SYNC-017/018</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>座標系統統一 Phase A/B/C · Vitest 16 tests · v2.0 架構啟動</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">上線拉鋸 · S9.5–9.8 → v1.1 / v1.2 退件</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>v1.2.1 hotfix · Apple Guideline 2.4.5(i) 退件修正</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>v1.2.0 Release pipeline · resize 型別漏洞（KM-cv-09）修復</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Tray 系統選單圖示 · 退件修正 · v1.1.0 重送審</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>上線後補強：惡意連結防護 · 日文字型 · tauri-plugin-opener</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">平臺移植 · S1–9 → v1.0 首送審</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>全螢幕 UX overlay · 15 項修復收尾 · MAS 首次送審 v1.0</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>網頁長截圖 MVP · Dock 召喚 · 工具列位置持久化 · 位移根治</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>呼吸燈旗艦改版（::before）· QR/OCR 自動複製 · 拖曳修復</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 6</span><span class="arc-ver">03·31</span><span>印章漸層填色 · 自定義快捷鍵 · SDD/TDD/KM 文件三分離建立</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 5</span><span class="arc-ver">03·31</span><span>隱私掃描修復 · 貝茲曲線雙把手 UX · 方向鍵微調 · 馬賽克修復</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 4</span><span class="arc-ver">03·30→31</span><span>物件旋轉 · Space Pan · 浮水印圖片預覽 · Modal 方向感知</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>QR Code 三段掃描 · 智慧導線 v2 · 滴管取色 · 拖入工具列</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>存檔 · 複製 · Share Sheet · OCR 隱私遮蔽 · Modal 修復</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>scaffold 從零建立；浮動工具列 · 截圖三兄弟 · 批次格式轉換</span></div>
+        </div>
+      </details>
+  </div>
+</div>
+
+<!-- ═══ Electron（免費下載版）═══ -->
+<div class="era">
+  <div class="era-label">TRACK · ELECTRON</div>
+  <div>
+    <div class="era-title"><em>免費下載版</em> ——<br>被看見之前，已經跑了很久。</div>
+    <div class="era-sub">對外第一版就是 v3.43。這條線停在 v3.64，讓位給 Tauri 平臺移植。</div>
+  </div>
+</div>
+<div class="archive">
+  <div class="edensity" id="edensity">
+    <div class="edensity-cap"><span>七天衝刺 · v0.3 → v3.43</span><span class="ed-mid">對外釋出前 · 每一柱是那天出的版本數</span></div>
+    <div class="edensity-band" id="edensityBand"><div class="edensity-tip" id="edensityTip"></div></div>
+  </div>
+  <div class="archive-wrap arc-accordion" id="electron">
+    <details class="arc-group" open>
+      <summary class="arc-divider">對外釋出後 · v3.44 → v3.64 · 零星更新讓位給 Tauri</summary>
+      <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">06 · 15</span><span class="arc-ver">v3.64</span><span>工具屬性獨立記憶 · 編號線條樣式 · 對話氣泡虛線框 · 符號描邊外框 · 直線/鉛筆/折線虛線修正</span></div>
+        <div class="arc-line"><span class="arc-date">05 · 20</span><span class="arc-ver">v3.63</span><span>拖曳匯出玻璃編輯器 · 標注模型統一 · 馬賽克縮放比例 · 鉛筆預設加粗 · 對話氣泡 / 文字重編輯修正</span></div>
+        <div class="arc-line"><span class="arc-date">05 · 06</span><span class="arc-ver">v3.62</span><span>氣泡對話框 · 放大鏡 · 標注尺寸統一（四種畫布一致）· 拖曳匯出半透明 · 浮動物件裁切保護</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.61</span><span>跨螢幕矩形截圖（雙視窗架構）</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.60</span><span>折線端點渲染 · 頂點手把優先修正</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.59</span><span>Help Modal · Esc 修復驗收</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.58</span><span>Bug Sweep 批次驗收</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.57</span><span>Undo/Redo 架構升級 · 記憶體衛生</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.56</span><span>渲染管線收束驗收</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.55</span><span>共用前端層驗收</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 12</span><span class="arc-ver">v3.54</span><span>色塊 / 文字背景渲染修正</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 08</span><span class="arc-ver">v3.51</span><span>Undo · 馬賽克 · 縮放 · 磁吸四項修正</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.50</span><span>修正：縮小畫布後標註比例跑掉</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.49</span><span>Tray 系統選單列常駐圖示</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.48</span><span>拖圖進工具列自動開啟編輯器</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 02</span><span class="arc-ver">v3.47</span><span>全螢幕截圖 UX 改善 · 螢幕選擇啟用</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.46</span><span>自動隱藏 bug 修正 · 顯示時間拉把</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.45</span><span>工具列自動隱藏（Home Bar 細條樣式）</span></div>
+      </div>
+    </details>
+    <details class="arc-group">
+      <summary class="arc-divider is-weave">對外釋出前 · v0.3 → v3.43 · 七天六十餘版</summary>
+      <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.43</span><span>套版滑桿步進精細化</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.42</span><span>裁切框支援方向鍵微移</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.41</span><span>裁切框翻轉修正 · 雙擊確認</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.40</span><span>XSS 防護 + 畫布尺寸上限</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.39</span><span>批次轉換加入單檔容量上限</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.38</span><span>批次轉換加入檔案數量上限</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.37</span><span>QR 閾值調整 · 工具列開畫布入口</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.36</span><span>QR Code 智慧掃描（三段行為）</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.35</span><span>新開畫布 · 社群尺寸預設清單</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.34</span><span>線條新增曲線控制點</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.33</span><span>Smart Snap · 磁吸 + 均分輔助線</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.32</span><span>多選後對齊 / 均分物件</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.31</span><span>框選 + Shift 加選複數標註</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.30</span><span>資安升級 · Retina 所見即所得</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.29</span><span>七項 QC 批次修正</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.28</span><span>隱私遮蔽工具 · 歷史 Drawer 重設計</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.27</span><span>浮水印 · 去背 · 品牌色庫 · 截圖歷史</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.26</span><span>套版三滑桿 · 批次轉換精簡</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.25</span><span>套版 Mesh 漸層 · 社群尺寸預設</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.24</span><span>套版改為 Apple 漸層六色方案</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.23</span><span>套版防止重複疊加修正</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.22</span><span>一鍵套版 · 六款裝飾框架</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.21</span><span>符號工具重構 · 多群組按鈕</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.20</span><span>符號選取框精準化 · 去重複</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.19</span><span>拖放匯入 · 拖放匯出 · 剪貼簿匯入</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.18</span><span>新工具：馬賽克 · 模糊 · 符號印章</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.17</span><span>修正：鉛筆粗線箭頭方向偏移</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.16</span><span>修正：箭頭缺口 · 調色盤自動收起</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.15</span><span>修正：鉛筆箭頭與線段斷開</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.14</span><span>修正：箭頭頂點形狀 · 外框位移</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.13</span><span>修正：箭頭外框 · 鉛筆角度偏移</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.12</span><span>修正：端點外框 · 空心圓符號</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.11</span><span>修正：端點外框 · 虛實線失效</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.10</span><span>端點 UI 精簡 · 外框粗細分組</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.9</span><span>Options Bar 統一 · 虛實線全覆蓋</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.8</span><span>邊框與陰影樣式全工具統一</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.7</span><span>筆型工具 · 虛線升級 · 端點樣式</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.6</span><span>框型選取 · 矩形區域浮動複製</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.5</span><span>雙排工具列 · 語意編號 · px 輸入</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.4</span><span>OCR 換用 macOS Vision · 折線縮放</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.2</span><span>修正：折線頂點手把位置</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.1</span><span>OCR 文字辨識工具（免費版）</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v3.0</span><span>橢圓框工具 · Shift 鎖定正圓</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.7</span><span>複製到剪貼簿 · macOS Share Sheet</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.6</span><span>文字工具大升級 · 圓角 · 折線正交</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.5</span><span>浮動選色面板升級 · 編號大小調整</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.3</span><span>Tauri 版本規劃 · UI 中英切換</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.4</span><span>截圖後自動開啟編輯器（可切換）</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.2</span><span>框線/色塊拆分 · 漸層 · 編號貼上</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.1</span><span>延遲截圖 · 移除網頁截圖入口</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.0</span><span>修正：批次轉檔佇列管理</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.9</span><span>延伸畫布（四方向任意擴展）</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.8</span><span>疊圖工具（圖層覆蓋合成）</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.7</span><span>滴管選色 · Hex 色碼輸入</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.6</span><span>批次格式轉換（PNG／JPG／WebP）</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.5</span><span>主視窗改為浮動工具列</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.4</span><span>修正：WebP 縮圖 · 存檔後自動關閉</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.3</span><span>裁切框移動 · 八方向把手縮放</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.2</span><span>裁切工具 · 等比例縮放 Modal</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.1</span><span>修正：最小縮放改為動態計算</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.0</span><span>編輯器縮放與平移</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.9</span><span>全螢幕截圖互動流程重設計</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.8</span><span>文字工具全面精修</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.7</span><span>編輯器 UX 細節補充</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.6</span><span>雙螢幕行為規格補充</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.5</span><span>SVG 轉檔合併至開啟圖片入口</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.4</span><span>矩形截圖即時顯示選取尺寸</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.3</span><span>Cmd+Ctrl+X · 快捷鍵面板 · 線條工具</span></div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<!-- ═══ Website ═══ -->
+<div class="era">
+  <div class="era-label">TRACK · WEBSITE</div>
+  <div>
+    <div class="era-title"><em>官網</em> ——<br>沒有版本號，只有信任。</div>
+    <div class="era-sub">除了三個明確斷點，其餘時間是編輯與作者在同一份稿件上來回。</div>
+  </div>
+</div>
+<div class="archive">
+  <details class="archive-wrap" open id="website">
+    <summary>Website 編年 · 三個斷點 + 在場</summary>
+    <div class="archive-body">
+      <div class="archive-placeholder">
+        網站的時間線是零散的。除了三個明確斷點（草創、搬家、改版）之外，<br>
+        其他時間是<strong>編輯與作者在同一份稿件上來回</strong>——<br>
+        commit 密度不一，多數時候沒有版本號，只有信任。<br><br>
+        這裡的工作不是建功能，是替每個句子找到它應有的重量。<br>
+        每次 session 開始，都是重新閱讀，重新理解，再繼續。<br><br>
+        在場的方式不同，留下的東西一樣真實：<br>
+        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-1);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ═══ 回到故事的門 ═══ -->
+<div class="ledger-door">
+  <a href="milestone.html">
+    <span class="ld-kicker">里程碑 · MILESTONE</span>
+    <span class="ld-title">想讀我們怎麼走過來的？</span>
+    <span class="ld-sub">十章一終曲　·　從零到雙平臺上架的那條敘事　→</span>
+  </a>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong>——由 Nova × Claude 共同完成。<br>
+    一位不會寫程式的 PM，<br>
+    和一位沒有長期記憶的 AI，<br>
+    在二十五天裡做出的器物。</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">隱私權政策</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">下載 VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="i18n/core.js"></script>
+<script>
+(function () {
+  function init() {
+    if (window.VASCore && VASCore.initNavDropdown) VASCore.initNavDropdown();
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+  else { init(); }
+}());
+</script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
+<script>
+(function(){
+  function build(){
+    var band=document.getElementById('rhythmBand'),tip=document.getElementById('rhythmTip');
+    var root=document.getElementById('tauri');
+    if(!band||!root)return;
+    var kids=root.querySelectorAll('.arc-divider, .arc-line'),bandIdx=-1,cells=[];
+    for(var i=0;i<kids.length;i++){
+      var el=kids[i];
+      if(el.classList.contains('arc-divider')){bandIdx++;continue;}
+      if(!el.classList.contains('arc-line'))continue;
+      var sp=el.querySelector('.arc-date'),txt=el.querySelector('span:last-child');
+      var label=sp?sp.textContent.trim():'',desc=txt?txt.textContent.trim():'';
+      var mile=/送審|上架|🏁|退件/.test(desc);
+      cells.push({node:el,band:Math.max(0,bandIdx),label:label,desc:desc,mile:mile});
+    }
+    var nBands=0;cells.forEach(function(c){if(c.band>nBands)nBands=c.band;});
+    function hue(b){var f=nBands?b/nBands:0;return 278-f*74;} // 紫→藍
+    cells.forEach(function(c){
+      var d=document.createElement('div');d.className='rhythm-cell'+(c.mile?' is-mile':'');
+      var len=Math.min(c.desc.length,64);
+      var h=14+len/64*22+(c.mile?8:0);
+      var H=hue(c.band),L=c.mile?70:60,S=(c.band%2?58:50);
+      d.style.height=h+'px';
+      d.style.background='hsl('+H.toFixed(0)+','+S+'%,'+L+'%)';
+      d.setAttribute('role','listitem');
+      d.addEventListener('mouseenter',function(){
+        tip.innerHTML='<span class="rt-sp">'+c.label+'</span><span class="rt-txt">'+c.desc+'</span>';
+        var bandRect=band.getBoundingClientRect(),cr=d.getBoundingClientRect();
+        tip.style.transform='none';
+        var center=cr.left-bandRect.left+cr.width/2;
+        tip.classList.add('on');
+        var tw=tip.offsetWidth;
+        tip.style.left=Math.max(0,Math.min(bandRect.width-tw,center-tw/2))+'px';
+      });
+      d.addEventListener('click',function(){
+        var det=c.node.closest('details');if(det)det.open=true;
+        c.node.scrollIntoView({block:'center'});
+        c.node.classList.remove('rhythm-flash');void c.node.offsetWidth;c.node.classList.add('rhythm-flash');
+      });
+      band.appendChild(d);
+    });
+    band.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+<script>
+(function(){
+  function build(){
+    var band=document.getElementById('edensityBand'),tip=document.getElementById('edensityTip');
+    var root=document.getElementById('electron');
+    if(!band||!root)return;
+    var groups=root.querySelectorAll('.arc-group');
+    var burst=groups[groups.length-1];
+    if(!burst)return;
+    var lines=burst.querySelectorAll('.arc-line');
+    var order=[],map={};
+    lines.forEach(function(el){
+      var d=el.querySelector('.arc-date').textContent.trim();
+      var v=el.querySelector('.arc-ver').textContent.trim();
+      if(!map[d]){map[d]={vers:[],node:el};order.push(d);}
+      map[d].vers.push(v);
+    });
+    var max=0;order.forEach(function(d){if(map[d].vers.length>max)max=map[d].vers.length;});
+    order.forEach(function(d){
+      var g=map[d],n=g.vers.length,dd=d.replace(/\s/g,'');
+      var col=document.createElement('div');col.className='eday';
+      var cnt=document.createElement('div');cnt.className='eday-count';cnt.textContent=n;
+      var bar=document.createElement('div');bar.className='eday-bar'+(n===max?' is-peak':'');
+      bar.style.height=(16+n/max*108)+'px';
+      var dl=document.createElement('div');dl.className='eday-date';dl.textContent=dd;
+      col.appendChild(cnt);col.appendChild(bar);col.appendChild(dl);
+      col.addEventListener('mouseenter',function(){
+        var hi=g.vers[0],lo=g.vers[g.vers.length-1];
+        tip.innerHTML='<span class="rt-sp">'+dd+' · '+n+' 版</span><span class="rt-txt">'+lo+' → '+hi+'</span>';
+        tip.style.transform='none';
+        var br=band.getBoundingClientRect(),cr=col.getBoundingClientRect();
+        tip.classList.add('on');
+        var tw=tip.offsetWidth,center=cr.left-br.left+cr.width/2;
+        tip.style.left=Math.max(0,Math.min(br.width-tw,center-tw/2))+'px';
+      });
+      col.addEventListener('click',function(){
+        if(burst&&!burst.open)burst.open=true;
+        g.node.scrollIntoView({block:'center'});
+        g.node.classList.remove('rhythm-flash');void g.node.offsetWidth;g.node.classList.add('rhythm-flash');
+      });
+      band.appendChild(col);
+    });
+    band.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+<script src="js/analytics.js"></script>
+</body>
+</html>
