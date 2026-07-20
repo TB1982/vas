@@ -43,7 +43,8 @@ The visual decisions on this site follow from the product philosophy in CLAUDE.m
 - `insight.html` — Pudding-style long-form feature: each insight is a chapter
 - `collab.html` — Dual-column script: Nova's thinking left, Claude's response right, timeline axis center
 - `harness.html` — Architecture white paper: diagrams, schema, structured comparison
-- `milestone.html` — Exhibition wall text: date-led, serial, short narrative per milestone
+- `milestone.html` — Exhibition wall text: date-led, serial, short narrative per milestone (the journey; sealed as 十章一終曲)
+- `changelog.html` — Full change ledger split out of milestone:逐版逐 Sprint, newest-first, two live DOM-reading visualizations (Tauri rhythm band · Electron release-density band). Adding a Sprint/version row makes the visuals grow automatically — only translate captions, never touch the JS/classes
 - `guide.html` — Precision reference: three-column (TOC / explanation / figure), high density allowed
 
 **The Japanese editorial sensibility** runs across all pages: 《Brutus》, 《POPEYE》, Naoto Fukasawa's books — "一壺茶一個想法請自己來看". Short sentences. Sentences that end like a signature followed by a single dot.
@@ -83,7 +84,8 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 ├── harness.html            # Chapter II · 系統 · SYSTEM (cover)
 ├── us.html                 # Chapter II · ⓘ mirror (Sapere Aude 2.0)
 ├── vessel.html             # Vessel · 容器論 · Treatise (hidden under harness 呼吸燈)
-├── milestone.html          # Chapter III · 里程碑 · CHRONICLE
+├── milestone.html          # Chapter III · 里程碑 · MILESTONE (narrative; sealed at S104 · 06·28)
+├── changelog.html          # 更新日誌 · CHANGELOG — full ledger (Tauri 135 Sprint + Electron 86 版), split out of milestone; rhythm-band + release-density JS read the DOM live
 ├── faq.html                # FAQ — eight questions
 ├── guide.html              # User guide
 ├── privacy.html            # Privacy policy
