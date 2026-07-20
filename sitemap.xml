@@ -632,7 +632,7 @@
   <!-- ═══════ Chapter III · Milestones (里程碑) ═══════ -->
   <url>
     <loc>https://yoursvas.app/milestone</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/milestone"/>
@@ -644,7 +644,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/milestone</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/milestone"/>
@@ -656,7 +656,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/milestone</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/milestone"/>
@@ -668,7 +668,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/milestone</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/milestone"/>
@@ -676,6 +676,55 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/milestone"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/milestone"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/milestone"/>
+  </url>
+
+  <!-- ═══════ 更新日誌 · Changelog ═══════ -->
+  <url>
+    <loc>https://yoursvas.app/changelog</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/changelog"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/en/changelog</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/changelog"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/ja/changelog</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/changelog"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/cn/changelog</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/changelog"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/changelog"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/changelog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/changelog"/>
   </url>
 
   <!-- ═══════ Tools · FAQ ═══════ -->

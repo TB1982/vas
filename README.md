@@ -18,7 +18,7 @@ The home page (`/`) is two doors: **器 · The Instrument** (the product) and **
 
 | Page | Path | Role |
 |------|------|------|
-| Instrument | `/instrument` | 器 · The Instrument — the macOS screenshot tool; its acquire section leads to Milestones |
+| Instrument | `/instrument` | 器 · The Instrument — the macOS screenshot tool; its acquire section leads to Changelog / Manual / Milestones |
 | Echoes (Mirror Hall) | `/echo` | I · 殘響 · ECHOES — instrument's 鏡廊, the hub for the six chapter pages below |
 | ↳ Design | `/insight` | 頁一 · 設計 — five design decisions |
 | ↳ Collab | `/collab` | 頁二 · 協作 — six collaboration stories |
@@ -26,7 +26,8 @@ The home page (`/`) is two doors: **器 · The Instrument** (the product) and **
 | ↳ Self | `/self` | 頁四 · 自己 — CLAUDE.md as Jungian Self-mirror |
 | ↳ System | `/harness` | 頁五 · 系統 — Harness Engineering (gateway to the 思-side pillars) |
 | ↳ Us | `/us` | 頁六 · 我們 — Sapere Aude 2.0 (sitemap-only, not in main nav) |
-| Milestones | `/milestone` | 里程碑 · CHRONICLE — 25 days, 80+ versions (reached from instrument's acquire section) |
+| Milestones | `/milestone` | 里程碑 · MILESTONE — the narrative journey (十章一終曲, sealed at S104 · 06·28); the per-version/Sprint ledger is split out to Changelog |
+| Changelog | `/changelog` | 更新日誌 · CHANGELOG — the full change ledger: Tauri 135 Sprints + Electron 86 versions, newest-first, with rhythm-band / release-density visualizations (reached from instrument's acquire chip and the milestone door) |
 | Guide | `/guide` | User manual |
 | FAQ | `/faq` | Eight Questions |
 
@@ -50,7 +51,7 @@ The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection)
 | Privacy | `/privacy` | Privacy policy |
 | 404 | `/404` | Error page |
 
-**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 17 pages × 4 locales, plus `/harness/{context,constraints,entropy}` × 4. There is no runtime i18n — language switching is page navigation.
+**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 18 pages × 4 locales, plus `/harness/{context,constraints,entropy}` × 4. There is no runtime i18n — language switching is page navigation.
 
 **Sitemap-only (not in main nav, by design):** `/us`, `/vessel`, and `/harness/{context,constraints,entropy}`. Humans reach them by digging (trail-dot / inline-dot doors); crawlers and AI reach them via sitemap. Hide-from-human ≠ hide-from-machine.
 
