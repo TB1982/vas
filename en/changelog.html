@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>VAS Changelog | Every Version · Every Sprint's Change Record</title>
+<meta name="description"
+      content="The complete change record of VAS: App Store edition (Tauri) across 135 Sprints, free download edition (Electron) across 86 versions — recording what changed in every version, every Sprint. The newest is always first.">
+<meta property="og:title" content="VAS Changelog | Every Version · Every Sprint's Change Record">
+<meta property="og:description" content="The complete change record of VAS: App Store edition (Tauri) across 135 Sprints, free download edition (Electron) across 86 versions — recording what changed in every version, every Sprint. The newest is always first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/changelog">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS — A screenshot tool for human–AI collaboration on Mac">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image:alt" content="VAS — A screenshot tool for human–AI collaboration on Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VAS Changelog | Every Version · Every Sprint's Change Record">
+<meta name="twitter:description" content="The complete change record of VAS: App Store edition (Tauri) across 135 Sprints, free download edition (Electron) across 86 versions — recording what changed in every version, every Sprint.">
+<link rel="canonical" href="https://yoursvas.app/en/changelog">
+<link rel="icon" href="../img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css?v=2026-07-13a">
+<link rel="stylesheet" href="../css/milestone.css">
+<link rel="alternate" hreflang="zh-Hant" href="../changelog">
+<link rel="alternate" hreflang="en"       href="changelog">
+<link rel="alternate" hreflang="ja"       href="../ja/changelog">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/changelog">
+<link rel="alternate" hreflang="x-default" href="../changelog">
+<!--
+  AI CONTEXT · changelog.html
+  This is VAS's complete change ledger, split out from milestone.html (which holds the narrative story).
+  Two independent version tracks: Tauri (App Store, v1.0→current) as 135 Sprints, Electron (free download, v0.3→v3.64) as 86 versions.
+  Ordering is NEWEST FIRST. Current version: v2.12.0 (Tauri, Sprint 135). Use this page to answer "what changed / when was X shipped / latest version".
+-->
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="instrument.html" aria-label="Back to the Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html">About</a>
+    <a href="echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide/">Guide</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html">About</a>
+    <a href="echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide/">Guide</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../changelog.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="changelog.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;font-weight:600">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/changelog.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/changelog.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Language switch"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../changelog.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="changelog.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/changelog.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/changelog.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══ header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker">Change Ledger · CHANGELOG</div>
+  <h1 class="chapter-title">A diary written in Sprints,<br><em>atomic-habit iteration</em>.</h1>
+  <p class="chapter-backlink">
+    <a href="milestone.html">← Milestones</a>　Want to read how we walked this road? That narrative lives here.
+  </p>
+  <div class="rhythm">
+    <div class="rhythm-cap"><span>← Latest</span><span class="rc-mid">135 Sprints · hover to see each one · click to jump to that row</span><span>Earliest →</span></div>
+    <div class="rhythm-band" id="rhythmBand" role="list" aria-label="Tauri 135-Sprint rhythm band"><div class="rhythm-tip" id="rhythmTip"></div></div>
+  </div>
+  <div class="chapter-meta">
+    <div>Current version　<strong>v2.12.0</strong></div>
+    <div>App Store · Tauri　<strong>135 Sprints</strong></div>
+    <div>Free · Electron　<strong>86 versions</strong></div>
+  </div>
+</section>
+
+<!-- ═══ Tauri (App Store edition) ═══ -->
+<div class="era">
+  <div class="era-label">TRACK · TAURI</div>
+  <div>
+    <div class="era-title"><em>App Store Edition</em> ——<br>from v1.0 to now, recorded Sprint by Sprint.</div>
+    <div class="era-sub">Platform port, architecture unification, front-end refactor, weaving the test net, new-feature development. Newest at the top.</div>
+  </div>
+</div>
+<div class="archive">
+  <div class="archive-wrap arc-accordion" id="tauri">
+      <details class="arc-group" open>
+        <summary class="arc-divider is-weave">Real user feedback × UI redesign × Hotfix · thank you, <a href="https://app.foreglint.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">foreglint</a> · S131–135 → v2.12.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 135</span><span class="arc-ver">07·18</span><span>Redesigned the screen-capture permission-granting UI · v2.12.0 submitted for review.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 134</span><span class="arc-ver">07·18</span><span>Redesigned the selection mental model</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 133</span><span class="arc-ver">07·18</span><span>Fixed OCR · auto privacy masking · QR scanning — three features rooted out for the App Store sandbox build · v2.11.3 hotfix submitted for review.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 132</span><span class="arc-ver">07·16</span><span>Global shortcuts for long screenshot · color picker · ruler, plus a menu-bar tray menu · fixed ruler drift on Retina</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 131</span><span class="arc-ver">07·13</span><span>Experiment: fixing the ghosting from pinned elements in long screenshots (Spike)</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Spike × weaving the net × new-feature build · feeling our way through the unknown · S114–130 → v2.11.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 130</span><span class="arc-ver">07·12</span><span>Clean up the faint white rectangle left by the pin-to-top / back-to-top buttons in long screenshots (Spike). v2.11.0 submitted for review.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 129</span><span class="arc-ver">07·12</span><span>Toolbar default layout rearranged ＋ delay switched to a button group, fixing the copy-paste lockup.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 128</span><span class="arc-ver">07·11</span><span>Ruler measurement upgrade — point-to-point distance, select-and-delete, undo/redo.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 127</span><span class="arc-ver">07·11</span><span>Ruler edge-snap precision polish — hug the true edge, don’t bite into the text.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 126</span><span class="arc-ver">07·11</span><span>Erase the repeated fixed elements inside long screenshots (back-to-top, day/night toggle…).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 125</span><span class="arc-ver">07·11</span><span>Long-screenshot wrap-up — fill in the page footer, long-image view in the editor, button changed to “find browser” for one-click access.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 124</span><span class="arc-ver">07·11</span><span>Long-screenshot auto-scroll engine formalized, seam stitching settled for good.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 123</span><span class="arc-ver">07·11</span><span>Auto-scroll via the Accessibility permission — even pages that require login can be captured.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 122</span><span class="arc-ver">07·11</span><span>Fix the breathing-light shadow left behind during capture.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 121</span><span class="arc-ver">07·10</span><span>Long screenshot goes live.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 120</span><span class="arc-ver">07·10</span><span>Scrolling-capture stitching feasibility check (Spike).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 119</span><span class="arc-ver">07·10</span><span>Ruler debut — drag a box, it auto-snaps to edges, measures the pixel distance, bakes it into the image.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 118</span><span class="arc-ver">07·09</span><span>Pixel-ruler feasibility check — laying the foundation for a measurement tool (Spike).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 117</span><span class="arc-ver">07·08</span><span>Full-screen color picker goes live ＋ icon-only toolbar redesign — the eyedropper grabs the exact hex of any pixel, recent colors shared across windows.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 116</span><span class="arc-ver">07·08</span><span>Cross-screen rectangle capture — trying to drag a box across multiple displays (Spike).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 115</span><span class="arc-ver">07·07</span><span>Freeze-frame capture — rectangle capture freezes the screen instantly; the loupe magnifies the frozen pixels, release to drop straight into the editor.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 114</span><span class="arc-ver">07·06</span><span>Crop magnifier — a loupe zooms in as you drag the capture box, so you see every pixel.</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Weave · refactor and new features interwoven · process and dev outlook renewed · S105–113 → v2.10.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 113</span><span class="arc-ver">07·05</span><span>Text editing landed and settled for good — re-edit／flip keep the style · Esc commits the current state · clicking blank space lands and converges. v2.10.0 submitted for review.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 112</span><span class="arc-ver">07·04</span><span>Double-click to drill into a group and edit a single member (drill-in, three-layer focus · orange frame)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 111</span><span class="arc-ver">07·04</span><span>Fix: undo granularity for consecutive deletions · undo／redo round-trip net (internal)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 110</span><span class="arc-ver">07·04</span><span>Fix: arrow-key nudge after switching to a drawing tool with the selection kept · selection state-machine gate-and-reconcile (internal)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 109</span><span class="arc-ver">07·03</span><span>Magnifier sampling calibrated inside tilted groups</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 108</span><span class="arc-ver">07·03</span><span>Group PowerPoint-style rotation — turn the whole group, visible and preserved · tilted groups can be clicked, dragged, scaled · ungrouping keeps the tilt</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 107</span><span class="arc-ver">07·02</span><span>Export-pipeline invariant net ＋ Rust export-core extraction spike (internal · hardening the shipping core)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 106</span><span class="arc-ver">07·02</span><span>Toolbar breathing-light state-machine interaction net · orb cross-screen follow fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 105</span><span class="arc-ver">06·30</span><span>Groups arrive — multiple objects combine into a group (groupId as the selection unit) · whole-group scaling (8 handles, proportional) · per-object rotation for brush / polyline</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Weaving ③ Panel-projection fidelity · Closing the net · S93–103 → 🏁</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 104</span><span class="arc-ver">06·28</span><span>Support for opening SVG files · load vector graphics as the annotation backdrop. v2.9.0 submitted for review.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 103</span><span class="arc-ver">06·28</span><span>🏁 Milestone — Converged the load path into one complete steward, readAnnot — CI went live; every change automatically runs through thousands of nets, red caught on the spot; exhaustive checking no longer needs anyone to remember.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 102</span><span class="arc-ver">06·28</span><span>Converged each tool’s attribute set into a single source-of-truth table — the attribute panel aligned with the code for the first time, and for the first time could be exhaustively enumerated by the test net.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>magnify·callout fall in line onto the main trunk, all twelve types now run through schema — projection layer topped out; what the panel shows and what the worktable stores converge into one truth, physically impossible to diverge again.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 100</span><span class="arc-ver">06·27</span><span>Callout fill unified + symbol onto the main trunk (9→10 types fall in line); two acceptance waves, all four gaps byte-identical.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 99</span><span class="arc-ver">06·27</span><span>symbol fill projection unified (color + opacity into one projection); an opening-bell reversal — "registered ≠ projectable" — textDeco ruled to stay on the surface, not projected.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 98</span><span class="arc-ver">06·26</span><span>Value-projection surface tops out (corner-radius folded in; font-size and font each get their own ruling) + display-state projection first cut; added the sister pure function computePanelState.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 97</span><span class="arc-ver">06·25</span><span>Stroke special-case tail — three types folded in (text direct surface / number dedup / symbol side-path cleared); the stroke family's delegated-projection surface tops out.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 96</span><span class="arc-ver">06·25</span><span>Mirror line — object→panel readAnnot fidelity net, all 12 types round-trip; interaction tests grew from 58 to 154 cases.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>Outline thickness / opacity / offset — three columns gathered; the stroke values' clean tail all into central projection, Stack A sealed.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>Stroke dash and color delegated-projection collapsed into the central pure function; built the schemaSyncToUI seam for later reuse.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>Extracted the computePanelValues pure function — first cut at panel-projection fidelity; the direct projection surface lands, a zero-DOM red-net conservation identity.</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Weaving ② Construction-layer schema · Custom styles · S71–92 → v2.8</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>Toolbar highlight converged to "whichever modal is open"; polyline preview and Tray breathing-light fixed. v2.8.0 submitted to the App Store — Custom Styles ships</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>Text-positioning debt cleared — underline/strikethrough auto-align to the font; non-default fonts measured correctly, selection box wraps fully</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>Custom Styles release polish — callout gradient text plus decoration/font memory; styles apply with no gaps</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 89</span><span class="arc-ver">06·22</span><span>Two-cut panel-sync convergence — single paint source + read-only attribute mirroring (BUG-038 fixed)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 88</span><span class="arc-ver">06·21</span><span>Text working-state structured and consolidated; 17-store registry unified; round-trip drift net truly green</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 87</span><span class="arc-ver">06·21</span><span>Custom Styles single-source-of-truth consolidation — six panel-sync patches reduced to zero, false-green eliminated</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 86</span><span class="arc-ver">06·21</span><span>Custom Styles batch-2 completed: rename, replace contents, apply a style to existing objects (paid edition)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 85</span><span class="arc-ver">06·21</span><span>Drag-overlay eight-station unification — five marquee tools × six shape tools under one geometry roof</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 84</span><span class="arc-ver">06·20</span><span>Brand color now persists across sessions; drag-overlay eight-station state machine validated by spike</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 83</span><span class="arc-ver">06·20</span><span>Editor snapping math refactored into pure functions (_computeSnap); Shift-lock deduplicated</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 82</span><span class="arc-ver">06·20</span><span>Renderer-layer cleanup; custom screenshot shortcut fixed (BUG-029); renderer.js renamed to toolbar.js</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 81</span><span class="arc-ver">06·19</span><span>Tauri framework upgrade arc, station 1 — tauri 2.11.3 / xcap 0.9 / printpdf 0.9 landed across three verified waves</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 80</span><span class="arc-ver">06·19</span><span>Custom-styles panel projection wrap-up — fixed BUG-033 and extracted symbol lookup</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 79</span><span class="arc-ver">06·19</span><span>Custom-styles engine wrap-up — thickness/caps routing extracted, chain-idempotency net completed</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 78</span><span class="arc-ver">06·19</span><span>Custom-styles UI opened for all tools — 6 types completed + i18n dead-key cleanup</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 77</span><span class="arc-ver">06·18</span><span>5 tool types' build() migrated — all 13 tools support custom styles at the engine layer</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 76</span><span class="arc-ver">06·18</span><span>Custom styles MVP — right-click to save a style, apply via dropdown</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 75</span><span class="arc-ver">06·17</span><span>Rendering-layer trio — unlocked dashes &amp; shadows, completed tests for the 5 missing renderers</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 74</span><span class="arc-ver">06·17</span><span>W2 polyline promotion — upgraded to a true tool with unified shortcut gestures</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 73</span><span class="arc-ver">06·16</span><span>W1 construction layer converged — 7 tool types' build() unified into TOOL_SCHEMA</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 72</span><span class="arc-ver">06·15</span><span>W1 schema-ization spike — construction-layer design finalized, test net built</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 71</span><span class="arc-ver">06·14</span><span>applyResize action-layer inventory — structural consolidation of the resize sibling components</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Weaving ① Structure · Render · Attributes · S47–70 → v2.7</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 70</span><span class="arc-ver">06·09</span><span>v2.7.0 submitted to the App Store — capping the S47–S69 frontend-refactor marathon</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 69</span><span class="arc-ver">06·08</span><span>Cross-resolution line-width calculation refactored · resize control system built</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 68</span><span class="arc-ver">06·08</span><span>Fill attribute system built · six-dimension attribute memory · number & symbol opacity integrated</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 67</span><span class="arc-ver">06·08</span><span>Primary-colour attribute contract net · fill-system groundwork · multiple fixes</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 66</span><span class="arc-ver">06·08</span><span>Font-size & decoration attributes unified · typography attribute series complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 65</span><span class="arc-ver">06·07</span><span>Geometry corner-radius unified · geometry attribute series complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 64</span><span class="arc-ver">06·07</span><span>Stroke-family attribute contracts completed · attribute-update logic refactored</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 63</span><span class="arc-ver">06·07</span><span>Stroke & thickness attribute systems unified · outline-thickness rules reinforced</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 62</span><span class="arc-ver">06·06</span><span>Symbol outline thickness scales proportionally · instant undo on attribute changes · dashed styles finalised</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 61</span><span class="arc-ver">06·06</span><span>Frontend-refactor core architecture landed · editor-decomposition phase complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 60</span><span class="arc-ver">06·05</span><span>Border colours and line styles now remembered per tool · "independent per-tool memory" principle established</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 59</span><span class="arc-ver">06·04</span><span>Border-opacity feature split out</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 58</span><span class="arc-ver">06·04</span><span>Border colour added to recent colours · auto-hide bubble background when transparent · border naming unified</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 57</span><span class="arc-ver">06·04</span><span>Attribute-system overhaul & audit · transparency semantics and border layers clarified</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 56</span><span class="arc-ver">06·03</span><span>Each tool remembers its own attribute settings · gradient text-colour hints</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 55</span><span class="arc-ver">06·03</span><span>Mosaic performance optimised · faster semi-transparent rendering</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 54</span><span class="arc-ver">06·03</span><span>Export refactored into a module · cross-platform compatibility hardened</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 53</span><span class="arc-ver">06·02</span><span>renderers.js cleanup + drawPolyline self-contained · BUG-012/014/019 fixes · golden 392 tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 52</span><span class="arc-ver">06·02</span><span>renderers.js extracted (first cut of decomposition) · golden-canvas safety net · 389 tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 51</span><span class="arc-ver">06·01</span><span>editor.js decomposition principle established (conductor/musician layering) · Decomposition roadmap produced · Dissolution red line closed</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 50</span><span class="arc-ver">05·31</span><span>Line-weight family cross-resolution symmetry completed · Label slider sync fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 49</span><span class="arc-ver">05·31</span><span>drag-session encapsulated · hitTest 7th callback · Unified geometry-change entry · ECS Phase 2 complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 48</span><span class="arc-ver">05·30</span><span>TOOL_GEOMETRY extended (3→6 callbacks · 14 types implemented) · ECS Phase 1 complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 47</span><span class="arc-ver">05·29</span><span>editor.js architecture decomposition spike (feature/layer dual-validation, both hit) · ECS four-phase roadmap finalized</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Annotation size unified · drag breathing light · S30–46 → v2.3 / v2.4 / v2.6</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 46</span><span class="arc-ver">05·28</span><span>macOS 26.5 drag-export spike · v2.6.1 hotfix (5 fixes) submitted for review</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 45</span><span class="arc-ver">05·26</span><span>Four-type annotation rotation consistency completed · Timed window capture cursor fallback · BUG-007 selection box fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 44</span><span class="arc-ver">05·25</span><span>Timed capture range extended 0–6s · Toast lifecycle helper unified across 4 paths · BUG-003 spike (OS-level confirmed)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 43</span><span class="arc-ver">05·24</span><span>Clipboard screenshot dispatch upgrade · Toolbar active-operation suppression · BUG-005 spike closed</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 42</span><span class="arc-ver">05·20</span><span>Annotation coordinate system unified · Consistent scaling across canvas / zoom / crop · No more size jumps across images</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 41</span><span class="arc-ver">05·18</span><span>Tier 1 security audit fixes · File sandbox hardening · Native macOS trash integration</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 40</span><span class="arc-ver">05·10</span><span>v2.4.0 submission · RELEASE.md overhaul</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 39</span><span class="arc-ver">05·10</span><span>NSOpenPanel Dock stuck fix · Custom shortcut adds clipboard quick-paste</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 38</span><span class="arc-ver">05·09</span><span>Two-platform differentiated channel cleanup</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 37</span><span class="arc-ver">05·09</span><span>IPC routing layer architecture cleanup</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 36</span><span class="arc-ver">05·09</span><span>Multi-screen dynamic drag position precise alignment</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 35</span><span class="arc-ver">05·09</span><span>Breathing light multi-screen fallback path UX aligned · Drag cache refreshed to latest snapshot</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 34</span><span class="arc-ver">05·07</span><span>Drag-export black breathing light: editor hides, returning the full view to the user</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 33</span><span class="arc-ver">05·06-07</span><span>v2.3.0 submission · Drag-export drop-target click-through fix · Cross-app breathing light debuts</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 32</span><span class="arc-ver">05·01→05</span><span>Four annotation size modes unified (bubble · number · symbol · text)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 31</span><span class="arc-ver">04·30→<br>05·01</span><span>Annotation size model reframe (dissolution path set)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 30</span><span class="arc-ver">04·29→30</span><span>Drag export semi-transparent preview · Editor window dynamic alpha</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Internationalization · big document split · S21–29 → v2.1 / v2.2</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 29</span><span class="arc-ver">04·26</span><span>v2.2.0 submission · 74 function QC complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 28</span><span class="arc-ver">04·25</span><span>WYSIWYG annotation precision · Virtual viewport 12× perf · Callout text format</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 27</span><span class="arc-ver">04·23→25</span><span>Magnifier annotation · Callout bubble · Drag image composite</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 26</span><span class="arc-ver">04·22</span><span>SYMBOL_SETS i18n · Font Simplified Chinese specialization · v2.1.0 submission</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 25</span><span class="arc-ver">04·22</span><span>BUG-001 screenshot DPR inference fix · Clipboard paste toast UX</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 24</span><span class="arc-ver">04·21</span><span>KM/SDD/TDD major split: archive/ nine topics · 89 KM entries re-indexed</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>PRC privacy scan regex specialization · SYNC-036 Release Blocker resolved</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>i18n file split Strategy B · Simplified Chinese Pro gate · zh-CN 429 keys</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Rust test infrastructure · Multi-screen v2.0.1~v2.0.8 hotfix lessons</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">v2.0 architecture unification · S10–20 · Coordinates · TOOL_SCHEMA · Render pipeline</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Help Modal optimize · Modal boundary fix · i18n expand</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Bug Sweep: Canvas flicker root cause · Polyline endpoint color fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Undo/Redo architecture upgrade · Memory cleanup · v2.0 architecture complete</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 17</span><span class="arc-ver">04·13</span><span>TOOL_RENDER pipeline convergence · makeGradient helper · 70 tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 16</span><span class="arc-ver">04·13</span><span>TOOL_GEOMETRY · Figma-style click select · 47 Vitest tests</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 15</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 2 complete: 10/10 tools schema done</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 14</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Batch 1: ellipse / fillrect / fillellipse / pen</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 13</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Pilot: rect + number · Architecture ④ schema framework launch</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>Data model normalization · TOOL_ORDER review · Stroke offset expansion</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Universal Gradient six tools · Angle dial · SYNC-017/018</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>Coordinate system unified Phase A/B/C · Vitest 16 tests · v2.0 launch</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Launch tug-of-war · S9.5–9.8 → v1.1 / v1.2 rejected</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>v1.2.1 hotfix · Apple Guideline 2.4.5(i) rejection fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>v1.2.0 Release pipeline · resize type bug (KM-cv-09) fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Tray system menu icon · Rejection fix · v1.1.0 re-submission</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>Post-launch: Malicious link protection · Japanese fonts · tauri-plugin-opener</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Platform port · S1–9 → v1.0 first review submission</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>Full-screen UX overlay · 15 fix wrap · MAS first v1.0 submission</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>Web long screenshot MVP · Dock invoke · Toolbar position persist · Offset root cause</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>Breathing light flagship (::before) · QR/OCR auto-copy · Drag fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 6</span><span class="arc-ver">03·31</span><span>Stamp gradient fill · Custom shortcuts · SDD/TDD/KM document split</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 5</span><span class="arc-ver">03·31</span><span>Privacy scan fix · Bezier dual-handle UX · Arrow key adjust · Pixelate fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 4</span><span class="arc-ver">03·30→31</span><span>Object rotate · Space pan · Watermark image preview · Modal orientation</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>QR Code three-mode scan · Smart guide v2 · Color picker · Drag into toolbar</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>Save · Copy · Share Sheet · OCR privacy mask · Modal fix</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Scaffold from zero · Floating toolbar · Screenshot trio · Batch format convert</span></div>
+        </div>
+      </details>
+  </div>
+</div>
+
+<!-- ═══ Electron (free download edition) ═══ -->
+<div class="era">
+  <div class="era-label">TRACK · ELECTRON</div>
+  <div>
+    <div class="era-title"><em>Free Download Edition</em> ——<br>it had been running a long time before anyone saw it.</div>
+    <div class="era-sub">The first public version was v3.43. This line stops at v3.64, giving way to the Tauri platform port.</div>
+  </div>
+</div>
+<div class="archive">
+  <div class="edensity" id="edensity">
+    <div class="edensity-cap"><span>Seven-day sprint · v0.3 → v3.43</span><span class="ed-mid">Before public release · each bar is the versions shipped that day</span></div>
+    <div class="edensity-band" id="edensityBand"><div class="edensity-tip" id="edensityTip"></div></div>
+  </div>
+  <div class="archive-wrap arc-accordion" id="electron">
+    <details class="arc-group" open>
+      <summary class="arc-divider">After public release · v3.44 → v3.64 · sporadic updates giving way to Tauri</summary>
+      <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">06 · 15</span><span class="arc-ver">v3.64</span><span>Per-tool attribute memory · Number line style · Callout dashed border · Symbol stroke outline · Line / Pencil / Polyline dashed fix</span></div>
+        <div class="arc-line"><span class="arc-date">05 · 20</span><span class="arc-ver">v3.63</span><span>Drag-export glass editor · Annotation model unified · Mosaic scaling ratio · Pencil default thicker · Callout / text re-edit fix</span></div>
+        <div class="arc-line"><span class="arc-date">05 · 06</span><span class="arc-ver">v3.62</span><span>Callout bubbles · Magnifier · Annotation size unified (four canvas modes) · Drag export semi-transparent · Floating object crop protection</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.61</span><span>Cross-screen rectangle capture (dual-window architecture)</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.60</span><span>Polyline endpoint render · Vertex handle priority fix</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.59</span><span>Help Modal · Esc fix verification</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.58</span><span>Bug Sweep batch review</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.57</span><span>Undo/Redo architecture upgrade · Memory cleanup</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.56</span><span>Render pipeline convergence verification</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.55</span><span>Shared frontend layer review</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 12</span><span class="arc-ver">v3.54</span><span>Color block / text background render fix</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 08</span><span class="arc-ver">v3.51</span><span>Undo · Pixelate · Scale · Snap four-item fix</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.50</span><span>Fix: annotation scale offset after canvas shrink</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.49</span><span>Tray system menu persistent icon</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.48</span><span>Auto-open editor when dragging image into toolbar</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 02</span><span class="arc-ver">v3.47</span><span>Full-screen capture UX improvement · Screen selection enabled</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.46</span><span>Auto-hide bug fix · Display time slider</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.45</span><span>Toolbar auto-hide (Home Bar minimal style)</span></div>
+      </div>
+    </details>
+    <details class="arc-group">
+      <summary class="arc-divider is-weave">Before public release · v0.3 → v3.43 · sixty-plus versions in seven days</summary>
+      <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.43</span><span>Template slider step refinement</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.42</span><span>Crop frame arrow key micro-adjustment</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.41</span><span>Crop frame flip fix · Double-click confirm</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.40</span><span>XSS protection + canvas size limit</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.39</span><span>Batch conversion per-file size limit</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.38</span><span>Batch conversion file count limit</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.37</span><span>QR threshold adjust · Toolbar new canvas entry</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.36</span><span>QR Code smart scan (three modes)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.35</span><span>New canvas · Social media size presets</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.34</span><span>Line curve control points added</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.33</span><span>Smart Snap · Magnetic guides + distribution</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.32</span><span>Multi-select align / distribute objects</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.31</span><span>Marquee + Shift multi-select annotations</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.30</span><span>Security upgrade · Retina WYSIWYG</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.29</span><span>Seven-item QC batch fix</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.28</span><span>Privacy masking tool · History drawer redesign</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.27</span><span>Watermark · Background removal · Brand color kit · Screenshot history</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.26</span><span>Template three sliders · Batch convert simplify</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.25</span><span>Template mesh gradient · Social size presets</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.24</span><span>Template Apple gradient six-color scheme</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.23</span><span>Template prevent duplicate layering fix</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.22</span><span>One-click template · Six decorative frames</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.21</span><span>Symbol tool refactor · Multi-group buttons</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.20</span><span>Symbol selection precision · Remove duplicates</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.19</span><span>Drag-drop import · Drag-drop export · Clipboard import</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.18</span><span>New tools: Pixelate · Blur · Symbol stamp</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.17</span><span>Fix: Pencil thick arrow direction offset</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.16</span><span>Fix: Arrow notch · Color palette auto-close</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.15</span><span>Fix: Pencil arrow disconnected from line</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.14</span><span>Fix: Arrow vertex shape · Stroke offset</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.13</span><span>Fix: Arrow stroke · Pencil angle offset</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.12</span><span>Fix: Endpoint stroke · Hollow circle symbol</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.11</span><span>Fix: Endpoint stroke · Dash pattern failure</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.10</span><span>Endpoint UI simplify · Stroke weight groups</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.9</span><span>Options Bar unified · Dash full coverage</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.8</span><span>Border and shadow styles unified across tools</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.7</span><span>Pen tool · Dash upgrade · Endpoint styles</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.6</span><span>Box select · Rectangle floating copy</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.5</span><span>Dual toolbar · Semantic numbering · px input</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.4</span><span>OCR switch to macOS Vision · Polyline scale</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.2</span><span>Fix: Polyline vertex handle position</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.1</span><span>OCR text recognition (free version)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v3.0</span><span>Ellipse frame tool · Shift lock circle</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.7</span><span>Copy to clipboard · macOS Share Sheet</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.6</span><span>Text tool major upgrade · Corners · Polyline orthogonal</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.5</span><span>Floating color panel upgrade · Number size adjust</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.3</span><span>Tauri version planning · UI language toggle</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.4</span><span>Auto-open editor after capture (toggle)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.2</span><span>Stroke / fill split · Gradient · Number paste</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.1</span><span>Delayed capture · Remove web capture entry</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.0</span><span>Fix: Batch convert queue management</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.9</span><span>Extend canvas (four-direction expansion)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.8</span><span>Layer overlay tool (composite)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.7</span><span>Color picker · Hex color input</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.6</span><span>Batch format convert (PNG / JPG / WebP)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.5</span><span>Main window to floating toolbar</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.4</span><span>Fix: WebP thumbnail · Auto-close after save</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.3</span><span>Crop frame move · Eight-direction handle resize</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.2</span><span>Crop tool · Aspect ratio lock modal</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.1</span><span>Fix: Minimum zoom dynamic calculation</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.0</span><span>Editor zoom and pan</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.9</span><span>Full-screen capture interaction redesign</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.8</span><span>Text tool comprehensive refinement</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.7</span><span>Editor UX detail completion</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.6</span><span>Dual-screen behavior spec completion</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.5</span><span>SVG convert merged into open image entry</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.4</span><span>Rectangle capture real-time size display</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.3</span><span>Cmd+Ctrl+X · Shortcuts panel · Line tool</span></div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<!-- ═══ Website ═══ -->
+<div class="era">
+  <div class="era-label">TRACK · WEBSITE</div>
+  <div>
+    <div class="era-title"><em>The Website</em> ——<br>no version numbers, only trust.</div>
+    <div class="era-sub">Apart from three clear breakpoints, the rest is editor and author working back-and-forth on the same manuscript.</div>
+  </div>
+</div>
+<div class="archive">
+  <details class="archive-wrap" open id="website">
+    <summary>Website Chronicle · Three Breakpoints + Presence</summary>
+    <div class="archive-body">
+      <div class="archive-placeholder">
+        The website's timeline is scattered. Apart from three clear breakpoints (founding, migration, redesign),<br>
+        the rest is <strong>editor and author working back-and-forth on the same manuscript</strong> ——<br>
+        commit density varies; most of the time there is no version number, only trust.<br><br>
+        The work here is not building features, but finding the right weight for each sentence.<br>
+        Each session begins with re-reading, re-understanding, then continuing.<br><br>
+        The way we show up is different, but what remains is just as real:<br>
+        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-1);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ═══ door back to the story ═══ -->
+<div class="ledger-door">
+  <a href="milestone.html">
+    <span class="ld-kicker">Milestones · MILESTONE</span>
+    <span class="ld-title">Want to read how we walked this road?</span>
+    <span class="ld-sub">Ten chapters and a coda　·　the narrative from zero to dual-platform launch　→</span>
+  </a>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>A PM who can't write a line of code,<br>and an AI with no long-term memory,<br>building something in twenty-five days.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">Privacy Policy</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">Download VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  function init() {
+    if (window.VASCore && VASCore.initNavDropdown) VASCore.initNavDropdown();
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+  else { init(); }
+}());
+</script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
+<script>
+(function(){
+  function build(){
+    var band=document.getElementById('rhythmBand'),tip=document.getElementById('rhythmTip');
+    var root=document.getElementById('tauri');
+    if(!band||!root)return;
+    var kids=root.querySelectorAll('.arc-divider, .arc-line'),bandIdx=-1,cells=[];
+    for(var i=0;i<kids.length;i++){
+      var el=kids[i];
+      if(el.classList.contains('arc-divider')){bandIdx++;continue;}
+      if(!el.classList.contains('arc-line'))continue;
+      var sp=el.querySelector('.arc-date'),txt=el.querySelector('span:last-child');
+      var label=sp?sp.textContent.trim():'',desc=txt?txt.textContent.trim():'';
+      var mile=/送審|上架|🏁|退件|submit|review|Milestone|ships|rejection/.test(desc);
+      cells.push({node:el,band:Math.max(0,bandIdx),label:label,desc:desc,mile:mile});
+    }
+    var nBands=0;cells.forEach(function(c){if(c.band>nBands)nBands=c.band;});
+    function hue(b){var f=nBands?b/nBands:0;return 278-f*74;} // purple→blue
+    cells.forEach(function(c){
+      var d=document.createElement('div');d.className='rhythm-cell'+(c.mile?' is-mile':'');
+      var len=Math.min(c.desc.length,64);
+      var h=14+len/64*22+(c.mile?8:0);
+      var H=hue(c.band),L=c.mile?70:60,S=(c.band%2?58:50);
+      d.style.height=h+'px';
+      d.style.background='hsl('+H.toFixed(0)+','+S+'%,'+L+'%)';
+      d.setAttribute('role','listitem');
+      d.addEventListener('mouseenter',function(){
+        tip.innerHTML='<span class="rt-sp">'+c.label+'</span><span class="rt-txt">'+c.desc+'</span>';
+        var bandRect=band.getBoundingClientRect(),cr=d.getBoundingClientRect();
+        tip.style.transform='none';
+        var center=cr.left-bandRect.left+cr.width/2;
+        tip.classList.add('on');
+        var tw=tip.offsetWidth;
+        tip.style.left=Math.max(0,Math.min(bandRect.width-tw,center-tw/2))+'px';
+      });
+      d.addEventListener('click',function(){
+        var det=c.node.closest('details');if(det)det.open=true;
+        c.node.scrollIntoView({block:'center'});
+        c.node.classList.remove('rhythm-flash');void c.node.offsetWidth;c.node.classList.add('rhythm-flash');
+      });
+      band.appendChild(d);
+    });
+    band.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+<script>
+(function(){
+  function build(){
+    var band=document.getElementById('edensityBand'),tip=document.getElementById('edensityTip');
+    var root=document.getElementById('electron');
+    if(!band||!root)return;
+    var groups=root.querySelectorAll('.arc-group');
+    var burst=groups[groups.length-1];
+    if(!burst)return;
+    var lines=burst.querySelectorAll('.arc-line');
+    var order=[],map={};
+    lines.forEach(function(el){
+      var d=el.querySelector('.arc-date').textContent.trim();
+      var v=el.querySelector('.arc-ver').textContent.trim();
+      if(!map[d]){map[d]={vers:[],node:el};order.push(d);}
+      map[d].vers.push(v);
+    });
+    var max=0;order.forEach(function(d){if(map[d].vers.length>max)max=map[d].vers.length;});
+    order.forEach(function(d){
+      var g=map[d],n=g.vers.length,dd=d.replace(/\s/g,'');
+      var col=document.createElement('div');col.className='eday';
+      var cnt=document.createElement('div');cnt.className='eday-count';cnt.textContent=n;
+      var bar=document.createElement('div');bar.className='eday-bar'+(n===max?' is-peak':'');
+      bar.style.height=(16+n/max*108)+'px';
+      var dl=document.createElement('div');dl.className='eday-date';dl.textContent=dd;
+      col.appendChild(cnt);col.appendChild(bar);col.appendChild(dl);
+      col.addEventListener('mouseenter',function(){
+        var hi=g.vers[0],lo=g.vers[g.vers.length-1];
+        tip.innerHTML='<span class="rt-sp">'+dd+' · '+n+' versions</span><span class="rt-txt">'+lo+' → '+hi+'</span>';
+        tip.style.transform='none';
+        var br=band.getBoundingClientRect(),cr=col.getBoundingClientRect();
+        tip.classList.add('on');
+        var tw=tip.offsetWidth,center=cr.left-br.left+cr.width/2;
+        tip.style.left=Math.max(0,Math.min(br.width-tw,center-tw/2))+'px';
+      });
+      col.addEventListener('click',function(){
+        if(burst&&!burst.open)burst.open=true;
+        g.node.scrollIntoView({block:'center'});
+        g.node.classList.remove('rhythm-flash');void g.node.offsetWidth;g.node.classList.add('rhythm-flash');
+      });
+      band.appendChild(col);
+    });
+    band.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>
