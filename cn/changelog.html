@@ -13,9 +13,9 @@
 </script>
 <title>VAS 更新日志 · Changelog | 每个版本 · 每个 Sprint 的变更记录</title>
 <meta name="description"
-      content="VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）86 个版本，逐版、逐 Sprint 记录每一次改了什么。最新的永远在最前面。">
+      content="VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）87 个版本，逐版、逐 Sprint 记录每一次改了什么。最新的永远在最前面。">
 <meta property="og:title" content="VAS 更新日志 · Changelog | 每个版本 · 每个 Sprint 的变更记录">
-<meta property="og:description" content="VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）86 个版本，逐版、逐 Sprint 记录每一次改了什么。最新的永远在最前面。">
+<meta property="og:description" content="VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）87 个版本，逐版、逐 Sprint 记录每一次改了什么。最新的永远在最前面。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/cn/changelog">
 <meta property="og:locale" content="zh_CN">
@@ -28,7 +28,7 @@
 <meta name="twitter:image:alt" content="VAS — 为人机协作工作流设计的 Mac 截图工具">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VAS 更新日志 · Changelog | 每个版本 · 每个 Sprint 的变更记录">
-<meta name="twitter:description" content="VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）86 个版本，逐版、逐 Sprint 记录每一次改了什么。">
+<meta name="twitter:description" content="VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）87 个版本，逐版、逐 Sprint 记录每一次改了什么。">
 <link rel="canonical" href="https://yoursvas.app/cn/changelog">
 <link rel="icon" href="../img/vas.ico">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -43,9 +43,53 @@
 <!--
   AI CONTEXT · cn/changelog.html
   Simplified Chinese version of VAS's complete change ledger, split out from milestone.html (which holds the narrative story).
-  Two independent version tracks: Tauri (App Store, v1.0→current) as 135 Sprints, Electron (free download, v0.3→v3.64) as 86 versions.
+  Two independent version tracks: Tauri (App Store, v1.0→current) as 135 Sprints, Electron (free download, v0.3→v3.65) as 87 versions.
   Ordering is NEWEST FIRST. Current version: v2.12.0 (Tauri, Sprint 135). Use this page to answer "what changed / when was X shipped / latest version".
 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "VAS",
+      "operatingSystem": "macOS",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "ProductivityApplication",
+      "softwareVersion": "2.12.0",
+      "dateModified": "2026-07-19",
+      "url": "https://yoursvas.app/cn",
+      "inLanguage": "zh-Hans",
+      "image": "https://yoursvas.app/img/vas-share.webp",
+      "downloadUrl": "https://apps.apple.com/app/vas/id6761584119",
+      "releaseNotes": "https://yoursvas.app/cn/changelog",
+      "description": "VAS 目前最新版本为 v2.12.0（App Store／Tauri），于 2026 年 7 月 18 日送审上架；免费下载版停在 v3.65。VAS 是一款 macOS 截图与标注工具。",
+      "offers": [
+        { "@type": "Offer", "name": "VAS Pro (Tauri · App Store)", "price": "9.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://apps.apple.com/app/vas/id6761584119" },
+        { "@type": "Offer", "name": "VAS Classic (Electron · Free)", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://download.yoursvas.app/VAS-3.65.0-arm64.dmg" }
+      ],
+      "publisher": { "@type": "Organization", "name": "Deep Holding Project", "url": "https://yoursvas.app/" },
+      "author": { "@type": "Person", "name": "Nova", "email": "nova@yoursvas.app", "sameAs": ["https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu","https://github.com/tb1982"] }
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "VAS 更新日志 · Changelog",
+      "url": "https://yoursvas.app/cn/changelog",
+      "inLanguage": "zh-Hans",
+      "isPartOf": { "@type": "WebSite", "name": "VAS", "url": "https://yoursvas.app/" },
+      "about": { "@type": "SoftwareApplication", "name": "VAS" },
+      "description": "VAS 的完整变更记录：App Store 版（Tauri）135 个 Sprint、免费下载版（Electron）87 个版本，逐版、逐 Sprint 记录每一次改了什么。"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://yoursvas.app/cn" },
+        { "@type": "ListItem", "position": 2, "name": "更新日志", "item": "https://yoursvas.app/cn/changelog" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -110,7 +154,7 @@
   <div class="chapter-meta">
     <div>当前版本　<strong>v2.12.0</strong></div>
     <div>App Store · Tauri　<strong>135 Sprint</strong></div>
-    <div>免费版 · Electron　<strong>86 版本</strong></div>
+    <div>免费版 · Electron　<strong>87 版本</strong></div>
   </div>
 </section>
 
@@ -326,7 +370,7 @@
   <div class="era-label">TRACK · ELECTRON</div>
   <div>
     <div class="era-title"><em>免费下载版</em> ——<br>被看见之前，已经跑了很久。</div>
-    <div class="era-sub">对外第一版就是 v3.43。这条线停在 v3.64，让位给 Tauri 平台移植。</div>
+    <div class="era-sub">对外第一版就是 v3.43。这条线停在 v3.65，让位给 Tauri 平台移植。</div>
   </div>
 </div>
 <div class="archive">
@@ -336,8 +380,9 @@
   </div>
   <div class="archive-wrap arc-accordion" id="electron">
     <details class="arc-group" open>
-      <summary class="arc-divider">对外发布后 · v3.44 → v3.64 · 零星更新让位给 Tauri</summary>
+      <summary class="arc-divider">对外发布后 · v3.44 → v3.65 · 零星更新让位给 Tauri</summary>
       <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">06 · 28</span><span class="arc-ver">v3.65</span><span>SVG 一等支持（拖入／打开自动 1920px 光栅化为 PNG · 工具栏／打开图片／截图覆盖三入口）· 文字标注属性双击再编辑后正确保留 · 外框粗细面板数值即时刷新 · 前端重构强化稳定性</span></div>
         <div class="arc-line"><span class="arc-date">06 · 15</span><span class="arc-ver">v3.64</span><span>工具属性独立记忆 · 编号线条样式 · 对话气泡虚线框 · 符号描边外框 · 直线/铅笔/折线虚线修正</span></div>
         <div class="arc-line"><span class="arc-date">05 · 20</span><span class="arc-ver">v3.63</span><span>拖曳导出玻璃编辑器 · 标注模型统一 · 马赛克缩放比例 · 铅笔预设加粗 · 对话气泡 / 文字重编辑修正</span></div>
         <div class="arc-line"><span class="arc-date">05 · 06</span><span class="arc-ver">v3.62</span><span>气泡对话框 · 放大镜 · 标注尺寸统一（四种画布一致）· 拖曳导出半透明 · 浮动物件裁切保护</span></div>
