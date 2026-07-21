@@ -112,7 +112,9 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 ├── js/                     # analytics.js / per-page scripts
 ├── img/                    # vas-*.png / vas-*.webp / favicon
 │
-├── sitemap.xml             # 59 URLs with per-locale hreflang
+├── sitemap.xml             # AUTO-GENERATED — do not hand-edit（lastmod 由 git 決定）
+├── sitemap.manifest.json   # sitemap 來源清單（新增頁面加一行；權重＋分區註解在此）
+├── tools/gen_sitemap.py    # sitemap 產生器（CI 於 merge 自動跑；本機 python3 tools/gen_sitemap.py）
 │
 ├── CLAUDE.md               # Core rules (always loaded)
 ├── CLAUDE-process.md       # This file — workflows
@@ -223,7 +225,7 @@ When creating a new top-level page:
 2. Add `data-lang-key="home2.nav.<page>"` to all nav entries — root + en/ja/cn lang variants
 3. Add `home2.nav.<page>` key to `i18n/{zh,en,ja,cn}.js`
 4. Create full static variants: `en/<page>.html`, `ja/<page>.html`, `cn/<page>.html`
-5. Add 4 URL entries to `sitemap.xml` (root + 3 lang) with per-locale `<xhtml:link>` hreflang block
+5. Add ONE line to `sitemap.manifest.json` (correct section's `pages`): `{ "slug", "file", "changefreq", "priority" }` — the 4 locale URLs + hreflang are generated automatically. **Never hand-edit `sitemap.xml`** (CI regenerates it on merge; lastmod is git-derived). To preview locally: `python3 tools/gen_sitemap.py`
 6. Update `README.md` — add to page list
 7. Update Repository Structure in this file (CLAUDE-process.md)
 8. If new terminology introduced: add to `docs/GLOSSARY.md` § appropriate section
@@ -292,7 +294,7 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n/core.js` | Loader logic + dropdown for dynamic lang switching on root pages |
-| `sitemap.xml` | 59 URLs, per-locale hreflang. Update on any new page (see § New Page Checklist) |
+| `sitemap.xml` | AUTO-GENERATED (104 URLs). Never hand-edit — CI runs `tools/gen_sitemap.py` on merge, lastmod from git. New page → add a line to `sitemap.manifest.json` |
 | `docs/km.md` | KM log — append immediately when a bug is resolved |
 | `docs/GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
 | `docs/toolnamemap.md` | Guide tool-name four-language map (from app i18n) — look up, don't retranslate |
