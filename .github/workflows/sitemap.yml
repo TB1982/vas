@@ -1,13 +1,12 @@
 name: Generate sitemap
 
-# 每次 main 有頁面變動就重產 sitemap，lastmod 由 git 自動決定。
-# paths-ignore: sitemap.xml —— bot 只改 sitemap.xml 的那次 commit 不會再觸發自己（防迴圈）。
+# 在 PR 階段重產 sitemap，把更新 commit 進 PR 分支，隨正常 merge 進 main。
+# 這樣尊重 main 的「必須走 PR」保護規則，不需要直推 main、也不需任何 repo 設定變更。
+# lastmod 由 git 決定；新頁只需改 sitemap.manifest.json。
 
 on:
-  push:
+  pull_request:
     branches: [main]
-    paths-ignore:
-      - 'sitemap.xml'
   workflow_dispatch:
 
 permissions:
@@ -16,16 +15,19 @@ permissions:
 jobs:
   sitemap:
     runs-on: ubuntu-latest
+    # 只處理同 repo 的 PR（fork PR 無法推回分支，直接略過）
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - name: Checkout (full history for git-derived lastmod)
+      - name: Checkout PR branch (full history for git-derived lastmod)
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Regenerate sitemap
         run: python3 tools/gen_sitemap.py
 
-      - name: Commit & push if changed
+      - name: Commit & push to PR branch if changed
         run: |
           if git diff --quiet -- sitemap.xml; then
             echo "sitemap.xml 無變化，跳過"
