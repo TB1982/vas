@@ -1,0 +1,294 @@
+{
+  "base": "https://yoursvas.app",
+  "locales": [
+    "root",
+    "en",
+    "ja",
+    "cn"
+  ],
+  "sections": [
+    {
+      "comments": [
+        "═══════ Homepage · 首頁 ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "",
+          "file": "index.html",
+          "changefreq": "weekly",
+          "priority": "1.0"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Chapter 0 · About (序章 · 關於) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "about",
+          "file": "about.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Chapter I · Echoes (殘響) — cover ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "echo",
+          "file": "echo.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Echoes p1 · Insight (頁一 · 設計) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "insight",
+          "file": "insight.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Echoes p2 · Collab (頁二 · 協作) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "collab",
+          "file": "collab.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Echoes p3 · Context (頁三 · 信念) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "context",
+          "file": "context.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Echoes p4 · Self (頁四 · 自己) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "self",
+          "file": "self.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Chapter II · System (系統 · harness) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "harness",
+          "file": "harness.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Harness Three Pillars — 展開 · deep layer, dynamic JS i18n (zh/en/ja) ═══════",
+        "No hreflang: single URL serves all three languages via in-page switcher"
+      ],
+      "pages": [
+        {
+          "slug": "harness/context",
+          "file": "harness/context.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        },
+        {
+          "slug": "harness/constraints",
+          "file": "harness/constraints.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        },
+        {
+          "slug": "harness/entropy",
+          "file": "harness/entropy.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Sapere Aude 2.0 · Us (咱倆) — 收斂 · sitemap-only for machines, hidden from human nav ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "us",
+          "file": "us.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Vessel (容器論) · Treatise · 復返 · 藏在 harness 呼吸燈下方 ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "vessel",
+          "file": "vessel.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Chapter III · Milestones (里程碑) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "milestone",
+          "file": "milestone.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ 更新日誌 · Changelog ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "changelog",
+          "file": "changelog.html",
+          "changefreq": "weekly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Tools · FAQ ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "faq",
+          "file": "faq.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Tools · Guide (手冊) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "guide",
+          "file": "guide.html",
+          "changefreq": "monthly",
+          "priority": "0.7"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Tools · Guide chapters (手冊章節) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "guide/toolbar",
+          "file": "guide/toolbar.html",
+          "changefreq": "monthly",
+          "priority": "0.6"
+        },
+        {
+          "slug": "guide/editor",
+          "file": "guide/editor.html",
+          "changefreq": "monthly",
+          "priority": "0.6"
+        },
+        {
+          "slug": "guide/ocr",
+          "file": "guide/ocr.html",
+          "changefreq": "monthly",
+          "priority": "0.6"
+        },
+        {
+          "slug": "guide/arrange",
+          "file": "guide/arrange.html",
+          "changefreq": "monthly",
+          "priority": "0.6"
+        },
+        {
+          "slug": "guide/export",
+          "file": "guide/export.html",
+          "changefreq": "monthly",
+          "priority": "0.6"
+        },
+        {
+          "slug": "guide/shortcuts",
+          "file": "guide/shortcuts.html",
+          "changefreq": "monthly",
+          "priority": "0.6"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ Footer · Privacy (隱私權政策) ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "privacy",
+          "file": "privacy.html",
+          "changefreq": "yearly",
+          "priority": "0.3"
+        }
+      ]
+    },
+    {
+      "comments": [
+        "═══════ 2026-06 改版新增：兩扇門 instrument / treatise ═══════"
+      ],
+      "pages": [
+        {
+          "slug": "instrument",
+          "file": "instrument.html",
+          "changefreq": "weekly",
+          "priority": "0.9"
+        },
+        {
+          "slug": "treatise",
+          "file": "treatise.html",
+          "changefreq": "monthly",
+          "priority": "0.8"
+        }
+      ]
+    }
+  ]
+}
