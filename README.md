@@ -28,7 +28,13 @@ The home page (`/`) is two doors: **器 · The Instrument** (the product) and **
 | ↳ Us | `/us` | 頁六 · 我們 — Sapere Aude 2.0 (sitemap-only, not in main nav) |
 | Milestones | `/milestone` | 里程碑 · MILESTONE — the narrative journey (十章一終曲, sealed at S104 · 06·28); the per-version/Sprint ledger is split out to Changelog |
 | Changelog | `/changelog` | 更新日誌 · CHANGELOG — the full change ledger: Tauri 135 Sprints + Electron 86 versions, newest-first, with rhythm-band / release-density visualizations (reached from instrument's acquire chip and the milestone door) |
-| Guide | `/guide` | User manual |
+| Guide | `/guide` | User manual — the manual cover |
+| ↳ Toolbar | `/guide/toolbar` | Screenshot toolbar — 截圖工具列 |
+| ↳ Editor | `/guide/editor` | Annotation editor — 12 tools × attributes · 標註編輯器 |
+| ↳ OCR | `/guide/ocr` | OCR text recognition — 文字辨識 |
+| ↳ Arrange | `/guide/arrange` | Align, layers & groups — 對齊、圖層與群組 |
+| ↳ Export | `/guide/export` | Drag import & export — 拖曳匯入與匯出 |
+| ↳ Shortcuts | `/guide/shortcuts` | Keyboard shortcuts — 快捷鍵 |
 | FAQ | `/faq` | Eight Questions |
 
 The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection): 設計↔協作 · 信念↔自己 · 系統↔我們. Each chapter ends with a left-right pager along one continuous zigzag: `鏡廊(echo) → 頁一 → 頁二 → 頁三 → 頁四 → 頁五 → 頁六 → 冊(treatise)`.
@@ -51,7 +57,7 @@ The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection)
 | Privacy | `/privacy` | Privacy policy |
 | 404 | `/404` | Error page |
 
-**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 18 pages × 4 locales, plus `/harness/{context,constraints,entropy}` × 4. There is no runtime i18n — language switching is page navigation.
+**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 26 pages × 4 locales (incl. the 6 guide chapters and the 3 harness pillars). There is no runtime i18n — language switching is page navigation.
 
 **Sitemap-only (not in main nav, by design):** `/us`, `/vessel`, and `/harness/{context,constraints,entropy}`. Humans reach them by digging (trail-dot / inline-dot doors); crawlers and AI reach them via sitemap. Hide-from-human ≠ hide-from-machine.
 
