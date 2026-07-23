@@ -209,7 +209,7 @@
       "pages": [
         {
           "slug": "guide",
-          "file": "guide.html",
+          "file": "guide/index.html",
           "changefreq": "monthly",
           "priority": "0.7"
         }
