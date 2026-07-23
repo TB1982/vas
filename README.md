@@ -27,7 +27,7 @@ The home page (`/`) is two doors: **器 · The Instrument** (the product) and **
 | ↳ System | `/harness` | 頁五 · 系統 — Harness Engineering (gateway to the 思-side pillars) |
 | ↳ Us | `/us` | 頁六 · 我們 — Sapere Aude 2.0 (sitemap-only, not in main nav) |
 | Milestones | `/milestone` | 里程碑 · MILESTONE — the narrative journey (十章一終曲, sealed at S104 · 06·28); the per-version/Sprint ledger is split out to Changelog |
-| Changelog | `/changelog` | 更新日誌 · CHANGELOG — the full change ledger: Tauri 135 Sprints + Electron 86 versions, newest-first, with rhythm-band / release-density visualizations (reached from instrument's acquire chip and the milestone door) |
+| Changelog | `/changelog` | 更新日誌 · CHANGELOG — the full change ledger: Tauri 143 Sprints + Electron 87 versions, newest-first, with rhythm-band / release-density visualizations (reached from instrument's acquire chip and the milestone door) |
 | Guide | `/guide` | User manual — the manual cover |
 | ↳ Toolbar | `/guide/toolbar` | Screenshot toolbar — 截圖工具列 |
 | ↳ Editor | `/guide/editor` | Annotation editor — 12 tools × attributes · 標註編輯器 |
