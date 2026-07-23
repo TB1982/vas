@@ -114,7 +114,7 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 │
 ├── sitemap.xml             # AUTO-GENERATED — do not hand-edit（lastmod 由 git 決定）
 ├── sitemap.manifest.json   # sitemap 來源清單（新增頁面加一行；權重＋分區註解在此）
-├── tools/gen_sitemap.py    # sitemap 產生器（提交頁面變動前先跑 python3 tools/gen_sitemap.py，把 sitemap 放進自己的 commit；CI 於 PR 階段再跑一次當防呆）
+├── tools/gen_sitemap.py    # sitemap 產生器（改完頁面、commit 前跑 python3 tools/gen_sitemap.py；產生器偵測到「待提交」的檔會用今天當 lastmod，於是頁面異動＋sitemap 落在同一個 commit，不倍增 commit。CI 於 PR 階段再跑一次當純防呆）
 │
 ├── CLAUDE.md               # Core rules (always loaded)
 ├── CLAUDE-process.md       # This file — workflows
@@ -225,7 +225,7 @@ When creating a new top-level page:
 2. Add `data-lang-key="home2.nav.<page>"` to all nav entries — root + en/ja/cn lang variants
 3. Add `home2.nav.<page>` key to `i18n/{zh,en,ja,cn}.js`
 4. Create full static variants: `en/<page>.html`, `ja/<page>.html`, `cn/<page>.html`
-5. Add ONE line to `sitemap.manifest.json` (correct section's `pages`): `{ "slug", "file", "changefreq", "priority" }` — the 4 locale URLs + hreflang are generated automatically. **Never hand-edit `sitemap.xml`.** After any page edit (new page OR content change), run `python3 tools/gen_sitemap.py` and commit the regenerated `sitemap.xml` **in the same commit as your change** — lastmod is git-derived, so it stays accurate on its own. The PR-stage CI Action regenerates it too as a backstop, but if a PR is merged within ~10s the Action's commit can miss the merge (race) — so always generate locally and let CI be the safety net, not the primary.
+5. Add ONE line to `sitemap.manifest.json` (correct section's `pages`): `{ "slug", "file", "changefreq", "priority" }` — the 4 locale URLs + hreflang are generated automatically. **Never hand-edit `sitemap.xml`.** After any page edit (new page OR content change), run `python3 tools/gen_sitemap.py` **before committing** — the generator stamps today's date for any file with pending (staged/unstaged) changes, so the regenerated `sitemap.xml` goes in the **same single commit** as your page change (no commit doubling). lastmod is otherwise git-derived. The PR-stage CI Action re-runs it as a pure backstop; because you already generated locally it finds nothing to change, so there is no second bot commit and no merge race.
 6. Update `README.md` — add to page list
 7. Update Repository Structure in this file (CLAUDE-process.md)
 8. If new terminology introduced: add to `docs/GLOSSARY.md` § appropriate section
@@ -294,7 +294,7 @@ Claude Design is read-only on this repo — it cannot push. Nova relays its outp
 | `index.html` | Version string: search `迭代至 v` / `iterated together to v` |
 | `guide.html` | Screenshots: `img/vas-guide-*.png` |
 | `i18n/core.js` | Loader logic + dropdown for dynamic lang switching on root pages |
-| `sitemap.xml` | AUTO-GENERATED (104 URLs). Never hand-edit. Run `python3 tools/gen_sitemap.py` before committing any page edit and include the result in your commit; CI re-runs it on the PR as a backstop (may race a fast merge). lastmod from git. New page → add a line to `sitemap.manifest.json` |
+| `sitemap.xml` | AUTO-GENERATED (104 URLs). Never hand-edit. Run `python3 tools/gen_sitemap.py` before committing any page edit and include the result in the **same commit** (generator stamps today for pending files, so no second commit / no merge race); CI re-runs it as a pure backstop. lastmod from git. New page → add a line to `sitemap.manifest.json` |
 | `docs/km.md` | KM log — append immediately when a bug is resolved |
 | `docs/GLOSSARY.md` | Translation terminology + per-locale conventions — read before any translation pass |
 | `docs/toolnamemap.md` | Guide tool-name four-language map (from app i18n) — look up, don't retranslate |
