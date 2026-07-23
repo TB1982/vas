@@ -16,10 +16,20 @@ MANIFEST = os.path.join(ROOT, "sitemap.manifest.json")
 OUTPUT = os.path.join(ROOT, "sitemap.xml")
 LOCALES = [("root", "", "zh-Hant"), ("en", "/en", "en"), ("ja", "/ja", "ja"), ("cn", "/cn", "zh-Hans")]
 
+def git_dirty(path):
+    """該檔在工作區有未提交變動（staged 或 unstaged）→ 即將隨本次提交更新。"""
+    r = subprocess.run(["git", "status", "--porcelain", "--", path],
+                       cwd=ROOT, capture_output=True, text=True)
+    return bool(r.stdout.strip())
+
 def git_lastmod(path, fallback):
-    """該檔最後一次 commit 的日期（YYYY-MM-DD）；未進版控則用 fallback（今天）。"""
+    """lastmod 日期（YYYY-MM-DD）。
+    有未提交變動 → 用 fallback（今天），讓「頁面異動＋sitemap」能落在同一個 commit；
+    否則取最後一次 commit 的日期；未進版控也用 fallback。"""
     full = os.path.join(ROOT, path)
     if not os.path.exists(full):
+        return fallback
+    if git_dirty(path):
         return fallback
     try:
         out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", path],
