@@ -1,8 +1,11 @@
-name: Generate sitemap
+name: Check sitemap
 
-# 在 PR 階段重產 sitemap，把更新 commit 進 PR 分支，隨正常 merge 進 main。
-# 這樣尊重 main 的「必須走 PR」保護規則，不需要直推 main、也不需任何 repo 設定變更。
-# lastmod 由 git 決定；新頁只需改 sitemap.manifest.json。
+# check-only：在 PR 階段重跑產生器，跟分支裡已提交的 sitemap.xml 比對。
+#   一致 → 綠燈通過（正常情況：改頁面時已在本地跑產生器、放進同一個 commit）
+#   不一致 → 紅燈提醒「sitemap 沒更新到」——此時請在本地跑
+#            python3 tools/gen_sitemap.py，把結果 commit 進同一個變更再推。
+# CI 不再自行 commit／push（避免產生沒趕上 merge 的孤兒 commit，也避免
+# CI 端 git 歷史與 main 不一致時算出錯誤日期）。lastmod 由 git 決定。
 
 on:
   pull_request:
@@ -10,12 +13,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  sitemap:
+  check-sitemap:
     runs-on: ubuntu-latest
-    # 只處理同 repo 的 PR（fork PR 無法推回分支，直接略過）
+    # 只檢查同 repo 的 PR
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Checkout PR branch (full history for git-derived lastmod)
@@ -24,17 +27,5 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
-      - name: Regenerate sitemap
-        run: python3 tools/gen_sitemap.py
-
-      - name: Commit & push to PR branch if changed
-        run: |
-          if git diff --quiet -- sitemap.xml; then
-            echo "sitemap.xml 無變化，跳過"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
-          git commit -m "自動更新 sitemap（lastmod 跟隨 git）"
-          git push
+      - name: Verify sitemap is up to date
+        run: python3 tools/gen_sitemap.py --check
