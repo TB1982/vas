@@ -79,7 +79,18 @@ def build():
                 chunks.append(text)
     return "\n".join(out) + "\n\n" + "\n\n".join(chunks) + "\n\n</urlset>\n"
 
+def is_shallow():
+    r = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                       cwd=ROOT, capture_output=True, text=True)
+    return r.stdout.strip() == "true"
+
 def main():
+    # 淺 clone 會讓 git log 看不到舊歷史、算出偏新的 lastmod，與 CI（完整歷史）不一致。
+    # 直接擋下，要求先補全歷史，才不會提交錯誤日期。
+    if is_shallow():
+        print("錯誤：這是淺 clone，git 歷史不完整，lastmod 會算錯。\n"
+              "請先執行  git fetch --unshallow  再跑本產生器。", file=sys.stderr)
+        return 2
     xml = build()
     if "--check" in sys.argv:
         cur = open(OUTPUT, encoding="utf-8").read() if os.path.exists(OUTPUT) else ""
