@@ -114,7 +114,7 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 │
 ├── sitemap.xml             # AUTO-GENERATED — do not hand-edit（lastmod 由 git 決定）
 ├── sitemap.manifest.json   # sitemap 來源清單（新增頁面加一行；權重＋分區註解在此）
-├── tools/gen_sitemap.py    # sitemap 產生器（改完頁面、commit 前跑 python3 tools/gen_sitemap.py；產生器偵測到「待提交」的檔會用今天當 lastmod，於是頁面異動＋sitemap 落在同一個 commit，不倍增 commit。CI 於 PR 階段 check-only 重跑比對：一致綠燈、不一致紅燈提醒，CI 不再自行 commit）
+├── tools/gen_sitemap.py    # sitemap 產生器（改完頁面、commit 前跑 python3 tools/gen_sitemap.py；產生器偵測到「待提交」的檔會用今天當 lastmod，於是頁面異動＋sitemap 落在同一個 commit，不倍增 commit。CI 於 PR 階段 check-only 重跑比對：一致綠燈、不一致紅燈提醒，CI 不再自行 commit。⚠️ 需完整 git 歷史：淺 clone 會算出偏新的 lastmod，產生器偵測到淺 clone 會直接擋下，先跑 git fetch --unshallow 再產生）
 │
 ├── CLAUDE.md               # Core rules (always loaded)
 ├── CLAUDE-process.md       # This file — workflows
