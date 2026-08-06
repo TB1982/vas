@@ -275,6 +275,22 @@ img{display:block;max-width:100%;}
 
 /* 行動版鏡廊：攤平成三對 */
 .hall-mobile{display:none;}
+/* 鏡廊靜態 fallback（prefers-reduced-motion 時顯示，任何寬度都要成形，故不鎖寬度）*/
+.pair{display:flex;flex-direction:column;border:1px solid var(--edge);border-radius:3px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(25,19,52,0.6),rgba(14,11,26,0.4));}
+.pair .pseam{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(196,113,245,0.55),transparent);}
+.pair .plate{position:relative;border:none;border-radius:0;transform:none;width:auto;padding:20px 22px;background:transparent;text-align:left;}
+.pair .plate::before{content:'';position:absolute;top:18px;bottom:18px;left:0;width:2px;right:auto;
+  background:linear-gradient(transparent,var(--aurora-v),transparent);opacity:.5;}
+.pair .plate.r::before{background:linear-gradient(transparent,var(--aurora-b),transparent);}
+.pair .plate:hover{transform:none;box-shadow:none;background:transparent;}
+.pair .plate .pen{display:none;}
+.m-portal{display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px;margin-top:8px;
+  border:1px solid rgba(196,113,245,0.4);border-radius:3px;
+  background:radial-gradient(ellipse at center,rgba(196,113,245,0.22),transparent);}
+.m-portal .pt{font-family:var(--serif-en);font-size:44px;color:var(--ash-0);}
+.m-portal .pt em{font-style:normal;color:var(--aurora-v);}
+.m-portal .pg{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--ash-2);}
 
 /* ── 版次 + 頁尾 ── */
 .chronicle{display:flex;align-items:center;gap:24px;padding:8vh 0 4vh;}
@@ -329,22 +345,7 @@ img{display:block;max-width:100%;}
     background:linear-gradient(135deg,rgba(22,28,62,0.95),rgba(14,11,26,0.85));}
   .ring .plate.r::before{opacity:1;background:linear-gradient(transparent,var(--aurora-b),transparent);}
   .ring .plate.r .pen{color:var(--aurora-b);opacity:.85;}
-  .pair{display:flex;flex-direction:column;border:1px solid var(--edge);border-radius:3px;overflow:hidden;
-    background:linear-gradient(160deg,rgba(25,19,52,0.6),rgba(14,11,26,0.4));}
-  .pair .pseam{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(196,113,245,0.55),transparent);}
-  .pair .plate{position:static;border:none;border-radius:0;transform:none;width:auto;padding:20px 22px;background:transparent;text-align:left;}
-  .pair .plate::before{content:'';position:absolute;top:18px;bottom:18px;left:0;width:2px;right:auto;
-    background:linear-gradient(transparent,var(--aurora-v),transparent);opacity:.5;}
-  .pair .plate{position:relative;}
-  .pair .plate.r::before{background:linear-gradient(transparent,var(--aurora-b),transparent);}
-  .pair .plate:hover{transform:none;box-shadow:none;background:transparent;}
-  .pair .plate .pen{display:none;}
-  .m-portal{display:flex;flex-direction:column;align-items:center;gap:10px;padding:34px;margin-top:8px;
-    border:1px solid rgba(196,113,245,0.4);border-radius:3px;
-    background:radial-gradient(ellipse at center,rgba(196,113,245,0.22),transparent);}
-  .m-portal .pt{font-family:var(--serif-en);font-size:44px;color:var(--ash-0);}
-  .m-portal .pt em{font-style:normal;color:var(--aurora-v);}
-  .m-portal .pg{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--ash-2);}
+  /* .pair / .m-portal 卡片樣式已移至無條件區（見上），這裡不再重複 */
   .foot{grid-template-columns:1fr;gap:18px;}
   .foot .right{text-align:left;}
 }
@@ -353,7 +354,7 @@ img{display:block;max-width:100%;}
   .rise{opacity:1;transform:none;}
   .hall-wrap{display:none;}
   .hall-cap{display:block;}
-  .hall-mobile{display:flex;flex-direction:column;gap:18px;text-align:left;}
+  .hall-mobile{display:flex;flex-direction:column;gap:18px;text-align:left;max-width:min(94vw,560px);margin:0 auto;}
   .pair .plate{width:auto;text-align:left;}
 }
 </style>
