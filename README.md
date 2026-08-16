@@ -31,6 +31,7 @@ The home page (`/`) is two doors: **器 · The Instrument** (the product) and **
 | Guide | `/guide` | User manual — the manual cover |
 | ↳ Toolbar | `/guide/toolbar` | Screenshot toolbar — 截圖工具列 |
 | ↳ Editor | `/guide/editor` | Annotation editor — 12 tools × attributes · 標註編輯器 |
+| ↳ Pixel Animation | `/guide/pixel` | Pixel animation editor — three grids · per-frame ms · JSON export · 像素動畫 |
 | ↳ OCR | `/guide/ocr` | OCR text recognition — 文字辨識 |
 | ↳ Arrange | `/guide/arrange` | Align, layers & groups — 對齊、圖層與群組 |
 | ↳ Export | `/guide/export` | Drag import & export — 拖曳匯入與匯出 |
@@ -57,7 +58,7 @@ The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection)
 | Privacy | `/privacy` | Privacy policy |
 | 404 | `/404` | Error page |
 
-**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 26 pages × 4 locales (incl. the 6 guide chapters and the 3 harness pillars). There is no runtime i18n — language switching is page navigation.
+**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 27 pages × 4 locales (incl. the 7 guide chapters and the 3 harness pillars). There is no runtime i18n — language switching is page navigation.
 
 **Sitemap-only (not in main nav, by design):** `/us`, `/vessel`, and `/harness/{context,constraints,entropy}`. Humans reach them by digging (trail-dot / inline-dot doors); crawlers and AI reach them via sitemap. Hide-from-human ≠ hide-from-machine.
 
