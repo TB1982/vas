@@ -788,7 +788,7 @@
   <!-- ═══════ Tools · Guide (手冊) ═══════ -->
   <url>
     <loc>https://yoursvas.app/guide</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
@@ -837,7 +837,7 @@
   <!-- ═══════ Tools · Guide chapters (手冊章節) ═══════ -->
   <url>
     <loc>https://yoursvas.app/guide/toolbar</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/toolbar"/>
@@ -885,7 +885,7 @@
 
   <url>
     <loc>https://yoursvas.app/guide/editor</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/editor"/>
@@ -933,7 +933,7 @@
 
   <url>
     <loc>https://yoursvas.app/guide/ocr</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/ocr"/>
@@ -981,7 +981,7 @@
 
   <url>
     <loc>https://yoursvas.app/guide/arrange</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/arrange"/>
@@ -1029,7 +1029,7 @@
 
   <url>
     <loc>https://yoursvas.app/guide/export</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/export"/>
@@ -1077,7 +1077,7 @@
 
   <url>
     <loc>https://yoursvas.app/guide/shortcuts</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/shortcuts"/>
