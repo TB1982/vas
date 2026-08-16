@@ -87,7 +87,15 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 ├── milestone.html          # Chapter III · 里程碑 · MILESTONE (narrative; sealed at S104 · 06·28)
 ├── changelog.html          # 更新日誌 · CHANGELOG — full ledger (Tauri 135 Sprint + Electron 86 版), split out of milestone; rhythm-band + release-density JS read the DOM live
 ├── faq.html                # FAQ — eight questions
-├── guide.html              # User guide
+├── guide/                  # User manual — cover + 7 chapters (4 locales; old single-page guide.html archived → archive/guide-v3.html)
+│   ├── index.html          # Manual cover
+│   ├── toolbar.html        # 01 · 工具列
+│   ├── editor.html         # 02 · 編輯器
+│   ├── pixel.html          # 03 · 像素動畫 (v2.15.0)
+│   ├── ocr.html            # 04 · OCR
+│   ├── arrange.html        # 05 · 編排
+│   ├── export.html         # 06 · 匯入與匯出
+│   └── shortcuts.html      # 07 · 快捷鍵
 ├── privacy.html            # Privacy policy
 ├── 404.html                # Error page
 │

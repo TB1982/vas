@@ -139,7 +139,8 @@
   font-size: 17px;
   line-height: 1.85;
   color: var(--vas-ash-1);
-  max-width: 52ch;
+  /* 中文一字＝一 em；ch 量的是數字「0」寬，對中文只剩約半數字元 */
+  max-width: 34em;
   margin-bottom: 56px;
 }
 .docs-main h2 {
@@ -156,7 +157,7 @@
   font-size: 17px;
   line-height: 1.85;
   color: var(--vas-ash-0);
-  max-width: 56ch;
+  max-width: 36em;
   margin-bottom: 1em;
 }
 .docs-main em {
@@ -393,7 +394,7 @@ html[lang="en"] .docs-toc-sticky a {
 }
 
 /* ─── List ────────────────────────────── */
-.docs-main ul.docs-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 56ch; }
+.docs-main ul.docs-list { list-style: none; padding: 0; margin: 0 0 20px; max-width: 36em; }
 .docs-main ul.docs-list > li {
   padding: 10px 0 10px 18px;
   position: relative;
@@ -415,7 +416,7 @@ html[lang="en"] .docs-toc-sticky a {
 .docs-main ol.docs-list {
   list-style: none;
   padding: 0; margin: 0 0 20px;
-  max-width: 56ch;
+  max-width: 36em;
   counter-reset: docs-step;
 }
 .docs-main ol.docs-list > li {
@@ -443,7 +444,7 @@ html[lang="en"] .docs-toc-sticky a {
   margin: 24px 0; padding: 18px 22px;
   border: 1px solid rgba(196, 113, 245, 0.22);
   background: rgba(196, 113, 245, 0.04);
-  max-width: 56ch;
+  max-width: 36em;
 }
 .docs-note-label {
   font-family: var(--vas-mono);
@@ -480,7 +481,7 @@ html[lang="en"] .docs-toc-sticky a {
 
 /* ─── Shortcut table ──────────────────── */
 .docs-shortcut-table {
-  width: 100%; max-width: 56ch;
+  width: 100%; max-width: 36em;
   border-collapse: collapse;
   font-family: var(--vas-serif); font-size: 15px;
   margin: 12px 0 28px;

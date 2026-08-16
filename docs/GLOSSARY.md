@@ -31,6 +31,10 @@ The canonical terminology reference for translating VAS / 深握計畫 site cont
 | 顯影 | develop (photographic) | 顕現 / 像を結ぶ | 显影 | darkroom metaphor for "bringing latent to visible" |
 | 文字會顯影 | words develop you | 文字は像を結ぶ | 文字会显影 | self chapter §04 keystone |
 | 八道問 | Eight Questions | 八つの問い | 八道问 | faq chapter; resonance with 八正道 |
+| 像素動畫 | Pixel Animation | ピクセルアニメーション | 像素动画 | guide chapter 03; category values Idle/Work/Dance/Expressions stay English in all locales |
+| 影格 | frame | フレーム | 帧 | pixel-animation; 简中 uses 帧 (NOT 影格) |
+| 洋蔥皮 | onion skin | オニオンスキン | 洋葱皮 | pixel-animation frame-ghosting aid |
+| 插槽 | slot | スロット | 插槽 | device's fixed 20-sec rotation slot; app string retained per Nova — pending app-side rename discussion (heading uses 動畫限制) |
 
 ---
 

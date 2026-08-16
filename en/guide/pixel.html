@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>(function(){try{var t=localStorage.getItem('vas-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Pixel Animation Editor: Frame-by-Frame, Device Preview & JSON · User Guide | VAS</title>
+<link rel="icon" href="../../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/en/guide/pixel">
+<meta name="description"
+      content="VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration." />
+<meta property="og:title" content="Pixel Animation Editor — Frame-by-Frame, Device Preview, Machine-Readable JSON | VAS User Guide">
+<meta property="og:description" content="VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/en/guide/pixel">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoursvas.app/img/vas-guide-share-en.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS User Guide — a tool you can hold, a manual you can operate">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share-en.webp">
+<meta name="twitter:image:alt" content="VAS User Guide — a tool you can hold, a manual you can operate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pixel Animation Editor — Frame-by-Frame, Device Preview, Machine-Readable JSON | VAS User Guide">
+<meta name="twitter:description" content="VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration.">
+
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<link rel="stylesheet" href="../../css/tokens.css?v=2026-07-13a">
+<link rel="stylesheet" href="../../css/shell.css?v=2026-06-14a">
+<link rel="stylesheet" href="../../css/docs.css">
+
+<style>
+  .lang-dropdown-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(240,232,220,0.06);border:1px solid var(--vas-rule);color:var(--vas-ash-2);font-family:var(--vas-mono);font-size:11px;letter-spacing:0.1em;cursor:pointer;transition:background .2s,color .2s}
+  .lang-dropdown-btn:hover{background:rgba(240,232,220,0.1);color:var(--vas-ash-0)}
+  .lang-dropdown-menu{position:absolute;right:0;top:calc(100% + 6px);min-width:110px;background:var(--vas-void-up);border:1px solid var(--vas-rule-strong);border-radius:12px;padding:4px;display:none;z-index:100;backdrop-filter:blur(12px)}
+  .lang-dropdown-menu.open{display:block}
+  .lang-opt{display:block;width:100%;text-align:left;padding:8px 14px;background:transparent;border:none;color:var(--vas-ash-2);font-family:var(--vas-serif);font-size:14px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+  .lang-opt:hover{background:rgba(240,232,220,0.06);color:var(--vas-ash-0)}
+  .docs-subsection{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease;margin-bottom:18px}
+  .docs-subsection.is-visible{opacity:1;transform:translateY(0)}
+  .docs-subsection + .docs-subsection{margin-top:56px}
+  @media (prefers-reduced-motion: reduce){.docs-subsection{opacity:1;transform:none;transition:none}}
+  .docs-layout{display:block}
+  .docs-main{max-width:1040px;margin:0 auto}
+  .docs-section:first-of-type{padding-bottom:50px}
+  .docs-section:first-of-type + .docs-section{padding-top:50px}
+  .docs-section:first-of-type + .docs-section > h2:first-child{margin-top:0}
+</style>
+
+<style id="gpx-window">
+  /* ═══ Pixel-mode editor · 1:1 rebuild (values taken from the app's editor.css / editor.html) ═══ */
+  .gpx{max-width:1080px;margin:26px calc(-1 * min(48px, 3.5vw)) 0}
+  .gpx-win{background:#1e1e1e;border:1px solid #2e2e2e;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px -20px rgba(0,0,0,.6)}
+  .gpx-title{height:36px;display:flex;align-items:center;gap:8px;padding:0 13px;background:#1c1c1c}
+  .gpx-dot{width:10px;height:10px;border-radius:50%}
+  .gpx-tname{flex:1;text-align:center;font-family:var(--vas-mono);font-size:12px;letter-spacing:.22em;color:#b6b6bc}
+  .gpx-bar{display:flex;align-items:center;gap:4px;padding:8px 13px;background:#1c1c1c;border-bottom:1px solid #2e2e2e;flex-wrap:wrap}
+  .gpx-tool{width:34px;height:30px;border-radius:7px;border:none;background:#2f2f2f;color:#999;font-size:15px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .12s,color .12s;font-variant-emoji:text}
+  .gpx-tool:hover{background:#3a3a3a;color:#ccc}
+  .gpx-tool.on{background:#3d5a80;color:#fff}
+  .gpx-optsep{width:1px;height:22px;background:#3a3a3a;margin:0 4px;flex-shrink:0}
+  .gpx-body{display:flex;align-items:stretch;min-height:430px}
+  .gpx-col{background:#1c1c1c;padding:12px;display:flex;flex-direction:column;gap:8px;flex-shrink:0;transition:outline-color .18s;outline:2px solid transparent;outline-offset:-2px}
+  .gpx-left{width:226px;border-right:1px solid #2e2e2e}
+  .gpx-right{width:214px;border-left:1px solid #2e2e2e}
+  .gpx-canvaswrap{flex:1;min-width:0;background:#141414;display:flex;align-items:center;justify-content:center;padding:16px;transition:outline-color .18s;outline:2px solid transparent;outline-offset:-2px}
+  .gpx-canvas{width:auto;height:auto;max-width:100%;max-height:100%;aspect-ratio:1;object-fit:contain;display:block;image-rendering:pixelated;border:1px solid #2a2a2a}
+  .gpx-lbl{font-family:var(--vas-mono);font-size:12px;color:#cfcfcf}
+  .gpx-hint{font-family:var(--vas-mono);font-size:10.5px;line-height:1.6;color:#777}
+  .gpx-hint.warn{color:#c9a227}
+  .gpx-hint.ok{color:#5cba7d}
+  .gpx-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px;flex-wrap:nowrap;min-width:0}
+  .gpx-head .gpx-lbl,.gpx-head .gpx-hint{white-space:nowrap}
+  .gpx-head .gpx-hint{font-size:9.5px}
+  .gpx-pv{width:100%;max-height:168px;object-fit:contain;aspect-ratio:1;image-rendering:pixelated;display:block;border-radius:3px}
+  .gpx-pvrow{display:flex;align-items:flex-start;gap:10px}
+  .gpx-badge{width:62px;height:62px;image-rendering:pixelated;display:block;border-radius:2px;flex-shrink:0}
+  .gpx-btn{height:28px;border-radius:6px;background:#2f2f2f;border:none;color:#ccc;font-family:var(--vas-mono);font-size:11.5px;display:inline-flex;align-items:center;justify-content:center;cursor:default}
+  .gpx-btnrow{display:flex;gap:6px}
+  .gpx-input{height:30px;border-radius:6px;background:#111;border:1px solid #3a3a3a;display:flex;align-items:center;padding:0 10px;font-family:var(--vas-mono);font-size:12px;color:#e6e6e6}
+  .gpx-select{height:30px;border-radius:6px;background:#2f2f2f;border:1px solid #3a3a3a;display:flex;align-items:center;justify-content:space-between;padding:0 10px;font-family:var(--vas-mono);font-size:12px;color:#e6e6e6}
+  .gpx-sep{height:1px;background:#2e2e2e;margin:4px 0}
+  .gpx-frames{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .gpx-frame{display:flex;flex-direction:column;align-items:center;gap:5px}
+  .gpx-frame img{width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;display:block;border-radius:4px;border:1px solid #333}
+  .gpx-frame.sel img{border:2px solid #0a84ff}
+  .gpx-fno{font-family:var(--vas-mono);font-size:10.5px;color:#777}
+  .gpx-ms{width:100%;height:22px;justify-content:center;font-size:10px;padding:0}
+  .gpx-sw{display:flex;gap:5px;flex-wrap:wrap}
+  .gpx-sw span{flex:1;min-width:20px;aspect-ratio:1;border-radius:6px;border:1px solid #3a3a3a;position:relative;overflow:hidden}
+  .gpx-sw i{position:absolute;right:2px;bottom:0;font-family:var(--vas-mono);font-size:8px;font-style:normal;color:rgba(255,255,255,.85);letter-spacing:-.03em}
+  .gpx-sw span.sel{border:2px solid #0a84ff}
+  .gpx-alpha{background:repeating-conic-gradient(#4a4a50 0% 25%,#2a2a2c 0% 50%) 0 0/9px 9px}
+  .gpx-grid{display:block;width:100%;border-radius:3px}
+  .gpx-status{height:42px;display:flex;align-items:center;gap:12px;padding:0 14px;background:#1c1c1c;border-top:1px solid #2e2e2e;transition:outline-color .18s;outline:2px solid transparent;outline-offset:-2px}
+  .gpx-zoom{font-family:var(--vas-mono);font-size:11px;color:#555}
+  .gpx-spacer{flex:1}
+  .gpx-save{height:30px;border-radius:8px;background:#0a84ff;color:#fff;border:none;font-family:var(--vas-mono);font-size:12px;padding:0 16px;display:inline-flex;align-items:center;cursor:default}
+  /* Zone cross-highlight */
+  .gpx.hl-left .gpx-left{outline-color:#f87171}
+  .gpx.hl-canvas .gpx-canvaswrap{outline-color:#4a9eff}
+  .gpx.hl-right .gpx-right{outline-color:#4ade80}
+  .gpx.hl-status .gpx-status{outline-color:#e8e8e8}
+  .gpx-caption{font-family:var(--vas-serif);font-size:14px;color:var(--vas-ash-2);line-height:1.75;margin:16px 0 0;max-width:760px}
+  /* Four-zone dot map */
+  .gpz{display:grid;grid-template-columns:1fr 1fr;gap:2px 48px;margin:22px 0 0;max-width:760px}
+  .gpz-item{display:flex;gap:13px;padding:15px 0;align-items:baseline;cursor:default;border-radius:8px;padding-left:8px;margin-left:-8px;transition:background .15s}
+  .gpz-item.lit{background:rgba(240,232,220,.055)}
+  .gpz-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;transform:translateY(1px)}
+  .gpz-dot-w{background:#e8e8e8;box-shadow:0 0 0 1px var(--vas-rule-strong)}
+  .gpz-n{font-family:var(--vas-serif);font-weight:500;font-size:15px;color:var(--vas-ash-0);display:block;margin-bottom:3px}
+  .gpz-d{font-family:var(--vas-serif);font-size:14px;line-height:1.75;color:var(--vas-ash-1)}
+  @media(max-width:880px){.gpx-left{width:208px}.gpx-right{width:196px}.gpx-body{min-height:390px}}
+  @media(max-width:760px){.gpx-body{flex-wrap:wrap}.gpx-left,.gpx-right{width:100%;border:none;border-bottom:1px solid #2e2e2e}.gpx-canvaswrap{order:-1;width:100%;flex-basis:100%}.gpz{grid-template-columns:1fr;gap:0}}
+</style>
+
+<style id="gpx-doc">
+  /* Tool dictionary · reuses the manual's existing details-index vocabulary */
+  .tdict{max-width:760px;margin:6px 0 0}
+  .tdict-grp{margin-top:32px}
+  .tdx-grp-label{font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);margin:0 0 6px;font-weight:500}
+  .tdx{border-bottom:1px solid var(--vas-rule)}
+  .tdx>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:13px;padding:13px 2px;transition:padding-left .16s ease}
+  .tdx>summary::-webkit-details-marker{display:none}
+  .tdx>summary:hover{padding-left:5px}
+  .tdx-ic{width:18px;flex-shrink:0;text-align:center;color:var(--vas-ash-2);font-variant-emoji:text;transition:color .16s}
+  .tdx>summary:hover .tdx-ic,.tdx[open] .tdx-ic{color:var(--vas-aurora-violet)}
+  .tdx-t{font-family:var(--vas-serif);font-size:16px;color:var(--vas-ash-0);font-weight:500}
+  .tdx[open]>summary .tdx-t{color:var(--vas-aurora-violet)}
+  .tdx-k{margin-left:auto;font-family:var(--vas-mono);font-size:12px;color:var(--vas-ash-3);flex-shrink:0;padding-left:12px}
+  .tdx-body{padding:2px 0 20px 31px}
+  .tdx-body .tm-p{font-family:var(--vas-serif);font-size:14px;line-height:1.75;color:var(--vas-ash-1);margin:0 0 10px}
+  .tdx-body .tm-p:last-child{margin-bottom:0}
+  .tdx-body code{font-family:var(--vas-mono);font-size:.9em;background:rgba(240,232,220,.06);padding:1px 6px;border-radius:4px;color:var(--vas-ash-0)}
+  /* Three sizes */
+  .gsz{display:flex;flex-direction:column;gap:10px;max-width:760px;margin-top:22px}
+  .gsz-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:15px 20px;border:1px solid var(--vas-rule);border-radius:12px;border-left:3px solid var(--vas-rule-strong)}
+  .gsz-fig{width:74px;height:74px;flex-shrink:0;border-radius:3px;display:block}
+  .gsz-row.hi{border-left-color:var(--vas-aurora-violet)}
+  .gsz-n{font-family:var(--vas-mono);font-size:20px;font-weight:600;color:var(--vas-ash-0);min-width:104px}
+  .gsz-row.hi .gsz-n{color:var(--vas-aurora-violet)}
+  .gsz-tag{font-family:var(--vas-mono);font-size:11.5px;color:var(--vas-ash-2);min-width:104px}
+  .gsz-d{font-family:var(--vas-serif);font-size:14.5px;color:var(--vas-ash-1);flex:1;min-width:220px}
+  /* Slot readout */
+  .gslot{display:flex;flex-direction:column;gap:10px;max-width:760px;margin-top:22px}
+  .gslot-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:14px 18px;border:1px solid var(--vas-rule);border-radius:10px;font-family:var(--vas-mono);font-size:13px;color:var(--vas-ash-1)}
+  .gslot-row.ok{border-color:rgba(90,190,125,.4)}
+  .gslot-row.cut{border-color:rgba(201,162,39,.45)}
+  .gslot-k{color:var(--vas-ash-0);min-width:200px}
+  /* AI collaboration flow */
+  .gflow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:820px;margin-top:24px}
+  .gflow-step{border:1px solid var(--vas-rule);border-radius:10px;padding:16px 17px}
+  .gflow-no{font-family:var(--vas-mono);font-size:11px;letter-spacing:.16em;color:var(--vas-aurora-violet);display:block;margin-bottom:8px}
+  .gflow-t{font-family:var(--vas-serif);font-size:15px;color:var(--vas-ash-0);display:block;margin-bottom:6px;font-weight:500}
+  .gflow-d{font-family:var(--vas-serif);font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
+  .gjson{max-width:760px;margin-top:22px;background:#141416;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 18px;font-family:var(--vas-mono);font-size:12.5px;line-height:1.9;color:#c8c8cc;overflow-x:auto}
+  .gjson .k{color:#8fc4ff}
+  .gjson .s{color:#c9a227}
+  .gjson .c{color:#6f6f76}
+  @media(max-width:760px){.gflow{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.gflow{grid-template-columns:1fr}}
+</style>
+
+<link rel="alternate" hreflang="zh-Hant" href="/guide/pixel">
+<link rel="alternate" hreflang="en"       href="/en/guide/pixel">
+<link rel="alternate" hreflang="ja"       href="/ja/guide/pixel">
+<link rel="alternate" hreflang="zh-Hans"  href="/cn/guide/pixel">
+<link rel="alternate" hreflang="x-default" href="/guide/pixel">
+<!--
+  AI CONTEXT · en/guide/pixel.html
+  VAS pixel-animation mode user guide. Answers: how to enter pixel mode, which grid
+  sizes are supported, how to set frames and per-frame milliseconds, the palette cap
+  and bright-colour principle, how to read the device preview and the 20-second slot,
+  how to export and import JSON, and how to hand the JSON to an AI to keep drawing.
+  The other mode of the same editor; the annotation tools are documented in guide/editor.html.
+-->
+<link rel="stylesheet" href="../../css/theme.css">
+</head>
+<body class="is-guide">
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="../../instrument.html" aria-label="Back to the Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="../../about.html">About</a>
+    <a href="../../echo.html">Echoes</a>
+    <a href="../../milestone.html">Milestones</a>
+    <a href="index.html" class="active">Guide</a>
+    <a href="../../faq.html">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="../../about.html">About</a>
+    <a href="../../echo.html">Echoes</a>
+    <a href="../../milestone.html">Milestones</a>
+    <a href="index.html" class="active">Guide</a>
+    <a href="../../faq.html">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap"><button class="theme-toggle" type="button" aria-label="Toggle dark / light theme"><svg class="ti-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg><svg class="ti-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></svg></button>
+  <div class="lang-flat-row">
+<a href="../../guide/pixel.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="pixel.html" class="lang-opt active" hreflang="en" style="text-decoration:none;white-space:nowrap;font-weight:600">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../../ja/guide/pixel.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../../cn/guide/pixel.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Switch language"><span>EN</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../../guide/pixel.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="pixel.html" class="lang-opt active" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../../ja/guide/pixel.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../../cn/guide/pixel.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<div class="docs-layout">
+  <main class="docs-main">
+
+    <section class="docs-section" id="pixel-top">
+      <div class="docs-section-kicker">Guide · 03 — Pixel Animation</div>
+      <h1>Pixel Animation</h1>
+      <div class="docs-dek">The same editor, another mode of human–machine collaboration. Annotation is saying your words on top of an image; pixel animation starts from a black canvas without a single cell, imports an existing animation to refine or draws a moving script by hand — then hands the information losslessly to an AI in a machine-readable format (JSON) for the next step of collaboration. You can burn it into the device, or let the AI take over the motion work.</div>
+    </section>
+
+    <section class="docs-section" id="layout">
+      <h2>Edit mode</h2>
+      <p>Draw, preview, frames, colours, export and import. Hover over any item below and the matching zone lights up on the image.</p>
+
+      <div class="gpx" id="gpx">
+        <div class="gpx-win">
+          <div class="gpx-title">
+            <span class="gpx-dot" style="background:#ff5f57"></span>
+            <span class="gpx-dot" style="background:#febc2e"></span>
+            <span class="gpx-dot" style="background:#28c840"></span>
+            <span class="gpx-tname">VAS</span>
+            <span style="width:52px"></span>
+          </div>
+          <div class="gpx-bar" id="gpxBar">
+            <button class="gpx-tool on" data-tool="pen" title="Pen">✏</button>
+            <button class="gpx-tool" data-tool="eraser" title="Eraser">▱</button>
+            <button class="gpx-tool" data-tool="select" title="Select">⬚</button>
+            <button class="gpx-tool" data-tool="picker" title="Eyedropper"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2 22 1-1h3l9-9"/><path d="M3 21v-3l9-9"/><path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z"/></svg></button>
+            <span class="gpx-optsep"></span>
+            <button class="gpx-tool" data-tool="flipH" title="Flip horizontal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 8 4 12l4 4"/><path d="m16 8 4 4-4 4"/></svg></button>
+            <button class="gpx-tool" data-tool="flipV" title="Flip vertical"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M8 8l4-4 4 4"/><path d="M8 16l4 4 4-4"/></svg></button>
+            <span class="gpx-optsep"></span>
+            <button class="gpx-tool on" data-tool="onion" title="Onion skin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="13" height="13" rx="2" opacity="0.45"/><rect x="8" y="8" width="13" height="13" rx="2"/></svg></button>
+          </div>
+          <div class="gpx-body">
+            <div class="gpx-col gpx-left">
+              <div class="gpx-head"><span class="gpx-lbl">Device preview</span><span class="gpx-hint">500 ms · 40.0 loops per 20s</span></div>
+              <img class="gpx-pv" src="../../img/px-f3.svg" alt="Full-screen splash preview">
+              <div class="gpx-hint">Full-screen splash · 6 px per cell</div>
+              <div class="gpx-pvrow">
+                <img class="gpx-badge" src="../../img/px-f3.svg" alt="Corner badge preview">
+                <button class="gpx-btn" style="flex:1;height:38px">▶ Play</button>
+              </div>
+              <div class="gpx-hint">Corner badge · 2 px per cell</div>
+              <div class="gpx-hint ok">✓ Lands on the slot boundary</div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">JSON file</span>
+              <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">Paste</button><button class="gpx-btn" style="flex:1">Copy</button><button class="gpx-btn" style="flex:1">Save</button></div>
+              <span class="gpx-lbl" style="margin-top:4px">Animation info</span>
+              <div class="gpx-hint">Animation name</div>
+              <div class="gpx-input">vas</div>
+              <div class="gpx-hint">Must be unique — also needs adding to splash.cpp to show up</div>
+              <div class="gpx-hint">Category</div>
+              <div class="gpx-select">Idle<span style="color:#888">⌄</span></div>
+            </div>
+            <div class="gpx-canvaswrap">
+              <img class="gpx-canvas" src="../../img/px-canvas.svg" alt="40×40 pixel canvas">
+            </div>
+            <div class="gpx-col gpx-right">
+              <span class="gpx-lbl">Frames</span>
+              <div class="gpx-frames">
+                <div class="gpx-frame"><span class="gpx-fno">1</span><img src="../../img/px-f1.svg" alt="Frame 1"><div class="gpx-input gpx-ms">125</div></div>
+                <div class="gpx-frame"><span class="gpx-fno">2</span><img src="../../img/px-f2.svg" alt="Frame 2"><div class="gpx-input gpx-ms">125</div></div>
+                <div class="gpx-frame sel"><span class="gpx-fno">3</span><img src="../../img/px-f3.svg" alt="Frame 3"><div class="gpx-input gpx-ms">125</div></div>
+                <div class="gpx-frame"><span class="gpx-fno">4</span><img src="../../img/px-f4.svg" alt="Frame 4"><div class="gpx-input gpx-ms">125</div></div>
+              </div>
+              <div class="gpx-btnrow" style="margin-top:2px"><button class="gpx-btn" style="flex:1">＋</button><button class="gpx-btn" style="flex:1">⧉</button><button class="gpx-btn" style="flex:1;color:#555">🗑</button><button class="gpx-btn" style="flex:1;color:#555">←</button><button class="gpx-btn" style="flex:1;color:#555">→</button></div>
+              <div class="gpx-sep"></div>
+              <div class="gpx-head"><span class="gpx-lbl">Colours in this animation</span><span class="gpx-hint">7 / 36</span></div>
+              <div class="gpx-sw">
+                <span class="gpx-alpha"><i>1105</i></span>
+                <span style="background:#F4ECE0"><i style="color:#3a3a3a">144</i></span>
+                <span style="background:#C471F5"><i>127</i></span>
+                <span style="background:#4A9EFF"><i>45</i></span>
+                <span style="background:#FA71CD"><i>40</i></span>
+                <span style="background:#FFD9F2"><i style="color:#3a3a3a">51</i></span>
+                <span class="sel" style="background:#8000FF"><i>88</i></span>
+              </div>
+              <div class="gpx-hint warn">⚠️ Keep colours bright — the device panel is pure black, dark colours vanish</div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">Pick a colour</span>
+              <img class="gpx-grid" src="../../img/px-palette.svg" alt="Built-in 256-colour palette">
+              <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">Add</button><button class="gpx-btn" style="width:42px;height:30px">Replace</button></div>
+            </div>
+          </div>
+          <div class="gpx-status">
+            <span class="gpx-zoom">1500%</span>
+            <span class="gpx-zoom">40 × 40 cells</span>
+            <span class="gpx-spacer"></span>
+            <button class="gpx-btn" style="height:30px;padding:0 14px">Copy</button>
+            <button class="gpx-save">Finish and save</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gpz" id="gpxZones">
+        <div class="gpz-item" data-zone="left"><span class="gpz-dot" style="background:#f87171"></span><span><span class="gpz-n">Left column · Device preview and export/import</span><span class="gpz-d">How it actually plays on the device, playback, the number of times a default 20-second animation can loop, and JSON paste / copy / save plus the animation info.</span></span></div>
+        <div class="gpz-item" data-zone="canvas"><span class="gpz-dot" style="background:#4a9eff"></span><span><span class="gpz-n">Centre · Canvas</span><span class="gpz-d">A pure black ground with a grid, drawn cell by cell. Gridlines and onion skin are only reference aids here — they never appear in the device output.</span></span></div>
+        <div class="gpz-item" data-zone="right"><span class="gpz-dot" style="background:#4ade80"></span><span><span class="gpz-n">Right column · Frames and colours</span><span class="gpz-d">The frame strip, per-frame milliseconds set in steps of 20 ms, a cap of 36 colours per animation, and the built-in 256-colour picker.</span></span></div>
+        <div class="gpz-item" data-zone="status"><span class="gpz-dot gpz-dot-w"></span><span><span class="gpz-n">Bottom bar · Zoom and save</span><span class="gpz-d">Shows the current zoom and grid size; "Finish and save" lets you save a single frame as an image or as a JSON file.</span></span></div>
+      </div>
+      <p class="gpx-caption">Colours and frames are the two things you switch between most often, so they sit next to each other; the device preview is pinned to the left column and never collapses, because you need to watch it the whole time you tune the frames.</p>
+    </section>
+
+    <section class="docs-section" id="tools">
+      <h2>Four tools, two actions, one switch</h2>
+      <p>Draw, erase, select, and pick colour are the basics; the mirror tools make it easy to copy the opposite half. Onion skin lets you see how this frame differs from the last.</p>
+      <div class="tdict">
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">Tools</div>
+          <details class="tdx" open>
+            <summary><span class="tdx-ic">✏</span><span class="tdx-t">Pen</span><span class="tdx-k">default</span></summary>
+            <div class="tdx-body"><p class="tm-p">Click a cell, or hold and drag across, to fill in the currently selected colour.</p></div>
+          </details>
+          <details class="tdx">
+            <summary><span class="tdx-ic">▱</span><span class="tdx-t">Eraser</span></summary>
+            <div class="tdx-body"><p class="tm-p">Clears cells to transparent — that is, index 0. Transparent on the device means "not lit," not "painted black."</p></div>
+          </details>
+          <details class="tdx">
+            <summary><span class="tdx-ic">⬚</span><span class="tdx-t">Select</span></summary>
+            <div class="tdx-body"><p class="tm-p">Draw a box to pull out a region — you can move it, flip it, or copy it to another frame.</p><p class="tm-p">While a selection is active the arrow keys <strong>nudge it one cell</strong>; with no selection the arrow keys switch frames instead — the same keys, depending on whether you're holding something.</p></div>
+          </details>
+          <details class="tdx">
+            <summary><span class="tdx-ic">◍</span><span class="tdx-t">Eyedropper</span></summary>
+            <div class="tdx-body"><p class="tm-p">Click a cell to pick up its colour index. Click an empty cell and you pick up transparent.</p></div>
+          </details>
+        </div>
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">Actions</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">⇋</span><span class="tdx-t">Flip horizontal / Flip vertical</span></summary>
+            <div class="tdx-body"><p class="tm-p">What flips is the <strong>selection</strong>; with no selection, the whole canvas flips.</p><p class="tm-p">These two aren't tools, they're actions — press one and it happens once, it never stays in a "selected" state.</p></div>
+          </details>
+        </div>
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">Switch</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">◨</span><span class="tdx-t">Onion skin</span><span class="tdx-k">on by default</span></summary>
+            <div class="tdx-body"><p class="tm-p">Lays the <strong>previous frame</strong> faintly beneath the current one, so you can see where the last frame's motion ended. The first frame shows the last frame underneath — because the animation loops, the "previous frame" of the first frame is the last one.</p><p class="tm-p">Only the canvas draws onion skin. The device preview deliberately doesn't: it's meant to show exactly what the device will light up.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section" id="frames">
+      <h2>Frames and milliseconds</h2>
+      <p>The top half of the right column is the frame strip. Every frame has its own <strong>hold in milliseconds</strong> — the whole animation doesn't share one speed, each frame gets its own value. To hold one frame half a beat longer, change only that frame.</p>
+      <ul class="docs-list">
+        <li><strong>＋</strong> Insert a blank frame after the current one.</li>
+        <li><strong>⧉</strong> Insert a duplicate after the current one — subtly tweaked animations are mostly grown this way.</li>
+        <li><strong>🗑</strong> Delete the current frame. Disabled when only one is left: an animation can't have no frames.</li>
+        <li><strong>←</strong> / <strong>→</strong> Swap places with the previous / next frame. Automatically disabled at the ends.</li>
+      </ul>
+      <p>With no selection, the keyboard <span class="docs-kbd">←</span> <span class="docs-kbd">→</span> switch frames directly — this is the fastest way to judge whether the motion reads: flip back and forth and see whether it looks like it's moving.</p>
+    </section>
+
+    <section class="docs-section" id="colours">
+      <h2>Colours: 36 seats, 256 candidates</h2>
+      <p>"Colours in this animation" is the set of swatches this animation actually uses, with a <strong>cap of 36 colours</strong>. That number isn't a design preference — it's the size of the device firmware's palette, and anything beyond it has no place to go there, so the editor stops you right here.</p>
+      <p>Below it, "Pick a colour" is the built-in <strong>256-colour palette</strong>: 16 shades of grey, plus 24 hues × ten variants (five muted, five vivid, each in five levels of brightness). Brightness deliberately doesn't reach either extreme — too dark is invisible on the pure-black panel, and pure white is already in the greyscale row.</p>
+      <div class="tdict">
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">Add vs Replace</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">＋</span><span class="tdx-t">Add</span></summary>
+            <div class="tdx-body"><p class="tm-p">Adds this colour to "Colours in this animation" and selects it. A colour already in use just gets selected when you click it — it won't take up a second seat.</p></div>
+          </details>
+          <details class="tdx">
+            <summary><span class="tdx-ic">⇄</span><span class="tdx-t">Replace</span></summary>
+            <div class="tdx-body"><p class="tm-p">Swaps the <strong>currently selected swatch</strong> for a new colour — every cell in the image that uses it changes together. Use this when the seats are full, or when you want to shift the whole palette. </p><p class="tm-p">Index 0 is transparent and can't be replaced with a colour.</p></div>
+          </details>
+        </div>
+      </div>
+      <p class="gpx-caption">⚠️ The device panel is pure black. A dark colour that looks just right on a white editing interface will simply disappear once it's on the device — so pick the whole animation from the brighter half.</p>
+    </section>
+
+    <section class="docs-section" id="sizes">
+      <h2>Supported canvas sizes</h2>
+      <p>Three sizes are supported for now — 20×20, 40×40, 60×60 — driven mainly by the sizes the open-source device firmware supports. More sizes will be developed in future for uses such as fuse beads and weaving.</p>
+      <div class="gsz">
+        <div class="gsz-row"><img class="gsz-fig" src="../../img/px-grid-20.svg" alt="20×20 grid"><span class="gsz-n">20 × 20</span><span class="gsz-tag">largest cells</span><span class="gsz-d">Few cells, each one large. Good for badges, symbols, minimal expressions — you have to say something in just a handful of cells. On the device it's 12 px per cell full-screen, 4 px as a badge.</span></div>
+        <div class="gsz-row hi"><img class="gsz-fig" src="../../img/px-grid-40.svg" alt="40×40 grid"><span class="gsz-n">40 × 40</span><span class="gsz-tag">common</span><span class="gsz-d">The balance point between detail and workload. Most full-screen splash animations are drawn at this size: 6 px per cell, 2 px as a badge.</span></div>
+        <div class="gsz-row"><img class="gsz-fig" src="../../img/px-grid-60.svg" alt="60×60 grid"><span class="gsz-n">60 × 60</span><span class="gsz-tag">smallest cells</span><span class="gsz-d">Many cells, each one small. There's room for curves and gradients, but filling it cell by cell also takes the most time.</span></div>
+      </div>
+    </section>
+
+    <section class="docs-section" id="preview">
+      <h2>Device preview and the 20-second animation limit</h2>
+      <p>The same animation shows up in two places on the device, so here you get two preview sizes at once:</p>
+      <ul class="docs-list">
+        <li><strong>Full-screen splash</strong> — fills the whole panel on boot or standby.</li>
+        <li><strong>Corner badge</strong> — a small icon tucked into the top-left corner can be animated too. A 40×40 animation is only 2 px per cell here, so the detail blurs away entirely. You see it while drawing, no need to burn it in first to find out.</li>
+      </ul>
+      <p>What you preview is what the device shows.</p>
+      <p class="g-section-sub" style="margin-top:32px">How to read the numbers</p>
+      <p>The device gives each animation a fixed 20-second rotation. The editor converts "milliseconds per frame × frame count" into how many loops fit in 20 seconds, then tells you whether it gets cut off. The image above is two frames at 125 ms each — one loop is 250 ms, and 20 seconds is exactly 80 loops — so it shows the first state below.</p>
+      <div class="gslot">
+        <div class="gslot-row ok"><span class="gslot-k">✓ Lands on the slot boundary</span><span>The full loop finishes before the next one starts — the cleanest look.</span></div>
+        <div class="gslot-row cut"><span class="gslot-k">⚠️ The device cuts it at frame N (X% over)</span><span>The last loop gets swapped out halfway through. The editor offers a set of candidate timings — one click and it's fixed.</span></div>
+      </div>
+      <p class="gpx-caption">Whether it gets cut off isn't right or wrong, it's a trade-off. Some animations don't mind being cut mid-loop (a rain scene, say), others are ruined by it (a firework going off halfway) — so the editor just tells you the facts, it doesn't decide for you.</p>
+    </section>
+
+    <section class="docs-section" id="io">
+      <h2>Machine-readable file interface: JSON</h2>
+      <p>Pixel animation saves in a machine-readable format — JSON, not an image. <strong>Paste</strong> reads in an existing animation, <strong>Copy</strong> drops the whole animation onto the clipboard, <strong>Save</strong> writes it to a file. Export and import both stay easy.</p>
+      <div class="tdict">
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">Animation info</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">◎</span><span class="tdx-t">Animation name</span><span class="tdx-k">required</span></summary>
+            <div class="tdx-body"><p class="tm-p">The device finds animations by name, so the name must be unique; leaving it blank is blocked before saving.</p><p class="tm-p">But exporting doesn't mean it will appear. The name still has to be added to the group list in the device firmware for that animation to be rotated in — so remember to group it.</p></div>
+          </details>
+          <details class="tdx">
+            <summary><span class="tdx-ic">▤</span><span class="tdx-t">Category</span></summary>
+            <div class="tdx-body"><p class="tm-p"><code>Idle</code> / <code>Work</code> / <code>Dance</code> / <code>Expressions</code>. These four values are <strong>format constants</strong>, shown in their original English across all four language interfaces — because that's exactly what the device consumes.</p><p class="tm-p">When an imported file carries a category outside this list, the editor keeps it as-is and carries it back out. As-is in, as-is out, ahead of any list tidiness.</p></div>
+          </details>
+        </div>
+      </div>
+      <p style="margin-top:26px">The exported JSON feeds into the animation format of open-source devices — for example Clawdmeter and other desktop gadgets running on the ESP32. On the VAS side you copy the JSON source, on that side you paste it for an AI to process, with no conversion tool needed.</p>
+    </section>
+
+    <section class="docs-section" id="ai">
+      <h2>Drawing with an AI</h2>
+      <p>This is where pixel mode differs most from the other chapters: <strong>its save file is a piece of text you can have a conversation with.</strong></p>
+      <p>A frame is a two-dimensional array, each value a colour index, with 0 for transparent. This structure is readable by people and by an AI alike — so you can paste the whole animation to an AI, say "add three more frames to make it blink," and paste the returned JSON back into the editor.</p>
+      <div class="gjson"><span class="c">// The skeleton of one animation</span><br>{ <span class="k">"name"</span>: <span class="s">"vas"</span>, <span class="k">"category"</span>: <span class="s">"Idle"</span>,<br>&nbsp;&nbsp;<span class="k">"palette"</span>: [<span class="s">"transparent"</span>, <span class="s">"#F4ECE0"</span>, <span class="s">"#C471F5"</span>, <span class="s">"#4A9EFF"</span>],<br>&nbsp;&nbsp;<span class="k">"frames"</span>: [ { <span class="k">"hold"</span>: 125, <span class="k">"grid"</span>: [ [0,0,1,1,0,0], … ] }, … ] }</div>
+      <div class="gflow">
+        <div class="gflow-step"><span class="gflow-no">01</span><span class="gflow-t">Get it started</span><span class="gflow-d">Draw two or three frames yourself to set the character, palette, and rhythm. An AI can't help with a blank start — it needs to see what you want.</span></div>
+        <div class="gflow-step"><span class="gflow-no">02</span><span class="gflow-t">Copy</span><span class="gflow-d">Press "Copy" and the whole animation goes onto the clipboard.</span></div>
+        <div class="gflow-step"><span class="gflow-no">03</span><span class="gflow-t">Hand it to an AI</span><span class="gflow-d">Paste it and say what you want — fill in a few in-between frames, squeeze the colours down to 36, make a left-right symmetric version.</span></div>
+        <div class="gflow-step"><span class="gflow-no">04</span><span class="gflow-t">Paste it back</span><span class="gflow-d">Press "Paste" to import and watch it move in the preview. Not right? Say it again — every round is reversible.</span></div>
+      </div>
+      <p class="gpx-caption">An AI can't always draw your intent perfectly, but through an interface that speaks the same language as it, you can let it see what you mean.</p>
+    </section>
+
+  </main>
+</div>
+
+<style>
+.gx-nav{max-width:820px;margin:76px auto 0;padding:0 48px}
+.gx-label{font-family:var(--vas-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--vas-ash-3);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.gx-label::after{content:'';flex:1;height:1px;background:var(--vas-rule)}
+.gx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gx-item{display:flex;gap:12px;align-items:baseline;padding:15px 16px;border:1px solid var(--vas-rule);border-radius:4px;text-decoration:none;color:inherit;transition:border-color .2s,background-color .2s}
+.gx-item:hover{border-color:var(--vas-rule-strong);background:rgba(240,232,220,.02)}
+.gx-item.cur{border-color:rgba(196,113,245,.4);background:rgba(196,113,245,.05)}
+.gx-no{font-family:var(--vas-mono);font-size:11px;color:var(--vas-aurora-violet)}
+.gx-nm{font-family:var(--vas-serif);font-size:15px;color:var(--vas-ash-0)}
+.gx-item.cur .gx-nm{color:var(--vas-aurora-violet)}
+.gx-home{margin-top:16px}
+.gx-home a{font-family:var(--vas-mono);font-size:12px;letter-spacing:.05em;color:var(--vas-ash-2);text-decoration:none}
+.gx-home a:hover{color:var(--vas-ash-0)}
+@media(max-width:680px){.gx-nav{padding:0 28px}.gx-grid{grid-template-columns:1fr 1fr}}
+</style>
+<nav class="gx-nav" aria-label="Chapters">
+  <div class="gx-label">Jump to another chapter · Chapters</div>
+  <div class="gx-grid">
+    <a class="gx-item" href="toolbar.html"><span class="gx-no">01</span><span class="gx-nm">Toolbar</span></a>
+    <a class="gx-item" href="editor.html"><span class="gx-no">02</span><span class="gx-nm">Editor</span></a>
+    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">Pixel Animation</span></a>
+    <a class="gx-item" href="ocr.html"><span class="gx-no">04</span><span class="gx-nm">OCR</span></a>
+    <a class="gx-item" href="arrange.html"><span class="gx-no">05</span><span class="gx-nm">Arrange</span></a>
+    <a class="gx-item" href="export.html"><span class="gx-no">06</span><span class="gx-nm">Import &amp; Export</span></a>
+    <a class="gx-item" href="shortcuts.html"><span class="gx-no">07</span><span class="gx-nm">Shortcuts</span></a>
+  </div>
+  <div class="gx-home"><a href="index.html">← Back to Guide home</a></div>
+</nav>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Made by Nova × Claude.<br>
+    A PM who can't write a line of code,<br>
+    and an AI with no long-term memory,<br>
+    building something in twenty-five days.</div>
+    <a href="../privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">Privacy Policy</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="../instrument.html#acquire" class="site-sub-link" style="display: inline-block;">Download VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="../../i18n/core.js"></script>
+<script>
+(function () {
+  // Zone cross-highlight
+  var gpx = document.getElementById('gpx');
+  var zones = document.getElementById('gpxZones');
+  if (gpx && zones) {
+    zones.querySelectorAll('.gpz-item').forEach(function (item) {
+      var z = item.getAttribute('data-zone');
+      function on() { gpx.classList.add('hl-' + z); item.classList.add('lit'); }
+      function off() { gpx.classList.remove('hl-' + z); item.classList.remove('lit'); }
+      item.addEventListener('mouseenter', on);
+      item.addEventListener('mouseleave', off);
+      item.addEventListener('focus', on);
+      item.addEventListener('blur', off);
+      item.tabIndex = 0;
+    });
+  }
+  // Toolbar: pen / eraser / select / eyedropper are single-select; onion skin is an independent toggle; flips are one-off actions
+  var bar = document.getElementById('gpxBar');
+  if (bar) {
+    var RADIO = ['pen', 'eraser', 'select', 'picker'];
+    bar.querySelectorAll('.gpx-tool').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var t = btn.dataset.tool;
+        if (RADIO.indexOf(t) >= 0) {
+          bar.querySelectorAll('.gpx-tool').forEach(function (b) {
+            if (RADIO.indexOf(b.dataset.tool) >= 0) b.classList.remove('on');
+          });
+          btn.classList.add('on');
+        } else if (t === 'onion') {
+          btn.classList.toggle('on');
+        }
+      });
+    });
+  }
+
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function (item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function (s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function (item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+
+  function init() {
+    VASCore.initNavDropdown();
+    initDotNav();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Pixel Animation Editor — Frame-by-Frame, Device Preview, Machine-Readable JSON | VAS User Guide",
+  "description": "VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration.",
+  "inLanguage": "en",
+  "url": "https://yoursvas.app/en/guide/pixel",
+  "datePublished": "2026-08-16",
+  "dateModified": "2026-08-16",
+  "image": "https://yoursvas.app/img/vas-guide-share-en.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu",
+      "https://github.com/tb1982"
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "VAS", "item": "https://yoursvas.app/en/" },
+    { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://yoursvas.app/en/guide/" },
+    { "@type": "ListItem", "position": 3, "name": "Pixel Animation" }
+  ]
+}
+</script>
+
+<button class="dot-nav-trigger" aria-label="Chapter navigation"></button>
+<nav class="dot-nav" aria-label="Section navigation">
+  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">Pixel Animation</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#layout"><span class="dn-label">Edit mode</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#tools"><span class="dn-label">Tools</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#frames"><span class="dn-label">Frames</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#colours"><span class="dn-label">Colours</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#sizes"><span class="dn-label">Canvas sizes</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#preview"><span class="dn-label">Device preview</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ai"><span class="dn-label">Drawing with an AI</span><span class="dn-dot"></span></a>
+</nav>
+
+<script src="../../js/analytics.js"></script>
+<script>
+(function () {
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.docs-subsection').forEach(function (el) { obs.observe(el); });
+}());
+</script>
+<script src="../../js/theme-toggle.js"></script>
+</body>
+</html>
