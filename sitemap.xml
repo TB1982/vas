@@ -800,7 +800,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
@@ -812,7 +812,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
@@ -824,7 +824,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
@@ -849,7 +849,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide/toolbar</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/toolbar"/>
@@ -861,7 +861,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide/toolbar</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/toolbar"/>
@@ -873,7 +873,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide/toolbar</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/toolbar"/>
@@ -897,7 +897,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide/editor</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/editor"/>
@@ -909,7 +909,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide/editor</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/editor"/>
@@ -921,7 +921,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide/editor</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/editor"/>
@@ -929,6 +929,54 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/editor"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/editor"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/editor"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/guide/pixel</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/en/guide/pixel</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/ja/guide/pixel</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/cn/guide/pixel</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
   </url>
 
   <url>
@@ -945,7 +993,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide/ocr</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/ocr"/>
@@ -957,7 +1005,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide/ocr</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/ocr"/>
@@ -969,7 +1017,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide/ocr</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/ocr"/>
@@ -993,7 +1041,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide/arrange</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/arrange"/>
@@ -1005,7 +1053,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide/arrange</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/arrange"/>
@@ -1017,7 +1065,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide/arrange</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/arrange"/>
@@ -1041,7 +1089,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide/export</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/export"/>
@@ -1053,7 +1101,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide/export</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/export"/>
@@ -1065,7 +1113,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide/export</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/export"/>
@@ -1089,7 +1137,7 @@
 
   <url>
     <loc>https://yoursvas.app/en/guide/shortcuts</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/shortcuts"/>
@@ -1101,7 +1149,7 @@
 
   <url>
     <loc>https://yoursvas.app/ja/guide/shortcuts</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/shortcuts"/>
@@ -1113,7 +1161,7 @@
 
   <url>
     <loc>https://yoursvas.app/cn/guide/shortcuts</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/shortcuts"/>
