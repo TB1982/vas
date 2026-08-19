@@ -15,6 +15,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST = os.path.join(ROOT, "sitemap.manifest.json")
 OUTPUT = os.path.join(ROOT, "sitemap.xml")
 LOCALES = [("root", "", "zh-Hant"), ("en", "/en", "en"), ("ja", "/ja", "ja"), ("cn", "/cn", "zh-Hans")]
+# 部分語系：只有標記 "es": true 的頁面才輸出 /es/ 網址與 es hreflang（西語目前非全站覆蓋）。
+ES = ("es", "/es", "es")
 
 def git_dirty(path):
     """該檔在工作區有未提交變動（staged 或 unstaged）→ 即將隨本次提交更新。"""
@@ -56,12 +58,14 @@ def build():
         first_in_section = True
         for page in sec["pages"]:
             slug = page["slug"]
-            # 四語 hreflang（每個 url 區塊共用同一組）
+            # 該頁涵蓋的語系：四語 + 有標 "es" 的頁面才加西語。
+            page_locales = LOCALES + ([ES] if page.get("es") else [])
+            # hreflang（每個 url 區塊共用同一組）
             alts = []
-            for loc_key, prefix, hlang in LOCALES:
+            for loc_key, prefix, hlang in page_locales:
                 alts.append(f'    <xhtml:link rel="alternate" hreflang="{hlang}" href="{url_for(base, prefix, slug)}"/>')
             alts.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url_for(base, "", slug)}"/>')
-            for loc_key, prefix, hlang in LOCALES:
+            for loc_key, prefix, hlang in page_locales:
                 loc = url_for(base, prefix, slug)
                 lastmod = git_lastmod(locale_file(loc_key, page["file"]), today)
                 block = ['  <url>',

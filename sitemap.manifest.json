@@ -16,7 +16,8 @@
           "slug": "",
           "file": "index.html",
           "changefreq": "weekly",
-          "priority": "1.0"
+          "priority": "1.0",
+          "es": true
         }
       ]
     },
@@ -273,7 +274,8 @@
           "slug": "privacy",
           "file": "privacy.html",
           "changefreq": "yearly",
-          "priority": "0.3"
+          "priority": "0.3",
+          "es": true
         }
       ]
     },

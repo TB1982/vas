@@ -5,49 +5,66 @@
   <!-- ═══════ Homepage · 首頁 ═══════ -->
   <url>
     <loc>https://yoursvas.app/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/en/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/ja/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/cn/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/"/>
   </url>
 
@@ -1174,49 +1191,66 @@
   <!-- ═══════ Footer · Privacy (隱私權政策) ═══════ -->
   <url>
     <loc>https://yoursvas.app/privacy</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/privacy"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/en/privacy</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/privacy"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/ja/privacy</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/privacy"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/cn/privacy</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/privacy"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/privacy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/privacy"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/privacy</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/privacy"/>
   </url>
 
