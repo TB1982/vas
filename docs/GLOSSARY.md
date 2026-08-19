@@ -193,6 +193,7 @@ For all SEO-important pages and chapter content, **use Mainland Chinese vocabula
 | 思 the Treatise | **思 el Tratado** | keep CJK glyph |
 | Coniunctio | Coniunctio | Jungian/Latin, untranslated |
 | category values | Idle / Work / Dance / Expressions | stay English in ES too |
+| 宰相 / Vassal | **el valido** | Habsburg-era royal favorite who governed by the sovereign's *trust*, not by rank (root *valer* = to be valued/trusted). Chosen 2026-08-19 by Nova over *el canciller* (too institutional): her 宰相 is an archetype "standing up out of a thousand years of history,"權在信任的距離不在官階. Keeps the archetype's honest shadow (validos Lerma/Olivares were controversial) — do not soften. Appears in `us.html` ("A Letter to the Next Vassal" → "Carta al próximo valido"). |
 | switcher label | **Español** (full name) / **ES** (langsel short code) | active on ES pages |
 
 **og:locale** `es_ES`. **JSON-LD** `inLanguage: "es"`. **hreflang** reciprocal — every ES-covered page and its 4 siblings cross-link `hreflang="es"`.
