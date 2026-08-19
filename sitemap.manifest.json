@@ -212,7 +212,8 @@
           "slug": "guide",
           "file": "guide/index.html",
           "changefreq": "monthly",
-          "priority": "0.7"
+          "priority": "0.7",
+          "es": true
         }
       ]
     },
@@ -225,7 +226,8 @@
           "slug": "guide/toolbar",
           "file": "guide/toolbar.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         },
         {
           "slug": "guide/editor",
@@ -237,7 +239,8 @@
           "slug": "guide/pixel",
           "file": "guide/pixel.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         },
         {
           "slug": "guide/ocr",

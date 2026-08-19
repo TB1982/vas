@@ -805,49 +805,66 @@
   <!-- ═══════ Tools · Guide (手冊) ═══════ -->
   <url>
     <loc>https://yoursvas.app/guide</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/en/guide</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/ja/guide</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/cn/guide</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/guide</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide"/>
   </url>
 
@@ -861,6 +878,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/toolbar"/>
   </url>
 
@@ -873,6 +891,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/toolbar"/>
   </url>
 
@@ -885,6 +904,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/toolbar"/>
   </url>
 
@@ -897,6 +917,20 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/toolbar"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/guide/toolbar</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/toolbar"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/toolbar"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/toolbar"/>
   </url>
 
@@ -950,49 +984,66 @@
 
   <url>
     <loc>https://yoursvas.app/guide/pixel</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/en/guide/pixel</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/ja/guide/pixel</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/cn/guide/pixel</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/guide/pixel</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/guide/pixel"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/guide/pixel"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/guide/pixel"/>
   </url>
 
