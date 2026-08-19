@@ -175,6 +175,34 @@ For all SEO-important pages and chapter content, **use Mainland Chinese vocabula
 
 ---
 
+## 7.5 · ES language strategy (Spanish · 5th locale, added 2026-08-19)
+
+**Why ES exists**: a paying Spanish-speaking user appeared in App Store data; Spanish support is Nova's direct feedback to them. **Partial locale** — not full-site. Covered pages only (Wave rollout): index, privacy, 404, guide (cover + 8 chapters), instrument, faq. Untranslated pages do **not** offer ES in their switcher (avoids dead links / 404s) — mirror the Harness-pillars partial-locale precedent.
+
+**Translate FROM the EN source**, not zh — Spanish shares Western sentence structure with English, so EN is the closest scaffold. Files live in `/es/…`, same directory depth as `/en/…`, so `../img`, `../css`, `../js` and root-absolute `/css`, `/js` paths resolve unchanged.
+
+**Voice**: neutral international Spanish; informal **tú** (not usted) to match the site's warm, intimate register. Proper punctuation — opening marks **¿ ¡** and accents **á é í ó ú ñ ü**.
+
+**Locked terms**:
+| Concept | ES | Note |
+|--------|-----|------|
+| VAS | VAS | never translated |
+| the vessel / 器 vas | **el vaso** | Latin *vas* → Spanish *vaso* — the etymological gift; use for "vessel" throughout |
+| One vessel, two doors | **Un vaso, dos puertas** | homepage seam-hint |
+| 器 the Instrument | **器 el Instrumento** | keep CJK glyph |
+| 思 the Treatise | **思 el Tratado** | keep CJK glyph |
+| Coniunctio | Coniunctio | Jungian/Latin, untranslated |
+| category values | Idle / Work / Dance / Expressions | stay English in ES too |
+| switcher label | **Español** (full name) / **ES** (langsel short code) | active on ES pages |
+
+**og:locale** `es_ES`. **JSON-LD** `inLanguage: "es"`. **hreflang** reciprocal — every ES-covered page and its 4 siblings cross-link `hreflang="es"`.
+
+**Nova-review flags (Wave 1, pending her blessing)**: index top-right corner label kept as `VESSEL` (untranslated, parallels the `VAS` label opposite) → "VESSEL · Metodología de desarrollo humano–IA · Sobre el vaso"; `Day Twenty-Five · Brewed` → "Día veinticinco · Reposado"; homepage tagline → "Para los momentos que las palabras por sí solas no alcanzan a decir."; 404 → "VAS · Sin forma | Página no encontrada".
+
+**Orphan words (孤兒字)**: Nova's top concern. Sweep each ES page rendered at mobile + desktop widths; glue a stranded final word with `&nbsp;` on short display headings only (body paragraphs left free). Short corner/seam labels already carry `white-space:nowrap` so they can't strand.
+
+---
+
 ## 8 · Site structure & chapter labels (final, post 2026-05-17 unify)
 
 ```
