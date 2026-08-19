@@ -1071,8 +1071,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     var groups=decide(MAP[railTool]!==undefined?MAP[railTool]:'');
     groups.forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('hidden')});
     if(hint){
-      if(railTool==='select'){hint.textContent='選取工具：點畫布上的物件，即顯示該物件的所有屬性';hint.style.display='';}
-      else if(groups.length===0){hint.textContent='此工具為畫布／版面操作，無可調屬性';hint.style.display='';}
+      if(railTool==='select'){hint.textContent='選択ツール：キャンバス上のオブジェクトをクリックすると、そのオブジェクトのすべての属性が表示されます';hint.style.display='';}
+      else if(groups.length===0){hint.textContent='このツールはキャンバス／レイアウト操作用で、調整できる属性はありません';hint.style.display='';}
       else hint.style.display='none';
     }
     showDoc(railTool);
@@ -1088,10 +1088,10 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   if(def){def.classList.add('on'); apply('rect');}
 
   var REG={
-    menu:{sel:'.gedm-rail',c:'#f87171',n:'主要功能選單',d:'左側垂直工具列。點工具切換，目前使用中的工具以藍色高亮。'},
-    props:{sel:'.gedm-top',c:'#fb923c',n:'子屬性調整選單',d:'頂部工具列，依所選工具動態更換，可調顏色、粗細、透明度、線條樣式等屬性。'},
-    export:{sel:'.gedm-export',c:'#e8e8e8',n:'動態匯出按鈕',d:'右下角浮動鈕，可拖曳移位（對應左右撇子），完成後拖到目標 App 即匯出。'},
-    status:{sel:'.gedm-status',c:'#4ade80',n:'狀態列與磁吸開關',d:'左下角：目前縮放比例、畫布尺寸，與磁吸對齊智慧導線開關。'}
+    menu:{sel:'.gedm-rail',c:'#f87171',n:'メインツールメニュー',d:'左側の縦型ツールバー。ツールをクリックして切り替え、使用中のツールは青くハイライトされます。'},
+    props:{sel:'.gedm-top',c:'#fb923c',n:'サブ属性バー',d:'上部のツールバー。選択したツールに応じて動的に切り替わり、色・太さ・不透明度・線種などを調整できます。'},
+    export:{sel:'.gedm-export',c:'#e8e8e8',n:'ドラッグ書き出しボタン',d:'右下のフローティングボタン。ドラッグで位置を移動でき（左利き・右利きに対応）、目的の App にドロップすると書き出されます。'},
+    status:{sel:'.gedm-status',c:'#4ade80',n:'ステータスバーとスナップ切り替え',d:'左下：現在の拡大率、キャンバスサイズ、スナップ整列スマートガイドの切り替え。'}
   };
   var rlabel=document.getElementById('gedmRLabel');
   Object.keys(REG).forEach(function(r){
