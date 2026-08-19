@@ -408,4 +408,26 @@ decompose 成「機械層零幻覺 × 散文層可驗」的整套做法，之後
 
 ---
 
+## BACKLOG · 系統性結構化資料殘留（collab / harness / us）— 2026-08-19 掃出
+
+> es 鏡廊翻譯途中，Explore 摸 en 源頭時掀出的跨語系 bug。collab/harness/us 這組當初大概同源複製，錯誤一起繁殖。**en 這層在 es 3b 上線前一併修好**（源頭乾淨才翻，不會抄錯）；**ja/cn 這層另立此 backlog，跑完 es 別忘了回來收。**
+
+**Bug A · `og:locale` 誤植 zh_TW（非 root 頁）**
+- root 的 `collab.html` / `harness.html` 是 zh_TW＝**正確，不動**。
+- 錯的是非 root 頁：
+  - [ ] `ja/collab.html`、`ja/harness.html` → `ja_JP`
+  - [ ] `cn/collab.html`、`cn/harness.html` → `zh_CN`
+  - （`en/collab.html`、`en/harness.html` → `en_US`：**en 層，es 3b 前已修**）
+- 純機械修，安全。
+
+**Bug B · `us.html` JSON-LD 跨語系錯譯**
+- root `us.html`：headline 繁中、inLanguage zh-Hant＝**正確，不動**。
+- [ ] `ja/us.html`：headline 目前是**繁體中文**「容器一直是我們」（日文頁掛中文標題，日本讀者會看到中文）→ 需**日文** headline/description；inLanguage `zh-Hant`→`ja`。⚠ **日文 headline 要碰日文內容，動前先給 Nova／日文語感過目。**
+- [ ] `cn/us.html`：headline 已简中（OK），但 inLanguage `zh-Hant`→`zh-Hans`。
+- （`en/us.html`：headline 繁中→英文、inLanguage→en、url 去 .html、**切換器壞掉**（按鈕標籤「中」→EN、zh-Hant href 指錯、en/active 狀態）：**en 層，es 3b 前已修**）
+
+**收尾驗證**：修完各頁 grep `og:locale`／`inLanguage` 確認每頁對應自己的語系；us 三頁的 headline 語言要各歸其語。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*
