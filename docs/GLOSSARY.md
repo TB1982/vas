@@ -177,7 +177,7 @@ For all SEO-important pages and chapter content, **use Mainland Chinese vocabula
 
 ## 7.5 · ES language strategy (Spanish · 5th locale, added 2026-08-19)
 
-**Why ES exists**: a paying Spanish-speaking user appeared in App Store data; Spanish support is Nova's direct feedback to them. **Partial locale** — not full-site. Covered pages only (Wave rollout): index, privacy, 404, guide (cover + 7 chapters), instrument, faq, changelog, milestone. Pricing on ES pages shows **EUR** (`9,99 €` in prose, `"9.99"`/`priceCurrency:"EUR"` in JSON-LD) per App Store España. Untranslated pages do **not** offer ES in their switcher (avoids dead links / 404s) — mirror the Harness-pillars partial-locale precedent.
+**Why ES exists**: a paying Spanish-speaking user appeared in App Store data; Spanish support is Nova's direct feedback to them. **Partial locale** — not full-site. Covered pages only (Wave rollout): index, privacy, 404, about, echo, guide (cover + 7 chapters), instrument, faq, changelog, milestone. Pricing on ES pages shows **EUR** (`9,99 €` in prose, `"9.99"`/`priceCurrency:"EUR"` in JSON-LD) per App Store España. Untranslated pages do **not** offer ES in their switcher (avoids dead links / 404s) — mirror the Harness-pillars partial-locale precedent.
 
 **Translate FROM the EN source**, not zh — Spanish shares Western sentence structure with English, so EN is the closest scaffold. Files live in `/es/…`, same directory depth as `/en/…`, so `../img`, `../css`, `../js` and root-absolute `/css`, `/js` paths resolve unchanged.
 
