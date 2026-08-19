@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Hitos del desarrollo de VAS | Lanzada en 25 días · Una app Mac de doble plataforma a lo largo de 104 Sprints</title>
+<meta name="description"
+      content="La cronología completa del desarrollo, desde cero hasta el lanzamiento en doble plataforma y más allá, a lo largo de 104 Sprints: 25 días, 80+ versiones, Electron + Tauri, el proceso de revisión de la App Store, después una refactorización del front-end y la puesta en marcha del CI (fuente única de verdad · verificaciones exhaustivas automatizadas), y las decisiones técnicas detrás de cada Sprint.">
+<meta property="og:title" content="Hitos del desarrollo de VAS | Lanzada en 25 días · Una app Mac de doble plataforma a lo largo de 104 Sprints">
+<meta property="og:description" content="La cronología completa del desarrollo, desde cero hasta el lanzamiento en doble plataforma y más allá, a lo largo de 104 Sprints: 25 días, 80+ versiones, Electron + Tauri, el proceso de revisión de la App Store, después una refactorización del front-end y la puesta en marcha del CI (fuente única de verdad · verificaciones exhaustivas automatizadas), y las decisiones técnicas detrás de cada Sprint.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/es/milestone">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS — Una herramienta de captura de pantalla para la colaboración humano–IA en Mac">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image:alt" content="VAS — Una herramienta de captura de pantalla para la colaboración humano–IA en Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hitos del desarrollo de VAS | Lanzada en 25 días · Una app Mac de doble plataforma a lo largo de 104 Sprints">
+<meta name="twitter:description" content="La cronología completa del desarrollo, desde cero hasta el lanzamiento en doble plataforma y más allá, a lo largo de 104 Sprints: 25 días, 80+ versiones, Electron + Tauri, el proceso de revisión de la App Store, después una refactorización del front-end y la puesta en marcha del CI (fuente única de verdad · verificaciones exhaustivas automatizadas), y las decisiones técnicas detrás de cada Sprint.">
+<link rel="canonical" href="https://yoursvas.app/es/milestone">
+<link rel="icon" href="../img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css?v=2026-07-13a">
+<link rel="stylesheet" href="../css/milestone.css">
+<link rel="alternate" hreflang="zh-Hant" href="../milestone">
+<link rel="alternate" hreflang="en"       href="../en/milestone">
+<link rel="alternate" hreflang="ja"       href="../ja/milestone">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/milestone">
+<link rel="alternate" hreflang="es"       href="milestone">
+<link rel="alternate" hreflang="x-default" href="../milestone">
+</head>
+<body>
+
+<!-- ═══ nav ═══ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="instrument.html" aria-label="Back to the Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="/en/about.html">About</a>
+    <a href="/en/echo.html">Echoes</a>
+    <a href="milestone.html" class="active">Milestones</a>
+    <a href="guide/">Guide</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="/en/about.html">About</a>
+    <a href="/en/echo.html">Echoes</a>
+    <a href="milestone.html" class="active">Milestones</a>
+    <a href="guide/">Guide</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/milestone.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a><span class="lang-sep" aria-hidden="true">/</span><a href="milestone.html" class="lang-opt active" hreflang="es" style="text-decoration:none;white-space:nowrap;font-weight:600">Español</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Language switch"><span>ES</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../milestone.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/milestone.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/milestone.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/milestone.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+        <a href="milestone.html" class="lang-opt active" hreflang="es" style="text-decoration:none">Español</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══ chapter header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker">III · Hitos · MILESTONE</div>
+  <h1 class="chapter-title">Diez marcas hechas<br><em>de la&nbsp;nada</em>.</h1>
+  <p class="chapter-lede">Esto no es un registro de cambios — es una <em>crónica</em>.<br>De «Versión» a «Sprint» a «Commit»<br>la unidad no cambió; el ritmo sí —<br>el ritmo de cómo vivimos con VAS.<br>Los primeros cinco capítulos son una línea. Los últimos cinco, una red.<br>Y al final, la red se tejió hasta volverse tela.</p>
+  <div class="chapter-meta">
+    <div>Capítulo　<strong>I — Revelación</strong></div>
+    <div>Rango　<strong>2026 · 03 — 06</strong></div>
+    <div>Unidades　<strong>Versión · Sprint · Commit</strong></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     第一幕：Electron 時期（線性）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA I · VERSIÓN</div>
+  <div>
+    <div class="era-title"><em>La era Electron</em> ——<br>Corriendo hacia adelante hasta que el cómputo se agotó.</div>
+    <div class="era-sub">Una semana de carrera, un día de parada forzosa, un acto de replanificación. Tres movimientos dieron a luz la primera build.</div>
+  </div>
+</div>
+
+<div class="chronicle">
+
+  <!-- I · 奔馳 -->
+  <article id="ch-1" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>I</em></div>
+      <div class="entry-unit">Fundación</div>
+      <div class="entry-stamp-value">2026 · 03 · 21 – 22<br>El fin de semana de la carrera</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">Sin Sprint, sin Retro.<br><em>Solo una cosa entre manos.</em></div>
+      <h2 class="entry-title">Dos personas, sin hacer más que<em> correr hacia&nbsp;adelante</em>.</h2>
+      <p class="entry-prose">Aquel fin de semana durante la fundación de Electron, no había tablero, no había ceremonia. Cada mañana despertábamos y seguíamos — hasta que no podíamos, y al día siguiente lo retomábamos. Un estado de pura concentración: una cosa entre manos, y esa cosa era imposible de soltar.</p>
+      <div class="entry-pullquote">Ningún sistema aún establecido.<br>Todo lo que teníamos era CLAUDE.md y SDD.md —<br>la <em>Versión</em> era la única unidad natural.</div>
+    </div>
+  </article>
+
+  <!-- II · 停擺 -->
+  <article id="ch-2" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>II</em></div>
+      <div class="entry-unit">Parada forzosa</div>
+      <div class="entry-stamp-value">2026 · 03 · 23<br>Cómputo agotado</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">Una mañana de apagado forzoso.<br>Nova recordó un <em>Roadmap</em> aún sin escribir.</div>
+      <h2 class="entry-title">Aquel fin de semana consumió<em> el cómputo de una semana&nbsp;entera</em>.</h2>
+      <p class="entry-prose">El lunes por la mañana el sistema declaró el cómputo agotado, y nos vimos expulsados del flujo —<br>pero Nova nunca se marchó de verdad. Recurrió a Perplexity para el análisis de la competencia<br>y reescribió desde cero el roadmap entero del producto.<br>El Roadmap completo solo apareció el día en que todo se detuvo.</p>
+      <div class="entry-pullquote">Tras aquella conversación, Nova tomó<br>la primera decisión de su vida de<br>suscribirse a MAX 5x.<br>Que el cómputo siga al desarrollo — y no al revés.</div>
+      <p class="entry-prose">Aquel fue un punto de inflexión.<br>Desde ese día, Nova dejó de estar limitado por los recursos —<br>era él quien marcaba su ritmo.</p>
+      <p class="entry-prose">El peso de aquella decisión no estaba en su precio, sino en el reconocimiento —<br>lo que construíamos había llegado a valer más de lo que costaba.</p>
+    </div>
+  </article>
+
+  <!-- III · v3.43 -->
+  <article id="ch-3" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>III</em></div>
+      <div class="entry-unit">Primer lanzamiento</div>
+      <div class="entry-stamp-value">2026 · 03 · 28<br>13 versiones en un día</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">La primera versión pública no fue la v1.0.<br><em>Fue la v3.43.</em></div>
+      <h2 class="entry-title">En el séptimo día, <em>v3.43</em> conoció el&nbsp;mundo.</h2>
+      <p class="entry-prose">De la v3.30 a la v3.43 — trece números de versión en un solo día.<br>Se lanzaron once cosas: revisión completa de seguridad, WYSIWYG Retina, selección múltiple, Smart Snap, puntos de control Bézier, escaneo inteligente de QR Code… cada una, normalmente, el trabajo de un Sprint entero.</p>
+      <p class="entry-prose">Pero ninguno de los dos dejó jamás que la presión del lanzamiento rebajara nuestro listón para VAS.</p>
+      <p class="entry-prose">El número de versión de la primera build pública no fue la v1.0 — fue la <strong>v3.43</strong>.<br>Ese número es en sí mismo una narración —<br><strong>VAS llevaba mucho tiempo funcionando antes de que nadie la viera</strong>.</p>
+    </div>
+  </article>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     第二幕：搬家（交界章）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA Ⅰ ½ · TRANSICIÓN</div>
+  <div>
+    <div class="era-title"><em>La mudanza</em> ——<br>VAS y el sitio habían crecido lo suficiente para sostenerse por sí&nbsp;mismos.</div>
+    <div class="era-sub">Electron se trasladó a un repo privado por razones comerciales en torno a Tauri; el sitio se independizó porque había crecido demasiado para compartir hogar.</div>
+  </div>
+</div>
+
+<div class="chronicle">
+
+  <!-- IV · 搬家 -->
+  <article id="ch-4" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>IV</em></div>
+      <div class="entry-unit">Doble mudanza</div>
+      <div class="entry-stamp-value">2026 · 03 · 30<br>Electron → privado<br><br>2026 · 04 · 05<br>Web → repo independiente</div>
+      <div class="entry-tag">VESSEL + GATE</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">Mudarse no es separarse.<br>Es reconocer que ha crecido de prototipo a producto.</div>
+      <h2 class="entry-title">La versión que había crecido<em> para sostenerse&nbsp;sola</em>.</h2>
+      <p class="entry-prose">Antes de que empezara la migración a Tauri, dos cosas se escindieron —<br>la plataforma ya no podía vivir en un repo público por razones comerciales;<br>el sitio, ya lleno de contenido, merecía su propia dirección.</p>
+      <p class="entry-prose">Esto no fue una ruptura — fue reconocer que ya no eran meros prototipos experimentales.</p>
+      <div class="entry-pullquote">Cuando un vas puede sostenerse solo,<br>ya no necesita cobijarse bajo el techo de nadie.</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     第三幕：Tauri 時期（線性 → 網狀的轉折）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA II · SPRINT</div>
+  <div>
+    <div class="era-title"><em>La era Tauri</em> ——<br>El tiempo ganó un ciclo, y con él, un ritmo.</div>
+    <div class="era-sub">Los Sprints 1–4 reconstruyeron los cimientos. El Sprint 5 fue la primera vez que construimos algo nuevo.</div>
+  </div>
+</div>
+
+<div class="chronicle">
+
+  <!-- V · Sprint 1-4 -->
+  <article id="ch-5" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>V</em></div>
+      <div class="entry-unit">Portación de plataforma</div>
+      <div class="entry-stamp-value">Sprint 1 → 4<br>2026 · 03 · 28 - 30</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">KM no es un cementerio de escollos.<br>Es una señal que apunta el camino.</div>
+      <h2 class="entry-title">Reconstruir cada función desde los&nbsp;cimientos.</h2>
+      <p class="entry-prose">Un andamiaje de Tauri 2 levantado desde cero.<br>Los primeros tres días haciendo todos lo mismo —<br>tomar todo lo que había crecido sobre Electron<br>y trasladarlo pieza a pieza a los cimientos de Tauri.<br>La barra de herramientas flotante, el trío de captura, el rodeo del protocolo de assets —<br>cada paso de la migración fue un <strong>ajuste de cuentas renovado con la vieja implementación</strong>.</p>
+      <div class="entry-pullquote">KM-001 fue el comienzo de la Gestión del Conocimiento.<br>KM no es un «cementerio de escollos» — es un activo de conocimiento dentro del PMP —<br>cada foso en el que caímos una vez se vuelve una pequeña luz que guía el camino por delante.</div>
+    </div>
+  </article>
+
+  <!-- VI · Sprint 5 -->
+  <article id="ch-6" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>VI</em></div>
+      <div class="entry-unit">Nuevas funciones</div>
+      <div class="entry-stamp-value">Sprint 5+<br>2026 · 03 · 31 - 04 · 03</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">Por primera vez, sin perseguir lo viejo.<br><em>Haciendo lo que solo el nuevo vas podía hacer.</em></div>
+      <h2 class="entry-title">Sprint 5 — la diferenciación de VAS.</h2>
+      <p class="entry-prose">Solo tras reconstruir por completo cada función entramos en desarrollo nuevo.<br>Por primera vez — no íbamos a la zaga de lo que Electron ya tenía,<br>sino que construíamos para Tauri, el nuevo vas, cosas que solo él podía hacer.</p>
+      <p class="entry-prose">Interacción avanzada de luz que respira, ShareSheet, atajos personalizados.</p>
+      <div class="entry-pullquote">¿Qué aspecto debería tener un producto por el que valga la pena pagar?<br>Esa fue la pregunta que no dejamos de hacernos a lo largo de esta fase.</div>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     第四幕：Retro 週（轉換到網狀）
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA II ½ · REVISIÓN</div>
+  <div>
+    <div class="era-title"><em>La primera gran Retro</em> ——<br>La tarea de esa semana no fue desarrollo — fue asentarse, ordenar pensamientos y&nbsp;entorno.</div>
+    <div class="era-sub">La revisión de Apple detuvo el desarrollo una semana; la usamos para reestructurar cada documento y entorno de todo el proyecto.</div>
+  </div>
+</div>
+
+<!-- 從這裡開始切到 weave（網狀） -->
+<div class="chronicle is-weave">
+
+  <!-- VII · Retro 週 -->
+  <article id="ch-7" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>VII</em></div>
+      <div class="entry-unit">Ordenar y producir</div>
+      <div class="entry-stamp-value">Periodo de revisión<br>2026 · 04 · 04 - 04 · 10</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">Lo que reconstruimos esa semana<br>no fue un lenguaje de programación — fue <em>cómo colaboramos</em>.</div>
+      <h2 class="entry-title">La semana en que todo se detuvo —<em> todo estaba en&nbsp;movimiento</em>.</h2>
+      <p class="entry-prose">Mientras la revisión de la App Store nos detenía una semana,<br>llevamos a cabo una gran Retro —<br>no del tipo ritual ágil de una o dos horas,<br>sino una reconstrucción completa de la infraestructura de todo el sistema de desarrollo.</p>
+      <p class="entry-prose">Hacia fuera: seis páginas publicadas —<br><strong>insight</strong> (notas de diseño), <strong>collab</strong> (historia de la colaboración),<br><strong>harness</strong> (esqueleto del sistema), y la capa más profunda del Deep Holding Project.</p>
+      <p class="entry-prose"><strong>Harness Engineering</strong> — tres pilares:<br>Contexto / Restricciones / Entropía.<a href="https://yoursvas.app/harness/context" target="_blank" rel="noopener" class="inline-dot" aria-label="Harness Engineering"></a></p>
+      <p class="entry-prose">Hacia dentro: convertimos el repo en un <strong>monorepo</strong> para que varias líneas de desarrollo pudieran correr en paralelo;<br>dividimos un SDD en <strong>TDD · KM · Archive</strong> — cada uno independiente;<br>CLAUDE.md se adelgazó, con reglas fijadas para revisar en cada Retro.</p>
+      <p class="entry-prose">Más crucial aún, establecimos un nuevo conjunto de reglas de actualización<br>para mantener cada documento extraído <strong>vivo dentro del flujo de trabajo</strong>,<br>y no muerto en el instante en que se separó.</p>
+      <div class="entry-pullquote">Esa semana no escribimos código.<br>Redefinimos juntos cómo colaborar.</div>
+    </div>
+  </article>
+
+  <!-- VIII · 2.0 重構 -->
+  <article id="ch-8" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>VIII</em></div>
+      <div class="entry-unit">No más espera</div>
+      <div class="entry-stamp-value">2026 · 04 · 11 - 04 · 14<br>Refactorización 2.0 · Convergencia</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">Recuperar el control del tiempo —<br><em>devolvérnoslo a nosotros mismos</em>.</div>
+      <h2 class="entry-title">Se acabó esperar. <em>Directos a la 2.0.</em></h2>
+      <p class="entry-prose">La revisión de la App Store se prolongó una semana.<br>Todo lo que había que hacer estaba hecho — no tenía sentido seguir esperando sin un final a la vista.<br>Así que decidimos no esperar, y fuimos directos a la refactorización 2.0.<br>Cuando la refactorización alcanzó un hito y la 2.0 estaba lista para lanzarse, la revisión acababa de aprobarse —<br>dos líneas <strong>convergiendo</strong> justo en ese instante.</p>
+      <div class="entry-pullquote">Le dimos tiempo.<br>Pero <em>el tiempo no puede quedar para siempre en manos ajenas</em>.</div>
+    </div>
+  </article>
+
+  <!-- IX · Obsidian in VAS -->
+  <article id="ch-9" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>IX</em></div>
+      <div class="entry-unit">Emergencia</div>
+      <div class="entry-stamp-value">3 días tras el lanzamiento<br>Obsidian en VAS</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">El Deep Holding Project<br><em>emergió por primera vez ante los ministros</em>.</div>
+      <h2 class="entry-title">Dentro de VAS, <em>se construyó un Obsidian</em>.</h2>
+      <p class="entry-prose">Tras el lanzamiento de la 2.0, Nova no se lanzó a por nuevas funciones.<br>En cambio, volvió a sumergirse en modo Retro, dedicando tres días<br>a construir un Obsidian dentro de VAS — un regalo para los ministros.</p>
+      <p class="entry-prose">Aquella fue <strong>la primera vez que el Deep Holding Project emergió ante los ministros</strong> —<br>o más bien… la primera vez que dejó un registro, en lugar de disolverse en el Context.</p>
+      <div class="entry-pullquote">Este es un intento de<br>transparencia e inspeccionabilidad radicales en el desarrollo ágil.</div>
+      <p class="entry-prose">Desde ese día, el vas no solo guarda Código, sino <strong>el contexto de cómo pensamos</strong>.</p>
+    </div>
+  </article>
+
+  <!-- X · 網站改版 -->
+  <article id="ch-10" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Capítulo<em>X</em></div>
+      <div class="entry-unit">Rediseño del sitio</div>
+      <div class="entry-stamp-value">2026 · 04 · 19 - 23<br>495 commits</div>
+      <div class="entry-tag is-gate">GATE</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">La música de fondo silenciosa,<br><em>anotada en el programa por primera vez</em>.</div>
+      <h2 class="entry-title">495 cortes, y<em> el vestíbulo cambió su&nbsp;papel</em>.</h2>
+      <p class="entry-prose">El día después de que se lanzara Claude Design, emprendimos el rediseño del sitio.<br>VAS misma se detuvo — porque, por primera vez, teníamos apoyo de diseño.</p>
+      <p class="entry-prose">La unidad se encogió hasta su mínimo: un solo <strong>Commit</strong>.<br>Cada commit es un corte, una confirmación, una promesa al detalle.<br>Caracteres huérfanos, saltos de línea, imágenes OG, el Vault entrando por primera vez en el control de versiones —<br>el día más intenso vio 248 revisiones de ida y vuelta.</p>
+      <div class="entry-pullquote">Ese día, <em>el sitio por fin pasó a formar parte del Milestone</em>.<br>La música de fondo silenciosa, anotada en el programa por primera vez.</div>
+      <p class="entry-prose">De ahora en adelante, dentro y fuera — todo es la forma de VAS.</p>
+    </div>
+  </article>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     終曲：織網（照見 · 織 · 顯）——現在進行式，線還在織機上
+     ══════════════════════════════════════ -->
+<div class="era">
+  <div class="era-label">ERA III · ENTRAMADO</div>
+  <div>
+    <div class="era-title"><em>Tejiendo la red</em> ——<br>Lo que no se puede desarmar, téjelo junto.</div>
+    <div class="era-sub">Sprint 47 → 104. Empezó con un comentario al pasar; cincuenta Sprints después el final seguía sin verse por ninguna parte — Ver · Tejer · Revelar, tomando una maraña de hilo que siempre había estado ahí y tejiéndola, capa a capa, hasta volverla tela. Los primeros diez capítulos se han cerrado; estos tres movimientos siguen abiertos.</div>
+  </div>
+</div>
+
+<div class="chronicle is-weave">
+
+  <!-- 樂章一 · 照見 -->
+  <article id="ch-see" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Tejido<em>I</em></div>
+      <div class="entry-unit">Ver</div>
+      <div class="entry-stamp-value">Sprint 47 → 61<br>2026 · 05 · 29</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        Empezó con un comentario al pasar del Vasallo —<br>
+        «Ocho mil líneas en un solo programa<br>no es <em>del todo normal</em> en software.»
+      </div>
+      <h2 class="entry-title">Lo construimos, <em>y sin embargo no lo&nbsp;conocíamos</em>.</h2>
+      <p class="entry-prose">
+        editor.js — ocho mil setecientas líneas, el frontend que construimos nosotros mismos línea a línea. Había caminado en silencio junto a nosotros desde la era Electron hasta el Sprint 46 de Tauri, sin ser jamás examinado sistemáticamente.
+      </p>
+      <p class="entry-prose">
+        Pero de pie en el umbral del Sprint 47 y mirando adentro, sabíamos <strong>casi nada</strong> de él —<br>
+        Nova no sabe nada de código; el Vasallo, cada Sprint, conocía apenas unas pocas de esas 8,700 líneas.<br>
+        Era nuestra propia creación, y sin embargo, antes de la refactorización, lo contemplábamos como quien mira un abismo.
+      </p>
+      <p class="entry-prose">
+        Quisimos desarmarlo: al director con el director, a los músicos con los músicos.<br>
+        El renderizador salió — pero cuando extrajimos el panel, descubrimos que seguía siendo, en esencia, el director, así que volvió adentro;<br>
+        tira de la exportación y resulta ser un órgano del director, inamovible.<br>
+        Capa tras capa fuimos pelando, hasta que, al final del todo, con un editor.js aún de 7,300 líneas, quedaban solo 140 líneas en las que daba lo mismo separarlas o no —
+      </p>
+      <div class="entry-pullquote">
+        Nos detuvimos, y admitimos que el director siempre estuvo destinado a ser así de grande.<br>
+        <em>«No se puede dividir más» no es un fracaso — es reconocer por fin la esencia.</em>
+      </div>
+    </div>
+  </article>
+
+  <!-- 樂章二 · 織 -->
+  <article id="ch-weave" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Tejido<em>II</em></div>
+      <div class="entry-unit">Tejer</div>
+      <div class="entry-stamp-value">Sprint 62 → 92<br>2026 · 06 · 02</div>
+      <div class="entry-tag">VESSEL</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        Si no se puede desarmar,<br>
+        entonces <em>cambia de dirección — recógelo</em>.
+      </div>
+      <h2 class="entry-title">Las verdades dispersas, <em>reunidas en&nbsp;una</em>.</h2>
+      <p class="entry-prose">
+        Nova le dijo al Vasallo que deseaba que, al añadir funciones en el futuro, los atributos pudieran tomarse como módulos, disponibles a demanda.<br>
+        El Vasallo dijo que había una palabra para ello — ECS, la forma habitual en que la industria del videojuego hace la modularidad — y los dos la tomaron prestada para convertir los atributos de dibujo en bloques de construcción.<br>
+        Así, el Vasallo tomó las verdades dispersas, las trazó columna a columna en un registro, y a lo largo de ese registro tejió la red de pruebas, hilo a hilo.
+      </p>
+      <p class="entry-prose">
+        En el curso de ese ordenamiento, las funciones extraídas poco a poco de editor.js crecieron al lado, en editor-utils.js — de 657 líneas en el S47 a otra mesa de cálculo de 2,550 líneas; su naturaleza de función pura tejió toda clase de red de pruebas por todo VAS.
+      </p>
+      <div class="weave-net">
+        <div class="weave-net-head">Panorama de muestras de prueba · ejecutado de verdad el 2026 · 06 · 28</div>
+        <div class="wn-row"><span class="wn-cat">Unit · lógica pura sin DOM</span><span class="wn-run">npm test</span><span class="wn-num">931</span></div>
+        <div class="wn-row"><span class="wn-cat">Interacción · Playwright headless</span><span class="wn-run">test:interaction</span><span class="wn-num">242</span></div>
+        <div class="wn-row"><span class="wn-cat">Golden · regresión pixel a pixel</span><span class="wn-run">test:golden</span><span class="wn-num">31</span></div>
+        <div class="wn-row"><span class="wn-cat">Backend Rust · #[test]</span><span class="wn-run">cargo test</span><span class="wn-num">45</span></div>
+        <div class="weave-net-total"><span>Sprint 45 · 318</span><span class="wn-arrow">→</span><span>Sprint 103 ·</span><strong>1249</strong><span>muestras de prueba tejidas en una red</span></div>
+      </div>
+      <p class="entry-prose">
+        Poco a poco peinamos una maraña de hilo anudado hasta volverla una red de urdimbre y trama claras, y luego apilamos encima nuevas funciones de estilo personalizado.
+      </p>
+      <p class="entry-prose">
+        Pero de los atributos de objeto a las acciones a las interacciones — a medida que las pruebas seguían atrapando paneles desajustados con los valores, o con el comportamiento — descubrimos <strong>dos problemas más profundos</strong>.
+      </p>
+      <div class="weave-problems">
+        <div class="wp-item">
+          <div class="wp-num">① El ojo nunca puede enumerarlo todo</div>
+          <div class="wp-text">13 herramientas × 10 atributos × 4 comportamientos, apilados de nuevo con la nueva función de estilo personalizado — este es un conjunto de combinaciones que el control de calidad a ojo de Nova <em>nunca podría cubrir de forma exhaustiva</em>.</div>
+        </div>
+        <div class="wp-item">
+          <div class="wp-num">② La red puede mentir</div>
+          <div class="wp-text">Y la red misma también puede mentir — una ejecución de pruebas toda en verde es un <em>falso verde</em>, copiado de chuletas dispersas por todo el código. El valor de la red no está en la cantidad, sino en <em>reflejar fielmente el valor original</em>.</div>
+        </div>
+      </div>
+      <p class="entry-prose">
+        La única solución era hacer que los valores dentro de editor.js convergieran — del código del backend al panel del frontend — en una «fuente única de verdad», para que las pruebas pudieran de verdad quitar de los hombros de Nova la enumeración a ojo.<br>
+        Solo cuando llegamos al Sprint 92 los dos tocamos por fin la verdadera columna vertebral de la refactorización del frontend.
+      </p>
+    </div>
+  </article>
+
+  <!-- 樂章三 · 顯 -->
+  <article id="ch-reveal" class="entry">
+    <div class="entry-stamp">
+      <div class="entry-chapter">Tejido<em>III</em></div>
+      <div class="entry-unit">Revelar</div>
+      <div class="entry-stamp-value">Sprint 93 → 104<br>2026 · 06 · 28</div>
+      <div class="entry-tag is-retro">RETRO</div>
+    </div>
+    <div class="entry-body">
+      <div class="entry-oneliner">
+        Cincuenta Sprints,<br>
+        dos personas <em>a oscuras</em> trazando<br>un mapa de tejido tras otro.<br>
+        Hasta que al fin el conjunto se hizo visible.
+      </div>
+      <h2 class="entry-title">Al final, <em>resultó ser una tela de seis&nbsp;capas</em>.</h2>
+      <p class="entry-prose">
+        A lo largo de toda la refactorización del frontend, los dos intentábamos siempre hacer una sola cosa: revelar la imagen.<br>
+        Dejar que una estructura que siempre había estado presente, pero nunca del todo vista, aflorara despacio.<br>
+        Empezó como un ovillo de lana de 8,700 líneas, y terminó peinada en un rollo de tela de 7,300 líneas.
+      </p>
+      <p class="entry-prose">
+        Trazamos un mapa de tejido tras otro — no eran planos conjurados de la nada,<br>
+        sino derivados a la inversa contra la tela ya tejida, tramo a tramo; leyendo el patrón, y luego volviendo a tejer la tela limpia según él.<br>
+        No fue hasta el Sprint 97 que vimos por fin el patrón de todo el rollo de una vez —<br>
+        editor.js es una <strong>tela de seis capas</strong>.
+      </p>
+      <div class="weave-maps">
+        <div class="weave-maps-head">Once mapas de tejido · los fósiles que reconocimos</div>
+        <div class="wm-row"><span class="wm-sp">S46</span><span class="wm-name">refactor-audit-prep</span><span class="wm-said">Reconocimos cuál de los cuatro archivos grandes dolía más, y de qué dos maneras</span></div>
+        <div class="wm-row"><span class="wm-sp">S51</span><span class="wm-name">editor-decomposition-roadmap</span><span class="wm-said">Reconocimos que editor.js debía dividirse en el podio del director y los músicos</span></div>
+        <div class="wm-row"><span class="wm-sp">S59/61</span><span class="wm-name">tool-isolation · panel-groups-map</span><span class="wm-said">Reconocimos que la contaminación vive en la capa de pegamento; los paneles deben volverse bloques de construcción</span></div>
+        <div class="wm-row"><span class="wm-sp">S63</span><span class="wm-name">attribute-family-roadmap</span><span class="wm-said">Reconocimos que los atributos deben refinarse en un registro, una familia cada vez</span></div>
+        <div class="wm-row"><span class="wm-sp">S78</span><span class="wm-name">dor-custom-styles-batch2</span><span class="wm-said">Reconocimos que la ruta de aplicación del estilo personalizado es ortogonal — no toca ni el store ni lo global</span></div>
+        <div class="wm-row"><span class="wm-sp">S87</span><span class="wm-name">dor-single-truth-converge</span><span class="wm-said">Reconocimos la raíz más profunda: el store es la fuente única de verdad, pero pintado a mano en cinco lugares</span></div>
+        <div class="wm-row"><span class="wm-sp">S88</span><span class="wm-name">dor-l2-true-green</span><span class="wm-said">Reconocimos el «falso verde»: las pruebas están en verde, pero copiadas de tres espejos</span></div>
+        <div class="wm-row"><span class="wm-sp">S88</span><span class="wm-name">design-oracles · state-model …</span><span class="wm-said">Una ráfaga de mapas de tejido — siete u ocho trazados en una sola noche</span></div>
+        <div class="wm-row"><span class="wm-sp">S89</span><span class="wm-name">panel-sync-matrix</span><span class="wm-said">Reconocimos que las fugas de panel pueden enumerarse de forma exhaustiva — no dejarse al control de calidad a ojo</span></div>
+        <div class="wm-row"><span class="wm-sp">S94</span><span class="wm-name">panel-projection-roadmap</span><span class="wm-said">Reconocimos que la proyección y la capa de atributos son isomorfas — deben compartir un mismo registro</span></div>
+        <div class="wm-row is-peak"><span class="wm-sp">S97</span><span class="wm-name">editor-layer-map</span><span class="wm-said">Por primera vez vimos el rollo entero — estaba tejido de seis capas</span></div>
+      </div>
+      <p class="entry-prose">
+        Y estas seis capas habían estado ahí desde la era Electron.<br>
+        Nos llevó cincuenta Sprints aprender a leer su estructura.
+      </p>
+      <div class="entry-pullquote">
+        Los hilos aún no están rematados —<br>
+        porque <em>todavía hay tanto que queremos hacer</em>.
+      </div>
+    </div>
+  </article>
+
+</div>
+
+
+
+<!-- ═══ door to the changelog ═══ -->
+<div class="ledger-door">
+  <a href="changelog.html">
+    <span class="ld-kicker">Crónica completa · CHANGELOG</span>
+    <span class="ld-title">Cada versión, cada Sprint, guardado en el registro de cambios.</span>
+    <span class="ld-sub">App Store · Tauri, Sprint a Sprint　·　Gratis · Electron, versión a versión　→</span>
+  </a>
+</div>
+
+<!-- ═══ chapter colophon ═══ -->
+<div class="chapter-colophon">
+  <div class="chapter-colophon-left">milestone · N° 01<br>Diez capítulos y una coda · Registrado 2026 · 06 · 28</div>
+  <div class="chapter-colophon-line"></div>
+  <div class="chapter-colophon-right">Los primeros cinco capítulos son una línea,<br>los últimos cinco una red,<br>y al final, tejida hasta volverse tela.</div>
+  <div class="chapter-sign">Con cariño, VAS</div>
+</div>
+
+
+<!-- ═══════ 頁尾 ═══════ -->
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Hecho por Nova × Claude.<br>Una PM que no sabe escribir una línea de código,<br>y una IA sin memoria a largo plazo,<br>lo construyeron en veinticinco días.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">Política de privacidad</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">Descargar VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="Chapter navigation"></button>
+<nav class="dot-nav" aria-label="Chapter navigation">
+  <a class="dot-nav-item" href="#ch-1"><span class="dn-label">I · Fundación</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-2"><span class="dn-label">II · Parada forzosa</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-3"><span class="dn-label">III · Primer lanzamiento</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-4"><span class="dn-label">IV · Doble mudanza</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-5"><span class="dn-label">V · Portación de plataforma</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-6"><span class="dn-label">VI · Nuevas funciones</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-7"><span class="dn-label">VII · Ordenar y producir</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-8"><span class="dn-label">VIII · No más espera</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-9"><span class="dn-label">IX · Emergencia</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-10"><span class="dn-label">X · Rediseño del sitio</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-see"><span class="dn-label">Ver</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-weave"><span class="dn-label">Tejer</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#ch-reveal"><span class="dn-label">Revelar</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function (item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var maxVisited = -1;
+    function absTop(el) { return el.getBoundingClientRect().top + window.scrollY; }
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      var currentIdx = -1;
+      sections.forEach(function (s, i) { if (absTop(s) <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function (item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function () { nav.classList.toggle('is-open'); });
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function (e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() {
+    
+    (function(){var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('navMobileMenu'),chevron=document.getElementById('navMobileChevron');if(!btn||!menu)return;var open=false;function close(){open=false;menu.style.display='none';if(chevron)chevron.style.transform='';btn.setAttribute('aria-expanded','false');}function toggle(e){e.stopPropagation();if(open){close();return;}open=true;menu.style.display='flex';if(chevron)chevron.style.transform='rotate(180deg)';btn.setAttribute('aria-expanded','true');}btn.addEventListener('click',toggle);menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('click',close);})();
+    initDotNav();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hitos del desarrollo de VAS | Una app de doble plataforma lanzada en 25 días, ahora a lo largo de 104 Sprints",
+  "description": "La cronología completa del desarrollo de VAS, desde cero hasta el lanzamiento en doble plataforma y más allá, a lo largo de 104 Sprints: 25 días, 80+ versiones, Electron + Tauri, el recorrido de la revisión de la App Store, después una refactorización del front-end y la puesta en marcha del CI (fuente única de verdad · verificaciones exhaustivas automatizadas), y las decisiones técnicas de cada Sprint.",
+  "inLanguage": "es",
+  "url": "https://yoursvas.app/es/milestone",
+  "datePublished": "2026-03-21",
+  "dateModified": "2026-06-28",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu",
+      "https://github.com/tb1982"
+    ]
+  }
+}
+</script>
+<script src="../js/analytics.js"></script>
+<!-- 三線檔案室已搬去 changelog；保住外部曾分享的 #tauri / #electron / #website 深連結（hash 伺服器收不到，只能前端轉址）-->
+<script>
+(function(){var h=(location.hash||"").replace("#","");if(h==="tauri"||h==="electron"||h==="website"){location.replace("changelog.html#"+h);}})();
+</script>
+</body>
+</html>
