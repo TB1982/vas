@@ -30,7 +30,8 @@
           "slug": "about",
           "file": "about.html",
           "changefreq": "monthly",
-          "priority": "0.8"
+          "priority": "0.8",
+          "es": true
         }
       ]
     },
@@ -43,7 +44,8 @@
           "slug": "echo",
           "file": "echo.html",
           "changefreq": "monthly",
-          "priority": "0.8"
+          "priority": "0.8",
+          "es": true
         }
       ]
     },

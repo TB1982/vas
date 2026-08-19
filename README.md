@@ -58,7 +58,7 @@ The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection)
 | Privacy | `/privacy` | Privacy policy |
 | 404 | `/404` | Error page |
 
-**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 27 pages × 4 locales (incl. the 7 guide chapters and the 3 harness pillars). A 5th locale, **Spanish (`/es/`), is a partial rollout** — index, privacy, 404, instrument, faq, changelog, milestone, and the full guide (cover + 7 chapters); pages without an ES sibling omit ES from their switcher to avoid dead links (see [GLOSSARY §7.5](docs/GLOSSARY.md)). There is no runtime i18n — language switching is page navigation.
+**Localization:** Every page — including the three pillars and the treatise — exists in 4 locales as **static per-locale files**: zh-Hant (root), English (`/en/`), Japanese (`/ja/`), Simplified Chinese with Mainland register (`/cn/`). 27 pages × 4 locales (incl. the 7 guide chapters and the 3 harness pillars). A 5th locale, **Spanish (`/es/`), is a partial rollout** — index, privacy, 404, about, echo, instrument, faq, changelog, milestone, and the full guide (cover + 7 chapters); pages without an ES sibling omit ES from their switcher to avoid dead links (see [GLOSSARY §7.5](docs/GLOSSARY.md)). There is no runtime i18n — language switching is page navigation.
 
 **Sitemap-only (not in main nav, by design):** `/us`, `/vessel`, and `/harness/{context,constraints,entropy}`. Humans reach them by digging (trail-dot / inline-dot doors); crawlers and AI reach them via sitemap. Hide-from-human ≠ hide-from-machine.
 

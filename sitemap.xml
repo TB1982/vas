@@ -71,98 +71,132 @@
   <!-- ═══════ Chapter 0 · About (序章 · 關於) ═══════ -->
   <url>
     <loc>https://yoursvas.app/about</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/about"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/about"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/about"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/en/about</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/about"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/about"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/about"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/ja/about</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/about"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/about"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/about"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/cn/about</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/about"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/about"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/about"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/about</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/about"/>
   </url>
 
   <!-- ═══════ Chapter I · Echoes (殘響) — cover ═══════ -->
   <url>
     <loc>https://yoursvas.app/echo</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/echo"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/en/echo</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/echo"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/ja/echo</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/echo"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo"/>
   </url>
 
   <url>
     <loc>https://yoursvas.app/cn/echo</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/echo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo"/>
+  </url>
+
+  <url>
+    <loc>https://yoursvas.app/es/echo</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://yoursvas.app/echo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yoursvas.app/en/echo"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://yoursvas.app/ja/echo"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yoursvas.app/cn/echo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://yoursvas.app/es/echo"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yoursvas.app/echo"/>
   </url>
 
