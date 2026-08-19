@@ -233,7 +233,8 @@
           "slug": "guide/editor",
           "file": "guide/editor.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         },
         {
           "slug": "guide/pixel",
@@ -246,25 +247,29 @@
           "slug": "guide/ocr",
           "file": "guide/ocr.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         },
         {
           "slug": "guide/arrange",
           "file": "guide/arrange.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         },
         {
           "slug": "guide/export",
           "file": "guide/export.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         },
         {
           "slug": "guide/shortcuts",
           "file": "guide/shortcuts.html",
           "changefreq": "monthly",
-          "priority": "0.6"
+          "priority": "0.6",
+          "es": true
         }
       ]
     },
