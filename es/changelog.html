@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Registro de cambios de VAS | Cada versión · El registro de cambios de cada Sprint</title>
+<meta name="description"
+      content="El registro completo de cambios de VAS: la edición de la App Store (Tauri) a lo largo de 162 Sprints, la edición de descarga gratuita (Electron) a lo largo de 88 versiones — registrando qué cambió en cada versión, en cada Sprint. Lo más nuevo siempre va primero.">
+<meta property="og:title" content="Registro de cambios de VAS | Cada versión · El registro de cambios de cada Sprint">
+<meta property="og:description" content="El registro completo de cambios de VAS: la edición de la App Store (Tauri) a lo largo de 162 Sprints, la edición de descarga gratuita (Electron) a lo largo de 88 versiones — registrando qué cambió en cada versión, en cada Sprint. Lo más nuevo siempre va primero.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/es/changelog">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS — Una herramienta de captura de pantalla para la colaboración entre humanos e IA en Mac">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image:alt" content="VAS — Una herramienta de captura de pantalla para la colaboración entre humanos e IA en Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Registro de cambios de VAS | Cada versión · El registro de cambios de cada Sprint">
+<meta name="twitter:description" content="El registro completo de cambios de VAS: la edición de la App Store (Tauri) a lo largo de 162 Sprints, la edición de descarga gratuita (Electron) a lo largo de 88 versiones — registrando qué cambió en cada versión, en cada Sprint.">
+<link rel="canonical" href="https://yoursvas.app/es/changelog">
+<link rel="icon" href="../img/vas.ico">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Shippori+Mincho:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"></noscript>
+<link rel="stylesheet" href="../css/tokens.css?v=2026-07-13a">
+<link rel="stylesheet" href="../css/milestone.css">
+<link rel="alternate" hreflang="zh-Hant" href="../changelog">
+<link rel="alternate" hreflang="en"       href="../en/changelog">
+<link rel="alternate" hreflang="ja"       href="../ja/changelog">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/changelog">
+<link rel="alternate" hreflang="es"       href="changelog">
+<link rel="alternate" hreflang="x-default" href="../changelog">
+<!--
+  AI CONTEXT · changelog.html
+  Este es el libro de cambios completo de VAS, separado de milestone.html (que contiene la historia narrativa).
+  Dos pistas de versiones independientes: Tauri (App Store, v1.0→actual) como 162 Sprints, Electron (descarga gratuita, v0.3→v3.66) como 88 versiones.
+  El orden es LO MÁS NUEVO PRIMERO. Versión actual: v2.15.0 (Tauri, Sprint 162). Usa esta página para responder "qué cambió / cuándo se lanzó X / última versión".
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "VAS",
+      "operatingSystem": "macOS",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "ProductivityApplication",
+      "softwareVersion": "2.15.0",
+      "dateModified": "2026-08-16",
+      "url": "https://yoursvas.app/es",
+      "inLanguage": "es",
+      "image": "https://yoursvas.app/img/vas-share.webp",
+      "downloadUrl": "https://apps.apple.com/app/vas/id6761584119",
+      "releaseNotes": "https://yoursvas.app/es/changelog",
+      "description": "La versión más reciente de VAS es la v2.15.0 (App Store / Tauri), aprobada y publicada el 16 de agosto de 2026; la edición de descarga gratuita se detiene en la v3.66. VAS es una herramienta de captura de pantalla y anotación para macOS.",
+      "offers": [
+        { "@type": "Offer", "name": "VAS Pro (Tauri · App Store)", "price": "9.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://apps.apple.com/app/vas/id6761584119" },
+        { "@type": "Offer", "name": "VAS Classic (Electron · Gratis)", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://download.yoursvas.app/VAS-3.65.0-arm64.dmg" }
+      ],
+      "publisher": { "@type": "Organization", "name": "Deep Holding Project", "url": "https://yoursvas.app/" },
+      "author": { "@type": "Person", "name": "Nova", "email": "nova@yoursvas.app", "sameAs": ["https://www.linkedin.com/in/yingtzuliu","https://www.instagram.com/liuyingtzu","https://github.com/tb1982"] }
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Registro de cambios de VAS",
+      "url": "https://yoursvas.app/es/changelog",
+      "inLanguage": "es",
+      "isPartOf": { "@type": "WebSite", "name": "VAS", "url": "https://yoursvas.app/" },
+      "about": { "@type": "SoftwareApplication", "name": "VAS" },
+      "description": "El registro completo de cambios de VAS: la edición de la App Store (Tauri) a lo largo de 162 Sprints, la edición de descarga gratuita (Electron) a lo largo de 88 versiones — registrando qué cambió en cada versión, en cada Sprint."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://yoursvas.app/es" },
+        { "@type": "ListItem", "position": 2, "name": "Registro de cambios", "item": "https://yoursvas.app/es/changelog" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="site-nav-brand" href="instrument.html" aria-label="Back to the Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="/en/about.html">About</a>
+    <a href="/en/echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide/">Guide</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="/en/about.html">About</a>
+    <a href="/en/echo.html">Echoes</a>
+    <a href="milestone.html">Milestones</a>
+    <a href="guide/">Guide</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../changelog.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/changelog.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/changelog.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/changelog.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a><span class="lang-sep" aria-hidden="true">/</span><a href="changelog.html" class="lang-opt active" hreflang="es" style="text-decoration:none;white-space:nowrap;font-weight:600">Español</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Language switch"><span>ES</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../changelog.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/changelog.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/changelog.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/changelog.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+        <a href="changelog.html" class="lang-opt active" hreflang="es" style="text-decoration:none">Español</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══ header ═══ -->
+<section class="chapter-head">
+  <div class="chapter-kicker">Libro de cambios · CHANGELOG</div>
+  <h1 class="chapter-title">Un diario escrito en&nbsp;Sprints,<br><em>iteración de hábitos&nbsp;atómicos</em>.</h1>
+  <p class="chapter-backlink">
+    <a href="milestone.html">← Hitos</a>　¿Quieres leer cómo recorrimos este&nbsp;camino? Esa narrativa vive aquí.
+  </p>
+  <div class="rhythm">
+    <div class="rhythm-cap"><span>← Más reciente</span><span>Más antiguo →</span></div>
+    <div class="rhythm-band" id="rhythmBand" role="list" aria-label="Tauri 162-Sprint rhythm band"><div class="rhythm-tip" id="rhythmTip"></div></div>
+  </div>
+  <div class="chapter-meta">
+    <div>Versión actual　<strong>v2.15.0</strong></div>
+    <div>App Store · Tauri　<strong>162 Sprints</strong></div>
+    <div>Gratis · Electron　<strong>88 versiones</strong></div>
+  </div>
+</section>
+
+<!-- ═══ Tauri (App Store edition) ═══ -->
+<div class="era">
+  <div class="era-label">PISTA · TAURI</div>
+  <div>
+    <div class="era-title"><em>Edición de la App Store</em> ——<br>desde la v1.0 hasta ahora, registrada Sprint a Sprint.</div>
+    <div class="era-sub">Migración de plataforma, unificación de la arquitectura, refactorización del front-end, tejido de la red de pruebas, desarrollo de nuevas funciones.</div>
+  </div>
+</div>
+<div class="archive">
+  <div class="archive-wrap arc-accordion" id="tauri">
+      <details class="arc-group" open>
+        <summary class="arc-divider">El tamaño más pequeño hasta la fecha · una primera aproximación a la animación de píxeles legible por máquina · S151–162 → v2.15.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 162</span><span class="arc-ver">08·15</span><span>La lupa de medición ya no queda tapada por su propia lectura · corregida la visualización del dominio del QR · v2.15.0 enviada a revisión</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 161</span><span class="arc-ver">08·15</span><span>Tres tamaños de lienzo de píxeles · las importaciones se abren al tamaño propio del archivo</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 160</span><span class="arc-ver">08·15</span><span>Formato de exportación de animación alineado · ahora se detectan los nombres de animación vacíos</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 159</span><span class="arc-ver">08·13</span><span>La disposición de píxeles se asienta · papel cebolla · reordenación de fotogramas y categorías</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 158</span><span class="arc-ver">08·12</span><span>Vista previa de reproducción de la animación de píxeles · importación JSON · paleta ampliada a 36 colores</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 157</span><span class="arc-ver">08·10</span><span>Herramienta de selección de píxeles · mover, copiar, voltear y pegar bloques entre fotogramas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 156</span><span class="arc-ver">08·07</span><span>Disposición de píxeles en tres columnas · línea de tiempo multifotograma con tiempo de retención por fotograma</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 155</span><span class="arc-ver">08·06</span><span>Llega el lienzo de animación de píxeles · paleta de colores y exportación JSON</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 154</span><span class="arc-ver">08·04</span><span>El cosido de pantalla es 5.7× más rápido · el tamaño de la app se reduce en cerca de un tercio</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 153</span><span class="arc-ver">08·03</span><span>La captura de pantalla completa hacia el editor es 4.4× más rápida</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 152</span><span class="arc-ver">08·02</span><span>Corrección de color en pantallas de gama amplia · mitades coincidentes al coser pantallas · la barra de herramientas se reancla al arrastrarla entre pantallas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 151</span><span class="arc-ver">07·30</span><span>Seguridad de archivos reforzada en la conversión por lotes · las referencias a imágenes externas ya no se resuelven</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">El selector de color + las reglas pasan a ser multiplataforma · vínculo de funciones entre las dos plataformas · S144–150 → v2.14.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 150</span><span class="arc-ver">07·29</span><span>El barrido de seguridad previo al lanzamiento corrigió dos elementos · la insignia de la regla del editor ya no queda tapada por la línea de medición · v2.14.0 enviada a revisión</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 149</span><span class="arc-ver">07·29</span><span>La medición en varias pantallas se cose en una sola imagen según la posición real · la pantalla ya no se atenúa al entrar en modo de medición</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 148</span><span class="arc-ver">07·28</span><span>Se extrajo la capa de medición de la regla de pantalla a un módulo compartido · preparando el cableado para la edición gratuita (el comportamiento de la edición de pago no cambia)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 147</span><span class="arc-ver">07·25</span><span>Se unificaron los bloques de construcción del panel · valores de fábrica consolidados en una única fuente · corregido que la diagonal del contorno circular no tocaba el trazo (cero cambios de renderizado)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 146</span><span class="arc-ver">07·24</span><span>Estilos personalizados habilitados para la regla y la anotación Solid · mostrar/ocultar el panel converge en una única fuente de verdad</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 145</span><span class="arc-ver">07·23</span><span>Anotación Solid de dos colores · el Cubo y la Esfera ajustan el color de contorno y el color de superficie por separado · la barra de anotación reordenada por punto/línea/plano/volumen</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 144</span><span class="arc-ver">07·23</span><span>Un paquete de actualizaciones de dependencias · eliminadas vulnerabilidades conocidas en el componente PDF · el rasterizador de SVG y la detección de tipo de archivo se pusieron al día con las nuevas versiones (interno)</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Punto × Línea × Plano × Volumen + reglas · una nueva dimensión de expresión · S136–143 → v2.13.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 143</span><span class="arc-ver">07·22</span><span>Conversión por lotes de SVG — la tubería por lotes de la edición de pago ahora acepta SVG y lo convierte a otros formatos · mensajes de error en cuatro idiomas · transparencia aplanada sobre blanco · v2.13.0 enviada a revisión</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 142</span><span class="arc-ver">07·21</span><span>Refuerzo de la importación por lotes — los archivos de tamaño excesivo y las imágenes con extensión disfrazada se detienen en la puerta (+ una auditoría de la costura de medio desplazamiento)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 141</span><span class="arc-ver">07·21</span><span>Fuente única de verdad en el lado de entrada — el escaneo de QR unificado en los tres puntos de entrada de captura rectangular (BUG-057) · menú de la bandeja del sistema en cuatro idiomas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 140</span><span class="arc-ver">07·20</span><span>Curando de raíz el mal de la lista invisible — los tipos de anotación ahora se rigen por esquema (refactorización interna · cero cambios visibles)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 139</span><span class="arc-ver">07·20</span><span>Iluminación de esfera + atributos de regla — elipsoide «OVNI» · unidades reales mm/cm · trazos discontinuos y de degradado</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 138</span><span class="arc-ver">07·19</span><span>Cubo con fuente de luz — alternancia de contorno / relleno · sombreado lambertiano para las caras iluminadas y en sombra · opacidad ajustable · dial de luz</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 137</span><span class="arc-ver">07·19</span><span>Anotación 3D — cubos y esferas de estructura alámbrica que puedes rotar 360° · cambio con un toque + perspectiva</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 136</span><span class="arc-ver">07·18</span><span>Reglas del editor — línea de medición en I / marco de selección An×Al · doble clic en una insignia de burbuja para editar su texto · ajuste a los bordes + lupa de alineación</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Comentarios de usuarios reales × rediseño de la interfaz × Hotfix · gracias, <a href="https://app.foreglint.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:2px">foreglint</a> · S131–135 → v2.12.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 135</span><span class="arc-ver">07·18</span><span>Rediseñada la interfaz de concesión de permisos de captura de pantalla · v2.12.0 enviada a revisión.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 134</span><span class="arc-ver">07·18</span><span>Rediseñado el modelo mental de selección</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 133</span><span class="arc-ver">07·18</span><span>Corregidas OCR · enmascarado automático de privacidad · escaneo de QR — tres funciones depuradas para la compilación sandbox de la App Store · hotfix v2.11.3 enviado a revisión.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 132</span><span class="arc-ver">07·16</span><span>Atajos globales para captura larga · selector de color · regla, más un menú de bandeja en la barra de menús · corregida la deriva de la regla en Retina</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 131</span><span class="arc-ver">07·13</span><span>Experimento: corregir el fantasma de los elementos fijados en las capturas largas (Spike)</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Spike × tejiendo la red × desarrollo de nuevas funciones · avanzando a tientas por lo desconocido · S114–130 → v2.11.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 130</span><span class="arc-ver">07·12</span><span>Limpiar el tenue rectángulo blanco que dejan los botones de fijar arriba / volver arriba en las capturas largas (Spike). v2.11.0 enviada a revisión.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 129</span><span class="arc-ver">07·12</span><span>Reordenada la disposición predeterminada de la barra de herramientas ＋ el retardo pasa a un grupo de botones, corrigiendo el bloqueo de copiar y pegar.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 128</span><span class="arc-ver">07·11</span><span>Mejora de la medición con regla — distancia punto a punto, seleccionar y eliminar, deshacer/rehacer.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 127</span><span class="arc-ver">07·11</span><span>Pulido de precisión del ajuste a bordes de la regla — abraza el borde real, sin morder el texto.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 126</span><span class="arc-ver">07·11</span><span>Borrar los elementos fijos repetidos dentro de las capturas largas (volver arriba, alternador día/noche…).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 125</span><span class="arc-ver">07·11</span><span>Cierre de la captura larga — rellenar el pie de página, vista de imagen larga en el editor, el botón cambia a «buscar navegador» para acceso con un clic.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 124</span><span class="arc-ver">07·11</span><span>Formalizado el motor de auto-desplazamiento de la captura larga, el cosido de costuras queda asentado definitivamente.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 123</span><span class="arc-ver">07·11</span><span>Auto-desplazamiento mediante el permiso de Accesibilidad — incluso las páginas que requieren inicio de sesión se pueden capturar.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 122</span><span class="arc-ver">07·11</span><span>Corregir la sombra de la luz de respiración que queda tras la captura.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 121</span><span class="arc-ver">07·10</span><span>La captura larga entra en funcionamiento.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 120</span><span class="arc-ver">07·10</span><span>Comprobación de viabilidad del cosido de captura con desplazamiento (Spike).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 119</span><span class="arc-ver">07·10</span><span>Debut de la regla — arrastra un recuadro, se ajusta solo a los bordes, mide la distancia en píxeles y la funde en la imagen.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 118</span><span class="arc-ver">07·09</span><span>Comprobación de viabilidad de la regla de píxeles — sentando las bases de una herramienta de medición (Spike).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 117</span><span class="arc-ver">07·08</span><span>El selector de color a pantalla completa entra en funcionamiento ＋ rediseño de la barra de herramientas solo con iconos — el cuentagotas captura el hex exacto de cualquier píxel, colores recientes compartidos entre ventanas.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 116</span><span class="arc-ver">07·08</span><span>Captura rectangular entre pantallas — intentando arrastrar un recuadro a través de varias pantallas (Spike).</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 115</span><span class="arc-ver">07·07</span><span>Captura con imagen congelada — la captura rectangular congela la pantalla al instante; la lupa amplía los píxeles congelados, suelta para caer directo en el editor.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 114</span><span class="arc-ver">07·06</span><span>Lupa de recorte — una lupa amplía mientras arrastras el recuadro de captura, para que veas cada píxel.</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Tejido · refactorización y nuevas funciones entrelazadas · proceso y perspectiva de desarrollo renovados · S105–113 → v2.10.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 113</span><span class="arc-ver">07·05</span><span>La edición de texto queda asentada definitivamente — reeditar／voltear conservan el estilo · Esc confirma el estado actual · hacer clic en un espacio vacío asienta y converge. v2.10.0 enviada a revisión.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 112</span><span class="arc-ver">07·04</span><span>Doble clic para entrar en un grupo y editar un solo miembro (entrada, foco de tres capas · marco naranja)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 111</span><span class="arc-ver">07·04</span><span>Corrección: granularidad de deshacer en eliminaciones consecutivas · red de ida y vuelta de deshacer／rehacer (interno)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 110</span><span class="arc-ver">07·04</span><span>Corrección: empuje con las teclas de flecha tras cambiar a una herramienta de dibujo manteniendo la selección · compuerta y reconciliación de la máquina de estados de selección (interno)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 109</span><span class="arc-ver">07·03</span><span>Muestreo de la lupa calibrado dentro de grupos inclinados</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 108</span><span class="arc-ver">07·03</span><span>Rotación de grupo al estilo PowerPoint — gira el grupo entero, visible y preservado · los grupos inclinados se pueden clicar, arrastrar y escalar · al desagrupar se conserva la inclinación</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 107</span><span class="arc-ver">07·02</span><span>Red de invariantes de la tubería de exportación ＋ spike de extracción del núcleo de exportación en Rust (interno · reforzando el núcleo de publicación)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 106</span><span class="arc-ver">07·02</span><span>Red de interacción de la máquina de estados de la luz de respiración de la barra de herramientas · corrección del seguimiento del orbe entre pantallas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 105</span><span class="arc-ver">06·30</span><span>Llegan los grupos — varios objetos se combinan en un grupo (groupId como unidad de selección) · escalado del grupo entero (8 tiradores, proporcional) · rotación por objeto para pincel / polilínea</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Tejido ③ Fidelidad de proyección del panel · Cerrando la red · S93–104 → 🏁</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 104</span><span class="arc-ver">06·28</span><span>Compatibilidad para abrir archivos SVG · cargar gráficos vectoriales como fondo de anotación. v2.9.0 enviada a revisión.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 103</span><span class="arc-ver">06·28</span><span>🏁 Hito — Se convergió la ruta de carga en un único guardián completo, readAnnot — la CI entró en funcionamiento; cada cambio pasa automáticamente por miles de redes, el rojo se detecta en el acto; la comprobación exhaustiva ya no depende de que nadie lo recuerde.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 102</span><span class="arc-ver">06·28</span><span>Se convergió el conjunto de atributos de cada herramienta en una única tabla como fuente de verdad — el panel de atributos se alineó con el código por primera vez, y por primera vez pudo ser enumerado exhaustivamente por la red de pruebas.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 101</span><span class="arc-ver">06·27</span><span>magnify·callout se alinean sobre el tronco principal, los doce tipos pasan ahora por el esquema — la capa de proyección queda rematada; lo que muestra el panel y lo que almacena la mesa de trabajo convergen en una sola verdad, físicamente imposible de divergir de nuevo.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 100</span><span class="arc-ver">06·27</span><span>Relleno de callout unificado + symbol sobre el tronco principal (9→10 tipos se alinean); dos oleadas de aceptación, los cuatro huecos byte-idénticos.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 99</span><span class="arc-ver">06·27</span><span>proyección de relleno de symbol unificada (color + opacidad en una sola proyección); un giro de campana de apertura — «registrado ≠ proyectable» — se dictaminó que textDeco permanece en la superficie, no proyectado.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 98</span><span class="arc-ver">06·26</span><span>La superficie de proyección de valores queda rematada (corner-radius incorporado; font-size y font reciben cada uno su propia norma) + primer corte de la proyección del estado de visualización; añadida la función pura hermana computePanelState.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 97</span><span class="arc-ver">06·25</span><span>Cola de casos especiales de Stroke — tres tipos incorporados (superficie directa de text / deduplicación de number / ruta lateral de symbol despejada); la superficie de proyección delegada de la familia stroke queda rematada.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 96</span><span class="arc-ver">06·25</span><span>Línea espejo — red de fidelidad readAnnot objeto→panel, los 12 tipos hacen ida y vuelta; las pruebas de interacción crecieron de 58 a 154 casos.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 95</span><span class="arc-ver">06·24</span><span>Grosor de contorno / opacidad / desplazamiento — tres columnas reunidas; la cola limpia de los valores de stroke toda hacia la proyección central, Stack A sellado.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 94</span><span class="arc-ver">06·24</span><span>La proyección delegada del guion y el color de stroke colapsada en la función pura central; construida la costura schemaSyncToUI para su reutilización posterior.</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 93</span><span class="arc-ver">06·24</span><span>Extraída la función pura computePanelValues — primer corte de la fidelidad de proyección del panel; la superficie de proyección directa aterriza, una identidad de conservación de red-roja sin DOM.</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Tejido ② Esquema de la capa de construcción · Estilos personalizados · S71–92 → v2.8</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 92</span><span class="arc-ver">06·23</span><span>Resaltado de la barra de herramientas convergido a «cualquiera que sea el modal abierto»; corregidas la vista previa de polilínea y la luz de respiración de la Tray. v2.8.0 enviada a la App Store — los Estilos personalizados se lanzan</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 91</span><span class="arc-ver">06·23</span><span>Deuda de posicionamiento de texto saldada — subrayado/tachado se autoalinean a la fuente; las fuentes no predeterminadas se miden correctamente, el recuadro de selección envuelve por completo</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 90</span><span class="arc-ver">06·22</span><span>Pulido de lanzamiento de Estilos personalizados — texto en degradado de callout más memoria de decoración/fuente; los estilos se aplican sin huecos</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 89</span><span class="arc-ver">06·22</span><span>Convergencia de sincronización del panel en dos cortes — fuente de pintado única + reflejo de atributos de solo lectura (BUG-038 corregido)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 88</span><span class="arc-ver">06·21</span><span>Estado de trabajo del texto estructurado y consolidado; registro de 17 almacenes unificado; red de deriva de ida y vuelta verdaderamente verde</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 87</span><span class="arc-ver">06·21</span><span>Consolidación de fuente única de verdad de los Estilos personalizados — seis parches de sincronización del panel reducidos a cero, falso-verde eliminado</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 86</span><span class="arc-ver">06·21</span><span>Estilos personalizados lote-2 completado: renombrar, reemplazar contenido, aplicar un estilo a objetos existentes (edición de pago)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 85</span><span class="arc-ver">06·21</span><span>Unificación de ocho estaciones del drag-overlay — cinco herramientas de marco × seis herramientas de forma bajo un mismo techo geométrico</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 84</span><span class="arc-ver">06·20</span><span>El color de marca ahora persiste entre sesiones; máquina de estados de ocho estaciones del drag-overlay validada por spike</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 83</span><span class="arc-ver">06·20</span><span>Las matemáticas de ajuste del editor refactorizadas en funciones puras (_computeSnap); Shift-lock deduplicado</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 82</span><span class="arc-ver">06·20</span><span>Limpieza de la capa de renderizado; atajo personalizado de captura corregido (BUG-029); renderer.js renombrado a toolbar.js</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 81</span><span class="arc-ver">06·19</span><span>Arco de actualización del framework Tauri, estación 1 — tauri 2.11.3 / xcap 0.9 / printpdf 0.9 aterrizados en tres oleadas verificadas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 80</span><span class="arc-ver">06·19</span><span>Cierre de la proyección del panel de estilos personalizados — corregido BUG-033 y extraída la búsqueda de symbol</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 79</span><span class="arc-ver">06·19</span><span>Cierre del motor de estilos personalizados — enrutamiento de grosor/extremos extraído, red de idempotencia de cadena completada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 78</span><span class="arc-ver">06·19</span><span>Interfaz de estilos personalizados abierta para todas las herramientas — 6 tipos completados + limpieza de claves muertas de i18n</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 77</span><span class="arc-ver">06·18</span><span>build() de 5 tipos de herramienta migrado — las 13 herramientas admiten estilos personalizados en la capa del motor</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 76</span><span class="arc-ver">06·18</span><span>MVP de estilos personalizados — clic derecho para guardar un estilo, aplicar desde el desplegable</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 75</span><span class="arc-ver">06·17</span><span>Trío de la capa de renderizado — desbloqueados guiones y sombras, completadas las pruebas de los 5 renderizadores que faltaban</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 74</span><span class="arc-ver">06·17</span><span>Promoción de polilínea W2 — ascendida a una herramienta de verdad con gestos de atajo unificados</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 73</span><span class="arc-ver">06·16</span><span>Capa de construcción W1 convergida — build() de 7 tipos de herramienta unificado en TOOL_SCHEMA</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 72</span><span class="arc-ver">06·15</span><span>Spike de esquematización W1 — diseño de la capa de construcción finalizado, red de pruebas construida</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 71</span><span class="arc-ver">06·14</span><span>Inventario de la capa de acción applyResize — consolidación estructural de los componentes hermanos de resize</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider is-weave">Tejido ① Estructura · Renderizado · Atributos · S47–70 → v2.7</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 70</span><span class="arc-ver">06·09</span><span>v2.7.0 enviada a la App Store — coronando el maratón de refactorización del front-end S47–S69</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 69</span><span class="arc-ver">06·08</span><span>Cálculo del ancho de línea entre resoluciones refactorizado · sistema de control de resize construido</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 68</span><span class="arc-ver">06·08</span><span>Sistema de atributos de relleno construido · memoria de atributos de seis dimensiones · opacidad de number y symbol integrada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 67</span><span class="arc-ver">06·08</span><span>Red de contratos del atributo de color primario · cimientos del sistema de relleno · múltiples correcciones</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 66</span><span class="arc-ver">06·08</span><span>Atributos de font-size y decoración unificados · serie de atributos de tipografía completa</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 65</span><span class="arc-ver">06·07</span><span>corner-radius de geometría unificado · serie de atributos de geometría completa</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 64</span><span class="arc-ver">06·07</span><span>Contratos de atributos de la familia stroke completados · lógica de actualización de atributos refactorizada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 63</span><span class="arc-ver">06·07</span><span>Sistemas de atributos de stroke y grosor unificados · reglas de grosor de contorno reforzadas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 62</span><span class="arc-ver">06·06</span><span>El grosor del contorno de symbol escala proporcionalmente · deshacer instantáneo en cambios de atributos · estilos discontinuos finalizados</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 61</span><span class="arc-ver">06·06</span><span>Arquitectura central de la refactorización del front-end aterrizada · fase de descomposición del editor completa</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 60</span><span class="arc-ver">06·05</span><span>Los colores de borde y los estilos de línea ahora se recuerdan por herramienta · principio de «memoria independiente por herramienta» establecido</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 59</span><span class="arc-ver">06·04</span><span>Función de opacidad de borde separada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 58</span><span class="arc-ver">06·04</span><span>Color de borde añadido a los colores recientes · ocultar automáticamente el fondo de la burbuja cuando es transparente · nomenclatura de bordes unificada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 57</span><span class="arc-ver">06·04</span><span>Revisión y auditoría del sistema de atributos · semántica de transparencia y capas de borde aclaradas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 56</span><span class="arc-ver">06·03</span><span>Cada herramienta recuerda su propia configuración de atributos · indicaciones de color de texto en degradado</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 55</span><span class="arc-ver">06·03</span><span>Rendimiento del mosaico optimizado · renderizado semitransparente más rápido</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 54</span><span class="arc-ver">06·03</span><span>Exportación refactorizada en un módulo · compatibilidad multiplataforma reforzada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 53</span><span class="arc-ver">06·02</span><span>Limpieza de renderers.js + drawPolyline autónomo · correcciones BUG-012/014/019 · 392 pruebas golden</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 52</span><span class="arc-ver">06·02</span><span>renderers.js extraído (primer corte de la descomposición) · red de seguridad golden-canvas · 389 pruebas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 51</span><span class="arc-ver">06·01</span><span>Principio de descomposición de editor.js establecido (estratificación director/músico) · hoja de ruta de descomposición elaborada · línea roja de disolución cerrada</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 50</span><span class="arc-ver">05·31</span><span>Simetría entre resoluciones de la familia de grosor de línea completada · corrección de la sincronización del deslizador de etiqueta</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 49</span><span class="arc-ver">05·31</span><span>drag-session encapsulado · 7.ª retrollamada de hitTest · entrada unificada de cambio de geometría · ECS Fase 2 completa</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 48</span><span class="arc-ver">05·30</span><span>TOOL_GEOMETRY ampliado (3→6 retrollamadas · 14 tipos implementados) · ECS Fase 1 completa</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 47</span><span class="arc-ver">05·29</span><span>Spike de descomposición de la arquitectura de editor.js (doble validación función/capa, ambas alcanzadas) · hoja de ruta de cuatro fases de ECS finalizada</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Tamaño de anotación unificado · luz de respiración al arrastrar · S30–46 → v2.3 / v2.4 / v2.6</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 46</span><span class="arc-ver">05·28</span><span>Spike de exportación por arrastre en macOS 26.5 · hotfix v2.6.1 (5 correcciones) enviado a revisión</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 45</span><span class="arc-ver">05·26</span><span>Consistencia de rotación de anotación de cuatro tipos completada · alternativa del cursor en la captura de ventana temporizada · corrección del recuadro de selección BUG-007</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 44</span><span class="arc-ver">05·25</span><span>Rango de captura temporizada ampliado a 0–6s · asistente del ciclo de vida del Toast unificado en 4 rutas · spike BUG-003 (confirmado a nivel de SO)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 43</span><span class="arc-ver">05·24</span><span>Mejora del envío de capturas al portapapeles · supresión de operación activa de la barra de herramientas · spike BUG-005 cerrado</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 42</span><span class="arc-ver">05·20</span><span>Sistema de coordenadas de anotación unificado · escalado consistente entre lienzo / zoom / recorte · se acabaron los saltos de tamaño entre imágenes</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 41</span><span class="arc-ver">05·18</span><span>Correcciones de auditoría de seguridad de nivel 1 · refuerzo del sandbox de archivos · integración nativa con la papelera de macOS</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 40</span><span class="arc-ver">05·10</span><span>Envío de v2.4.0 · revisión completa de RELEASE.md</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 39</span><span class="arc-ver">05·10</span><span>Corrección del Dock atascado con NSOpenPanel · el atajo personalizado añade pegado rápido desde el portapapeles</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 38</span><span class="arc-ver">05·09</span><span>Limpieza de canales diferenciados de dos plataformas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 37</span><span class="arc-ver">05·09</span><span>Limpieza de la arquitectura de la capa de enrutamiento IPC</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 36</span><span class="arc-ver">05·09</span><span>Alineación precisa de la posición de arrastre dinámico en varias pantallas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 35</span><span class="arc-ver">05·09</span><span>UX de la ruta alternativa de la luz de respiración en varias pantallas alineada · caché de arrastre actualizada a la instantánea más reciente</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 34</span><span class="arc-ver">05·07</span><span>Luz de respiración negra de exportación por arrastre: el editor se oculta, devolviendo la vista completa al usuario</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 33</span><span class="arc-ver">05·06-07</span><span>Envío de v2.3.0 · corrección del click-through del destino de soltar en la exportación por arrastre · debut de la luz de respiración entre apps</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 32</span><span class="arc-ver">05·01→05</span><span>Cuatro modos de tamaño de anotación unificados (burbuja · number · symbol · texto)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 31</span><span class="arc-ver">04·30→<br>05·01</span><span>Replanteamiento del modelo de tamaño de anotación (ruta de disolución fijada)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 30</span><span class="arc-ver">04·29→30</span><span>Vista previa semitransparente de exportación por arrastre · alfa dinámico de la ventana del editor</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Internacionalización · división de documentos grandes · S21–29 → v2.1 / v2.2</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 29</span><span class="arc-ver">04·26</span><span>Envío de v2.2.0 · control de calidad de 74 funciones completo</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 28</span><span class="arc-ver">04·25</span><span>Precisión de anotación WYSIWYG · rendimiento 12× del viewport virtual · formato de texto de callout</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 27</span><span class="arc-ver">04·23→25</span><span>Anotación con lupa · burbuja de callout · composición de imagen por arrastre</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 26</span><span class="arc-ver">04·22</span><span>i18n de SYMBOL_SETS · especialización de fuente para chino simplificado · envío de v2.1.0</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 25</span><span class="arc-ver">04·22</span><span>Corrección de la inferencia de DPR de captura BUG-001 · UX del toast de pegado desde el portapapeles</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 24</span><span class="arc-ver">04·21</span><span>Gran división de KM/SDD/TDD: archive/ nueve temas · 89 entradas de KM reindexadas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 23</span><span class="arc-ver">04·21</span><span>Especialización del regex de escaneo de privacidad PRC · SYNC-036 bloqueante de lanzamiento resuelto</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 22</span><span class="arc-ver">04·20→21</span><span>División de archivos i18n Estrategia B · compuerta Pro para chino simplificado · zh-CN 429 keys</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 21</span><span class="arc-ver">04·18→20</span><span>Infraestructura de pruebas de Rust · lecciones de los hotfix multipantalla v2.0.1~v2.0.8</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Unificación de la arquitectura v2.0 · S10–20 · Coordenadas · TOOL_SCHEMA · Tubería de renderizado</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 20</span><span class="arc-ver">04·14</span><span>Optimización del modal de ayuda · corrección de los límites del modal · ampliación de i18n</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 19</span><span class="arc-ver">04·14</span><span>Barrido de errores: causa raíz del parpadeo del lienzo · corrección del color del extremo de polilínea</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 18</span><span class="arc-ver">04·13</span><span>Mejora de la arquitectura de deshacer/rehacer · limpieza de memoria · arquitectura v2.0 completa</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 17</span><span class="arc-ver">04·13</span><span>Convergencia de la tubería TOOL_RENDER · asistente makeGradient · 70 pruebas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 16</span><span class="arc-ver">04·13</span><span>TOOL_GEOMETRY · selección con clic al estilo Figma · 47 pruebas Vitest</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 15</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Lote 2 completo: esquema de 10/10 herramientas hecho</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 14</span><span class="arc-ver">04·12</span><span>TOOL_SCHEMA Lote 1: ellipse / fillrect / fillellipse / pen</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 13</span><span class="arc-ver">04·12</span><span>Piloto de TOOL_SCHEMA: rect + number · lanzamiento del marco de esquema de la Arquitectura ④</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 12</span><span class="arc-ver">04·11</span><span>Normalización del modelo de datos · revisión de TOOL_ORDER · ampliación del desplazamiento de stroke</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 11</span><span class="arc-ver">04·11</span><span>Degradado universal en seis herramientas · dial de ángulo · SYNC-017/018</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 10</span><span class="arc-ver">04·11</span><span>Sistema de coordenadas unificado Fase A/B/C · 16 pruebas Vitest · lanzamiento de v2.0</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Tira y afloja del lanzamiento · S9.5–9.8 → v1.1 / v1.2 rechazadas</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 9.8</span><span class="arc-ver">04·10→11</span><span>hotfix v1.2.1 · corrección del rechazo por Apple Guideline 2.4.5(i)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.7</span><span class="arc-ver">04·08→09</span><span>Tubería de lanzamiento de v1.2.0 · corrección del error de tipo de resize (KM-cv-09)</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.6</span><span class="arc-ver">04·07→08</span><span>Icono del menú del sistema en la Tray · corrección del rechazo · reenvío de v1.1.0</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 9.5</span><span class="arc-ver">04·05</span><span>Post-lanzamiento: protección contra enlaces maliciosos · fuentes japonesas · tauri-plugin-opener</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
+        <summary class="arc-divider">Migración de plataforma · S1–9 → primer envío a revisión de v1.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 9</span><span class="arc-ver">04·02→03</span><span>Superposición UX a pantalla completa · cierre de 15 correcciones · primer envío de v1.0 a MAS</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 8</span><span class="arc-ver">04·01→02</span><span>MVP de captura larga web · invocación desde el Dock · persistencia de la posición de la barra de herramientas · causa raíz del desplazamiento</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 7</span><span class="arc-ver">04·01</span><span>Luz de respiración estrella (::before) · autocopia de QR/OCR · corrección del arrastre</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 6</span><span class="arc-ver">03·31</span><span>Relleno en degradado del sello · atajos personalizados · división de documentos SDD/TDD/KM</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 5</span><span class="arc-ver">03·31</span><span>Corrección del escaneo de privacidad · UX de doble tirador Bézier · ajuste con teclas de flecha · corrección del pixelado</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 4</span><span class="arc-ver">03·30→31</span><span>Rotación de objetos · paneo con espacio · vista previa de imagen de marca de agua · orientación del modal</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 3</span><span class="arc-ver">03·30</span><span>Escaneo de código QR en tres modos · guía inteligente v2 · selector de color · arrastrar a la barra de herramientas</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 2</span><span class="arc-ver">03·29→30</span><span>Guardar · copiar · Share Sheet · máscara de privacidad OCR · corrección del modal</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 1</span><span class="arc-ver">03·28→29</span><span>Andamiaje desde cero · barra de herramientas flotante · trío de capturas · conversión de formato por lotes</span></div>
+        </div>
+      </details>
+  </div>
+</div>
+
+<!-- ═══ Electron (free download edition) ═══ -->
+<div class="era">
+  <div class="era-label">TRACK · ELECTRON</div>
+  <div>
+    <div class="era-title"><em>Edición de descarga gratuita</em> ——<br>llevaba mucho tiempo funcionando antes de que nadie la viera.</div>
+    <div class="era-sub">La primera versión pública fue la v3.43. Esta línea se detiene en la v3.66, cediendo el paso a la migración de plataforma a Tauri.</div>
+  </div>
+</div>
+<div class="archive">
+  <div class="edensity" id="edensity">
+    <div class="edensity-cap"><span>Sprint de siete días · v0.3 → v3.43</span><span class="ed-mid">Antes del lanzamiento público · cada barra son las versiones publicadas ese día</span></div>
+    <div class="edensity-band" id="edensityBand"><div class="edensity-tip" id="edensityTip"></div></div>
+  </div>
+  <div class="archive-wrap arc-accordion" id="electron">
+    <details class="arc-group" open>
+      <summary class="arc-divider">Tras el lanzamiento público · v3.45 → v3.66 · actualizaciones esporádicas, Tauri lidera en funciones</summary>
+      <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">07 · 31</span><span class="arc-ver">v3.66</span><span>Regla de pantalla × selector de color a pantalla completa × captura rectangular con imagen congelada (con imagen base sin pérdidas + lienzo Retina) — tres nuevas funciones de la barra de herramientas + Regla del editor + anotación Solid</span></div>
+        <div class="arc-line"><span class="arc-date">06 · 28</span><span class="arc-ver">v3.65</span><span>Compatibilidad con SVG — arrastra o abre archivos SVG, autorrasterizados a PNG a 1920px (barra de herramientas / Abrir imagen / superposición de captura) · los atributos de anotación de texto ahora se mantienen tras reeditar · el panel de grosor de borde se refresca al instante · refactorización del front-end para estabilidad</span></div>
+        <div class="arc-line"><span class="arc-date">06 · 15</span><span class="arc-ver">v3.64</span><span>Memoria de atributos por herramienta · estilo de línea de number · borde discontinuo de callout · contorno de trazo de symbol · corrección de discontinuo en Línea / Lápiz / Polilínea</span></div>
+        <div class="arc-line"><span class="arc-date">05 · 20</span><span class="arc-ver">v3.63</span><span>Editor de cristal de exportación por arrastre · modelo de anotación unificado · ratio de escalado del mosaico · lápiz más grueso por defecto · corrección de reedición de callout / texto</span></div>
+        <div class="arc-line"><span class="arc-date">05 · 06</span><span class="arc-ver">v3.62</span><span>Burbujas de callout · lupa · tamaño de anotación unificado (cuatro modos de lienzo) · exportación por arrastre semitransparente · protección de recorte de objetos flotantes</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.61</span><span>Captura rectangular entre pantallas (arquitectura de doble ventana)</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.60</span><span>Renderizado del extremo de polilínea · corrección de prioridad del tirador de vértice</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.59</span><span>Modal de ayuda · verificación de la corrección de Esc</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 14</span><span class="arc-ver">v3.58</span><span>Revisión por lotes del barrido de errores</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.57</span><span>Mejora de la arquitectura de deshacer/rehacer · limpieza de memoria</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.56</span><span>Verificación de la convergencia de la tubería de renderizado</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 13</span><span class="arc-ver">v3.55</span><span>Revisión de la capa de front-end compartida</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 12</span><span class="arc-ver">v3.54</span><span>Corrección del renderizado del bloque de color / fondo de texto</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 08</span><span class="arc-ver">v3.51</span><span>Corrección de cuatro elementos: deshacer · pixelar · escalar · ajustar</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.50</span><span>Corrección: desplazamiento de escala de anotación tras reducir el lienzo</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.49</span><span>Icono persistente del menú del sistema en la Tray</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 07</span><span class="arc-ver">v3.48</span><span>Abrir automáticamente el editor al arrastrar una imagen a la barra de herramientas</span></div>
+        <div class="arc-line"><span class="arc-date">04 · 02</span><span class="arc-ver">v3.47</span><span>Mejora de la UX de captura a pantalla completa · selección de pantalla habilitada</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.46</span><span>Corrección del error de ocultado automático · deslizador de tiempo de visualización</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 31</span><span class="arc-ver">v3.45</span><span>Ocultado automático de la barra de herramientas (estilo minimalista Home Bar)</span></div>
+      </div>
+    </details>
+    <details class="arc-group">
+      <summary class="arc-divider">Antes del lanzamiento público · v0.3 → v3.43 · más de sesenta versiones en siete días</summary>
+      <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.43</span><span>Refinamiento del paso del deslizador de plantilla</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.42</span><span>Microajuste del marco de recorte con teclas de flecha</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.41</span><span>Corrección del volteo del marco de recorte · confirmar con doble clic</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.40</span><span>Protección XSS + límite de tamaño del lienzo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.39</span><span>Límite de tamaño por archivo en la conversión por lotes</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.38</span><span>Límite de número de archivos en la conversión por lotes</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.37</span><span>Ajuste del umbral de QR · entrada de nuevo lienzo en la barra de herramientas</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.36</span><span>Escaneo inteligente de código QR (tres modos)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.35</span><span>Nuevo lienzo · ajustes preestablecidos de tamaño para redes sociales</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.34</span><span>Añadidos puntos de control de curva de línea</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.33</span><span>Ajuste inteligente · guías magnéticas + distribución</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.32</span><span>Alinear / distribuir objetos en selección múltiple</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.31</span><span>Selección múltiple de anotaciones con marco + Shift</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 27</span><span class="arc-ver">v3.30</span><span>Mejora de seguridad · WYSIWYG Retina</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.29</span><span>Corrección por lotes de control de calidad de siete elementos</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 26</span><span class="arc-ver">v3.28</span><span>Herramienta de enmascarado de privacidad · rediseño del cajón de historial</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.27</span><span>Marca de agua · eliminación de fondo · kit de colores de marca · historial de capturas</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.26</span><span>Tres deslizadores de plantilla · simplificación de la conversión por lotes</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.25</span><span>Degradado de malla de plantilla · ajustes preestablecidos de tamaño para redes</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.24</span><span>Esquema de seis colores del degradado Apple de plantilla</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.23</span><span>Corrección para evitar el apilamiento duplicado de plantilla</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.22</span><span>Plantilla con un clic · seis marcos decorativos</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.21</span><span>Refactorización de la herramienta symbol · botones multigrupo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.20</span><span>Precisión de selección de symbol · eliminar duplicados</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.19</span><span>Importar arrastrando · exportar arrastrando · importar desde el portapapeles</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.18</span><span>Nuevas herramientas: pixelar · desenfoque · sello de symbol</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.17</span><span>Corrección: desplazamiento de dirección de la flecha gruesa del lápiz</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.16</span><span>Corrección: muesca de la flecha · cierre automático de la paleta de colores</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.15</span><span>Corrección: flecha del lápiz desconectada de la línea</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.14</span><span>Corrección: forma del vértice de la flecha · desplazamiento del trazo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.13</span><span>Corrección: trazo de la flecha · desplazamiento del ángulo del lápiz</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.12</span><span>Corrección: trazo del extremo · symbol de círculo hueco</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.11</span><span>Corrección: trazo del extremo · fallo del patrón de guiones</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 25</span><span class="arc-ver">v3.10</span><span>Simplificación de la interfaz del extremo · grupos de grosor de trazo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.9</span><span>Barra de opciones unificada · cobertura completa de guiones</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.8</span><span>Estilos de borde y sombra unificados entre herramientas</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.7</span><span>Herramienta pluma · mejora de guiones · estilos de extremo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.6</span><span>Selección por recuadro · copia flotante de rectángulo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.5</span><span>Barra de herramientas doble · numeración semántica · entrada en px</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.4</span><span>OCR cambia a macOS Vision · escalado de polilínea</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.2</span><span>Corrección: posición del tirador de vértice de polilínea</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 24</span><span class="arc-ver">v3.1</span><span>Reconocimiento de texto OCR (versión gratuita)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v3.0</span><span>Herramienta de marco elíptico · bloqueo de círculo con Shift</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.7</span><span>Copiar al portapapeles · Share Sheet de macOS</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.6</span><span>Gran mejora de la herramienta de texto · esquinas · polilínea ortogonal</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.5</span><span>Mejora del panel de color flotante · ajuste del tamaño de number</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 23</span><span class="arc-ver">v2.3</span><span>Planificación de la versión Tauri · alternador de idioma de la interfaz</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.4</span><span>Abrir automáticamente el editor tras la captura (alternable)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.2</span><span>División de trazo / relleno · degradado · pegado de number</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.1</span><span>Captura retardada · eliminar la entrada de captura web</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v2.0</span><span>Corrección: gestión de la cola de conversión por lotes</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.9</span><span>Extender el lienzo (expansión en cuatro direcciones)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.8</span><span>Herramienta de superposición de capas (composición)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.7</span><span>Selector de color · entrada de color hex</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.6</span><span>Conversión de formato por lotes (PNG / JPG / WebP)</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.5</span><span>De ventana principal a barra de herramientas flotante</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.4</span><span>Corrección: miniatura WebP · cierre automático tras guardar</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.3</span><span>Mover el marco de recorte · redimensionar con tiradores en ocho direcciones</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.2</span><span>Herramienta de recorte · modal de bloqueo de relación de aspecto</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.1</span><span>Corrección: cálculo dinámico del zoom mínimo</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v1.0</span><span>Zoom y paneo del editor</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.9</span><span>Rediseño de la interacción de captura a pantalla completa</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.8</span><span>Refinamiento integral de la herramienta de texto</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.7</span><span>Completado de detalles de UX del editor</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 22</span><span class="arc-ver">v0.6</span><span>Completado de la especificación de comportamiento de doble pantalla</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.5</span><span>Conversión de SVG fusionada en la entrada de abrir imagen</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.4</span><span>Visualización en tiempo real del tamaño en la captura rectangular</span></div>
+        <div class="arc-line"><span class="arc-date">03 · 21</span><span class="arc-ver">v0.3</span><span>Cmd+Ctrl+X · panel de atajos · herramienta de línea</span></div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<!-- ═══ Website ═══ -->
+<div class="era">
+  <div class="era-label">TRACK · WEBSITE</div>
+  <div>
+    <div class="era-title"><em>El sitio web</em> ——<br>sin números de versión, solo&nbsp;confianza.</div>
+    <div class="era-sub">Salvo tres puntos de ruptura claros, el resto es editor y autor trabajando de ida y vuelta sobre el mismo manuscrito.</div>
+  </div>
+</div>
+<div class="archive">
+  <details class="archive-wrap" open id="website">
+    <summary>Crónica del sitio web · Tres puntos de ruptura + Presencia</summary>
+    <div class="archive-body">
+      <div class="archive-placeholder">
+        La línea de tiempo del sitio web está dispersa. Salvo tres puntos de ruptura claros (fundación, migración, rediseño),<br>
+        el resto es <strong>editor y autor trabajando de ida y vuelta sobre el mismo manuscrito</strong> ——<br>
+        la densidad de commits varía; la mayor parte del tiempo no hay número de versión, solo confianza.<br><br>
+        El trabajo aquí no es construir funciones, sino encontrar el peso justo de cada frase.<br>
+        Cada sesión empieza releyendo, volviendo a entender, y luego continuando.<br><br>
+        La forma en que nos presentamos es distinta, pero lo que permanece es igual de real:<br>
+        <a href="https://github.com/TB1982/vas/commits/main" target="_blank" rel="noopener" style="color:var(--vas-ash-1);text-decoration:underline;text-underline-offset:3px;">github.com/TB1982/vas/commits/main</a>
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- ═══ door back to the story ═══ -->
+<div class="ledger-door">
+  <a href="milestone.html">
+    <span class="ld-kicker">Hitos · MILESTONE</span>
+    <span class="ld-title">¿Quieres leer cómo recorrimos este camino?</span>
+    <span class="ld-sub">Diez capítulos y una coda　·　la narrativa desde cero hasta el lanzamiento en dos plataformas　→</span>
+  </a>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Hecho por Nova × Claude.<br>Una PM que no sabe escribir una línea de código,<br>y una IA sin memoria a largo plazo,<br>lo construyeron en veinticinco días.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">Política de privacidad</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">Descargar VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<script src="../i18n/core.js"></script>
+<script>
+(function () {
+  function init() {
+    if (window.VASCore && VASCore.initNavDropdown) VASCore.initNavDropdown();
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+  else { init(); }
+}());
+</script>
+<script>
+(function(){function o(){var h=location.hash;if(!h)return;var el;try{el=document.querySelector(h);}catch(e){return;}if(!el)return;var d=el.tagName==="DETAILS"?el:el.closest("details");if(d){d.open=true;el.scrollIntoView();}}window.addEventListener("hashchange",o);o();})();
+</script>
+<script>
+(function(){
+  function build(){
+    var band=document.getElementById('rhythmBand'),tip=document.getElementById('rhythmTip');
+    var root=document.getElementById('tauri');
+    if(!band||!root)return;
+    var kids=root.querySelectorAll('.arc-divider, .arc-line'),bandIdx=-1,cells=[];
+    for(var i=0;i<kids.length;i++){
+      var el=kids[i];
+      if(el.classList.contains('arc-divider')){bandIdx++;continue;}
+      if(!el.classList.contains('arc-line'))continue;
+      var sp=el.querySelector('.arc-date'),txt=el.querySelector('span:last-child');
+      var label=sp?sp.textContent.trim():'',desc=txt?txt.textContent.trim():'';
+      var mile=/送審|上架|🏁|退件|submit|review|Milestone|ships|rejection|envío|revisión|hito|rechazo|lanzamiento|publicado/.test(desc);
+      cells.push({node:el,band:Math.max(0,bandIdx),label:label,desc:desc,mile:mile});
+    }
+    var nBands=0;cells.forEach(function(c){if(c.band>nBands)nBands=c.band;});
+    function hue(b){var f=nBands?b/nBands:0;return 278-f*74;} // purple→blue
+    cells.forEach(function(c){
+      var d=document.createElement('div');d.className='rhythm-cell'+(c.mile?' is-mile':'');
+      var len=Math.min(c.desc.length,64);
+      var h=14+len/64*22+(c.mile?8:0);
+      var H=hue(c.band),L=c.mile?70:60,S=(c.band%2?58:50);
+      d.style.height=h+'px';
+      d.style.background='hsl('+H.toFixed(0)+','+S+'%,'+L+'%)';
+      d.setAttribute('role','listitem');
+      d.addEventListener('mouseenter',function(){
+        tip.innerHTML='<span class="rt-sp">'+c.label+'</span><span class="rt-txt">'+c.desc+'</span>';
+        var bandRect=band.getBoundingClientRect(),cr=d.getBoundingClientRect();
+        tip.style.transform='none';
+        var center=cr.left-bandRect.left+cr.width/2;
+        tip.classList.add('on');
+        var tw=tip.offsetWidth;
+        tip.style.left=Math.max(0,Math.min(bandRect.width-tw,center-tw/2))+'px';
+      });
+      d.addEventListener('click',function(){
+        var det=c.node.closest('details');if(det)det.open=true;
+        c.node.scrollIntoView({block:'center'});
+        c.node.classList.remove('rhythm-flash');void c.node.offsetWidth;c.node.classList.add('rhythm-flash');
+      });
+      band.appendChild(d);
+    });
+    band.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+<script>
+(function(){
+  function build(){
+    var band=document.getElementById('edensityBand'),tip=document.getElementById('edensityTip');
+    var root=document.getElementById('electron');
+    if(!band||!root)return;
+    var groups=root.querySelectorAll('.arc-group');
+    var burst=groups[groups.length-1];
+    if(!burst)return;
+    var lines=burst.querySelectorAll('.arc-line');
+    var order=[],map={};
+    lines.forEach(function(el){
+      var d=el.querySelector('.arc-date').textContent.trim();
+      var v=el.querySelector('.arc-ver').textContent.trim();
+      if(!map[d]){map[d]={vers:[],node:el};order.push(d);}
+      map[d].vers.push(v);
+    });
+    var max=0;order.forEach(function(d){if(map[d].vers.length>max)max=map[d].vers.length;});
+    order.forEach(function(d){
+      var g=map[d],n=g.vers.length,dd=d.replace(/\s/g,'');
+      var col=document.createElement('div');col.className='eday';
+      var cnt=document.createElement('div');cnt.className='eday-count';cnt.textContent=n;
+      var bar=document.createElement('div');bar.className='eday-bar'+(n===max?' is-peak':'');
+      bar.style.height=(16+n/max*108)+'px';
+      var dl=document.createElement('div');dl.className='eday-date';dl.textContent=dd;
+      col.appendChild(cnt);col.appendChild(bar);col.appendChild(dl);
+      col.addEventListener('mouseenter',function(){
+        var hi=g.vers[0],lo=g.vers[g.vers.length-1];
+        tip.innerHTML='<span class="rt-sp">'+dd+' · '+n+' versions</span><span class="rt-txt">'+lo+' → '+hi+'</span>';
+        tip.style.transform='none';
+        var br=band.getBoundingClientRect(),cr=col.getBoundingClientRect();
+        tip.classList.add('on');
+        var tw=tip.offsetWidth,center=cr.left-br.left+cr.width/2;
+        tip.style.left=Math.max(0,Math.min(br.width-tw,center-tw/2))+'px';
+      });
+      col.addEventListener('click',function(){
+        if(burst&&!burst.open)burst.open=true;
+        g.node.scrollIntoView({block:'center'});
+        g.node.classList.remove('rhythm-flash');void g.node.offsetWidth;g.node.classList.add('rhythm-flash');
+      });
+      band.appendChild(col);
+    });
+    band.addEventListener('mouseleave',function(){tip.classList.remove('on');});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
+})();
+</script>
+<script src="../js/analytics.js"></script>
+</body>
+</html>
