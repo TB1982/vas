@@ -120,14 +120,48 @@ for loc in LOCALES:
             for name, wheres in variants.items():
                 flag("codename", f"    “{name}”  ← {', '.join(wheres)}")
 
+# ════════════════ D. METADATA locale consistency (JSON-LD / html / og must match the grid locale) ════════════════
+LANG     = {"root": "zh-Hant", "en": "en", "ja": "ja", "cn": "zh-Hans", "es": "es"}
+OGLOCALE = {"root": "zh_TW",   "en": "en_US", "ja": "ja_JP", "cn": "zh_CN", "es": "es_ES"}
+INLANG   = {"root": "zh-Hant", "en": "en", "ja": "ja", "cn": "zh-Hans", "es": "es"}
+for loc, pre in LOCALES.items():
+    for slug, f in GRID[loc].items():
+        s = read(f)
+        m = re.search(r'<html lang="([^"]*)"', s)
+        if m and m.group(1) != LANG[loc]:
+            flag("meta", f"[{loc}] {slug}: html lang=\"{m.group(1)}\" ≠ expected \"{LANG[loc]}\"")
+        m = re.search(r'property="og:locale" content="([^"]*)"', s)   # absent is OK (e.g. 404)
+        if m and m.group(1) != OGLOCALE[loc]:
+            flag("meta", f"[{loc}] {slug}: og:locale=\"{m.group(1)}\" ≠ expected \"{OGLOCALE[loc]}\"")
+        for m in re.finditer(r'"inLanguage":\s*"([^"]*)"', s):        # every JSON-LD block
+            if m.group(1) != INLANG[loc]:
+                flag("meta", f"[{loc}] {slug}: JSON-LD inLanguage=\"{m.group(1)}\" ≠ expected \"{INLANG[loc]}\"")
+        # literal template-var leak (the f-string {slug} class of bug)
+        for m in re.finditer(r'(?:"url":\s*"|rel="canonical" href="|property="og:url" content=")([^"]*\{[^"]*)"', s):
+            flag("meta", f"[{loc}] {slug}: unresolved template var in URL → {m.group(1)}")
+
+# ════════════════ E. SITEMAP freshness (page edits must be reflected in sitemap.xml) ════════════════
+import subprocess
+try:
+    r = subprocess.run([sys.executable, "tools/gen_sitemap.py", "--check"],
+                       capture_output=True, text=True, timeout=120)
+    if r.returncode != 0:
+        out = (r.stdout + r.stderr).strip().splitlines()
+        flag("sitemap", "sitemap.xml out of sync (run `python3 tools/gen_sitemap.py` and commit):")
+        for ln in out[-3:]:
+            flag("sitemap", f"    {ln}")
+except Exception as e:
+    flag("sitemap", f"sitemap check could not run: {e}")
+
 # ════════════════ report ════════════════
 quiet = "--quiet" in sys.argv
 by_family = {}
 for fam, msg in findings:
     by_family.setdefault(fam, []).append(msg)
-LABEL = {"chrome": "A · CHROME drift", "links": "B · LINK hygiene", "codename": "C · CODENAME drift"}
+LABEL = {"chrome": "A · CHROME drift", "links": "B · LINK hygiene", "codename": "C · CODENAME drift",
+         "meta": "D · METADATA locale", "sitemap": "E · SITEMAP freshness"}
 total = sum(1 for f, m in findings if not m.startswith("    "))
-for fam in ["chrome", "links", "codename"]:
+for fam in ["chrome", "links", "codename", "meta", "sitemap"]:
     msgs = by_family.get(fam, [])
     print(f"\n══ {LABEL[fam]} ══  ({sum(1 for m in msgs if not m.startswith('    '))} findings)")
     for m in msgs: print(("  " + m) if not m.startswith("    ") else ("  " + m))
