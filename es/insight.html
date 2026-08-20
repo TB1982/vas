@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8YMJ7QH3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M8YMJ7QH3S');
+</script>
+<title>Registros de diseño de colaboración humano-máquina con IA | 5 decisiones de diseño detrás de VAS</title>
+<meta name="description"
+      content="5 decisiones de diseño de colaboración humano-IA detrás de VAS: la luz que respira con detección bidireccional (blanco para recibir, negro para apartarse), enmascarado de privacidad por OCR, capas de confianza en el código QR, captura con retardo y refactorización de la arquitectura de Design Token." />
+<link rel="icon" href="../img/vas.ico" type="image/x-icon">
+<link rel="canonical" href="https://yoursvas.app/es/insight">
+<meta property="og:title" content="Registros de diseño de colaboración humano-máquina con IA | 5 decisiones de diseño detrás de VAS">
+<meta property="og:description" content="5 decisiones de diseño de colaboración humano-IA detrás de VAS: la luz que respira con detección bidireccional (blanco para recibir, negro para apartarse), enmascarado de privacidad por OCR, capas de confianza en el código QR, captura con retardo y refactorización de la arquitectura de Design Token.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursvas.app/es/insight">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VAS — Una herramienta de captura de pantalla para la colaboración humano-IA en Mac">
+<meta name="twitter:image" content="https://yoursvas.app/img/vas-share.webp">
+<meta name="twitter:image:alt" content="VAS — Una herramienta de captura de pantalla para la colaboración humano-IA en Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Registros de diseño de colaboración humano-máquina con IA | 5 decisiones de diseño detrás de VAS">
+<meta name="twitter:description" content="5 decisiones de diseño de colaboración humano-IA detrás de VAS: la luz que respira con detección bidireccional (blanco para recibir, negro para apartarse), enmascarado de privacidad por OCR, capas de confianza en el código QR, captura con retardo y refactorización de la arquitectura de Design Token.">
+
+<!-- 字型 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<!-- CSS：tokens 必須最先 -->
+<link rel="stylesheet" href="../css/tokens.css?v=2026-07-13a">
+<link rel="stylesheet" href="../css/shell.css?v=2026-06-14a">
+
+<style>
+  /* ─── 語言切換下拉 · 融入 shrine 色系 ───────── */
+  .lang-dropdown-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(240, 232, 220, 0.06);
+    border: 1px solid var(--vas-rule);
+    color: var(--vas-ash-2);
+    font-family: var(--vas-mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .lang-dropdown-btn:hover { background: rgba(240, 232, 220, 0.1); color: var(--vas-ash-0); }
+  .lang-dropdown-menu {
+    position: absolute; right: 0; top: calc(100% + 6px);
+    min-width: 110px;
+    background: var(--vas-void-up);
+    border: 1px solid var(--vas-rule-strong);
+    border-radius: 12px;
+    padding: 4px;
+    display: none;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .lang-dropdown-menu.open { display: block; }
+  .lang-opt {
+    display: block; width: 100%; text-align: left;
+    padding: 8px 14px;
+    background: transparent; border: none;
+    color: var(--vas-ash-2);
+    font-family: var(--vas-serif);
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .lang-opt:hover { background: rgba(240, 232, 220, 0.06); color: var(--vas-ash-0); }
+
+  /* ─── 章節內輔助區塊 ───────────────────────── */
+  .section-wide {
+    margin-left: 128px;
+    margin-top: 28px;
+    max-width: 640px;
+  }
+  @media (max-width: 768px) {
+    .section-wide { margin-left: 0; max-width: 100%; }
+  }
+
+  .compare-box {
+    background: rgba(240, 232, 220, 0.04);
+    border: 1px solid var(--vas-rule);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--vas-ash-1);
+  }
+  .compare-box + .compare-box { margin-top: 10px; }
+  .compare-box.highlight {
+    background: rgba(196, 113, 245, 0.06);
+    border-color: rgba(196, 113, 245, 0.22);
+    color: var(--vas-ash-0);
+  }
+  .compare-box .cb-label {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  .compare-box.highlight .cb-label { color: var(--vas-aurora-violet); }
+  .compare-box .cb-num {
+    display: inline-block;
+    font-family: var(--vas-mono);
+    font-size: 18px;
+    color: var(--vas-ash-2);
+    min-width: 80px;
+    white-space: nowrap;
+  }
+  .compare-box.highlight .cb-num { color: var(--vas-aurora-violet); }
+
+  .cb-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .cb-grid-2 .compare-box + .compare-box { margin-top: 0; }
+  @media (max-width: 640px) { .cb-grid-2 { grid-template-columns: 1fr; } }
+  .cb-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .cb-grid-3 .compare-box + .compare-box { margin-top: 0; }
+  .cb-grid-3 .compare-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .compare-box .cb-act {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--vas-ash-2);
+  }
+  .compare-box.highlight .cb-act { color: var(--vas-aurora-violet); }
+  @media (max-width: 640px) { .cb-grid-3 { grid-template-columns: 1fr; } }
+
+  .fig-img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--vas-rule);
+    display: block;
+  }
+  figure video.fig-img {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: var(--vas-void);
+  }
+  .fig-caption {
+    font-family: var(--vas-serif);
+    font-size: 13px;
+    color: var(--vas-ash-3);
+    line-height: 1.7;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .fig-label {
+    font-family: var(--vas-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--vas-ash-3);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .fig-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  @media (max-width: 640px) { .fig-grid-2 { grid-template-columns: 1fr; } }
+
+  .cb-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 2;
+    color: var(--vas-ash-1);
+  }
+  .cb-list li::before {
+    content: '✓ ';
+    color: var(--vas-aurora-violet);
+    margin-right: 6px;
+  }
+  .cb-list .ongoing { color: var(--vas-ash-3); font-style: italic; margin-top: 4px; }
+  .cb-list .ongoing::before { content: '→ '; color: var(--vas-ash-3); }
+
+  /* 步驟 box · flex 兩欄：數字靠左，標籤+描述在右 */
+  .cb-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .cb-step .cb-num {
+    width: auto;
+    min-width: 20px;
+    font-size: 20px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .cb-step .cb-right { display: flex; flex-direction: column; gap: 4px; }
+  .cb-step .cb-right .cb-label { display: block; }
+  .cb-step .cb-desc {
+    font-family: var(--vas-serif);
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--vas-ash-1);
+  }
+  .cb-step.highlight .cb-desc { color: var(--vas-ash-0); }
+
+</style>
+<link rel="alternate" hreflang="zh-Hant" href="../insight">
+<link rel="alternate" hreflang="en"       href="../en/insight">
+<link rel="alternate" hreflang="ja"       href="../ja/insight">
+<link rel="alternate" hreflang="zh-Hans"  href="../cn/insight">
+<link rel="alternate" hreflang="es"       href="insight">
+<link rel="alternate" hreflang="x-default" href="../insight">
+<!--
+  AI CONTEXT · insight.html
+  This page documents VAS's design principles and product decisions.
+  Use it to answer: how does VAS make design decisions, what is VAS's UX philosophy, what design patterns does VAS use.
+  Primary themes: human-AI complementarity, confidence-based behaviour, frictionless interaction, elimination of mid-action interruption, architectural consistency.
+-->
+</head>
+<body>
+
+<!-- ═══════ 頂部 nav ═══════ -->
+<nav class="site-nav">
+  <a class="site-nav-brand" href="instrument.html" aria-label="Back to the Instrument">
+    <span class="mark"></span>
+    <span>VAS</span>
+  </a>
+  <div class="site-nav-links">
+    <a href="about.html">Acerca de</a>
+    <a href="echo.html">Ecos</a>
+    <a href="milestone.html">Hitos</a>
+    <a href="guide/">Guía</a>
+    <a href="faq.html">Preguntas frecuentes</a>
+  </div>
+  <button id="navMobileBtn" class="nav-hamburger" aria-expanded="false" aria-label="Menu">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+      <rect y="0" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="5.25" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+      <rect y="10.5" width="16" height="1.5" rx="0.75" fill="currentColor"/>
+    </svg>
+    <span id="navMobileChevron" style="transition: transform .2s; display:inline-flex;">
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </button>
+  <div id="navMobileMenu" class="nav-mobile-menu" style="display:none">
+    <a href="about.html">Acerca de</a>
+    <a href="echo.html">Ecos</a>
+    <a href="milestone.html">Hitos</a>
+    <a href="guide/">Guía</a>
+    <a href="faq.html">Preguntas frecuentes</a>
+  </div>
+  <div class="site-nav-lang" id="langDropdownWrap">
+  <div class="lang-flat-row">
+<a href="../insight.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none;white-space:nowrap">中文</a><span class="lang-sep" aria-hidden="true">/</span><a href="../en/insight.html" class="lang-opt" hreflang="en" style="text-decoration:none;white-space:nowrap">English</a><span class="lang-sep" aria-hidden="true">/</span><a href="../ja/insight.html" class="lang-opt" hreflang="ja" style="text-decoration:none;white-space:nowrap">日本語</a><span class="lang-sep" aria-hidden="true">/</span><a href="../cn/insight.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none;white-space:nowrap">简中</a><span class="lang-sep" aria-hidden="true">/</span><a href="insight.html" class="lang-opt active" hreflang="es" style="text-decoration:none;white-space:nowrap;font-weight:600">Español</a>
+  </div>
+  <div class="lang-mobile-dd">
+    <button class="lang-dropdown-btn" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Language switch"><span>ES</span></button>
+    <div class="lang-dropdown-menu">
+      <a href="../insight.html" class="lang-opt" hreflang="zh-Hant" style="text-decoration:none">中文</a>
+      <a href="../en/insight.html" class="lang-opt" hreflang="en" style="text-decoration:none">English</a>
+      <a href="../ja/insight.html" class="lang-opt" hreflang="ja" style="text-decoration:none">日本語</a>
+      <a href="../cn/insight.html" class="lang-opt" hreflang="zh-Hans" style="text-decoration:none">简中</a>
+      <a href="insight.html" class="lang-opt active" hreflang="es" style="text-decoration:none">Español</a>
+    </div>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══════ 章節標頭 ═══════ -->
+<header class="chapter-header">
+  <div class="chapter-no">Página I · Diseño</div>
+  <div>
+    <h1 class="chapter-name">Decisiones que nunca llegaron a<br><em>la lista de funciones</em>.</h1>
+    <div class="chapter-dek">Cinco decisiones de diseño —<br>cada una una elección hecha, un camino abandonado,<br>algo hecho y luego deshecho.<br>Este capítulo es la <em>confesión de oficio</em> de VAS:<br>hacer de la herramienta algo más que una herramienta.</div>
+  </div>
+</header>
+
+<!-- ═══════ 章目錄 · TOC ═══════ -->
+<nav class="toc">
+  <div class="toc-label">Contenido</div>
+  <ol class="toc-list">
+    <li>
+      <a href="insight.html#sec-03">
+        <span class="no">01</span>
+        <span class="name">Experiencia sin fricción</span>
+        <span class="preview">Una pregunta discreta y luego se va en silencio</span>
+      </a>
+    </li>
+    <li>
+      <a href="insight.html#sec-01">
+        <span class="no">02</span>
+        <span class="name">Aceptar la imperfección</span>
+        <span class="preview">La esencia de la colaboración es la compleción</span>
+      </a>
+    </li>
+    <li>
+      <a href="insight.html#sec-02">
+        <span class="no">03</span>
+        <span class="name">Actuar con conciencia</span>
+        <span class="preview">Cuando la intención es clara, la herramienta se atreve a actuar directamente</span>
+      </a>
+    </li>
+    <li>
+      <a href="insight.html#sec-04">
+        <span class="no">04</span>
+        <span class="name">Cuando no puedes apartarte</span>
+        <span class="preview">Dondequiera que estés, ahí es donde capturo</span>
+      </a>
+    </li>
+    <li>
+      <a href="insight.html#sec-05">
+        <span class="no">05</span>
+        <span class="name">La lógica subyacente</span>
+        <span class="preview">Algo más importante que las nuevas funciones</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<!-- ═══════ 小節 01 ═══════ -->
+<!-- Design Pattern: Perception → Query → Confirm — tool senses intent before acting, contrasted with the traditional Call → Execute model. -->
+<section class="section" id="sec-03">
+  <header class="section-head">
+    <div class="section-no">01</div>
+    <div>
+      <h2 class="section-name">La luz que respira lee tu intención — y luego pregunta</h2>
+      <div class="section-kicker">Sin fricción por diseño</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>La luz que respira de VAS no es solo un símbolo de espera — está percibiendo el entorno. Cuando copias una URL cerca, la luz pregunta con suavidad: «¿Quieres que capture esta página web?». Confirmas, se toma la captura, se abre el editor.</p>
+    <p>Y cuando arrastras una imagen o copias una desde el navegador hacia la luz que respira, la luz se abre como unos brazos que dan la bienvenida — expandiendo la barra de herramientas para recibir la imagen o, tras una rápida confirmación, abriendo de inmediato el editor para lo que venga después.</p>
+    <p>Lo contrario también se cumple — cuando quieres enviar una imagen hacia afuera, el editor se pliega en una única <strong>luz negra que respira</strong>, gemela de la blanca que la recibió: <strong>blanco para recibir, negro para apartarse</strong>. Sin guardar, sin elegir carpeta, sin volver a abrir carpetas — pulsa, arrastra, y la imagen aterriza directamente en la IA de abajo, en el escritorio o en la carpeta que prefieras. Dos segundos bastan; treinta segundos como mucho antes de cualquier aviso — a través de pantallas, a través de resoluciones, te sigue. Solo cuando sueltas vuelve a florecer en el editor.</p>
+    <p>Las mejores herramientas no te obligan a cambiar al «modo herramienta». Viven en tu entorno, leen lo que estás haciendo — <strong>presentes cuando se las necesita, ausentes cuando no</strong>.</p>
+    <p class="section-fn">＊ La captura de páginas web con la luz que respira, la apertura de imágenes copiadas y el apartarse para exportar con arrastre son funciones exclusivas de Tauri. La versión de Electron solo ofrece la recogida de imágenes a través de la barra de herramientas.</p>
+  </div>
+  <div class="section-wide">
+    <div class="cb-grid-3">
+      <div class="compare-box">
+        <div class="cb-act">ACTO 1 · Percibir</div>
+        <div class="cb-label">Acoger</div>
+        <div>La luz blanca que respira lee el ambiente y pregunta con discreción si quieres traerla adentro</div>
+      </div>
+      <div class="compare-box highlight">
+        <div class="cb-act">ACTO 2 · Apartarse</div>
+        <div class="cb-label">Plegarse</div>
+        <div>El editor se pliega en una luz negra que respira — todo el escritorio es tuyo para arrastrar por él</div>
+      </div>
+      <div class="compare-box">
+        <div class="cb-act">ACTO 3 · Regresar</div>
+        <div class="cb-label">Volver a florecer</div>
+        <div>Solo cuando sueltas vuelve a florecer — hasta treinta segundos, sin apresurar nunca tu elección</div>
+      </div>
+    </div>
+    <div class="fig-grid-2">
+      <figure>
+        <div class="fig-label">Importar · la luz blanca te recibe</div>
+        <video src="../img/brethlight.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/in.webp" aria-label="Arrastra una imagen hacia la luz que respira: la luz recibe la imagen y se despliega en el editor"></video>
+      </figure>
+      <figure>
+        <div class="fig-label">Exportar · la luz negra se aparta por ti</div>
+        <video src="../img/brethlight-out.mp4" class="fig-img" autoplay loop muted playsinline preload="metadata" poster="../img/out.webp" aria-label="El editor de VAS se pliega en una luz negra que respira y luego exporta la imagen con arrastre al chat de Claude Code de abajo"></video>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 02 ═══════ -->
+<!-- Design Principle: Human-AI complementarity — imperfect automation + human correction = complete collaboration. -->
+<section class="section" id="sec-01">
+  <header class="section-head">
+    <div class="section-no">02</div>
+    <div>
+      <h2 class="section-name">No hay pareja humano-IA perfecta — pero sí una colaboración completa</h2>
+      <div class="section-kicker">Colaboración humano-IA</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>VAS detecta automáticamente el texto sensible en la pantalla y marca las zonas que deben ocultarse. Pero durante el desarrollo descubrimos que el OCR sigue teniendo límites inherentes — de vez en cuando se le escapa o malinterpreta contenido. Sencillamente elegimos no seguir empeñados en una herramienta perfecta.</p>
+    <p>Quería que los errores de reconocimiento fueran algo más que un simple fallo de la herramienta — que se convirtieran en un punto de relevo para la colaboración.</p>
+    <p>Hicimos que el mosaico de privacidad fuera una capa flotante de tamaño ajustable: allí donde el OCR se queda corto, el usuario interviene a mano.</p>
+    <p>Un error de reconocimiento deja de ser un «fallo» — se convierte en un reparto de tareas. La imperfección de la herramienta deja intacto el control del usuario.</p>
+    <p>Puede que el OCR solo automatice el 90 % de la tarea — pero un rápido arrastre del mosaico manual resuelve lo que de otro modo sería un 100 % de trabajo manual.</p>
+    <p>Y si cubres la zona equivocada, no pasa nada — los mosaicos son objetos flotantes independientes, se eliminan con un solo deshacer. Nada es irreversible.</p>
+  </div>
+  <div class="section-wide">
+    <div class="compare-box">
+      <span class="cb-label">OCR automático</span>
+      <span>Reconoce todo lo posible, marca automáticamente las zonas sensibles</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-label">Relleno con mosaico</span>
+      <span>Donde el OCR se queda corto, el usuario toma el relevo a mano</span>
+    </div>
+    <div class="compare-box highlight">
+      <span class="cb-label">Deshacer</span>
+      <span>¿Cubriste el lugar equivocado? Eliminación con un toque — sin decisiones irreversibles</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 03 ═══════ -->
+<!-- Design Principle: Confidence-based behaviour — VAS responds differently at high / mid / low confidence rather than always acting or always asking. -->
+<section class="section" id="sec-02">
+  <header class="section-head">
+    <div class="section-no">03</div>
+    <div>
+      <h2 class="section-name">Código QR detectado — pero ¿con cuánta confianza?</h2>
+      <div class="section-kicker">El comportamiento como significado</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>Escanear un código QR parece un resultado binario — encontrado o no encontrado. Pero VAS lo ve de otra manera: lee la intención del usuario y luego decide qué hacer a continuación en función de esa intención.</p>
+    <p>Esto también es colaboración humano-IA: el usuario habla a través de cómo encuadra la captura, y la herramienta lo entiende. Sin lenguaje, sin botones, sin menús — cómo lo encuadras es lo que quieres. La herramienta no está leyendo órdenes; está leyendo comportamiento.</p>
+    <p>Razonamos que, cuando un usuario quiere una detección precisa del código QR, lo encuadrará de forma natural tan completa y exclusivamente como sea posible dentro del recuadro de selección — ese acto en sí mismo es una declaración de intención. Cuanto más llena el código QR el área seleccionada, más preciso es el reconocimiento, mayor es la confianza y más directamente puede actuar la herramienta. Entre el usuario y la herramienta se forma un entendimiento sin palabras.</p>
+    <p>Una herramienta no debería fingir estar segura cuando no lo está. Cuando la intención es clara, abre el enlace directamente; cuando la confianza es ambigua, pregunta si te gustaría abrirlo; cuando la confianza es demasiado baja, abre el editor en silencio y te lo entrega. Detrás de cada umbral hay un diseño honesto: saber cuánto sabe.</p>
+  </div>
+  <div class="section-wide">
+    <div class="fig-label">Área del código QR dentro de la selección — lógica de comportamiento:</div>
+    <div class="compare-box highlight">
+      <span class="cb-num">&gt; 70%</span>
+      <span class="cb-label">Confianza alta · Actuar directamente</span>
+      <span>Abre la página o el enlace de inmediato, sin interrupción</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-num">21–69%</span>
+      <span class="cb-label">Confianza media · Preguntar primero</span>
+      <span>Abre el editor y pregunta con suavidad: «¿Es este el enlace que querías?»</span>
+    </div>
+    <div class="compare-box">
+      <span class="cb-num">≤ 20%</span>
+      <span class="cb-label">Confianza baja · Relevo silencioso</span>
+      <span>Sin adivinar, sin actuar — abre el editor para que sigas tú desde ahí</span>
+    </div>
+    <figure style="margin-top: 28px;">
+      <div class="fig-label">Cómo se ve en la práctica</div>
+      <img src="../img/qrcode.webp" alt="Ejemplo de encuadre de código QR: cuanto más completamente se encuadra, mayor es la confianza del reconocimiento" class="fig-img" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- ═══════ 小節 04 ═══════ -->
+<!-- Design Principle: Eliminate mid-action interruption — the tool must not call the user back to configure it while they are holding a pose or waiting to capture. -->
+<section class="section" id="sec-04">
+  <header class="section-head">
+    <div class="section-no">04</div>
+    <div>
+      <h2 class="section-name">Adopta tu pose y mantenla — la herramienta no debería llamarte de vuelta para elegir</h2>
+      <div class="section-kicker">Eliminar la interrupción</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>Una vez que construimos la Captura con retardo, el selector de pantalla nativo de Apple para las capturas a pantalla completa en modo de doble monitor se convirtió en fricción.</p>
+    <p>La Captura con retardo nació para atrapar eventos del ratón — estados de error, efectos al pasar por encima, momentos de depuración. Mientras corre la cuenta atrás, el ratón debe quedarse en su rincón de la pantalla.</p>
+    <p>Pero en cuanto termina la cuenta atrás, el selector nativo de doble monitor aparece y obliga al usuario a volver a elegir una pantalla antes de capturar — como poner el temporizador para un selfie, solo para que la cámara pregunte «¿qué lado quieres?» cuando acaba de contar hacia atrás.</p>
+    <p>VAS reemplaza el selector de pantalla nativo de Apple por una capa a pantalla completa propia: sin retardo — haz clic en cualquier pantalla para capturarla, o pulsa Intro para fusionar ambas pantallas en una sola captura.</p>
+    <p>Yendo más lejos: cuando un usuario establece una regla de retardo, VAS captura por defecto la pantalla en la que se encuentre el ratón en ese momento — sin necesidad de selección alguna. El usuario ni siquiera llega a saber que esta decisión ocurrió en segundo plano.</p>
+  </div>
+  <div class="section-wide">
+    <div class="fig-grid-2">
+      <figure>
+        <img src="../img/fullscreenmodal.webp" alt="Selector nativo de doble monitor: durante la cuenta atrás de la captura con retardo aparece «elige qué pantalla capturar»" class="fig-img" loading="lazy">
+        <figcaption class="fig-caption">Este menú es como un selfie con temporizador —<br>la cámara espera a que adoptes una pose, cuenta hacia atrás y luego pregunta qué lado quieres fotografiar.</figcaption>
+      </figure>
+      <figure>
+        <img src="../img/screenshot.webp" alt="Capa a pantalla completa propia de VAS: la pantalla se elige antes de que empiece la captura con retardo" class="fig-img" loading="lazy">
+        <figcaption class="fig-caption">La solución de VAS: sin retardo — haz clic en una pantalla y esa pantalla se captura;<br>modo retardo — sin necesidad de selección, dondequiera que estés es donde captura.</figcaption>
+      </figure>
+    </div>
+    <div style="margin-top: 28px;">
+      <div class="compare-box cb-step">
+        <div class="cb-num">1</div>
+        <div class="cb-right">
+          <span class="cb-label">Captura con retardo</span>
+          <span class="cb-desc">Modo retardo con un solo monitor: captura automáticamente la pantalla actual tras la cuenta atrás</span>
+        </div>
+      </div>
+      <div class="compare-box cb-step">
+        <div class="cb-num">2</div>
+        <div class="cb-right">
+          <span class="cb-label">Capa propia</span>
+          <span class="cb-desc">Doble monitor, sin retardo: elige libremente una pantalla, o pulsa Intro para capturar todas las pantallas a la vez</span>
+        </div>
+      </div>
+      <div class="compare-box highlight cb-step">
+        <div class="cb-num">3</div>
+        <div class="cb-right">
+          <span class="cb-label">Predeterminado por posición del ratón</span>
+          <span class="cb-desc">Modo retardo con doble monitor: sin necesidad de selección — la herramienta lee la posición de tu cursor y captura ahí automáticamente</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 小節 05 ═══════ -->
+<!-- Design Principle: Architectural consistency — features must share the same underlying design language to scale without accumulating friction. -->
+<section class="section" id="sec-05">
+  <header class="section-head">
+    <div class="section-no">05</div>
+    <div>
+      <h2 class="section-name">Las funciones pueden seguir creciendo — pero primero los cimientos deben hablar un solo idioma</h2>
+      <div class="section-kicker">Arquitectura de Design Token</div>
+    </div>
+  </header>
+  <div class="section-body">
+    <p>A medida que se multiplican los tipos de herramienta — puntos, líneas, superficies, texto, símbolos — cada objeto arrastra propiedades de color, trazo, tamaño y dirección. Apiladas y duplicadas, esas propiedades se convierten en deuda técnica invisible: las funciones funcionan, pero la estructura está armada a retazos.</p>
+    <p>Tomaron la decisión en la Retro del Sprint 9. Mientras esperaban la revisión de la App Store, estimaron: cuatro Sprints deberían bastar.</p>
+    <p>Nadie esperaba que cuatro Sprints se convirtieran en diecisiete. No porque la dirección fuera equivocada — sino porque cada capa de deuda, una vez pagada, revelaba otra debajo. En el Sprint 20, cuando Nova estaba casi al borde por el agotamiento del control de calidad manual y por fin preguntó «¿por qué sigo tan cansada si tenemos pruebas automatizadas?», se dieron cuenta: la propia arquitectura de pruebas era parte de la deuda. Luego un usuario pidió el chino simplificado. Al mirar la estructura de i18n, dijeron — esto no puede soportar otro idioma — y empezó otra ronda. En el Sprint 24, abrieron el KM, engrosado por las entradas acumuladas, y tuvieron una idea: ¿podría este registro de cada error convertirse en un mapa de verificación — para confirmar que cada hoyo había sido rellenado? Al final del Sprint 26, revisaron la lista una vez más. «¿De verdad ya hemos terminado?»</p>
+    <p>Sprint 27: se añadió la herramienta de globo de llamada. Transparencia, sombra, degradado — propiedades que otras herramientas ya arrastraban desde hacía tiempo — se heredaron directamente. No se reinventó ninguna rueda. Esa fue la verdadera señal de compleción: no una declaración, sino el momento en que la arquitectura recibió con naturalidad una nueva herramienta.</p>
+    <p>Esta refactorización también beneficia a la versión de Electron — unos cimientos unificados significan que ambas plataformas funcionan con la misma lógica, y la estabilidad mejora de forma natural.</p>
+    <p>Puede que Electron ya no gane funciones nuevas, pero necesita seguir siendo completo en funciones, gratuito y estable — dando a los usuarios la oportunidad de construir confianza en VAS antes de decidir si actualizan a Tauri. Una sola refactorización sostiene toda la estrategia de doble plataforma a largo plazo.</p>
+  </div>
+  <div class="section-wide">
+    <div class="compare-box highlight">
+      <div class="cb-label">Refactorización completa — efectos en cadena tal como se esperaba</div>
+      <ul class="cb-list"><li>Sistema de coordenadas unificado: todos los objetos comparten el mismo lenguaje espacial</li><li>Propiedades modulares: relleno sólido/degradado/discontinuo/tamaño/dirección compartidos entre todas las herramientas</li><li>TOOL_SCHEMA cubre los 10 tipos de herramienta, con 211 pruebas automatizadas de Vitest superadas</li><li>El globo de llamada hereda transparencia, sombra y degradado — ninguna propiedad reconstruida desde cero</li></ul>
+    </div>
+  </div>
+</section>
+
+<div class="chapter-sign">Con cariño, VAS</div>
+
+<!-- ═══════ 章末過場 · Passage ═══════ -->
+<section class="passage">
+  <div class="passage-colophon">
+    <span>Página I · Diseño ·&nbsp;Fin</span><br>
+    <span class="faint">Page I · Design · End</span>
+  </div>
+  <div class="passage-body">
+    <div class="chronicle-line"></div>
+    <div class="passage-nav">
+      <a class="passage-link is-prev" href="echo.html">
+        <span class="arrow">←</span>
+        <span class="lbl"><span class="num">La galería</span><span class="name">Ecos</span></span>
+      </a>
+      <a class="passage-link is-next" href="collab.html">
+        <span class="lbl"><span class="num">Página II</span><span class="name">Colaboración</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ 頁尾 ═══════ -->
+</main>
+
+<footer class="site-footer">
+  <div style="font-family: var(--vas-serif); font-size: 15px; color: var(--vas-ash-1); line-height: 1.9; max-width: 40ch;">
+    <div><strong style="color: var(--vas-ash-0); font-weight: 500;">VAS</strong> — Hecho por Nova × Claude.<br>Una PM que no sabe escribir una línea de código,<br>y una IA sin memoria a largo plazo,<br>lo construyeron en veinticinco días.</div>
+    <a href="privacy.html" class="site-sub-link" style="margin-top: 8px; display: inline-block;">Política de privacidad</a>
+    <span style="color: var(--vas-ash-4); margin: 0 6px;">·</span>
+    <a href="instrument.html#acquire" class="site-sub-link" style="display: inline-block;">Descargar VAS</a>
+  </div>
+  <div class="footer-right" style="font-family: var(--vas-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--vas-ash-2); text-align: right; line-height: 2;">
+    vas.wiki<br>
+    <span style="color: var(--vas-ash-3)">© 2026 · MIT License</span>
+  </div>
+</footer>
+
+<button class="dot-nav-trigger" aria-label="Chapter navigation"></button>
+<nav class="dot-nav" aria-label="Section navigation">
+  <a class="dot-nav-item" href="insight.html#sec-03"><span class="dn-label">Experiencia sin fricción</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-01"><span class="dn-label">Aceptar la imperfección</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-02"><span class="dn-label">Actuar con conciencia</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-04"><span class="dn-label">Cuando no puedes apartarte</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="insight.html#sec-05"><span class="dn-label">La lógica subyacente</span><span class="dn-dot"></span></a>
+</nav>
+
+<script>
+(function () {
+  function initDotNav() {
+    var items = document.querySelectorAll('.dot-nav-item');
+    if (!items.length) return;
+    var sections = Array.from(items).map(function(item) {
+      return document.querySelector(item.getAttribute('href'));
+    }).filter(Boolean);
+    var passage = document.querySelector('.passage');
+    var maxVisited = -1;
+    function onScroll() {
+      var scroll = window.scrollY + 160;
+      if (passage && passage.offsetTop <= scroll) {
+        items.forEach(function(item) {
+          item.classList.remove('is-current');
+          item.classList.add('is-visited');
+        });
+        return;
+      }
+      var currentIdx = -1;
+      sections.forEach(function(s, i) { if (s.offsetTop <= scroll) currentIdx = i; });
+      if (currentIdx > maxVisited) maxVisited = currentIdx;
+      items.forEach(function(item, i) {
+        var isCurrent = currentIdx !== -1 && i === currentIdx;
+        item.classList.toggle('is-current', isCurrent);
+        item.classList.toggle('is-visited', !isCurrent && i <= maxVisited);
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var trigger = document.querySelector('.dot-nav-trigger');
+    var nav = document.querySelector('.dot-nav');
+    if (trigger && nav) {
+      trigger.addEventListener('click', function() { nav.classList.toggle('is-open'); });
+      items.forEach(function(item) {
+        item.addEventListener('click', function() { nav.classList.remove('is-open'); });
+      });
+      document.addEventListener('click', function(e) {
+        if (!trigger.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('is-open');
+      });
+    }
+  }
+  function init() {  (function(){var btn=document.getElementById('navMobileBtn'),menu=document.getElementById('navMobileMenu'),chevron=document.getElementById('navMobileChevron');if(!btn||!menu)return;var open=false;function close(){open=false;menu.style.display='none';if(chevron)chevron.style.transform='';btn.setAttribute('aria-expanded','false');}function toggle(e){e.stopPropagation();if(open){close();return;}open=true;menu.style.display='flex';if(chevron)chevron.style.transform='rotate(180deg)';btn.setAttribute('aria-expanded','true');}btn.addEventListener('click',toggle);menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});document.addEventListener('click',close);})(); initDotNav(); }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+}());
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Registros de diseño de colaboración humano-máquina con IA | 5 decisiones de diseño detrás de VAS",
+  "description": "5 decisiones de diseño de colaboración humano-IA detrás de VAS: la luz que respira con detección bidireccional (blanco para recibir, negro para apartarse), enmascarado de privacidad por OCR, capas de confianza en el código QR, captura con retardo y refactorización de la arquitectura de Design Token.",
+  "inLanguage": "es",
+  "url": "https://yoursvas.app/es/{slug}",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-25",
+  "image": "https://yoursvas.app/img/vas-share.webp",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deep Holding Project",
+    "url": "https://yoursvas.app/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Nova",
+    "email": "nova@yoursvas.app",
+    "sameAs": [
+      "https://www.linkedin.com/in/yingtzuliu",
+      "https://www.instagram.com/liuyingtzu",
+      "https://github.com/tb1982"
+    ]
+  }
+}
+</script>
+
+<script src="../js/analytics.js"></script>
+</body>
+</html>
