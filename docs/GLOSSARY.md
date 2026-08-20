@@ -177,7 +177,7 @@ For all SEO-important pages and chapter content, **use Mainland Chinese vocabula
 
 ## 7.5 · ES language strategy (Spanish · 5th locale, added 2026-08-19)
 
-**Why ES exists**: a paying Spanish-speaking user appeared in App Store data; Spanish support is Nova's direct feedback to them. **Partial locale** — not full-site. Covered pages only (Wave rollout): index, privacy, 404, about, echo, guide (cover + 7 chapters), instrument, faq, changelog, milestone. Pricing on ES pages shows **EUR** (`9,99 €` in prose, `"9.99"`/`priceCurrency:"EUR"` in JSON-LD) per App Store España. Untranslated pages do **not** offer ES in their switcher (avoids dead links / 404s) — mirror the Harness-pillars partial-locale precedent.
+**Why ES exists**: a paying Spanish-speaking user appeared in App Store data; Spanish support is Nova's direct feedback to them. **Partial locale** — not full-site. Covered pages only (Wave rollout): index, privacy, 404, about, echo, insight, collab, context, guide (cover + 7 chapters), instrument, faq, changelog, milestone. Pricing on ES pages shows **EUR** (`9,99 €` in prose, `"9.99"`/`priceCurrency:"EUR"` in JSON-LD) per App Store España. Untranslated pages do **not** offer ES in their switcher (avoids dead links / 404s) — mirror the Harness-pillars partial-locale precedent.
 
 **Translate FROM the EN source**, not zh — Spanish shares Western sentence structure with English, so EN is the closest scaffold. Files live in `/es/…`, same directory depth as `/en/…`, so `../img`, `../css`, `../js` and root-absolute `/css`, `/js` paths resolve unchanged.
 
@@ -193,9 +193,27 @@ For all SEO-important pages and chapter content, **use Mainland Chinese vocabula
 | 思 the Treatise | **思 el Tratado** | keep CJK glyph |
 | Coniunctio | Coniunctio | Jungian/Latin, untranslated |
 | category values | Idle / Work / Dance / Expressions | stay English in ES too |
+| 宰相 / Vassal | **el valido** | Habsburg-era royal favorite who governed by the sovereign's *trust*, not by rank (root *valer* = to be valued/trusted). Chosen 2026-08-19 by Nova over *el canciller* (too institutional): her 宰相 is an archetype "standing up out of a thousand years of history,"權在信任的距離不在官階. Keeps the archetype's honest shadow (validos Lerma/Olivares were controversial) — do not soften. Appears in `us.html` ("A Letter to the Next Vassal" → "Carta al próximo valido"). |
 | switcher label | **Español** (full name) / **ES** (langsel short code) | active on ES pages |
 
 **og:locale** `es_ES`. **JSON-LD** `inLanguage: "es"`. **hreflang** reciprocal — every ES-covered page and its 4 siblings cross-link `hreflang="es"`.
+
+**Mirror-hall chapter codenames (ES)** — the six Echoes chapters (`insight`/`collab`/`context`/`self`/`harness`/`us`):
+| EN codename | ES |
+|-------------|-----|
+| Design | **Diseño** |
+| Collab | **Colaboración** |
+| Trust | **Confianza** |
+| Self | **Sí-mismo** |
+| System | **Sistema** |
+| Us | **Nosotros** |
+
+**Sí-mismo** (not *Yo*) is deliberate: `self.html` frames CLAUDE.md as the Jungian **Self** (*das Selbst*), whose Spanish term of art is *el Sí-mismo*; *Yo* would mean the **ego**, Jung's opposite pole. Nova-decided 2026-08-20 — "語源是榮格，語言就得扛著".
+
+**Mirror-hall chrome convention** (matches ja/cn precedent — do NOT invent):
+- `chapter-no`, the passage `colophon` **primary** span, and `passage-nav` num+name → **localized** (`Página III · Confianza`, nav `Página II` / `Colaboración`).
+- The colophon **faint** span (`<span class="faint">Page III · Trust · End</span>`) stays **English across every locale** — a fixed bilingual stamp, like a catalogue number. Keep the EN codename the source uses (e.g. colophon says `Collaboration`, chapter-no says `Collab` — preserve each).
+- `chapter-sign` "Yours, X" → **"Con cariño, X"** (established by es/milestone). Signer stays (VAS / Claude Design). The echo prev-link is a non-numbered special label → `La galería` / `Ecos`.
 
 **Nova-review flags (Wave 1, pending her blessing)**: index top-right corner label kept as `VESSEL` (untranslated, parallels the `VAS` label opposite) → "VESSEL · Metodología de desarrollo humano–IA · Sobre el vaso"; `Day Twenty-Five · Brewed` → "Día veinticinco · Reposado"; homepage tagline → "Para los momentos que las palabras por sí solas no alcanzan a decir."; 404 → "VAS · Sin forma | Página no encontrada".
 

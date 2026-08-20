@@ -408,4 +408,41 @@ decompose 成「機械層零幻覺 × 散文層可驗」的整套做法，之後
 
 ---
 
+## ~~BACKLOG~~ RESOLVED · 系統性結構化資料殘留（collab / harness / us）— 2026-08-19 掃出，2026-08-20 全清
+
+> es 鏡廊翻譯途中，Explore 摸 en 源頭時掀出的跨語系 bug。collab/harness/us 這組當初大概同源複製，錯誤一起繁殖。en 層在 es 3a 前已修（commit 8577bda）；**ja/cn 層 2026-08-20 全數修畢**（下方 checkbox 皆 ✅）。ja/us 的 headline/description 是鏡射頁面既有的日文 meta（非新編日文，故安全無需 Nova 過目）。
+> **掃描時新發現（交全站格式稽核處理）**：`cn/us.html` 的 og:description 與 JSON-LD description 有**繁體字滲漏**（當／學會／關係，應为 当／学会／关系）——tw2sp 漏網，屬字集洩漏類，見下方全站稽核。
+
+**Bug A · `og:locale` 誤植 zh_TW（非 root 頁）**
+- root 的 `collab.html` / `harness.html` 是 zh_TW＝**正確，不動**。
+- 錯的是非 root 頁：
+  - [x] `ja/collab.html`、`ja/harness.html` → `ja_JP`
+  - [x] `cn/collab.html`、`cn/harness.html` → `zh_CN`
+  - （`en/collab.html`、`en/harness.html` → `en_US`：**en 層，es 3b 前已修**）
+- 純機械修，安全。
+
+**Bug B · `us.html` JSON-LD 跨語系錯譯**
+- root `us.html`：headline 繁中、inLanguage zh-Hant＝**正確，不動**。
+- [x] `ja/us.html`：headline 目前是**繁體中文**「容器一直是我們」（日文頁掛中文標題，日本讀者會看到中文）→ 需**日文** headline/description；inLanguage `zh-Hant`→`ja`。⚠ **日文 headline 要碰日文內容，動前先給 Nova／日文語感過目。**
+- [x] `cn/us.html`：headline 已简中（OK），但 inLanguage `zh-Hant`→`zh-Hans`。
+- （`en/us.html`：headline 繁中→英文、inLanguage→en、url 去 .html、**切換器壞掉**（按鈕標籤「中」→EN、zh-Hant href 指錯、en/active 狀態）：**en 層，es 3b 前已修**）
+
+**收尾驗證**：修完各頁 grep `og:locale`／`inLanguage` 確認每頁對應自己的語系；us 三頁的 headline 語言要各歸其語。
+
+---
+
+## 修 cn 繁體字滲漏：用 tw2s（非 tw2sp），並小心 麼→幺（2026-08-20）
+
+**背景**：全站稽核掃出 6 個 cn 頁有繁體字滲漏（tw2sp 建置時漏網 / 事後編輯帶入）——us、collab 嚴重（us 連 og/twitter/JSON-LD metadata 都有），insight/harness 中等、about/treatise 輕微。
+
+**方法（只補滲漏、不重建）**：
+- 用 **OpenCC `tw2s`**（**不是** `tw2sp`）——`tw2s` 只轉字形、片語感知（`著/着` 助詞辨析正確、`顯著→显著` 保留）；`tw2sp` 會多做台→陸**詞彙**轉換（`文件→文档`、`文字→文本`），修滲漏時屬過度、會改到刻意保留的詞。
+- **只轉可見文字**：保護 `<script>`（內嵌日文 i18n dict，km.md 舊坑）/`<style>`/`<!--註解-->`/`日本語` 標籤，用 placeholder 挖空→轉→還原。整檔硬跑會誤轉日文與繁中註解。
+
+**⚠ 陷阱：`麼→幺`**。tw2s 把 `什麼/怎麼/為什麼` 轉成 `什幺/怎幺`（`幺` 是別的字），正解是 `什么/怎么`（`么`）。轉完必須 **post-fix `幺→么`**（本站無合法 `幺`，可全域替換）。這正是「tw2sp 只到九成，別信它到底」的實例。
+
+**驗證**：用 `OpenCC('t2s').convert(ch)!=ch` 逐字判斷是否仍為繁體（權威，勝過手列繁體字表——手列會漏 `寫` 之類）；再核上下文敏感字（`覆`盖 vs 答`覆`→复、`鍊`金术/精`鍊`→炼 vs 链）。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*

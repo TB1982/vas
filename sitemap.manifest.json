@@ -58,7 +58,8 @@
           "slug": "insight",
           "file": "insight.html",
           "changefreq": "monthly",
-          "priority": "0.7"
+          "priority": "0.7",
+          "es": true
         }
       ]
     },
@@ -71,7 +72,8 @@
           "slug": "collab",
           "file": "collab.html",
           "changefreq": "monthly",
-          "priority": "0.7"
+          "priority": "0.7",
+          "es": true
         }
       ]
     },
@@ -84,7 +86,8 @@
           "slug": "context",
           "file": "context.html",
           "changefreq": "monthly",
-          "priority": "0.7"
+          "priority": "0.7",
+          "es": true
         }
       ]
     },
@@ -116,8 +119,8 @@
     },
     {
       "comments": [
-        "═══════ Harness Three Pillars — 展開 · deep layer, dynamic JS i18n (zh/en/ja) ═══════",
-        "No hreflang: single URL serves all three languages via in-page switcher"
+        "═══════ Harness Three Pillars — 展開 · deep layer ═══════",
+        "四語靜態檔（zh-Hant/en/ja/zh-Hans）＋靜態 .lang 切換器；nav 已併入 VAS 系統。跨語系 hreflang 由本 sitemap 的 alternates 提供（頁面本身無 on-page hreflang tag）。"
       ],
       "pages": [
         {
