@@ -445,4 +445,23 @@ decompose 成「機械層零幻覺 × 散文層可驗」的整套做法，之後
 
 ---
 
+## 15. scaffold 的 f-string 陷阱：`{slug}` 寫成字面值，兩波都靠 site_audit 才抓到（2026-08-20）
+
+**場景**
+es scaffold 的 `head_common()` 改 JSON-LD `"url"`：**舊字串**是 f-string（`f'...en/{slug}"'`，配對正確），
+**新字串**卻漏了 `f` 前綴（`'...es/{slug}"'`）——`{slug}` 原封不動寫進頁面，變成字面
+`https://yoursvas.app/es/{slug}`。assert count==1 照過（因為舊字串比對正常），**靜默漏網**。
+
+**兩波都犯**：Wave 7a（insight/collab/context）犯一次、Wave 7b（self/harness/us）沿用同一個
+buggy 函式又犯一次。抄自己上一版腳本 = 抄自己上一版 bug。
+
+**為什麼 assert 攔不到**：assert 只驗「舊字串出現幾次」，不驗「新字串長得對不對」。
+f-string 漏前綴屬於「新字串本身錯」，count 檢查天生盲。
+
+**耐用防線（已生效兩次）**：**scaffold 跑完必跑 `site_audit.py`**——它拿 JSON-LD `url` 對 `canonical`
+比對，`{slug}` != `es/self` 立刻爆。deterministic auditor 補 assert 的盲區，兩層才閉環。
+新增 scaffold 波次時，這一步不可省。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*
