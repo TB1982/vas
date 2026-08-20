@@ -481,6 +481,8 @@ f-string 漏前綴屬於「新字串本身錯」，count 檢查天生盲。
 - **D metadata**：html lang／og:locale／JSON-LD inLanguage 必須符合網格語系（網格位置＝
   ground truth，最準）；並抓 URL 裡的 `{var}` 未解析洩漏（f-string {slug} 那類）。
 - **E sitemap**：subprocess 跑 `gen_sitemap.py --check`，頁面異動沒同步重生就報。
+- **F llms.txt**：`/llms.txt` 的策展連結必須都指向存在的頁——頁面改名／刪除就報，
+  不讓給 AI 的索引悄悄爛掉。
 
 **首跑就抓到兩條眼睛沒抓到的漏網**：en 的 collab 章 echo 寫「Collaboration」但 nav 寫
 「Collab」；ja 頁首「About」三種寫法（概要 15／について 3／沒譯的 About 3）。

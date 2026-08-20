@@ -153,15 +153,30 @@ try:
 except Exception as e:
     flag("sitemap", f"sitemap check could not run: {e}")
 
+# ════════════════ F. LLMS.TXT link integrity (curated AI index must not silently rot) ════════════════
+if os.path.exists("llms.txt"):
+    lt = read("llms.txt")
+    def resolves(path):
+        path = path.rstrip("/")
+        if path == "":
+            return os.path.exists("index.html")
+        cands = [path + ".html", os.path.join(path, "index.html"), path]
+        return any(os.path.exists(c) for c in cands)
+    for url in re.findall(r'\]\((https://yoursvas\.app/[^)]*)\)', lt):
+        path = url.split("https://yoursvas.app/", 1)[1]
+        if not resolves(path):
+            flag("llms", f"llms.txt links to {url} → no such page")
+
 # ════════════════ report ════════════════
 quiet = "--quiet" in sys.argv
 by_family = {}
 for fam, msg in findings:
     by_family.setdefault(fam, []).append(msg)
 LABEL = {"chrome": "A · CHROME drift", "links": "B · LINK hygiene", "codename": "C · CODENAME drift",
-         "meta": "D · METADATA locale", "sitemap": "E · SITEMAP freshness"}
+         "meta": "D · METADATA locale", "sitemap": "E · SITEMAP freshness",
+         "llms": "F · LLMS.TXT links"}
 total = sum(1 for f, m in findings if not m.startswith("    "))
-for fam in ["chrome", "links", "codename", "meta", "sitemap"]:
+for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms"]:
     msgs = by_family.get(fam, [])
     print(f"\n══ {LABEL[fam]} ══  ({sum(1 for m in msgs if not m.startswith('    '))} findings)")
     for m in msgs: print(("  " + m) if not m.startswith("    ") else ("  " + m))
