@@ -1,4 +1,4 @@
-name: Check sitemap
+name: Check sitemap & consistency
 
 # check-only：在 PR 階段重跑產生器，跟分支裡已提交的 sitemap.xml 比對。
 #   一致 → 綠燈通過（正常情況：改頁面時已在本地跑產生器、放進同一個 commit）
@@ -29,3 +29,9 @@ jobs:
 
       - name: Verify sitemap is up to date
         run: python3 tools/gen_sitemap.py --check
+
+      # 矩陣稽核：把「頁×語系」網格當單位，抓共用元件(頁首/頁尾)漂移、
+      # es 跨頁連結衛生、以及章名跨槽位(echo TOC vs passage-nav)的時序翻譯漂移。
+      # 綠燈＝五語系一致；紅燈＝某處漂了，訊息會直指是哪語系哪頁哪族。
+      - name: Verify matrix consistency (chrome / links / codenames)
+        run: python3 tools/matrix_audit.py

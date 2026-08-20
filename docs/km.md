@@ -464,4 +464,32 @@ f-string 漏前綴屬於「新字串本身錯」，count 檢查天生盲。
 
 ---
 
+## 16. 矩陣稽核器：以「頁×語系」網格抓共用元件／連結／術語的三軸漂移（2026-08-20）
+
+**病根**
+站是 static-per-locale，頁首／頁尾／術語全是**複製**出來的，沒有單一真相源。一份東西
+散在一百多檔裡，會沿三軸靜默漂開：沿**頁**（同語系不同頁的頁尾不一）、沿**語系**
+（動一個語系，其它四個藏著同款問題）、沿**時間**（echo 的 self 在 3a 譯、self 頁在 3b 譯，
+中間 Sí-mismo 才定調，兩邊對不上＝「El yo」那個 bug）。連結是這複製結構最脆的接縫。
+
+**工具**：`tools/matrix_audit.py`（已進 CI `sitemap.yml`，PR 階段強制跑）。
+以網格為單位，三族檢查——所以「動一個要順便看其它語系」是天生內建的：
+- **A chrome**：頁尾信條 + 頁首 nav 標籤，同語系跨頁該一致，漂了報。
+- **B links**：es 連 /en/X 但 X 有 es 手足 → 報（instrument 那類）。
+- **C codename**：章名在 echo TOC vs passage-nav **自我一致**策略——不硬編正確值，
+  只要各槽位彼此不合就報（El yo vs Sí-mismo 自動爆）。
+- **D metadata**：html lang／og:locale／JSON-LD inLanguage 必須符合網格語系（網格位置＝
+  ground truth，最準）；並抓 URL 裡的 `{var}` 未解析洩漏（f-string {slug} 那類）。
+- **E sitemap**：subprocess 跑 `gen_sitemap.py --check`，頁面異動沒同步重生就報。
+
+**首跑就抓到兩條眼睛沒抓到的漏網**：en 的 collab 章 echo 寫「Collaboration」但 nav 寫
+「Collab」；ja 頁首「About」三種寫法（概要 15／について 3／沒譯的 About 3）。
+
+**用法**：任何動到多語系／共用元件的變更後，`python3 tools/matrix_audit.py`（exit 1＝有漂移，
+訊息直指語系×頁×族）。人腦記不住「還有哪裡寫著舊詞」，grep 記得住。
+**未治的根**：真正根治是給站一個 build 步驟把 chrome／術語抽成單一來源注入——
+那是動部署管線的大工程，static-per-locale 當初為部署單純而選，暫不動；稽核器是止血。
+
+---
+
 *遇到坑才記，記了就不用再踩第二次。*
