@@ -483,10 +483,10 @@
     </div>
   </header>
   <div class="section-body">
-    <p>当我们开发出了「延迟截图」后，全屏幕截图功能在双屏幕模式时提供的 Apple 原生菜单反而变成了摩擦力。</p>
+    <p>当我们开发出了「延迟截图」后，全屏截图功能在双屏幕模式时提供的 Apple 原生菜单反而变成了摩擦力。</p>
     <p>延迟截图是为了捕捉鼠标事件——报错状态、hover 效果、debug 瞬间而诞生的功能。用户设定倒数等待时，鼠标必须留在屏幕的某个角落。</p>
     <p>但原生的双屏幕菜单在读秒结束后，却会从工具栏跳出来要求用户在截图前先回去工具栏选择要截哪个屏幕——就像你自拍已经设定好相机秒数，结果相机结束读秒时却在预览屏幕问你「你要拍哪边？」一样荒谬。</p>
-    <p>VAS 舍弃 Apple 原生菜单，改用自制图层遮罩覆盖全屏幕：没有延迟时点哪个屏幕就截哪个，按 Enter 直接合并成双屏幕截图。</p>
+    <p>VAS 舍弃 Apple 原生菜单，改用自制图层遮罩覆盖全屏：没有延迟时点哪个屏幕就截哪个，按 Enter 直接合并成双屏幕截图。</p>
     <p>更进一步：当用户设了延迟规则，VAS 会默认截取鼠标当下所在的屏幕——连选都不用选，工具自己判断。用户根本不会意识到这个决策在背景发生过。</p>
   </div>
   <div class="section-wide">
@@ -496,7 +496,7 @@
         <figcaption class="fig-caption">这个菜单就像计时自拍时——<br>相机等你摆好pose，倒数完才问你要拍哪边。</figcaption>
       </figure>
       <figure>
-        <img src="../img/screenshot.webp" alt="VAS 自制全屏幕遮罩：延迟截图开始前即选定屏幕" class="fig-img" loading="lazy">
+        <img src="../img/screenshot.webp" alt="VAS 自制全屏遮罩：延迟截图开始前即选定屏幕" class="fig-img" loading="lazy">
         <figcaption class="fig-caption">VAS 解法：无延迟状态你点哪个屏幕我截哪个屏幕；<br>延迟模式不用选，你在哪我就截哪。</figcaption>
       </figure>
     </div>
