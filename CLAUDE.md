@@ -159,3 +159,4 @@ Visual logic and copy follow from this line, not the other way around.
 | Checking file locations or ownership | § Repository Structure |
 | Large read/write task in the main session | § Trickle-Flow Discipline |
 | JSON-LD author block / SEO structured data | § SEO & Structured Data |
+| Nova hands over a fresh app i18n export (the app shipped) | § App Terminology Sync Protocol |
