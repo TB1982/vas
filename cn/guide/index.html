@@ -7,9 +7,9 @@
 <title>操作手册 · Manual | VAS</title>
 <link rel="icon" href="../../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/cn/guide">
-<meta name="description" content="VAS 操作手册——依你要做的事分章：工具栏与截屏、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。" />
-<meta property="og:title" content="VAS 操作手册 | Mac 截屏标注工具完整使用指南">
-<meta property="og:description" content="VAS 操作手册——依你要做的事分章：工具栏与截屏、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。">
+<meta name="description" content="VAS 操作手册——依你要做的事分章：工具栏与截图、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。" />
+<meta property="og:title" content="VAS 操作手册 | Mac 截图标注工具完整使用指南">
+<meta property="og:description" content="VAS 操作手册——依你要做的事分章：工具栏与截图、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/cn/guide">
 <meta property="og:locale" content="zh_CN">
@@ -21,8 +21,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share-cn.webp">
 <meta name="twitter:image:alt" content="VAS 操作手册 — 一台可以握住的工具，一本可以操作的手册">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VAS 操作手册 | Mac 截屏标注工具完整使用指南">
-<meta name="twitter:description" content="VAS 操作手册——依你要做的事分章：工具栏与截屏、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。">
+<meta name="twitter:title" content="VAS 操作手册 | Mac 截图标注工具完整使用指南">
+<meta name="twitter:description" content="VAS 操作手册——依你要做的事分章：工具栏与截图、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。">
 <link rel="alternate" hreflang="zh-Hant" href="/guide">
 <link rel="alternate" hreflang="en"       href="/en/guide">
 <link rel="alternate" hreflang="ja"       href="/ja/guide">
@@ -253,7 +253,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <div class="gh-pilot"><div class="gh-pilot-bar"></div><div class="gh-pilot-label">待命中 · Standby</div></div>
     <h1 class="gh-kicker">VAS · 操作手册</h1>
     <div class="gh-title">Welcome on Board。</div>
-    <p class="gh-dek">从工具栏到编辑器，截屏到标注，分章完整的功能解说。</p>
+    <p class="gh-dek">从工具栏到编辑器，截图到标注，分章完整的功能解说。</p>
     <div class="gh-meta">
       <div><span class="lab">Chapters</span><strong>由外而内 · 七章</strong></div>
       <div><span class="lab">Platform</span><strong>Tauri / Electron</strong></div>
@@ -266,8 +266,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <div class="gh-sec-label">00 入门 · Getting Started</div>
     <ol class="gh-steps">
       <li class="gh-step" id="first-launch"><span class="gh-step-n">1</span><div class="gh-step-b"><h2 class="gh-step-h">打开</h2><p class="gh-step-p">从 App Store 安装并打开，桌面浮出一排工具栏（可拖动），菜单列右上角也多一个瓶子。若想更低调可从操作手册按钮中打开<strong>呼吸灯</strong>——工具栏随即缩成一条 120×6px 的光，点一下即可召唤回来。</p></div></li>
-      <li class="gh-step" id="permissions"><span class="gh-step-n">2</span><div class="gh-step-b"><h2 class="gh-step-h">授权</h2><p class="gh-step-p">第一次截屏，macOS 会要<strong>屏幕录制权限</strong>（截屏）——把 VAS 在选项中打开即可（系统设置 → 隐私权与安全性 → 屏幕录制）。网页截屏时，macOS 会要<strong>辅助使用权限</strong>（自动滚动）——步骤同上（系统设置 → 隐私权与安全性 → 辅助使用）。所有截屏、OCR、QR 都<strong>在本机处理</strong>，不上传、不分析。</p></div></li>
-      <li class="gh-step" id="first-capture"><span class="gh-step-n">3</span><div class="gh-step-b"><h2 class="gh-step-h">截屏</h2><p class="gh-step-p">选模式（全屏幕 <span class="docs-kbd">⌥⌘1</span>、窗口 <span class="docs-kbd">⌥⌘2</span>、矩形 <span class="docs-kbd">⌥⌘X</span>）框出画面 → 进编辑器编辑 → 用「拖动导出」拖给任何窗口。<strong>给你行云流水的编辑体验。</strong></p></div></li>
+      <li class="gh-step" id="permissions"><span class="gh-step-n">2</span><div class="gh-step-b"><h2 class="gh-step-h">授权</h2><p class="gh-step-p">第一次截图，macOS 会要<strong>屏幕录制权限</strong>（截图）——把 VAS 在选项中打开即可（系统设置 → 隐私权与安全性 → 屏幕录制）。网页截图时，macOS 会要<strong>辅助使用权限</strong>（自动滚动）——步骤同上（系统设置 → 隐私权与安全性 → 辅助使用）。所有截图、OCR、QR 都<strong>在本机处理</strong>，不上传、不分析。</p></div></li>
+      <li class="gh-step" id="first-capture"><span class="gh-step-n">3</span><div class="gh-step-b"><h2 class="gh-step-h">截图</h2><p class="gh-step-p">选模式（全屏 <span class="docs-kbd">⌥⌘1</span>、窗口 <span class="docs-kbd">⌥⌘2</span>、矩形 <span class="docs-kbd">⌥⌘X</span>）框出画面 → 进编辑器编辑 → 用「拖动导出」拖给任何窗口。<strong>给你行云流水的编辑体验。</strong></p></div></li>
     </ol>
   </section>
 
@@ -277,12 +277,12 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <div class="gh-grid">
       <a class="gh-tile" href="toolbar.html">
         <div class="gh-tile-l"><div class="gh-no">01</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="8" rx="4"/><circle cx="7" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="17" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></div></div>
-        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">工具栏</span><span class="gh-en">Toolbar</span></div><p class="gh-desc">桌面上那条浮动工具栏——从呼吸灯的收合与召唤，到四种截屏、取色器、标尺、延迟与批量，每一颗按钮做什么。</p><div class="gh-tags"><span class="gh-tag">呼吸灯</span><span class="gh-tag">四种截屏</span><span class="gh-tag">取色器·标尺</span><span class="gh-tag">延迟·批量</span></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">工具栏</span><span class="gh-en">Toolbar</span></div><p class="gh-desc">桌面上那条浮动工具栏——从呼吸灯的收合与召唤，到四种截图、取色器、尺标、延迟与批量，每一颗按钮做什么。</p><div class="gh-tags"><span class="gh-tag">呼吸灯</span><span class="gh-tag">四种截图</span><span class="gh-tag">取色器·尺标</span><span class="gh-tag">延迟·批量</span></div></div>
         <span class="gh-go" aria-hidden="true">→</span>
       </a>
       <a class="gh-tile" href="editor.html">
         <div class="gh-tile-l"><div class="gh-no">02</div><div class="gh-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="20" y2="8"/><circle cx="9" cy="8" r="2.5" fill="var(--vas-void)"/><line x1="4" y1="16" x2="20" y2="16"/><circle cx="15" cy="16" r="2.5" fill="var(--vas-void)"/></svg></div></div>
-        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">编辑器</span><span class="gh-en">Editor</span></div><p class="gh-desc">截屏之后的主场——四区接口、12 种标注工具 × 属性，自由组合出你想要的炼金配方。</p><div class="gh-tags"><span class="gh-tag">12 种工具</span><span class="gh-tag">自定义样式</span><span class="gh-tag">炼金配方</span><span class="gh-tag">裁切与延伸</span></div></div>
+        <div class="gh-tile-body"><div class="gh-tile-head"><span class="gh-name">编辑器</span><span class="gh-en">Editor</span></div><p class="gh-desc">截图之后的主场——四区接口、12 种标注工具 × 属性，自由组合出你想要的炼金配方。</p><div class="gh-tags"><span class="gh-tag">12 种工具</span><span class="gh-tag">自定义样式</span><span class="gh-tag">炼金配方</span><span class="gh-tag">裁切与延伸</span></div></div>
         <span class="gh-go" aria-hidden="true">→</span>
       </a>
       <a class="gh-tile" href="pixel.html">
@@ -339,8 +339,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "VAS 操作手册 | Mac 截屏标注工具完整使用指南",
-  "description": "VAS 操作手册——依你要做的事分章：工具栏与截屏、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。",
+  "headline": "VAS 操作手册 | Mac 截图标注工具完整使用指南",
+  "description": "VAS 操作手册——依你要做的事分章：工具栏与截图、编辑器、像素动画、OCR、编排、导入与导出、快捷键。一台可以握住的工具，一本可以操作的手册。",
   "inLanguage": "zh-Hans",
   "url": "https://yoursvas.app/cn/guide",
   "datePublished": "2026-04-01",
