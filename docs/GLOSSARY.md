@@ -348,9 +348,13 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 **Resolved at the Tauri sync, 2026-08-21**:
 - Save button — app keeps the asymmetry on purpose (button width): zh **完成並儲存** / cn **完成并保存**, but en **Save** / ja **保存** / es **Guardar**. The guide copies the app value per locale; do not "harmonize" the three short ones back to the long form.
 - App moved to the web's wording on three es items: `fullscreen` → **Pantalla completa**, `tool_magnify` → **Anotación de lupa**, delete key → **tecla Delete** (not Supr). The guide was already right; leave it.
-- OCR languages — the paid build runs Apple Vision with automatic language detection; the `ocr_dl_*` strings are dead code for a dialog that never opens and must **not** be treated as the authority on language coverage.
+- OCR languages — the paid build runs Apple Vision with automatic language detection; the `ocr_dl_*` strings are dead code for a dialog that never opens and must **not** be treated as the authority on language coverage. The guide therefore names **no language list at all**: it says the language is detected automatically (語言自動偵測 / 语言自动检测 / 言語は自動で判別されます / detected automatically / se detecta automáticamente). Do not reintroduce an enumerated list — it will always understate what Vision handles.
+- Ruler is **two different tools** — do not unify them. The toolbar's screen ruler is `ruler` (标尺 / 尺標 / 定規 / Ruler / Regla); the annotation editor's measuring tool is `tool_measure` (尺标 / 尺標 / 定規 / Measure / Medir). They differ in cn (标尺 vs 尺标) and en/es (Ruler·Regla vs Measure·Medir) but collide in zh-Hant and ja, which is why they look like drift and are not.
+- The five help-panel names that used to disagree with the tool tooltips (pencil / marquee / ruler / fill / stamp) were reconciled app-side **toward `tool_*`**, which is the side the guide already followed per **docs/toolnamemap.md**. No web change was needed.
 
-**Still frozen (no web change until settled with the app side)**: ja 機微 vs 機密情報 — the guide's OCR chapter says 機微 (the idiomatic term in Japanese privacy law), the app's toasts say 機密情報; and the app's own `help_*` panel disagrees with its `tool_*` tooltips on five tool names (pencil/marquee/ruler/fill/number-stamp). The guide follows `tool_*` per **docs/toolnamemap.md** and stays there until the app reconciles its two surfaces.
+- ja sensitive-info wording — the app adopted the guide's **機微情報** (the idiomatic term in Japanese privacy law) in its privacy toasts, replacing 機密情報. The guide was already right; leave it.
+
+**Nothing is frozen as of the 2026-08-21 second export.** Every divergence from the cross-check is either applied on the web, applied app-side, or deliberately kept as an asymmetry recorded above.
 
 ---
 

@@ -73,7 +73,7 @@
 | `px_palette_full` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_cannot_replace_transparent` | 0 号是透明，不能换成颜色 | 0 號是透明，不能換成顏色 | 0 番は透明なので色にはできません | Index 0 is transparent and cannot become a colour | El índice 0 es transparente y no puede convertirse en un color |
 | `px_bad_hex` | 色码格式要像 #RRGGBB | 色碼格式要像 #RRGGBB | カラーコードは #RRGGBB の形式です | Colour code should look like #RRGGBB | El código de color debe tener la forma #RRGGBB |
-| `px_copy_json` | 复制 JSON | 複製 JSON | JSON をコピー | Copy JSON | Copiar JSON |
+| `px_copy_json` | 拷贝 JSON | 複製 JSON | JSON をコピー | Copy JSON | Copiar JSON |
 | `px_import_json` | 粘贴 JSON | 貼上 JSON | JSON を貼り付け | Paste JSON | Pegar JSON |
 | `px_import_title` | 粘贴动画 JSON | 貼上動畫 JSON | アニメーション JSON を貼り付け | Paste animation JSON | Pegar el JSON de la animación |
 | `px_import_hint` | 在 Clawdmeter 编辑器点「复制到剪贴板」，然后在这里粘贴（⌘V） | 在 Clawdmeter 編輯器按「複製到剪貼簿」，然後在這裡貼上（⌘V） | Clawdmeter エディタで「クリップボードにコピー」を押し、ここに貼り付け（⌘V） | Hit “Copy to clipboard” in the Clawdmeter editor, then paste here (⌘V) | Pulsa «Copiar al portapapeles» en el editor de Clawdmeter y pégalo aquí (⌘V) |
@@ -93,7 +93,7 @@
 | `px_copied` | 已复制 JSON | 已複製 JSON | JSON をコピーしました | JSON copied | JSON copiado |
 | `px_category` | 分类 | 分類 | カテゴリ | Category | Categoría |
 | `px_save_json` | 存档 JSON… | 存檔 JSON… | JSON を保存… | Save JSON… | Guardar JSON… |
-| `px_copy_short` | 复制 | 複製 | コピー | Copy | Copiar |
+| `px_copy_short` | 拷贝 | 複製 | コピー | Copy | Copiar |
 | `px_save_short` | 存档 | 存檔 | 保存 | Save | Guardar |
 | `px_io_hd` | JSON 档处理 | JSON 檔處理 | JSONファイル | JSON file | Archivo JSON |
 | `px_paste_short` | 粘贴 | 貼上 | 貼り付け | Paste | Pegar |
@@ -118,17 +118,17 @@
 | `help_region_capture` | 矩形选取截图 | 矩形選取截圖 | 矩形選択キャプチャ | Region Select | Selección de área |
 | `help_scroll_capture` | 长截图 | 長截圖 | ロングスクリーンショット | Long screenshot | Captura larga |
 | `help_colorpicker` | 取色器 | 取色器 | カラーピッカー | Color Picker | Selector de color |
-| `help_ruler` | 标尺 | 尺標 | 定規 | Ruler | Regla |
+| `help_ruler` | 尺标 | 尺標 | 定規 | Measure | Medir |
 | `help_paste_image` | 粘入图片 | 貼入圖片 | 画像を貼り付け | Paste Image | Pegar imagen |
 | `help_select` | 选取 | 選取 | 選択 | Select | Seleccionar |
-| `help_marquee` | 框型选取 | 框型選取 | 矩形選択 | Marquee Select | Selección por marco |
-| `help_pencil` | 铅笔 | 鉛筆 | ペンシル | Pencil | Lápiz |
+| `help_marquee` | 框型选取 | 框型選取 | ボックス選択 | Box Select | Selección por marco |
+| `help_pencil` | 笔型 | 筆型 | ペン | Pen | Lápiz |
 | `help_rect` | 矩形框 | 矩形框 | 矩形 | Rectangle | Rectángulo |
 | `help_line` | 线条 | 線條 | 線 | Line | Línea |
-| `help_colorblock` | 色块 | 色塊 | カラーブロック | Fill | Relleno |
+| `help_colorblock` | 色块 | 色塊 | 塗りつぶし | Fill | Relleno |
 | `help_text` | 文字 | 文字 | テキスト | Text | Texto |
 | `help_number` | 编号标记 | 編號標記 | 番号マーカー | Number Marker | Marcador numérico |
-| `help_symbol` | 符号印章 | 符號印章 | スタンプ | Symbol Stamp | Sello de símbolo |
+| `help_symbol` | 符号印章 | 符號印章 | スタンプ | Stamp | Sello |
 | `help_mosaic` | 马赛克 / 模糊 | 馬賽克 / 模糊 | モザイク / ぼかし | Mosaic / Blur | Mosaico / Desenfoque |
 | `help_overlay` | 叠入图片 | 疊入圖片 | 画像オーバーレイ | Overlay Image | Superponer imagen |
 | `help_resize` | 调整大小 | 調整大小 | サイズ変更 | Resize | Redimensionar |
@@ -139,9 +139,9 @@
 | `help_snap_toggle` | 智能导线开关 | 智慧導線開關 | スマートガイド切替 | Toggle Smart Guides | Alternar guías inteligentes |
 | `help_undo` | 撤销 | 撤銷 | 元に戻す | Undo | Deshacer |
 | `help_redo` | 重做 | 重做 | やり直し | Redo | Rehacer |
-| `help_copy` | 复制 | 複製 | コピー | Copy | Copiar |
+| `help_copy` | 拷贝 | 複製 | コピー | Copy | Copiar |
 | `help_paste` | 粘贴 | 貼上 | 貼り付け | Paste | Pegar |
-| `help_copy_final` | 复制完成图 | 複製完成圖 | 完成画像をコピー | Copy Final Image | Copiar imagen final |
+| `help_copy_final` | 拷贝完成图 | 複製完成圖 | 完成画像をコピー | Copy Final Image | Copiar imagen final |
 | `help_group` | 成为群组 | 成為群組 | グループ化 | Group | Agrupar |
 | `help_ungroup` | 解散群组 | 解散群組 | グループ解除 | Ungroup | Desagrupar |
 | `help_delete` | 删除选取元素 | 刪除選取元素 | 選択を削除 | Delete Selected | Eliminar selección |
@@ -185,13 +185,13 @@
 | `toast_no_files` | 没有可转换的文件 | 沒有可轉換的檔案 | 変換するファイルがありません | No files to convert | No hay archivos que convertir |
 | `toast_done` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_converted` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
-| `toast_privacy_scanning` | 检测敏感信息中… | 偵測敏感資訊中… | 機密情報を検出中… | Detecting sensitive info… | Detectando información sensible… |
+| `toast_privacy_scanning` | 检测敏感信息中… | 偵測敏感資訊中… | 機微情報を検出中… | Detecting sensitive info… | Detectando información sensible… |
 | `toast_privacy_done` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
-| `toast_privacy_none` | 未检测到敏感信息 | 未偵測到敏感資訊 | 機密情報は検出されませんでした | No sensitive info detected | No se detectó información sensible |
+| `toast_privacy_none` | 未检测到敏感信息 | 未偵測到敏感資訊 | 機微情報は検出されませんでした | No sensitive info detected | No se detectó información sensible |
 | `toast_privacy_fail` | 检测失败 | 偵測失敗 | 検出に失敗しました | Detection failed | Falló la detección |
 | `toast_new_canvas` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_extended` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
-| `toast_overlay_exists` | 请先删除现有叠入图（Delete 键），再插入新图 | 請先刪除現有疊入圖（Delete 鍵），再插入新圖 | 既存のオーバーレイを削除（Delete キー）してから新しい画像を挿入してください | Delete the existing overlay (Delete key) before inserting a new one | Elimina la superposición existente (tecla Supr) antes de insertar otra |
+| `toast_overlay_exists` | 请先删除现有叠入图（Delete 键），再插入新图 | 請先刪除現有疊入圖（Delete 鍵），再插入新圖 | 既存のオーバーレイを削除（Delete キー）してから新しい画像を挿入してください | Delete the existing overlay (Delete key) before inserting a new one | Elimina la superposición existente (tecla Delete) antes de insertar otra |
 | `toast_overlay_inserted` | 叠入图片已插入，拖动可移动，拖角落可等比缩放 | 疊入圖片已插入，拖動可移動，拖角落可等比縮放 | オーバーレイを挿入しました。ドラッグで移動、コーナーをドラッグで拡縮 | Overlay inserted — drag to move, drag corner to scale | Superposición insertada — arrastra para moverla, arrastra una esquina para escalarla |
 | `toast_num_reset` | 编号已重置，下一个从 1 开始 | 編號已重置，下一個從 1 開始 | カウンターを 1 にリセットしました | Counter reset to 1 | Contador reiniciado a 1 |
 | `toast_num_limit` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
@@ -346,7 +346,7 @@
 | `tool_symbol` | 符号印章 (U) | 符號印章 (U) | スタンプ (U) | Stamp (U) | Sello (U) |
 | `tool_ocr` | OCR 文字识别 (G) | OCR 文字辨識 (G) | OCR (G) | OCR (G) | OCR (G) |
 | `tool_mosaic` | 马赛克/模糊 (X) | 馬賽克/模糊 (X) | モザイク/ぼかし (X) | Mosaic/Blur (X) | Mosaico/Desenfoque (X) |
-| `tool_magnify` | 放大镜标注 (Y) | 放大鏡標註 (Y) | 拡大鏡注釈 (Y) | Magnify Annotation (Y) | Ampliar anotación (Y) |
+| `tool_magnify` | 放大镜标注 (Y) | 放大鏡標註 (Y) | 拡大鏡注釈 (Y) | Magnify Annotation (Y) | Anotación de lupa (Y) |
 | `tool_callout` | 对话气泡 (Q) | 對話氣泡 (Q) | 吹き出し (Q) | Callout Bubble (Q) | Globo de texto (Q) |
 | `tool_zoom_in` | 放大 (⌘=) | 放大 (⌘=) | 拡大 (⌘=) | Zoom In (⌘=) | Acercar (⌘=) |
 | `tool_zoom_out` | 缩小 (⌘-) | 縮小 (⌘-) | 縮小 (⌘-) | Zoom Out (⌘-) | Alejar (⌘-) |
@@ -496,8 +496,8 @@
 | `ocr_downloading` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `ocr_initialized` | 初始化完成 | 初始化完成 | 初期化完了 | Initialized | Inicializado |
 | `ocr_placeholder` | 识别结果将显示在此... | 辨識結果將顯示在此... | ここに結果が表示されます... | Results will appear here... | Los resultados aparecerán aquí... |
-| `ocr_copy` | 复制 | 複製 | コピー | Copy | Copiar |
-| `ocr_copy_close` | 复制并关闭 | 複製並關閉 | コピーして閉じる | Copy & Close | Copiar y cerrar |
+| `ocr_copy` | 拷贝 | 複製 | コピー | Copy | Copiar |
+| `ocr_copy_close` | 拷贝并关闭 | 複製並關閉 | コピーして閉じる | Copy & Close | Copiar y cerrar |
 | `ocr_recognizing_label` | 识别中... | 辨識中... | 認識中... | Recognizing... | Reconociendo... |
 | `ocr_fail_detail` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 
@@ -583,8 +583,8 @@
 |---|---|---|---|---|---|
 | `btn_history` | 历史 | 歷史 | 履歴 | History | Historial |
 | `btn_history_title` | 历史截图 | 歷史截圖 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
-| `btn_copy` | 复制 | 複製 | コピー | Copy | Copiar |
-| `btn_copy_title` | 复制最终图片到剪贴板 (⌘⇧C) | 複製最終圖片到剪貼簿 (⌘⇧C) | クリップボードにコピー (⌘⇧C) | Copy to Clipboard (⌘⇧C) | Copiar al portapapeles (⌘⇧C) |
+| `btn_copy` | 拷贝 | 複製 | コピー | Copy | Copiar |
+| `btn_copy_title` | 拷贝最终图片到剪贴板 (⌘⇧C) | 複製最終圖片到剪貼簿 (⌘⇧C) | クリップボードにコピー (⌘⇧C) | Copy to Clipboard (⌘⇧C) | Copiar al portapapeles (⌘⇧C) |
 | `btn_save` | 完成并保存 | 完成並儲存 | 保存 | Save | Guardar |
 | `btn_close_title` | 关闭 | 關閉 | 閉じる | Close | Cerrar |
 | `btn_clear` | 清除 | 清除 | クリア | Clear | Vaciar |
@@ -773,7 +773,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
-| `cp_copy` | 复制色码 | 複製色碼 | コードをコピー | Copy code | Copiar código |
+| `cp_copy` | 拷贝色码 | 複製色碼 | コードをコピー | Copy code | Copiar código |
 | `cp_copied` | 已复制 | 已複製 | コピーしました | Copied | Copiado |
 
 ### `longcap`
@@ -871,7 +871,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
-| `fullscreen` | 全屏 | 全螢幕 | 全画面 | Fullscreen | Pantalla |
+| `fullscreen` | 全屏 | 全螢幕 | 全画面 | Fullscreen | Pantalla completa |
 
 ### `window`
 
