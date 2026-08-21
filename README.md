@@ -74,6 +74,7 @@ The six chapters are three mirror pairs (外 user-facing ↔ 內 dev-reflection)
 | [km.md](docs/km.md) | Known issues & solutions — append-only bug log |
 | [designrule.md](docs/designrule.md) | Visual design rules |
 | [toolnamemap.md](docs/toolnamemap.md) | Guide tool-name four-language map (from app i18n) |
+| [app-i18n-table.md](docs/app-i18n-table.md) | Full app UI wording table, 5 languages — generated export from the app repo (`src/i18n/*.js` is the source of truth; do not hand-edit) |
 
 ---
 
