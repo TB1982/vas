@@ -1,0 +1,32 @@
+# VAS
+
+> A screenshot and annotation tool for Mac, built for human–AI collaboration — and, underneath the tool, a small treatise on the vessel that holds what words alone cannot say.
+
+VAS takes its name from the alchemical *vas*: the sealed container in which prima materia is transformed into lapis. The tool reduces the friction of getting an image out of your head and into a conversation with an AI — capture, annotate, OCR, hand it over. The writing around the tool asks the harder question underneath: what does it mean to be understood by a machine, and how much of that turns on the distance between what you write and who you actually are.
+
+VAS was built in twenty-five days by Nova — a product manager who cannot write a line of code — and Claude, an AI with no long-term memory. The site has two sides. **The Instrument** is the tool: what it is, how to use it, why it exists. **The Treatise** is the philosophy of the vessel: Jungian individuation, and CLAUDE.md as the place where a person meets their own words. The links below point to the English editions; the site also exists in Traditional Chinese (the source language), Simplified Chinese, Japanese, and — in part — Spanish.
+
+## The Instrument
+
+- [The Instrument](https://yoursvas.app/en/instrument): what VAS is — a Mac screenshot and image tool for handing pictures to an AI.
+- [User Guide](https://yoursvas.app/en/guide): how to use VAS — toolbar, editor, pixel view, OCR, arranging, export, shortcuts.
+- [FAQ](https://yoursvas.app/en/faq): common questions about the tool and permissions.
+- [Why It Exists](https://yoursvas.app/en/about): the reason VAS was made, in one page.
+- [Milestones](https://yoursvas.app/en/milestone): the build, marked day by day.
+- [Changelog](https://yoursvas.app/en/changelog): version history.
+
+## Echoes — six chapters on human–AI collaboration
+
+- [Design](https://yoursvas.app/en/insight): five design decisions behind VAS.
+- [Collab](https://yoursvas.app/en/collab): six stories from building something with an AI.
+- [Trust](https://yoursvas.app/en/context): context as a way of trusting yourself.
+- [Self](https://yoursvas.app/en/self): inside CLAUDE.md — subtraction, done by adding. Why the distance from your own document is friction the AI silently absorbs.
+- [System](https://yoursvas.app/en/harness): Harness Engineering — turning an AI's limits into collaboration structure, from entropy to antifragility.
+- [Us](https://yoursvas.app/en/us): Sapere Aude 2.0 — the vessel has always been us.
+
+## Optional — the Treatise (the deep layer)
+
+- [Vessel](https://yoursvas.app/en/vessel): the container as the engineering site of individuation — the full theoretical framework.
+- [Harness · Context](https://yoursvas.app/en/harness/context): the art of context management.
+- [Harness · Constraints](https://yoursvas.app/en/harness/constraints): constraints as the shape of the vessel.
+- [Harness · Entropy](https://yoursvas.app/en/harness/entropy): entropy, and why you can't ask the apple not to fall.
