@@ -326,7 +326,7 @@
             <span class="gpx-zoom">40 × 40 マス</span>
             <span class="gpx-spacer"></span>
             <button class="gpx-btn" style="height:30px;padding:0 14px">コピー</button>
-            <button class="gpx-save">完了して保存</button>
+            <button class="gpx-save">保存</button>
           </div>
         </div>
       </div>
@@ -335,7 +335,7 @@
         <div class="gpz-item" data-zone="left"><span class="gpz-dot" style="background:#f87171"></span><span><span class="gpz-n">左カラム · 実機プレビューと読み込み・書き出し</span><span class="gpz-d">デバイス上で実際に再生される様子、再生、既定の 20 秒アニメがループできる回数、そして JSON の貼り付け／コピー／保存とアニメ情報。</span></span></div>
         <div class="gpz-item" data-zone="canvas"><span class="gpz-dot" style="background:#4a9eff"></span><span><span class="gpz-n">中央 · キャンバス</span><span class="gpz-d">真っ黒な地にグリッド線、一マスずつ描きます。グリッド線とオニオンスキンはここでの補助的な参照にすぎず、実機の出力には現れません。</span></span></div>
         <div class="gpz-item" data-zone="right"><span class="gpz-dot" style="background:#4ade80"></span><span><span class="gpz-n">右カラム · フレームと色</span><span class="gpz-d">フレーム列、各コマのミリ秒は 20 ms 刻みで設定、アニメごとの色は上限 36、そして 256 色の内蔵カラーパレット。</span></span></div>
-        <div class="gpz-item" data-zone="status"><span class="gpz-dot gpz-dot-w"></span><span><span class="gpz-n">下カラム · 表示倍率と保存</span><span class="gpz-d">現在の拡大倍率とグリッドサイズを表示し、「完了して保存」で単一フレームを画像として、またはアニメを JSON ファイルとして保存できます。</span></span></div>
+        <div class="gpz-item" data-zone="status"><span class="gpz-dot gpz-dot-w"></span><span><span class="gpz-n">下カラム · 表示倍率と保存</span><span class="gpz-d">現在の拡大倍率とグリッドサイズを表示し、「保存」で単一フレームを画像として、またはアニメを JSON ファイルとして保存できます。</span></span></div>
       </div>
       <p class="gpx-caption">色とフレームは最も頻繁に行き来する二つなので、隣り合わせに置いています。実機プレビューを左カラムに固定して畳まないのは、フレームを調整するあいだ、いつでも見たいからです。</p>
     </section>
@@ -382,7 +382,7 @@
 
     <section class="docs-section" id="frames">
       <h2>フレームとミリ秒</h2>
-      <p>右カラムの上半分がフレーム列です。各コマにはそれぞれの<strong>停留ミリ秒</strong>があります——アニメ全体でひとつの速度を共有するのではなく、コマごとに値を与えます。あるコマだけ半拍長く止めたければ、そのコマだけを変えます。</p>
+      <p>右カラムの上半分がフレーム列です。各コマにはそれぞれの<strong>表示時間</strong>（ミリ秒）があります——アニメ全体でひとつの速度を共有するのではなく、コマごとに値を与えます。あるコマだけ半拍長く止めたければ、そのコマだけを変えます。</p>
       <ul class="docs-list">
         <li><strong>＋</strong> 現在のコマの後ろに空白のコマを挿入します。</li>
         <li><strong>⧉</strong> 現在のコマの後ろに複製を挿入します——微調整型のアニメは、たいていこうして育っていきます。</li>

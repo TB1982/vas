@@ -16,9 +16,9 @@
 <link rel="icon" href="../../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/es/guide/toolbar">
 <meta name="description"
-      content="La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Región y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio." />
+      content="La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Área y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio." />
 <meta property="og:title" content="Guía de la barra de capturas en Mac: cuatro modos de captura, selector de color y regla | Guía de uso de VAS">
-<meta property="og:description" content="La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Región y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio.">
+<meta property="og:description" content="La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Área y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/es/guide/toolbar">
 <meta property="og:locale" content="es_ES">
@@ -31,7 +31,7 @@
 <meta name="twitter:image:alt" content="Guía de uso de VAS — una herramienta que puedes sostener, un manual que puedes manejar">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Guía de la barra de capturas en Mac: cuatro modos de captura, selector de color y regla | Guía de uso de VAS">
-<meta name="twitter:description" content="La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Región y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio.">
+<meta name="twitter:description" content="La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Área y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio.">
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -750,13 +750,13 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             <p class="g-card-desc">Elige el modo y luego haz clic en cualquier ventana para capturar solo esa ventana.</p>
           </div>
           <div class="g-card" data-key="region">
-            <p class="g-card-name">Región</p>
+            <p class="g-card-name">Área</p>
             <p class="g-card-desc">Arrastra para seleccionar cualquier área rectangular y capturarla. Encuadra un QR Code directamente y VAS lo escanea y te muestra su contenido.</p>
           </div>
           <div class="g-card" data-key="scroll_capture">
             <p class="g-card-name">Captura larga <span class="g-badge-t">Solo Tauri</span></p>
             <p class="g-card-desc">Detecta automáticamente la ventana de Google Chrome en primer plano, se desplaza para capturar la página completa y la une — eliminando incluso los botones de «volver arriba» que se repiten por el camino.</p>
-            <p class="g-card-note">＊La primera vez, concede permiso a VAS en System Settings → Privacy &amp; Security → Accessibility.</p>
+            <p class="g-card-note">＊La primera vez, concede permiso a VAS en Ajustes del Sistema → Privacidad y seguridad → Accesibilidad.</p>
           </div>
           <div class="g-card" data-key="color">
             <p class="g-card-name">Selector de color</p>
@@ -898,7 +898,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           <li>Al escribir JPG/WebP puedes fijar la calidad (1–100 %); si el lote contiene SVG puedes fijar el ancho de salida del SVG (que determina la resolución de rasterización).</li>
         </ul>
 
-        <p style="margin-top:28px"><strong>Redimensionado uniforme</strong><span style="color:var(--vas-ash-3)"> (opcional)</span></p>
+        <p style="margin-top:28px"><strong>Redimensionar todo</strong><span style="color:var(--vas-ash-3)"> (opcional)</span></p>
         <ul class="docs-list">
           <li>Fija el ancho o el alto a un valor en píxeles; el otro lado escala proporcionalmente.</li>
         </ul>
@@ -1144,7 +1144,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     'en':      { fullscreen:'Fullscreen', window:'Window', region:'Region', scroll_capture:'Long Screenshot', color:'Color Picker', ruler:'Ruler', open:'Open', whiteboard:'Canvas', more:'More', help:'Keyboard Shortcuts', delay_capture:'Delayed Capture', batch:'Batch' },
     'ja':      { fullscreen:'全画面', window:'ウィンドウ', region:'矩形', scroll_capture:'ロングスクリーンショット', color:'カラーピッカー', ruler:'定規', open:'開く', whiteboard:'キャンバス', more:'その他', help:'キーボードショートカット', delay_capture:'遅延キャプチャ', batch:'一括変換' },
     'zh-Hans': { fullscreen:'全屏', window:'窗口', region:'矩形', scroll_capture:'长截图', color:'取色器', ruler:'标尺', open:'打开', whiteboard:'白板', more:'更多', help:'快捷键说明', delay_capture:'延迟截图', batch:'批量转' },
-    'es':      { fullscreen:'Pantalla completa', window:'Ventana', region:'Región', scroll_capture:'Captura larga', color:'Selector de color', ruler:'Regla', open:'Abrir', whiteboard:'Lienzo', more:'Más', help:'Atajos de teclado', delay_capture:'Captura retardada', batch:'Lote' }
+    'es':      { fullscreen:'Pantalla completa', window:'Ventana', region:'Área', scroll_capture:'Captura larga', color:'Selector de color', ruler:'Regla', open:'Abrir', whiteboard:'Lienzo', more:'Más', help:'Atajos de teclado', delay_capture:'Captura retardada', batch:'Lote' }
   };
   var dict = I18N[document.documentElement.lang];
   if (dict) {
@@ -1265,7 +1265,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Guía de la barra de capturas en Mac: cuatro modos de captura, selector de color y regla | Guía de uso de VAS",
-  "description": "La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Región y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio.",
+  "description": "La barra de capturas de VAS: cuatro modos — Pantalla completa, Ventana, Área y Captura larga — más la luz que respira, el selector de color, la regla, el retardo y el modo por lotes. Cada botón de esa barra flotante en tu escritorio.",
   "inLanguage": "es",
   "url": "https://yoursvas.app/es/guide/toolbar",
   "datePublished": "2026-04-01",

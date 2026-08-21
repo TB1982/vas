@@ -282,7 +282,7 @@
               <div class="gpx-hint ok">✓ 刚好在插槽边界结束</div>
               <div class="gpx-sep"></div>
               <span class="gpx-lbl">JSON 档处理</span>
-              <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">粘贴</button><button class="gpx-btn" style="flex:1">复制</button><button class="gpx-btn" style="flex:1">存档</button></div>
+              <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">粘贴</button><button class="gpx-btn" style="flex:1">拷贝</button><button class="gpx-btn" style="flex:1">存档</button></div>
               <span class="gpx-lbl" style="margin-top:4px">动画信息</span>
               <div class="gpx-hint">动画名称</div>
               <div class="gpx-input">vas</div>
@@ -324,14 +324,14 @@
             <span class="gpx-zoom">1500%</span>
             <span class="gpx-zoom">40 × 40 格</span>
             <span class="gpx-spacer"></span>
-            <button class="gpx-btn" style="height:30px;padding:0 14px">复制</button>
+            <button class="gpx-btn" style="height:30px;padding:0 14px">拷贝</button>
             <button class="gpx-save">完成并保存</button>
           </div>
         </div>
       </div>
 
       <div class="gpz" id="gpxZones">
-        <div class="gpz-item" data-zone="left"><span class="gpz-dot" style="background:#f87171"></span><span><span class="gpz-n">左栏 · 实机预览与导出导入</span><span class="gpz-d">设备上实际播放起来的样子、播放、默认 20 秒动画可以轮播的次数，以及 JSON 的粘贴／复制／存档与动画信息。</span></span></div>
+        <div class="gpz-item" data-zone="left"><span class="gpz-dot" style="background:#f87171"></span><span><span class="gpz-n">左栏 · 实机预览与导出导入</span><span class="gpz-d">设备上实际播放起来的样子、播放、默认 20 秒动画可以轮播的次数，以及 JSON 的粘贴／拷贝／存档与动画信息。</span></span></div>
         <div class="gpz-item" data-zone="canvas"><span class="gpz-dot" style="background:#4a9eff"></span><span><span class="gpz-n">中间 · 画布</span><span class="gpz-d">纯黑底加格线，一格一格画。格线与洋葱皮只在这里作为辅助参照，不出现在实机输出。</span></span></div>
         <div class="gpz-item" data-zone="right"><span class="gpz-dot" style="background:#4ade80"></span><span><span class="gpz-n">右栏 · 帧与颜色</span><span class="gpz-d">帧列、每帧毫秒以 20 ms 为间距进行设定、每支动画的颜色上限为 36，以及 256 色的内建选色盘。</span></span></div>
         <div class="gpz-item" data-zone="status"><span class="gpz-dot gpz-dot-w"></span><span><span class="gpz-n">底栏 · 显示比例与保存</span><span class="gpz-d">显示目前缩放比例、格子尺寸，「完成并保存」可选择保存单一帧为图片或 JSON 档。</span></span></div>
@@ -440,7 +440,7 @@
 
     <section class="docs-section" id="io">
       <h2>可机读文件接口：JSON</h2>
-      <p>像素动画在存档时，可机读格式是 JSON，不是图片。<strong>粘贴</strong>读入现有动画、<strong>复制</strong>把整支动画丢进剪贴板、<strong>存档</strong>写成文件。让你导出导入都方便。</p>
+      <p>像素动画在存档时，可机读格式是 JSON，不是图片。<strong>粘贴</strong>读入现有动画、<strong>拷贝</strong>把整支动画丢进剪贴板、<strong>存档</strong>写成文件。让你导出导入都方便。</p>
       <div class="tdict">
         <div class="tdict-grp">
           <div class="tdx-grp-label">动画信息</div>
@@ -464,7 +464,7 @@
       <div class="gjson"><span class="c">// 一支动画的骨架</span><br>{ <span class="k">"name"</span>: <span class="s">"vas"</span>, <span class="k">"category"</span>: <span class="s">"Idle"</span>,<br>&nbsp;&nbsp;<span class="k">"palette"</span>: [<span class="s">"transparent"</span>, <span class="s">"#F4ECE0"</span>, <span class="s">"#C471F5"</span>, <span class="s">"#4A9EFF"</span>],<br>&nbsp;&nbsp;<span class="k">"frames"</span>: [ { <span class="k">"hold"</span>: 125, <span class="k">"grid"</span>: [ [0,0,1,1,0,0], … ] }, … ] }</div>
       <div class="gflow">
         <div class="gflow-step"><span class="gflow-no">01</span><span class="gflow-t">起个头</span><span class="gflow-d">自己画两三格，把角色、配色、节奏定下来。空白的开头 AI 帮不上忙，它需要看到你要什么。</span></div>
-        <div class="gflow-step"><span class="gflow-no">02</span><span class="gflow-t">复制</span><span class="gflow-d">按「复制」，整支动画进剪贴板。</span></div>
+        <div class="gflow-step"><span class="gflow-no">02</span><span class="gflow-t">拷贝</span><span class="gflow-d">按「拷贝」，整支动画进剪贴板。</span></div>
         <div class="gflow-step"><span class="gflow-no">03</span><span class="gflow-t">交给 AI</span><span class="gflow-d">贴给它，说你要什么——补几格中间动作、把颜色收进 36 色、做一个左右对称的版本。</span></div>
         <div class="gflow-step"><span class="gflow-no">04</span><span class="gflow-t">贴回来</span><span class="gflow-d">按「粘贴」导入，在预览里看它动。不对就再说一次——每一轮都是可逆的。</span></div>
       </div>

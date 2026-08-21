@@ -712,7 +712,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 
     <section class="docs-section" id="recognition">
       <h2>Reconocimiento de texto (Portapapeles · ⌘V)</h2>
-      <p>Arrastra para seleccionar un área <strong>en el editor</strong> y VAS usa el motor Vision de macOS para reconocer el texto <strong>de forma local</strong> — con soporte para chino, inglés y japonés.</p>
+      <p>Arrastra para seleccionar un área <strong>en el editor</strong> y VAS usa el motor Vision de macOS para reconocer el texto <strong>de forma local</strong> — el idioma se detecta automáticamente.</p>
       <p>El texto reconocido <strong>va directo a tu portapapeles de forma predeterminada</strong> — después de una captura, pulsa <span class="docs-kbd">⌘V</span> en cualquier lugar para pegarlo. Sin volver a teclear a mano una línea de registro o un mensaje de error.</p>
       <ul class="docs-list">
         <li><strong>en el dispositivo</strong> — sin subidas, sin servidor. Tu captura de pantalla y su texto reconocido permanecen solo en tu Mac.</li>
@@ -769,7 +769,7 @@ Nombre: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><
     <section class="docs-section" id="qrcode">
       <h2>Escaneo de código QR (comportamiento según la cobertura del encuadre)</h2>
       <p>Escanear un código QR parece binario en la superficie — aciertas o fallas. Pero VAS no lo ve así: lee <strong>tu intención</strong> y decide el siguiente paso a partir de ahí.</p>
-      <p>Cuando quieres una lectura precisa, encuadras el código QR de forma natural <strong>completo y lo más ajustado posible</strong> — ese acto es en sí mismo una declaración de intención. Cuanto más lleno esté el encuadre, más precisa es la lectura y mayor la confianza, y más se atreve la herramienta a actuar directamente. Como la intención es clara en el momento en que lo encuadras, la detección de QR <strong>se activa directamente desde la captura de Región de la barra de herramientas</strong> — sin necesidad de abrir el editor.</p>
+      <p>Cuando quieres una lectura precisa, encuadras el código QR de forma natural <strong>completo y lo más ajustado posible</strong> — ese acto es en sí mismo una declaración de intención. Cuanto más lleno esté el encuadre, más precisa es la lectura y mayor la confianza, y más se atreve la herramienta a actuar directamente. Como la intención es clara en el momento en que lo encuadras, la detección de QR <strong>se activa directamente desde la captura de Área de la barra de herramientas</strong> — sin necesidad de abrir el editor.</p>
       <p class="g-section-sub" style="margin-top:28px">Una herramienta no debería fingir una certeza que no tiene</p>
       <div class="qr-tier-label">CÓDIGO QR — COBERTURA DEL ENCUADRE → COMPORTAMIENTO</div>
       <div class="qr-tiers">
@@ -968,7 +968,7 @@ Nombre: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><
 
   // ── tooltip / 選單標籤在地化（跟頁面語系走；zh-Hant 為 HTML 內建預設） ──
   var I18N = {
-    'es':      { fullscreen:'Pantalla completa', window:'Ventana', region:'Región', scroll_capture:'Captura larga', color:'Selector de color', ruler:'Regla', open:'Abrir', whiteboard:'Lienzo', more:'Más', help:'Atajos de teclado', delay_capture:'Captura retardada', batch:'Lote' },
+    'es':      { fullscreen:'Pantalla completa', window:'Ventana', region:'Área', scroll_capture:'Captura larga', color:'Selector de color', ruler:'Regla', open:'Abrir', whiteboard:'Lienzo', more:'Más', help:'Atajos de teclado', delay_capture:'Captura con retardo', batch:'Lote' },
     'en':      { fullscreen:'Fullscreen', window:'Window', region:'Region', scroll_capture:'Long Screenshot', color:'Color Picker', ruler:'Ruler', open:'Open', whiteboard:'Canvas', more:'More', help:'Keyboard Shortcuts', delay_capture:'Delayed Capture', batch:'Batch' },
     'ja':      { fullscreen:'全画面', window:'ウィンドウ', region:'矩形', scroll_capture:'ロングスクリーンショット', color:'カラーピッカー', ruler:'定規', open:'開く', whiteboard:'キャンバス', more:'その他', help:'キーボードショートカット', delay_capture:'遅延キャプチャ', batch:'一括変換' },
     'zh-Hans': { fullscreen:'全屏', window:'窗口', region:'矩形', scroll_capture:'长截图', color:'取色器', ruler:'标尺', open:'打开', whiteboard:'白板', more:'更多', help:'快捷键说明', delay_capture:'延迟截图', batch:'批量转' }

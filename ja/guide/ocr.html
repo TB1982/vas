@@ -712,7 +712,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 
     <section class="docs-section" id="recognition">
       <h2>テキスト認識（クリップボード · ⌘V）</h2>
-      <p><strong>エディター内</strong>で画面の一部をドラッグして選択すると、VAS が macOS の Vision エンジンで、その中の文字を<strong>ローカル</strong>で認識します。日本語・英語・中国語に対応。</p>
+      <p><strong>エディター内</strong>で画面の一部をドラッグして選択すると、VAS が macOS の Vision エンジンで、その中の文字を<strong>ローカル</strong>で認識します。言語は自動で判別されます。</p>
       <p>認識した文字は<strong>そのままクリップボードに入る</strong>のがデフォルト——スクショを撮ったら、どこでも <span class="docs-kbd">⌘V</span> で貼り付け。ログの一行も、エラーメッセージも、手で書き写す必要はありません。</p>
       <ul class="docs-list">
         <li><strong>オンデバイス</strong> — アップロードもサーバー経由もしません。スクリーンショットも認識結果も、あなたの Mac の中だけに。</li>
@@ -751,7 +751,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             <div class="pm-card-h">個人情報シート</div>
             氏名：山田太郎<br>マイナンバー：1234 5678 9012<br>生年月日：1990/05/15<br>電話番号：090-1234-5678<br>Email：taro@example.co.jp<br>住所：東京都渋谷区神南 1-2-3<br>クレジットカード：4532-1234-5678-9012
           </div>
-          <div class="pm-arrow">⇧K<br>一鍵遮蔽 →</div>
+          <div class="pm-arrow">⇧K<br>ワンタッチマスク →</div>
           <div class="pm-card">
             <div class="pm-card-h">個人情報シート</div>
 氏名：<span class="pm-mask">山田太郎</span><br>マイナンバー：<span class="pm-sel"><span class="pm-mask">1234 5678 9012</span><i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i></span><br>生年月日：<span class="pm-mask">1990/05/15</span><br>電話番号：<span class="pm-mask">090-1234-5678</span><br>Email：<span class="pm-mask">taro@example.co.jp</span><br>住所：<span class="pm-mask">東京都渋谷区神南 1-2-3</span><br>クレジットカード：<span class="pm-mask">4532-1234-5678-9012</span>
@@ -769,7 +769,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <section class="docs-section" id="qrcode">
       <h2>QR コードスキャン（フレーム占有率で挙動が変わる）</h2>
       <p>QR コードのスキャンは、表面的には「読めた／読めない」の二択に見えます。でも VAS はそう見ません——見ているのは<strong>あなたの意図</strong>、それに応じて次の一手を決めます。</p>
-      <p>正確に検出したいとき、人は自然と QR コードを<strong>丸ごと、できるだけそれだけ</strong>フレームに収めます——この動作そのものが意図の宣言です。フレームいっぱいに収めるほど認識は正確になり、信頼度も上がり、ツールは迷わず行動します。意図がフレーム選択の瞬間に明確だからこそ、QR 検出はツールバーの矩形スクリーンショットで<strong>直接トリガー</strong>され、エディターに入る必要もありません。</p>
+      <p>正確に検出したいとき、人は自然と QR コードを<strong>丸ごと、できるだけそれだけ</strong>フレームに収めます——この動作そのものが意図の宣言です。フレームいっぱいに収めるほど認識は正確になり、信頼度も上がり、ツールは迷わず行動します。意図がフレーム選択の瞬間に明確だからこそ、QR 検出はツールバーの矩形選択キャプチャで<strong>直接トリガー</strong>され、エディターに入る必要もありません。</p>
       <p class="g-section-sub" style="margin-top:28px">ツールは、確信がないときに確信のあるふりをしません</p>
       <div class="qr-tier-label">QR コードのフレーム占有率と挙動ロジック</div>
       <div class="qr-tiers">

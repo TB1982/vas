@@ -914,8 +914,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     var groups=decide(MAP[railTool]!==undefined?MAP[railTool]:'');
     groups.forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('hidden')});
     if(hint){
-      if(railTool==='select'){hint.textContent='選取工具：點畫布上的物件，即顯示該物件的所有屬性';hint.style.display='';}
-      else if(groups.length===0){hint.textContent='此工具為畫布／版面操作，無可調屬性';hint.style.display='';}
+      if(railTool==='select'){hint.textContent='Herramienta Seleccionar: haz clic en un objeto del lienzo para ver todas sus propiedades';hint.style.display='';}
+      else if(groups.length===0){hint.textContent='Esta herramienta opera sobre el lienzo o la composición — sin propiedades ajustables';hint.style.display='';}
       else hint.style.display='none';
     }
     showDoc(railTool);

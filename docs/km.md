@@ -495,3 +495,15 @@ f-string 漏前綴屬於「新字串本身錯」，count 檢查天生盲。
 ---
 
 *遇到坑才記，記了就不用再踩第二次。*
+
+## #17 · 2026-08-21 · Usage limit 撞牆時多 agent 並行工程的斷頭復原
+
+**現象**:六 agent 並行修多章時撞 session usage limit,三個 agent 死在半路(editor 只完成 zh/cn、arrange 剛起步、shortcuts 已改完但未自檢),工作區留下半成品。使用者按 Try again 後,被中斷輪的另一延續已把三章(pixel/toolbar/OCR)做完、commit 並 push——復原時先 `git status` + `git log` 盤點,發現「以為沒做的已經做完」與「以為做完的只做一半」並存。
+
+**復原模式(有效)**:
+1. 先盤點,不先動手:`git status --short` + `git log --oneline` 對照任務清單,分出「已 commit / 半成品 / 未動」三類。
+2. 接力 agent 用「verify-and-complete」而非重做:明示「前任已改部分在工作區,驗證勿還原,補缺即可」,並附完整 checklist 讓其逐項核對。
+3. 已完成且不會再被動到的章,立即分章 commit(縮小未提交面、stop-hook 也安靜)。
+4. 死前「已改完未自檢」的 agent 產出要當未驗貨:shortcuts 全數正確,但必須驗過才知道。
+
+**教訓**:並行 fan-out 前,任務切分以「檔案不重疊+單章可獨立 commit」為單位,斷頭時每章都是乾淨的復原邊界。Agent 指示「不碰 git」要含唯讀指令(有 agent 自首跑了 git status)。
