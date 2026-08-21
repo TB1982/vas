@@ -335,15 +335,14 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 
 ## 13 · App UI terminology alignment (locked 2026-08-21, 三方核對)
 
-**Authority**: for any term naming an app UI element (tool names, button labels, panel names, quoted UI strings), the source of truth is **`docs/app-i18n-table.md`** — a generated export of the app's actual `src/i18n/*.js` strings (5 languages). Do not hand-edit that file; when the app's strings change, Nova brings a fresh export from the app repo. When guide pages quote or mock the UI, copy the app value verbatim. Divergences are REPORTED first, never fixed unilaterally — either side may be the correct one.
+**Authority**: for any term naming an app UI element (tool names, button labels, panel names, quoted UI strings), the source of truth is **`docs/app-i18n-table.md`** — a generated export of the app's actual `src/i18n/*.js` strings (5 languages). Do not hand-edit that file. It is a snapshot and goes stale as soon as the app ships: a fresh export arrives with every app release and is diffed on arrival — see **CLAUDE-process.md § App Terminology Sync Protocol** for how to handle it. When guide pages quote or mock the UI, copy the app value verbatim. Divergences are REPORTED first, never fixed unilaterally — either side may be the correct one.
 
 **Decisions locked 2026-08-21** (after full app × guide cross-check):
 - **es**: capture-region term is the **Área** family (`Selección de área` / `Captura de área`), never *Región*. Tool names follow `tool_*`: Lápiz, Globo de texto, Selección por marco, Ampliar lienzo, Objeto 3D, Alambre. Custom styles = **Estilos propios**.
 - **cn**: screenshot noun is **截图** (never 截屏); full-screen is **全屏** (never 全屏幕); drag verb in UI prompts is **拖拽**.
-- **cn copy verb — two words, by role** (app side settled 2026-08-21, nine keys changed): a **button or menu item** is **拷贝**, following macOS convention; a sentence describing a **completed action** (the toasts: 已复制到剪贴板 etc.) stays **复制**. So the guide writes 「拷贝」 whenever it names or mocks the control, and 复制 when narrating that something was copied. Note: `docs/app-i18n-table.md` predates this change and still shows 复制 for those button keys — the rule above wins until a fresh export arrives.
+- **cn copy verb — two words, by role** (app side settled 2026-08-21, nine keys changed): a **button or menu item** is **拷贝**, following macOS convention; a sentence describing a **completed action** (the toasts: 已复制到剪贴板 etc.) stays **复制**. So the guide writes 「拷贝」 whenever it names or mocks the control, and 复制 when narrating that something was copied. (Confirmed in the second export: the nine button keys now read 拷贝; the toasts still read 复制.)
 - **ja**: capture-mode names use the app's **キャプチャ** forms (全画面キャプチャ / ウィンドウキャプチャ / 矩形選択キャプチャ); long capture = ロングスクリーンショット. Generic スクリーンショット for "a screenshot (image)" in prose is fine.
 - **Smart guides**: narrative prose may say 磁吸/snapping, but the app's official name (智慧導線 / 智能导线 / スマートガイド / Smart Guides / Guías inteligentes) must appear at each section's first mention, and any quoted toggle/button uses the app value.
-- **OCR languages**: the app now recognizes **中・英・日・西** — all locale pages state four languages (updated 2026-08-21).
 
 **Resolved at the Tauri sync, 2026-08-21**:
 - Save button — app keeps the asymmetry on purpose (button width): zh **完成並儲存** / cn **完成并保存**, but en **Save** / ja **保存** / es **Guardar**. The guide copies the app value per locale; do not "harmonize" the three short ones back to the long form.
@@ -351,7 +350,6 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 - OCR languages — the paid build runs Apple Vision with automatic language detection; the `ocr_dl_*` strings are dead code for a dialog that never opens and must **not** be treated as the authority on language coverage. The guide therefore names **no language list at all**: it says the language is detected automatically (語言自動偵測 / 语言自动检测 / 言語は自動で判別されます / detected automatically / se detecta automáticamente). Do not reintroduce an enumerated list — it will always understate what Vision handles.
 - Ruler is **two different tools** — do not unify them. The toolbar's screen ruler is `ruler` (标尺 / 尺標 / 定規 / Ruler / Regla); the annotation editor's measuring tool is `tool_measure` (尺标 / 尺標 / 定規 / Measure / Medir). They differ in cn (标尺 vs 尺标) and en/es (Ruler·Regla vs Measure·Medir) but collide in zh-Hant and ja, which is why they look like drift and are not.
 - The five help-panel names that used to disagree with the tool tooltips (pencil / marquee / ruler / fill / stamp) were reconciled app-side **toward `tool_*`**, which is the side the guide already followed per **docs/toolnamemap.md**. No web change was needed.
-
 - ja sensitive-info wording — the app adopted the guide's **機微情報** (the idiomatic term in Japanese privacy law) in its privacy toasts, replacing 機密情報. The guide was already right; leave it.
 
 **Nothing is frozen as of the 2026-08-21 second export.** Every divergence from the cross-check is either applied on the web, applied app-side, or deliberately kept as an asymmetry recorded above.

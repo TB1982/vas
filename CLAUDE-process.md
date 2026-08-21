@@ -264,6 +264,32 @@ Verification: state how many keys you modified.
 
 ---
 
+## App Terminology Sync Protocol
+
+**Why this exists.** The app and this website describe the same product to the same user. The app's UI strings are what the user actually sees and clicks; the guide chapters quote and mock those strings. They live in two repos with no shared build, so they drift silently — and the user finds out by hunting for a button whose name we changed on paper only.
+
+**The artifact.** `docs/app-i18n-table.md` — a generated 5-language export of the app's `src/i18n/*.js`, produced on the app side with `node scripts/dump-i18n-table.mjs`. It is a **snapshot, not a live source**: it goes stale the moment the app changes a string. Never hand-edit it; never assume it is current without checking when it was last exported.
+
+**Trigger (agreed 2026-08-21, part of the app's release checklist).** Every time the app ships, Nova brings a fresh export. Cost scales with actual change: an unchanged release yields an empty diff and costs nothing.
+
+**On receiving a new export — diff it against the archived copy, and sort the findings into three kinds. All three matter; only the first is about wording:**
+
+| Diff shape | What it means | Who acts |
+|---|---|---|
+| Value changed on an existing key | Terminology drift | 宰相 — align the guide pages, same pass |
+| **Key added** | The app grew a feature | **Nova — the manual may be missing a section or chapter.** A scheduling call, not a copy edit |
+| **Key removed** | The app dropped a feature | **Nova — the manual may be teaching something that no longer exists.** The most damaging of the three |
+
+Only the first kind is visible from this side of the fence; a page audit can never surface the other two. That is the whole reason the diff is worth doing.
+
+**Then:** apply the wording changes, run `python3 tools/matrix_audit.py`, commit the refreshed table **in the same commit** as the page changes it justified, and lock any newly decided term into **GLOSSARY §13**.
+
+**Direction of alignment.** The app is product reality and is normally the anchor — the guide aligns to it. But not always: report divergences to Nova, never fix unilaterally. Either side may be the correct one (the app is constrained by button width; the guide can be more precise). In the 2026-08 cross-check the app moved to the website's wording on four items. Nova arbitrates; app-side changes go through her, not through this repo.
+
+**A trap this protocol does not catch.** Two different UI elements can share a name in one locale and diverge in another — the toolbar's screen ruler (`ruler`, cn 标尺) versus the editor's measure tool (`tool_measure`, cn 尺标) are both 尺標 in zh-Hant. "Unifying" them by string match breaks one of them. When a term looks duplicated, check *which key* each occurrence belongs to before touching it. `matrix_audit` cannot see this — it compares strings, not referents.
+
+---
+
 ## Trickle-Flow Discipline
 
 Applies to the main session — not just Haiku agents.
