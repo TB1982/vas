@@ -16,9 +16,9 @@
 <link rel="icon" href="../../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/cn/guide/ocr">
 <meta name="description"
-      content="VAS OCR 文字识别：本机（on-device）识别截屏文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。" />
-<meta property="og:title" content="Mac 截屏 OCR 文字识别、隐私遮蔽与 QR Code 扫描 | VAS 操作手册">
-<meta property="og:description" content="VAS OCR 文字识别：本机（on-device）识别截屏文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。">
+      content="VAS OCR 文字识别：本机（on-device）识别截图文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。" />
+<meta property="og:title" content="Mac 截图 OCR 文字识别、隐私遮蔽与 QR Code 扫描 | VAS 操作手册">
+<meta property="og:description" content="VAS OCR 文字识别：本机（on-device）识别截图文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/cn/guide/ocr">
 <meta property="og:locale" content="zh_CN">
@@ -30,8 +30,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share-cn.webp">
 <meta name="twitter:image:alt" content="VAS 操作手册 — 一台可以握住的工具，一本可以操作的手册">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mac 截屏 OCR 文字识别、隐私遮蔽与 QR Code 扫描 | VAS 操作手册">
-<meta name="twitter:description" content="VAS OCR 文字识别：本机（on-device）识别截屏文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。">
+<meta name="twitter:title" content="Mac 截图 OCR 文字识别、隐私遮蔽与 QR Code 扫描 | VAS 操作手册">
+<meta name="twitter:description" content="VAS OCR 文字识别：本机（on-device）识别截图文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。">
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -288,7 +288,7 @@
     .tbz-stage { padding: 58px 10px 42px; overflow-x: auto; justify-content: flex-start; }
   }
 
-  /* ═══ 交互编辑器 · 活的编辑器接口（取代静态截屏） ═══
+  /* ═══ 交互编辑器 · 活的编辑器接口（取代静态截图） ═══
      真品四区：左侧工具栏 / 顶部子属性列 / 右下拖动导出 / 左下状态栏。
      左侧工具可点 → 蓝色高亮 + 顶部子属性列跟着换 + 跳出功能说明弹窗。 */
   .gedm { margin: 4px 0 6px; }
@@ -707,15 +707,15 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <section class="docs-section" id="ocr-top">
       <div class="docs-section-kicker">手册 · 03 — OCR · Recognition</div>
       <h1>OCR 文字识别</h1>
-      <div class="docs-dek">截屏不只是为了画。VAS 在你的 Mac 本机读出画面里的字、遮掉不该外流的信息、扫出 QR Code 背后的意图——三件事，都不上云。</div>
+      <div class="docs-dek">截图不只是为了画。VAS 在你的 Mac 本机读出画面里的字、遮掉不该外流的信息、扫出 QR Code 背后的意图——三件事，都不上云。</div>
     </section>
 
     <section class="docs-section" id="recognition">
       <h2>文字识别（剪贴板 · ⌘V）</h2>
-      <p>拖动选取<strong>编辑器中</strong>画面上的一块区域，VAS 以 macOS 的 Vision 引擎在<strong>本机</strong>识别其中的文字，中英日文皆可。</p>
+      <p>拖拽选取<strong>编辑器中</strong>画面上的一块区域，VAS 以 macOS 的 Vision 引擎在<strong>本机</strong>识别其中的文字，中英日西文皆可。</p>
       <p>识别出的文字<strong>默认直接进剪贴板</strong>——截完图，到任何地方按 <span class="docs-kbd">⌘V</span> 就粘贴，不用手抄一行 log、一段错误消息。</p>
       <ul class="docs-list">
-        <li><strong>on-device</strong>——不上传、不经服务器。你的截屏与识别结果，只在你的 Mac 上。</li>
+        <li><strong>on-device</strong>——不上传、不经服务器。你的截图与识别结果，只在你的 Mac 上。</li>
       </ul>
       <div class="tr-fig">
         <div class="tr-shot">
@@ -769,7 +769,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <section class="docs-section" id="qrcode">
       <h2>QR Code 扫描（依画面占比决定行为）</h2>
       <p>扫 QR Code 表面上只有「扫到／没扫到」两种结果。但 VAS 不这样看——它看的是<strong>你的意图</strong>，再据此决定下一步。</p>
-      <p>当你想精准检测，自然会把 QR Code <strong>完整、且尽量只框住它</strong>——这个动作本身就是意图的声明。框得越满，识别越准、信心度越高，工具越敢直接行动。也因为意图在框选当下就明确，QR 检测<strong>直接在工具栏的矩形截屏触发</strong>，不必进编辑器。</p>
+      <p>当你想精准检测，自然会把 QR Code <strong>完整、且尽量只框住它</strong>——这个动作本身就是意图的声明。框得越满，识别越准、信心度越高，工具越敢直接行动。也因为意图在框选当下就明确，QR 检测<strong>直接在工具栏的矩形截图触发</strong>，不必进编辑器。</p>
       <p class="g-section-sub" style="margin-top:28px">工具不在自己不确定时假装确定</p>
       <div class="qr-tier-label">QR CODE 占框选面积对应行为逻辑</div>
       <div class="qr-tiers">
@@ -928,7 +928,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 }());
 </script>
 
-<!-- ═══ 交互工具栏 · 截屏模式切换 / 更多菜单 / 延迟 / tooltip 在地化 + 呼吸灯生命周期 ═══ -->
+<!-- ═══ 交互工具栏 · 截图模式切换 / 更多菜单 / 延迟 / tooltip 在地化 + 呼吸灯生命周期 ═══ -->
 <script>
 (function () {
   // ── 通用工具栏交互（套用到所有 .tbz-bar，含呼吸灯召唤出的那条） ──
@@ -1089,8 +1089,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Mac 截屏 OCR 文字识别、隐私遮蔽与 QR Code 扫描 | VAS 操作手册",
-  "description": "VAS OCR 文字识别：本机（on-device）识别截屏文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。",
+  "headline": "Mac 截图 OCR 文字识别、隐私遮蔽与 QR Code 扫描 | VAS 操作手册",
+  "description": "VAS OCR 文字识别：本机（on-device）识别截图文字直接进剪贴板、自动隐私遮蔽特化（各国格式）、依画面占比决定行为的 QR Code 扫描。",
   "inLanguage": "zh-Hans",
   "url": "https://yoursvas.app/cn/guide/ocr",
   "datePublished": "2026-04-01",
