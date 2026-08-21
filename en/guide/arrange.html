@@ -719,7 +719,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     <section class="docs-section ar-two" id="snap">
       <div class="ar-text">
       <h2>Smart Snap &amp; Guides</h2>
-      <p>As you move an object, VAS surfaces guides to help you align — no shaky hand-aiming.</p>
+      <p>As you move an object, VAS surfaces guides (in-app feature name: Smart Guides) to help you align — no shaky hand-aiming.</p>
       <ul class="docs-list">
         <li><strong>Blue lines</strong> — appear when an object's edge or center aligns to another object or the canvas center line.</li>
         <li><strong>Red lines</strong> — equal-spacing guides; they light up when three or more objects are evenly spaced, for gauging layout rhythm.</li>
@@ -914,8 +914,8 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
     var groups=decide(MAP[railTool]!==undefined?MAP[railTool]:'');
     groups.forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('hidden')});
     if(hint){
-      if(railTool==='select'){hint.textContent='選取工具：點畫布上的物件，即顯示該物件的所有屬性';hint.style.display='';}
-      else if(groups.length===0){hint.textContent='此工具為畫布／版面操作，無可調屬性';hint.style.display='';}
+      if(railTool==='select'){hint.textContent='Select tool: click an object on the canvas to reveal all of its properties';hint.style.display='';}
+      else if(groups.length===0){hint.textContent='This tool operates on the canvas / layout — no adjustable properties';hint.style.display='';}
       else hint.style.display='none';
     }
     showDoc(railTool);
@@ -931,10 +931,10 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   if(def){def.classList.add('on'); apply('rect');}
 
   var REG={
-    menu:{sel:'.gedm-rail',c:'#f87171',n:'主要功能選單',d:'左側垂直工具列。點工具切換，目前使用中的工具以藍色高亮。'},
-    props:{sel:'.gedm-top',c:'#fb923c',n:'子屬性調整選單',d:'頂部工具列，依所選工具動態更換，可調顏色、粗細、透明度、線條樣式等屬性。'},
-    export:{sel:'.gedm-export',c:'#e8e8e8',n:'動態匯出按鈕',d:'右下角浮動鈕，可拖曳移位（對應左右撇子），完成後拖到目標 App 即匯出。'},
-    status:{sel:'.gedm-status',c:'#4ade80',n:'狀態列與磁吸開關',d:'左下角：目前縮放比例、畫布尺寸，與磁吸對齊智慧導線開關。'}
+    menu:{sel:'.gedm-rail',c:'#f87171',n:'Main tool menu',d:'The vertical toolbar on the left. Click a tool to switch; the active tool is highlighted in blue.'},
+    props:{sel:'.gedm-top',c:'#fb923c',n:'Sub-property menu',d:'The top toolbar, which changes with the selected tool — adjust color, thickness, opacity, line style and more.'},
+    export:{sel:'.gedm-export',c:'#e8e8e8',n:'Dynamic export button',d:'A floating button at the bottom right; drag it to reposition (for right- or left-handers), then drop it onto the target app to export.'},
+    status:{sel:'.gedm-status',c:'#4ade80',n:'Status bar & snap toggle',d:'Bottom left: current zoom, canvas size, and the snap-alignment Smart Guides toggle.'}
   };
   var rlabel=document.getElementById('gedmRLabel');
   Object.keys(REG).forEach(function(r){
