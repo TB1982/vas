@@ -272,7 +272,7 @@
           </div>
           <div class="gpx-body">
             <div class="gpx-col gpx-left">
-              <div class="gpx-head"><span class="gpx-lbl">Vista previa en el dispositivo</span><span class="gpx-hint">500 ms · 40.0 vueltas por 20 s</span></div>
+              <div class="gpx-head"><span class="gpx-lbl">Vista previa del dispositivo</span><span class="gpx-hint">500 ms · 40.0 vueltas por 20 s</span></div>
               <img class="gpx-pv" src="../../img/px-f3.svg" alt="Vista previa del splash a pantalla completa">
               <div class="gpx-hint">Splash a pantalla completa · 6 px por celda</div>
               <div class="gpx-pvrow">
@@ -280,7 +280,7 @@
                 <button class="gpx-btn" style="flex:1;height:38px">▶ Reproducir</button>
               </div>
               <div class="gpx-hint">Insignia de esquina · 2 px por celda</div>
-              <div class="gpx-hint ok">✓ Encaja en el borde de la ranura</div>
+              <div class="gpx-hint ok">✓ Encaja justo en el intervalo</div>
               <div class="gpx-sep"></div>
               <span class="gpx-lbl">Archivo JSON</span>
               <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">Pegar</button><button class="gpx-btn" style="flex:1">Copiar</button><button class="gpx-btn" style="flex:1">Guardar</button></div>
@@ -314,11 +314,11 @@
                 <span style="background:#FFD9F2"><i style="color:#3a3a3a">51</i></span>
                 <span class="sel" style="background:#8000FF"><i>88</i></span>
               </div>
-              <div class="gpx-hint warn">⚠️ Mantén los colores vivos — el panel del dispositivo es negro puro, los colores oscuros desaparecen</div>
+              <div class="gpx-hint warn">⚠️ Usa colores vivos — el panel del dispositivo es negro puro y los colores oscuros desaparecen</div>
               <div class="gpx-sep"></div>
               <span class="gpx-lbl">Elige un color</span>
               <img class="gpx-grid" src="../../img/px-palette.svg" alt="Paleta integrada de 256 colores">
-              <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">Añadir</button><button class="gpx-btn" style="width:42px;height:30px">Sustituir</button></div>
+              <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">Añadir</button><button class="gpx-btn" style="width:42px;height:30px">Reemplazar</button></div>
             </div>
           </div>
           <div class="gpx-status">
@@ -332,7 +332,7 @@
       </div>
 
       <div class="gpz" id="gpxZones">
-        <div class="gpz-item" data-zone="left"><span class="gpz-dot" style="background:#f87171"></span><span><span class="gpz-n">Columna izquierda · Vista previa en el dispositivo y exportar/importar</span><span class="gpz-d">Cómo se reproduce realmente en el dispositivo, la reproducción, cuántas vueltas puede dar una animación de 20 segundos por defecto, y pegar / copiar / guardar el JSON además de la información de la animación.</span></span></div>
+        <div class="gpz-item" data-zone="left"><span class="gpz-dot" style="background:#f87171"></span><span><span class="gpz-n">Columna izquierda · Vista previa del dispositivo y exportar/importar</span><span class="gpz-d">Cómo se reproduce realmente en el dispositivo, la reproducción, cuántas vueltas puede dar una animación de 20 segundos por defecto, y pegar / copiar / guardar el JSON además de la información de la animación.</span></span></div>
         <div class="gpz-item" data-zone="canvas"><span class="gpz-dot" style="background:#4a9eff"></span><span><span class="gpz-n">Centro · Lienzo</span><span class="gpz-d">Un fondo negro puro con una cuadrícula, dibujado celda a celda. Las líneas de la cuadrícula y el papel cebolla son aquí solo ayudas de referencia — nunca aparecen en la salida del dispositivo.</span></span></div>
         <div class="gpz-item" data-zone="right"><span class="gpz-dot" style="background:#4ade80"></span><span><span class="gpz-n">Columna derecha · Fotogramas y colores</span><span class="gpz-d">La tira de fotogramas, los milisegundos por fotograma ajustables en pasos de 20 ms, un tope de 36 colores por animación, y el selector integrado de 256 colores.</span></span></div>
         <div class="gpz-item" data-zone="status"><span class="gpz-dot gpz-dot-w"></span><span><span class="gpz-n">Barra inferior · Zoom y guardar</span><span class="gpz-d">Muestra el zoom actual y el tamaño de la cuadrícula; «Finalizar y guardar» te permite guardar un solo fotograma como imagen o como archivo JSON.</span></span></div>
@@ -374,7 +374,7 @@
           <div class="tdx-grp-label">Interruptor</div>
           <details class="tdx">
             <summary><span class="tdx-ic">◨</span><span class="tdx-t">Papel cebolla</span><span class="tdx-k">activo por defecto</span></summary>
-            <div class="tdx-body"><p class="tm-p">Superpone tenuemente el <strong>fotograma anterior</strong> bajo el actual, para que veas dónde terminó el movimiento del último fotograma. El primer fotograma muestra debajo el último — como la animación se repite en bucle, el «fotograma anterior» del primero es el último.</p><p class="tm-p">Solo el lienzo dibuja el papel cebolla. La vista previa en el dispositivo deliberadamente no lo hace: está pensada para mostrar exactamente lo que el dispositivo va a encender.</p></div>
+            <div class="tdx-body"><p class="tm-p">Superpone tenuemente el <strong>fotograma anterior</strong> bajo el actual, para que veas dónde terminó el movimiento del último fotograma. El primer fotograma muestra debajo el último — como la animación se repite en bucle, el «fotograma anterior» del primero es el último.</p><p class="tm-p">Solo el lienzo dibuja el papel cebolla. La vista previa del dispositivo deliberadamente no lo hace: está pensada para mostrar exactamente lo que el dispositivo va a encender.</p></div>
           </details>
         </div>
       </div>
@@ -398,14 +398,14 @@
       <p>Debajo, «Elige un color» es la <strong>paleta integrada de 256 colores</strong>: 16 tonos de gris, más 24 matices × diez variantes (cinco apagadas, cinco vivas, cada una en cinco niveles de brillo). El brillo deliberadamente no llega a ninguno de los dos extremos — demasiado oscuro es invisible en el panel negro puro, y el blanco puro ya está en la fila de grises.</p>
       <div class="tdict">
         <div class="tdict-grp">
-          <div class="tdx-grp-label">Añadir vs Sustituir</div>
+          <div class="tdx-grp-label">Añadir vs Reemplazar</div>
           <details class="tdx">
             <summary><span class="tdx-ic">＋</span><span class="tdx-t">Añadir</span></summary>
             <div class="tdx-body"><p class="tm-p">Añade este color a «Colores de esta animación» y lo selecciona. Un color que ya está en uso simplemente se selecciona al hacer clic — no ocupa una segunda plaza.</p></div>
           </details>
           <details class="tdx">
-            <summary><span class="tdx-ic">⇄</span><span class="tdx-t">Sustituir</span></summary>
-            <div class="tdx-body"><p class="tm-p">Cambia la <strong>muestra seleccionada en ese momento</strong> por un color nuevo — cada celda de la imagen que lo usa cambia a la vez. Úsalo cuando las plazas están llenas, o cuando quieres desplazar la paleta entera. </p><p class="tm-p">El índice 0 es transparente y no se puede sustituir por un color.</p></div>
+            <summary><span class="tdx-ic">⇄</span><span class="tdx-t">Reemplazar</span></summary>
+            <div class="tdx-body"><p class="tm-p">Cambia la <strong>muestra seleccionada en ese momento</strong> por un color nuevo — cada celda de la imagen que lo usa cambia a la vez. Úsalo cuando las plazas están llenas, o cuando quieres desplazar la paleta entera. </p><p class="tm-p">El índice 0 es transparente y no se puede reemplazar por un color.</p></div>
           </details>
         </div>
       </div>
@@ -423,7 +423,7 @@
     </section>
 
     <section class="docs-section" id="preview">
-      <h2>Vista previa en el dispositivo y el límite de animación de 20 segundos</h2>
+      <h2>Vista previa del dispositivo y el límite de animación de 20 segundos</h2>
       <p>La misma animación aparece en dos lugares del dispositivo, así que aquí obtienes dos tamaños de vista previa a la vez:</p>
       <ul class="docs-list">
         <li><strong>Splash a pantalla completa</strong> — llena todo el panel al arrancar o en reposo.</li>
@@ -433,7 +433,7 @@
       <p class="g-section-sub" style="margin-top:32px">Cómo leer los números</p>
       <p>El dispositivo da a cada animación una rotación fija de 20 segundos. El editor convierte «milisegundos por fotograma × número de fotogramas» en cuántas vueltas caben en 20 segundos, y luego te dice si se corta. La imagen de arriba son dos fotogramas de 125 ms cada uno — una vuelta son 250 ms, y 20 segundos son exactamente 80 vueltas — así que muestra el primer estado de abajo.</p>
       <div class="gslot">
-        <div class="gslot-row ok"><span class="gslot-k">✓ Encaja en el borde de la ranura</span><span>La vuelta completa termina antes de que empiece la siguiente — el aspecto más limpio.</span></div>
+        <div class="gslot-row ok"><span class="gslot-k">✓ Encaja justo en el intervalo</span><span>La vuelta completa termina antes de que empiece la siguiente — el aspecto más limpio.</span></div>
         <div class="gslot-row cut"><span class="gslot-k">⚠️ El dispositivo la corta en el fotograma N (X% de más)</span><span>La última vuelta se cambia a la mitad. El editor ofrece un conjunto de tiempos candidatos — un clic y queda arreglado.</span></div>
       </div>
       <p class="gpx-caption">Que se corte o no no es correcto ni incorrecto, es un compromiso. A algunas animaciones no les importa cortarse a media vuelta (una escena de lluvia, por ejemplo), otras quedan arruinadas por ello (un fuego artificial que estalla a la mitad) — así que el editor solo te dice los hechos, no decide por ti.</p>
