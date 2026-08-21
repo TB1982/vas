@@ -333,6 +333,21 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 
 ---
 
+## 13 · App UI terminology alignment (locked 2026-08-21, 三方核對)
+
+**Authority**: for any term naming an app UI element (tool names, button labels, panel names, quoted UI strings), the source of truth is **`docs/app-i18n-table.md`** — a generated export of the app's actual `src/i18n/*.js` strings (5 languages). Do not hand-edit that file; when the app's strings change, Nova brings a fresh export from the app repo. When guide pages quote or mock the UI, copy the app value verbatim. Divergences are REPORTED first, never fixed unilaterally — either side may be the correct one.
+
+**Decisions locked 2026-08-21** (after full app × guide cross-check):
+- **es**: capture-region term is the **Área** family (`Selección de área` / `Captura de área`), never *Región*. Tool names follow `tool_*`: Lápiz, Globo de texto, Selección por marco, Ampliar lienzo, Objeto 3D, Alambre. Custom styles = **Estilos propios**.
+- **cn**: screenshot noun is **截图** (never 截屏); full-screen is **全屏** (never 全屏幕); drag verb in UI prompts is **拖拽**; copy verb is **拷贝** — app is switching 复制→拷贝 to follow macOS convention, web already writes 拷贝 (do not "fix" back to 复制).
+- **ja**: capture-mode names use the app's **キャプチャ** forms (全画面キャプチャ / ウィンドウキャプチャ / 矩形選択キャプチャ); long capture = ロングスクリーンショット. Generic スクリーンショット for "a screenshot (image)" in prose is fine.
+- **Smart guides**: narrative prose may say 磁吸/snapping, but the app's official name (智慧導線 / 智能导线 / スマートガイド / Smart Guides / Guías inteligentes) must appear at each section's first mention, and any quoted toggle/button uses the app value.
+- **OCR languages**: the app now recognizes **中・英・日・西** — all locale pages state four languages (updated 2026-08-21).
+
+**Frozen pending app-side decision (do NOT touch on the web until Nova returns from Tauri sync)**: en/ja/es save-button wording (web "Done & Save" family vs app "Save" family); es `fullscreen` "Pantalla" (app value likely to change to Pantalla completa); ja 機微/機密情報; es `tool_magnify` (web "Anotación de lupa" vs app "Ampliar anotación"); es kbd Supr vs delete.
+
+---
+
 ## Maintenance
 
 When new translation work introduces a term not in this glossary, add it here AT MERGE TIME. Don't let drift accumulate — the cost of catching it later (in QC) is much higher than locking it now.
