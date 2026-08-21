@@ -339,12 +339,18 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 
 **Decisions locked 2026-08-21** (after full app × guide cross-check):
 - **es**: capture-region term is the **Área** family (`Selección de área` / `Captura de área`), never *Región*. Tool names follow `tool_*`: Lápiz, Globo de texto, Selección por marco, Ampliar lienzo, Objeto 3D, Alambre. Custom styles = **Estilos propios**.
-- **cn**: screenshot noun is **截图** (never 截屏); full-screen is **全屏** (never 全屏幕); drag verb in UI prompts is **拖拽**; copy verb is **拷贝** — app is switching 复制→拷贝 to follow macOS convention, web already writes 拷贝 (do not "fix" back to 复制).
+- **cn**: screenshot noun is **截图** (never 截屏); full-screen is **全屏** (never 全屏幕); drag verb in UI prompts is **拖拽**.
+- **cn copy verb — two words, by role** (app side settled 2026-08-21, nine keys changed): a **button or menu item** is **拷贝**, following macOS convention; a sentence describing a **completed action** (the toasts: 已复制到剪贴板 etc.) stays **复制**. So the guide writes 「拷贝」 whenever it names or mocks the control, and 复制 when narrating that something was copied. Note: `docs/app-i18n-table.md` predates this change and still shows 复制 for those button keys — the rule above wins until a fresh export arrives.
 - **ja**: capture-mode names use the app's **キャプチャ** forms (全画面キャプチャ / ウィンドウキャプチャ / 矩形選択キャプチャ); long capture = ロングスクリーンショット. Generic スクリーンショット for "a screenshot (image)" in prose is fine.
 - **Smart guides**: narrative prose may say 磁吸/snapping, but the app's official name (智慧導線 / 智能导线 / スマートガイド / Smart Guides / Guías inteligentes) must appear at each section's first mention, and any quoted toggle/button uses the app value.
 - **OCR languages**: the app now recognizes **中・英・日・西** — all locale pages state four languages (updated 2026-08-21).
 
-**Frozen pending app-side decision (do NOT touch on the web until Nova returns from Tauri sync)**: en/ja/es save-button wording (web "Done & Save" family vs app "Save" family); es `fullscreen` "Pantalla" (app value likely to change to Pantalla completa); ja 機微/機密情報; es `tool_magnify` (web "Anotación de lupa" vs app "Ampliar anotación"); es kbd Supr vs delete.
+**Resolved at the Tauri sync, 2026-08-21**:
+- Save button — app keeps the asymmetry on purpose (button width): zh **完成並儲存** / cn **完成并保存**, but en **Save** / ja **保存** / es **Guardar**. The guide copies the app value per locale; do not "harmonize" the three short ones back to the long form.
+- App moved to the web's wording on three es items: `fullscreen` → **Pantalla completa**, `tool_magnify` → **Anotación de lupa**, delete key → **tecla Delete** (not Supr). The guide was already right; leave it.
+- OCR languages — the paid build runs Apple Vision with automatic language detection; the `ocr_dl_*` strings are dead code for a dialog that never opens and must **not** be treated as the authority on language coverage.
+
+**Still frozen (no web change until settled with the app side)**: ja 機微 vs 機密情報 — the guide's OCR chapter says 機微 (the idiomatic term in Japanese privacy law), the app's toasts say 機密情報; and the app's own `help_*` panel disagrees with its `tool_*` tooltips on five tool names (pencil/marquee/ruler/fill/number-stamp). The guide follows `tool_*` per **docs/toolnamemap.md** and stays there until the app reconciles its two surfaces.
 
 ---
 
