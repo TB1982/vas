@@ -12,13 +12,13 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>ピクセルアニメーション · 操作マニュアル | VAS</title>
+<title>ピクセルモード · 操作マニュアル | VAS</title>
 <link rel="icon" href="../../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/ja/guide/pixel">
 <meta name="description"
-      content="VAS のピクセルアニメーション：20×20／40×40／60×60 の 3 種類のグリッド、コマごとのフレームとミリ秒、36 色上限のデバイスパレット、実機プレビューと 20 秒スロットの整合。書き出した機械可読な JSON で AI に作業を引き継げます。" />
-<meta property="og:title" content="ピクセルアニメーションエディター — コマごと、実機プレビュー、機械可読な JSON | VAS 操作マニュアル">
-<meta property="og:description" content="VAS のピクセルアニメーション：20×20／40×40／60×60 の 3 種類のグリッド、コマごとのフレームとミリ秒、36 色上限のデバイスパレット、実機プレビューと 20 秒スロットの整合。書き出した機械可読な JSON で AI に作業を引き継げます。">
+      content="VAS のピクセルモード：デバイスアニメーション（3 種のグリッド、コマごとのミリ秒、36 色、20 秒スロット）と、ピクセル画——マス数自由・255 色・印刷できるビーズ／クロスステッチ図案（グリッド＋色番号＋数量）。どちらの文書種も機械可読な JSON で保存します。" />
+<meta property="og:title" content="ピクセルモード — デバイスアニメーションとピクセル画、どちらも機械可読な JSON | VAS 操作マニュアル">
+<meta property="og:description" content="VAS のピクセルモード：デバイスアニメーション（3 種のグリッド、コマごとのミリ秒、36 色、20 秒スロット）と、ピクセル画——マス数自由・255 色・印刷できるビーズ／クロスステッチ図案（グリッド＋色番号＋数量）。どちらの文書種も機械可読な JSON で保存します。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/ja/guide/pixel">
 <meta property="og:locale" content="ja_JP">
@@ -30,8 +30,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share-ja.webp">
 <meta name="twitter:image:alt" content="VAS 操作マニュアル — 握れる道具、操作できるマニュアル">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ピクセルアニメーションエディター — コマごと、実機プレビュー、機械可読な JSON | VAS 操作マニュアル">
-<meta name="twitter:description" content="VAS のピクセルアニメーション：20×20／40×40／60×60 の 3 種類のグリッド、コマごとのフレームとミリ秒、36 色上限のデバイスパレット、実機プレビューと 20 秒スロットの整合。書き出した機械可読な JSON で AI に作業を引き継げます。">
+<meta name="twitter:title" content="ピクセルモード — デバイスアニメーションとピクセル画、どちらも機械可読な JSON | VAS 操作マニュアル">
+<meta name="twitter:description" content="VAS のピクセルモード：デバイスアニメーション（3 種のグリッド、コマごとのミリ秒、36 色、20 秒スロット）と、ピクセル画——マス数自由・255 色・印刷できるビーズ／クロスステッチ図案（グリッド＋色番号＋数量）。どちらの文書種も機械可読な JSON で保存します。">
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -172,6 +172,52 @@
   @media(max-width:520px){.gflow{grid-template-columns:1fr}}
 </style>
 
+<style id="gpx-free">
+  /* ═══ 自由像素圖（第二種文件）＋圖表輸出 ═══ */
+  .gfree-body{min-height:0}
+  .gfree-cw{padding:26px 22px}
+  .gfree-sheet{display:grid;grid-template-columns:26px auto 34px;grid-template-rows:18px auto 34px}
+  .gfree-rx{grid-column:2;grid-row:1;display:grid;grid-auto-flow:column;justify-content:start}
+  .gfree-rx span{width:33px;text-align:center;font-family:var(--vas-mono);font-size:10px;color:#6a6a6a}
+  .gfree-ry{grid-column:1;grid-row:2;display:grid;grid-auto-rows:33px}
+  .gfree-ry span{display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-family:var(--vas-mono);font-size:10px;color:#6a6a6a}
+  .gfree-grid{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(10,33px);grid-auto-rows:33px;background:#000;outline:1px solid #333}
+  .gfree-grid i{display:block;box-shadow:inset 0 0 0 .5px #262626}
+  .gfree-edge-r{grid-column:3;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding-left:8px}
+  .gfree-edge-b{grid-column:2;grid-row:3;display:flex;align-items:center;justify-content:center;gap:5px;padding-top:8px}
+  .gfree-pm{width:24px;height:24px;border-radius:5px;border:none;background:#2f2f2f;color:#bbb;font-family:var(--vas-mono);font-size:11px;display:inline-flex;align-items:center;justify-content:center;cursor:default;flex-shrink:0}
+  .gpx-grad{width:100%;height:54px;border-radius:6px;border:1px solid #3a3a3a;background:linear-gradient(to bottom,rgba(255,255,255,.92),rgba(255,255,255,0) 46%,rgba(0,0,0,0) 54%,rgba(0,0,0,.92)),linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)}
+  /* 圖表輸出：印在白紙上的成品，不隨網頁主題變色 */
+  .gchart{max-width:760px;margin:24px 0 0}
+  .gchart-sheet{background:#fff;border:1px solid var(--vas-rule-strong);border-radius:6px;padding:26px 28px;display:flex;flex-direction:column;gap:26px;overflow-x:auto}
+  .gchart-plot{display:grid;grid-template-columns:22px auto;grid-template-rows:16px auto;justify-content:start}
+  .gchart-rx{grid-column:2;grid-row:1;display:grid;grid-auto-flow:column;justify-content:start}
+  .gchart-rx span{width:26px;text-align:center;font-family:var(--vas-mono);font-size:9px;color:#111}
+  .gchart-ry{grid-column:1;grid-row:2;display:grid;grid-auto-rows:26px}
+  .gchart-ry span{display:flex;align-items:center;justify-content:flex-end;padding-right:5px;font-family:var(--vas-mono);font-size:9px;color:#111}
+  .gchart-grid{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(10,26px);grid-auto-rows:26px;border-top:1px solid #111;border-left:1px solid #111}
+  .gchart-grid i{display:flex;align-items:center;justify-content:center;font-family:var(--vas-mono);font-size:11px;font-style:normal;border-right:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9}
+  .gchart-info{display:flex;flex-direction:column;gap:4px;color:#111}
+  .gchart-title{font-family:var(--vas-mono);font-size:17px;font-weight:600;color:#111}
+  .gchart-meta{font-family:var(--vas-mono);font-size:11.5px;color:#444;display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
+  .gchart-mat{font-family:var(--vas-mono);font-size:12px;font-weight:600;color:#111;margin-bottom:2px}
+  .gchart-tbl{border-collapse:collapse;font-family:var(--vas-mono);font-size:11.5px;color:#222}
+  .gchart-tbl th{text-align:left;font-weight:400;color:#777;padding:3px 26px 5px 0;border-bottom:1px solid #ccc}
+  .gchart-tbl td{padding:3px 26px 3px 0}
+  .gchart-tbl td b{display:inline-block;width:13px;height:13px;border:1px solid #999;margin-right:9px;vertical-align:-2px}
+  @media(max-width:760px){
+    .gfree-cw{padding:18px 6px}
+    .gfree-sheet{grid-template-columns:20px auto 26px;grid-template-rows:14px auto 26px}
+    .gfree-rx span{width:22px;font-size:8.5px}
+    .gfree-ry{grid-auto-rows:22px}
+    .gfree-ry span{padding-right:4px;font-size:8.5px}
+    .gfree-grid{grid-template-columns:repeat(10,22px);grid-auto-rows:22px}
+    .gfree-edge-r{padding-left:5px}
+    .gfree-edge-b{padding-top:5px}
+    .gfree-pm{width:20px;height:20px;font-size:10px}
+  }
+</style>
+
 <link rel="alternate" hreflang="zh-Hant" href="/guide/pixel">
 <link rel="alternate" hreflang="en"       href="/en/guide/pixel">
 <link rel="alternate" hreflang="ja"       href="/ja/guide/pixel">
@@ -185,6 +231,9 @@
   実機プレビューと 20 秒スロットの読み方、JSON の書き出しと読み込み、
   そして JSON を AI に渡して続きを描いてもらう方法。
   同じエディターのもうひとつのモード。注釈ツールの説明は guide/editor.html にあります。
+  第二の文書種「ピクセル画」（S175–S178）も含む：マス数自由（一辺 1–512）、255 色＋
+  グラデーション取得、キャンバス上の行列増減とルーラー、印刷用ビーズ／クロスステッチ図案 PNG
+  （グリッド＋マス内色番号＋材料表）、固有の文書種マーカー付き JSON の round-trip。
 -->
 <link rel="stylesheet" href="../../css/theme.css">
 </head>
@@ -240,10 +289,10 @@
   <main class="docs-main">
 
     <section class="docs-section" id="pixel-top">
-      <div class="docs-section-kicker">マニュアル · 03 — Pixel Animation</div>
-      <h1>ピクセルアニメーション</h1>
-      <div class="docs-dek">同じエディターの、もうひとつの人機協作モード。注釈は言葉を画像の上に置くこと。ピクセルアニメーションは、一マスもない黒地から始めて、既存のアニメを取り込んで最適化したり、動くスクリプトを自分の手で描いたりします——そして機械可読な形式（JSON）で情報を無損失のまま AI に渡し、次の協作へ進めます。デバイスへ書き込むことも、AI にアニメーションの演出を引き継いでもらうこともできます。</div>
-          <div class="docs-note"><p><span class="g-badge-t" style="margin:0 8px 0 0">Tauri 専用</span>ピクセルアニメーションは現在 Tauri（有料版）専用の機能で、無料ダウンロード版にはまだありません。</p></div>
+      <div class="docs-section-kicker">マニュアル · 03 — Pixel Mode</div>
+      <h1>ピクセルモード</h1>
+      <div class="docs-dek">同じエディターの、もうひとつの人機協作モード。注釈は言葉を画像の上に置くこと。ピクセルアニメーションは、一マスもない黒地から始めて、既存のアニメを取り込んで最適化したり、動くスクリプトを自分の手で描いたりします——そして機械可読な形式（JSON）で情報を無損失のまま AI に渡し、次の協作へ進めます。デバイスへ書き込むことも、AI にアニメーションの演出を引き継いでもらうこともできます。<br><br>さらに単一フレームのピクセル画モードもあります：縦横自由なキャンバス、引き上げた色数上限、そして専用の図案書き出し——アイロンビーズや編み図のために設計されています。</div>
+          <div class="docs-note"><p><span class="g-badge-t" style="margin:0 8px 0 0">アニメーションは Tauri 専用</span><a href="#free">ピクセル画</a>は両方の版にあります。<strong>デバイスアニメーション</strong>（Clawdmeter に書き込むほう）は Tauri（有料版）専用で、無料版はピクセル画のみです。</p></div>
     </section>
 
     <section class="docs-section" id="layout">
@@ -414,7 +463,7 @@
 
     <section class="docs-section" id="sizes">
       <h2>対応するキャンバス仕様</h2>
-      <p>現在は 20×20、40×40、60×60 の 3 種類のサイズに対応しています。オープンソースのデバイスファームウェアが対応するサイズ規格を基準にしており、今後はアイロンビーズや編み物などの用途に向けて、さらに多くの規格を開発していきます。</p>
+      <p>デバイスアニメーションは今のところ 20×20／40×40／60×60 の 3 サイズ。オープンソースのデバイスファームウェアが対応するサイズに合わせています。ビーズや編み図のようにデバイスへ入らない用途は、もうひとつの文書種——<a href="#free">ピクセル画</a>を使い、マス数は自分で打ち込みます。</p>
       <div class="gsz">
         <div class="gsz-row"><img class="gsz-fig" src="../../img/px-grid-20.svg" alt="20×20 グリッド線"><span class="gsz-n">20 × 20</span><span class="gsz-tag">1 マス最大</span><span class="gsz-d">マスが少なく、1 マスが大きい。バッジ、シンボル、ミニマルな表情に向きます——わずかなマスで一つのことを言い切ります。実機では全画面で 1 マス 12 px、バッジで 4 px。</span></div>
         <div class="gsz-row hi"><img class="gsz-fig" src="../../img/px-grid-40.svg" alt="40×40 グリッド線"><span class="gsz-n">40 × 40</span><span class="gsz-tag">よく使う</span><span class="gsz-d">ディテールと作業量のバランス点。全画面スプラッシュのアニメは、たいていこのサイズで描かれ、1 マス 6 px、バッジで 2 px。</span></div>
@@ -439,6 +488,110 @@
       <p class="gpx-caption">切れるかどうかは正しさではなく、取捨です。途中で切れても構わないアニメもあれば（たとえば雨のシーン）、切れたら台無しになるものもあります（たとえば半ばまで上がった花火）——だからエディターは事実だけを伝え、あなたの代わりに決めません。</p>
     </section>
 
+        <section class="docs-section" id="free">
+      <h2>ピクセル画：ビーズと編み図</h2>
+      <p>ここまでの章はすべて<strong>デバイスアニメーション</strong>の話——ホワイトリストのサイズ、36 色、20 秒のスロット。どの制限もデバイスファームウェアの能力の写しです。けれどピクセルの格子には別の用途があります：アイロンビーズ、クロスステッチ、編み図が欲しいのは<strong>一枚の画像</strong>。デバイスには入らず、動く必要もなく、マス数は紙と材料が決めます。</p>
+      <p>だからピクセルモードには二つめの文書種があります：<strong>ピクセル画</strong>。ツールバーの「新規キャンバス」のプリセットから「フリーピクセル（マス数を自由に指定）」を選び、幅と高さを自分で打ち込みます。長方形でも構いません。エディター・色票・ツールはデバイスアニメーションと同じで、制限だけが入れ替わります——デバイスに入ることを約束していないからです。</p>
+
+      <div class="gpx" id="gpxFree">
+        <div class="gpx-win">
+          <div class="gpx-title">
+            <span class="gpx-dot" style="background:#ff5f57"></span>
+            <span class="gpx-dot" style="background:#febc2e"></span>
+            <span class="gpx-dot" style="background:#28c840"></span>
+            <span class="gpx-tname">VAS</span>
+            <span style="width:52px"></span>
+          </div>
+          <div class="gpx-bar">
+            <button class="gpx-tool on" title="ペン">✏</button>
+            <button class="gpx-tool" title="消しゴム">▱</button>
+            <button class="gpx-tool" title="選択">⬚</button>
+            <button class="gpx-tool" title="スポイト">◍</button>
+            <span class="gpx-optsep"></span>
+            <button class="gpx-tool" title="左右反転">⇋</button>
+            <button class="gpx-tool" title="上下反転">⇅</button>
+          </div>
+          <div class="gpx-body gfree-body">
+            <div class="gpx-canvaswrap gfree-cw">
+              <div class="gfree-sheet">
+                <div class="gfree-rx" id="gfRx"></div>
+                <div class="gfree-ry" id="gfRy"></div>
+                <div class="gfree-grid" id="gfGrid"></div>
+                <div class="gfree-edge-r"><button class="gfree-pm">＋</button><button class="gfree-pm">−</button></div>
+                <div class="gfree-edge-b"><button class="gfree-pm">＋</button><button class="gfree-pm">−</button></div>
+              </div>
+            </div>
+            <div class="gpx-col gpx-right">
+              <div class="gpx-head"><span class="gpx-lbl">この画像の色</span><span class="gpx-hint">4 / 255</span></div>
+              <div class="gpx-sw" id="gfSw"></div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">色を選ぶ</span>
+              <img class="gpx-grid" src="../../img/px-palette.svg" alt="内蔵 256 色パレット">
+              <div class="gpx-hint">パレットに欲しい色がないときは、グラデーションをクリックして取得</div>
+              <div class="gpx-grad"></div>
+              <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">追加</button><button class="gpx-btn" style="width:42px;height:30px">置換</button></div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">JSONファイル</span>
+              <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">貼り付け</button><button class="gpx-btn" style="flex:1">コピー</button><button class="gpx-btn" style="flex:1">保存</button></div>
+            </div>
+          </div>
+          <div class="gpx-status">
+            <span class="gpx-zoom">×33 / マス</span>
+            <span class="gpx-zoom" id="gfRead" data-tpl="{c} × {r} マス · {n} 描画"></span>
+            <span class="gpx-spacer"></span>
+            <button class="gpx-btn" style="height:30px;padding:0 14px">コピー</button>
+            <button class="gpx-save">保存</button>
+          </div>
+        </div>
+      </div>
+      <p class="gpx-caption">同じエディターですが、ひと列ぶん足りません：フレーム列なし、オニオンスキンなし、実機プレビューなし、アニメーション名と分類もなし。一枚の文書には要らないもので、残しておくと「何か設定を忘れたのでは」と思わせるだけです。</p>
+
+      <ul class="docs-list" style="margin-top:26px">
+        <li><strong>マス数は自由</strong>——一辺 1〜512 マス、長方形も可。50×80 の編み図なら 50×80 と打つだけ。</li>
+        <li><strong>色上限は 255</strong>——36 ではありません。ビーズの色番号は多く、36 の席では足りない。パレットは内蔵の 256 色のまま。足りないときは下のグラデーションをクリックして自分の色を取り込みます。</li>
+        <li><strong>下地は常に透明</strong>——背景色の行がありません。空のマスは空のまま、意味は「ここにはビーズを置かない／針を通さない」。</li>
+        <li><strong>キャンバス上で行と列を増減</strong>——方眼の右端と下端に <strong>＋</strong> / <strong>−</strong>。描きながらマス数を変えられ、左上は動きません。増えたマスは空、削った列はその場で消え、<span class="docs-kbd">⌘Z</span> で戻ります。</li>
+        <li><strong>行列ルーラー</strong>——方眼の上端と左端に行番号・列番号。カーソルを置いたマスの行と列が光るので、指で数えなくて済みます。</li>
+        <li><strong>ステータスの読み</strong>——「W × H マス · N 描画」が常に出ていて、一マス塗るたびに更新されます。</li>
+      </ul>
+    </section>
+
+    <section class="docs-section" id="chart">
+      <h2>図案の書き出し：印刷して数えるための一枚</h2>
+      <p>ビーズや編み物が本当に必要とするのは画面上の画像ではなく、<strong>印刷して数えられる図案</strong>です。だからピクセル画の保存ウィンドウには「図案」という形式がひとつ増えます（デバイスアニメーションにはありません——その出口は GIF と JSON）。押すと PNG が一枚：</p>
+      <div class="gchart">
+        <div class="gchart-sheet">
+          <div class="gchart-plot">
+            <div class="gchart-rx" id="gcRx"></div>
+            <div class="gchart-ry" id="gcRy"></div>
+            <div class="gchart-grid" id="gcGrid"></div>
+          </div>
+          <div class="gchart-info">
+            <div class="gchart-title">VAS_pixel</div>
+            <div class="gchart-meta">
+              <span id="gcSize" data-tpl="マス数: {c} × {r}（{n} マス）"></span>
+              <span id="gcColors" data-tpl="色数: {k}"></span>
+            </div>
+            <div class="gchart-mat">材料</div>
+            <table class="gchart-tbl">
+              <thead><tr><th>色見本</th><th>カラーコード</th><th>数量</th><th>%</th></tr></thead>
+              <tbody id="gcMat"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul class="docs-list" style="margin-top:26px">
+        <li><strong>グリッドと行列ルーラー</strong>——黒字。白い紙の上で読めます。</li>
+        <li><strong>マスの中に色番号</strong>——1 から始まり、実際に使った色だけに番号が付きます。数字の黒白はコントラストで自動選択、印刷して見えない番号は出ません。</li>
+        <li><strong>空のマスは空白のまま</strong>——何も刷りません。</li>
+        <li><strong>材料表</strong>——色見本・番号・カラーコード（hex）・マス数・割合。ビーズや糸を買うときはこの表を見ます。</li>
+        <li><strong>タイトル</strong>——保存時に打ったファイル名。空なら既定の <code>VAS_pixel</code>。</li>
+        <li><strong>レイアウトは自動</strong>——A4 基準：横長なら横向きで図の下に情報、縦長なら縦向きで図の下に情報、正方形なら横向きで右に図・左に情報。</li>
+      </ul>
+      <p class="gpx-caption">「N 描画」は実際に塗ったマス数で、紙の面積ではありません——用意すべき材料の総量です。</p>
+      <p style="margin-top:26px">図案のほかに、ピクセル画は普通の画像としても保存できます：<strong>PNG／WebP／TIFF</strong> は拡大したマス目画像で空のマスは透明、<strong>JPG</strong> は白で埋めます。倍率は GIF と同じサイズ設定を使います。一枚の文書を <strong>GIF</strong> で保存すると、グリッド線のないピクセル画像になります——アニメーションではありません。</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>機械可読なファイルインターフェース：JSON</h2>
       <p>ピクセルアニメの保存する機械可読な形式は、画像ではなく JSON です。<strong>貼り付け</strong>で既存のアニメを読み込み、<strong>コピー</strong>でアニメ全体をクリップボードへ、<strong>保存</strong>でファイルに書き出します。読み込みも書き出しも手軽です。</p>
@@ -456,6 +609,10 @@
         </div>
       </div>
       <p style="margin-top:26px">書き出した JSON は、オープンソースのデバイスのアニメ形式に流し込めます——たとえば ESP32 上で動く Clawdmeter などのデスクトップ小型デバイスです。VAS 側で JSON ソースをコピーし、あちら側で貼り付けて AI に処理させるだけで、変換ツールは要りません。</p>
+          <p class="g-section-sub" style="margin-top:32px">ピクセル画は同じ出入口を通りますが、文書種は別です</p>
+      <p><a href="#free">ピクセル画</a>の貼り付け／コピー／保存はデバイスアニメーションと同じ三つのボタンで、書き出されるのも JSON です——ただしファイルの先頭に固有の<strong>文書種マーカーとバージョン</strong>を持っています。だからエディターは手元のファイルがどちらの種かを一目で判別し、推測しません。保存したファイルは<strong>マスも色もそのまま</strong>読み戻せます：途中でやめて別のことをして、戻ってきて続けられます。</p>
+      <p>二つの種が取り違えられることはありません：ピクセル画のファイルをデバイスアニメーションのキャンバスに貼る（あるいはその逆）と、エディターは「これは別の種のファイルです、対応するキャンバスを開いてください」と声に出します。黙って飲み込んで崩れた画像にはなりません——誤判定の症状は静かなので、形から推測せず明示のマーカーで判別しています。</p>
+      <p>そして「JSON はただのテキスト」はピクセル画にも成り立ちます——次の節の AI との協作は、ビーズ図や編み図にもそのまま使えます。</p>
     </section>
 
     <section class="docs-section" id="ai">
@@ -496,7 +653,7 @@
   <div class="gx-grid">
     <a class="gx-item" href="toolbar.html"><span class="gx-no">01</span><span class="gx-nm">ツールバー</span></a>
     <a class="gx-item" href="editor.html"><span class="gx-no">02</span><span class="gx-nm">エディター</span></a>
-    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">ピクセルアニメーション</span></a>
+    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">ピクセルモード</span></a>
     <a class="gx-item" href="ocr.html"><span class="gx-no">04</span><span class="gx-nm">OCR</span></a>
     <a class="gx-item" href="arrange.html"><span class="gx-no">05</span><span class="gx-nm">配置</span></a>
     <a class="gx-item" href="export.html"><span class="gx-no">06</span><span class="gx-nm">読み込みと書き出し</span></a>
@@ -602,12 +759,12 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "ピクセルアニメーションエディター — コマごと、実機プレビュー、機械可読な JSON | VAS 操作マニュアル",
-  "description": "VAS のピクセルアニメーション：20×20／40×40／60×60 の 3 種類のグリッド、コマごとのフレームとミリ秒、36 色上限のデバイスパレット、実機プレビューと 20 秒スロットの整合。書き出した機械可読な JSON で AI に作業を引き継げます。",
+  "headline": "ピクセルモード — デバイスアニメーションとピクセル画、どちらも機械可読な JSON | VAS 操作マニュアル",
+  "description": "VAS のピクセルモード：デバイスアニメーション（3 種のグリッド、コマごとのミリ秒、36 色、20 秒スロット）と、ピクセル画——マス数自由・255 色・印刷できるビーズ／クロスステッチ図案（グリッド＋色番号＋数量）。どちらの文書種も機械可読な JSON で保存します。",
   "inLanguage": "ja",
   "url": "https://yoursvas.app/ja/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-08-31",
   "image": "https://yoursvas.app/img/vas-guide-share-ja.webp",
   "publisher": {
     "@type": "Organization",
@@ -634,24 +791,102 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "VAS", "item": "https://yoursvas.app/ja/" },
     { "@type": "ListItem", "position": 2, "name": "マニュアル", "item": "https://yoursvas.app/ja/guide/" },
-    { "@type": "ListItem", "position": 3, "name": "ピクセルアニメーション" }
+    { "@type": "ListItem", "position": 3, "name": "ピクセルモード" }
   ]
 }
 </script>
 
 <button class="dot-nav-trigger" aria-label="章節案内"></button>
 <nav class="dot-nav" aria-label="段落案内">
-  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">ピクセルアニメーション</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">ピクセルモード</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#layout"><span class="dn-label">編集モード</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#tools"><span class="dn-label">ツール</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#frames"><span class="dn-label">フレーム</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#colours"><span class="dn-label">色</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sizes"><span class="dn-label">キャンバス仕様</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#preview"><span class="dn-label">実機プレビュー</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#free"><span class="dn-label">ピクセル画</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#chart"><span class="dn-label">図案の書き出し</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">AI と一緒に描く</span><span class="dn-dot"></span></a>
 </nav>
 
+<script>
+(function () {
+  // 自由像素圖與圖表輸出的示意圖：同一份圖樣，兩處渲染（編輯器＝顏色、圖表＝色號序號）
+  var PAT = ['.11....11.', '1231..1221', '1232112221', '1222222221', '.12222221.', '..122221..', '...1221...', '....11....'];
+  var PAL = [null, '#D97757', '#FFC2D1', '#FFFF4D'];
+  var COLS = PAT[0].length, ROWS = PAT.length;
+  var counts = PAL.map(function () { return 0; }), painted = 0;
+  PAT.forEach(function (row) {
+    for (var i = 0; i < row.length; i++) {
+      var ch = row[i];
+      if (ch !== '.') { counts[+ch]++; painted++; }
+    }
+  });
+  var serial = {}, used = [];
+  for (var i = 1; i < PAL.length; i++) {
+    if (!counts[i]) continue;
+    serial[i] = used.length + 1;
+    used.push(i);
+  }
+  function ink(hex) {
+    var n = parseInt(hex.slice(1), 16);
+    var f = function (v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+    var L = 0.2126 * f((n >> 16) & 255) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255);
+    return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#000000' : '#ffffff';
+  }
+  function ruler(el, count) {
+    if (!el) return;
+    var out = '';
+    for (var i = 1; i <= count; i++) out += '<span>' + i + '</span>';
+    el.innerHTML = out;
+  }
+  function tpl(el, map) {
+    if (!el) return;
+    var s = el.getAttribute('data-tpl') || '';
+    Object.keys(map).forEach(function (k) { s = s.split('{' + k + '}').join(map[k]); });
+    el.textContent = s;
+  }
+  function cells(el, numbered) {
+    if (!el) return;
+    var out = '';
+    PAT.forEach(function (row) {
+      for (var x = 0; x < row.length; x++) {
+        var ch = row[x];
+        if (ch === '.') { out += '<i></i>'; continue; }
+        var hex = PAL[+ch];
+        out += '<i style="background:' + hex + (numbered ? ';color:' + ink(hex) : '') + '">' + (numbered ? serial[+ch] : '') + '</i>';
+      }
+    });
+    el.innerHTML = out;
+  }
+  ruler(document.getElementById('gfRx'), COLS);
+  ruler(document.getElementById('gfRy'), ROWS);
+  ruler(document.getElementById('gcRx'), COLS);
+  ruler(document.getElementById('gcRy'), ROWS);
+  cells(document.getElementById('gfGrid'), false);
+  cells(document.getElementById('gcGrid'), true);
+  tpl(document.getElementById('gfRead'), { c: COLS, r: ROWS, n: painted });
+  tpl(document.getElementById('gcSize'), { c: COLS, r: ROWS, n: painted });
+  tpl(document.getElementById('gcColors'), { k: used.length });
+  var sw = document.getElementById('gfSw');
+  if (sw) {
+    var s = '<span class="gpx-alpha"><i>' + (COLS * ROWS - painted) + '</i></span>';
+    used.forEach(function (idx, n) {
+      s += '<span' + (n === 0 ? ' class="sel"' : '') + ' style="background:' + PAL[idx] + '"><i style="color:' + ink(PAL[idx]) + '">' + counts[idx] + '</i></span>';
+    });
+    sw.innerHTML = s;
+  }
+  var mat = document.getElementById('gcMat');
+  if (mat) {
+    mat.innerHTML = used.map(function (idx) {
+      var pct = (counts[idx] / painted * 100).toFixed(1);
+      return '<tr><td><b style="background:' + PAL[idx] + '"></b>' + serial[idx] + '</td><td>' + PAL[idx] + '</td><td>' + counts[idx] + '</td><td>' + pct + '</td></tr>';
+    }).join('');
+  }
+}());
+</script>
 <script src="../../js/analytics.js"></script>
 <script>
 (function () {

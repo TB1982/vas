@@ -31,7 +31,10 @@ The canonical terminology reference for translating VAS / 深握計畫 site cont
 | 顯影 | develop (photographic) | 顕現 / 像を結ぶ | 显影 | darkroom metaphor for "bringing latent to visible" |
 | 文字會顯影 | words develop you | 文字は像を結ぶ | 文字会显影 | self chapter §04 keystone |
 | 八道問 | Eight Questions | 八つの問い | 八道问 | faq chapter; resonance with 八正道 |
-| 像素動畫 | Pixel Animation | ピクセルアニメーション | 像素动画 | guide chapter 03; category values Idle/Work/Dance/Expressions stay English in all locales |
+| 像素模式 | Pixel Mode | ピクセルモード | 像素模式 | guide chapter 03 name — renamed from 像素動畫 on 2026-08-31, when the chapter grew a second document kind |
+| 像素動畫 | Pixel Animation | ピクセルアニメーション | 像素动画 | the Clawdmeter **device-animation** document kind, no longer the chapter name; category values Idle/Work/Dance/Expressions stay English in all locales |
+| 像素畫 | pixel art | ピクセル画 | 像素画 | the **concept** — free-size pixel image for perler beads / cross-stitch. Use this when discussing the idea; quote the menu item verbatim when describing the action (see §13) |
+| 圖表 | Chart | 図案 | 图表 | save format `save_pxchart` — a printable perler / cross-stitch chart (grid + colour numbers + materials table), not just another image format |
 | 影格 | frame | フレーム | 帧 | pixel-animation; 简中 uses 帧 (NOT 影格) |
 | 洋蔥皮 | onion skin | オニオンスキン | 洋葱皮 | pixel-animation frame-ghosting aid |
 | 插槽 | slot | スロット | 插槽 | device's fixed 20-sec rotation slot; app string retained per Nova — pending app-side rename discussion (heading uses 動畫限制) |
@@ -342,6 +345,7 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 - **cn**: screenshot noun is **截图** (never 截屏); full-screen is **全屏** (never 全屏幕); drag verb in UI prompts is **拖拽**.
 - **cn copy verb — two words, by role** (app side settled 2026-08-21, nine keys changed): a **button or menu item** is **拷贝**, following macOS convention; a sentence describing a **completed action** (the toasts: 已复制到剪贴板 etc.) stays **复制**. So the guide writes 「拷贝」 whenever it names or mocks the control, and 复制 when narrating that something was copied. (Confirmed in the second export: the nine button keys now read 拷贝; the toasts still read 复制.)
 - **ja**: capture-mode names use the app's **キャプチャ** forms (全画面キャプチャ / ウィンドウキャプチャ / 矩形選択キャプチャ); long capture = ロングスクリーンショット. Generic スクリーンショット for "a screenshot (image)" in prose is fine.
+- **Pixel mode — concept vs menu item** (Design handoff, 2026-08-31): write **像素畫 / pixel art / ピクセル画 / 像素画 / píxel art** when discussing the idea, but quote the menu entry **verbatim** when describing the action — `nc_px_free`: 自由像素圖（自訂格數）／Free pixel art (custom size)／フリーピクセル（マス数を自由に指定）／自由像素图（自定义格数）／Píxel libre (tamaño personalizado). The chart save format is `save_pxchart`: 圖表／Chart／図案／图表／Diagrama. The chapter itself is 像素模式 / Pixel Mode / ピクセルモード / 像素模式 / Modo píxel; 像素動畫 now names only the Clawdmeter device-animation document kind.
 - **Smart guides**: narrative prose may say 磁吸/snapping, but the app's official name (智慧導線 / 智能导线 / スマートガイド / Smart Guides / Guías inteligentes) must appear at each section's first mention, and any quoted toggle/button uses the app value.
 
 **Resolved at the Tauri sync, 2026-08-21**:
