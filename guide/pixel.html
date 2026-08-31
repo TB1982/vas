@@ -413,12 +413,53 @@
 
     <section class="docs-section" id="sizes">
       <h2>支援的畫布規格</h2>
-      <p>目前支援 20×20、40×40、60×60 三種尺寸，以開源裝置韌體支援的尺寸規格為主，未來還會開發更多規格給諸如拼豆、編織等用途使用。</p>
+      <p>目前支援 20×20、40×40、60×60 三種尺寸，以開源裝置韌體支援的尺寸規格為主。裝置以外的用途——拼豆、編織——不受這三種尺寸限制，走下一節的自由像素圖。</p>
       <div class="gsz">
         <div class="gsz-row"><img class="gsz-fig" src="../img/px-grid-20.svg" alt="20×20 格線"><span class="gsz-n">20 × 20</span><span class="gsz-tag">每格最大</span><span class="gsz-d">格子少、每格大。適合徽章、符號、極簡表情——少少幾格就要說完一件事。實機上全螢幕每格 12 px、徽章 4 px。</span></div>
         <div class="gsz-row hi"><img class="gsz-fig" src="../img/px-grid-40.svg" alt="40×40 格線"><span class="gsz-n">40 × 40</span><span class="gsz-tag">常用</span><span class="gsz-d">細節與工作量的平衡點。全螢幕 splash 動畫多半畫在這個尺寸，每格 6 px、徽章 2 px。</span></div>
         <div class="gsz-row"><img class="gsz-fig" src="../img/px-grid-60.svg" alt="60×60 格線"><span class="gsz-n">60 × 60</span><span class="gsz-tag">每格最小</span><span class="gsz-d">格子多、每格小。畫得下曲線與漸層，但一格一格填完也最花時間。</span></div>
       </div>
+    </section>
+
+    <section class="docs-section" id="free">
+      <h2>另一種文件：自由像素圖</h2>
+      <p>上面那三種尺寸是為裝置訂的——韌體吃多大，畫布就開多大。但如果一張圖的目的地不是裝置，而是一盤拼豆、一塊繡布，格數就不該由別人決定。</p>
+      <p>新增畫布時選<strong>自由像素圖（自訂格數）</strong>，開出來的是一張只為這張圖存在的畫布：格數自己定，最大 512 格；顏色最多 255 種，不再是 36 個名額。沒有影格、沒有毫秒、沒有 20 秒輪播限制——它不是動畫，是一張圖。</p>
+      <div class="tdict">
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">畫布</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">⊞</span><span class="tdx-t">邊畫邊加減欄列</span></summary>
+            <div class="tdx-body"><p class="tm-p">畫布右緣的 ＋／− 加減<strong>欄</strong>，下緣的 ＋／− 加減<strong>列</strong>。不必一開始就把尺寸想定——畫著畫著發現右邊不夠，就往右長一欄。</p><p class="tm-p">減一欄刪的是最右邊那欄，減一列刪的是最下面那列。刪錯了 ⌘Z 可以復原。</p></div>
+          </details>
+          <details class="tdx">
+            <summary><span class="tdx-ic">◱</span><span class="tdx-t">常駐讀數</span></summary>
+            <div class="tdx-body"><p class="tm-p">底列一直告訴你三件事：目前的縮放（<strong>×18 / 格</strong>）、畫布尺寸、以及已經填了幾格（<strong>50 × 8 格 · 已畫 168</strong>）。做實體的時候，「已畫幾格」就是「要放幾顆」，所以它常駐在那裡。</p></div>
+          </details>
+        </div>
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">顏色</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">◐</span><span class="tdx-t">255 色與漸層取色</span></summary>
+            <div class="tdx-body"><p class="tm-p">「這張圖的顏色」上限 255。每個色票下面的數字是它在圖上用掉幾格——那個數字之後會原封不動出現在材料表裡。</p><p class="tm-p">色盤是固定的候選格，不夠用時點下面的<strong>漸層</strong>自己取，或直接在 #RRGGBB 欄輸入色碼再按<strong>加入</strong>。</p></div>
+          </details>
+        </div>
+        <div class="tdict-grp">
+          <div class="tdx-grp-label">檔案</div>
+          <details class="tdx">
+            <summary><span class="tdx-ic">⇋</span><span class="tdx-t">兩種文件不互通</span></summary>
+            <div class="tdx-body"><p class="tm-p">Clawdmeter 動畫與自由像素圖是兩種不同的文件，匯入時 VAS 會認出檔案種類：動畫檔丟進自由畫布會被擋下，並告訴你該先開哪一種畫布；反過來也一樣。</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="docs-section" id="chart">
+      <h2>圖表：把畫帶出螢幕</h2>
+      <p>自由像素圖有三個出口。<strong>單幀圖片</strong>是一張乾淨的 PNG，沒有格線也沒有數字；<strong>JSON</strong>存的是資料，VAS 可以重新開啟繼續編輯。第三個出口叫<strong>圖表</strong>——它不是把畫存成圖，是把畫翻成一份<strong>施工圖</strong>。</p>
+      <p>印出來的圖表分兩層。上層是整張圖攤成帶編號的格線：橫軸標欄、縱軸標列，每一格填的不是顏色，是那個顏色的<strong>色號</strong>。下層是一張<strong>材料</strong>表，四欄——色票、色號、數量、百分比。</p>
+      <p>數量那一欄才是重點。它告訴你 1 號色要 91 顆、2 號色要 16 顆；出門買拼豆之前你就知道要買多少，不必做到一半才發現粉紅色不夠。</p>
+      <p>格線上之所以印色號而不是印顏色，是因為動手做的時候眼睛不會一直盯著螢幕。第 35 欄第 4 列該放哪一顆，紙上寫著。</p>
     </section>
 
     <section class="docs-section" id="preview">
