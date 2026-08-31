@@ -12,13 +12,13 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>像素動畫 · 操作手冊 | VAS</title>
+<title>像素模式 · 操作手冊 | VAS</title>
 <link rel="icon" href="../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/guide/pixel">
 <meta name="description"
-      content="VAS 像素動畫：20×20／40×40／60×60 三種格子、逐格影格與毫秒、36 色上限的裝置色盤、實機預覽與 20 秒插槽對齊，匯出可機讀 JSON 讓 AI 接手協作。" />
-<meta property="og:title" content="像素動畫編輯器 — 逐格、實機預覽、可機讀 JSON | VAS 操作手冊">
-<meta property="og:description" content="VAS 像素動畫：20×20／40×40／60×60 三種格子、逐格影格與毫秒、36 色上限的裝置色盤、實機預覽與 20 秒插槽對齊，匯出可機讀 JSON 讓 AI 接手協作。">
+      content="VAS 像素模式：裝置動畫（三種格子、逐格毫秒、36 色、20 秒插槽），以及像素畫——自訂格數、255 色、可列印的拼豆／織圖圖表（格線＋色號＋材料表），兩種檔種都走可機讀 JSON。" />
+<meta property="og:title" content="像素模式 — 裝置動畫與像素畫，兩種文件都走可機讀 JSON | VAS 操作手冊">
+<meta property="og:description" content="VAS 像素模式：裝置動畫（三種格子、逐格毫秒、36 色、20 秒插槽），以及像素畫——自訂格數、255 色、可列印的拼豆／織圖圖表，兩種檔種都走可機讀 JSON。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/guide/pixel">
 <meta property="og:locale" content="zh_TW">
@@ -30,8 +30,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share-zh.webp">
 <meta name="twitter:image:alt" content="VAS 操作手冊 — 一台可以握住的工具，一本可以操作的手冊">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="像素動畫編輯器 — 逐格、實機預覽、可機讀 JSON | VAS 操作手冊">
-<meta name="twitter:description" content="VAS 像素動畫：20×20／40×40／60×60 三種格子、逐格影格與毫秒、36 色上限的裝置色盤、實機預覽與 20 秒插槽對齊，匯出可機讀 JSON 讓 AI 接手協作。">
+<meta name="twitter:title" content="像素模式 — 裝置動畫與像素畫，兩種文件都走可機讀 JSON | VAS 操作手冊">
+<meta name="twitter:description" content="VAS 像素模式：裝置動畫（三種格子、逐格毫秒、36 色、20 秒插槽），以及像素畫——自訂格數、255 色、可列印的拼豆／織圖圖表，兩種檔種都走可機讀 JSON。">
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -172,6 +172,52 @@
   @media(max-width:520px){.gflow{grid-template-columns:1fr}}
 </style>
 
+<style id="gpx-free">
+  /* ═══ 像素畫（第二種文件）＋圖表輸出 ═══ */
+  .gfree-body{min-height:0}
+  .gfree-cw{padding:26px 22px}
+  .gfree-sheet{display:grid;grid-template-columns:26px auto 34px;grid-template-rows:18px auto 34px}
+  .gfree-rx{grid-column:2;grid-row:1;display:grid;grid-auto-flow:column;justify-content:start}
+  .gfree-rx span{width:33px;text-align:center;font-family:var(--vas-mono);font-size:10px;color:#6a6a6a}
+  .gfree-ry{grid-column:1;grid-row:2;display:grid;grid-auto-rows:33px}
+  .gfree-ry span{display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-family:var(--vas-mono);font-size:10px;color:#6a6a6a}
+  .gfree-grid{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(10,33px);grid-auto-rows:33px;background:#000;outline:1px solid #333}
+  .gfree-grid i{display:block;box-shadow:inset 0 0 0 .5px #262626}
+  .gfree-edge-r{grid-column:3;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding-left:8px}
+  .gfree-edge-b{grid-column:2;grid-row:3;display:flex;align-items:center;justify-content:center;gap:5px;padding-top:8px}
+  .gfree-pm{width:24px;height:24px;border-radius:5px;border:none;background:#2f2f2f;color:#bbb;font-family:var(--vas-mono);font-size:11px;display:inline-flex;align-items:center;justify-content:center;cursor:default;flex-shrink:0}
+  .gpx-grad{width:100%;height:54px;border-radius:6px;border:1px solid #3a3a3a;background:linear-gradient(to bottom,rgba(255,255,255,.92),rgba(255,255,255,0) 46%,rgba(0,0,0,0) 54%,rgba(0,0,0,.92)),linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)}
+  /* 圖表輸出：印在白紙上的成品，不隨網頁主題變色 */
+  .gchart{max-width:760px;margin:24px 0 0}
+  .gchart-sheet{background:#fff;border:1px solid var(--vas-rule-strong);border-radius:6px;padding:26px 28px;display:flex;flex-direction:column;gap:26px;overflow-x:auto}
+  .gchart-plot{display:grid;grid-template-columns:22px auto;grid-template-rows:16px auto;justify-content:start}
+  .gchart-rx{grid-column:2;grid-row:1;display:grid;grid-auto-flow:column;justify-content:start}
+  .gchart-rx span{width:26px;text-align:center;font-family:var(--vas-mono);font-size:9px;color:#111}
+  .gchart-ry{grid-column:1;grid-row:2;display:grid;grid-auto-rows:26px}
+  .gchart-ry span{display:flex;align-items:center;justify-content:flex-end;padding-right:5px;font-family:var(--vas-mono);font-size:9px;color:#111}
+  .gchart-grid{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(10,26px);grid-auto-rows:26px;border-top:1px solid #111;border-left:1px solid #111}
+  .gchart-grid i{display:flex;align-items:center;justify-content:center;font-family:var(--vas-mono);font-size:11px;font-style:normal;border-right:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9}
+  .gchart-info{display:flex;flex-direction:column;gap:4px;color:#111}
+  .gchart-title{font-family:var(--vas-mono);font-size:17px;font-weight:600;color:#111}
+  .gchart-meta{font-family:var(--vas-mono);font-size:11.5px;color:#444;display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
+  .gchart-mat{font-family:var(--vas-mono);font-size:12px;font-weight:600;color:#111;margin-bottom:2px}
+  .gchart-tbl{border-collapse:collapse;font-family:var(--vas-mono);font-size:11.5px;color:#222}
+  .gchart-tbl th{text-align:left;font-weight:400;color:#777;padding:3px 26px 5px 0;border-bottom:1px solid #ccc}
+  .gchart-tbl td{padding:3px 26px 3px 0}
+  .gchart-tbl td b{display:inline-block;width:13px;height:13px;border:1px solid #999;margin-right:9px;vertical-align:-2px}
+  @media(max-width:760px){
+    .gfree-cw{padding:18px 6px}
+    .gfree-sheet{grid-template-columns:20px auto 26px;grid-template-rows:14px auto 26px}
+    .gfree-rx span{width:22px;font-size:8.5px}
+    .gfree-ry{grid-auto-rows:22px}
+    .gfree-ry span{padding-right:4px;font-size:8.5px}
+    .gfree-grid{grid-template-columns:repeat(10,22px);grid-auto-rows:22px}
+    .gfree-edge-r{padding-left:5px}
+    .gfree-edge-b{padding-top:5px}
+    .gfree-pm{width:20px;height:20px;font-size:10px}
+  }
+</style>
+
 <link rel="alternate" hreflang="zh-Hant" href="/guide/pixel">
 <link rel="alternate" hreflang="en"       href="/en/guide/pixel">
 <link rel="alternate" hreflang="ja"       href="/ja/guide/pixel">
@@ -183,6 +229,9 @@
   VAS 像素動畫模式的操作手冊。回答：像素模式怎麼進入、支援哪些格子尺寸、
   影格與毫秒怎麼調、色盤上限與亮色原則、實機預覽與 20 秒插槽怎麼讀、
   JSON 怎麼匯出匯入、以及如何把 JSON 交給 AI 接手續畫。
+  另含第二種文件「像素畫」（S175–S178）：自訂格數（每邊 1–512）、255 色＋漸層取樣、
+  畫中加減欄列與行列標尺、可列印的拼豆／織圖圖表 PNG（格線＋格內色號序號＋材料表），
+  以及自有檔種標記的 JSON round-trip。
   同一個編輯器的另一個模式；標註工具的說明在 guide/editor.html。
 -->
 <link rel="stylesheet" href="../css/theme.css">
@@ -239,10 +288,10 @@
   <main class="docs-main">
 
     <section class="docs-section" id="pixel-top">
-      <div class="docs-section-kicker">手冊 · 03 — Pixel Animation</div>
-      <h1>像素動畫</h1>
-      <div class="docs-dek">同一個編輯器，另一種人機協作模式。標註是把話說在圖上；像素動畫是從一格都沒有的黑底開始，匯入現有的動畫進行優化或親手畫出一段會動的腳本——然後透過可機讀格式（JSON）把資訊無損送給 AI 進行下一步協作，可以燒錄進裝置，也可以讓他接手動畫特效。</div>
-          <div class="docs-note"><p><span class="g-badge-t" style="margin:0 8px 0 0">Tauri 專屬</span>像素動畫目前是 Tauri（付費版）專屬功能，免費下載版尚未提供。</p></div>
+      <div class="docs-section-kicker">手冊 · 03 — Pixel Mode</div>
+      <h1>像素模式</h1>
+      <div class="docs-dek">同一個編輯器，另一種人機協作模式。標註是把話說在圖上；像素動畫是從一格都沒有的黑底開始，匯入現有的動畫進行優化或親手畫出一段會動的腳本——然後透過可機讀格式（JSON）把資訊無損送給 AI 進行下一步協作，可以燒錄進裝置，也可以讓他接手動畫特效。<br><br>另外提供單幀的像素畫模式，支援自由長寬的畫布選擇、提升顏色數量上限、特化的圖表輸出模式，專為拼豆或織圖設計。</div>
+          <div class="docs-note"><p><span class="g-badge-t" style="margin:0 8px 0 0">動畫為 Tauri 專屬</span><a href="#free">像素畫</a>兩個版本都有；<strong>裝置動畫</strong>（燒進 Clawdmeter 那種）是 Tauri（付費版）專屬，免費下載版只提供像素畫。</p></div>
     </section>
 
     <section class="docs-section" id="layout">
@@ -413,53 +462,12 @@
 
     <section class="docs-section" id="sizes">
       <h2>支援的畫布規格</h2>
-      <p>目前支援 20×20、40×40、60×60 三種尺寸，以開源裝置韌體支援的尺寸規格為主。裝置以外的用途——拼豆、編織——不受這三種尺寸限制，走下一節的自由像素圖。</p>
+      <p>裝置動畫目前支援 20×20、40×40、60×60 三種尺寸，以開源裝置韌體支援的尺寸規格為主。拼豆、織圖那類不進裝置的用途，走的是另一種文件——<a href="#free">像素畫</a>，格數自己打。</p>
       <div class="gsz">
         <div class="gsz-row"><img class="gsz-fig" src="../img/px-grid-20.svg" alt="20×20 格線"><span class="gsz-n">20 × 20</span><span class="gsz-tag">每格最大</span><span class="gsz-d">格子少、每格大。適合徽章、符號、極簡表情——少少幾格就要說完一件事。實機上全螢幕每格 12 px、徽章 4 px。</span></div>
         <div class="gsz-row hi"><img class="gsz-fig" src="../img/px-grid-40.svg" alt="40×40 格線"><span class="gsz-n">40 × 40</span><span class="gsz-tag">常用</span><span class="gsz-d">細節與工作量的平衡點。全螢幕 splash 動畫多半畫在這個尺寸，每格 6 px、徽章 2 px。</span></div>
         <div class="gsz-row"><img class="gsz-fig" src="../img/px-grid-60.svg" alt="60×60 格線"><span class="gsz-n">60 × 60</span><span class="gsz-tag">每格最小</span><span class="gsz-d">格子多、每格小。畫得下曲線與漸層，但一格一格填完也最花時間。</span></div>
       </div>
-    </section>
-
-    <section class="docs-section" id="free">
-      <h2>另一種文件：自由像素圖</h2>
-      <p>上面那三種尺寸是為裝置訂的——韌體吃多大，畫布就開多大。但如果一張圖的目的地不是裝置，而是一盤拼豆、一塊繡布，格數就不該由別人決定。</p>
-      <p>新增畫布時選<strong>自由像素圖（自訂格數）</strong>，開出來的是一張只為這張圖存在的畫布：格數自己定，最大 512 格；顏色最多 255 種，不再是 36 個名額。沒有影格、沒有毫秒、沒有 20 秒輪播限制——它不是動畫，是一張圖。</p>
-      <div class="tdict">
-        <div class="tdict-grp">
-          <div class="tdx-grp-label">畫布</div>
-          <details class="tdx">
-            <summary><span class="tdx-ic">⊞</span><span class="tdx-t">邊畫邊加減欄列</span></summary>
-            <div class="tdx-body"><p class="tm-p">畫布右緣的 ＋／− 加減<strong>欄</strong>，下緣的 ＋／− 加減<strong>列</strong>。不必一開始就把尺寸想定——畫著畫著發現右邊不夠，就往右長一欄。</p><p class="tm-p">減一欄刪的是最右邊那欄，減一列刪的是最下面那列。刪錯了 ⌘Z 可以復原。</p></div>
-          </details>
-          <details class="tdx">
-            <summary><span class="tdx-ic">◱</span><span class="tdx-t">常駐讀數</span></summary>
-            <div class="tdx-body"><p class="tm-p">底列一直告訴你三件事：目前的縮放（<strong>×18 / 格</strong>）、畫布尺寸、以及已經填了幾格（<strong>50 × 8 格 · 已畫 168</strong>）。做實體的時候，「已畫幾格」就是「要放幾顆」，所以它常駐在那裡。</p></div>
-          </details>
-        </div>
-        <div class="tdict-grp">
-          <div class="tdx-grp-label">顏色</div>
-          <details class="tdx">
-            <summary><span class="tdx-ic">◐</span><span class="tdx-t">255 色與漸層取色</span></summary>
-            <div class="tdx-body"><p class="tm-p">「這張圖的顏色」上限 255。每個色票下面的數字是它在圖上用掉幾格——那個數字之後會原封不動出現在材料表裡。</p><p class="tm-p">色盤是固定的候選格，不夠用時點下面的<strong>漸層</strong>自己取，或直接在 #RRGGBB 欄輸入色碼再按<strong>加入</strong>。</p></div>
-          </details>
-        </div>
-        <div class="tdict-grp">
-          <div class="tdx-grp-label">檔案</div>
-          <details class="tdx">
-            <summary><span class="tdx-ic">⇋</span><span class="tdx-t">兩種文件不互通</span></summary>
-            <div class="tdx-body"><p class="tm-p">Clawdmeter 動畫與自由像素圖是兩種不同的文件，匯入時 VAS 會認出檔案種類：動畫檔丟進自由畫布會被擋下，並告訴你該先開哪一種畫布；反過來也一樣。</p></div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="docs-section" id="chart">
-      <h2>圖表：把畫帶出螢幕</h2>
-      <p>自由像素圖有三個出口。<strong>單幀圖片</strong>是一張乾淨的 PNG，沒有格線也沒有數字；<strong>JSON</strong>存的是資料，VAS 可以重新開啟繼續編輯。第三個出口叫<strong>圖表</strong>——它不是把畫存成圖，是把畫翻成一份<strong>施工圖</strong>。</p>
-      <p>印出來的圖表分兩層。上層是整張圖攤成帶編號的格線：橫軸標欄、縱軸標列，每一格填的不是顏色，是那個顏色的<strong>色號</strong>。下層是一張<strong>材料</strong>表，四欄——色票、色號、數量、百分比。</p>
-      <p>數量那一欄才是重點。它告訴你 1 號色要 91 顆、2 號色要 16 顆；出門買拼豆之前你就知道要買多少，不必做到一半才發現粉紅色不夠。</p>
-      <p>格線上之所以印色號而不是印顏色，是因為動手做的時候眼睛不會一直盯著螢幕。第 35 欄第 4 列該放哪一顆，紙上寫著。</p>
     </section>
 
     <section class="docs-section" id="preview">
@@ -479,6 +487,110 @@
       <p class="gpx-caption">會不會被切斷不是對錯，是取捨。有些動畫切在中間也無所謂（例如下雨的場景），有些切了就毀了（例如放到一半的煙火）——所以編輯器只告訴你事實，不替你決定。</p>
     </section>
 
+    <section class="docs-section" id="free">
+      <h2>像素畫：拼豆與織圖</h2>
+      <p>前面整章講的是<strong>裝置動畫</strong>——白名單尺寸、36 色、20 秒插槽，每一道界限都是裝置韌體能力的副本。但像素圖不只有那一種用途：拼豆、十字繡、織圖要的是<strong>一張圖</strong>，不進裝置、不需要動，格數由紙張跟材料決定。</p>
+      <p>所以像素模式有第二種文件：<strong>像素畫</strong>。從工具列「新開畫布」的預設選單選「自由像素圖（自訂格數）」，寬高各自打字，長方形也可以。它跟裝置動畫共用同一個編輯器、同一套色票與工具，但界限換了一組——因為它不承諾要進裝置。</p>
+
+      <div class="gpx" id="gpxFree">
+        <div class="gpx-win">
+          <div class="gpx-title">
+            <span class="gpx-dot" style="background:#ff5f57"></span>
+            <span class="gpx-dot" style="background:#febc2e"></span>
+            <span class="gpx-dot" style="background:#28c840"></span>
+            <span class="gpx-tname">VAS</span>
+            <span style="width:52px"></span>
+          </div>
+          <div class="gpx-bar">
+            <button class="gpx-tool on" title="畫筆">✏</button>
+            <button class="gpx-tool" title="橡皮擦">▱</button>
+            <button class="gpx-tool" title="選取">⬚</button>
+            <button class="gpx-tool" title="滴管">◍</button>
+            <span class="gpx-optsep"></span>
+            <button class="gpx-tool" title="左右翻">⇋</button>
+            <button class="gpx-tool" title="上下翻">⇅</button>
+          </div>
+          <div class="gpx-body gfree-body">
+            <div class="gpx-canvaswrap gfree-cw">
+              <div class="gfree-sheet">
+                <div class="gfree-rx" id="gfRx"></div>
+                <div class="gfree-ry" id="gfRy"></div>
+                <div class="gfree-grid" id="gfGrid"></div>
+                <div class="gfree-edge-r"><button class="gfree-pm">＋</button><button class="gfree-pm">−</button></div>
+                <div class="gfree-edge-b"><button class="gfree-pm">＋</button><button class="gfree-pm">−</button></div>
+              </div>
+            </div>
+            <div class="gpx-col gpx-right">
+              <div class="gpx-head"><span class="gpx-lbl">這張圖的顏色</span><span class="gpx-hint">4 / 255</span></div>
+              <div class="gpx-sw" id="gfSw"></div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">選色</span>
+              <img class="gpx-grid" src="../img/px-palette.svg" alt="內建 256 色盤">
+              <div class="gpx-hint">色盤不夠用時，點漸層取自己的顏色</div>
+              <div class="gpx-grad"></div>
+              <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">加入</button><button class="gpx-btn" style="width:42px;height:30px">取代</button></div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">JSON 檔處理</span>
+              <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">貼上</button><button class="gpx-btn" style="flex:1">複製</button><button class="gpx-btn" style="flex:1">存檔</button></div>
+            </div>
+          </div>
+          <div class="gpx-status">
+            <span class="gpx-zoom">×33 / 格</span>
+            <span class="gpx-zoom" id="gfRead" data-tpl="{c} × {r} 格 · 已畫 {n}"></span>
+            <span class="gpx-spacer"></span>
+            <button class="gpx-btn" style="height:30px;padding:0 14px">複製</button>
+            <button class="gpx-save">完成並儲存</button>
+          </div>
+        </div>
+      </div>
+      <p class="gpx-caption">同一個編輯器，少了一整排東西：沒有影格列、沒有洋蔥皮、沒有實機預覽、沒有動畫名稱與分類。單張文件不需要它們，留著只會讓人以為自己漏設了什麼。</p>
+
+      <ul class="docs-list" style="margin-top:26px">
+        <li><strong>格數自訂</strong>——每邊 1 到 512 格，非正方形可以。50×80 的織圖就打 50×80。</li>
+        <li><strong>顏色上限 255</strong>——不是 36。拼豆色號多，36 個名額不夠用。色盤仍是內建那 256 色；不夠用時點色盤下方的漸層區，自己取一個色進來。</li>
+        <li><strong>底恆透明</strong>——沒有背景色這一列。空格就是空格，意思是「這一格不放豆子／不下針」。</li>
+        <li><strong>畫中加減欄列</strong>——格紙右緣與下緣各有一組 <strong>＋</strong> / <strong>−</strong>，邊畫邊改格數，左上角固定不動。長出來的格是空的、剪掉的那排直接消失，<span class="docs-kbd">⌘Z</span> 還原得回來。</li>
+        <li><strong>行列標尺</strong>——格紙上緣與左緣印行列號，游標移到哪一格，該行該列就亮起來。數格子不必用手指。</li>
+        <li><strong>底欄讀數</strong>——「W × H 格 · 已畫 N」常駐，畫一格就跳一次。</li>
+      </ul>
+    </section>
+
+    <section class="docs-section" id="chart">
+      <h2>圖表輸出：印出來照著數的那一張</h2>
+      <p>拼豆與織圖真正要的檔案不是螢幕上的圖，是一張<strong>印得出來、照著數格子的圖表</strong>。所以像素畫的存檔窗多一個「圖表」格式（裝置動畫沒有這個選項——它的分享出口是 GIF 與 JSON），按下去得到一張 PNG：</p>
+      <div class="gchart">
+        <div class="gchart-sheet">
+          <div class="gchart-plot">
+            <div class="gchart-rx" id="gcRx"></div>
+            <div class="gchart-ry" id="gcRy"></div>
+            <div class="gchart-grid" id="gcGrid"></div>
+          </div>
+          <div class="gchart-info">
+            <div class="gchart-title">VAS_pixel</div>
+            <div class="gchart-meta">
+              <span id="gcSize" data-tpl="格數: {c} × {r}（已畫 {n} 格）"></span>
+              <span id="gcColors" data-tpl="顏色: {k}"></span>
+            </div>
+            <div class="gchart-mat">材料</div>
+            <table class="gchart-tbl">
+              <thead><tr><th>色票</th><th>色號</th><th>數量</th><th>%</th></tr></thead>
+              <tbody id="gcMat"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul class="docs-list" style="margin-top:26px">
+        <li><strong>格線與行列標尺</strong>——黑字，印在白紙上讀得清楚。</li>
+        <li><strong>格內印色號序號</strong>——從 1 起，只給真的用到的顏色編號。序號的黑白由對比自動決定，不會出現印出來看不見的數字。</li>
+        <li><strong>空白格留白</strong>——不印任何東西。</li>
+        <li><strong>材料表</strong>——色票、序號、色號（hex）、格數、佔比。買豆子、配線的時候照這張表。</li>
+        <li><strong>標題</strong>——存檔時填的檔名；空著就印預設的 <code>VAS_pixel</code>。</li>
+        <li><strong>版面自動選</strong>——以 A4 為基準：寬大於高走橫式、上圖下資訊；高大於寬走直式、上圖下資訊；正方形則右圖左資訊。</li>
+      </ul>
+      <p class="gpx-caption">「已畫 N 格」報的是實際有畫的格數，不含空白——那是你要準備的材料總量，不是紙的面積。</p>
+      <p style="margin-top:26px">除了圖表，像素畫也存得出一般圖片：<strong>PNG／WebP／TIFF</strong> 是放大後的格子圖、空格保持透明，<strong>JPG</strong> 會鋪白底；倍率跟 GIF 共用同一組尺寸控制。單張文件存 <strong>GIF</strong> 得到的是一張不含格線的像素圖，不是動畫。</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>可機讀檔案介面：JSON</h2>
       <p>像素動畫在存檔可機讀格式是 JSON，不是圖片。<strong>貼上</strong>讀入現有動畫、<strong>複製</strong>把整支動畫丟進剪貼簿、<strong>存檔</strong>寫成檔案。讓你匯出匯入都方便。</p>
@@ -496,6 +608,10 @@
         </div>
       </div>
       <p style="margin-top:26px">匯出的 JSON 餵得進開源裝置的動畫格式——例如 Clawdmeter 等跑在 ESP32 上的桌面小裝置。VAS 這邊複製 JSON 源碼，那邊貼上給 AI 處理，不需要轉檔工具。</p>
+      <p class="g-section-sub" style="margin-top:32px">像素畫走同一套出入口，但是另一種檔種</p>
+      <p><a href="#free">像素畫</a>的貼上／複製／存檔跟裝置動畫是同三顆按鈕，存出來的也是 JSON——但它的檔案開頭帶著自己的<strong>檔種標記與版本</strong>，所以編輯器一眼認得出手上這份是哪一種文件，不用猜。存出來的檔讀回去是<strong>逐格逐色相同</strong>：畫到一半去做別的事，回來接著畫。</p>
+      <p>兩種檔種不會互相誤吃：把像素畫的檔貼進裝置動畫的畫布（或反過來），編輯器會出聲說這是另一種檔、請先開對應的畫布——不會靜默吞下去變成一張走樣的圖。誤判的症狀是安靜的，所以這裡靠明確標記分辨，不靠猜形狀。</p>
+      <p>而「JSON 是一段文字」這件事對像素畫同樣成立——所以下一節那套跟 AI 協作的做法，拼豆圖與織圖也用得上。</p>
     </section>
 
     <section class="docs-section" id="ai">
@@ -536,7 +652,7 @@
   <div class="gx-grid">
     <a class="gx-item" href="toolbar.html"><span class="gx-no">01</span><span class="gx-nm">工具列</span></a>
     <a class="gx-item" href="editor.html"><span class="gx-no">02</span><span class="gx-nm">編輯器</span></a>
-    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">像素動畫</span></a>
+    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">像素模式</span></a>
     <a class="gx-item" href="ocr.html"><span class="gx-no">04</span><span class="gx-nm">OCR</span></a>
     <a class="gx-item" href="arrange.html"><span class="gx-no">05</span><span class="gx-nm">編排</span></a>
     <a class="gx-item" href="export.html"><span class="gx-no">06</span><span class="gx-nm">匯入與匯出</span></a>
@@ -642,12 +758,12 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "像素動畫編輯器 — 逐格、實機預覽、可機讀 JSON | VAS 操作手冊",
+  "headline": "像素模式 — 裝置動畫與像素畫，兩種文件都走可機讀 JSON | VAS 操作手冊",
   "description": "VAS 像素動畫：20×20／40×40／60×60 三種格子、逐格影格與毫秒、36 色上限的裝置色盤、實機預覽與 20 秒插槽對齊，匯出可機讀 JSON 讓 AI 接手協作。",
   "inLanguage": "zh-Hant",
   "url": "https://yoursvas.app/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-08-31",
   "image": "https://yoursvas.app/img/vas-guide-share-zh.webp",
   "publisher": {
     "@type": "Organization",
@@ -674,24 +790,102 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "VAS", "item": "https://yoursvas.app/" },
     { "@type": "ListItem", "position": 2, "name": "操作手冊", "item": "https://yoursvas.app/guide/" },
-    { "@type": "ListItem", "position": 3, "name": "像素動畫" }
+    { "@type": "ListItem", "position": 3, "name": "像素模式" }
   ]
 }
 </script>
 
 <button class="dot-nav-trigger" aria-label="章節導覽"></button>
 <nav class="dot-nav" aria-label="段落導覽">
-  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">像素動畫</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">像素模式</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#layout"><span class="dn-label">編輯模式</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#tools"><span class="dn-label">工具</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#frames"><span class="dn-label">影格</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#colours"><span class="dn-label">顏色</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sizes"><span class="dn-label">畫布規格</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#preview"><span class="dn-label">實機預覽</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#free"><span class="dn-label">像素畫</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#chart"><span class="dn-label">圖表輸出</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">跟 AI 一起畫</span><span class="dn-dot"></span></a>
 </nav>
 
+<script>
+(function () {
+  // 像素畫與圖表輸出的示意圖：同一份圖樣，兩處渲染（編輯器＝顏色、圖表＝色號序號）
+  var PAT = ['.11....11.', '1231..1221', '1232112221', '1222222221', '.12222221.', '..122221..', '...1221...', '....11....'];
+  var PAL = [null, '#D97757', '#FFC2D1', '#FFFF4D'];
+  var COLS = PAT[0].length, ROWS = PAT.length;
+  var counts = PAL.map(function () { return 0; }), painted = 0;
+  PAT.forEach(function (row) {
+    for (var i = 0; i < row.length; i++) {
+      var ch = row[i];
+      if (ch !== '.') { counts[+ch]++; painted++; }
+    }
+  });
+  var serial = {}, used = [];
+  for (var i = 1; i < PAL.length; i++) {
+    if (!counts[i]) continue;
+    serial[i] = used.length + 1;
+    used.push(i);
+  }
+  function ink(hex) {
+    var n = parseInt(hex.slice(1), 16);
+    var f = function (v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+    var L = 0.2126 * f((n >> 16) & 255) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255);
+    return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#000000' : '#ffffff';
+  }
+  function ruler(el, count) {
+    if (!el) return;
+    var out = '';
+    for (var i = 1; i <= count; i++) out += '<span>' + i + '</span>';
+    el.innerHTML = out;
+  }
+  function tpl(el, map) {
+    if (!el) return;
+    var s = el.getAttribute('data-tpl') || '';
+    Object.keys(map).forEach(function (k) { s = s.split('{' + k + '}').join(map[k]); });
+    el.textContent = s;
+  }
+  function cells(el, numbered) {
+    if (!el) return;
+    var out = '';
+    PAT.forEach(function (row) {
+      for (var x = 0; x < row.length; x++) {
+        var ch = row[x];
+        if (ch === '.') { out += '<i></i>'; continue; }
+        var hex = PAL[+ch];
+        out += '<i style="background:' + hex + (numbered ? ';color:' + ink(hex) : '') + '">' + (numbered ? serial[+ch] : '') + '</i>';
+      }
+    });
+    el.innerHTML = out;
+  }
+  ruler(document.getElementById('gfRx'), COLS);
+  ruler(document.getElementById('gfRy'), ROWS);
+  ruler(document.getElementById('gcRx'), COLS);
+  ruler(document.getElementById('gcRy'), ROWS);
+  cells(document.getElementById('gfGrid'), false);
+  cells(document.getElementById('gcGrid'), true);
+  tpl(document.getElementById('gfRead'), { c: COLS, r: ROWS, n: painted });
+  tpl(document.getElementById('gcSize'), { c: COLS, r: ROWS, n: painted });
+  tpl(document.getElementById('gcColors'), { k: used.length });
+  var sw = document.getElementById('gfSw');
+  if (sw) {
+    var s = '<span class="gpx-alpha"><i>' + (COLS * ROWS - painted) + '</i></span>';
+    used.forEach(function (idx, n) {
+      s += '<span' + (n === 0 ? ' class="sel"' : '') + ' style="background:' + PAL[idx] + '"><i style="color:' + ink(PAL[idx]) + '">' + counts[idx] + '</i></span>';
+    });
+    sw.innerHTML = s;
+  }
+  var mat = document.getElementById('gcMat');
+  if (mat) {
+    mat.innerHTML = used.map(function (idx) {
+      var pct = (counts[idx] / painted * 100).toFixed(1);
+      return '<tr><td><b style="background:' + PAL[idx] + '"></b>' + serial[idx] + '</td><td>' + PAL[idx] + '</td><td>' + counts[idx] + '</td><td>' + pct + '</td></tr>';
+    }).join('');
+  }
+}());
+</script>
 <script src="../js/analytics.js"></script>
 <script>
 (function () {

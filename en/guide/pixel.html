@@ -12,13 +12,13 @@
   gtag('js', new Date());
   gtag('config', 'G-M8YMJ7QH3S');
 </script>
-<title>Pixel Animation Editor: Frame-by-Frame, Device Preview & JSON · User Guide | VAS</title>
+<title>Pixel Mode · User Guide | VAS</title>
 <link rel="icon" href="../../img/vas.ico" type="image/x-icon">
 <link rel="canonical" href="https://yoursvas.app/en/guide/pixel">
 <meta name="description"
-      content="VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration." />
-<meta property="og:title" content="Pixel Animation Editor — Frame-by-Frame, Device Preview, Machine-Readable JSON | VAS User Guide">
-<meta property="og:description" content="VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration.">
+      content="VAS pixel mode: device animation (three grid sizes, per-frame milliseconds, 36 colours, the 20-second slot) plus pixel art — custom grid, 255 colours, and a printable bead / stitch chart with grid, colour codes and counts. Both kinds of document save machine-readable JSON." />
+<meta property="og:title" content="Pixel Mode — device animation and pixel art, both saving machine-readable JSON | VAS User Guide">
+<meta property="og:description" content="VAS pixel mode: device animation (three grid sizes, per-frame milliseconds, 36 colours, the 20-second slot) plus pixel art — custom grid, 255 colours, and a printable bead / stitch chart with grid, colour codes and counts. Both kinds of document save machine-readable JSON.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/en/guide/pixel">
 <meta property="og:locale" content="en_US">
@@ -30,8 +30,8 @@
 <meta name="twitter:image" content="https://yoursvas.app/img/vas-guide-share-en.webp">
 <meta name="twitter:image:alt" content="VAS User Guide — a tool you can hold, a manual you can operate">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pixel Animation Editor — Frame-by-Frame, Device Preview, Machine-Readable JSON | VAS User Guide">
-<meta name="twitter:description" content="VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration.">
+<meta name="twitter:title" content="Pixel Mode — device animation and pixel art, both saving machine-readable JSON | VAS User Guide">
+<meta name="twitter:description" content="VAS pixel mode: device animation (three grid sizes, per-frame milliseconds, 36 colours, the 20-second slot) plus pixel art — custom grid, 255 colours, and a printable bead / stitch chart with grid, colour codes and counts. Both kinds of document save machine-readable JSON.">
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
@@ -172,6 +172,52 @@
   @media(max-width:520px){.gflow{grid-template-columns:1fr}}
 </style>
 
+<style id="gpx-free">
+  /* ═══ 自由像素圖（第二種文件）＋圖表輸出 ═══ */
+  .gfree-body{min-height:0}
+  .gfree-cw{padding:26px 22px}
+  .gfree-sheet{display:grid;grid-template-columns:26px auto 34px;grid-template-rows:18px auto 34px}
+  .gfree-rx{grid-column:2;grid-row:1;display:grid;grid-auto-flow:column;justify-content:start}
+  .gfree-rx span{width:33px;text-align:center;font-family:var(--vas-mono);font-size:10px;color:#6a6a6a}
+  .gfree-ry{grid-column:1;grid-row:2;display:grid;grid-auto-rows:33px}
+  .gfree-ry span{display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-family:var(--vas-mono);font-size:10px;color:#6a6a6a}
+  .gfree-grid{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(10,33px);grid-auto-rows:33px;background:#000;outline:1px solid #333}
+  .gfree-grid i{display:block;box-shadow:inset 0 0 0 .5px #262626}
+  .gfree-edge-r{grid-column:3;grid-row:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding-left:8px}
+  .gfree-edge-b{grid-column:2;grid-row:3;display:flex;align-items:center;justify-content:center;gap:5px;padding-top:8px}
+  .gfree-pm{width:24px;height:24px;border-radius:5px;border:none;background:#2f2f2f;color:#bbb;font-family:var(--vas-mono);font-size:11px;display:inline-flex;align-items:center;justify-content:center;cursor:default;flex-shrink:0}
+  .gpx-grad{width:100%;height:54px;border-radius:6px;border:1px solid #3a3a3a;background:linear-gradient(to bottom,rgba(255,255,255,.92),rgba(255,255,255,0) 46%,rgba(0,0,0,0) 54%,rgba(0,0,0,.92)),linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)}
+  /* 圖表輸出：印在白紙上的成品，不隨網頁主題變色 */
+  .gchart{max-width:760px;margin:24px 0 0}
+  .gchart-sheet{background:#fff;border:1px solid var(--vas-rule-strong);border-radius:6px;padding:26px 28px;display:flex;flex-direction:column;gap:26px;overflow-x:auto}
+  .gchart-plot{display:grid;grid-template-columns:22px auto;grid-template-rows:16px auto;justify-content:start}
+  .gchart-rx{grid-column:2;grid-row:1;display:grid;grid-auto-flow:column;justify-content:start}
+  .gchart-rx span{width:26px;text-align:center;font-family:var(--vas-mono);font-size:9px;color:#111}
+  .gchart-ry{grid-column:1;grid-row:2;display:grid;grid-auto-rows:26px}
+  .gchart-ry span{display:flex;align-items:center;justify-content:flex-end;padding-right:5px;font-family:var(--vas-mono);font-size:9px;color:#111}
+  .gchart-grid{grid-column:2;grid-row:2;display:grid;grid-template-columns:repeat(10,26px);grid-auto-rows:26px;border-top:1px solid #111;border-left:1px solid #111}
+  .gchart-grid i{display:flex;align-items:center;justify-content:center;font-family:var(--vas-mono);font-size:11px;font-style:normal;border-right:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9}
+  .gchart-info{display:flex;flex-direction:column;gap:4px;color:#111}
+  .gchart-title{font-family:var(--vas-mono);font-size:17px;font-weight:600;color:#111}
+  .gchart-meta{font-family:var(--vas-mono);font-size:11.5px;color:#444;display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
+  .gchart-mat{font-family:var(--vas-mono);font-size:12px;font-weight:600;color:#111;margin-bottom:2px}
+  .gchart-tbl{border-collapse:collapse;font-family:var(--vas-mono);font-size:11.5px;color:#222}
+  .gchart-tbl th{text-align:left;font-weight:400;color:#777;padding:3px 26px 5px 0;border-bottom:1px solid #ccc}
+  .gchart-tbl td{padding:3px 26px 3px 0}
+  .gchart-tbl td b{display:inline-block;width:13px;height:13px;border:1px solid #999;margin-right:9px;vertical-align:-2px}
+  @media(max-width:760px){
+    .gfree-cw{padding:18px 6px}
+    .gfree-sheet{grid-template-columns:20px auto 26px;grid-template-rows:14px auto 26px}
+    .gfree-rx span{width:22px;font-size:8.5px}
+    .gfree-ry{grid-auto-rows:22px}
+    .gfree-ry span{padding-right:4px;font-size:8.5px}
+    .gfree-grid{grid-template-columns:repeat(10,22px);grid-auto-rows:22px}
+    .gfree-edge-r{padding-left:5px}
+    .gfree-edge-b{padding-top:5px}
+    .gfree-pm{width:20px;height:20px;font-size:10px}
+  }
+</style>
+
 <link rel="alternate" hreflang="zh-Hant" href="/guide/pixel">
 <link rel="alternate" hreflang="en"       href="/en/guide/pixel">
 <link rel="alternate" hreflang="ja"       href="/ja/guide/pixel">
@@ -185,6 +231,10 @@
   and bright-colour principle, how to read the device preview and the 20-second slot,
   how to export and import JSON, and how to hand the JSON to an AI to keep drawing.
   The other mode of the same editor; the annotation tools are documented in guide/editor.html.
+  Also covers the second kind of document, pixel art (S175–S178): custom grid (1–512 per side),
+  255 colours plus gradient sampling, in-canvas add/remove rows and rulers, a printable bead /
+  stitch chart PNG (grid + per-cell colour serials + materials table), and JSON round-trip with
+  its own kind marker.
 -->
 <link rel="stylesheet" href="../../css/theme.css">
 </head>
@@ -240,10 +290,10 @@
   <main class="docs-main">
 
     <section class="docs-section" id="pixel-top">
-      <div class="docs-section-kicker">Guide · 03 — Pixel Animation</div>
-      <h1>Pixel Animation</h1>
-      <div class="docs-dek">The same editor, another mode of human–machine collaboration. Annotation is saying your words on top of an image; pixel animation starts from a black canvas without a single cell, imports an existing animation to refine or draws a moving script by hand — then hands the information losslessly to an AI in a machine-readable format (JSON) for the next step of collaboration. You can burn it into the device, or let the AI take over the motion work.</div>
-          <div class="docs-note"><p><span class="g-badge-t" style="margin:0 8px 0 0">Tauri only</span>Pixel Animation is currently exclusive to Tauri (the paid edition) — not yet available in the free download edition.</p></div>
+      <div class="docs-section-kicker">Guide · 03 — Pixel Mode</div>
+      <h1>Pixel Mode</h1>
+      <div class="docs-dek">The same editor, another mode of human–machine collaboration. Annotation is saying your words on top of an image; pixel animation starts from a black canvas without a single cell, imports an existing animation to refine or draws a moving script by hand — then hands the information losslessly to an AI in a machine-readable format (JSON) for the next step of collaboration. You can burn it into the device, or let the AI take over the motion work.<br><br>There is also a single-frame pixel-art mode: canvases of any width and height, a much higher colour cap, and a specialised chart export — built for perler beads and stitch charts.</div>
+          <div class="docs-note"><p><span class="g-badge-t" style="margin:0 8px 0 0">Animation: Tauri only</span><a href="#free">Pixel art</a> is in both editions; <strong>device animation</strong> — the kind that goes into a Clawdmeter — is exclusive to Tauri (the paid edition), and the free download offers pixel art only.</p></div>
     </section>
 
     <section class="docs-section" id="layout">
@@ -414,7 +464,7 @@
 
     <section class="docs-section" id="sizes">
       <h2>Supported canvas sizes</h2>
-      <p>Three sizes are supported for now — 20×20, 40×40, 60×60 — driven mainly by the sizes the open-source device firmware supports. More sizes will be developed in future for uses such as fuse beads and weaving.</p>
+      <p>Device animation supports three sizes for now — 20×20, 40×40, 60×60 — driven mainly by the sizes the open-source device firmware supports. Uses that never enter a device, like beads and stitch charts, go through the other kind of document: <a href="#free">pixel art</a>, where you type the grid yourself.</p>
       <div class="gsz">
         <div class="gsz-row"><img class="gsz-fig" src="../../img/px-grid-20.svg" alt="20×20 grid"><span class="gsz-n">20 × 20</span><span class="gsz-tag">largest cells</span><span class="gsz-d">Few cells, each one large. Good for badges, symbols, minimal expressions — you have to say something in just a handful of cells. On the device it's 12 px per cell full-screen, 4 px as a badge.</span></div>
         <div class="gsz-row hi"><img class="gsz-fig" src="../../img/px-grid-40.svg" alt="40×40 grid"><span class="gsz-n">40 × 40</span><span class="gsz-tag">common</span><span class="gsz-d">The balance point between detail and workload. Most full-screen splash animations are drawn at this size: 6 px per cell, 2 px as a badge.</span></div>
@@ -439,6 +489,110 @@
       <p class="gpx-caption">Whether it gets cut off isn't right or wrong, it's a trade-off. Some animations don't mind being cut mid-loop (a rain scene, say), others are ruined by it (a firework going off halfway) — so the editor just tells you the facts, it doesn't decide for you.</p>
     </section>
 
+        <section class="docs-section" id="free">
+      <h2>Pixel art: beads and stitch charts</h2>
+      <p>Everything above is about <strong>device animation</strong> — whitelisted sizes, 36 colours, the 20-second slot. Every one of those limits is a copy of what the device firmware can do. But a pixel grid has another use entirely: perler beads, cross-stitch and knitting charts want <strong>one image</strong>. It never enters a device, it doesn’t need to move, and the grid count is decided by your paper and your materials.</p>
+      <p>So pixel mode has a second kind of document: <strong>pixel art</strong>. In the toolbar’s “New canvas”, pick “Free pixel art (custom size)” from the preset menu and type the width and height yourself — rectangles are fine. It shares the same editor, the same swatches and the same tools as device animation, but a different set of limits — because it never promises to enter a device.</p>
+
+      <div class="gpx" id="gpxFree">
+        <div class="gpx-win">
+          <div class="gpx-title">
+            <span class="gpx-dot" style="background:#ff5f57"></span>
+            <span class="gpx-dot" style="background:#febc2e"></span>
+            <span class="gpx-dot" style="background:#28c840"></span>
+            <span class="gpx-tname">VAS</span>
+            <span style="width:52px"></span>
+          </div>
+          <div class="gpx-bar">
+            <button class="gpx-tool on" title="Pen">✏</button>
+            <button class="gpx-tool" title="Eraser">▱</button>
+            <button class="gpx-tool" title="Select">⬚</button>
+            <button class="gpx-tool" title="Eyedropper">◍</button>
+            <span class="gpx-optsep"></span>
+            <button class="gpx-tool" title="Flip horizontal">⇋</button>
+            <button class="gpx-tool" title="Flip vertical">⇅</button>
+          </div>
+          <div class="gpx-body gfree-body">
+            <div class="gpx-canvaswrap gfree-cw">
+              <div class="gfree-sheet">
+                <div class="gfree-rx" id="gfRx"></div>
+                <div class="gfree-ry" id="gfRy"></div>
+                <div class="gfree-grid" id="gfGrid"></div>
+                <div class="gfree-edge-r"><button class="gfree-pm">＋</button><button class="gfree-pm">−</button></div>
+                <div class="gfree-edge-b"><button class="gfree-pm">＋</button><button class="gfree-pm">−</button></div>
+              </div>
+            </div>
+            <div class="gpx-col gpx-right">
+              <div class="gpx-head"><span class="gpx-lbl">Colours in this image</span><span class="gpx-hint">4 / 255</span></div>
+              <div class="gpx-sw" id="gfSw"></div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">Pick a colour</span>
+              <img class="gpx-grid" src="../../img/px-palette.svg" alt="Built-in 256-colour palette">
+              <div class="gpx-hint">Need a colour the swatches lack? Click the gradient to sample one</div>
+              <div class="gpx-grad"></div>
+              <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">Add</button><button class="gpx-btn" style="width:42px;height:30px">Replace</button></div>
+              <div class="gpx-sep"></div>
+              <span class="gpx-lbl">JSON file</span>
+              <div class="gpx-btnrow"><button class="gpx-btn" style="flex:1">Paste</button><button class="gpx-btn" style="flex:1">Copy</button><button class="gpx-btn" style="flex:1">Save</button></div>
+            </div>
+          </div>
+          <div class="gpx-status">
+            <span class="gpx-zoom">×33 / cell</span>
+            <span class="gpx-zoom" id="gfRead" data-tpl="{c} × {r} cells · {n} painted"></span>
+            <span class="gpx-spacer"></span>
+            <button class="gpx-btn" style="height:30px;padding:0 14px">Copy</button>
+            <button class="gpx-save">Finish and save</button>
+          </div>
+        </div>
+      </div>
+      <p class="gpx-caption">The same editor with a whole column of things missing: no frame strip, no onion skin, no device preview, no animation name or category. A single-image document doesn’t need them, and leaving them there only makes you wonder what you forgot to set.</p>
+
+      <ul class="docs-list" style="margin-top:26px">
+        <li><strong>Custom grid</strong> — 1 to 512 cells per side, rectangles allowed. A 50×80 chart is just 50×80.</li>
+        <li><strong>255 colours</strong> — not 36. Bead codes run long and 36 seats aren’t enough. The board is still the built-in 256; when that isn’t enough, click the gradient underneath and sample your own colour.</li>
+        <li><strong>Always transparent underneath</strong> — there is no background colour row. An empty cell stays empty: it means “no bead here / no stitch here”.</li>
+        <li><strong>Add and remove rows in place</strong> — a <strong>＋</strong> / <strong>−</strong> pair sits on the right and bottom edge of the sheet, so you can change the grid while you draw; the top-left corner stays put. New cells come in empty, a removed row is gone at once, and <span class="docs-kbd">⌘Z</span> brings it back.</li>
+        <li><strong>Row and column rulers</strong> — numbers along the top and left edge; move the cursor and that row and column light up. You don’t have to count cells with your finger.</li>
+        <li><strong>Status readout</strong> — “W × H cells · N painted”, always there, updating as you paint.</li>
+      </ul>
+    </section>
+
+    <section class="docs-section" id="chart">
+      <h2>Chart export: the sheet you actually print</h2>
+      <p>What beadwork and stitching really need isn’t the image on screen — it’s a <strong>chart you can print and count from</strong>. So a pixel-art document’s save dialog has one extra format, “Chart” (device animation doesn’t offer it — its outlets are GIF and JSON). Press it and you get a PNG:</p>
+      <div class="gchart">
+        <div class="gchart-sheet">
+          <div class="gchart-plot">
+            <div class="gchart-rx" id="gcRx"></div>
+            <div class="gchart-ry" id="gcRy"></div>
+            <div class="gchart-grid" id="gcGrid"></div>
+          </div>
+          <div class="gchart-info">
+            <div class="gchart-title">VAS_pixel</div>
+            <div class="gchart-meta">
+              <span id="gcSize" data-tpl="Grid: {c} × {r} ({n} cells)"></span>
+              <span id="gcColors" data-tpl="Colors: {k}"></span>
+            </div>
+            <div class="gchart-mat">Materials</div>
+            <table class="gchart-tbl">
+              <thead><tr><th>Swatch</th><th>Code</th><th>Count</th><th>%</th></tr></thead>
+              <tbody id="gcMat"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul class="docs-list" style="margin-top:26px">
+        <li><strong>Grid lines and row/column rulers</strong> — in black, readable on white paper.</li>
+        <li><strong>A colour serial in every cell</strong> — numbered from 1, and only colours actually used get a number. Black or white ink is chosen by contrast, so no number ever prints invisible.</li>
+        <li><strong>Empty cells stay empty</strong> — nothing is printed in them.</li>
+        <li><strong>Materials table</strong> — swatch, serial, hex code, cell count, share. That is your shopping list for beads or thread.</li>
+        <li><strong>Title</strong> — the file name you type when saving; leave it blank and it prints the default <code>VAS_pixel</code>.</li>
+        <li><strong>Layout picks itself</strong> — A4 as the baseline: wider than tall goes landscape with the info below the chart; taller than wide goes portrait, info below; a square goes landscape with the chart right and the info left.</li>
+      </ul>
+      <p class="gpx-caption">“N painted” counts the cells you actually filled, not the area of the paper — that number is how much material you need.</p>
+      <p style="margin-top:26px">Besides the chart, pixel art also saves as a plain image: <strong>PNG / WebP / TIFF</strong> give you the enlarged grid picture with empty cells transparent, <strong>JPG</strong> flattens onto white, and the scale uses the same size control as GIF. Saving a single-image document as <strong>GIF</strong> gives you a pixel image without grid lines — not an animation.</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>Machine-readable file interface: JSON</h2>
       <p>Pixel animation saves in a machine-readable format — JSON, not an image. <strong>Paste</strong> reads in an existing animation, <strong>Copy</strong> drops the whole animation onto the clipboard, <strong>Save</strong> writes it to a file. Export and import both stay easy.</p>
@@ -456,6 +610,10 @@
         </div>
       </div>
       <p style="margin-top:26px">The exported JSON feeds into the animation format of open-source devices — for example Clawdmeter and other desktop gadgets running on the ESP32. On the VAS side you copy the JSON source, on that side you paste it for an AI to process, with no conversion tool needed.</p>
+          <p class="g-section-sub" style="margin-top:32px">Pixel art uses the same outlets — but it is a different kind of document</p>
+      <p><a href="#free">Pixel art</a> has the same three buttons — paste, copy, save — and it saves JSON too. But its file carries its own <strong>kind marker and version</strong> at the top, so the editor knows at a glance which kind of document it is holding; it doesn’t guess. A saved file reads back <strong>cell for cell, colour for colour</strong>: stop halfway, go do something else, come back and carry on.</p>
+      <p>The two kinds never eat each other by mistake: paste a pixel-art file into a device-animation canvas (or the other way round) and the editor says out loud that this is the other kind and asks you to open the matching canvas. It never swallows it silently into a mangled image — a wrong guess here fails quietly, which is why the kind is read from an explicit marker rather than from the shape of the file.</p>
+      <p>And “JSON is just text” holds for pixel art too — so the way of working with an AI in the next section applies to bead and stitch charts as well.</p>
     </section>
 
     <section class="docs-section" id="ai">
@@ -496,7 +654,7 @@
   <div class="gx-grid">
     <a class="gx-item" href="toolbar.html"><span class="gx-no">01</span><span class="gx-nm">Toolbar</span></a>
     <a class="gx-item" href="editor.html"><span class="gx-no">02</span><span class="gx-nm">Editor</span></a>
-    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">Pixel Animation</span></a>
+    <a class="gx-item cur" href="pixel.html" aria-current="page"><span class="gx-no">03</span><span class="gx-nm">Pixel Mode</span></a>
     <a class="gx-item" href="ocr.html"><span class="gx-no">04</span><span class="gx-nm">OCR</span></a>
     <a class="gx-item" href="arrange.html"><span class="gx-no">05</span><span class="gx-nm">Arrange</span></a>
     <a class="gx-item" href="export.html"><span class="gx-no">06</span><span class="gx-nm">Import &amp; Export</span></a>
@@ -602,12 +760,12 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Pixel Animation Editor — Frame-by-Frame, Device Preview, Machine-Readable JSON | VAS User Guide",
-  "description": "VAS pixel animation: three grid sizes (20×20 / 40×40 / 60×60), frame-by-frame timing in milliseconds, a 36-colour device palette, device preview aligned to the 20-second slot, and machine-readable JSON export so an AI can take over the collaboration.",
+  "headline": "Pixel Mode — device animation and pixel art, both saving machine-readable JSON | VAS User Guide",
+  "description": "VAS pixel mode: device animation (three grid sizes, per-frame milliseconds, 36 colours, the 20-second slot) plus pixel art — custom grid, 255 colours, and a printable bead / stitch chart with grid, colour codes and counts. Both kinds of document save machine-readable JSON.",
   "inLanguage": "en",
   "url": "https://yoursvas.app/en/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-16",
+  "dateModified": "2026-08-31",
   "image": "https://yoursvas.app/img/vas-guide-share-en.webp",
   "publisher": {
     "@type": "Organization",
@@ -634,24 +792,102 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "VAS", "item": "https://yoursvas.app/en/" },
     { "@type": "ListItem", "position": 2, "name": "Guide", "item": "https://yoursvas.app/en/guide/" },
-    { "@type": "ListItem", "position": 3, "name": "Pixel Animation" }
+    { "@type": "ListItem", "position": 3, "name": "Pixel Mode" }
   ]
 }
 </script>
 
 <button class="dot-nav-trigger" aria-label="Chapter navigation"></button>
 <nav class="dot-nav" aria-label="Section navigation">
-  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">Pixel Animation</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#pixel-top"><span class="dn-label">Pixel Mode</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#layout"><span class="dn-label">Edit mode</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#tools"><span class="dn-label">Tools</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#frames"><span class="dn-label">Frames</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#colours"><span class="dn-label">Colours</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#sizes"><span class="dn-label">Canvas sizes</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#preview"><span class="dn-label">Device preview</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#free"><span class="dn-label">Pixel art</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#chart"><span class="dn-label">Chart export</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">Drawing with an AI</span><span class="dn-dot"></span></a>
 </nav>
 
+<script>
+(function () {
+  // 自由像素圖與圖表輸出的示意圖：同一份圖樣，兩處渲染（編輯器＝顏色、圖表＝色號序號）
+  var PAT = ['.11....11.', '1231..1221', '1232112221', '1222222221', '.12222221.', '..122221..', '...1221...', '....11....'];
+  var PAL = [null, '#D97757', '#FFC2D1', '#FFFF4D'];
+  var COLS = PAT[0].length, ROWS = PAT.length;
+  var counts = PAL.map(function () { return 0; }), painted = 0;
+  PAT.forEach(function (row) {
+    for (var i = 0; i < row.length; i++) {
+      var ch = row[i];
+      if (ch !== '.') { counts[+ch]++; painted++; }
+    }
+  });
+  var serial = {}, used = [];
+  for (var i = 1; i < PAL.length; i++) {
+    if (!counts[i]) continue;
+    serial[i] = used.length + 1;
+    used.push(i);
+  }
+  function ink(hex) {
+    var n = parseInt(hex.slice(1), 16);
+    var f = function (v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+    var L = 0.2126 * f((n >> 16) & 255) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255);
+    return (L + 0.05) / 0.05 >= 1.05 / (L + 0.05) ? '#000000' : '#ffffff';
+  }
+  function ruler(el, count) {
+    if (!el) return;
+    var out = '';
+    for (var i = 1; i <= count; i++) out += '<span>' + i + '</span>';
+    el.innerHTML = out;
+  }
+  function tpl(el, map) {
+    if (!el) return;
+    var s = el.getAttribute('data-tpl') || '';
+    Object.keys(map).forEach(function (k) { s = s.split('{' + k + '}').join(map[k]); });
+    el.textContent = s;
+  }
+  function cells(el, numbered) {
+    if (!el) return;
+    var out = '';
+    PAT.forEach(function (row) {
+      for (var x = 0; x < row.length; x++) {
+        var ch = row[x];
+        if (ch === '.') { out += '<i></i>'; continue; }
+        var hex = PAL[+ch];
+        out += '<i style="background:' + hex + (numbered ? ';color:' + ink(hex) : '') + '">' + (numbered ? serial[+ch] : '') + '</i>';
+      }
+    });
+    el.innerHTML = out;
+  }
+  ruler(document.getElementById('gfRx'), COLS);
+  ruler(document.getElementById('gfRy'), ROWS);
+  ruler(document.getElementById('gcRx'), COLS);
+  ruler(document.getElementById('gcRy'), ROWS);
+  cells(document.getElementById('gfGrid'), false);
+  cells(document.getElementById('gcGrid'), true);
+  tpl(document.getElementById('gfRead'), { c: COLS, r: ROWS, n: painted });
+  tpl(document.getElementById('gcSize'), { c: COLS, r: ROWS, n: painted });
+  tpl(document.getElementById('gcColors'), { k: used.length });
+  var sw = document.getElementById('gfSw');
+  if (sw) {
+    var s = '<span class="gpx-alpha"><i>' + (COLS * ROWS - painted) + '</i></span>';
+    used.forEach(function (idx, n) {
+      s += '<span' + (n === 0 ? ' class="sel"' : '') + ' style="background:' + PAL[idx] + '"><i style="color:' + ink(PAL[idx]) + '">' + counts[idx] + '</i></span>';
+    });
+    sw.innerHTML = s;
+  }
+  var mat = document.getElementById('gcMat');
+  if (mat) {
+    mat.innerHTML = used.map(function (idx) {
+      var pct = (counts[idx] / painted * 100).toFixed(1);
+      return '<tr><td><b style="background:' + PAL[idx] + '"></b>' + serial[idx] + '</td><td>' + PAL[idx] + '</td><td>' + counts[idx] + '</td><td>' + pct + '</td></tr>';
+    }).join('');
+  }
+}());
+</script>
 <script src="../../js/analytics.js"></script>
 <script>
 (function () {
