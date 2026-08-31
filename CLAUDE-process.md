@@ -91,7 +91,7 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 │   ├── index.html          # Manual cover
 │   ├── toolbar.html        # 01 · 工具列
 │   ├── editor.html         # 02 · 編輯器
-│   ├── pixel.html          # 03 · 像素動畫 (v2.15.0)
+│   ├── pixel.html          # 03 · 像素模式 — 裝置動畫＋像素畫兩種文件 (v2.17.0)
 │   ├── ocr.html            # 04 · OCR
 │   ├── arrange.html        # 05 · 編排
 │   ├── export.html         # 06 · 匯入與匯出

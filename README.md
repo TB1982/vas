@@ -27,11 +27,11 @@ The home page (`/`) is two doors: **器 · The Instrument** (the product) and **
 | ↳ System | `/harness` | 頁五 · 系統 — Harness Engineering (gateway to the 思-side pillars) |
 | ↳ Us | `/us` | 頁六 · 我們 — Sapere Aude 2.0 (sitemap-only, not in main nav) |
 | Milestones | `/milestone` | 里程碑 · MILESTONE — the narrative journey (十章一終曲, sealed at S104 · 06·28); the per-version/Sprint ledger is split out to Changelog |
-| Changelog | `/changelog` | 更新日誌 · CHANGELOG — the full change ledger: Tauri 162 Sprints + Electron 88 versions, newest-first, with rhythm-band / release-density visualizations (reached from instrument's acquire chip and the milestone door) |
+| Changelog | `/changelog` | 更新日誌 · CHANGELOG — the full change ledger: Tauri 178 Sprints + Electron 88 versions, newest-first, with rhythm-band / release-density visualizations (reached from instrument's acquire chip and the milestone door) |
 | Guide | `/guide` | User manual — the manual cover |
 | ↳ Toolbar | `/guide/toolbar` | Screenshot toolbar — 截圖工具列 |
 | ↳ Editor | `/guide/editor` | Annotation editor — 12 tools × attributes · 標註編輯器 |
-| ↳ Pixel Animation | `/guide/pixel` | Pixel animation editor — three grids · per-frame ms · JSON export · 像素動畫 |
+| ↳ Pixel Mode | `/guide/pixel` | Pixel editor, two document kinds — Clawdmeter device animation (three grids · per-frame ms · 20-sec slot) and free pixel art (1–512 custom grid · 255 colours) · chart / image / JSON export · 像素模式 |
 | ↳ OCR | `/guide/ocr` | OCR text recognition — 文字辨識 |
 | ↳ Arrange | `/guide/arrange` | Align, layers & groups — 對齊、圖層與群組 |
 | ↳ Export | `/guide/export` | Drag import & export — 拖曳匯入與匯出 |
