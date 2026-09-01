@@ -167,6 +167,64 @@ if os.path.exists("llms.txt"):
         if not resolves(path):
             flag("llms", f"llms.txt links to {url} → no such page")
 
+# ════════════════ G. LIVE-VALUE consistency (facts that track reality must not drift apart) ════════════════
+# A "live value" is a number that follows the outside world — current version, download filename, install size.
+# It is the opposite of a dated record: history blocks (arc-lines, arc-dividers, the density caption) legitimately
+# hold old values and are stripped before checking. Two sub-checks:
+#   G1 · one fact, one value — a fact written in several slots across pages must read the same in all of them
+#   G2 · locale parity — the five locale files of a page are structurally parallel, so their ordered number
+#        sequence must match; a divergence means someone updated one locale and forgot the others.
+# What this CANNOT catch: every copy being consistently stale. That needs the outside world — run with
+# --values to print the checklist of live values and their locations, then verify those against reality.
+HIST = re.compile(r'<div class="arc-line">.*?</div>|<summary class="arc-divider">.*?</summary>'
+                  r'|<div class="edensity-cap">.*?</div>|<!--.*?-->', re.S)
+def live(s):
+    return HIST.sub(" ", s)
+
+# fact name -> list of (regex with one capture group, restrict-to-basename or None for any page)
+FACTS = {
+    "下載檔名 · download filename": [(r'download\.yoursvas\.app/(VAS-[0-9.]+-arm64\.dmg)', None)],
+    "Tauri 目前版本": [(r'　<strong>(v2\.\d+\.\d+)</strong>', "changelog.html"),
+                       (r'<span class="meta">(v2\.\d+\.\d+) ', "instrument.html"),
+                       (r'(v2\.\d+\.\d+) <span class="ar">', "instrument.html")],
+    "Electron 目前版本": [(r'<span class="meta">(v3\.\d+(?:\.\d+)?) ', "instrument.html")],
+}
+FACT_VALUES = {}
+for fact, slots in FACTS.items():
+    vals = {}
+    for loc, pre in LOCALES.items():
+        for slug, f in GRID[loc].items():
+            hit = [rx for rx, base in slots if base is None or slug == base]
+            if not hit: continue
+            body = live(read(f))
+            for rx in hit:
+                for m in re.finditer(rx, body):
+                    vals.setdefault(m.group(1), []).append(f)
+    FACT_VALUES[fact] = vals
+    if len(vals) > 1:
+        flag("values", f"{fact} 有 {len(vals)} 種值——其中至少一種已過期：")
+        for v, fs in sorted(vals.items(), key=lambda kv: -len(kv[1])):
+            flag("values", f"    ({len(fs)}×) {v}  例：{fs[0]}")
+
+# G2 · locale parity of numeric facts (MB sizes) on the same page
+SIZE_BY_PAGE = {}
+NUM = re.compile(r'(\d+(?:\.\d+)?)\s?MB', re.I)  # 單位大小寫不影響數值比對
+for slug in sorted(set(GRID["root"]) | set(GRID["en"])):
+    seqs = {}
+    for loc in LOCALES:
+        f = GRID[loc].get(slug)
+        if f: seqs[loc] = NUM.findall(live(read(f)))
+    if len(seqs) < 2: continue
+    forms = {}
+    for loc, seq in seqs.items():
+        forms.setdefault(tuple(seq), []).append(loc)
+    if seqs.get("root"): SIZE_BY_PAGE[slug] = seqs["root"]
+    if len(forms) > 1:
+        flag("values", f"{slug} 的體積數字跨語系不一致（同頁五語應同序同值）：")
+        for seq, locs in sorted(forms.items(), key=lambda kv: -len(kv[1])):
+            flag("values", f"    {'/'.join(locs)} → {' · '.join(seq) if seq else '（無）'}")
+
+
 # ════════════════ report ════════════════
 quiet = "--quiet" in sys.argv
 by_family = {}
@@ -174,12 +232,21 @@ for fam, msg in findings:
     by_family.setdefault(fam, []).append(msg)
 LABEL = {"chrome": "A · CHROME drift", "links": "B · LINK hygiene", "codename": "C · CODENAME drift",
          "meta": "D · METADATA locale", "sitemap": "E · SITEMAP freshness",
-         "llms": "F · LLMS.TXT links"}
+         "llms": "F · LLMS.TXT links", "values": "G · LIVE-VALUE drift"}
 total = sum(1 for f, m in findings if not m.startswith("    "))
-for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms"]:
+for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms", "values"]:
     msgs = by_family.get(fam, [])
     print(f"\n══ {LABEL[fam]} ══  ({sum(1 for m in msgs if not m.startswith('    '))} findings)")
     for m in msgs: print(("  " + m) if not m.startswith("    ") else ("  " + m))
     if not msgs: print("  ✓ clean")
+if "--values" in sys.argv:
+    print("\n══ 活值清單 · LIVE VALUES ══  (對照現實時看這份，不是看手寫文件)")
+    for fact, vals in FACT_VALUES.items():
+        print(f"  {fact}")
+        for v, fs in sorted(vals.items(), key=lambda kv: -len(kv[1])):
+            print(f"    {v}   ({len(fs)} 處：{', '.join(sorted(set(fs))[:3])}{' …' if len(set(fs))>3 else ''})")
+    print("  體積（MB · 依頁面出現順序）")
+    for slug, seq in sorted(SIZE_BY_PAGE.items()):
+        if seq: print(f"    {slug:22s} {' · '.join(seq)}")
 print(f"\nTOTAL top-level findings: {total}")
 sys.exit(1 if findings else 0)

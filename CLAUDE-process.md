@@ -11,11 +11,13 @@ _Companion to CLAUDE.md — read that file first. Core rules live there._
 |--|----------|-------|
 | Price | Free | Paid |
 | Role | Entry-level / classic | Premium / performance |
-| Size | ~113 MB | ~20 MB |
-| Version scheme | v3.x (current: v3.60) | v2.x (current: v2.0.8) — independent numbering |
+| Size | Hundreds of MB — ships its own Chromium | Tens of MB — calls macOS native components |
+| Version scheme | v3.x | v2.x — independent numbering |
 | Distribution | R2 (download.yoursvas.app) | Apple App Store (live since 2026-04-14) |
 | Language support | zh-Hant / EN / JA (trilingual, fixed) | zh-Hant / EN / JA / 简中 (quadrilingual) |
 | Narrative | 「經典版」— the origin, free forever | 「極致版」— the evolution, App Store |
+
+**Never hard-code a current version or size in this file** — see § UI & Editorial Standards rule 5. For today's figures run `python3 tools/matrix_audit.py --values`.
 
 **Version numbering is completely independent.** Electron and Tauri do not share version numbers. When Nova says "version update", always confirm which version is being updated.
 
@@ -68,6 +70,24 @@ English headings can echo when layout reflows — e.g., a page-level `<title>` o
 **4. Horizontal nav overflow on mobile**
 English labels are typically 1.5–2× wider than their Chinese equivalents. Any horizontal button row (language switcher, nav links, chip rows) must be mentally tested at 375px with full English text before committing. If total width exceeds ~320px, redesign for wrapping or abbreviation.
 
+**5. Write sentences that cannot expire — or write them as history**
+
+A sentence can be wrong without anyone making a mistake: it was true when written, and then the product moved. No linter catches this — the string is intact, the link is alive, the locale is right; only the world changed. Every sentence should therefore sit in one of two safe modes:
+
+- **Timeless** — true whenever it is read. Prefer a claim that survives the next release: 「不到一成」 over 「二十分之一」, "two kinds of document" over "three grid sizes", no promises about what is coming.
+- **Dated record** — anchored to a moment, so it can only become history, never a lie. Every changelog arc-line and every approval date is this. **Records are never rewritten** — that is what makes them cost nothing to maintain.
+
+The danger is the third mode: an undated, present-tense claim about a moving value. Real examples from 2026-08, all of which had to be repaired:
+
+| The sentence | Why it expired |
+|---|---|
+| 「未來還會開發更多規格給諸如拼豆、編織等用途使用」 | v2.17.0 shipped exactly that — the promise came true and the sentence went stale |
+| 「大小只有 VAS Classic 的二十分之一」 | the ratio broke twice as the bundle size moved; now written 「不到一成」 |
+| chapter titled 像素動畫 | the chapter grew a second document kind and the name no longer covered it |
+| 「這條線停在 v3.66」 | the line did not stop; v3.67 added a feature |
+
+**Some fields cannot be made timeless** — current version, download filename, install size. They must track reality. The answer is not to hide them but to **keep them few and know where they are**: run `python3 tools/matrix_audit.py --values` to print every live value and the pages carrying it. That printed list is the checklist; do not hand-write one, or the checklist becomes the next thing to expire. Family G of the auditor then guarantees the copies never disagree with each other — but it can never tell you they are all stale together. That half is yours: at release time, read the `--values` list against reality.
+
 ---
 
 ## Repository Structure
@@ -85,7 +105,7 @@ English labels are typically 1.5–2× wider than their Chinese equivalents. Any
 ├── us.html                 # Chapter II · ⓘ mirror (Sapere Aude 2.0)
 ├── vessel.html             # Vessel · 容器論 · Treatise (hidden under harness 呼吸燈)
 ├── milestone.html          # Chapter III · 里程碑 · MILESTONE (narrative; sealed at S104 · 06·28)
-├── changelog.html          # 更新日誌 · CHANGELOG — full ledger (Tauri 135 Sprint + Electron 86 版), split out of milestone; rhythm-band + release-density JS read the DOM live
+├── changelog.html          # 更新日誌 · CHANGELOG — full ledger of both tracks, split out of milestone; rhythm-band + release-density JS read the DOM live (counts grow by themselves — never hard-code them)
 ├── faq.html                # FAQ — eight questions
 ├── guide/                  # User manual — cover + 7 chapters (4 locales; old single-page guide.html archived → archive/guide-v3.html)
 │   ├── index.html          # Manual cover
