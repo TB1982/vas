@@ -230,7 +230,7 @@
   帧与毫秒怎么调、色盘上限与亮色原则、实机预览与 20 秒插槽怎么读、
   JSON 怎么导出导入、以及如何把 JSON 交给 AI 接手续画。
   同一个编辑器的另一个模式；标注工具的说明在 cn/guide/editor.html。
-  另含第二种文件「像素画」（S175–S178）：自定义格数（每边 1–512）、255 色＋渐层取样、
+  另含第二种文件「像素画」（S175–S178）：自定义格数（每边 1–512）、255 色＋渐变取样、
   画中加减行列与行列标尺、可打印的拼豆／织图图表 PNG（格线＋格内色号序号＋材料表），
   以及自有类型标记的 JSON round-trip。
 -->
@@ -404,7 +404,7 @@
           </details>
           <details class="tdx">
             <summary><span class="tdx-ic">⬚</span><span class="tdx-t">选取</span></summary>
-            <div class="tdx-body"><p class="tm-p">框一块出来，可以搬、可以翻、可以复制到别的帧。</p><p class="tm-p">选取中时方向键是<strong>推一格</strong>；没有选取时方向键才是切换帧——同一组键，看你手上有没有东西。</p></div>
+            <div class="tdx-body"><p class="tm-p">框一块出来，可以搬、可以翻、可以复制到别的帧。框是方的，图不一定是——框好之后按住 <strong>⇧</strong> 点格子可以再加选或减选，凑出方框圈不出来的形状。</p><p class="tm-p">选取中时方向键是<strong>推一格</strong>；没有选取时方向键才是切换帧——同一组键，看你手上有没有东西。</p></div>
           </details>
           <details class="tdx">
             <summary><span class="tdx-ic">◍</span><span class="tdx-t">滴管</span></summary>
@@ -526,7 +526,7 @@
               <div class="gpx-sep"></div>
               <span class="gpx-lbl">选色</span>
               <img class="gpx-grid" src="../../img/px-palette.svg" alt="内建 256 色盘">
-              <div class="gpx-hint">色盘不够用时，点渐层取自己的颜色</div>
+              <div class="gpx-hint">色盘不够用时，点渐变取自己的颜色</div>
               <div class="gpx-grad"></div>
               <div class="gpx-btnrow"><div class="gpx-input" style="flex:1;color:#666">#RRGGBB</div><button class="gpx-btn" style="width:42px;height:30px">加入</button><button class="gpx-btn" style="width:42px;height:30px">取代</button></div>
               <div class="gpx-sep"></div>
@@ -547,7 +547,7 @@
 
       <ul class="docs-list" style="margin-top:26px">
         <li><strong>格数自定义</strong>——每边 1 到 512 格，非正方形可以。50×80 的织图就打 50×80。</li>
-        <li><strong>颜色上限 255</strong>——不是 36。拼豆色号多，36 个名额不够用。色盘仍是内建那 256 色；不够用时点色盘下方的渐层区，自己取一个色进来。</li>
+        <li><strong>颜色上限 255</strong>——不是 36。拼豆色号多，36 个名额不够用。色盘仍是内建那 256 色；不够用时点色盘下方的渐变区，自己取一个色进来。</li>
         <li><strong>底恒透明</strong>——没有背景色这一列。空格就是空格，意思是「这一格不放豆子／不下针」。</li>
         <li><strong>画中加减行列</strong>——格纸右缘与下缘各有一组 <strong>＋</strong> / <strong>−</strong>，边画边改格数，左上角固定不动。长出来的格是空的、剪掉的那排直接消失，<span class="docs-kbd">⌘Z</span> 还原得回来。</li>
         <li><strong>行列标尺</strong>——格纸上缘与左缘印行列号，光标移到哪一格，该行该列就亮起来。数格子不必用手指。</li>
