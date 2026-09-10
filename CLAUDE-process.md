@@ -297,7 +297,7 @@ Verification: state how many keys you modified.
 | Diff shape | What it means | Who acts |
 |---|---|---|
 | Value changed on an existing key | Terminology drift | 宰相 — align the guide pages, same pass |
-| **Key added** | The app grew a feature | **Nova — the manual may be missing a section or chapter.** A scheduling call, not a copy edit |
+| **Key added** | The app grew a feature — **or is about to**. Strings can land in the export before the feature ships (2026-09: the twelve `gallery_*` keys were a fully-worded screenshot-history panel that had not been released). **Confirm with the app side which of the two it is before writing anything**; a changelog entry or manual section for an unreleased feature is worse than a missing one | **Nova — if it shipped, the manual may be missing a section.** A scheduling call, not a copy edit |
 | **Key removed** | The app dropped a feature | **Nova — the manual may be teaching something that no longer exists.** The most damaging of the three |
 
 Only the first kind is visible from this side of the fence; a page audit can never surface the other two. That is the whole reason the diff is worth doing.
