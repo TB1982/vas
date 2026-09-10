@@ -98,8 +98,20 @@ p+p{margin-top:16px}
 .qr-modal .url{max-width:min(76vw,320px);margin-top:8px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.08em;color:var(--vas-ash-3);word-break:break-all}
 .qr-modal .close{margin-top:26px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vas-ash-2);background:none;border:1px solid var(--vas-rule);border-radius:999px;padding:9px 20px;cursor:pointer}
 a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
+/* 點點章節目錄 · 沿用站上 dot-nav 語彙 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:26px;z-index:40}
+.dn-item{position:relative;display:flex;align-items:center;text-decoration:none}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--vas-ash-3);flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s}
+.dn-label{position:absolute;right:14px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--vas-ash-1);white-space:nowrap;opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.dn-item:hover .dn-label{opacity:1;transform:translateX(0)}
+.dn-item:focus-visible .dn-label{opacity:1;transform:translateX(0)}
+.dn-item.is-current .dn-dot{background:var(--vas-aurora-violet);border-color:var(--vas-aurora-violet);transform:scale(1.35);box-shadow:0 0 10px rgba(196,113,245,.7)}
+.dn-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--vas-aurora-violet)}
+.dn-item.is-visited .dn-dot{background:var(--vas-ash-3);border-color:var(--vas-ash-3)}
+/* 窄螢幕不顯示：欄寬不夠、且右下角已有掃我按鈕 */
+@media (max-width:900px){.dot-nav{display:none}}
 @media print{
-  .qr-fab,.qr-modal{display:none!important}
+  .qr-fab,.qr-modal,.dot-nav{display:none!important}
   /* 紙上翻成淺底深字：瀏覽器預設不印背景色，若不翻轉會變成白紙白字整頁空白 */
   body{background:#fff;color:#1a1a1a}
   .wrap{max-width:none;padding:0 0 24px}
@@ -125,7 +137,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <body>
 <div class="wrap">
 
-<header class="hero">
+<header class="hero" id="top">
 <div class="mark"></div>
 <h1>劉映孜</h1>
 <div class="en">Liu Ying Tzu</div>
@@ -135,23 +147,23 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <div class="stats">
 <div class="stat"><b>17<small style="font-size:14px;letter-spacing:.08em"> 年</small></b><span>數位專案資歷<br>其中 5 年帶團隊</span></div>
-<div class="stat"><b>1 → 3</b><span>團隊年產能<br>一年一案 → 一年三案</span></div>
+<div class="stat"><b>1 → 3</b><span>團隊年產能<br>一年一案 →<br>三新案＋兩維運</span></div>
 <div class="stat"><b>5 案</b><span>中型政府官網<br>全數準時交付</span></div>
 <div class="stat"><b>AA</b><span>無障礙等級<br>多案通過檢測</span></div>
 </div>
 
 <hr class="rule">
 
-<section>
+<section id="about">
 <h2>About</h2><div class="divider"></div>
 <p class="lede">我是映孜。專長是<strong style="font-weight:500">跨部門溝通解決問題</strong>與<strong style="font-weight:500">人機協作產品優化</strong>。</p>
-<p class="lede">從美術系走到專案管理，中間隔著一句自己的發現——我擅長的事在於「之間」的連結。這句話後來變成我 17 年的職涯路線，以及人機協作的起點：12 年在政府機關第一線駐點，單打獨鬥接住所有疑難雜症；5 年在 IT 部門帶開發團隊，把「一年做一個新網站」的量能推到「一年三個新案 ＋ 兩個舊案維運」。</p>
+<p class="lede">從美術系走到專案管理，中間隔著一句自己的發現——我擅長的事在於「之間」的連結。這句話後來變成我 17 年的職涯路線，以及人機協作的起點：近 12 年在政府機關第一線駐點，單打獨鬥接住所有疑難雜症；5 年在 IT 部門帶開發團隊，把「一年做一個新網站」的量能推到「一年三個新案 ＋ 兩個舊案維運」。</p>
 <p class="lede">2026 年 2 月拿到 PMP 與 PSM 1，瀑布式與敏捷雙證。一個月後，我用 Claude Code 從零做出一支自己的 macOS 生產力工具並上線 App Store——這是我對「AI 時代的 PM 該長什麼樣」的答案。</p>
 </section>
 
 <hr class="rule">
 
-<section>
+<section id="work">
 <h2>Signature Work</h2><div class="divider"></div>
 <div class="feature">
 <div class="eyebrow">自主開發 · macOS App</div>
@@ -169,7 +181,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <hr class="rule">
 
-<section>
+<section id="projects">
 <h2>Projects</h2><div class="divider"></div>
 <p class="lede" style="margin-bottom:28px">2026 年起，其中三案轉任<strong style="font-weight:500">主責專案經理</strong>——全權處理專案內大小事，含預算編列與人月工時估算等規劃事項。</p>
 <div class="cards">
@@ -197,14 +209,14 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <hr class="rule">
 
-<section>
+<section id="experience">
 <h2>Experience</h2><div class="divider"></div>
 <div class="tl">
 <div class="tl-item now">
 <div class="when">2021.01 — 2026.09 · 5 年 9 個月</div>
 <h3>產品／專案經理</h3>
 <div class="org">義聯電資訊股份有限公司 · IT 開發部門 · 帶領 5–8 人</div>
-<p>擔任公司 Scrum Master，掌控複數專案的開發進度、維運與跨部門聯繫。經歷 5 個中型政府機關網站專案完整生命週期並準時交付；辦理三個機關多場教育訓練；維運期定期提供 GA4 數據分析報告，提供客戶內容與功能建議。每年獲公司加薪或紅利肯定。</p>
+<p>擔任公司 Scrum Master，掌控複數專案的開發進度、維運與跨部門聯繫。經歷 5 個中型政府機關網站專案完整生命週期並準時交付；辦理三個機關多場教育訓練；維運期定期提供 GA4 數據分析報告，據以給出內容與功能建議。每年獲公司加薪或紅利肯定。</p>
 </div>
 <div class="tl-item">
 <div class="when">2009.03 — 2020.12 · 11 年 10 個月</div>
@@ -233,7 +245,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <hr class="rule">
 
-<section>
+<section id="skills">
 <h2>Capabilities</h2><div class="divider"></div>
 <div class="grid2">
 <div class="skill"><h3>專案管理</h3><ul>
@@ -249,13 +261,13 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <hr class="rule">
 
-<section>
+<section id="looking">
 <h2>Looking For</h2><div class="divider"></div>
 <p class="lede">產品／專案經理職位 · 全職 · 臺北市（對遠端工作有意願）</p>
 <p class="lede" style="color:var(--vas-ash-2);font-size:15px">偏好產業：網際網路 · 多媒體傳播 · 數位內容</p>
 </section>
 
-<div class="contact">
+<div class="contact" id="contact">
 <div class="eyebrow">Get in touch</div>
 <div class="lines">
 <a class="mail" href="mailto:nova@yoursvas.app">nova@yoursvas.app</a>
@@ -266,6 +278,17 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <div class="colophon">Liu Ying Tzu · Digital Résumé · 2026</div>
 </div>
+
+<nav class="dot-nav" id="dotNav" aria-label="章節目錄">
+<a class="dn-item" href="#top"><span class="dn-dot"></span><span class="dn-label">映孜</span></a>
+<a class="dn-item" href="#about"><span class="dn-dot"></span><span class="dn-label">About</span></a>
+<a class="dn-item" href="#work"><span class="dn-dot"></span><span class="dn-label">VAS</span></a>
+<a class="dn-item" href="#projects"><span class="dn-dot"></span><span class="dn-label">Projects</span></a>
+<a class="dn-item" href="#experience"><span class="dn-dot"></span><span class="dn-label">Experience</span></a>
+<a class="dn-item" href="#skills"><span class="dn-dot"></span><span class="dn-label">Skills</span></a>
+<a class="dn-item" href="#looking"><span class="dn-dot"></span><span class="dn-label">Looking for</span></a>
+<a class="dn-item" href="#contact"><span class="dn-dot"></span><span class="dn-label">Contact</span></a>
+</nav>
 
 <button class="qr-fab" id="qrFab">◻ 掃我</button>
 <div class="qr-modal" id="qrModal">
@@ -301,6 +324,23 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
   document.getElementById('qrClose').onclick = function(){ m.classList.remove('open'); };
   m.onclick = function(e){ if(e.target === m) m.classList.remove('open'); };
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') m.classList.remove('open'); });
+
+  // ── 點點目錄：捲動時標出目前章節 ──
+  var items = [].slice.call(document.querySelectorAll('.dn-item'));
+  var targets = items.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  function mark(){
+    var line = window.scrollY + window.innerHeight * 0.32, cur = 0;
+    targets.forEach(function(t, i){ if(t && t.offsetTop <= line) cur = i; });
+    // 捲到底時最後一節可能永遠追不到偵測線，直接判定為最後一項
+    if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = items.length - 1;
+    items.forEach(function(a, i){
+      a.classList.toggle('is-current', i === cur);
+      a.classList.toggle('is-visited', i < cur);
+    });
+  }
+  mark();
+  addEventListener('scroll', function(){ requestAnimationFrame(mark); }, {passive:true});
+  addEventListener('resize', mark);
 })();
 </script>
 </body>
