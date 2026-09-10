@@ -185,7 +185,7 @@
 | `cpp_brand_add_title` | 将当前颜色加入品牌色库 | 將目前顏色加入品牌色庫 | 現在の色をブランドカラーに追加 | Add current color to brand library | Añadir el color actual a la biblioteca de marca |
 | `cpp_brand_empty` | 尚未保存品牌色 | 尚未儲存品牌色 | ブランドカラーなし | No brand colors saved | No hay colores de marca guardados |
 | `cpp_brand_remove` | 移除此品牌色 | 移除此品牌色 | ブランドカラーを削除 | Remove brand color | Quitar el color de marca |
-| `cpp_eyedropper` | 吸管取色（从屏幕取色） | 滴管選色（從螢幕取色） | スポイト（画面から色を取得） | Eyedropper (pick from screen) | Cuentagotas (tomar de la pantalla) |
+| `cpp_eyedropper` | 吸管取色（从画布取色） | 滴管選色（從畫布取色） | スポイト（キャンバスから色を取得） | Eyedropper (pick from canvas) | Cuentagotas (tomar del lienzo) |
 | `cpp_hex` | 色码（16 进制） | 色碼（16 進位） | 16進数カラーコード | Hex color code | Código de color hexadecimal |
 | `cpp_recent` | 最近使用 | 最近使用 | 最近使用した色 | Recent | Recientes |
 | `cpp_standard` | 标准色彩 | 標準色彩 | 標準カラー | Standard Colors | Colores estándar |
@@ -330,6 +330,23 @@
 |---|---|---|---|---|---|
 | `fullscreen` | 全屏 | 全螢幕 | 全画面 | Fullscreen | Pantalla completa |
 
+### `gallery`
+
+| key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
+|---|---|---|---|---|---|
+| `gallery_all_apps` | 全部来源 | 全部來源 | すべてのアプリ | All sources | Todas las fuentes |
+| `gallery_all_kinds` | 全部类型 | 全部類型 | すべての種類 | All types | Todos los tipos |
+| `gallery_clear` | 清空图匣 | 清空圖匣 | すべて削除 | Clear All | Vaciar historial |
+| `gallery_clear_confirm` | 再按一次确定清空 | 再按一次確定清空 | もう一度クリックで確定 | Click again to confirm | Clic de nuevo para confirmar |
+| `gallery_copied` | 已复制 | 已複製 | コピーしました | Copied | Copiado |
+| `gallery_copy` | 复制图片 | 複製圖片 | 画像をコピー | Copy Image | Copiar imagen |
+| `gallery_delete` | 删除 | 刪除 | 削除 | Delete | Eliminar |
+| `gallery_empty` | 还没有截图。截一张，它就会出现在这里。 | 還沒有截圖。截一張，它就會出現在這裡。 | まだスクリーンショットがありません。撮影するとここに表示されます。 | No screenshots yet. Take one and it will show up here. | Aún no hay capturas. Toma una y aparecerá aquí. |
+| `gallery_open_editor` | 打开编辑 | 開啟編輯 | エディタで開く | Open in Editor | Abrir en el editor |
+| `gallery_open_file` | 从文件打开… | 從檔案開啟… | ファイルから開く… | Open from File… | Abrir desde archivo… |
+| `gallery_reveal` | 在 Finder 中显示 | 顯示於 Finder | Finder に表示 | Show in Finder | Mostrar en Finder |
+| `gallery_title` | 历史图匣 | 歷史圖匣 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
+
 ### `grad`
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
@@ -385,6 +402,7 @@
 | `help_scroll_capture` | 长截图 | 長截圖 | ロングスクリーンショット | Long screenshot | Captura larga |
 | `help_select` | 选取 | 選取 | 選択 | Select | Seleccionar |
 | `help_snap_toggle` | 智能导线开关 | 智慧導線開關 | スマートガイド切替 | Toggle Smart Guides | Alternar guías inteligentes |
+| `help_strip_color` | 呼吸灯颜色 | 呼吸燈顏色 | 呼吸ライトの色 | Breathing light color | Color de la luz de respiración |
 | `help_symbol` | 符号印章 | 符號印章 | スタンプ | Stamp | Sello |
 | `help_text` | 文字 | 文字 | テキスト | Text | Texto |
 | `help_title` | 快捷键说明 | 快捷鍵說明 | キーボードショートカット | Keyboard Shortcuts | Atajos de teclado |
@@ -459,6 +477,7 @@
 | `nc_px_40` | Clawdmeter（40 × 40 格） | Clawdmeter（40 × 40 格） | Clawdmeter（40 × 40 マス） | Clawdmeter (40 × 40 cells) | Clawdmeter (40 × 40 celdas) |
 | `nc_px_60` | Clawdmeter（60 × 60 格） | Clawdmeter（60 × 60 格） | Clawdmeter（60 × 60 マス） | Clawdmeter (60 × 60 cells) | Clawdmeter (60 × 60 celdas) |
 | `nc_px_free` | 自由像素图（自定义格数） | 自由像素圖（自訂格數） | フリーピクセル（マス数を自由に指定） | Free pixel art (custom size) | Píxel libre (tamaño personalizado) |
+| `nc_px_line` | LINE 动态贴图（自定义格数） | LINE 動態貼圖（自訂格數） | LINE アニメーションスタンプ（マス数を指定） | LINE animated sticker (custom cells) | Sticker animado de LINE (celdas personalizadas) |
 | `nc_size_invalid` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `nc_square` | 正方形（1000 × 1000） | 正方形（1000 × 1000） | 正方形（1000 × 1000） | Square (1000 × 1000) | Cuadrado (1000 × 1000) |
 | `nc_twitter` | X / Twitter（1600 × 900） | X / Twitter（1600 × 900） | X / Twitter（1600 × 900） | X / Twitter (1600 × 900) | X / Twitter (1600 × 900) |
@@ -611,6 +630,15 @@
 | `px_add_col` | 加一栏 | 加一欄 | 列を追加 | Add column | Añadir columna |
 | `px_add_color` | 新增颜色 | 新增顏色 | 色を追加 | Add colour | Añadir color |
 | `px_add_row` | 加一行 | 加一列 | 行を追加 | Add row | Añadir fila |
+| `px_apng_cover` | 第 1 格会被当成静止显示图 | 第 1 格會被當成靜止顯示圖 | 1 コマ目が静止画として使われます | Frame 1 is used as the still image | El fotograma 1 se usa como imagen fija |
+| `px_apng_facts` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_apng_facts_inf` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_apng_plays` | 重复播放 | 重複播放 | 再生回数 | Loops | Repeticiones |
+| `px_apng_plays_inf` | 无限 | 無限 | 無限 | Forever | Infinito |
+| `px_apng_warn_frames` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_apng_warn_plays` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_apng_warn_size` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_apng_warn_total` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_bad_hex` | 色码格式要像 #RRGGBB | 色碼格式要像 #RRGGBB | カラーコードは #RRGGBB の形式です | Colour code should look like #RRGGBB | El código de color debe tener la forma #RRGGBB |
 | `px_bg_over_palette` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_blocked_here` | 像素格子画布不支持这个功能 | 像素格子畫布不支援這個功能 | ドット絵キャンバスでは使えません | Not available on a pixel-grid canvas | No disponible en un lienzo de cuadrícula de píxeles |
@@ -649,7 +677,7 @@
 | `px_gif_hold_flatten` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_gif_size` | 输出尺寸 | 輸出尺寸 | 出力サイズ | Output size | Tamaño de salida |
 | `px_gif_size_hint` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
-| `px_gradient_hint` | 色盘不够用时，点渐层取自己的颜色 | 色盤不夠用時，點漸層取自己的顏色 | パレットに欲しい色がないときは、グラデーションをクリックして取得 | Need a colour the swatches lack? Click the gradient to sample one | ¿Falta un color? Haz clic en el degradado para tomarlo |
+| `px_gradient_hint` | 色盘不够用时，点渐变取自己的颜色 | 色盤不夠用時，點漸層取自己的顏色 | パレットに欲しい色がないときは、グラデーションをクリックして取得 | Need a colour the swatches lack? Click the gradient to sample one | ¿Falta un color? Haz clic en el degradado para tomarlo |
 | `px_hex_add` | 加入 | 加入 | 追加 | Add | Añadir |
 | `px_hex_replace` | 取代 | 取代 | 置換 | Replace | Reemplazar |
 | `px_hex_replace_title` | 替换颜色——框里有新色就先按我再点旧色；框空着就先选旧色票再按我 | 取代顏色——框裡有新色就先按我再點舊色；框空著就先選舊色票再按我 | 色を置き換え——枠に新色があればまず押してから旧色をクリック；枠が空なら旧色スウォッチを選んでから押す | Replace a colour — with a new colour in the box, press me then click the old one; with the box empty, select the old swatch first | Reemplazar un color: con un color nuevo en el cuadro, púlsame y elige el viejo; con el cuadro vacío, selecciona antes la muestra vieja |
@@ -658,7 +686,6 @@
 | `px_hold_bad_max` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_hold_bad_min` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_hold_bad_nan` | 停留时间请输入数字 | 停留時間請輸入數字 | 表示時間は数値で入力してください | Hold time must be a number | La duración debe ser un número |
-| `px_hold_bad_step` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_hold_down` | 停留 −20 ms | 停留 −20 ms | 表示時間 −20 ms | Hold −20 ms | Duración −20 ms |
 | `px_hold_up` | 停留 +20 ms | 停留 +20 ms | 表示時間 +20 ms | Hold +20 ms | Duración +20 ms |
 | `px_import_do` | 导入 | 匯入 | 読み込み | Import | Importar |
@@ -666,6 +693,7 @@
 | `px_import_json` | 粘贴 JSON | 貼上 JSON | JSON を貼り付け | Paste JSON | Pegar JSON |
 | `px_import_kind_claw_in_free` | 这是 Clawdmeter 动画文件——请先开一张 Clawdmeter 像素画布再导入 | 這是 Clawdmeter 動畫檔——請開一張 Clawdmeter 像素畫布再匯入 | これは Clawdmeter アニメのファイルです——Clawdmeter キャンバスを開いてから読み込んでください | This is a Clawdmeter animation file — open a Clawdmeter canvas to import it | Este es un archivo de animación Clawdmeter: abre un lienzo Clawdmeter para importarlo |
 | `px_import_kind_free_in_claw` | 这是自由像素图文件——请先开一张自由像素画布再导入 | 這是自由像素圖檔——請開一張自由像素畫布再匯入 | これはフリーピクセルのファイルです——フリーピクセルキャンバスを開いてから読み込んでください | This is a free pixel art file — open a free pixel canvas to import it | Este es un archivo de píxel libre: abre un lienzo de píxel libre para importarlo |
+| `px_import_kind_line` | 这是 LINE 贴图文件——请先开一张 LINE 贴图画布再导入 | 這是 LINE 貼圖檔——請開一張 LINE 貼圖畫布再匯入 | これは LINE スタンプのファイルです——LINE スタンプキャンバスを開いてから読み込んでください | This is a LINE sticker file — open a LINE sticker canvas to import it | Este es un archivo de sticker de LINE: abre un lienzo de sticker de LINE para importarlo |
 | `px_import_ph` | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } |
 | `px_import_title` | 粘贴动画 JSON | 貼上動畫 JSON | アニメーション JSON を貼り付け | Paste animation JSON | Pegar el JSON de la animación |
 | `px_imported` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
@@ -686,7 +714,7 @@
 | `px_pv_badge` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_pv_splash` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_replace_cancelled` | 已取消替换 | 已取消取代 | 置き換えをキャンセルしました | Replace cancelled | Reemplazo cancelado |
-| `px_replace_pick_new` | 点一个新颜色——色盘、渐层或直接输入色码（Esc 取消） | 點一個新顏色——色盤、漸層或直接輸入色碼（Esc 取消） | 新しい色をクリック——色盤・グラデーション・カラーコード入力のいずれでも（Esc でキャンセル） | Click a new colour — the swatch board, the gradient, or type a hex code (Esc to cancel) | Haz clic en un color nuevo: el muestrario, el degradado o escribe un código hex (Esc para cancelar) |
+| `px_replace_pick_new` | 点一个新颜色——色盘、渐变或直接输入色码（Esc 取消） | 點一個新顏色——色盤、漸層或直接輸入色碼（Esc 取消） | 新しい色をクリック——色盤・グラデーション・カラーコード入力のいずれでも（Esc でキャンセル） | Click a new colour — the swatch board, the gradient, or type a hex code (Esc to cancel) | Haz clic en un color nuevo: el muestrario, el degradado o escribe un código hex (Esc para cancelar) |
 | `px_replace_pick_old` | 点一下要被换掉的颜色——画布上的格子或色票列皆可（Esc 取消） | 點一下要被換掉的顏色——畫布上的格子或色票列皆可（Esc 取消） | 置き換えたい色をクリック——キャンバスのマスでもパレット列でも OK（Esc でキャンセル） | Click the colour to replace — a canvas cell or a swatch in the palette row (Esc to cancel) | Haz clic en el color a reemplazar: una celda del lienzo o una muestra de la paleta (Esc para cancelar) |
 | `px_resize_max` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_save_json` | 存档 JSON… | 存檔 JSON… | JSON を保存… | Save JSON… | Guardar JSON… |
@@ -703,7 +731,7 @@
 | `px_tool_eraser` | 橡皮擦 — 把格子清成透明（0 号） | 橡皮擦 — 把格子清成透明（0 號） | 消しゴム — マスを透明（0 番）に戻す | Eraser — clear cells to transparent (index 0) | Goma — deja las celdas transparentes (índice 0) |
 | `px_tool_pen` | 画笔 — 用选中的颜色填格 | 畫筆 — 用選中的顏色填格 | ペン — 選択中の色でマスを塗る | Pen — fill cells with the selected colour | Lápiz — rellena celdas con el color elegido |
 | `px_tool_picker` | 滴管 — 点一格取它的色号（空格＝取到透明） | 滴管 — 點一格取它的色號（空格＝取到透明） | スポイト — マスをクリックして色番号を取得（空マス＝透明） | Eyedropper — click a cell to pick its colour index (empty = transparent) | Cuentagotas — haz clic en una celda para tomar su índice de color (vacía = transparente) |
-| `px_tool_select` | 选取 — 框住一块，可拖曳／方向键搬移、⌘C 复制、⌘V 贴原位 | 選取 — 框住一塊，可拖曳／方向鍵搬移、⌘C 複製、⌘V 貼原位 | 選択 — 範囲を囲んでドラッグ／矢印キーで移動、⌘C でコピー、⌘V で同じ位置に貼り付け | Select — box a region, then drag or arrow-key it; ⌘C copies, ⌘V pastes in place | Seleccionar — enmarca una zona y arrástrala o muévela con las flechas; ⌘C copia, ⌘V pega en el sitio |
+| `px_tool_select` | 选取 — 框住一块，可拖曳／方向键搬移、⇧ 点格加减、⌘C 复制、⌘V 贴原位 | 選取 — 框住一塊，可拖曳／方向鍵搬移、⇧ 點格加減、⌘C 複製、⌘V 貼原位 | 選択 — 範囲を囲んでドラッグ／矢印キーで移動、⇧ クリックでマスを追加・除外、⌘C でコピー、⌘V で同じ位置に貼り付け | Select — box a region, then drag or arrow-key it; ⇧-click adds or removes cells; ⌘C copies, ⌘V pastes in place | Seleccionar — enmarca una zona y arrástrala o muévela con las flechas; ⇧+clic añade o quita celdas; ⌘C copia, ⌘V pega en el sitio |
 | `px_tools` | 像素工具 | 像素工具 | ピクセルツール | Pixel tools | Herramientas de píxeles |
 | `px_transparent` | 透明（0 号） | 透明（0 號） | 透明（0 番） | Transparent (index 0) | Transparente (índice 0) |
 | `px_zoom_per_cell` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
@@ -745,6 +773,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
+| `save_apng_desc` | 整支动画，LINE 动态贴图可上架 | 整支動畫，LINE 動態貼圖可上架 | アニメーション全体、LINE アニメーションスタンプ対応 | Whole animation, uploadable as a LINE animated sticker | Animación completa, admitida como sticker animado de LINE |
 | `save_bmp_desc` | 点阵图，无压缩 | 點陣圖，無壓縮 | ビットマップ、非圧縮 | Bitmap, uncompressed | Mapa de bits, sin comprimir |
 | `save_cancel` | 取消 | 取消 | キャンセル | Cancel | Cancelar |
 | `save_confirm` | 保存 | 儲存 | 保存 | Save | Guardar |
@@ -754,6 +783,7 @@
 | `save_jpg_desc` | 有损压缩，文件较小 | 有損壓縮，檔案較小 | 非可逆圧縮、ファイルサイズ小 | Lossy, smaller file size | Con pérdida, archivo más pequeño |
 | `save_json_desc` | Clawdmeter 动画数据（机器读） | Clawdmeter 動畫資料（機器讀） | Clawdmeter アニメデータ（機械可読） | Clawdmeter animation data (machine-readable) | Datos de animación de Clawdmeter (legibles por máquina) |
 | `save_json_desc_free` | 自由像素图数据（VAS 可重新打开编辑） | 自由像素圖資料（VAS 可重新開啟編輯） | 自由ピクセルアートのデータ（VAS で再編集できます） | Free pixel-art data (reopens in VAS for editing) | Datos de píxel libre (se puede reabrir y editar en VAS) |
+| `save_json_desc_line` | LINE 动态贴图数据（VAS 可重新打开编辑） | LINE 動態貼圖資料（VAS 可重新開啟編輯） | LINE アニメーションスタンプのデータ（VAS で再編集可） | LINE animated sticker data (VAS can reopen it for editing) | Datos del sticker animado de LINE (VAS puede reabrirlos para editar) |
 | `save_pdf_desc` | 文档格式，适合打印 | 文件格式，適合列印 | ドキュメント形式、印刷に最適 | Document format, ideal for printing | Formato de documento, ideal para imprimir |
 | `save_png_desc` | 无损，支持透明背景 | 無損，支援透明背景 | 可逆圧縮、透明背景対応 | Lossless, supports transparency | Sin pérdida, admite transparencia |
 | `save_pxchart` | 图表 | 圖表 | 図案 | Chart | Diagrama |
@@ -984,6 +1014,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
+| `tray_history` | 历史图匣 | 歷史圖匣 | 履歴 | Screenshot History | Historial de capturas |
 | `tray_new_canvas` | 新建空白画布 | 新增空白畫布 | 新規空白キャンバス | New Blank Canvas | Nuevo lienzo en blanco |
 | `tray_open_file` | 打开图片… | 開啟圖片… | 画像を開く… | Open Image… | Abrir imagen… |
 | `tray_quit` | 退出 VAS | 結束 VAS | VAS を終了 | Quit VAS | Salir de VAS |
