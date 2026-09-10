@@ -83,7 +83,7 @@ p+p{margin-top:16px}
 .qr-inline{margin:38px auto 0;width:168px;padding:14px;background:#f0e8dc;border-radius:12px}
 .qr-inline img,.qr-inline svg{width:100%;height:auto;display:block}
 .qr-cap{font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);margin-top:14px}
-.colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3-soft)}
+.colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
 
 /* floating QR */
 .qr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;background:rgba(21,18,31,.92);border:1px solid var(--vas-rule-strong);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--vas-ash-0);font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
@@ -98,7 +98,28 @@ p+p{margin-top:16px}
 .qr-modal .url{max-width:min(76vw,320px);margin-top:8px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.08em;color:var(--vas-ash-3);word-break:break-all}
 .qr-modal .close{margin-top:26px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vas-ash-2);background:none;border:1px solid var(--vas-rule);border-radius:999px;padding:9px 20px;cursor:pointer}
 a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
-@media print{.qr-fab,.qr-modal{display:none!important}}
+@media print{
+  .qr-fab,.qr-modal{display:none!important}
+  /* 紙上翻成淺底深字：瀏覽器預設不印背景色，若不翻轉會變成白紙白字整頁空白 */
+  body{background:#fff;color:#1a1a1a}
+  .wrap{max-width:none;padding:0 0 24px}
+  h1,.stat b,.feature h3,.card h3,.tl-item h3,.claim,a{color:#111}
+  .lede,.feature li,.tl-item p,.skill li{color:#222}
+  h2,.en,.role,.card p,.tl-item .org,.stat span,.card .when,.tl-item .when,
+  .skill h3,.skill li small,.qr-cap,.colophon,.eyebrow{color:#555}
+  /* 漸層字在列印時 color:transparent 會整段消失 */
+  .claim em{background:none;-webkit-text-fill-color:#111;color:#111}
+  .feature{background:none}
+  .stats,.stat,.cards,.card,.qr-inline{background:#fff}
+  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.line-link,.qr-inline{border-color:#c8c8c8}
+  hr.rule{border-top-color:#c8c8c8}
+  .badge,.badge.aa{color:#444;border-color:#bbb}
+  .tl{border-left-color:#c8c8c8}
+  .tl-item::before,.tl-item.now::before,.feature li::before{background:#999;box-shadow:none}
+  .hero{padding-top:0}
+  .hero .mark{animation:none;background:#888;box-shadow:none}
+  section,.feature,.card,.tl-item{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -123,9 +144,9 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 
 <section>
 <h2>About</h2><div class="divider"></div>
-<p class="lede">我是映孜。專長是<strong style="font-weight:500">解決問題</strong>與<strong style="font-weight:500">產品優化</strong>。</p>
-<p class="lede">從美術系走到專案管理，中間隔著一句自己的發現——比起純美術，我更喜歡用設計解決真實發生的問題。這句話後來變成我 17 年的職涯路線：12 年在政府機關第一線駐點，單打獨鬥接住所有疑難雜症；5 年在 IT 部門帶開發團隊，把「一年做一個新網站」推到「一年三個新案 ＋ 兩個舊案維運」。</p>
-<p class="lede">今年二月拿到 PMP 與 PSM 1，瀑布式與敏捷雙證。同一年，我用 Claude Code 從零做出一支自己的 macOS 工具並上線——這是我對「AI 時代的 PM 該長什麼樣」的答案。</p>
+<p class="lede">我是映孜。專長是<strong style="font-weight:500">跨部門溝通解決問題</strong>與<strong style="font-weight:500">人機協作產品優化</strong>。</p>
+<p class="lede">從美術系走到專案管理，中間隔著一句自己的發現——我擅長的事在於「之間」的連結。這句話後來變成我 17 年的職涯路線，以及人機協作的起點：12 年在政府機關第一線駐點，單打獨鬥接住所有疑難雜症；5 年在 IT 部門帶開發團隊，把「一年做一個新網站」的量能推到「一年三個新案 ＋ 兩個舊案維運」。</p>
+<p class="lede">2026 年 2 月拿到 PMP 與 PSM 1，瀑布式與敏捷雙證。一個月後，我用 Claude Code 從零做出一支自己的 macOS 生產力工具並上線 App Store——這是我對「AI 時代的 PM 該長什麼樣」的答案。</p>
 </section>
 
 <hr class="rule">
@@ -137,9 +158,10 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <h3>VAS</h3>
 <div class="sub">為 Mac 而生的影像擷取・編輯・匯出工具</div>
 <ul>
-<li>非工程背景，以 SDD／TDD 流程與 Claude Code 協作，獨立完成從規格、開發到上線</li>
-<li>自建產品官網、四語系 i18n、SEO 與版本紀錄，全案一人維運</li>
-<li>驗證了我最想證明的事：PM 不只寫規格，也能自己把東西做出來</li>
+<li>非工程背景，以 SDD／TDD 流程與 Claude Code 協作，獨立完成從企劃、開發到上線</li>
+<li>從功能開發到平臺移植（Electron / Tauri）再到前後端重構與自動化測試完整經歷</li>
+<li>自建產品官網、五語系 i18n、SEO 與 RWD，全案一人維運</li>
+<li>至今全 repo 仍沒有任何一行人類寫的程式碼</li>
 </ul>
 <a class="btn" href="https://yoursvas.app" target="_blank" rel="noopener">前往 yoursvas.app →</a>
 </div>
@@ -155,21 +177,21 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <p>前期駐點盤點建置資料、客製功能與模組開發、跨部門協調、上線前教育訓練，上線後持續維運與增修案對應。</p>
 <div class="badges"><span class="badge aa">主責 PM</span><span class="badge aa">無障礙 AA</span><span class="badge">教育訓練</span><span class="badge">客製模組</span></div></article>
 
-<article class="card"><h3>環境部官網轉置與開發</h3><div class="when">2023 —</div>
-<p>升級官網後台資料轉移、客製模組開發、跨部門協調、上線前教育訓練，並代理駐點。</p>
-<div class="badges"><span class="badge aa">無障礙 AA</span><span class="badge">資料轉置</span><span class="badge">駐點</span></div></article>
-
 <article class="card"><h3>氣候變遷署官網</h3><div class="when">2023 —</div>
 <p>官網建置與民眾意見專區客製模組開發、上線前教育訓練、後續維運與增修案開發。</p>
 <div class="badges"><span class="badge aa">主責 PM</span><span class="badge aa">無障礙 AA</span><span class="badge">客製模組</span></div></article>
 
-<article class="card"><h3>環境管理署官網</h3><div class="when">2023 —</div>
-<p>現有官網資料轉置，客製功能與模組開發。</p>
-<div class="badges"><span class="badge">資料轉置</span></div></article>
-
 <article class="card"><h3>中央印製廠官網</h3><div class="when">2021 —</div>
 <p>開發專案規劃與網站內容盤點、功能開發與跨部門協調，上線後持續維運與新增需求對應。</p>
 <div class="badges"><span class="badge aa">主責 PM</span><span class="badge aa">無障礙 AA</span><span class="badge">內容盤點</span></div></article>
+
+<article class="card"><h3>環境部官網轉置與開發</h3><div class="when">2023 —</div>
+<p>升級官網後台資料轉移、客製模組開發、跨部門協調、上線前教育訓練，並代理駐點。</p>
+<div class="badges"><span class="badge aa">無障礙 AA</span><span class="badge">資料轉置</span><span class="badge">駐點</span></div></article>
+
+<article class="card"><h3>環境管理署官網</h3><div class="when">2023 —</div>
+<p>現有官網資料轉置，客製功能與模組開發。</p>
+<div class="badges"><span class="badge">資料轉置</span></div></article>
 </div>
 </section>
 
@@ -182,7 +204,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <div class="when">2021.01 — 2026.09 · 5 年 9 個月</div>
 <h3>產品／專案經理</h3>
 <div class="org">義聯電資訊股份有限公司 · IT 開發部門 · 帶領 5–8 人</div>
-<p>擔任公司 Scrum Master，掌控複數專案的開發進度、維運與跨部門聯繫。經歷 5 個中型政府機關網站專案並準時交付；辦理三個機關的多場維運教育訓練；維運期定期提供 GA4 數據分析報告，用數據給客戶內容與功能建議。每年獲公司加薪或紅利肯定。</p>
+<p>擔任公司 Scrum Master，掌控複數專案的開發進度、維運與跨部門聯繫。經歷 5 個中型政府機關網站專案完整生命週期並準時交付；辦理三個機關多場教育訓練；維運期定期提供 GA4 數據分析報告，提供客戶內容與功能建議。每年獲公司加薪或紅利肯定。</p>
 </div>
 <div class="tl-item">
 <div class="when">2009.03 — 2020.12 · 11 年 10 個月</div>
