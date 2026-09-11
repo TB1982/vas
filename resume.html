@@ -95,12 +95,21 @@ p+p{margin-top:16px}
 .cert-row a{display:block;width:96px;opacity:.92;transition:transform .2s,opacity .2s}
 .cert-row a:hover{transform:translateY(-3px);opacity:1}
 .cert-row img{display:block;width:100%;height:auto}
-.cert-cap{margin-top:18px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
+.cert-cap{margin-top:18px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);opacity:0;transition:opacity .25s}
+/* 滑過或鍵盤聚焦才浮出。用 opacity 不用 display，位子先佔著，浮出時版面不會跳 */
+.certs:hover .cert-cap,.certs:focus-within .cert-cap{opacity:1}
+/* 觸控裝置沒有 hover——名片掃碼進來的人幾乎都在手機上，這裡改成常駐 */
+@media (hover:none){.cert-cap{opacity:1}}
 /* 只在紙上出現：列印時「掃我」按鈕是隱藏的，紙本需要自己帶著網址 */
 .print-url{display:none}
 /* 次要說明行。不寫成 inline style——inline 的優先序壓過列印規則，紙上會變成白底白字 */
 .lede.sub{color:var(--vas-ash-2);font-size:15px}
 .colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
+
+/* 中文沒有詞間空白，斷點落在任意兩字之間，末行很容易只剩一兩個孤兒字。
+   balance 讓瀏覽器把各行拉成等長，改字只能救當下這個螢幕寬度，這條規則每個寬度都成立。
+   只套在短句型區塊：balance 對超過六行的段落無效，內文段落套了會變成長短段右緣不齊。 */
+.feature li,.card p,.skill li,.sd-tag,.role{text-wrap:balance}
 
 /* floating QR */
 .qr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;background:rgba(21,18,31,.92);border:1px solid var(--vas-rule-strong);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--vas-ash-0);font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
@@ -138,7 +147,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
   .contact .mail,.lede.sub{color:#222}
   h2,.en,.role,.card p,.tl-item .org,.stat span,.card .when,.tl-item .when,
   .skill h3,.skill li small,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url,.cert-cap{color:#555}
-  .cert-row a{opacity:1}
+  .cert-row a,.cert-cap{opacity:1}
   .print-url{display:block;margin-top:7px;letter-spacing:.1em;text-transform:none}
   .sd-name{color:#111}
   /* 漸層字在列印時 color:transparent 會整段消失 */
