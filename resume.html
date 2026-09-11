@@ -88,9 +88,6 @@ p+p{margin-top:16px}
 .sd-name{display:block;margin-top:13px;font-family:var(--vas-serif);font-size:clamp(19px,4.4vw,23px);letter-spacing:.04em;color:var(--vas-ash-0)}
 .sd-tag{display:block;margin-top:9px;font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
 .sd-url{display:block;margin-top:18px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;color:var(--vas-ash-1)}
-.qr-inline{margin:38px auto 0;width:168px;padding:14px;background:#f0e8dc;border-radius:12px}
-.qr-inline img,.qr-inline svg{width:100%;height:auto;display:block}
-.qr-cap{font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);margin-top:14px}
 .colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
 
 /* floating QR */
@@ -126,13 +123,13 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
   h1,.stat b,.feature h3,.card h3,.tl-item h3,.claim,a{color:#111}
   .lede,.feature li,.tl-item p,.skill li{color:#222}
   h2,.en,.role,.card p,.tl-item .org,.stat span,.card .when,.tl-item .when,
-  .skill h3,.skill li small,.qr-cap,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url{color:#555}
+  .skill h3,.skill li small,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url{color:#555}
   .sd-name{color:#111}
   /* 漸層字在列印時 color:transparent 會整段消失 */
   .claim em{background:none;-webkit-text-fill-color:#111;color:#111}
   .feature{background:none}
-  .stats,.stat,.cards,.card,.qr-inline{background:#fff}
-  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.site-door,.qr-inline{border-color:#c8c8c8}
+  .stats,.stat,.cards,.card{background:#fff}
+  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.site-door{border-color:#c8c8c8}
   hr.rule{border-top-color:#c8c8c8}
   .badge,.badge.aa{color:#444;border-color:#bbb}
   .tl{border-left-color:#c8c8c8}
@@ -281,8 +278,6 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <div class="lines">
 <a class="mail" href="mailto:nova@yoursvas.app">nova@yoursvas.app</a>
 </div>
-<div class="qr-inline" id="qrInline"></div>
-<div class="qr-cap">掃描以帶走這份履歷</div>
 </div>
 
 <a class="site-door" href="https://yoursvas.app" target="_blank" rel="noopener">
@@ -326,13 +321,12 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
     var svg = el.querySelector('svg');
     if(svg){ svg.removeAttribute('width'); svg.removeAttribute('height'); svg.style.width='100%'; svg.style.height='auto'; }
   }
-  var inline = document.getElementById('qrInline'), big = document.getElementById('qrBig');
-  if(window.qrcode){ draw(inline,4); draw(big,8); }
+  var big = document.getElementById('qrBig');
+  if(window.qrcode){ draw(big,8); }
   else {
     // CDN 讀不到時（會場網路擋外連）不留空白框，改顯示網址讓對方手打
-    var fb = '<div style="color:#0e0b1a;font-family:var(--vas-mono);font-size:11px;'
-           + 'letter-spacing:.06em;word-break:break-all;line-height:1.7">' + url + '</div>';
-    inline.innerHTML = fb; big.innerHTML = fb;
+    big.innerHTML = '<div style="color:#0e0b1a;font-family:var(--vas-mono);font-size:11px;'
+                  + 'letter-spacing:.06em;word-break:break-all;line-height:1.7">' + url + '</div>';
   }
   document.getElementById('qrUrl').textContent = url;
   var m = document.getElementById('qrModal');
