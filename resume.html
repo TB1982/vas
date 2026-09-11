@@ -106,6 +106,11 @@ p+p{margin-top:16px}
 .lede.sub{color:var(--vas-ash-2);font-size:15px}
 .colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
 
+/* 中文沒有詞間空白，斷點落在任意兩字之間，末行很容易只剩一兩個孤兒字。
+   balance 讓瀏覽器把各行拉成等長，改字只能救當下這個螢幕寬度，這條規則每個寬度都成立。
+   只套在短句型區塊：balance 對超過六行的段落無效，內文段落套了會變成長短段右緣不齊。 */
+.feature li,.card p,.skill li,.sd-tag,.role{text-wrap:balance}
+
 /* floating QR */
 .qr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;background:rgba(21,18,31,.92);border:1px solid var(--vas-rule-strong);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--vas-ash-0);font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 .qr-fab:hover{border-color:rgba(196,113,245,.6)}
