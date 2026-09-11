@@ -88,9 +88,18 @@ p+p{margin-top:16px}
 .sd-name{display:block;margin-top:13px;font-family:var(--vas-serif);font-size:clamp(19px,4.4vw,23px);letter-spacing:.04em;color:var(--vas-ash-0)}
 .sd-tag{display:block;margin-top:9px;font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
 .sd-url{display:block;margin-top:18px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;color:var(--vas-ash-1)}
-.qr-inline{margin:38px auto 0;width:168px;padding:14px;background:#f0e8dc;border-radius:12px}
-.qr-inline img,.qr-inline svg{width:100%;height:auto;display:block}
-.qr-cap{font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);margin-top:14px}
+
+/* 數位證照 · badge 圖存在本地，不外連 Credly（不替第三方帶追蹤像素、斷網也顯示） */
+.certs{margin-top:60px;text-align:center}
+.cert-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px;margin-top:24px}
+.cert-row a{display:block;width:96px;opacity:.92;transition:transform .2s,opacity .2s}
+.cert-row a:hover{transform:translateY(-3px);opacity:1}
+.cert-row img{display:block;width:100%;height:auto}
+.cert-cap{margin-top:18px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
+/* 只在紙上出現：列印時「掃我」按鈕是隱藏的，紙本需要自己帶著網址 */
+.print-url{display:none}
+/* 次要說明行。不寫成 inline style——inline 的優先序壓過列印規則，紙上會變成白底白字 */
+.lede.sub{color:var(--vas-ash-2);font-size:15px}
 .colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
 
 /* floating QR */
@@ -125,14 +134,18 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
   .wrap{max-width:none;padding:0 0 24px}
   h1,.stat b,.feature h3,.card h3,.tl-item h3,.claim,a{color:#111}
   .lede,.feature li,.tl-item p,.skill li{color:#222}
+  /* .contact .mail 選擇器比上面的 a{color:#111} 更特定，不單獨指定紙上會是白字 */
+  .contact .mail,.lede.sub{color:#222}
   h2,.en,.role,.card p,.tl-item .org,.stat span,.card .when,.tl-item .when,
-  .skill h3,.skill li small,.qr-cap,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url{color:#555}
+  .skill h3,.skill li small,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url,.cert-cap{color:#555}
+  .cert-row a{opacity:1}
+  .print-url{display:block;margin-top:7px;letter-spacing:.1em;text-transform:none}
   .sd-name{color:#111}
   /* 漸層字在列印時 color:transparent 會整段消失 */
   .claim em{background:none;-webkit-text-fill-color:#111;color:#111}
   .feature{background:none}
-  .stats,.stat,.cards,.card,.qr-inline{background:#fff}
-  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.site-door,.qr-inline{border-color:#c8c8c8}
+  .stats,.stat,.cards,.card{background:#fff}
+  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.site-door{border-color:#c8c8c8}
   hr.rule{border-top-color:#c8c8c8}
   .badge,.badge.aa{color:#444;border-color:#bbb}
   .tl{border-left-color:#c8c8c8}
@@ -273,7 +286,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <section id="looking">
 <h2>Looking For</h2><div class="divider"></div>
 <p class="lede">產品／專案經理職位 · 全職 · 臺北市（對遠端工作有意願）</p>
-<p class="lede" style="color:var(--vas-ash-2);font-size:15px">偏好產業：網際網路 · 多媒體傳播 · 數位內容</p>
+<p class="lede sub">偏好產業：網際網路 · 多媒體傳播 · 數位內容</p>
 </section>
 
 <div class="contact" id="contact">
@@ -281,8 +294,19 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <div class="lines">
 <a class="mail" href="mailto:nova@yoursvas.app">nova@yoursvas.app</a>
 </div>
-<div class="qr-inline" id="qrInline"></div>
-<div class="qr-cap">掃描以帶走這份履歷</div>
+</div>
+
+<div class="certs">
+<div class="eyebrow">Verified credentials</div>
+<div class="cert-row">
+<a href="https://www.credly.com/badges/150b2133-0065-4e2b-9b79-fadd604049df/public_url" target="_blank" rel="noopener">
+<img src="img/badge-pmp.png" width="340" height="340" alt="PMP · Project Management Professional · Project Management Institute" loading="lazy">
+</a>
+<a href="https://www.credly.com/badges/8fe9bed8-af48-4ba8-b4c0-315c73f4b2f7/public_url" target="_blank" rel="noopener">
+<img src="img/badge-psm1.png" width="340" height="340" alt="PSM I · Professional Scrum Master I · Scrum.org" loading="lazy">
+</a>
+</div>
+<div class="cert-cap">點擊以於 Credly 驗證</div>
 </div>
 
 <a class="site-door" href="https://yoursvas.app" target="_blank" rel="noopener">
@@ -292,7 +316,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 <span class="sd-url">yoursvas.app →</span>
 </a>
 
-<div class="colophon">Nova Liu · Digital Résumé · 2026</div>
+<div class="colophon">Nova Liu · Digital Résumé · 2026<span class="print-url">yoursvas.app/resume</span></div>
 </div>
 
 <nav class="dot-nav" id="dotNav" aria-label="章節目錄">
@@ -326,13 +350,12 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
     var svg = el.querySelector('svg');
     if(svg){ svg.removeAttribute('width'); svg.removeAttribute('height'); svg.style.width='100%'; svg.style.height='auto'; }
   }
-  var inline = document.getElementById('qrInline'), big = document.getElementById('qrBig');
-  if(window.qrcode){ draw(inline,4); draw(big,8); }
+  var big = document.getElementById('qrBig');
+  if(window.qrcode){ draw(big,8); }
   else {
     // CDN 讀不到時（會場網路擋外連）不留空白框，改顯示網址讓對方手打
-    var fb = '<div style="color:#0e0b1a;font-family:var(--vas-mono);font-size:11px;'
-           + 'letter-spacing:.06em;word-break:break-all;line-height:1.7">' + url + '</div>';
-    inline.innerHTML = fb; big.innerHTML = fb;
+    big.innerHTML = '<div style="color:#0e0b1a;font-family:var(--vas-mono);font-size:11px;'
+                  + 'letter-spacing:.06em;word-break:break-all;line-height:1.7">' + url + '</div>';
   }
   document.getElementById('qrUrl').textContent = url;
   var m = document.getElementById('qrModal');
