@@ -289,7 +289,8 @@ p {
 .divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #c471f5, #fa71cd);
+  /* 用變數而非寫死 hex：深色下值完全相同，淺色主題才翻得動（原本紙上會留一條紫棒） */
+  background: linear-gradient(90deg, var(--vas-aurora-violet), var(--vas-aurora-pink));
   border-radius: 2px;
   scroll-margin-top: 108px;
 }

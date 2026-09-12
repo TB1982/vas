@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 履歷用自己的儲存格：永遠以思側紙色開場，不繼承站上其他頁切過的深色 -->
+<script>window.VAS_THEME_KEY='vas-resume-theme';(function(){try{var t=localStorage.getItem(window.VAS_THEME_KEY)||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <title>劉映孜 · 產品／專案經理</title>
 <meta name="description" content="劉映孜 Nova Liu — Hybrid PM。美術系出身，17 年資歷，PMP / PSM 1 雙證，親手做出 macOS 工具 VAS。">
 <meta name="robots" content="noindex, nofollow">
@@ -11,162 +13,17 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="css/tokens.css">
-<style>
-body{line-height:1.85}
-.wrap{max-width:680px;margin:0 auto;padding:0 24px 120px}
-.mono{font-family:var(--vas-mono);letter-spacing:.14em;text-transform:uppercase}
-.eyebrow{font-family:var(--vas-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(196,113,245,.85)}
-hr.rule{border:0;border-top:1px solid var(--vas-rule);margin:56px 0}
-
-/* hero */
-.hero{padding:88px 0 8px}
-.hero .mark{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle,var(--vas-aurora-violet) 0%,var(--vas-aurora-pink) 60%,transparent 100%);box-shadow:0 0 14px rgba(196,113,245,.6);animation:vas-breathe 6s ease-in-out infinite;margin-bottom:28px}
-h1{font-size:clamp(38px,9vw,58px);font-weight:500;line-height:1.15;letter-spacing:.04em}
-.hero .en{font-family:var(--vas-serif-en);font-size:13px;letter-spacing:.24em;color:var(--vas-ash-2);margin-top:10px;text-transform:uppercase}
-.role{font-size:clamp(17px,4.4vw,21px);color:var(--vas-ash-1);margin-top:26px}
-.claim{font-size:clamp(19px,4.8vw,25px);line-height:1.65;color:var(--vas-ash-0);margin-top:22px;max-width:22em}
-.claim em{font-style:normal;background:linear-gradient(90deg,var(--vas-aurora-violet),var(--vas-aurora-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--vas-rule);border:1px solid var(--vas-rule);border-radius:14px;overflow:hidden;margin-top:44px}
-.stat{background:var(--vas-void);padding:20px 18px}
-.stat b{display:block;font-family:var(--vas-serif-en);font-size:27px;font-weight:400;line-height:1.2;color:var(--vas-ash-0)}
-.stat span{display:block;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.1em;color:var(--vas-ash-2);margin-top:8px;line-height:1.6;text-transform:none}
-
-h2{font-size:14px;font-family:var(--vas-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--vas-ash-2);font-weight:400;margin-bottom:8px}
-h2+.divider{margin-bottom:30px}
-p+p{margin-top:16px}
-.lede{color:var(--vas-ash-1);font-size:16.5px}
-
-/* feature */
-.feature{border:1px solid var(--vas-rule-strong);border-radius:16px;padding:30px 26px;background:linear-gradient(160deg,rgba(196,113,245,.07),rgba(250,113,205,.03) 60%,transparent)}
-.feature h3{font-size:24px;font-weight:500;letter-spacing:.02em;margin:12px 0 4px}
-.feature .sub{color:var(--vas-ash-2);font-size:14px}
-.feature ul{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.feature li{padding-left:20px;position:relative;color:var(--vas-ash-1);font-size:15.5px}
-.feature li::before{content:'';position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:rgba(196,113,245,.7)}
-.btn{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:11px 20px;border:1px solid var(--vas-rule-strong);border-radius:999px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-0);transition:background .2s,border-color .2s}
-.btn:hover{background:rgba(240,232,220,.07);border-color:rgba(196,113,245,.6)}
-
-/* project cards */
-.cards{display:flex;flex-direction:column;gap:1px;background:var(--vas-rule);border-top:1px solid var(--vas-rule);border-bottom:1px solid var(--vas-rule)}
-.card{background:var(--vas-void);padding:22px 2px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline}
-.card h3{font-size:18px;font-weight:500;letter-spacing:.02em}
-.card .when{font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.1em;color:var(--vas-ash-3)}
-.card p{grid-column:1/-1;color:var(--vas-ash-2);font-size:14.5px;line-height:1.75}
-.badges{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.badge{font-family:var(--vas-mono);font-size:10px;letter-spacing:.1em;color:var(--vas-ash-2);border:1px solid var(--vas-rule);border-radius:999px;padding:4px 11px}
-.badge.aa{color:rgba(196,113,245,.9);border-color:rgba(196,113,245,.35)}
-
-/* timeline */
-.tl{display:flex;flex-direction:column;gap:30px;border-left:1px solid var(--vas-rule);padding-left:26px;margin-left:4px}
-.tl-item{position:relative}
-.tl-item::before{content:'';position:absolute;left:-30px;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--vas-ash-4)}
-.tl-item.now::before{background:var(--vas-aurora-violet);box-shadow:0 0 10px rgba(196,113,245,.7)}
-.tl-item .when{font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.1em;color:var(--vas-ash-3)}
-.tl-item h3{font-size:17.5px;font-weight:500;margin:6px 0 2px}
-.tl-item .org{color:var(--vas-ash-2);font-size:14.5px}
-.tl-item p{color:var(--vas-ash-1);font-size:15px;margin-top:10px}
-
-/* skills */
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:34px}
-.skill h3{font-family:var(--vas-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--vas-ash-3);font-weight:400;margin-bottom:12px}
-.skill ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.skill li{color:var(--vas-ash-1);font-size:15px}
-.skill li small{color:var(--vas-ash-3);font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.08em;margin-left:8px}
-
-/* contact */
-.contact{text-align:center;padding:64px 0 0}
-.contact .mail{display:inline-block;font-family:var(--vas-serif-en);font-size:clamp(18px,4.6vw,24px);letter-spacing:.03em;transition:border-color .2s}
-.contact .mail{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border:1px solid var(--vas-rule-strong);border-radius:999px;font-family:var(--vas-mono);font-size:12px;letter-spacing:.1em;color:var(--vas-ash-0);transition:background .2s,border-color .2s}
-.contact .mail:hover{background:rgba(240,232,220,.07);border-color:rgba(196,113,245,.6)}
-.lines{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
-/* 頁尾回站的門 */
-.site-door{display:block;max-width:430px;margin:66px auto 0;padding:28px 24px;border:1px solid var(--vas-rule-strong);border-radius:14px;text-align:center;transition:background .2s,border-color .2s}
-.site-door:hover{background:rgba(240,232,220,.05);border-color:rgba(196,113,245,.6)}
-.sd-eyebrow{display:block;font-family:var(--vas-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--vas-ash-3)}
-.sd-name{display:block;margin-top:13px;font-family:var(--vas-serif);font-size:clamp(19px,4.4vw,23px);letter-spacing:.04em;color:var(--vas-ash-0)}
-.sd-tag{display:block;margin-top:9px;font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
-.sd-url{display:block;margin-top:18px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;color:var(--vas-ash-1)}
-
-/* 數位證照 · badge 圖存在本地，不外連 Credly（不替第三方帶追蹤像素、斷網也顯示） */
-.certs{margin-top:60px;text-align:center}
-.cert-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px;margin-top:24px}
-.cert-row a{display:block;width:96px;opacity:.92;transition:transform .2s,opacity .2s}
-.cert-row a:hover{transform:translateY(-3px);opacity:1}
-.cert-row img{display:block;width:100%;height:auto}
-.cert-cap{margin-top:18px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);opacity:0;transition:opacity .25s}
-/* 滑過或鍵盤聚焦才浮出。用 opacity 不用 display，位子先佔著，浮出時版面不會跳 */
-.certs:hover .cert-cap,.certs:focus-within .cert-cap{opacity:1}
-/* 觸控裝置沒有 hover——名片掃碼進來的人幾乎都在手機上，這裡改成常駐 */
-@media (hover:none){.cert-cap{opacity:1}}
-/* 只在紙上出現：列印時「掃我」按鈕是隱藏的，紙本需要自己帶著網址 */
-.print-url{display:none}
-/* 次要說明行。不寫成 inline style——inline 的優先序壓過列印規則，紙上會變成白底白字 */
-.lede.sub{color:var(--vas-ash-2);font-size:15px}
-.colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
-
-/* 中文沒有詞間空白，斷點落在任意兩字之間，末行很容易只剩一兩個孤兒字。
-   balance 讓瀏覽器把各行拉成等長，改字只能救當下這個螢幕寬度，這條規則每個寬度都成立。
-   只套在短句型區塊：balance 對超過六行的段落無效，內文段落套了會變成長短段右緣不齊。 */
-.feature li,.card p,.skill li,.sd-tag,.role{text-wrap:balance}
-
-/* floating QR */
-.qr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;background:rgba(21,18,31,.92);border:1px solid var(--vas-rule-strong);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--vas-ash-0);font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
-.qr-fab:hover{border-color:rgba(196,113,245,.6)}
-.qr-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(14,11,26,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.qr-modal.open{display:flex}
-.qr-modal{overflow:auto}
-.qr-modal .box{text-align:center;display:flex;flex-direction:column;align-items:center;margin:auto}
-.qr-modal .sheet{width:min(76vw,320px);padding:22px;background:#f0e8dc;border-radius:18px}
-.qr-modal .sheet img,.qr-modal .sheet svg{width:100%;height:auto;display:block}
-.qr-modal .who{margin-top:22px;font-size:19px;letter-spacing:.06em}
-.qr-modal .url{max-width:min(76vw,320px);margin-top:8px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.08em;color:var(--vas-ash-3);word-break:break-all}
-.qr-modal .close{margin-top:26px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vas-ash-2);background:none;border:1px solid var(--vas-rule);border-radius:999px;padding:9px 20px;cursor:pointer}
-a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
-/* 點點章節目錄 · 沿用站上 dot-nav 語彙 */
-.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:26px;z-index:40}
-.dn-item{position:relative;display:flex;align-items:center;text-decoration:none}
-.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--vas-ash-3);flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s}
-.dn-label{position:absolute;right:14px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--vas-ash-1);white-space:nowrap;opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
-.dn-item:hover .dn-label{opacity:1;transform:translateX(0)}
-.dn-item:focus-visible .dn-label{opacity:1;transform:translateX(0)}
-.dn-item.is-current .dn-dot{background:var(--vas-aurora-violet);border-color:var(--vas-aurora-violet);transform:scale(1.35);box-shadow:0 0 10px rgba(196,113,245,.7)}
-.dn-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--vas-aurora-violet)}
-.dn-item.is-visited .dn-dot{background:var(--vas-ash-3);border-color:var(--vas-ash-3)}
-/* 窄螢幕不顯示：欄寬不夠、且右下角已有掃我按鈕 */
-@media (max-width:900px){.dot-nav{display:none}}
-@media print{
-  .qr-fab,.qr-modal,.dot-nav{display:none!important}
-  /* 紙上翻成淺底深字：瀏覽器預設不印背景色，若不翻轉會變成白紙白字整頁空白 */
-  body{background:#fff;color:#1a1a1a}
-  .wrap{max-width:none;padding:0 0 24px}
-  h1,.stat b,.feature h3,.card h3,.tl-item h3,.claim,a{color:#111}
-  .lede,.feature li,.tl-item p,.skill li{color:#222}
-  /* .contact .mail 選擇器比上面的 a{color:#111} 更特定，不單獨指定紙上會是白字 */
-  .contact .mail,.lede.sub{color:#222}
-  h2,.en,.role,.card p,.tl-item .org,.stat span,.card .when,.tl-item .when,
-  .skill h3,.skill li small,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url,.cert-cap{color:#555}
-  .cert-row a,.cert-cap{opacity:1}
-  .print-url{display:block;margin-top:7px;letter-spacing:.1em;text-transform:none}
-  .sd-name{color:#111}
-  /* 漸層字在列印時 color:transparent 會整段消失 */
-  .claim em{background:none;-webkit-text-fill-color:#111;color:#111}
-  .feature{background:none}
-  .stats,.stat,.cards,.card{background:#fff}
-  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.site-door{border-color:#c8c8c8}
-  hr.rule{border-top-color:#c8c8c8}
-  .badge,.badge.aa{color:#444;border-color:#bbb}
-  .tl{border-left-color:#c8c8c8}
-  .tl-item::before,.tl-item.now::before,.feature li::before{background:#999;box-shadow:none}
-  .hero{padding-top:0}
-  .hero .mark{animation:none;background:#888;box-shadow:none}
-  section,.feature,.card,.tl-item{break-inside:avoid}
-}
-</style>
+<link rel="stylesheet" href="css/resume.css">
+<!-- 主題層必須排在 resume.css 之後，否則淺色覆寫不到 -->
+<link rel="stylesheet" href="css/theme.css">
 </head>
 <body>
 <div class="wrap">
+
+<div class="topbar">
+<span class="lang"><a class="on" aria-current="page" hreflang="zh-Hant">中</a><a href="en/resume.html" hreflang="en">EN</a></span>
+<button class="theme-toggle" type="button" aria-label="切換深色／淺色"><svg class="ti-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg><svg class="ti-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.3 6.3 0 0 0 10.5 10.5Z"/></svg></button>
+</div>
 
 <header class="hero" id="top">
 <div class="mark"></div>
@@ -350,46 +207,7 @@ a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
-<script>
-(function(){
-  var url = location.href.split('#')[0];
-  function draw(el, cell){
-    var q = qrcode(0,'M'); q.addData(url); q.make();
-    el.innerHTML = q.createSvgTag({cellSize:cell, margin:0, scalable:true});
-    var svg = el.querySelector('svg');
-    if(svg){ svg.removeAttribute('width'); svg.removeAttribute('height'); svg.style.width='100%'; svg.style.height='auto'; }
-  }
-  var big = document.getElementById('qrBig');
-  if(window.qrcode){ draw(big,8); }
-  else {
-    // CDN 讀不到時（會場網路擋外連）不留空白框，改顯示網址讓對方手打
-    big.innerHTML = '<div style="color:#0e0b1a;font-family:var(--vas-mono);font-size:11px;'
-                  + 'letter-spacing:.06em;word-break:break-all;line-height:1.7">' + url + '</div>';
-  }
-  document.getElementById('qrUrl').textContent = url;
-  var m = document.getElementById('qrModal');
-  document.getElementById('qrFab').onclick = function(){ m.classList.add('open'); };
-  document.getElementById('qrClose').onclick = function(){ m.classList.remove('open'); };
-  m.onclick = function(e){ if(e.target === m) m.classList.remove('open'); };
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') m.classList.remove('open'); });
-
-  // ── 點點目錄：捲動時標出目前章節 ──
-  var items = [].slice.call(document.querySelectorAll('.dn-item'));
-  var targets = items.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
-  function mark(){
-    var line = window.scrollY + window.innerHeight * 0.32, cur = 0;
-    targets.forEach(function(t, i){ if(t && t.offsetTop <= line) cur = i; });
-    // 捲到底時最後一節可能永遠追不到偵測線，直接判定為最後一項
-    if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) cur = items.length - 1;
-    items.forEach(function(a, i){
-      a.classList.toggle('is-current', i === cur);
-      a.classList.toggle('is-visited', i < cur);
-    });
-  }
-  mark();
-  addEventListener('scroll', function(){ requestAnimationFrame(mark); }, {passive:true});
-  addEventListener('resize', mark);
-})();
-</script>
+<script src="js/resume.js"></script>
+<script src="js/theme-toggle.js"></script>
 </body>
 </html>
