@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════
+   VAS · 數位履歷 · 版面樣式
+   中英兩版共用（resume.html / en/resume.html），改一次兩邊都生效。
+   載入順序：tokens.css → resume.css → theme.css
+   （theme.css 必須在最後，否則淺色覆寫不到本檔。）
+   ═══════════════════════════════════════════════ */
+
+body{line-height:1.85}
+/* 英文版主字體換成 Fraunces（站上的英文襯線）；夾雜的中日文字元仍由 Shippori Mincho 接手 */
+html[lang="en"] body{font-family:var(--vas-serif-en)}
+.wrap{max-width:680px;margin:0 auto;padding:0 24px 120px}
+.mono{font-family:var(--vas-mono);letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{font-family:var(--vas-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:color-mix(in srgb,var(--vas-aurora-violet) 85%,transparent)}
+hr.rule{border:0;border-top:1px solid var(--vas-rule);margin:56px 0}
+
+/* hero */
+.hero{padding:88px 0 8px}
+.hero .mark{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle,var(--vas-aurora-violet) 0%,var(--vas-aurora-pink) 60%,transparent 100%);box-shadow:0 0 14px color-mix(in srgb,var(--vas-aurora-violet) 60%,transparent);animation:vas-breathe 6s ease-in-out infinite;margin-bottom:28px}
+h1{font-size:clamp(38px,9vw,58px);font-weight:500;line-height:1.15;letter-spacing:.04em}
+.hero .en{font-family:var(--vas-serif-en);font-size:13px;letter-spacing:.24em;color:var(--vas-ash-2);margin-top:10px;text-transform:uppercase}
+.role{font-size:clamp(17px,4.4vw,21px);color:var(--vas-ash-1);margin-top:26px}
+.claim{font-size:clamp(19px,4.8vw,25px);line-height:1.65;color:var(--vas-ash-0);margin-top:22px;max-width:22em}
+.claim em{font-style:normal;background:linear-gradient(90deg,var(--vas-aurora-violet),var(--vas-aurora-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--vas-rule);border:1px solid var(--vas-rule);border-radius:14px;overflow:hidden;margin-top:44px}
+.stat{background:var(--vas-void);padding:20px 18px}
+.stat b{display:block;font-family:var(--vas-serif-en);font-size:27px;font-weight:400;line-height:1.2;color:var(--vas-ash-0)}
+.stat span{display:block;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.1em;color:var(--vas-ash-2);margin-top:8px;line-height:1.6;text-transform:none}
+
+h2{font-size:14px;font-family:var(--vas-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--vas-ash-2);font-weight:400;margin-bottom:8px}
+h2+.divider{margin-bottom:30px}
+p+p{margin-top:16px}
+.lede{color:var(--vas-ash-1);font-size:16.5px}
+
+/* feature */
+.feature{border:1px solid var(--vas-rule-strong);border-radius:16px;padding:30px 26px;background:linear-gradient(160deg,color-mix(in srgb,var(--vas-aurora-violet) 7%,transparent),color-mix(in srgb,var(--vas-aurora-pink) 3%,transparent) 60%,transparent)}
+.feature h3{font-size:24px;font-weight:500;letter-spacing:.02em;margin:12px 0 4px}
+.feature .sub{color:var(--vas-ash-2);font-size:14px}
+.feature ul{margin:20px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.feature li{padding-left:20px;position:relative;color:var(--vas-ash-1);font-size:15.5px}
+.feature li::before{content:'';position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:color-mix(in srgb,var(--vas-aurora-violet) 70%,transparent)}
+.btn{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:11px 20px;border:1px solid var(--vas-rule-strong);border-radius:999px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-0);transition:background .2s,border-color .2s}
+.btn:hover{background:color-mix(in srgb,var(--vas-ash-0) 7%,transparent);border-color:color-mix(in srgb,var(--vas-aurora-violet) 60%,transparent)}
+
+/* project cards */
+.cards{display:flex;flex-direction:column;gap:1px;background:var(--vas-rule);border-top:1px solid var(--vas-rule);border-bottom:1px solid var(--vas-rule)}
+.card{background:var(--vas-void);padding:22px 2px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline}
+.card h3{font-size:18px;font-weight:500;letter-spacing:.02em}
+.card .when{font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.1em;color:var(--vas-ash-3)}
+.card p{grid-column:1/-1;color:var(--vas-ash-2);font-size:14.5px;line-height:1.75}
+.badges{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.badge{font-family:var(--vas-mono);font-size:10px;letter-spacing:.1em;color:var(--vas-ash-2);border:1px solid var(--vas-rule);border-radius:999px;padding:4px 11px}
+.badge.aa{color:color-mix(in srgb,var(--vas-aurora-violet) 90%,transparent);border-color:color-mix(in srgb,var(--vas-aurora-violet) 35%,transparent)}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:30px;border-left:1px solid var(--vas-rule);padding-left:26px;margin-left:4px}
+.tl-item{position:relative}
+.tl-item::before{content:'';position:absolute;left:-30px;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--vas-ash-4)}
+.tl-item.now::before{background:var(--vas-aurora-violet);box-shadow:0 0 10px color-mix(in srgb,var(--vas-aurora-violet) 70%,transparent)}
+.tl-item .when{font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.1em;color:var(--vas-ash-3)}
+.tl-item h3{font-size:17.5px;font-weight:500;margin:6px 0 2px}
+.tl-item .org{color:var(--vas-ash-2);font-size:14.5px}
+.tl-item p{color:var(--vas-ash-1);font-size:15px;margin-top:10px}
+
+/* skills */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:34px}
+.skill h3{font-family:var(--vas-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--vas-ash-3);font-weight:400;margin-bottom:12px}
+.skill ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.skill li{color:var(--vas-ash-1);font-size:15px}
+.skill li small{color:var(--vas-ash-3);font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.08em;margin-left:8px}
+
+/* contact */
+.contact{text-align:center;padding:64px 0 0}
+.contact .mail{display:inline-block;font-family:var(--vas-serif-en);font-size:clamp(18px,4.6vw,24px);letter-spacing:.03em;transition:border-color .2s}
+.contact .mail{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border:1px solid var(--vas-rule-strong);border-radius:999px;font-family:var(--vas-mono);font-size:12px;letter-spacing:.1em;color:var(--vas-ash-0);transition:background .2s,border-color .2s}
+.contact .mail:hover{background:color-mix(in srgb,var(--vas-ash-0) 7%,transparent);border-color:color-mix(in srgb,var(--vas-aurora-violet) 60%,transparent)}
+.lines{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+/* 頁尾回站的門 */
+.site-door{display:block;max-width:430px;margin:66px auto 0;padding:28px 24px;border:1px solid var(--vas-rule-strong);border-radius:14px;text-align:center;transition:background .2s,border-color .2s}
+.site-door:hover{background:color-mix(in srgb,var(--vas-ash-0) 5%,transparent);border-color:color-mix(in srgb,var(--vas-aurora-violet) 60%,transparent)}
+.sd-eyebrow{display:block;font-family:var(--vas-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--vas-ash-3)}
+.sd-name{display:block;margin-top:13px;font-family:var(--vas-serif);font-size:clamp(19px,4.4vw,23px);letter-spacing:.04em;color:var(--vas-ash-0)}
+.sd-tag{display:block;margin-top:9px;font-size:13.5px;line-height:1.7;color:var(--vas-ash-2)}
+.sd-url{display:block;margin-top:18px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;color:var(--vas-ash-1)}
+
+/* 數位證照 · badge 圖存在本地，不外連 Credly（不替第三方帶追蹤像素、斷網也顯示） */
+.certs{margin-top:60px;text-align:center}
+.cert-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px;margin-top:24px}
+.cert-row a{display:block;width:96px;opacity:.92;transition:transform .2s,opacity .2s}
+.cert-row a:hover{transform:translateY(-3px);opacity:1}
+.cert-row img{display:block;width:100%;height:auto}
+.cert-cap{margin-top:18px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3);opacity:0;transition:opacity .25s}
+/* 滑過或鍵盤聚焦才浮出。用 opacity 不用 display，位子先佔著，浮出時版面不會跳 */
+.certs:hover .cert-cap,.certs:focus-within .cert-cap{opacity:1}
+/* 觸控裝置沒有 hover——名片掃碼進來的人幾乎都在手機上，這裡改成常駐 */
+@media (hover:none){.cert-cap{opacity:1}}
+/* 只在紙上出現：列印時「掃我」按鈕是隱藏的，紙本需要自己帶著網址 */
+.print-url{display:none}
+/* 次要說明行。不寫成 inline style——inline 的優先序壓過列印規則，紙上會變成白底白字 */
+.lede.sub{color:var(--vas-ash-2);font-size:15px}
+.colophon{margin-top:70px;text-align:center;font-family:var(--vas-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--vas-ash-3)}
+
+/* 頁首列 · 語系切換 ＋ 日夜切換。.theme-toggle 的樣式來自 css/theme.css */
+.topbar{display:flex;align-items:center;justify-content:flex-end;gap:18px;padding-top:26px}
+.topbar .lang{display:flex;align-items:baseline;gap:9px;font-family:var(--vas-mono);font-size:11px;letter-spacing:.12em;color:var(--vas-ash-3)}
+.topbar .lang a{transition:color .2s}
+.topbar .lang a[href]:hover{color:var(--vas-aurora-violet)}
+.topbar .lang .on{color:var(--vas-ash-0);border-bottom:1px solid var(--vas-aurora-violet);padding-bottom:2px}
+
+/* 中文沒有詞間空白，斷點落在任意兩字之間，末行很容易只剩一兩個孤兒字。
+   balance 讓瀏覽器把各行拉成等長，改字只能救當下這個螢幕寬度，這條規則每個寬度都成立。
+   只套在短句型區塊：balance 對超過六行的段落無效，內文段落套了會變成長短段右緣不齊。 */
+.feature li,.card p,.skill li,.sd-tag,.role{text-wrap:balance}
+
+/* floating QR */
+.qr-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;background:color-mix(in srgb,var(--vas-void-up) 92%,transparent);border:1px solid var(--vas-rule-strong);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--vas-ash-0);font-family:var(--vas-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.qr-fab:hover{border-color:color-mix(in srgb,var(--vas-aurora-violet) 60%,transparent)}
+.qr-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(14,11,26,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.qr-modal.open{display:flex}
+.qr-modal{overflow:auto}
+.qr-modal .box{text-align:center;display:flex;flex-direction:column;align-items:center;margin:auto}
+.qr-modal .sheet{width:min(76vw,320px);padding:22px;background:#f0e8dc;border-radius:18px}
+.qr-modal .sheet img,.qr-modal .sheet svg{width:100%;height:auto;display:block}
+.qr-modal .who{margin-top:22px;font-size:19px;letter-spacing:.06em}
+.qr-modal .url{max-width:min(76vw,320px);margin-top:8px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.08em;color:var(--vas-ash-3);word-break:break-all}
+.qr-modal .close{margin-top:26px;font-family:var(--vas-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vas-ash-2);background:none;border:1px solid var(--vas-rule);border-radius:999px;padding:9px 20px;cursor:pointer}
+a{color:var(--vas-ash-0)}a:hover{color:var(--vas-aurora-violet)}
+/* 點點章節目錄 · 沿用站上 dot-nav 語彙 */
+.dot-nav{position:fixed;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:26px;z-index:40}
+.dn-item{position:relative;display:flex;align-items:center;text-decoration:none}
+.dn-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid var(--vas-ash-3);flex-shrink:0;transition:background .25s,transform .25s,box-shadow .25s,border-color .25s}
+.dn-label{position:absolute;right:14px;font-family:var(--vas-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--vas-ash-1);white-space:nowrap;opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.dn-item:hover .dn-label{opacity:1;transform:translateX(0)}
+.dn-item:focus-visible .dn-label{opacity:1;transform:translateX(0)}
+.dn-item.is-current .dn-dot{background:var(--vas-aurora-violet);border-color:var(--vas-aurora-violet);transform:scale(1.35);box-shadow:0 0 10px color-mix(in srgb,var(--vas-aurora-violet) 70%,transparent)}
+.dn-item.is-current .dn-label{opacity:1;transform:translateX(0);color:var(--vas-aurora-violet)}
+.dn-item.is-visited .dn-dot{background:var(--vas-ash-3);border-color:var(--vas-ash-3)}
+/* 窄螢幕不顯示：欄寬不夠、且右下角已有掃我按鈕 */
+@media (max-width:900px){.dot-nav{display:none}}
+@media print{
+  .qr-fab,.qr-modal,.dot-nav,.topbar{display:none!important}
+  /* 紙上翻成淺底深字：瀏覽器預設不印背景色，若不翻轉會變成白紙白字整頁空白 */
+  body{background:#fff;color:#1a1a1a}
+  .wrap{max-width:none;padding:0 0 24px}
+  h1,.stat b,.feature h3,.card h3,.tl-item h3,.claim,a{color:#111}
+  .lede,.feature li,.tl-item p,.skill li{color:#222}
+  /* .contact .mail 選擇器比上面的 a{color:#111} 更特定，不單獨指定紙上會是白字 */
+  .contact .mail,.lede.sub{color:#222}
+  h2,.en,.role,.card p,.tl-item .org,.stat span,.card .when,.tl-item .when,
+  .skill h3,.skill li small,.colophon,.eyebrow,.sd-eyebrow,.sd-tag,.sd-url,.cert-cap{color:#555}
+  .cert-row a,.cert-cap{opacity:1}
+  .print-url{display:block;margin-top:7px;letter-spacing:.1em;text-transform:none}
+  .sd-name{color:#111}
+  /* 漸層字在列印時 color:transparent 會整段消失 */
+  .claim em{background:none;-webkit-text-fill-color:#111;color:#111}
+  .feature{background:none}
+  .stats,.stat,.cards,.card{background:#fff}
+  .stats,.feature,.card,.cards,.badge,.btn,.contact .mail,.site-door{border-color:#c8c8c8}
+  hr.rule{border-top-color:#c8c8c8}
+  .badge,.badge.aa{color:#444;border-color:#bbb}
+  .tl{border-left-color:#c8c8c8}
+  .tl-item::before,.tl-item.now::before,.feature li::before{background:#999;box-shadow:none}
+  .hero{padding-top:0}
+  .hero .mark{animation:none;background:#888;box-shadow:none}
+  section,.feature,.card,.tl-item{break-inside:avoid}
+}
