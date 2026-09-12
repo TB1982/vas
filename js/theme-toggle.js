@@ -2,7 +2,9 @@
    預設淺色；記憶於 localStorage['vas-theme']。
    FOUC 由各頁 <head> 內聯腳本先行套用，本檔只負責互動與圖示狀態。 */
 (function () {
-  var KEY = 'vas-theme';
+  // 頁面可用 window.VAS_THEME_KEY 指定自己的儲存格，不與全站共用偏好
+  // （履歷即如此：永遠以思側紙色開場，不繼承手冊頁切過的深色）
+  var KEY = window.VAS_THEME_KEY || 'vas-theme';
   function current() { return document.documentElement.getAttribute('data-theme') || 'light'; }
   // aria-label 依 <html lang> 在地化；繁中維持原字串（向後相容）。
   var LABELS = {
