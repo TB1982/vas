@@ -764,6 +764,15 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <div class="qr-tier"><span class="qr-pct sm">モザイクで補完</span><span class="qr-desc">OCR が足りないところは、ユーザーが手動で引き継ぎます</span></div>
         <div class="qr-tier hi"><span class="qr-pct sm">UNDO</span><span class="qr-desc">隠し間違い？ワンタッチで削除、取り返しのつかない決定はありません</span></div>
       </div>
+      <p class="g-section-sub" style="margin-top:36px">ここだけ隠す：範囲を囲んでから ⇧K</p>
+      <p>全体スキャンには代償があります——機密と判定された文字がすべて覆われ、残しておきたかった部分まで隠れてしまう。そこで <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> には二つめの使い方があります：<strong>キャンバス上で注釈が選択されているときは、その注釈の範囲だけをスキャンします。</strong></p>
+      <ul class="docs-list">
+        <li><span class="docs-kbd">⇧</span> <span class="docs-kbd">R</span> で矩形に切り替え、処理したい範囲にひとつ描きます——描き終えた時点で選択状態（四隅にハンドル）なので、続けて <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span>：枠の中の機密文字だけが隠れ、枠の外はそのままです。</li>
+        <li>矩形でなくても構いません——<strong>選択中の注釈ならどれでも</strong>対象になり、スキャン範囲はそれを囲む矩形です（小さすぎるものは対象外）。矩形がいちばん直感的なのは、見えている枠がそのままスキャン範囲だからです。</li>
+        <li>何も選択していない状態で <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> を押せば、上に書いた全体スキャンになります。同じキーで二つの使い方、違いは「何かが選択されているかどうか」だけ。</li>
+        <li>自分で範囲を囲みたいけれど矩形は残したくない——そんなときはツールバーの「プライバシーマスク」ボタンへ。こちらはドラッグした範囲をそのままスキャンし、注釈オブジェクトを作りません。</li>
+      </ul>
+      <p style="margin-top:18px">出てくるのはやはりフローティングのモザイクレイヤーなので、前述の三点はそのまま成り立ちます：ドラッグでき、サイズを変えられ、<span class="docs-kbd">Delete</span> で消せます。</p>
     </section>
 
     <section class="docs-section" id="qrcode">
@@ -1094,7 +1103,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "ja",
   "url": "https://yoursvas.app/ja/guide/ocr",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-ja.webp",
   "publisher": {
     "@type": "Organization",

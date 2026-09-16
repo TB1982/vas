@@ -764,6 +764,15 @@ Name: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><sp
         <div class="qr-tier"><span class="qr-pct sm">Mosaic fill-in</span><span class="qr-desc">Where OCR falls short, you take over by hand</span></div>
         <div class="qr-tier hi"><span class="qr-pct sm">UNDO</span><span class="qr-desc">Masked wrong? Delete in one press — no irreversible calls</span></div>
       </div>
+      <p class="g-section-sub" style="margin-top:36px">Mask just this part: frame a region first, then press ⇧K</p>
+      <p>Scanning the whole image has a cost: every piece of text judged sensitive gets covered, including the parts you meant to keep. So <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> has a second use: <strong>when an annotation is selected on the canvas, it scans only that annotation's area.</strong></p>
+      <ul class="docs-list">
+        <li>Press <span class="docs-kbd">⇧</span> <span class="docs-kbd">R</span> for the rectangle, drag one over the area you want handled — it is selected the moment you finish drawing it (handles at the corners) — then press <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span>: sensitive text inside the frame is masked, everything outside is left alone.</li>
+        <li>It need not be a rectangle — <strong>any selected annotation</strong> counts, and the scanned area is its bounding box (anything too small is ignored). The rectangle is simply the most intuitive shape, because the frame you see is the area that gets scanned.</li>
+        <li>With nothing selected, <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> is the whole-image scan described above. One key, two uses; the only difference is whether something is selected.</li>
+        <li>Want to frame it yourself without leaving a rectangle behind? Use the Privacy Mask button in the toolbar — that route scans the region you drag, without creating an annotation object.</li>
+      </ul>
+      <p style="margin-top:18px">What comes out is still a floating mosaic layer, so the three things above still hold: you can drag it, resize it, and remove it with <span class="docs-kbd">Delete</span>.</p>
     </section>
 
     <section class="docs-section" id="qrcode">
@@ -1034,7 +1043,7 @@ Name: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><sp
 </script>
 
 <!-- ═══ i18n · 四語切換 + 工具列/編輯器圖同步 ═══ -->
-<script src="../i18n/core.js"></script>
+<script src="../../i18n/core.js"></script>
 <script>
 (function () {
 
@@ -1094,7 +1103,7 @@ Name: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><sp
   "inLanguage": "en",
   "url": "https://yoursvas.app/en/guide/ocr",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-en.webp",
   "publisher": {
     "@type": "Organization",

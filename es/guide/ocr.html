@@ -764,6 +764,15 @@ Nombre: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><
         <div class="qr-tier"><span class="qr-pct sm">Relleno con mosaico</span><span class="qr-desc">Donde el OCR se queda corto, tomas el control a mano</span></div>
         <div class="qr-tier hi"><span class="qr-pct sm">DESHACER</span><span class="qr-desc">¿Enmascaraste mal? Elimínalo de una pulsación — sin decisiones irreversibles</span></div>
       </div>
+      <p class="g-section-sub" style="margin-top:36px">Tapar solo esta parte: enmarca una zona y luego pulsa ⇧K</p>
+      <p>Escanear la imagen entera tiene un coste: se cubre todo el texto considerado sensible, incluido el que querías conservar. Por eso <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> tiene un segundo uso: <strong>cuando hay una anotación seleccionada en el lienzo, solo escanea el área de esa anotación.</strong></p>
+      <ul class="docs-list">
+        <li>Pulsa <span class="docs-kbd">⇧</span> <span class="docs-kbd">R</span> para el rectángulo y dibuja uno sobre la zona que quieras tratar —queda seleccionado en cuanto terminas de dibujarlo (con tiradores en las esquinas)— y a continuación pulsa <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span>: el texto sensible dentro del marco se tapa y lo de fuera se queda igual.</li>
+        <li>No tiene por qué ser un rectángulo: vale <strong>cualquier anotación seleccionada</strong>, y el área escaneada es el rectángulo que la envuelve (lo demasiado pequeño se ignora). El rectángulo es sencillamente la forma más intuitiva, porque el marco que ves es el área que se escanea.</li>
+        <li>Sin nada seleccionado, <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> hace el escaneo completo descrito arriba. Una sola tecla, dos usos; la única diferencia es si hay algo seleccionado o no.</li>
+        <li>¿Quieres enmarcarlo tú sin dejar el rectángulo? Usa el botón «Máscara de privacidad» de la barra de herramientas: esa vía escanea la zona que arrastras, sin crear un objeto de anotación.</li>
+      </ul>
+      <p style="margin-top:18px">Lo que sale sigue siendo una capa de mosaico flotante, así que las tres cosas anteriores siguen valiendo: puedes arrastrarla, cambiarle el tamaño y borrarla con <span class="docs-kbd">Delete</span>.</p>
     </section>
 
     <section class="docs-section" id="qrcode">
@@ -1096,7 +1105,7 @@ Nombre: <span class="pm-mask">Wang Xiaoming</span><br>ID: <span class="pm-sel"><
   "inLanguage": "es",
   "url": "https://yoursvas.app/es/guide/ocr",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-es.webp",
   "publisher": {
     "@type": "Organization",

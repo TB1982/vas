@@ -764,6 +764,15 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         <div class="qr-tier"><span class="qr-pct sm">馬賽克補位</span><span class="qr-desc">OCR 不足的地方，使用者手動接手</span></div>
         <div class="qr-tier hi"><span class="qr-pct sm">UNDO</span><span class="qr-desc">遮錯了？一鍵刪除，沒有不可逆的決定</span></div>
       </div>
+      <p class="g-section-sub" style="margin-top:36px">只遮這一塊：先框一個範圍，再按 ⇧K</p>
+      <p>整張掃有一個代價：畫面上所有被認定為敏感的字都會被蓋住，包括你本來想留著的那些。所以 <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span> 還有第二種用法：<strong>畫布上有選中的標註時，它只掃那個標註的範圍。</strong></p>
+      <ul class="docs-list">
+        <li>按 <span class="docs-kbd">⇧</span> <span class="docs-kbd">R</span> 切到矩形框，在想處理的區域拉一顆——畫完它本來就是選中狀態（四角有把手），緊接著按 <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span>：框內的敏感字被遮，框外不動。</li>
+        <li>不限矩形——<strong>任何選中的標註</strong>都算，掃的範圍就是它的外接矩形（太小的不算）。造形最直覺的是矩形框，因為你看到的框就是掃的範圍。</li>
+        <li>沒有選中任何物件時按 <span class="docs-kbd">⇧</span> <span class="docs-kbd">K</span>，就是上面那種整張掃。兩種用法同一顆鍵，差別只在「有沒有東西被選中」。</li>
+        <li>要自己框、又不想留下那顆矩形？點工具列的「隱私遮蔽」鈕——那條路是拖框即掃，不經過標註物件。</li>
+      </ul>
+      <p style="margin-top:18px">遮出來的還是浮動馬賽克圖層，所以前面那三件事一樣成立：可拖、可改大小、<span class="docs-kbd">Delete</span> 可刪。</p>
     </section>
 
     <section class="docs-section" id="qrcode">
@@ -1094,7 +1103,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "zh-Hant",
   "url": "https://yoursvas.app/guide/ocr",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-zh.webp",
   "publisher": {
     "@type": "Organization",
