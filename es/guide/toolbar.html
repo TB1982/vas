@@ -768,7 +768,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
           <div class="g-card" data-key="open">
             <p class="g-card-name">Abrir</p>
-            <p class="g-card-desc">Abre una imagen que ya tengas en tu Mac.</p>
+            <p class="g-card-desc">Abre una imagen que ya tengas en tu Mac.<span class="g-badge-t" style="margin:0 6px">solo Tauri</span>Ahora este botón abre primero el <a href="#gallery">Historial de capturas</a>; mantén <span class="docs-kbd">⌥</span> y pulsa para ir directo al diálogo de archivos.</p>
             <p class="g-card-note"><span class="g-badge-a" style="margin:0 6px 0 0">Todas las versiones</span>PNG / JPG / WebP / TIFF / GIF / SVG, <span class="g-badge-t" style="margin:0 6px">Solo Tauri</span>BMP</p>
           </div>
           <div class="g-card" data-key="whiteboard">
@@ -880,6 +880,18 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ Historial de capturas ═══ -->
+        <div class="tf-head" id="gallery"><span class="tf-head-t">Historial de capturas</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub"><span class="g-badge-t" style="margin:0 6px 0 0">solo Tauri</span>Cada captura entra sola. Recupera aquella imagen de la semana pasada sin acordarte de dónde la guardaste.</p>
+        <p>Después de una captura sueles hacer una de dos cosas: guardarla u olvidarla. El <strong>Historial de capturas</strong> es un tercer camino: cada captura se queda ahí automáticamente, desde las seis fuentes —los cuatro modos de captura, la captura larga, la salida de la regla y el pegado del portapapeles—. Es una ventana propia, no un cajón dentro del editor: guardas, cierras el editor y el historial sigue ahí, porque el momento en que necesitas buscar una imagen es justo aquel en que el editor lleva rato cerrado.</p>
+        <ul class="docs-list">
+          <li><strong>Cómo abrirlo</strong> — el botón «Abrir» de la barra de herramientas, «Historial de capturas» en la barra de menús, o el atajo global <span class="docs-kbd">⌥</span> <span class="docs-kbd">⌘</span> <span class="docs-kbd">G</span>. Para ir directo al diálogo de archivos, mantén <span class="docs-kbd">⌥</span> y pulsa «Abrir»; «Abrir desde archivo…», arriba a la derecha de la ventana, lleva al mismo sitio.</li>
+          <li><strong>Cómo encontrar algo</strong> — el muro de miniaturas se agrupa por día, lo más reciente primero, y cada celda lleva la hora, el tipo de captura, la app de origen y el tamaño. Los dos filtros de arriba lo reducen a un solo tipo o a una sola app.</li>
+          <li><strong>Una vez encontrada</strong> — cuatro acciones por celda: Copiar imagen (pégasela a alguien sin abrir el editor), Abrir en el editor (volver a anotar el original), Mostrar en Finder y Eliminar. Para vaciarlo entero, «Vaciar historial» pide confirmación dos veces.</li>
+          <li><strong>Cuánto guarda</strong> — un máximo de 300 entradas; a partir de ahí se borran solas las más antiguas. Una captura Retina ocupa unos 4.4 MB, así que 300 son alrededor de 1.3 GB: es cuestión de disco, no de velocidad, porque la lista solo lee el índice y las miniaturas se cargan al desplazarte.</li>
+          <li><strong>Comportamiento de la ventana</strong> — cualquier función de la barra que no sea «Abrir» cierra el historial (está claro que buscabas otra cosa); plegar a la luz de respiración no lo cierra (quizá sigas buscando); y se cierra en el instante de la captura, así que nunca acaba dentro de tu propia captura. Recuerda su posición y vuelve a abrirse donde la dejaste.</li>
+        </ul>
 
         <!-- ═══ Batch Convert ═══ -->
         <div class="tf-head" id="batch"><span class="tf-head-t">Conversión por lotes</span><span class="tf-head-line"></span></div>
@@ -1269,7 +1281,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "es",
   "url": "https://yoursvas.app/es/guide/toolbar",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-30",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-es.webp",
   "publisher": {
     "@type": "Organization",
@@ -1305,6 +1317,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 <nav class="dot-nav" aria-label="Section navigation">
   <a class="dot-nav-item" href="#toolbar-top"><span class="dn-label">Barra de herramientas</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#toolbar"><span class="dn-label">Cuatro modos y herramientas</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#gallery"><span class="dn-label">Historial</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#breath"><span class="dn-label">Luz que respira e invocación</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#menubar"><span class="dn-label">Barra de menús</span><span class="dn-dot"></span></a>
 </nav>

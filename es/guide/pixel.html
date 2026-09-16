@@ -593,6 +593,24 @@
       <p style="margin-top:26px">Además del diagrama, el píxel art también se guarda como imagen normal: <strong>PNG / WebP / TIFF</strong> dan la retícula ampliada con las celdas vacías transparentes, <strong>JPG</strong> la aplana sobre blanco, y la escala usa el mismo control de tamaño que el GIF. Guardar un documento de una sola imagen como <strong>GIF</strong> da una imagen de píxeles sin líneas de cuadrícula, no una animación.</p>
     </section>
 
+    <section class="docs-section" id="line">
+      <h2>Stickers animados de LINE: un tercer tipo de documento <span class="g-badge-t">solo Tauri</span></h2>
+      <p>Cada límite de la animación de dispositivo es una copia del firmware: cuadrado, lados de una lista blanca, una ranura de 20 segundos. El <a href="#free">pixel art</a> es otro uso (abalorios y patrones de punto), donde la cuadrícula la escribes tú. <strong>Los stickers animados de LINE son un tercer tipo</strong>: sus límites no vienen del firmware, sino de la revisión de la tienda. Por eso no viven dentro de ninguno de los dos anteriores: son un tipo de documento propio.</p>
+      <p>Elige «Sticker de LINE» en el menú de ajustes preestablecidos de «Nuevo lienzo», en la barra de herramientas, y obtendrás un <strong>lienzo rectangular</strong> de 320×270, una forma que la animación de dispositivo no tiene. La tira de fotogramas, los milisegundos por fotograma, el espejo y la piel de cebolla funcionan igual; se dibuja tal como describen las secciones anteriores.</p>
+      <p class="g-section-sub" style="margin-top:32px">Mientras dibujas ya ves si cumple</p>
+      <p>Sobre la tira de fotogramas, en la columna derecha, hay una <strong>lectura siempre visible</strong>: número de fotogramas, segundos por vuelta, número de repeticiones, segundos totales y tamaño. No es una lista de comprobación que aparezca al guardar: va contando mientras dibujas y marca en el acto lo que se sale de la norma.</p>
+      <ul class="docs-list">
+        <li><strong>Número de fotogramas</strong> — de 5 a 20 por animación.</li>
+        <li><strong>Duración total</strong> — segundos por vuelta × número de repeticiones no debe pasar de 4 segundos. Un 0 en las repeticiones significa bucle infinito.</li>
+        <li><strong>Tamaño</strong> — debe caber en 320×270 y, además, el ancho o el alto han de llegar a 270px. Al cambiar a APNG, el campo de tamaño toma por defecto el máximo proporcional dentro de ese límite; puedes cambiarlo.</li>
+        <li><strong>El primer fotograma es la imagen fija</strong> — las pantallas de chat sin animación, la tienda de stickers y la vista previa de LINE STORE lo muestran, así que dibuja el primero como si fuera la portada.</li>
+      </ul>
+      <p style="margin-top:26px">La lectura <strong>avisa, pero no te impide guardar</strong>. Es deliberado: las normas de una plataforma externa cambian, y un bloqueo rígido se convierte, el día en que esas normas se relajen, en un error que te frena sin que puedas hacer nada. Además, APNG no sirve solo para LINE: si quieres exportar un APNG grande para usarlo en otra parte, ese camino tiene que seguir abierto.</p>
+      <p class="g-section-sub" style="margin-top:32px">Exportar: APNG, con extensión .png</p>
+      <p>Los stickers animados de LINE solo admiten <strong>APNG</strong>, y la extensión tiene que ser <code>.png</code>: al elegir APNG en el diálogo de guardado obtienes un archivo <code>.png</code> que se mueve. Del mismo lienzo también salen GIF y <a href="#io">JSON</a> (el JSON es para retomar el dibujo tú mismo y para trabajar con una IA, no es un formato de publicación).</p>
+      <p>VAS escribe fotograma a fotograma: <strong>los que dibujas son los que salen</strong>. Las herramientas de APNG suelen fusionar en uno solo los fotogramas idénticos consecutivos, y LINE rechaza el sticker si concluye que todos son iguales; por este camino eso no ocurre. Los fotogramas transparentes salen realmente transparentes, sin fondo blanco ni negro.</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>Interfaz de archivo legible por máquina: JSON</h2>
       <p>La animación de píxeles se guarda en un formato legible por máquina — JSON, no una imagen. <strong>Pegar</strong> lee una animación existente, <strong>Copiar</strong> deja la animación entera en el portapapeles, <strong>Guardar</strong> la escribe en un archivo. Exportar e importar siguen siendo fáciles en ambos casos.</p>
@@ -765,7 +783,7 @@
   "inLanguage": "es",
   "url": "https://yoursvas.app/es/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-31",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-es.webp",
   "publisher": {
     "@type": "Organization",
@@ -808,6 +826,7 @@
   <a class="dot-nav-item" href="#preview"><span class="dn-label">Vista previa</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#free"><span class="dn-label">Píxel art</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#chart"><span class="dn-label">Diagrama</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#line"><span class="dn-label">Stickers de LINE</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">Dibujar con una IA</span><span class="dn-dot"></span></a>
 </nav>

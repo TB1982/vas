@@ -591,6 +591,24 @@
       <p style="margin-top:26px">除了图表，像素画也存得出一般图片：<strong>PNG／WebP／TIFF</strong> 是放大后的格子图、空格保持透明，<strong>JPG</strong> 会铺白底；倍率跟 GIF 共用同一组尺寸控制。单张文件存 <strong>GIF</strong> 得到的是一张不含格线的像素图，不是动画。</p>
     </section>
 
+    <section class="docs-section" id="line">
+      <h2>LINE 动态贴图：第三种文件种类 <span class="g-badge-t">Tauri 专属</span></h2>
+      <p>设备动画的每一道界限都是固件的副本——正方形、白名单边长、20 秒插槽。<a href="#free">像素画</a>是另一种用途（拼豆与织图），格数自己打。<strong>LINE 动态贴图是第三种</strong>：它的界限不来自固件，来自上架审核。所以它不寄生在前两种里面，自成一种文件种类。</p>
+      <p>从工具栏「新建画布」的预设菜单选「LINE 贴图」，你会拿到一张<strong>长方形画布</strong>——320×270，设备动画那边没有这个形状。帧列、逐帧毫秒、镜像与洋葱皮照用，画的方式跟前面几节一样。</p>
+      <p class="g-section-sub" style="margin-top:32px">画的时候就看得到合不合规</p>
+      <p>右栏帧列上方有一行<strong>常驻读数</strong>：帧数、单轮秒数、重复播放次数、总秒数、尺寸。它不是存档时才出现的检查表——在你还在画的时候就在报数，不合规的项目当场标出来。</p>
+      <ul class="docs-list">
+        <li><strong>帧数</strong>——每支动画 5 至 20 帧。</li>
+        <li><strong>总长度</strong>——单轮秒数 × 重复播放次数不超过 4 秒。重复次数填 0 代表无限循环。</li>
+        <li><strong>尺寸</strong>——需落在 320×270 之内，且宽或高至少有一边达到 270px。切到 APNG 时尺寸栏的默认值就是上限内的等比最大，你也可以自己改。</li>
+        <li><strong>第一帧＝静止显示图</strong>——不支持动态的聊天界面、贴图小铺与 LINE STORE 预览都显示它，所以第一帧请当封面画。</li>
+      </ul>
+      <p style="margin-top:26px">读数<strong>只提示、不拦你存档</strong>。这是刻意的：外部平台的规格会改，硬锁会在规格放宽那天变成挡住你而你无法自救的 bug；而且 APNG 不是只有 LINE 用得上——要导一张大的 APNG 贴在别处，这条路也得留着。</p>
+      <p class="g-section-sub" style="margin-top:32px">导出：APNG，扩展名是 .png</p>
+      <p>LINE 动态贴图只吃 <strong>APNG</strong>，而且规定扩展名必须是 <code>.png</code>——所以存档窗里选 APNG 存出来的就是一个 <code>.png</code> 文件，它会动。同一张画布也存得出 GIF 与 <a href="#io">JSON</a>（JSON 是给自己续画与跟 AI 协作用的，不是上架格式）。</p>
+      <p>VAS 是逐帧写入的：<strong>画几帧就是几帧</strong>。一般 APNG 制作工具遇到连续相同的图片可能把它们合并成一帧，LINE 那边若判定所有帧相同会直接报错——这条路上不会发生这件事。透明帧存出来也是真的透明，不会被铺成白底或黑底。</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>可机读文件接口：JSON</h2>
       <p>像素动画在存档时，可机读格式是 JSON，不是图片。<strong>粘贴</strong>读入现有动画、<strong>拷贝</strong>把整支动画丢进剪贴板、<strong>存档</strong>写成文件。让你导出导入都方便。</p>
@@ -763,7 +781,7 @@
   "inLanguage": "zh-Hans",
   "url": "https://yoursvas.app/cn/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-31",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-cn.webp",
   "publisher": {
     "@type": "Organization",
@@ -806,6 +824,7 @@
   <a class="dot-nav-item" href="#preview"><span class="dn-label">实机预览</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#free"><span class="dn-label">像素画</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#chart"><span class="dn-label">图表输出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#line"><span class="dn-label">LINE 贴图</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">跟 AI 一起画</span><span class="dn-dot"></span></a>
 </nav>

@@ -768,7 +768,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
           <div class="g-card" data-key="open">
             <p class="g-card-name">開く</p>
-            <p class="g-card-desc">ローカルの既存画像を開きます。</p>
+            <p class="g-card-desc">ローカルの既存画像を開きます。<span class="g-badge-t" style="margin:0 6px">Tauri 専用</span>このボタンはまず<a href="#gallery">スクリーンショット履歴</a>を開きます。<span class="docs-kbd">⌥</span>を押しながらクリックすると直接ファイル選択へ。</p>
             <p class="g-card-note"><span class="g-badge-a" style="margin:0 6px 0 0">全バージョン</span>PNG / JPG / WebP / TIFF / GIF / SVG，<span class="g-badge-t" style="margin:0 6px">Tauri 専用</span>BMP</p>
           </div>
           <div class="g-card" data-key="whiteboard">
@@ -880,6 +880,18 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ スクリーンショット履歴 ═══ -->
+        <div class="tf-head" id="gallery"><span class="tf-head-t">スクリーンショット履歴</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 専用</span>撮ったそばから履歴に入ります。先週のあの一枚を、どこに保存したか思い出さなくても見つけられます。</p>
+        <p>キャプチャのあと、たいていは保存するか、そのまま忘れるかのどちらかです。<strong>スクリーンショット履歴</strong>は三つめの道——撮影のたびに自動で履歴に残ります。四つのキャプチャモード、ロングスクリーンショット、定規の出力、クリップボードからの貼り付け、6 つの取得元すべてが対象です。エディタの中の引き出しではなく独立したウィンドウなので、保存してエディタを閉じても履歴は残っています——画像を探したくなるのは、たいていエディタをとっくに閉じたあとですから。</p>
+        <ul class="docs-list">
+          <li><strong>開き方</strong>——ツールバーの「開く」ボタン、メニューバーの「履歴」、またはグローバルショートカット <span class="docs-kbd">⌥</span> <span class="docs-kbd">⌘</span> <span class="docs-kbd">G</span>。ローカルのファイル選択を直接開きたいときは <span class="docs-kbd">⌥</span> を押しながら「開く」をクリック。履歴ウィンドウ右上の「ファイルから開く…」も同じ道です。</li>
+          <li><strong>探し方</strong>——サムネイルの壁は日付ごとにまとまり、新しいものが先頭。各タイルに時刻・キャプチャの種類・取得元アプリ・サイズが付いています。上部の二つのフィルタで、特定の種類や特定のアプリだけに絞り込めます。</li>
+          <li><strong>見つけたあと</strong>——タイルごとに四つの操作：画像をコピー（エディタを開かずにそのまま相手へ貼れます）、エディタで開く（元画像に注釈をやり直す）、Finder に表示、削除。まとめて消すときは「すべて削除」、確認は二段階です。</li>
+          <li><strong>どれだけ残るか</strong>——上限 300 件、超えた分は古いものから自動で消えます。Retina の一枚はおよそ 4.4 MB、300 件で約 1.3 GB——これはディスクの話で、速度の話ではありません。一覧はインデックスだけを読み、サムネイルはスクロールして初めて読み込まれます。</li>
+          <li><strong>ウィンドウの挙動</strong>——「開く」以外のツールバー機能を押すと履歴は閉じます（探す気ではないのが明らかなので）。呼吸ライトに畳んだときは閉じません（まだ探している最中かもしれないので）。そして撮影の瞬間に閉じるので、あなたのスクリーンショットに写り込むことはありません。位置は記憶され、次も同じ場所に開きます。</li>
+        </ul>
 
         <!-- ═══ 一括変換 ═══ -->
         <div class="tf-head" id="batch"><span class="tf-head-t">一括変換</span><span class="tf-head-line"></span></div>
@@ -1267,7 +1279,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "ja",
   "url": "https://yoursvas.app/ja/guide/toolbar",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-30",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-ja.webp",
   "publisher": {
     "@type": "Organization",
@@ -1303,6 +1315,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 <nav class="dot-nav" aria-label="段落案内">
   <a class="dot-nav-item" href="#toolbar-top"><span class="dn-label">ツールバー</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#toolbar"><span class="dn-label">4 つの撮影とツール</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#gallery"><span class="dn-label">履歴</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#breath"><span class="dn-label">呼吸ライトと召喚</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#menubar"><span class="dn-label">メニューバー</span><span class="dn-dot"></span></a>
 </nav>

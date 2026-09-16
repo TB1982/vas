@@ -768,7 +768,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
           <div class="g-card" data-key="open">
             <p class="g-card-name">打开</p>
-            <p class="g-card-desc">从本机打开现有图片。</p>
+            <p class="g-card-desc">从本机打开现有图片。<span class="g-badge-t" style="margin:0 6px">Tauri 专属</span>此按钮改为先打开<a href="#gallery">历史图匣</a>，按住 <span class="docs-kbd">⌥</span> 点击则直接打开文件框。</p>
             <p class="g-card-note"><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span>PNG / JPG / WebP / TIFF / GIF / SVG，<span class="g-badge-t" style="margin:0 6px">Tauri 专属</span>BMP</p>
           </div>
           <div class="g-card" data-key="whiteboard">
@@ -880,6 +880,18 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ 历史图匣 ═══ -->
+        <div class="tf-head" id="gallery"><span class="tf-head-t">历史图匣 · Gallery</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 专属</span>截图即入匣。找回上周那张图，不必记得它存到哪里去了。</p>
+        <p>截完图你通常会做两件事：存起来，或者忘记。<strong>历史图匣</strong>是第三条路——每一次截图都自动留在匣里，四种截图模式、长截图、标尺输出、粘贴剪贴板，六种来源都算。它是一扇独立窗口，不是编辑器里的抽屉：存完档、关掉编辑器，图匣还在——你要找图的时刻，正是编辑器早就关掉之后。</p>
+        <ul class="docs-list">
+          <li><strong>怎么打开</strong>——工具栏「打开」按钮、状态栏菜单的「历史图匣」，或全局快捷键 <span class="docs-kbd">⌥</span> <span class="docs-kbd">⌘</span> <span class="docs-kbd">G</span>。想直接打开本机文件框，按住 <span class="docs-kbd">⌥</span> 点「打开」；图匣窗口右上角的「从文件打开…」也是同一条路。</li>
+          <li><strong>怎么找</strong>——缩略图墙按日期分组、新的在前，每格标着时间、截图类型、来源 app 与尺寸。上方两个筛选器可以收窄到某一种类型或某一个来源。</li>
+          <li><strong>找到之后</strong>——每格四个动作：拷贝图片（直接贴给别人，不打开编辑器）、打开编辑（拿原图重新标注）、在 Finder 中显示、删除。整匣要清就按「清空图匣」，两段式确认。</li>
+          <li><strong>存多少</strong>——上限 300 条，超过自动清最旧的。Retina 一张落地约 4.4 MB，300 条约 1.3 GB——这是硬盘的事，不是速度的事：列表本身只读索引，缩略图是滚到才加载。</li>
+          <li><strong>窗口行为</strong>——按「打开」以外的任何工具栏功能就关图匣（你的意图显然不在找图）；收成呼吸灯不关（你可能还在找）；截图的那一刻关，所以它不会被拍进你的截图里。位置会记住，下次开在原地。</li>
+        </ul>
 
         <!-- ═══ 批量转换 ═══ -->
         <div class="tf-head" id="batch"><span class="tf-head-t">批量转换 · Batch Convert</span><span class="tf-head-line"></span></div>
@@ -1267,7 +1279,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "zh-Hans",
   "url": "https://yoursvas.app/cn/guide/toolbar",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-30",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-cn.webp",
   "publisher": {
     "@type": "Organization",
@@ -1303,6 +1315,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 <nav class="dot-nav" aria-label="段落导览">
   <a class="dot-nav-item" href="#toolbar-top"><span class="dn-label">工具栏</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#toolbar"><span class="dn-label">四种截图与工具</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#gallery"><span class="dn-label">历史图匣</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#breath"><span class="dn-label">呼吸灯与召唤</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#menubar"><span class="dn-label">系统菜单</span><span class="dn-dot"></span></a>
 </nav>

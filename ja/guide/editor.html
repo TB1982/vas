@@ -819,6 +819,17 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
         </details>
       </div>
 
+      <div class="docs-subsection" id="overlay">
+        <h3>画像を重ねる：スクリーンショット履歴から一枚を <span class="g-badge-t">Tauri 専用</span></h3>
+        <p>コラージュのとき、重ねたい一枚が古いファイルであることはまれです——たいていは数分前や昨日の別のスクリーンショットです。そこでエディタを開いたまま「画像を重ねる」（<span class="docs-kbd">⇧</span> <span class="docs-kbd">O</span>）を押すと、開くのはファイル選択ではなく<a href="toolbar.html#gallery">スクリーンショット履歴</a>になりました。</p>
+        <ul class="docs-list">
+          <li>サムネイルの壁のどれかをクリックすると、その画像が現在のキャンバスに重なり、ドラッグも拡大縮小もできるオブジェクトになります。履歴はそのまま閉じます。</li>
+          <li>ローカルのファイルが欲しいときは履歴ウィンドウ右上のボタン——それが元のファイル選択です。ヘッダーの下には、今どちらのモードで開いたのかを示すグレーの一行が常に出ています。</li>
+          <li>エディタが開いているあいだは、メニューバーや <span class="docs-kbd">⌥</span> <span class="docs-kbd">⌘</span> <span class="docs-kbd">G</span> から開いた履歴も「選ぶ」モードです——すでに編集中の一枚が手元にあるのですから、ここで履歴を開く意図は下絵の差し替えではなく、重ねる一枚を探すことのはずです。エディタを閉じているときは、タイルをクリックするとその画像がエディタで開きます。</li>
+          <li>ピクセルキャンバスでは履歴は開きません（あのキャンバスは重ね画像を受け取りません）。押すと音で知らせます——クリックしても何も起きない窓を開くよりは、そのほうが正直です。</li>
+        </ul>
+      </div>
+
       <div class="docs-subsection" id="recipes">
         <h3>錬金レシピ</h3>
         <p>VAS はツールをとても小さく分けています。一つ一つは一つのことだけをします——でもプロパティは重ねられます。</p>
@@ -1151,7 +1162,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "ja",
   "url": "https://yoursvas.app/ja/guide/editor",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-30",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-ja.webp",
   "publisher": {
     "@type": "Organization",
@@ -1187,6 +1198,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 <nav class="dot-nav" aria-label="段落案内">
   <a class="dot-nav-item" href="#editor-top"><span class="dn-label">エディター</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#editor"><span class="dn-label">4 領域のインターフェースとツール</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#overlay"><span class="dn-label">画像を重ねる</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#recipes"><span class="dn-label">錬金レシピ</span><span class="dn-dot"></span></a>
 </nav>
 
