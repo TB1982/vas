@@ -591,6 +591,24 @@
       <p style="margin-top:26px">除了圖表，像素畫也存得出一般圖片：<strong>PNG／WebP／TIFF</strong> 是放大後的格子圖、空格保持透明，<strong>JPG</strong> 會鋪白底；倍率跟 GIF 共用同一組尺寸控制。單張文件存 <strong>GIF</strong> 得到的是一張不含格線的像素圖，不是動畫。</p>
     </section>
 
+    <section class="docs-section" id="line">
+      <h2>LINE 動態貼圖：第三種檔種 <span class="g-badge-t">Tauri 專屬</span></h2>
+      <p>裝置動畫的每一道界限都是韌體的副本——正方形、白名單邊長、20 秒插槽。<a href="#free">像素畫</a>是另一種用途（拼豆與織圖），格數自己打。<strong>LINE 動態貼圖是第三種</strong>：它的界限不來自韌體，來自上架審查。所以它不寄生在前兩種裡面，自成一種檔種。</p>
+      <p>從工具列「新開畫布」的預設選單選「LINE 貼圖」，你會拿到一張<strong>長方形畫布</strong>——320×270，裝置動畫那邊沒有這個形狀。影格列、逐格毫秒、鏡像與洋蔥皮照用，畫的方式跟前面幾節一樣。</p>
+      <p class="g-section-sub" style="margin-top:32px">畫的時候就看得到合不合規</p>
+      <p>右欄影格列上方有一行<strong>常駐讀數</strong>：畫格數、單輪秒數、重複播放次數、總秒數、尺寸。它不是存檔時才出現的檢查表——在你還在畫的時候就在報數，不合規的項目當場標出來。</p>
+      <ul class="docs-list">
+        <li><strong>畫格數</strong>——每支動畫 5 至 20 格。</li>
+        <li><strong>總長度</strong>——單輪秒數 × 重複播放次數不超過 4 秒。重複次數填 0 代表無限循環。</li>
+        <li><strong>尺寸</strong>——需落在 320×270 之內，且寬或高至少有一邊達到 270px。切到 APNG 時尺寸欄的預設值就是上限內的等比最大，你也可以自己改。</li>
+        <li><strong>第一格＝靜止顯示圖</strong>——不支援動態的聊天畫面、貼圖小舖與 LINE STORE 預覽都顯示它，所以第一格請當封面畫。</li>
+      </ul>
+      <p style="margin-top:26px">讀數<strong>只提示、不擋你存檔</strong>。這是刻意的：外部平台的規格會改，硬鎖會在規格放寬那天變成擋住你而你無法自救的 bug；而且 APNG 不是只有 LINE 用得上——要匯一張大的 APNG 貼在別處，這條路也得留著。</p>
+      <p class="g-section-sub" style="margin-top:32px">匯出：APNG，副檔名是 .png</p>
+      <p>LINE 動態貼圖只吃 <strong>APNG</strong>，而且規定副檔名必須是 <code>.png</code>——所以存檔窗裡選 APNG 存出來的就是一個 <code>.png</code> 檔，它會動。同一張畫布也存得出 GIF 與 <a href="#io">JSON</a>（JSON 是給自己續畫與跟 AI 協作用的，不是上架格式）。</p>
+      <p>VAS 是逐格寫入的：<strong>畫幾格就是幾格</strong>。一般 APNG 製作工具遇到連續相同的圖片可能把它們合併成一格，LINE 那邊若判定所有畫格相同會直接報錯——這條路上不會發生這件事。透明格存出來也是真的透明，不會被鋪成白底或黑底。</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>可機讀檔案介面：JSON</h2>
       <p>像素動畫在存檔可機讀格式是 JSON，不是圖片。<strong>貼上</strong>讀入現有動畫、<strong>複製</strong>把整支動畫丟進剪貼簿、<strong>存檔</strong>寫成檔案。讓你匯出匯入都方便。</p>
@@ -806,6 +824,7 @@
   <a class="dot-nav-item" href="#preview"><span class="dn-label">實機預覽</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#free"><span class="dn-label">像素畫</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#chart"><span class="dn-label">圖表輸出</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#line"><span class="dn-label">LINE 貼圖</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">跟 AI 一起畫</span><span class="dn-dot"></span></a>
 </nav>

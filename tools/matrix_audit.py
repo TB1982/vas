@@ -188,6 +188,10 @@ FACTS = {
                        (r'<span class="meta">(v2\.\d+\.\d+) ', "instrument.html"),
                        (r'(v2\.\d+\.\d+) <span class="ar">', "instrument.html")],
     "Electron 目前版本": [(r'<span class="meta">(v3\.\d+(?:\.\d+)?) ', "instrument.html")],
+    # 「本頁收錄 N 個 Sprint」這種計數散在 metadata / JSON-LD / 節奏帶 / 讀數共 25 處，
+    # 各語系量詞寫法還不同（Sprints · 個の · 个）。數字寫在 Sprint 前面才是計數；
+    # arc 行的「Sprint 195」是數字在後，且已被 live() 濾掉。
+    "Sprint 總數": [(r'(\d{3})\s*(?:個の|个|個)?\s*Sprints?\b', "changelog.html")],
 }
 FACT_VALUES = {}
 for fact, slots in FACTS.items():

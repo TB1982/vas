@@ -593,6 +593,24 @@
       <p style="margin-top:26px">Besides the chart, pixel art also saves as a plain image: <strong>PNG / WebP / TIFF</strong> give you the enlarged grid picture with empty cells transparent, <strong>JPG</strong> flattens onto white, and the scale uses the same size control as GIF. Saving a single-image document as <strong>GIF</strong> gives you a pixel image without grid lines — not an animation.</p>
     </section>
 
+    <section class="docs-section" id="line">
+      <h2>LINE animated stickers: a third document kind <span class="g-badge-t">Tauri only</span></h2>
+      <p>Every boundary in device animation is a copy of the firmware — square, whitelisted edge lengths, a 20-second slot. <a href="#free">Pixel art</a> is a different use (fuse beads and knitting charts), where you type the grid in yourself. <strong>LINE animated stickers are a third kind</strong>: their limits come not from firmware but from store review. So they do not live inside either of the other two — they are a document kind of their own.</p>
+      <p>Choose “LINE sticker” from the preset menu of New Canvas in the toolbar and you get a <strong>rectangular canvas</strong> — 320×270, a shape device animation does not have. The frame strip, per-frame milliseconds, mirroring and onion skin all work as before; you draw exactly the way the earlier sections describe.</p>
+      <p class="g-section-sub" style="margin-top:32px">You can see whether it passes while you are still drawing</p>
+      <p>Above the frame strip in the right column sits a <strong>persistent readout</strong>: frame count, seconds per loop, repeat count, total seconds, and size. It is not a checklist that appears when you save — it is counting while you draw, and it marks anything out of spec on the spot.</p>
+      <ul class="docs-list">
+        <li><strong>Frame count</strong> — 5 to 20 frames per animation.</li>
+        <li><strong>Total length</strong> — seconds per loop × repeat count must not exceed 4 seconds. A repeat count of 0 means loop forever.</li>
+        <li><strong>Size</strong> — must fit within 320×270, and either the width or the height has to reach 270px. When you switch to APNG, the size field defaults to the largest proportional fit inside that limit; you can change it.</li>
+        <li><strong>The first frame is the still image</strong> — chat screens without animation support, the sticker shop and the LINE STORE preview all show it, so treat the first frame as the cover.</li>
+      </ul>
+      <p style="margin-top:26px">The readout <strong>warns; it does not block the save</strong>. That is deliberate: an outside platform&rsquo;s rules change, and a hard lock turns into a bug that stops you with no way out on the day those rules relax — and APNG is not only useful for LINE. If you want to export a large APNG to use somewhere else, that road has to stay open.</p>
+      <p class="g-section-sub" style="margin-top:32px">Export: APNG, with a .png extension</p>
+      <p>LINE animated stickers accept only <strong>APNG</strong>, and the extension is required to be <code>.png</code> — so choosing APNG in the save dialog gives you a <code>.png</code> file that moves. The same canvas also saves out GIF and <a href="#io">JSON</a> (JSON is for picking the drawing back up yourself and for working with AI, not a submission format).</p>
+      <p>VAS writes frame by frame: <strong>what you drew is what you get</strong>. APNG tools generally merge consecutive identical images into a single frame, and LINE rejects a sticker outright if it decides every frame is the same — that cannot happen on this road. Transparent frames come out genuinely transparent, not flattened onto white or black.</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>Machine-readable file interface: JSON</h2>
       <p>Pixel animation saves in a machine-readable format — JSON, not an image. <strong>Paste</strong> reads in an existing animation, <strong>Copy</strong> drops the whole animation onto the clipboard, <strong>Save</strong> writes it to a file. Export and import both stay easy.</p>
@@ -765,7 +783,7 @@
   "inLanguage": "en",
   "url": "https://yoursvas.app/en/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-31",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-en.webp",
   "publisher": {
     "@type": "Organization",
@@ -808,6 +826,7 @@
   <a class="dot-nav-item" href="#preview"><span class="dn-label">Device preview</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#free"><span class="dn-label">Pixel art</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#chart"><span class="dn-label">Chart export</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#line"><span class="dn-label">LINE stickers</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">Drawing with an AI</span><span class="dn-dot"></span></a>
 </nav>

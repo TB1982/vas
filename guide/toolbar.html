@@ -768,7 +768,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
           <div class="g-card" data-key="open">
             <p class="g-card-name">開啟</p>
-            <p class="g-card-desc">從本機開啟現有圖片。</p>
+            <p class="g-card-desc">從本機開啟現有圖片。<span class="g-badge-t" style="margin:0 6px">Tauri 專屬</span>此鈕改為先開<a href="#gallery">歷史圖匣</a>，按住 <span class="docs-kbd">⌥</span> 點則直接開檔案框。</p>
             <p class="g-card-note"><span class="g-badge-a" style="margin:0 6px 0 0">全版本</span>PNG / JPG / WebP / TIFF / GIF / SVG，<span class="g-badge-t" style="margin:0 6px">Tauri 專屬</span>BMP</p>
           </div>
           <div class="g-card" data-key="whiteboard">
@@ -880,6 +880,18 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ 歷史圖匣 ═══ -->
+        <div class="tf-head" id="gallery"><span class="tf-head-t">歷史圖匣 · Gallery</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri 專屬</span>截圖即入匣。找回上週那張圖，不必記得它存到哪裡去了。</p>
+        <p>截完圖你通常會做兩件事：存起來，或者忘記。<strong>歷史圖匣</strong>是第三條路——每一次截圖都自動留在匣裡，四種截圖模式、長截圖、尺標輸出、貼上剪貼簿，六種來源都算。它是一扇獨立視窗，不是編輯器裡的抽屜：存完檔、關掉編輯器，圖匣還在——你要找圖的時刻，正是編輯器早就關掉之後。</p>
+        <ul class="docs-list">
+          <li><strong>怎麼開</strong>——工具列「開啟」鈕、系統選單的「歷史圖匣」，或全域快捷鍵 <span class="docs-kbd">⌥</span> <span class="docs-kbd">⌘</span> <span class="docs-kbd">G</span>。想直接開本機檔案框，按住 <span class="docs-kbd">⌥</span> 點「開啟」；圖匣視窗右上角的「從檔案開啟…」也是同一條路。</li>
+          <li><strong>怎麼找</strong>——縮圖牆按日期分組、新的在前，每格標著時間、截圖類型、來源 app 與尺寸。上方兩個篩選器收窄到某一種類型或某一個來源。</li>
+          <li><strong>找到之後</strong>——每格四個動作：複製圖片（直接貼給別人，不開編輯器）、開啟編輯（拿原圖重新標註）、顯示於 Finder、刪除。整匣要清就按「清空圖匣」，兩段式確認。</li>
+          <li><strong>存多少</strong>——上限 300 筆，超過自動清最舊的。Retina 一張落地約 4.4 MB，300 筆約 1.3 GB——這是硬碟的事，清單本身只讀索引、縮圖是捲到才載。</li>
+          <li><strong>視窗行為</strong>——按「開啟」以外的任何工具列功能就關圖匣（你的意圖顯然不在找圖）；收成呼吸燈不關（你可能還在找）；截圖的那一刻關，所以它不會被拍進你的截圖裡。位置會記住，下次開在原地。</li>
+        </ul>
 
         <!-- ═══ 批次格式轉檔 ═══ -->
         <div class="tf-head" id="batch"><span class="tf-head-t">批次格式轉檔 · Batch Convert</span><span class="tf-head-line"></span></div>
@@ -1303,6 +1315,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 <nav class="dot-nav" aria-label="段落導覽">
   <a class="dot-nav-item" href="#toolbar-top"><span class="dn-label">工具列</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#toolbar"><span class="dn-label">四種截圖與工具</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#gallery"><span class="dn-label">歷史圖匣</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#breath"><span class="dn-label">呼吸燈與召喚</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#menubar"><span class="dn-label">系統選單</span><span class="dn-dot"></span></a>
 </nav>

@@ -342,8 +342,13 @@
 | `gallery_copy` | 复制图片 | 複製圖片 | 画像をコピー | Copy Image | Copiar imagen |
 | `gallery_delete` | 删除 | 刪除 | 削除 | Delete | Eliminar |
 | `gallery_empty` | 还没有截图。截一张，它就会出现在这里。 | 還沒有截圖。截一張，它就會出現在這裡。 | まだスクリーンショットがありません。撮影するとここに表示されます。 | No screenshots yet. Take one and it will show up here. | Aún no hay capturas. Toma una y aparecerá aquí. |
+| `gallery_hint_alt_open` | 按住 ⌥ 点工具栏「打开」可直接打开文件框 | 按住 ⌥ 點工具列「開啟」可直接開檔案框 | ツールバーの「開く」を ⌥ を押しながらクリックすると直接ファイル選択へ | Hold ⌥ and click Open in the toolbar to go straight to the file dialog | Mantén ⌥ y pulsa Abrir en la barra para ir directo al diálogo de archivos |
+| `gallery_hint_alt_pick` | 按住 ⌥ 点编辑器「叠入图片」可直接打开文件框 | 按住 ⌥ 點編輯器「疊入圖片」可直接開檔案框 | エディタの「画像を重ねる」を ⌥ を押しながらクリックすると直接ファイル選択へ | Hold ⌥ and click Overlay Image in the editor to go straight to the file dialog | Mantén ⌥ y pulsa Superponer imagen en el editor para ir directo al diálogo de archivos |
 | `gallery_open_editor` | 打开编辑 | 開啟編輯 | エディタで開く | Open in Editor | Abrir en el editor |
 | `gallery_open_file` | 从文件打开… | 從檔案開啟… | ファイルから開く… | Open from File… | Abrir desde archivo… |
+| `gallery_pick_file` | 从文件叠入… | 從檔案疊入… | ファイルから重ねる… | Overlay from File… | Superponer desde archivo… |
+| `gallery_pick_tile` | 叠入画布 | 疊入畫布 | キャンバスに重ねる | Overlay onto canvas | Superponer en el lienzo |
+| `gallery_pick_title` | 挑一张叠进画布 | 挑一張疊進畫布 | 重ねる画像を選ぶ | Pick an image to overlay | Elige una imagen para superponer |
 | `gallery_reveal` | 在 Finder 中显示 | 顯示於 Finder | Finder に表示 | Show in Finder | Mostrar en Finder |
 | `gallery_title` | 历史图匣 | 歷史圖匣 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
 
@@ -378,6 +383,7 @@
 | `help_general` | 通用操作 | 通用操作 | 一般操作 | General | General |
 | `help_global` | 全局快捷键 | 全域快捷鍵 | グローバルショートカット | Global Shortcuts | Atajos globales |
 | `help_group` | 成为群组 | 成為群組 | グループ化 | Group | Agrupar |
+| `help_history` | 历史图匣 | 歷史圖匣 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
 | `help_line` | 线条 | 線條 | 線 | Line | Línea |
 | `help_manual_link` | 📖 打开操作手册 | 📖 開啟操作手冊 | 📖 操作マニュアルを開く | 📖 Open User Guide | 📖 Abrir la guía de usuario |
 | `help_marquee` | 框型选取 | 框型選取 | ボックス選択 | Box Select | Selección por marco |
@@ -521,6 +527,7 @@
 | `ocr_recognizing` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `ocr_recognizing_label` | 识别中... | 辨識中... | 認識中... | Recognizing... | Reconociendo... |
 | `ocr_result_title` | OCR 识别结果 | OCR 辨識結果 | OCR 結果 | OCR Result | Resultado del OCR |
+| `ocr_warming` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 
 ### `open`
 
@@ -604,6 +611,7 @@
 | `pref_conflict_replace` | ，要替换吗？ | ，要取代嗎？ | 。置き換えますか？ | . Replace? | . ¿Reemplazar? |
 | `pref_conflict_replaced` | 已替换 | 已取代 | 置き換え済み | Replaced | Reemplazado |
 | `pref_fullscreen` | 全屏截图 | 全螢幕截圖 | 全画面キャプチャ | Full Screen Capture | Captura de pantalla completa |
+| `pref_history` | 历史图匣 | 歷史圖匣 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
 | `pref_need_modifier` | 需要至少一个修饰键（⌘⌃⌥） | 需要至少一個修飾鍵（⌘⌃⌥） | 修飾キーが必要です（⌘⌃⌥） | Requires at least one modifier (⌘⌃⌥) | Requiere al menos un modificador (⌘⌃⌥) |
 | `pref_paste` | 剪贴板截图 | 剪貼簿截圖 | クリップボードキャプチャ | Clipboard Capture | Captura del portapapeles |
 | `pref_recording` | 请按下快捷键… | 請按下快捷鍵… | ショートカットを入力… | Press shortcut… | Pulsa el atajo… |
@@ -640,6 +648,7 @@
 | `px_apng_warn_size` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_apng_warn_total` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_bad_hex` | 色码格式要像 #RRGGBB | 色碼格式要像 #RRGGBB | カラーコードは #RRGGBB の形式です | Colour code should look like #RRGGBB | El código de color debe tener la forma #RRGGBB |
+| `px_batch_only_images` | 批量转换只收图片；要打开像素 JSON 请先关闭批量窗口 | 批次轉檔只收圖片；要開像素 JSON 請先關閉批次視窗 | 一括変換は画像のみ対応です。ピクセル JSON を開くには一括変換ウィンドウを閉じてください | Batch convert takes images only; close the batch window to open a pixel JSON | La conversión por lotes solo acepta imágenes; cierra la ventana de lotes para abrir un JSON de píxeles |
 | `px_bg_over_palette` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_blocked_here` | 像素格子画布不支持这个功能 | 像素格子畫布不支援這個功能 | ドット絵キャンバスでは使えません | Not available on a pixel-grid canvas | No disponible en un lienzo de cuadrícula de píxeles |
 | `px_bright_hint` | ⚠️ 颜色要亮 — 设备面板是纯黑，暗色在上面等于隐形 | ⚠️ 顏色要亮 — 裝置面板是純黑，暗色在上面等於隱形 | ⚠️ 明るい色で — デバイスの画面は真っ黒、暗い色は見えません | ⚠️ Keep colours bright — the device panel is pure black, dark colours vanish | ⚠️ Usa colores vivos — el panel del dispositivo es negro puro y los colores oscuros desaparecen |
@@ -689,12 +698,14 @@
 | `px_hold_down` | 停留 −20 ms | 停留 −20 ms | 表示時間 −20 ms | Hold −20 ms | Duración −20 ms |
 | `px_hold_up` | 停留 +20 ms | 停留 +20 ms | 表示時間 +20 ms | Hold +20 ms | Duración +20 ms |
 | `px_import_do` | 导入 | 匯入 | 読み込み | Import | Importar |
+| `px_import_file` | 导入 JSON 文件… | 匯入 JSON 檔… | JSON ファイルを読み込む… | Import JSON file… | Importar archivo JSON… |
 | `px_import_hint` | 在 Clawdmeter 编辑器点「复制到剪贴板」，然后在这里粘贴（⌘V） | 在 Clawdmeter 編輯器按「複製到剪貼簿」，然後在這裡貼上（⌘V） | Clawdmeter エディタで「クリップボードにコピー」を押し、ここに貼り付け（⌘V） | Hit “Copy to clipboard” in the Clawdmeter editor, then paste here (⌘V) | Pulsa «Copiar al portapapeles» en el editor de Clawdmeter y pégalo aquí (⌘V) |
 | `px_import_json` | 粘贴 JSON | 貼上 JSON | JSON を貼り付け | Paste JSON | Pegar JSON |
 | `px_import_kind_claw_in_free` | 这是 Clawdmeter 动画文件——请先开一张 Clawdmeter 像素画布再导入 | 這是 Clawdmeter 動畫檔——請開一張 Clawdmeter 像素畫布再匯入 | これは Clawdmeter アニメのファイルです——Clawdmeter キャンバスを開いてから読み込んでください | This is a Clawdmeter animation file — open a Clawdmeter canvas to import it | Este es un archivo de animación Clawdmeter: abre un lienzo Clawdmeter para importarlo |
 | `px_import_kind_free_in_claw` | 这是自由像素图文件——请先开一张自由像素画布再导入 | 這是自由像素圖檔——請開一張自由像素畫布再匯入 | これはフリーピクセルのファイルです——フリーピクセルキャンバスを開いてから読み込んでください | This is a free pixel art file — open a free pixel canvas to import it | Este es un archivo de píxel libre: abre un lienzo de píxel libre para importarlo |
 | `px_import_kind_line` | 这是 LINE 贴图文件——请先开一张 LINE 贴图画布再导入 | 這是 LINE 貼圖檔——請開一張 LINE 貼圖畫布再匯入 | これは LINE スタンプのファイルです——LINE スタンプキャンバスを開いてから読み込んでください | This is a LINE sticker file — open a LINE sticker canvas to import it | Este es un archivo de sticker de LINE: abre un lienzo de sticker de LINE para importarlo |
 | `px_import_ph` | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } |
+| `px_import_short` | 导入 | 匯入 | 読み込み | Import | Importar |
 | `px_import_title` | 粘贴动画 JSON | 貼上動畫 JSON | アニメーション JSON を貼り付け | Paste animation JSON | Pegar el JSON de la animación |
 | `px_imported` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_io_hd` | JSON 档处理 | JSON 檔處理 | JSONファイル | JSON file | Archivo JSON |
@@ -702,6 +713,17 @@
 | `px_name_hint` | 名称要唯一，之后要填进 splash.cpp 才会显示 | 名稱要唯一，之後要填進 splash.cpp 才會顯示 | 名前は一意に。splash.cpp に追加しないと表示されません | Must be unique — also needs adding to splash.cpp to show up | Debe ser único — además hay que añadirlo a splash.cpp para que aparezca |
 | `px_name_required` | 请先填动画名称——设备那边要靠名字才找得到这支动画 | 請先填動畫名稱——裝置那邊要靠名字才找得到這支動畫 | まずアニメ名を入力してください。デバイスは名前で参照します | Name the animation first — the device finds it by name | Ponle nombre a la animación — el dispositivo la busca por su nombre |
 | `px_onion_title` | 洋葱皮——前一格垫底显示（第一格垫最后一格） | 洋蔥皮——前一格墊底顯示（第一格墊最後一格） | オニオンスキン — 前のコマを下に表示（最初のコマは最後のコマ） | Onion skin — previous frame shown underneath (first frame shows the last) | Papel cebolla — muestra debajo el fotograma anterior (el primero muestra el último) |
+| `px_open_confirm_cancel` | 取消 | 取消 | キャンセル | Cancel | Cancelar |
+| `px_open_confirm_msg` | 编辑器里已有内容，打开这个 JSON 会取代它。 | 編輯器裡已有內容，開啟這個 JSON 會取代它。 | エディタにはすでに内容があります。この JSON を開くと置き換えられます。 | The editor already has content; opening this JSON will replace it. | El editor ya tiene contenido; abrir este JSON lo reemplazará. |
+| `px_open_confirm_ok` | 放弃并打开 | 放棄並開啟 | 破棄して開く | Discard and open | Descartar y abrir |
+| `px_open_confirm_title` | 放弃当前画布？ | 放棄目前畫布？ | 現在のキャンバスを破棄しますか？ | Discard the current canvas? | ¿Descartar el lienzo actual? |
+| `px_open_err_not_json` | 不是 .json 文件 | 不是 .json 檔 | .json ファイルではありません | Not a .json file | No es un archivo .json |
+| `px_open_err_outside` | 文件不在允许的文件夹范围内（下载／图片／桌面／文稿／影片／外接盘） | 檔案不在允許的資料夾範圍內（下載／圖片／桌面／文件／影片／外接碟） | ファイルが許可されたフォルダの外にあります（ダウンロード／ピクチャ／デスクトップ／書類／ムービー／外部ドライブ） | File is outside the allowed folders (Downloads / Pictures / Desktop / Documents / Movies / external drives) | El archivo está fuera de las carpetas permitidas (Descargas / Imágenes / Escritorio / Documentos / Películas / discos externos) |
+| `px_open_err_parse` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_open_err_permission` | 系统没有授予这个文件所在文件夹的权限 | 系統沒有給這個檔案所在資料夾的權限 | このファイルのあるフォルダへのアクセス権が付与されていません | The system has not granted access to the folder this file is in | El sistema no ha concedido acceso a la carpeta donde está este archivo |
+| `px_open_err_read` | 读取不到文件 | 讀不到檔案 | ファイルを読み取れません | Could not read the file | No se pudo leer el archivo |
+| `px_open_err_too_large` | 文件过大，无法打开（上限与图片相同） | 檔案過大，無法開啟（上限與圖片相同） | ファイルが大きすぎて開けません（上限は画像と同じ） | File too large to open (same limit as images) | Archivo demasiado grande para abrir (mismo límite que las imágenes) |
+| `px_open_err_utf8` | 文件不是 UTF-8 文本 | 檔案不是 UTF-8 文字 | ファイルが UTF-8 テキストではありません | File is not UTF-8 text | El archivo no es texto UTF-8 |
 | `px_painted` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_palette` | 这支动画的颜色 | 這支動畫的顏色 | このアニメの色 | Colours in this animation | Colores de esta animación |
 | `px_palette_free` | 这张图的颜色 | 這張圖的顏色 | この絵の色 | Colours in this image | Colores de esta imagen |
@@ -717,9 +739,6 @@
 | `px_replace_pick_new` | 点一个新颜色——色盘、渐变或直接输入色码（Esc 取消） | 點一個新顏色——色盤、漸層或直接輸入色碼（Esc 取消） | 新しい色をクリック——色盤・グラデーション・カラーコード入力のいずれでも（Esc でキャンセル） | Click a new colour — the swatch board, the gradient, or type a hex code (Esc to cancel) | Haz clic en un color nuevo: el muestrario, el degradado o escribe un código hex (Esc para cancelar) |
 | `px_replace_pick_old` | 点一下要被换掉的颜色——画布上的格子或色票列皆可（Esc 取消） | 點一下要被換掉的顏色——畫布上的格子或色票列皆可（Esc 取消） | 置き換えたい色をクリック——キャンバスのマスでもパレット列でも OK（Esc でキャンセル） | Click the colour to replace — a canvas cell or a swatch in the palette row (Esc to cancel) | Haz clic en el color a reemplazar: una celda del lienzo o una muestra de la paleta (Esc para cancelar) |
 | `px_resize_max` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
-| `px_save_json` | 存档 JSON… | 存檔 JSON… | JSON を保存… | Save JSON… | Guardar JSON… |
-| `px_save_short` | 存档 | 存檔 | 保存 | Save | Guardar |
-| `px_saved` | 已存档 | 已存檔 | 保存しました | Saved | Guardado |
 | `px_sec_info` | 动画信息 | 動畫資訊 | アニメ情報 | Animation info | Información de la animación |
 | `px_sel_clipped` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_sel_empty` | 选区里没有东西可以翻 | 選區裡沒有東西可以翻 | 選択範囲に反転できるものがありません | Nothing in the selection to flip | No hay nada en la selección que voltear |
@@ -912,6 +931,7 @@
 | `toast_done` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_drop_images` | 仅支持 PNG / JPG / WebP / GIF / BMP / TIFF / SVG 格式 | 僅支援 PNG / JPG / WebP / GIF / BMP / TIFF / SVG 格式 | PNG / JPG / WebP / GIF / BMP / TIFF / SVG のみ対応 | Only PNG / JPG / WebP / GIF / BMP / TIFF / SVG supported | Solo se admiten PNG / JPG / WebP / GIF / BMP / TIFF / SVG |
 | `toast_drop_mismatch` | 无法导入这个文件——扩展名与实际内容不符 | 無法匯入這個檔案——副檔名與實際內容不符 | このファイルは読み込めません——拡張子と実際の内容が一致しません | Cannot import this file — its extension doesn't match its actual content | No se puede importar: la extensión no coincide con el contenido real |
+| `toast_drop_only_first` | 一次只打开一个文件，已打开第一个 | 一次只開一個檔案，已開啟第一個 | 一度に開けるのは 1 ファイルです。最初のファイルを開きました | Only one file opens at a time; the first one was opened | Solo se abre un archivo a la vez; se abrió el primero |
 | `toast_drop_svgz` | 这是 gzip 压缩的 SVG（.svgz），请先解压缩再导入 | 這是 gzip 壓縮的 SVG（.svgz），請先解壓縮再匯入 | gzip 圧縮された SVG（.svgz）です。展開してから読み込んでください | This is a gzip-compressed SVG (.svgz) — decompress it first | Es un SVG comprimido con gzip (.svgz): descomprímelo primero |
 | `toast_export_render_fail` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_extended` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
@@ -938,6 +958,7 @@
 | `toast_privacy_fail` | 检测失败 | 偵測失敗 | 検出に失敗しました | Detection failed | Falló la detección |
 | `toast_privacy_none` | 未检测到敏感信息 | 未偵測到敏感資訊 | 機微情報は検出されませんでした | No sensitive info detected | No se detectó información sensible |
 | `toast_privacy_scanning` | 检测敏感信息中… | 偵測敏感資訊中… | 機微情報を検出中… | Detecting sensitive info… | Detectando información sensible… |
+| `toast_privacy_warming` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_qr_opened` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_qr_scheme_copied` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `toast_resize_invalid` | 请输入有效的宽度与高度 | 請輸入有效的寬度與高度 | 有効な幅と高さを入力してください | Please enter valid width and height | Escribe un ancho y un alto válidos |
@@ -1017,7 +1038,9 @@
 | `tray_history` | 历史图匣 | 歷史圖匣 | 履歴 | Screenshot History | Historial de capturas |
 | `tray_new_canvas` | 新建空白画布 | 新增空白畫布 | 新規空白キャンバス | New Blank Canvas | Nuevo lienzo en blanco |
 | `tray_open_file` | 打开图片… | 開啟圖片… | 画像を開く… | Open Image… | Abrir imagen… |
+| `tray_open_pixel_json` | 打开像素 JSON… | 開啟像素 JSON… | ピクセル JSON を開く… | Open Pixel JSON… | Abrir JSON de píxeles… |
 | `tray_quit` | 退出 VAS | 結束 VAS | VAS を終了 | Quit VAS | Salir de VAS |
+| `tray_toggle_toolbar` | 显示／隐藏工具栏 | 顯示／隱藏工具列 | ツールバーを表示／非表示 | Show / Hide Toolbar | Mostrar / ocultar barra de herramientas |
 
 ### `whiteboard`
 

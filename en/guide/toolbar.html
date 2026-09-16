@@ -768,7 +768,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
           </div>
           <div class="g-card" data-key="open">
             <p class="g-card-name">Open</p>
-            <p class="g-card-desc">Open an existing image from your Mac.</p>
+            <p class="g-card-desc">Open an existing image from your Mac.<span class="g-badge-t" style="margin:0 6px">Tauri only</span>This button now opens <a href="#gallery">Screenshot History</a> first; hold <span class="docs-kbd">⌥</span> and click to go straight to the file dialog.</p>
             <p class="g-card-note"><span class="g-badge-a" style="margin:0 6px 0 0">All versions</span>PNG / JPG / WebP / TIFF / GIF / SVG，<span class="g-badge-t" style="margin:0 6px">Tauri only</span>BMP</p>
           </div>
           <div class="g-card" data-key="whiteboard">
@@ -880,6 +880,18 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
             </svg>
           </div>
         </div>
+
+        <!-- ═══ Screenshot History ═══ -->
+        <div class="tf-head" id="gallery"><span class="tf-head-t">Screenshot History</span><span class="tf-head-line"></span></div>
+        <p class="tf-sub"><span class="g-badge-t" style="margin:0 6px 0 0">Tauri only</span>Every capture goes in. Find last week&rsquo;s shot without having to remember where you filed it.</p>
+        <p>After a capture you usually do one of two things: save it, or forget it. <strong>Screenshot History</strong> is a third option — every capture stays in the history automatically, from all six sources: the four capture modes, scrolling capture, ruler output and clipboard paste. It is a window of its own, not a drawer inside the editor: save, close the editor, and the history is still there — the moment you need to find an image is precisely the moment the editor is long gone.</p>
+        <ul class="docs-list">
+          <li><strong>How to open it</strong> — the Open button in the toolbar, Screenshot History in the menu bar, or the global shortcut <span class="docs-kbd">⌥</span> <span class="docs-kbd">⌘</span> <span class="docs-kbd">G</span>. To go straight to the file dialog instead, hold <span class="docs-kbd">⌥</span> and click Open; “Open from File…” at the top right of the window is the same route.</li>
+          <li><strong>How to find something</strong> — the thumbnail wall is grouped by day, newest first, and every tile is labelled with the time, the capture type, the source app and the size. The two filters above narrow it to one type or one source.</li>
+          <li><strong>Once you have found it</strong> — four actions per tile: Copy Image (paste it to someone without opening the editor), Open in Editor (re-annotate the original), Show in Finder, and Delete. To empty the whole history, Clear All asks twice.</li>
+          <li><strong>How much it keeps</strong> — 300 entries; past that the oldest are dropped automatically. A Retina capture lands at roughly 4.4 MB, so 300 of them is about 1.3 GB — that is a disk matter, not a speed one: the list reads only the index, and thumbnails load as you scroll.</li>
+          <li><strong>Window behaviour</strong> — any toolbar function other than Open closes the history (you clearly meant something else); collapsing to the breathing light does not (you may still be looking); and it closes at the instant of capture, so it never ends up inside your screenshot. Its position is remembered, and it reopens where you left it.</li>
+        </ul>
 
         <!-- ═══ Batch Convert ═══ -->
         <div class="tf-head" id="batch"><span class="tf-head-t">Batch Convert</span><span class="tf-head-line"></span></div>
@@ -1267,7 +1279,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
   "inLanguage": "en",
   "url": "https://yoursvas.app/en/guide/toolbar",
   "datePublished": "2026-04-01",
-  "dateModified": "2026-07-30",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-en.webp",
   "publisher": {
     "@type": "Organization",
@@ -1303,6 +1315,7 @@ html[lang="zh-Hant"] .blz-cap{max-width:34em}
 <nav class="dot-nav" aria-label="Section navigation">
   <a class="dot-nav-item" href="#toolbar-top"><span class="dn-label">Toolbar</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#toolbar"><span class="dn-label">Four modes &amp; tools</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#gallery"><span class="dn-label">Screenshot History</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#breath"><span class="dn-label">Breathing light &amp; summon</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#menubar"><span class="dn-label">Menu bar</span><span class="dn-dot"></span></a>
 </nav>

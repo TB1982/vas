@@ -592,6 +592,24 @@
       <p style="margin-top:26px">図案のほかに、ピクセル画は普通の画像としても保存できます：<strong>PNG／WebP／TIFF</strong> は拡大したマス目画像で空のマスは透明、<strong>JPG</strong> は白で埋めます。倍率は GIF と同じサイズ設定を使います。一枚の文書を <strong>GIF</strong> で保存すると、グリッド線のないピクセル画像になります——アニメーションではありません。</p>
     </section>
 
+    <section class="docs-section" id="line">
+      <h2>LINE アニメーションスタンプ：3つめのファイル種別 <span class="g-badge-t">Tauri 専用</span></h2>
+      <p>デバイスアニメーションの境界線はどれもファームウェアの写しです——正方形、ホワイトリストの辺長、20 秒の枠。<a href="#free">ピクセルアート</a>は別の用途（アイロンビーズと編み図）で、マス目は自分で打ちます。<strong>LINE アニメーションスタンプは3つめ</strong>：その制約はファームウェアではなく、ストアの審査から来ています。だから前の二つの中には収まらず、独立したファイル種別になっています。</p>
+      <p>ツールバーの「新規キャンバス」のプリセットから「LINE スタンプ」を選ぶと、<strong>長方形のキャンバス</strong>——320×270 が手に入ります。デバイスアニメーションにはない形です。フレーム列、フレームごとのミリ秒、ミラーとオニオンスキンはそのまま使えます。描き方はこれまでの節と同じです。</p>
+      <p class="g-section-sub" style="margin-top:32px">描いている最中に、規格に合うかどうかが見えている</p>
+      <p>右カラムのフレーム列の上に<strong>常時表示の読み値</strong>があります：フレーム数、1 周の秒数、繰り返し回数、合計秒数、サイズ。保存のときに初めて出てくるチェックリストではありません——描いている最中から数え続けていて、規格から外れた項目をその場で示します。</p>
+      <ul class="docs-list">
+        <li><strong>フレーム数</strong>——1 本につき 5〜20 コマ。</li>
+        <li><strong>合計の長さ</strong>——1 周の秒数 × 繰り返し回数が 4 秒を超えないこと。繰り返し回数に 0 を入れると無限ループです。</li>
+        <li><strong>サイズ</strong>——320×270 の中に収まり、かつ幅か高さの少なくとも一方が 270px に達すること。APNG に切り替えるとサイズ欄の初期値はその上限内で比率を保った最大になります。自分で変えても構いません。</li>
+        <li><strong>1 コマめ＝静止表示画像</strong>——アニメーションに対応しないトーク画面、スタンプショップ、LINE STORE のプレビューはすべてこれを表示します。1 コマめは表紙のつもりで描いてください。</li>
+      </ul>
+      <p style="margin-top:26px">読み値は<strong>知らせるだけで、保存は止めません</strong>。これは意図的です：外部プラットフォームの規格は変わるもので、硬くロックしてしまうと、規格が緩んだその日に「あなたを止めるのに自力ではどうにもならないバグ」に変わります。それに APNG は LINE のためだけのものでもありません——大きな APNG を書き出して別の場所に貼りたいなら、その道も残しておく必要があります。</p>
+      <p class="g-section-sub" style="margin-top:32px">書き出し：APNG、拡張子は .png</p>
+      <p>LINE アニメーションスタンプが受け付けるのは <strong>APNG</strong> だけで、しかも拡張子は <code>.png</code> でなければなりません——ですから保存ダイアログで APNG を選んで出てくるのは、動く <code>.png</code> ファイルです。同じキャンバスから GIF と <a href="#io">JSON</a> も書き出せます（JSON は自分で描き足すときと AI と組むときのためのもので、申請用の形式ではありません）。</p>
+      <p>VAS は 1 コマずつ書き込みます：<strong>描いたコマ数がそのままコマ数</strong>です。一般的な APNG 作成ツールは連続する同じ画像を 1 コマにまとめてしまうことがあり、LINE 側が「全コマが同一」と判定するとその時点でエラーになります——この道ではそれが起きません。透明なコマは本当に透明なまま書き出され、白や黒で塗りつぶされることもありません。</p>
+    </section>
+
     <section class="docs-section" id="io">
       <h2>機械可読なファイルインターフェース：JSON</h2>
       <p>ピクセルアニメの保存する機械可読な形式は、画像ではなく JSON です。<strong>貼り付け</strong>で既存のアニメを読み込み、<strong>コピー</strong>でアニメ全体をクリップボードへ、<strong>保存</strong>でファイルに書き出します。読み込みも書き出しも手軽です。</p>
@@ -764,7 +782,7 @@
   "inLanguage": "ja",
   "url": "https://yoursvas.app/ja/guide/pixel",
   "datePublished": "2026-08-16",
-  "dateModified": "2026-08-31",
+  "dateModified": "2026-09-16",
   "image": "https://yoursvas.app/img/vas-guide-share-ja.webp",
   "publisher": {
     "@type": "Organization",
@@ -807,6 +825,7 @@
   <a class="dot-nav-item" href="#preview"><span class="dn-label">実機プレビュー</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#free"><span class="dn-label">ピクセル画</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#chart"><span class="dn-label">図案の書き出し</span><span class="dn-dot"></span></a>
+  <a class="dot-nav-item" href="#line"><span class="dn-label">LINE スタンプ</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#io"><span class="dn-label">JSON</span><span class="dn-dot"></span></a>
   <a class="dot-nav-item" href="#ai"><span class="dn-label">AI と一緒に描く</span><span class="dn-dot"></span></a>
 </nav>
