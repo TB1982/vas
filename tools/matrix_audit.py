@@ -271,14 +271,30 @@ for _f in sorted(glob.glob("guide/*.html") + glob.glob("*/guide/*.html")):
 for (_k, _lang, _got, _want), _fs in sorted(_seen.items()):
     flag("appstr", f"內嵌對照表 {_k}／{_lang} 寫「{_got}」，app 總表是「{_want}」（{len(_fs)} 檔）")
 
+# ════════ I. 本地資源相對路徑必須解析得到 ════════
+# 語版頁常是從別層複製過來的，`../` 的層數忘了跟著改就 404——而且是靜默的：
+# 頁面照樣渲染，只有那支腳本沒跑。2026-09-16 en/guide/ocr.html 的 core.js 就少一層，
+# 英文 OCR 頁的 VASCore 一直是 undefined。
+# 開頭為 / 的是根絕對路徑（404 頁必須這樣寫，可能從任何深度被送出），不檢查。
+ASSET = re.compile(r'(?:src|href)="((?!https?:|//|/|#|mailto:|data:)[^"]+'
+                   r'\.(?:js|css|png|ico|svg|jpg|jpeg|webp|json))"')
+for _loc, _pre in LOCALES.items():
+    for _slug, _f in GRID[_loc].items():
+        _d = os.path.dirname(_f)
+        for _m in ASSET.finditer(read(_f)):
+            _p = os.path.normpath(os.path.join(_d, _m.group(1).split("?")[0]))
+            if not os.path.exists(_p):
+                flag("assets", f"[{_loc}] {_slug}: {_m.group(1)} 解析為 {_p}，檔案不存在")
+
 for fam, msg in findings:
     by_family.setdefault(fam, []).append(msg)
 LABEL = {"chrome": "A · CHROME drift", "links": "B · LINK hygiene", "codename": "C · CODENAME drift",
          "meta": "D · METADATA locale", "sitemap": "E · SITEMAP freshness",
          "llms": "F · LLMS.TXT links", "values": "G · LIVE-VALUE drift",
-         "appstr": "H · APP-STRING drift"}
+         "appstr": "H · APP-STRING drift",
+         "assets": "I · ASSET paths"}
 total = sum(1 for f, m in findings if not m.startswith("    "))
-for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms", "values", "appstr"]:
+for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms", "values", "appstr", "assets"]:
     msgs = by_family.get(fam, [])
     print(f"\n══ {LABEL[fam]} ══  ({sum(1 for m in msgs if not m.startswith('    '))} findings)")
     for m in msgs: print(("  " + m) if not m.startswith("    ") else ("  " + m))
