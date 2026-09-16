@@ -185,6 +185,12 @@ def live(s):
 FACTS = {
     "下載檔名 · download filename": [(r'download\.yoursvas\.app/(VAS-[0-9.]+-arm64\.dmg)', None)],
     "Tauri 目前版本": [(r'　<strong>(v2\.\d+\.\d+)</strong>', "changelog.html"),
+                       # JSON-LD 描述句：「…v2.x.y（App Store／Tauri）…」五語共通形
+                       (r'(v2\.\d+\.\d+)\s*[（(]App Store', "changelog.html"),
+                       # <!-- AI CONTEXT --> 那段是寫給 AI 讀者的**現況宣稱**，不是歷史，
+                       # 但它包在註解裡、會被 live() 濾掉，所以這一格要讀原文（第三個參數）。
+                       # 2026-09-16 v2.19.0 改版時就是這兩格漏掉而稽核仍全綠。
+                       (r'(v2\.\d+\.\d+)\s*[（(]Tauri,', "changelog.html", True),
                        (r'<span class="meta">(v2\.\d+\.\d+) ', "instrument.html"),
                        (r'(v2\.\d+\.\d+) <span class="ar">', "instrument.html")],
     "Electron 目前版本": [(r'<span class="meta">(v3\.\d+(?:\.\d+)?) ', "instrument.html")],
@@ -198,11 +204,17 @@ for fact, slots in FACTS.items():
     vals = {}
     for loc, pre in LOCALES.items():
         for slug, f in GRID[loc].items():
-            hit = [rx for rx, base in slots if base is None or slug == base]
+            # slot = (regex, 限定檔名 or None[, 讀原文不濾歷史])
+            hit = [s for s in slots if s[1] is None or slug == s[1]]
             if not hit: continue
-            body = live(read(f))
-            for rx in hit:
-                for m in re.finditer(rx, body):
+            raw_body, live_body = read(f), None
+            for slot in hit:
+                if len(slot) > 2 and slot[2]:
+                    body = raw_body
+                else:
+                    if live_body is None: live_body = live(raw_body)
+                    body = live_body
+                for m in re.finditer(slot[0], body):
                     vals.setdefault(m.group(1), []).append(f)
     FACT_VALUES[fact] = vals
     if len(vals) > 1:
