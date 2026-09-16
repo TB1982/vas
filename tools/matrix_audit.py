@@ -232,13 +232,53 @@ for slug in sorted(set(GRID["root"]) | set(GRID["en"])):
 # ════════════════ report ════════════════
 quiet = "--quiet" in sys.argv
 by_family = {}
+# ════════ H. 內嵌 app 字串 vs docs/app-i18n-table.md ════════
+# guide 每一頁都內嵌一張多語工具名對照表（互動示範的 tooltip 用）。
+# 那是 app 字串的拷貝，藏在 JS 裡而不是可見文字裡——A 族看 chrome、G 族看數字，
+# 兩族都沒有在看它，所以 2026-09 的 es「Región」錯了很久沒人發現（app 是「Área」）。
+# 表是快照：app 改字串後這裡會紅，那正是該去對齊的時刻，不是誤報。
+APP_TBL = {}
+_tbl_path = "docs/app-i18n-table.md"
+if os.path.exists(_tbl_path):
+    for _ln in open(_tbl_path, encoding="utf-8"):
+        _m = re.match(r"\|\s*`([^`]+)`\s*\|(.+)\|\s*$", _ln)
+        if not _m: continue
+        _c = [x.strip() for x in _m.group(2).split("|")][:5]
+        if len(_c) == 5:
+            APP_TBL[_m.group(1)] = dict(zip(["cn", "zh", "ja", "en", "es"], _c))
+
+MAP_LANG = {"en": "en", "ja": "ja", "zh-Hans": "cn", "es": "es"}
+# 例外：(key, 對照表語系欄) → 為什麼網頁刻意不照抄 app
+# 登記例外而不是登記要檢查的項目——忘了登記例外只是誤報（很吵，當天會被修），
+# 忘了登記檢查項目則是靜默的洞。要讓失敗的方式是吵的。
+APPSTR_OK = {
+    # 2026-09-16 已確認為漏譯，app 側已修成「Selector de color」＝網頁現值，隨下一版出。
+    # 這條不能現在刪：H 族比對的是 docs/app-i18n-table.md，那是 v2.19.0 的出貨快照，
+    # 表裡還寫著「Color」，刪了會立刻紅。**下一份 i18n 導出進表時，連同這條例外一起刪。**
+    ("color", "es"): "app 已修正，待下一份 i18n 導出進表後刪除此例外",
+}
+_seen = {}
+for _f in sorted(glob.glob("guide/*.html") + glob.glob("*/guide/*.html")):
+    _s = read(_f)
+    for _lang, _block in re.findall(r"'([A-Za-z-]+)':\s*\{ fullscreen:(.*?)\}", _s):
+        _col = MAP_LANG.get(_lang)
+        if not _col: continue
+        for _k, _v in re.findall(r"(\w+):'([^']*)'", "fullscreen:" + _block):
+            _want = APP_TBL.get(_k, {}).get(_col, "")
+            if (_k, _col) in APPSTR_OK: continue
+            if _want and not _want.startswith("_（") and _v != _want:
+                _seen.setdefault((_k, _lang, _v, _want), []).append(_f)
+for (_k, _lang, _got, _want), _fs in sorted(_seen.items()):
+    flag("appstr", f"內嵌對照表 {_k}／{_lang} 寫「{_got}」，app 總表是「{_want}」（{len(_fs)} 檔）")
+
 for fam, msg in findings:
     by_family.setdefault(fam, []).append(msg)
 LABEL = {"chrome": "A · CHROME drift", "links": "B · LINK hygiene", "codename": "C · CODENAME drift",
          "meta": "D · METADATA locale", "sitemap": "E · SITEMAP freshness",
-         "llms": "F · LLMS.TXT links", "values": "G · LIVE-VALUE drift"}
+         "llms": "F · LLMS.TXT links", "values": "G · LIVE-VALUE drift",
+         "appstr": "H · APP-STRING drift"}
 total = sum(1 for f, m in findings if not m.startswith("    "))
-for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms", "values"]:
+for fam in ["chrome", "links", "codename", "meta", "sitemap", "llms", "values", "appstr"]:
     msgs = by_family.get(fam, [])
     print(f"\n══ {LABEL[fam]} ══  ({sum(1 for m in msgs if not m.startswith('    '))} findings)")
     for m in msgs: print(("  " + m) if not m.startswith("    ") else ("  " + m))
