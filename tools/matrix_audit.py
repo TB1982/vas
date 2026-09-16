@@ -252,10 +252,10 @@ MAP_LANG = {"en": "en", "ja": "ja", "zh-Hans": "cn", "es": "es"}
 # 登記例外而不是登記要檢查的項目——忘了登記例外只是誤報（很吵，當天會被修），
 # 忘了登記檢查項目則是靜默的洞。要讓失敗的方式是吵的。
 APPSTR_OK = {
-    # app 的 `color`（取色器）西語只寫「Color」，在西語裡讀起來是名詞「顏色」而非取色工具。
-    # 網頁沿用 `pref_colorpicker` 的「Selector de color」。2026-09-16 已請 Tauri 確認 app 那格
-    # 是否為第三個漏譯；若 app 修正，刪掉這條例外即可。
-    ("color", "es"): "app 西語字串待確認（2026-09-16 已回報）",
+    # 2026-09-16 已確認為漏譯，app 側已修成「Selector de color」＝網頁現值，隨下一版出。
+    # 這條不能現在刪：H 族比對的是 docs/app-i18n-table.md，那是 v2.19.0 的出貨快照，
+    # 表裡還寫著「Color」，刪了會立刻紅。**下一份 i18n 導出進表時，連同這條例外一起刪。**
+    ("color", "es"): "app 已修正，待下一份 i18n 導出進表後刪除此例外",
 }
 _seen = {}
 for _f in sorted(glob.glob("guide/*.html") + glob.glob("*/guide/*.html")):
