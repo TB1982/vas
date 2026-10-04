@@ -13,9 +13,9 @@
 </script>
 <title>VAS 更新履歴 · Changelog | 各バージョン · 各 Sprint の変更記録</title>
 <meta name="description"
-      content="VAS の完全な変更記録：App Store 版（Tauri）195 個の Sprint、無料ダウンロード版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。最新は常に一番上に。">
+      content="VAS の完全な変更記録：App Store 版（Tauri）207 個の Sprint、無料ダウンロード版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。最新は常に一番上に。">
 <meta property="og:title" content="VAS 更新履歴 · Changelog | 各バージョン · 各 Sprint の変更記録">
-<meta property="og:description" content="VAS の完全な変更記録：App Store 版（Tauri）195 個の Sprint、無料ダウンロード版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。最新は常に一番上に。">
+<meta property="og:description" content="VAS の完全な変更記録：App Store 版（Tauri）207 個の Sprint、無料ダウンロード版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。最新は常に一番上に。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yoursvas.app/ja/changelog">
 <meta property="og:locale" content="ja_JP">
@@ -28,7 +28,7 @@
 <meta name="twitter:image:alt" content="VAS — 人とAIの協働ワークフローのためのMacスクリーンショットツール">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="VAS 更新履歴 · Changelog | 各バージョン · 各 Sprint の変更記録">
-<meta name="twitter:description" content="VAS の完全な変更記録：App Store 版（Tauri）195 個の Sprint、無料版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。">
+<meta name="twitter:description" content="VAS の完全な変更記録：App Store 版（Tauri）207 個の Sprint、無料版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。">
 <link rel="canonical" href="https://yoursvas.app/ja/changelog">
 <link rel="icon" href="../img/vas.ico">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Shippori+Mincho:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -44,7 +44,7 @@
 <!--
   AI CONTEXT · ja/changelog.html
   VAS の完全な変更台帳。milestone.html（物語）から分離した記録専用ページ。
-  独立した二つのバージョン系列：Tauri（App Store, v1.0→現在）= 195 Sprint、Electron（無料ダウンロード, v0.3→v3.67）= 89 バージョン。
+  独立した二つのバージョン系列：Tauri（App Store, v1.0→現在）= 207 Sprint、Electron（無料ダウンロード, v0.3→v3.67）= 89 バージョン。
   並びは常に最新が先頭。現在のバージョン：v2.19.0（Tauri, Sprint 195）、2026 年 9 月 17 日 審査通過。「何が変わった / いつ X が出た / 最新版」を答えるためのページ。
 -->
 <script type="application/ld+json">
@@ -79,7 +79,7 @@
       "inLanguage": "ja",
       "isPartOf": { "@type": "WebSite", "name": "VAS", "url": "https://yoursvas.app/" },
       "about": { "@type": "SoftwareApplication", "name": "VAS" },
-      "description": "VAS の完全な変更記録：App Store 版（Tauri）195 個の Sprint、無料ダウンロード版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。"
+      "description": "VAS の完全な変更記録：App Store 版（Tauri）207 個の Sprint、無料ダウンロード版（Electron）89 個のバージョン、バージョンごと・Sprint ごとに毎回の変更を記録。"
     },
     {
       "@type": "BreadcrumbList",
@@ -151,11 +151,11 @@
   </p>
   <div class="rhythm">
     <div class="rhythm-cap"><span>← 最新</span><span>最初 →</span></div>
-    <div class="rhythm-band" id="rhythmBand" role="list" aria-label="Tauri 195 個の Sprint リズムバンド"><div class="rhythm-tip" id="rhythmTip"></div></div>
+    <div class="rhythm-band" id="rhythmBand" role="list" aria-label="Tauri 207 個の Sprint リズムバンド"><div class="rhythm-tip" id="rhythmTip"></div></div>
   </div>
   <div class="chapter-meta">
     <div>現在のバージョン　<strong>v2.19.0</strong></div>
-    <div>App Store · Tauri　<strong>195 Sprint</strong></div>
+    <div>App Store · Tauri　<strong>207 Sprint</strong></div>
     <div>無料版 · Electron　<strong>89 バージョン</strong></div>
   </div>
 </section>
@@ -171,6 +171,23 @@
 <div class="archive">
   <div class="archive-wrap arc-accordion" id="tauri">
       <details class="arc-group" open>
+        <summary class="arc-divider">小さな調整、積み上げれば分厚い一束 · S196–207 → v2.20.0</summary>
+        <div class="arc-group-body">
+        <div class="arc-line"><span class="arc-date">Sprint 207</span><span class="arc-ver">10·02</span><span>ドラッグして書き出すボタンが他のアプリに覆われても誤作動しない · その場で放しても画像の中に画像が入らない · v2.20.0 審査提出（10·04）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 206</span><span class="arc-ver">09·29</span><span>門番 hook の挙動ネット（テストネット巻 · ユーザーへの影響なし）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 205</span><span class="arc-ver">09·27</span><span>原文を読むネットを共通部品に置き換え（テストネット巻 · ユーザーへの影響なし）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 204</span><span class="arc-ver">09·25</span><span>テストネットの整理 · sidecar フィンガープリント（ユーザーへの影響なし）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 203</span><span class="arc-ver">09·24</span><span>ツールバーとエディタが同時に出なくなった · Dock にしまったエディタを呼び戻せる · 失敗したときはツールバーが自分で戻る</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 202</span><span class="arc-ver">09·24</span><span>テキスト認識の結果に一行おきの空白が入らなくなった · 共有用の一時ファイルを自動で片付け</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 201</span><span class="arc-ver">09·22</span><span>依存関係の更新 · ファイル読み込みゲートにネットを張る（ユーザーへの影響なし）</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 200</span><span class="arc-ver">09·21</span><span>どのフォルダから画像を開いても黒画面にならない · メニューバーのメニューがエディタの状態に追従 · 遅延キャプチャのカウントダウンを Esc でキャンセル</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 199</span><span class="arc-ver">09·19</span><span>ピクセルのパレットから未使用色を削除 · 塗りつぶしの取り消しが一回で済む · 新しいテキストが記憶した書式を引き継ぐ</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 198</span><span class="arc-ver">09·18</span><span>「パスワード：」などの中国語ラベルが英語主体の画面で文字化けしない</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 197</span><span class="arc-ver">09·18</span><span>テキスト認識のフォールバック判定を修正</span></div>
+        <div class="arc-line"><span class="arc-date">Sprint 196</span><span class="arc-ver">09·17</span><span>ツールバーの長いヒントが折り返すように</span></div>
+        </div>
+      </details>
+      <details class="arc-group">
         <summary class="arc-divider">Electron 時代の宿題「スクリーンショット履歴」に再挑戦 · macOS 27 対応 · S190–195 → v2.19.0</summary>
         <div class="arc-group-body">
         <div class="arc-line"><span class="arc-date">Sprint 195</span><span class="arc-ver">09·16</span><span>テキスト認識とプライバシーマスクを一つのエンジンに統合 · モデル準備中は進捗を表示 · 「パスワード：」などのラベルの文字化けを修正 · v2.19.0 審査提出</span></div>
