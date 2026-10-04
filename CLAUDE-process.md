@@ -308,6 +308,8 @@ Only the first kind is visible from this side of the fence; a page audit can nev
 
 **A trap this protocol does not catch.** Two different UI elements can share a name in one locale and diverge in another — the toolbar's screen ruler (`ruler`, cn 标尺) versus the editor's measure tool (`tool_measure`, cn 尺标) are both 尺標 in zh-Hant. "Unifying" them by string match breaks one of them. When a term looks duplicated, check *which key* each occurrence belongs to before touching it. `matrix_audit` cannot see this — it compares strings, not referents.
 
+**A second shape of the same trap (2026-10-05).** Two keys can share a word in the **key name** while their displayed values differ in every locale — `tpl_shadow` (the template panel's slider, displayed 外框 / Outline) versus `opt_shadow` (an annotation's drop shadow, displayed 陰影 / Shadow). The guide had translated the *key name* and written 陰影 for both, in all five locales. Neither family A–I nor a cross-locale check can catch this, because the page was internally consistent and consistently wrong. What caught it was reading the panel's three labels against the table row by row. **When a key's name and its value disagree, trust the value — and go look at what the control actually does.**
+
 ---
 
 ## Trickle-Flow Discipline
