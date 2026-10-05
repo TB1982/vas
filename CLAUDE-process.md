@@ -190,7 +190,7 @@ Different stack — Tailwind CDN + inline `<style>` + in-page JS dictionary (`tr
 ```
 1. spec     → Nova 口述需求
 2. exec     → Claude edits / agent dispatch / mechanical sed
-3. push     → Tri-remote via `git pushall <branch>` (origin + backup + github)
+3. push     → `git push origin <branch>` (GitHub; GitLab mirror runs server-side after merge — CLAUDE.md § Git)
 4. merge    → Nova accepts PR (GitHub UI)
 5. deploy   → Cloudflare auto-deploy (~1–2 min after merge)
 6. 巡水田    → Nova goes to live front-end, sacral pass on relevant pages
