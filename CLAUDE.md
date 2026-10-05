@@ -104,14 +104,12 @@ Visual logic and copy follow from this line, not the other way around.
 ---
 
 ## Git
-- **Remotes (三點等邊網):**
-  - `github` — Cloudflare Pages 部署來源 (source of truth post-2026-05-20 restoration)
-  - `origin` — GitLab，被動鏡像目標
-  - `backup` — `~/vas-backup.git` 本機 bare repo
-- **Main branch:** `main` — Cloudflare 從 `github/main` 部署。永遠不直推 main，透過 GitHub PR 合併。
-- **Dev branches:** `claude/<description>-<id>` — `git pushall <branch>` alias 同推三 remote。
-- **Auto-mirror:** `.github/workflows/mirror-to-gitlab.yml` 推動 github/main → gitlab/main（pre-restoration lineage 存於 tag `pre-mirror-2026-05-11`）。
-- **Backup ethos:** GitHub-suspension lesson — diversification is the careful move, not slowing down.
+- **Remote:** a single `origin` = GitHub `TB1982/vas` — source of truth and Cloudflare Pages deploy source. Measure, don't trust this line: `git remote -v`.
+- **Main branch:** `main` — Cloudflare 從 GitHub `main` 部署。永遠不直推 main，透過 GitHub PR 合併。
+- **Dev branches:** `claude/<description>-<id>` — plain `git push origin <branch>`（舊的 `git pushall` 三推已退役，alias 不存在）。
+- **GitLab mirror（server-side，不經本機）:** `.github/workflows/mirror-to-gitlab.yml` 在每次 GitHub `main` 有新 merge 時把 `main` force-push 到 GitLab `babelon1882/vas`。健康量法：`gh run list --workflow mirror-to-gitlab.yml --limit 5`（GitLab repo 為 private，本機無憑證直讀）。pre-restoration lineage 存於 tag `pre-mirror-2026-05-11`。
+- **`~/vas-backup.git`:** 舊三推時代的本機 bare repo，已不在推送路徑上、不再同步（量法：`git -C ~/vas-backup.git log -1 --format=%cd`）——不是備份，是舊快照。
+- **Backup ethos:** GitHub-suspension lesson — diversification is the careful move, not slowing down. 現行的分散＝GitHub ＋ GitLab 自動鏡像。
 - **CDN dependencies:** do not move to local files.
 
 ---
