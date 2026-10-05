@@ -168,7 +168,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
-| `color` | 取色器 | 取色器 | カラーピッカー | Color Picker | Color |
+| `color` | 取色器 | 取色器 | カラーピッカー | Color Picker | Selector de color |
 
 ### `cp`
 
@@ -276,6 +276,12 @@
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
 | `drop_overlay_label` | 放开以导入图片 | 放開以匯入圖片 | ドロップして画像を読み込む | Drop to import image | Suelta para importar la imagen |
+
+### `editor`
+
+| key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
+|---|---|---|---|---|---|
+| `editor_base_image_failed` | 无法加载这张图片——文件读不到或不是图片 | 無法載入這張圖片——檔案讀不到或不是圖片 | この画像を読み込めません——ファイルが読めないか画像ではありません | Could not load this image — the file is unreadable or not an image | No se pudo cargar esta imagen: el archivo no se puede leer o no es una imagen |
 
 ### `esc`
 
@@ -398,11 +404,12 @@
 | `help_paste_image` | 粘入图片 | 貼入圖片 | 画像を貼り付け | Paste Image | Pegar imagen |
 | `help_pencil` | 笔型 | 筆型 | ペン | Pen | Lápiz |
 | `help_privacy` | 隐私遮蔽 | 隱私遮蔽 | プライバシーマスク | Privacy Mask | Máscara de privacidad |
+| `help_privacy_region` | 隐私遮蔽・先选中一个标注＝只扫它框内 | 隱私遮蔽・先選中一顆標註＝只掃它框內 | プライバシーマスク・注釈を選択してから＝その範囲のみ | Privacy mask · select an annotation first = scan inside it only | Máscara de privacidad · con una anotación seleccionada = solo dentro de ella |
 | `help_rect` | 矩形框 | 矩形框 | 矩形 | Rectangle | Rectángulo |
 | `help_redo` | 重做 | 重做 | やり直し | Redo | Rehacer |
 | `help_region_capture` | 矩形选取截图 | 矩形選取截圖 | 矩形選択キャプチャ | Region Select | Selección de área |
 | `help_resize` | 调整大小 | 調整大小 | サイズ変更 | Resize | Redimensionar |
-| `help_ruler` | 尺标 | 尺標 | 定規 | Measure | Medir |
+| `help_ruler` | 标尺 | 尺標 | 定規 | Ruler | Regla |
 | `help_save` | 保存 | 儲存 | 保存 | Save | Guardar |
 | `help_save_as` | 另存为 | 另存新檔 | 名前を付けて保存 | Save As | Guardar como |
 | `help_scroll_capture` | 长截图 | 長截圖 | ロングスクリーンショット | Long screenshot | Captura larga |
@@ -424,7 +431,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
-| `history_copied_label` | 已复制 | 已複製 | コピー済み | Copied | Copiado |
+| `history_copied_label` | 已复制 | 已複製 | コピーしました | Copied | Copiado |
 | `history_empty` | 尚无记录 | 尚無紀錄 | 履歴なし | No history yet | Aún no hay historial |
 | `history_file_not_found` | 文件已移动或删除 | 檔案已移動或刪除 | ファイルが移動または削除されました | File moved or deleted | El archivo se movió o se eliminó |
 | `history_title` | 历史截图 | 歷史截圖 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
@@ -652,6 +659,7 @@
 | `px_bg_over_palette` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
 | `px_blocked_here` | 像素格子画布不支持这个功能 | 像素格子畫布不支援這個功能 | ドット絵キャンバスでは使えません | Not available on a pixel-grid canvas | No disponible en un lienzo de cuadrícula de píxeles |
 | `px_bright_hint` | ⚠️ 颜色要亮 — 设备面板是纯黑，暗色在上面等于隐形 | ⚠️ 顏色要亮 — 裝置面板是純黑，暗色在上面等於隱形 | ⚠️ 明るい色で — デバイスの画面は真っ黒、暗い色は見えません | ⚠️ Keep colours bright — the device panel is pure black, dark colours vanish | ⚠️ Usa colores vivos — el panel del dispositivo es negro puro y los colores oscuros desaparecen |
+| `px_cannot_delete_used` | 这个颜色有帧在用，不能删除 | 這個顏色有影格在用，不能刪除 | この色はフレームで使われているので削除できません | This colour is used in a frame and cannot be deleted | Este color se usa en un fotograma y no se puede eliminar |
 | `px_cannot_replace_transparent` | 0 号是透明，不能换成颜色 | 0 號是透明，不能換成顏色 | 0 番は透明なので色にはできません | Index 0 is transparent and cannot become a colour | El índice 0 es transparente y no puede convertirse en un color |
 | `px_category` | 分类 | 分類 | カテゴリ | Category | Categoría |
 | `px_cell_pos` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
@@ -667,6 +675,7 @@
 | `px_copy_short` | 拷贝 | 複製 | コピー | Copy | Copiar |
 | `px_del_col` | 减一栏（删最右栏，⌘Z 可复原） | 減一欄（刪最右欄，⌘Z 可復原） | 右端の列を削除（⌘Z で戻せます） | Remove column (rightmost; ⌘Z undoes) | Quitar columna (la última; ⌘Z deshace) |
 | `px_del_row` | 减一行（删最下行，⌘Z 可复原） | 減一列（刪最下列，⌘Z 可復原） | 下端の行を削除（⌘Z で戻せます） | Remove row (bottom; ⌘Z undoes) | Quitar fila (la última; ⌘Z deshace) |
+| `px_delete_unused` | 删除未使用的颜色 | 刪除未使用的顏色 | 未使用の色を削除 | Delete unused colour | Eliminar color sin usar |
 | `px_export_failed` | 导出检查未过： | 匯出檢查未過： | 書き出しチェック失敗： | Export check failed:  | Falló la comprobación de exportación:  |
 | `px_flip_h` | 左右翻 — 把选区内容水平镜射（没有选区时翻整张） | 左右翻 — 把選區內容水平鏡射（沒有選區時翻整張） | 左右反転 — 選択範囲を水平ミラー（未選択なら全体） | Flip horizontally — mirrors the selection (whole canvas if nothing is selected) | Voltear en horizontal — refleja la selección (todo el lienzo si no hay nada seleccionado) |
 | `px_flip_v` | 上下翻 — 把选区内容垂直镜射（没有选区时翻整张） | 上下翻 — 把選區內容垂直鏡射（沒有選區時翻整張） | 上下反転 — 選択範囲を垂直ミラー（未選択なら全体） | Flip vertically — mirrors the selection (whole canvas if nothing is selected) | Voltear en vertical — refleja la selección (todo el lienzo si no hay nada seleccionado) |
@@ -704,10 +713,12 @@
 | `px_import_kind_claw_in_free` | 这是 Clawdmeter 动画文件——请先开一张 Clawdmeter 像素画布再导入 | 這是 Clawdmeter 動畫檔——請開一張 Clawdmeter 像素畫布再匯入 | これは Clawdmeter アニメのファイルです——Clawdmeter キャンバスを開いてから読み込んでください | This is a Clawdmeter animation file — open a Clawdmeter canvas to import it | Este es un archivo de animación Clawdmeter: abre un lienzo Clawdmeter para importarlo |
 | `px_import_kind_free_in_claw` | 这是自由像素图文件——请先开一张自由像素画布再导入 | 這是自由像素圖檔——請開一張自由像素畫布再匯入 | これはフリーピクセルのファイルです——フリーピクセルキャンバスを開いてから読み込んでください | This is a free pixel art file — open a free pixel canvas to import it | Este es un archivo de píxel libre: abre un lienzo de píxel libre para importarlo |
 | `px_import_kind_line` | 这是 LINE 贴图文件——请先开一张 LINE 贴图画布再导入 | 這是 LINE 貼圖檔——請開一張 LINE 貼圖畫布再匯入 | これは LINE スタンプのファイルです——LINE スタンプキャンバスを開いてから読み込んでください | This is a LINE sticker file — open a LINE sticker canvas to import it | Este es un archivo de sticker de LINE: abre un lienzo de sticker de LINE para importarlo |
+| `px_import_kind_paid` | 这是付费版的文件格式——免费版只能打开自由像素图文件 | 這是付費版的檔案格式——免費版只開得了自由像素圖檔 | これは有料版のファイル形式です——無料版で開けるのはフリーピクセルのファイルだけです | This file uses a paid-version format — the free version can only open free pixel art files | Este archivo usa un formato de la versión de pago: la versión gratuita solo puede abrir archivos de píxel libre |
 | `px_import_ph` | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } | { "name": …, "frames": […] } |
 | `px_import_short` | 导入 | 匯入 | 読み込み | Import | Importar |
 | `px_import_title` | 粘贴动画 JSON | 貼上動畫 JSON | アニメーション JSON を貼り付け | Paste animation JSON | Pegar el JSON de la animación |
 | `px_imported` | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ | _（帶參數的訊息·值需代入參數才成形）_ |
+| `px_imported_file` | 已导入 JSON 文件 | 已匯入 JSON 檔 | JSON ファイルを読み込みました | JSON file imported | Archivo JSON importado |
 | `px_io_hd` | JSON 档处理 | JSON 檔處理 | JSONファイル | JSON file | Archivo JSON |
 | `px_name` | 动画名称 | 動畫名稱 | アニメ名 | Animation name | Nombre de la animación |
 | `px_name_hint` | 名称要唯一，之后要填进 splash.cpp 才会显示 | 名稱要唯一，之後要填進 splash.cpp 才會顯示 | 名前は一意に。splash.cpp に追加しないと表示されません | Must be unique — also needs adding to splash.cpp to show up | Debe ser único — además hay que añadirlo a splash.cpp para que aparezca |
@@ -910,7 +921,7 @@
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
 | `tip_end_cap` | 终点样式 | 終點樣式 | 終点スタイル | End cap style | Estilo del extremo final |
-| `tip_font_size_preset` | 快速选择大小 | 快速選擇大小 | クイックサイズ | Quick size picker | Selector rápido de tamaño |
+| `tip_font_size_preset` | 快速选择字号 | 快速選擇字級 | 文字サイズを選択 | Quick font size | Elegir rápido el tamaño de letra |
 | `tip_letterbox` | 等比留白，不限制比例 | 等比留白，不限制比例 | レターボックス（比率ロックなし） | Letterbox (no aspect ratio lock) | Bandas negras (sin bloqueo de proporción) |
 | `tip_line_ortho` | 折线绘制（按 Shift 锁水平/垂直） | 折線繪製（按 Shift 鎖水平/垂直） | 折れ線（Shift で水平/垂直にスナップ） | Polyline (hold Shift to lock horizontal/vertical) | Polilínea (mantén Mayús para fijarla en horizontal/vertical) |
 | `tip_start_cap` | 起点样式 | 起點樣式 | 始点スタイル | Start cap style | Estilo del extremo inicial |
@@ -1027,7 +1038,7 @@
 | `tpl_background` | 背景 | 背景 | 背景 | Background | Fondo |
 | `tpl_padding` | 留白 | 留白 | 余白 | Padding | Margen interior |
 | `tpl_radius` | 圆角 | 圓角 | 角丸 | Radius | Radio |
-| `tpl_shadow` | 外框 | 外框 | シャドウ | Shadow | Sombra |
+| `tpl_shadow` | 外框 | 外框 | アウトライン | Outline | Contorno |
 | `tpl_social` | 社群尺寸（可选） | 社群尺寸（選用） | SNS サイズ（任意） | Social Sizes (optional) | Tamaños para redes (opcional) |
 | `tpl_title` | 一键套版 | 一鍵套版 | テンプレート | Template | Plantilla |
 
@@ -1035,7 +1046,7 @@
 
 | key | zh-CN（zh-Hans） | zh（zh-Hant） | ja（ja） | en（en） | es（es） |
 |---|---|---|---|---|---|
-| `tray_history` | 历史图匣 | 歷史圖匣 | 履歴 | Screenshot History | Historial de capturas |
+| `tray_history` | 历史图匣 | 歷史圖匣 | スクリーンショット履歴 | Screenshot History | Historial de capturas |
 | `tray_new_canvas` | 新建空白画布 | 新增空白畫布 | 新規空白キャンバス | New Blank Canvas | Nuevo lienzo en blanco |
 | `tray_open_file` | 打开图片… | 開啟圖片… | 画像を開く… | Open Image… | Abrir imagen… |
 | `tray_open_pixel_json` | 打开像素 JSON… | 開啟像素 JSON… | ピクセル JSON を開く… | Open Pixel JSON… | Abrir JSON de píxeles… |

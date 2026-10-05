@@ -263,12 +263,9 @@ MAP_LANG = {"en": "en", "ja": "ja", "zh-Hans": "cn", "es": "es"}
 # 例外：(key, 對照表語系欄) → 為什麼網頁刻意不照抄 app
 # 登記例外而不是登記要檢查的項目——忘了登記例外只是誤報（很吵，當天會被修），
 # 忘了登記檢查項目則是靜默的洞。要讓失敗的方式是吵的。
-APPSTR_OK = {
-    # 2026-09-16 已確認為漏譯，app 側已修成「Selector de color」＝網頁現值，隨下一版出。
-    # 這條不能現在刪：H 族比對的是 docs/app-i18n-table.md，那是 v2.19.0 的出貨快照，
-    # 表裡還寫著「Color」，刪了會立刻紅。**下一份 i18n 導出進表時，連同這條例外一起刪。**
-    ("color", "es"): "app 已修正，待下一份 i18n 導出進表後刪除此例外",
-}
+# 每條都要帶日期與撤除條件；條件消失就刪掉它。
+# 2026-10-05 ("color","es") 已刪除 —— v2.20.0 導出的表已寫「Selector de color」，條件消失。
+APPSTR_OK = {}
 _seen = {}
 for _f in sorted(glob.glob("guide/*.html") + glob.glob("*/guide/*.html")):
     _s = read(_f)
@@ -282,6 +279,31 @@ for _f in sorted(glob.glob("guide/*.html") + glob.glob("*/guide/*.html")):
                 _seen.setdefault((_k, _lang, _v, _want), []).append(_f)
 for (_k, _lang, _got, _want), _fs in sorted(_seen.items()):
     flag("appstr", f"內嵌對照表 {_k}／{_lang} 寫「{_got}」，app 總表是「{_want}」（{len(_fs)} 檔）")
+
+# ──── H2 · 一鍵套版面板的三支滑桿 ────
+# 這三格是 app 標籤的逐字拷貝，卻不在上面那張內嵌 JS 表裡，所以 H 看不到它。
+# 2026-10-05：五語全部寫著「陰影／阴影／影／Shadow／Sombra」，app 其實叫
+# 「外框／外框／アウトライン／Outline／Contorno」——key 名是 tpl_shadow，
+# 網頁照 key 名翻了，不是照顯示值翻。另有 opt_shadow（標註投影）真的是「陰影」，
+# 兩個 key 在網頁上被收斂成同一個詞，H 與 G 都看不出來。
+# 錨點是 data-tool="template" 這段結構 ＋ 帶數值範圍的標籤位置，不是手寫字串清單：
+# app 哪天再改名就會紅，而且錨點本身壞掉也會紅（不會安靜地少檢查一格）。
+TPL_SLOT = ["tpl_padding", "tpl_radius", "tpl_shadow"]
+_TPL_RANGE = re.compile(r'modal-tag">([^<]*?)\s*[（(]\d+[–-]\d+%?[）)]')
+for _loc, _col in [("", "zh"), ("cn", "cn"), ("ja", "ja"), ("en", "en"), ("es", "es")]:
+    _f = f"{_loc}/guide/editor.html" if _loc else "guide/editor.html"
+    if not os.path.exists(_f): continue
+    # 工具軌上也有 data-tool="template" 的按鈕，必須連 <article 一起綁，否則會錨到別的工具
+    _m = re.search(r'<article[^>]*data-tool="template"[^>]*>(.*?)</article>', read(_f), re.S)
+    if not _m:
+        flag("appstr", f'{_f}：找不到 data-tool="template" 區塊，H2 失去錨點'); continue
+    _tags = _TPL_RANGE.findall(_m.group(1))
+    if len(_tags) != len(TPL_SLOT):
+        flag("appstr", f"{_f}：套版面板帶範圍的標籤有 {len(_tags)} 格，預期 {len(TPL_SLOT)}，H2 失去錨點"); continue
+    for _k, _got in zip(TPL_SLOT, _tags):
+        _want = APP_TBL.get(_k, {}).get(_col, "")
+        if _want and _got != _want:
+            flag("appstr", f"{_f}：套版面板 {_k} 寫「{_got}」，app 總表是「{_want}」")
 
 # ════════ I. 本地資源相對路徑必須解析得到 ════════
 # 語版頁常是從別層複製過來的，`../` 的層數忘了跟著改就 404——而且是靜默的：

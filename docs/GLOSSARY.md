@@ -356,6 +356,11 @@ Static per-locale files. Metaphor vocabulary locked during the 岸與水 reweave
 - The five help-panel names that used to disagree with the tool tooltips (pencil / marquee / ruler / fill / stamp) were reconciled app-side **toward `tool_*`**, which is the side the guide already followed per **docs/toolnamemap.md**. No web change was needed.
 - ja sensitive-info wording — the app adopted the guide's **機微情報** (the idiomatic term in Japanese privacy law) in its privacy toasts, replacing 機密情報. The guide was already right; leave it.
 
+**Resolved at the v2.20.0 export, 2026-10-05**:
+- **`tpl_shadow` is not a shadow.** The 一鍵套版 panel's third slider is an **outline**: 外框 / 外框 / アウトライン / Outline / Contorno. The key is *named* `shadow`; its displayed value says outline, and Nova confirmed (2026-10-05) the app's feature really is an outline. The guide had translated the **key name** instead of the **display value**, in all five locales at once. Meanwhile `opt_shadow` — the drop-shadow attribute on pen / line / rect / fill / text / number / stamp / callout — genuinely is a shadow: 阴影 / 陰影 / 影 / Shadow / Sombra. **Two keys carrying the word `shadow`, different referents; the page had collapsed them into one word.** Now guarded by `matrix_audit` family **H2**, which anchors on the `data-tool="template"` article's structure and pulls the expected values from the table (so it also reds when the anchor itself breaks).
+- es `tpl_padding` is **Margen interior**, not the shortened *Margen*.
+- `help_ruler` (cn 标尺 / en Ruler / es Regla) and es `color` (**Selector de color**) moved **app-side toward the web**, which was already right. No web change; the `("color","es")` audit exception was deleted the same day its condition expired.
+
 **Nothing is frozen as of the 2026-08-21 second export.** Every divergence from the cross-check is either applied on the web, applied app-side, or deliberately kept as an asymmetry recorded above.
 
 ---
