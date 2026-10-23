@@ -395,6 +395,8 @@ body {
 .arc-group-body .arc-ver { color: var(--vas-aurora-violet); }
 .archive-body .arc-ver br,
 .arc-group-body .arc-ver br { display: none; }
+.arc-notes { color: var(--vas-aurora-violet); text-decoration: none; white-space: nowrap; }
+.arc-notes:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* 行內紫色圓點連結 */
 .inline-dot {
   display: inline-block;
