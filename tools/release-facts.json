@@ -1,0 +1,14 @@
+{
+  "tauri": {
+    "version": "2.20.0",
+    "approved": "2026-10-05",
+    "download_mb": "5.7",
+    "install_mb": "16.4"
+  },
+  "electron": {
+    "version": "3.68.0",
+    "released": "2026-10-23",
+    "download_mb": "118.05",
+    "install_mb": "310.5"
+  }
+}

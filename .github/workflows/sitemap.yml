@@ -35,3 +35,8 @@ jobs:
       # 綠燈＝五語系一致；紅燈＝某處漂了，訊息會直指是哪語系哪頁哪族。
       - name: Verify matrix consistency (chrome / links / codenames)
         run: python3 tools/matrix_audit.py
+
+      # 發版數字：頁面上每個現況欄位（版號／日期／大小／Sprint 數／Electron 版本數）
+      # 都要等於 tools/release-facts.json。紅燈時照訊息跑 python3 tools/release_facts.py --fix。
+      - name: Verify release facts (versions / dates / sizes)
+        run: python3 tools/release_facts.py

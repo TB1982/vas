@@ -1,0 +1,169 @@
+{
+  "_generated": "由 tools/release_facts.py --register／--fix 產生，勿手改",
+  "values": {
+    "tauri.version": "2.20.0",
+    "tauri.download_mb": "5.7",
+    "tauri.install_mb": "16.4",
+    "tauri.sprints": "207",
+    "electron.version": "3.68.0",
+    "electron.short": "3.68",
+    "electron.download_mb": "118.05",
+    "electron.install_mb": "310.5",
+    "electron.versions": "90",
+    "tauri.approved@iso": "2026-10-05",
+    "tauri.approved@cjk": "2026 年 10 月 5 日",
+    "tauri.approved@en": "5 October 2026",
+    "tauri.approved@es": "5 de octubre de 2026",
+    "electron.released@iso": "2026-10-23",
+    "electron.released@cjk": "2026 年 10 月 23 日",
+    "electron.released@en": "23 October 2026",
+    "electron.released@es": "23 de octubre de 2026"
+  },
+  "slots": {
+    "index.html": {
+      "tauri.version": 1,
+      "electron.version": 1,
+      "tauri.approved@iso": 1
+    },
+    "instrument.html": {
+      "tauri.version": 3,
+      "tauri.install_mb": 1,
+      "electron.version": 2,
+      "electron.short": 1,
+      "electron.install_mb": 1,
+      "tauri.approved@iso": 1
+    },
+    "changelog.html": {
+      "tauri.version": 4,
+      "tauri.sprints": 8,
+      "electron.version": 1,
+      "electron.short": 4,
+      "electron.versions": 6,
+      "tauri.approved@iso": 2,
+      "tauri.approved@cjk": 1,
+      "electron.released@cjk": 1
+    },
+    "faq.html": {
+      "tauri.download_mb": 2,
+      "tauri.install_mb": 8,
+      "electron.download_mb": 2,
+      "electron.install_mb": 4
+    },
+    "en/index.html": {
+      "tauri.version": 1,
+      "electron.version": 1,
+      "tauri.approved@iso": 1
+    },
+    "en/instrument.html": {
+      "tauri.version": 3,
+      "tauri.install_mb": 1,
+      "electron.version": 2,
+      "electron.short": 1,
+      "electron.install_mb": 1,
+      "tauri.approved@iso": 1
+    },
+    "en/changelog.html": {
+      "tauri.version": 4,
+      "tauri.sprints": 8,
+      "electron.version": 1,
+      "electron.short": 4,
+      "electron.versions": 6,
+      "tauri.approved@iso": 2,
+      "tauri.approved@en": 1,
+      "electron.released@en": 1
+    },
+    "en/faq.html": {
+      "tauri.download_mb": 2,
+      "tauri.install_mb": 8,
+      "electron.download_mb": 2,
+      "electron.install_mb": 4
+    },
+    "ja/index.html": {
+      "tauri.version": 1,
+      "electron.version": 1,
+      "tauri.approved@iso": 1
+    },
+    "ja/instrument.html": {
+      "tauri.version": 3,
+      "tauri.install_mb": 1,
+      "electron.version": 2,
+      "electron.short": 1,
+      "electron.install_mb": 1,
+      "tauri.approved@iso": 1
+    },
+    "ja/changelog.html": {
+      "tauri.version": 4,
+      "tauri.sprints": 8,
+      "electron.version": 1,
+      "electron.short": 4,
+      "electron.versions": 6,
+      "tauri.approved@iso": 1,
+      "tauri.approved@cjk": 2,
+      "electron.released@cjk": 1
+    },
+    "ja/faq.html": {
+      "tauri.download_mb": 2,
+      "tauri.install_mb": 8,
+      "electron.download_mb": 2,
+      "electron.install_mb": 4
+    },
+    "cn/index.html": {
+      "tauri.version": 1,
+      "electron.version": 1,
+      "tauri.approved@iso": 1
+    },
+    "cn/instrument.html": {
+      "tauri.version": 3,
+      "tauri.install_mb": 1,
+      "electron.version": 2,
+      "electron.short": 1,
+      "electron.install_mb": 1,
+      "tauri.approved@iso": 1
+    },
+    "cn/changelog.html": {
+      "tauri.version": 4,
+      "tauri.sprints": 8,
+      "electron.version": 1,
+      "electron.short": 4,
+      "electron.versions": 6,
+      "tauri.approved@iso": 2,
+      "tauri.approved@cjk": 1,
+      "electron.released@cjk": 1
+    },
+    "cn/faq.html": {
+      "tauri.download_mb": 2,
+      "tauri.install_mb": 8,
+      "electron.download_mb": 2,
+      "electron.install_mb": 4
+    },
+    "es/index.html": {
+      "tauri.version": 1,
+      "electron.version": 1,
+      "tauri.approved@iso": 1
+    },
+    "es/instrument.html": {
+      "tauri.version": 3,
+      "tauri.install_mb": 1,
+      "electron.version": 2,
+      "electron.short": 1,
+      "electron.install_mb": 1,
+      "tauri.approved@iso": 1
+    },
+    "es/changelog.html": {
+      "tauri.version": 4,
+      "tauri.sprints": 8,
+      "electron.version": 1,
+      "electron.short": 4,
+      "electron.versions": 6,
+      "tauri.approved@iso": 1,
+      "tauri.approved@es": 2,
+      "electron.released@es": 1
+    },
+    "es/faq.html": {
+      "tauri.download_mb": 2,
+      "tauri.install_mb": 8,
+      "electron.download_mb": 2,
+      "electron.install_mb": 4
+    }
+  }
+}

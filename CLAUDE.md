@@ -97,7 +97,7 @@ Visual logic and copy follow from this line, not the other way around.
 - **Ask Nova before** deleting files, overwriting uncommitted changes, force-pushing, or any irreversible command.
 - **Parallel sessions:** don't modify the same content file from two website 宰相 sessions simultaneously — same-file edits will collide.
 - **New page:** update `README.md` + Repository Structure in CLAUDE-process.md (lower priority than user-visible fixes, but don't accumulate).
-- **Version update:** Nova states the version directly. Lines marked `// 歷史版本，不可更動` / `// 歷史數字，不可更動` lock *historical facts* (version numbers, days, Sprint counts) — vocabulary fixes on those lines are still allowed.
+- **Version update:** Nova states the version directly. Current versions / dates / sizes are typed only in `tools/release-facts.json`, then `python3 tools/release_facts.py --fix` (→ CLAUDE-process.md § "Some fields cannot be made timeless"). Lines marked `// 歷史版本，不可更動` / `// 歷史數字，不可更動` lock *historical facts* (version numbers, days, Sprint counts) — vocabulary fixes on those lines are still allowed.
 - **KM log:** append to `docs/km.md` when there's recurrence risk or a pattern future 宰相s should be warned about. Routine fixes (vocabulary sweeps, copy edits) don't need logging — `git log` is the time-axis memory.
 - **Translation & per-locale wording:** see **docs/GLOSSARY.md** — locked terminology + per-locale conventions.
 
