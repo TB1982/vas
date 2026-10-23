@@ -11,6 +11,9 @@ Sprint 數與 Electron 版本數不用填：由更新日誌的實際行數推導
 
 歷史紀錄不連動：更新日誌的 arc-line 與 arc-divider 先遮掉再比對，舊版號的那一行不會被 --fix 改到。
 唯一例外是免費版那組的標題「v3.45 → vX.YY」——它是現況。里程碑頁（milestone）整頁是歷史，不登記。
+
+免費版顯示用版號：結尾 .0 省略（3.69.0 → v3.69），修補版完整顯示（3.68.1 → v3.68.1）；
+下載檔名一律完整版號。FAQ 寫「VAS Pro 大小不到 VAS Classic 的一成」——兩邊安裝大小的比例一過 10% 就紅燈。
 """
 import json, os, re, sys
 
@@ -81,8 +84,8 @@ def expand(facts):
            "tauri.download_mb": (t["download_mb"], "mb"),
            "tauri.install_mb": (t["install_mb"], "mb"),
            "tauri.sprints": (sprints, "sprints"),
-           "electron.version": (e["version"], "ver"),
-           "electron.short": (".".join(e["version"].split(".")[:2]), "ver"),
+           "electron.version": (e["version"], "dmg"),
+           "electron.display": (re.sub(r"^(\d+\.\d+)\.0$", r"\1", e["version"]), "ver"),
            "electron.download_mb": (e["download_mb"], "mb"),
            "electron.install_mb": (e["install_mb"], "mb"),
            "electron.versions": (versions, "versions")}
@@ -93,8 +96,11 @@ def expand(facts):
 
 def pattern(value, kind):
     v = re.escape(value)
+    if kind == "dmg":
+        return rf"(?<=VAS-){v}(?=-arm64)"
     if kind == "ver":
-        return rf"(?<![\d.]){v}(?![\d]|\.\d)"  # 句尾句號可以，接 .0 的完整版號不行
+        # 句尾句號可以，接 .0 的完整版號不行；前面是「-」的是下載檔名，歸 dmg
+        return rf"(?<![\d.-]){v}(?![\d]|\.\d)"
     if kind == "mb":
         return rf"(?<![\d.]){v}(?= ?MB)"
     if kind == "sprints":
@@ -140,7 +146,7 @@ def sweep(values, errors):
     rules = [(r"download\.yoursvas\.app/VAS-([\d.]+)-arm64\.dmg", cur["electron.version"]),
              (r'"softwareVersion": "([^"]+)"', cur["tauri.version"]),
              (r"v(\d+\.\d+\.\d+) · Mac App Store", cur["tauri.version"]),
-             (r"v(\d+\.\d+) · DMG", cur["electron.short"])]
+             (r"v(\d+\.\d+(?:\.\d+)?) · DMG", cur["electron.display"])]
     mb_ok = {cur[k] for k in values if k.endswith("_mb")} | MB_ALLOW
     for dirpath, dirs, files in os.walk(ROOT):
         dirs[:] = [d for d in dirs if d not in (".git", "archive", "node_modules")]
@@ -174,6 +180,10 @@ def check():
                 if want.get(k, 0) != got.get(k, 0):
                     errors.append(f"{f}: {k}＝{values[k][0]} 應出現 {want.get(k, 0)} 處，實際 {got.get(k, 0)} 處")
     sweep(values, errors)
+    ratio = float(values["tauri.install_mb"][0]) / float(values["electron.install_mb"][0])
+    if ratio >= 0.1:
+        errors.append(f"安裝大小比例 {ratio:.1%}：FAQ「VAS Pro 大小不到 VAS Classic 的一成」"
+                      "（五語各有對應句）已不成立，改文案")
     if errors:
         print("發版數字不一致：")
         for e in errors:
