@@ -10,6 +10,7 @@
     "electron.download_mb": "117.71",
     "electron.install_mb": "278.6",
     "electron.versions": "92",
+    "electron.min_macos": "13",
     "tauri.approved@iso": "2026-10-05",
     "tauri.approved@cjk": "2026 年 10 月 5 日",
     "tauri.approved@en": "5 October 2026",
@@ -31,6 +32,7 @@
       "electron.version": 2,
       "electron.display": 1,
       "electron.install_mb": 1,
+      "electron.min_macos": 1,
       "tauri.approved@iso": 1
     },
     "changelog.html": {
@@ -47,7 +49,8 @@
       "tauri.download_mb": 2,
       "tauri.install_mb": 8,
       "electron.download_mb": 2,
-      "electron.install_mb": 4
+      "electron.install_mb": 4,
+      "electron.min_macos": 2
     },
     "en/index.html": {
       "tauri.version": 1,
@@ -60,6 +63,7 @@
       "electron.version": 2,
       "electron.display": 1,
       "electron.install_mb": 1,
+      "electron.min_macos": 1,
       "tauri.approved@iso": 1
     },
     "en/changelog.html": {
@@ -76,7 +80,8 @@
       "tauri.download_mb": 2,
       "tauri.install_mb": 8,
       "electron.download_mb": 2,
-      "electron.install_mb": 4
+      "electron.install_mb": 4,
+      "electron.min_macos": 2
     },
     "ja/index.html": {
       "tauri.version": 1,
@@ -89,6 +94,7 @@
       "electron.version": 2,
       "electron.display": 1,
       "electron.install_mb": 1,
+      "electron.min_macos": 1,
       "tauri.approved@iso": 1
     },
     "ja/changelog.html": {
@@ -105,7 +111,8 @@
       "tauri.download_mb": 2,
       "tauri.install_mb": 8,
       "electron.download_mb": 2,
-      "electron.install_mb": 4
+      "electron.install_mb": 4,
+      "electron.min_macos": 2
     },
     "cn/index.html": {
       "tauri.version": 1,
@@ -118,6 +125,7 @@
       "electron.version": 2,
       "electron.display": 1,
       "electron.install_mb": 1,
+      "electron.min_macos": 1,
       "tauri.approved@iso": 1
     },
     "cn/changelog.html": {
@@ -134,7 +142,8 @@
       "tauri.download_mb": 2,
       "tauri.install_mb": 8,
       "electron.download_mb": 2,
-      "electron.install_mb": 4
+      "electron.install_mb": 4,
+      "electron.min_macos": 2
     },
     "es/index.html": {
       "tauri.version": 1,
@@ -147,6 +156,7 @@
       "electron.version": 2,
       "electron.display": 1,
       "electron.install_mb": 1,
+      "electron.min_macos": 1,
       "tauri.approved@iso": 1
     },
     "es/changelog.html": {
@@ -163,7 +173,8 @@
       "tauri.download_mb": 2,
       "tauri.install_mb": 8,
       "electron.download_mb": 2,
-      "electron.install_mb": 4
+      "electron.install_mb": 4,
+      "electron.min_macos": 2
     }
   }
 }

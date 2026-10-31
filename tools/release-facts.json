@@ -9,6 +9,7 @@
     "version": "3.69.0",
     "released": "2026-10-31",
     "download_mb": "117.71",
-    "install_mb": "278.6"
+    "install_mb": "278.6",
+    "min_macos": "13"
   }
 }
