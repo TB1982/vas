@@ -88,7 +88,8 @@ def expand(facts):
            "electron.display": (re.sub(r"^(\d+\.\d+)\.0$", r"\1", e["version"]), "ver"),
            "electron.download_mb": (e["download_mb"], "mb"),
            "electron.install_mb": (e["install_mb"], "mb"),
-           "electron.versions": (versions, "versions")}
+           "electron.versions": (versions, "versions"),
+           "electron.min_macos": (e["min_macos"], "macos")}
     out.update(dates("tauri.approved", t["approved"]))
     out.update(dates("electron.released", e["released"]))
     return out
@@ -103,6 +104,9 @@ def pattern(value, kind):
         return rf"(?<![\d.-]){v}(?![\d]|\.\d)"
     if kind == "mb":
         return rf"(?<![\d.]){v}(?= ?MB)"
+    if kind == "macos":
+        # 只認「最低需求」的寫法；「macOS 27 相容」這類敘述不算
+        return rf"(?<=macOS ){v}(?= ?(?:以上|以降|or later|o posterior))"
     if kind == "sprints":
         return rf"(?<![\d.–-]){v}(?=[ -]?(?:個の ?|個 ?|个 ?)?Sprints?\b)|(?<=Sprint ){v}(?![\d–-])"
     if kind == "versions":
