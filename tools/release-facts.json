@@ -6,9 +6,9 @@
     "install_mb": "16.4"
   },
   "electron": {
-    "version": "3.68.1",
-    "released": "2026-10-23",
-    "download_mb": "107.17",
-    "install_mb": "263.1"
+    "version": "3.69.0",
+    "released": "2026-10-31",
+    "download_mb": "117.71",
+    "install_mb": "278.6"
   }
 }

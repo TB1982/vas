@@ -5,19 +5,19 @@
     "tauri.download_mb": "5.7",
     "tauri.install_mb": "16.4",
     "tauri.sprints": "207",
-    "electron.version": "3.68.1",
-    "electron.display": "3.68.1",
-    "electron.download_mb": "107.17",
-    "electron.install_mb": "263.1",
-    "electron.versions": "91",
+    "electron.version": "3.69.0",
+    "electron.display": "3.69",
+    "electron.download_mb": "117.71",
+    "electron.install_mb": "278.6",
+    "electron.versions": "92",
     "tauri.approved@iso": "2026-10-05",
     "tauri.approved@cjk": "2026 年 10 月 5 日",
     "tauri.approved@en": "5 October 2026",
     "tauri.approved@es": "5 de octubre de 2026",
-    "electron.released@iso": "2026-10-23",
-    "electron.released@cjk": "2026 年 10 月 23 日",
-    "electron.released@en": "23 October 2026",
-    "electron.released@es": "23 de octubre de 2026"
+    "electron.released@iso": "2026-10-31",
+    "electron.released@cjk": "2026 年 10 月 31 日",
+    "electron.released@en": "31 October 2026",
+    "electron.released@es": "31 de octubre de 2026"
   },
   "slots": {
     "index.html": {
